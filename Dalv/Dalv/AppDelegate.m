@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DLTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,10 +17,27 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+//        NSLog(@"首次启动");
+//        GuideViewController *gVC = [[GuideViewController alloc] init];
+//        self.window.rootViewController = gVC;
+//    }else {
+//        NSLog(@"非首次启动");
+//        //创建标签控制器
+//        AdvertisingViewController * adVC = [[AdvertisingViewController alloc]init];
     
     
+    
+    
+        //给窗口指定根控制器
+    self.window.rootViewController = [[DLTabBarController alloc] init];
+    
+//    }
+    [self.window makeKeyAndVisible];
+
     
     
     return YES;
