@@ -14,6 +14,7 @@
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
 		452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */; };
 		452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916AA1EC177830033314F /* UIColor+BLMColor.m */; };
+		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BLMHUD.m"; sourceTree = "<group>"; };
 		452916A91EC177830033314F /* UIColor+BLMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BLMColor.h"; sourceTree = "<group>"; };
 		452916AA1EC177830033314F /* UIColor+BLMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BLMColor.m"; sourceTree = "<group>"; };
+		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
+		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dalv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +113,7 @@
 		4529168E1EC176F60033314F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45F4CC9D1EC18D9100F4B6BD /* Main */,
 				4529168F1EC176F60033314F /* Fiance */,
 				452916931EC176F60033314F /* Home */,
 				452916971EC176F60033314F /* Mine */,
@@ -278,6 +282,31 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				45F4CC9E1EC18D9100F4B6BD /* Controller */,
+				45F4CC9F1EC18D9100F4B6BD /* Other */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		45F4CC9E1EC18D9100F4B6BD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45F4CC9F1EC18D9100F4B6BD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */,
+				45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +438,7 @@
 			files = (
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
+				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
@@ -567,6 +597,7 @@
 				4529168C1EC1741E0033314F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
