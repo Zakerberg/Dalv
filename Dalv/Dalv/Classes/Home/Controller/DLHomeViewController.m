@@ -8,8 +8,6 @@
 
 #import "DLHomeViewController.h"
 #import <MJRefresh/MJRefresh.h>
-#import "DLSearchViewController.h"
-
 
 @interface DLHomeViewController ()
 //@property (nonatomic) CGPoint contentOfset;//这个属性用来表示滚动的位置，内容左上角与scroview左上角的间距值(x,y)
@@ -56,8 +54,6 @@
     self.viewControllers =  self.tabBarController.childViewControllers;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonClick)];
     
-    
-    
     [self setupUI];
     
     
@@ -65,9 +61,6 @@
 -(void)searchButtonClick
 {
     
-    DLSearchViewController *VC = [[DLSearchViewController alloc] init];
-    
-    VC.viewControllers = self.viewControllers;
     
 
 }
