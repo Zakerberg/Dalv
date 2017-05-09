@@ -27,7 +27,6 @@
 }
 
 
-
 - (void)requestMethod:(NetworkMethod )method urlString: (NSString *)urlString parameters:(id) parameters success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure{
     // GET
     if (method == GET) {
