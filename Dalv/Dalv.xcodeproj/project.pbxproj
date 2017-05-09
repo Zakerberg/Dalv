@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		4529167B1EC1741E0033314F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167A1EC1741E0033314F /* AppDelegate.m */; };
-		4529167E1EC1741E0033314F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167D1EC1741E0033314F /* ViewController.m */; };
-		452916811EC1741E0033314F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4529167F1EC1741E0033314F /* Main.storyboard */; };
 		452916831EC1741E0033314F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452916821EC1741E0033314F /* Assets.xcassets */; };
 		452916861EC1741E0033314F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452916841EC1741E0033314F /* LaunchScreen.storyboard */; };
+		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
+		452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */; };
+		452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916AA1EC177830033314F /* UIColor+BLMColor.m */; };
+		54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4529167A1EC1741E0033314F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4529167C1EC1741E0033314F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4529167D1EC1741E0033314F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		452916801EC1741E0033314F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		452916821EC1741E0033314F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		452916821EC1741E0033314F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		452916851EC1741E0033314F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		452916871EC1741E0033314F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		452916871EC1741E0033314F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		452916A11EC1773C0033314F /* UIDevice+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SLExtension.h"; sourceTree = "<group>"; };
+		452916A21EC1773C0033314F /* UIDevice+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SLExtension.m"; sourceTree = "<group>"; };
+		452916A41EC1773C0033314F /* UIViewController+BLMHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BLMHUD.h"; sourceTree = "<group>"; };
+		452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BLMHUD.m"; sourceTree = "<group>"; };
+		452916A91EC177830033314F /* UIColor+BLMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BLMColor.h"; sourceTree = "<group>"; };
+		452916AA1EC177830033314F /* UIColor+BLMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BLMColor.m"; sourceTree = "<group>"; };
+		D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.debug.xcconfig"; sourceTree = "<group>"; };
+		DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dalv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		368985653E9A7EB73AACF252 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */,
+				10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4529166A1EC1741E0033314F = {
 			isa = PBXGroup;
 			children = (
 				452916751EC1741E0033314F /* Dalv */,
 				452916741EC1741E0033314F /* Products */,
+				368985653E9A7EB73AACF252 /* Pods */,
+				74F1D56D433B910FF4899372 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +78,12 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
+				4529168D1EC176F60033314F /* Other */,
+				4529168E1EC176F60033314F /* Classes */,
+				4529169F1EC1773C0033314F /* Toos */,
+				452916A81EC177830033314F /* Common */,
 				452916791EC1741E0033314F /* AppDelegate.h */,
 				4529167A1EC1741E0033314F /* AppDelegate.m */,
-				4529167C1EC1741E0033314F /* ViewController.h */,
-				4529167D1EC1741E0033314F /* ViewController.m */,
-				4529167F1EC1741E0033314F /* Main.storyboard */,
-				452916821EC1741E0033314F /* Assets.xcassets */,
-				452916841EC1741E0033314F /* LaunchScreen.storyboard */,
-				452916871EC1741E0033314F /* Info.plist */,
 				452916761EC1741E0033314F /* Supporting Files */,
 			);
 			path = Dalv;
@@ -79,6 +97,195 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4529168D1EC176F60033314F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				452916821EC1741E0033314F /* Assets.xcassets */,
+				452916841EC1741E0033314F /* LaunchScreen.storyboard */,
+				452916871EC1741E0033314F /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		4529168E1EC176F60033314F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4529168F1EC176F60033314F /* Fiance */,
+				452916931EC176F60033314F /* Home */,
+				452916971EC176F60033314F /* Mine */,
+				4529169B1EC176F60033314F /* Order */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4529168F1EC176F60033314F /* Fiance */ = {
+			isa = PBXGroup;
+			children = (
+				452916901EC176F60033314F /* Controller */,
+				452916911EC176F60033314F /* Model */,
+				452916921EC176F60033314F /* View */,
+			);
+			path = Fiance;
+			sourceTree = "<group>";
+		};
+		452916901EC176F60033314F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		452916911EC176F60033314F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		452916921EC176F60033314F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		452916931EC176F60033314F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				452916941EC176F60033314F /* Controller */,
+				452916951EC176F60033314F /* Model */,
+				452916961EC176F60033314F /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		452916941EC176F60033314F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		452916951EC176F60033314F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		452916961EC176F60033314F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		452916971EC176F60033314F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				452916981EC176F60033314F /* Controller */,
+				452916991EC176F60033314F /* Model */,
+				4529169A1EC176F60033314F /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		452916981EC176F60033314F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		452916991EC176F60033314F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4529169A1EC176F60033314F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4529169B1EC176F60033314F /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				4529169C1EC176F60033314F /* Controller */,
+				4529169D1EC176F60033314F /* Model */,
+				4529169E1EC176F60033314F /* View */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		4529169C1EC176F60033314F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4529169D1EC176F60033314F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4529169E1EC176F60033314F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4529169F1EC1773C0033314F /* Toos */ = {
+			isa = PBXGroup;
+			children = (
+				452916A01EC1773C0033314F /* Device */,
+				452916A31EC1773C0033314F /* HUD */,
+			);
+			path = Toos;
+			sourceTree = "<group>";
+		};
+		452916A01EC1773C0033314F /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				452916A11EC1773C0033314F /* UIDevice+SLExtension.h */,
+				452916A21EC1773C0033314F /* UIDevice+SLExtension.m */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
+		452916A31EC1773C0033314F /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				452916A41EC1773C0033314F /* UIViewController+BLMHUD.h */,
+				452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		452916A81EC177830033314F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				452916A91EC177830033314F /* UIColor+BLMColor.h */,
+				452916AA1EC177830033314F /* UIColor+BLMColor.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		74F1D56D433B910FF4899372 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +293,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4529168A1EC1741E0033314F /* Build configuration list for PBXNativeTarget "Dalv" */;
 			buildPhases = (
+				B00F4BA7C605BC07EBAB7B60 /* [CP] Check Pods Manifest.lock */,
 				4529166F1EC1741E0033314F /* Sources */,
 				452916701EC1741E0033314F /* Frameworks */,
 				452916711EC1741E0033314F /* Resources */,
+				5EC3F56243F8732B8BB33001 /* [CP] Embed Pods Frameworks */,
+				5C6BECD57187BFBD1FAC1C8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,40 +349,82 @@
 			files = (
 				452916861EC1741E0033314F /* LaunchScreen.storyboard in Resources */,
 				452916831EC1741E0033314F /* Assets.xcassets in Resources */,
-				452916811EC1741E0033314F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C6BECD57187BFBD1FAC1C8E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dalv/Pods-Dalv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EC3F56243F8732B8BB33001 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dalv/Pods-Dalv-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B00F4BA7C605BC07EBAB7B60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4529166F1EC1741E0033314F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4529167E1EC1741E0033314F /* ViewController.m in Sources */,
+				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
+				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
+				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4529167F1EC1741E0033314F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				452916801EC1741E0033314F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		452916841EC1741E0033314F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				452916851EC1741E0033314F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,9 +524,11 @@
 		};
 		4529168B1EC1741E0033314F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Dalv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,9 +537,11 @@
 		};
 		4529168C1EC1741E0033314F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Dalv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
