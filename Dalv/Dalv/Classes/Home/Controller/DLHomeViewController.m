@@ -48,14 +48,11 @@
 
 -(void)setNavgationBar
 {
-    
-    
     //设置右边搜索按钮
     self.viewControllers =  self.tabBarController.childViewControllers;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonClick)];
     
     [self setupUI];
-    
     
 }
 -(void)searchButtonClick
