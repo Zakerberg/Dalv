@@ -8,6 +8,7 @@
 
 #import "DLHomeViewController.h"
 #import <MJRefresh/MJRefresh.h>
+#import "DLSearchViewController.h"
 
 
 @interface DLHomeViewController ()
@@ -20,6 +21,9 @@
 //
 //@property(nonatomic,strong)UIScrollView *scrollView;
 //
+@property(nonatomic,strong)NSArray *viewControllers;
+@property(nonatomic,strong)UITextField *textField;
+@property(nonatomic,strong)UISearchBar *searchBar;
 
 @end
 
@@ -39,12 +43,60 @@
     [self.view addSubview:homeView];
     
     
-    
+    [self setNavgationBar];
     
 }
 
 
+-(void)setNavgationBar
+{
+    
+    
+    //设置右边搜索按钮
+    self.viewControllers =  self.tabBarController.childViewControllers;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonClick)];
+    
+    
+    
+    [self setupUI];
+    
+    
+}
+-(void)searchButtonClick
+{
+    
+    DLSearchViewController *VC = [[DLSearchViewController alloc] init];
+    
+    VC.viewControllers = self.viewControllers;
+    
 
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    self.textField.text = nil;
+}
+
+
+-(void)setupUI{
+    
+    UITextField *textField = [[UITextField alloc] init];
+    
+    self.textField  = textField;
+    [textField setBorderStyle:UITextBorderStyleRoundedRect];
+    
+    //设置搜索图标
+    self.searchBar  = [[UISearchBar alloc]init];
+    
+    _searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    _searchBar.placeholder = @"请输入商品名称";
+    
+    self.navigationItem.titleView = self.searchBar;
+    
+    
+}
 
 
 
