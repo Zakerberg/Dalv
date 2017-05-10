@@ -9,6 +9,7 @@
 #import "DLMineViewController.h"
 #import <SMS_SDK/SMSSDK.h>
 #import "UIColor+Addition.h"
+#import <MBProgressHUD.h>
 
 @interface DLMineViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
@@ -27,14 +28,33 @@
 
 - (IBAction)BtnClick:(id)sender {
     
+    
+    if (self.phoneTextFiled.text == nil) {
+        
+        [self showHint:@"手机号码不能为空"];
+    }
+    
     [self openCountdown];
     
-       [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
+       [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:@"159****1689" zone:@"86" customIdentifier:nil result:^(NSError *error) {
           
            if (!error) {
-               NSLog(@"获取验证码成功");
+               
+               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"短信发送成功" message:[NSString stringWithFormat:@"成功了"] delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
+               
+               [alertView show];
+               
+               
            } else {
-               NSLog(@"错误信息：%@",error);
+               
+//               UIAlertView* alert=[[UIAlertView alloc] initWithTitle:  NSLocalizedString(@"codesenderrtitle", nil)
+//                                                             message:[NSString stringWithFormat:@"：%zi ,：%@",error.errorCode,error.errorDescription]
+//                                                            delegate:self
+//                                                   cancelButtonTitle:NSLocalizedString(@"sure", nil)
+//                                                   otherButtonTitles:nil, nil nil];
+//               [alert show];
+//           
+
            }
        }];
     /**
@@ -104,6 +124,20 @@
 - (IBAction)registerNowBtn:(id)sender {
     
     
+}
+
+
+- (void)showHint:(NSString *)hint
+{
+    //显示提示信息
+    UIView *view = [[UIApplication sharedApplication].delegate window];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.userInteractionEnabled = NO;
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = hint;
+    hud.margin = 10.f;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hideAnimated:YES afterDelay:2];
 }
 
 @end

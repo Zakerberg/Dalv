@@ -10,6 +10,11 @@
 #import "DLTabBarController.h"
 #import <SMS_SDK/SMSSDK.h>
 
+#define MobAppKey @"1db8868702eb6"
+#define MobApp_Secret @"69d530b2044f3f48bdd339fe7e7e0677"
+
+
+
 @interface AppDelegate ()
 
 @end
@@ -40,10 +45,7 @@
     [self.window makeKeyAndVisible];
 
     
-    [SMSSDK registerApp:@"" withSecret:@""];
-    
-    
-    
+    [SMSSDK registerApp:MobAppKey withSecret:MobApp_Secret];
 
     return YES;
 }
