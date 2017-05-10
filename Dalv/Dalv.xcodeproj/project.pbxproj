@@ -128,6 +128,7 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
+				45F4CCC31EC2B41600F4B6BD /* Other */,
 				45F4CCB21EC1901D00F4B6BD /* Guide */,
 				45F4CCB31EC1901D00F4B6BD /* Adverstising */,
 				4529168E1EC176F60033314F /* Classes */,
@@ -395,9 +396,26 @@
 			path = Classes/Adverstising;
 			sourceTree = "<group>";
 		};
+		45F4CCC31EC2B41600F4B6BD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45F4CD091EC2B5DE00F4B6BD /* AdSupport.framework */,
+				45F4CD071EC2B5D400F4B6BD /* CoreTelephony.framework */,
+				45F4CD051EC2B5C800F4B6BD /* SystemConfiguration.framework */,
+				45F4CD031EC2B55A00F4B6BD /* AddressBookUI.framework */,
+				45F4CD011EC2B54A00F4B6BD /* AddressBook.framework */,
+				45F4CCFF1EC2B53500F4B6BD /* libstdc++.tbd */,
+				45F4CCFD1EC2B51600F4B6BD /* JavaScriptCore.framework */,
+				45F4CCFB1EC2B50900F4B6BD /* MessageUI.framework */,
+				45F4CCF91EC2B4FD00F4B6BD /* libicucore.tbd */,
+				45F4CCF71EC2B4ED00F4B6BD /* libz.tbd */,
 				DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */,
 			);
 			name = Frameworks;
