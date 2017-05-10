@@ -29,24 +29,52 @@
 - (IBAction)BtnClick:(id)sender {
     
     
+    
+    //判断手机号的正则表达式
+    
+    NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
+    
+    NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
+    
+    
+     BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
+    
+    
+    
+    if (!isMatchPhoneNum){
+        
+        //手机号码不匹配
+        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+        
+        [alertPhoneNum show];
+    
+    }
+    
     if (self.phoneTextFiled.text == nil) {
         
         [self showHint:@"手机号码不能为空"];
     }
     
-    [self openCountdown];
     
-       [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:@"159****1689" zone:@"86" customIdentifier:nil result:^(NSError *error) {
-          
-           if (!error) {
-               
-               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"短信发送成功" message:[NSString stringWithFormat:@"成功了"] delegate:self cancelButtonTitle:NSLocalizedString(@"sure", nil) otherButtonTitles:nil, nil];
-               
-               [alertView show];
-               
-               
-           } else {
-               
+    if(isMatchPhoneNum){
+        
+     [self openCountdown];
+        
+    }
+    
+    
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil
+        result:^(NSError *error)
+     {
+         if (!error)
+             
+         {
+             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+             
+             [alert show];
+         }
+     }];
+     
 //               UIAlertView* alert=[[UIAlertView alloc] initWithTitle:  NSLocalizedString(@"codesenderrtitle", nil)
 //                                                             message:[NSString stringWithFormat:@"：%zi ,：%@",error.errorCode,error.errorDescription]
 //                                                            delegate:self
@@ -55,8 +83,6 @@
 //               [alert show];
 //           
 
-           }
-       }];
     /**
      * @brief                   提交验证码(Commit the verification code)
      * @param code              验证码(Verification code)
@@ -78,7 +104,6 @@
         }
     }];
 }
-
 
 // 开启倒计时效果
 -(void)openCountdown{
@@ -123,6 +148,18 @@
 
 - (IBAction)registerNowBtn:(id)sender {
     
+    
+    //手机号匹配
+    /*
+     判断密码是否为空
+     */
+    if (_passCodeTF.text == nil) {
+        
+        //密码或者确认密码为空
+        UIAlertView *alertSecretNil=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"密码不能为空" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        
+        [alertSecretNil show];
+    }
     
 }
 
