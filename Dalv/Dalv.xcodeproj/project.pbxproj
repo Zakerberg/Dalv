@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
+		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
+		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
+		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
+		1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */; };
+		1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9201EC217DF002D7EFB /* NSString+Extension.m */; };
+		1CC9F92D1EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9221EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m */; };
+		1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9241EC217DF002D7EFB /* UIImage+MSExtension.m */; };
+		1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9261EC217DF002D7EFB /* UIView+LayoutMethods.m */; };
+		1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9281EC217DF002D7EFB /* UIView+MSExtension.m */; };
+		1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		4529167B1EC1741E0033314F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167A1EC1741E0033314F /* AppDelegate.m */; };
-		452916831EC1741E0033314F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452916821EC1741E0033314F /* Assets.xcassets */; };
-		452916861EC1741E0033314F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452916841EC1741E0033314F /* LaunchScreen.storyboard */; };
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
 		452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */; };
 		452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916AA1EC177830033314F /* UIColor+BLMColor.m */; };
@@ -27,13 +36,31 @@
 
 /* Begin PBXFileReference section */
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
+		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dalv-PrefixHeader.pch"; sourceTree = "<group>"; };
+		1CC9F9191EC21679002D7EFB /* UIColor+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSExtension.m"; sourceTree = "<group>"; };
+		1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DalvHeader.h; sourceTree = "<group>"; };
+		1CC9F91D1EC217DF002D7EFB /* NSDate+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSExtension.m"; sourceTree = "<group>"; };
+		1CC9F91F1EC217DF002D7EFB /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		1CC9F9201EC217DF002D7EFB /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		1CC9F9211EC217DF002D7EFB /* UIBarButtonItem+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F9221EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MSExtension.m"; sourceTree = "<group>"; };
+		1CC9F9231EC217DF002D7EFB /* UIImage+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F9241EC217DF002D7EFB /* UIImage+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MSExtension.m"; sourceTree = "<group>"; };
+		1CC9F9251EC217DF002D7EFB /* UIView+LayoutMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutMethods.h"; sourceTree = "<group>"; };
+		1CC9F9261EC217DF002D7EFB /* UIView+LayoutMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutMethods.m"; sourceTree = "<group>"; };
+		1CC9F9271EC217DF002D7EFB /* UIView+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F9281EC217DF002D7EFB /* UIView+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSExtension.m"; sourceTree = "<group>"; };
+		1CC9F9291EC217DF002D7EFB /* UIViewController+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSExtension.h"; sourceTree = "<group>"; };
+		1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSExtension.m"; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4529167A1EC1741E0033314F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		452916821EC1741E0033314F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		452916851EC1741E0033314F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		452916871EC1741E0033314F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		452916A11EC1773C0033314F /* UIDevice+SLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SLExtension.h"; sourceTree = "<group>"; };
 		452916A21EC1773C0033314F /* UIDevice+SLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SLExtension.m"; sourceTree = "<group>"; };
 		452916A41EC1773C0033314F /* UIViewController+BLMHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BLMHUD.h"; sourceTree = "<group>"; };
@@ -101,7 +128,6 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
-				4529168D1EC176F60033314F /* Other */,
 				45F4CCB21EC1901D00F4B6BD /* Guide */,
 				45F4CCB31EC1901D00F4B6BD /* Adverstising */,
 				4529168E1EC176F60033314F /* Classes */,
@@ -117,19 +143,14 @@
 		452916761EC1741E0033314F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */,
+				1CC9F9101EC20DAD002D7EFB /* Info.plist */,
+				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
+				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
+				1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4529168D1EC176F60033314F /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				452916821EC1741E0033314F /* Assets.xcassets */,
-				452916841EC1741E0033314F /* LaunchScreen.storyboard */,
-				452916871EC1741E0033314F /* Info.plist */,
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		4529168E1EC176F60033314F /* Classes */ = {
@@ -307,6 +328,22 @@
 		452916A81EC177830033314F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1CC9F91D1EC217DF002D7EFB /* NSDate+MSExtension.h */,
+				1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */,
+				1CC9F91F1EC217DF002D7EFB /* NSString+Extension.h */,
+				1CC9F9201EC217DF002D7EFB /* NSString+Extension.m */,
+				1CC9F9211EC217DF002D7EFB /* UIBarButtonItem+MSExtension.h */,
+				1CC9F9221EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m */,
+				1CC9F9231EC217DF002D7EFB /* UIImage+MSExtension.h */,
+				1CC9F9241EC217DF002D7EFB /* UIImage+MSExtension.m */,
+				1CC9F9251EC217DF002D7EFB /* UIView+LayoutMethods.h */,
+				1CC9F9261EC217DF002D7EFB /* UIView+LayoutMethods.m */,
+				1CC9F9271EC217DF002D7EFB /* UIView+MSExtension.h */,
+				1CC9F9281EC217DF002D7EFB /* UIView+MSExtension.m */,
+				1CC9F9291EC217DF002D7EFB /* UIViewController+MSExtension.h */,
+				1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */,
+				1CC9F9191EC21679002D7EFB /* UIColor+MSExtension.h */,
+				1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */,
 				452916A91EC177830033314F /* UIColor+BLMColor.h */,
 				452916AA1EC177830033314F /* UIColor+BLMColor.m */,
 			);
@@ -428,9 +465,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
+				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
 				45F4CCC11EC1C55300F4B6BD /* DLMineViewController.xib in Resources */,
-				452916861EC1741E0033314F /* LaunchScreen.storyboard in Resources */,
-				452916831EC1741E0033314F /* Assets.xcassets in Resources */,
+				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,31 +527,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
+				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
+				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
+				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
+				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
+				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
+				1CC9F92D1EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m in Sources */,
+				1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		452916841EC1741E0033314F /* LaunchScreen.storyboard */ = {
+		1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				452916851EC1741E0033314F /* Base */,
+				1CC9F9161EC20DC0002D7EFB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -616,6 +661,7 @@
 			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Dalv/Dalv-PrefixHeader.pch";
 				INFOPLIST_FILE = Dalv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -629,6 +675,7 @@
 			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Dalv/Dalv-PrefixHeader.pch";
 				INFOPLIST_FILE = Dalv/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
