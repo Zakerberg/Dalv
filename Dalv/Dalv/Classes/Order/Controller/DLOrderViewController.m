@@ -16,22 +16,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupNavbar];
+    [self setupSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Setup navbar
+
+- (void)setupNavbar {
+    self.title = @"订单";
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Setup subViews
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupSubviews {
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"这是订单界面";
+    label.textColor = [UIColor ms_blackColor];
+    label.font = [UIFont systemFontOfSize:25];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor randomColor];
+    
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.left.and.right.equalTo(self.view);
+        make.height.equalTo(@100);
+    }];
 }
-*/
 
 @end

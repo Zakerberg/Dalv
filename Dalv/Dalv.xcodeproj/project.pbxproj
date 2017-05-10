@@ -18,6 +18,14 @@
 		1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9261EC217DF002D7EFB /* UIView+LayoutMethods.m */; };
 		1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F9281EC217DF002D7EFB /* UIView+MSExtension.m */; };
 		1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */; };
+		1CCD81A71EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD819F1EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png */; };
+		1CCD81A81EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A01EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png */; };
+		1CCD81A91EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A11EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png */; };
+		1CCD81AA1EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A21EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png */; };
+		1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A31EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png */; };
+		1CCD81AC1EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */; };
+		1CCD81AD1EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */; };
+		1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		4529167B1EC1741E0033314F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167A1EC1741E0033314F /* AppDelegate.m */; };
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
@@ -68,6 +76,14 @@
 		1CC9F9281EC217DF002D7EFB /* UIView+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MSExtension.m"; sourceTree = "<group>"; };
 		1CC9F9291EC217DF002D7EFB /* UIViewController+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MSExtension.h"; sourceTree = "<group>"; };
 		1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MSExtension.m"; sourceTree = "<group>"; };
+		1CCD819F1EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_finance_nor@2x.png"; sourceTree = "<group>"; };
+		1CCD81A01EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_finance_pre@2x.png"; sourceTree = "<group>"; };
+		1CCD81A11EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_homepage_nor@2x .png"; sourceTree = "<group>"; };
+		1CCD81A21EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_homepage_pre@2x .png"; sourceTree = "<group>"; };
+		1CCD81A31EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_my_nor@2x .png"; sourceTree = "<group>"; };
+		1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_my_pre@2x ..png"; sourceTree = "<group>"; };
+		1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_nor@2x .png"; sourceTree = "<group>"; };
+		1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_pre@2x .png"; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +147,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CCD819D1EC2EE94002A80AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CCD819E1EC2EEB9002A80AB /* Tabar */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1CCD819E1EC2EEB9002A80AB /* Tabar */ = {
+			isa = PBXGroup;
+			children = (
+				1CCD819F1EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png */,
+				1CCD81A01EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png */,
+				1CCD81A11EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png */,
+				1CCD81A21EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png */,
+				1CCD81A31EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png */,
+				1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */,
+				1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */,
+				1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */,
+			);
+			path = Tabar;
+			sourceTree = "<group>";
+		};
 		368985653E9A7EB73AACF252 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +200,7 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
+				1CCD819D1EC2EE94002A80AB /* Resources */,
 				45F4CCC31EC2B41600F4B6BD /* Other */,
 				45F4CCB31EC1901D00F4B6BD /* Adverstising */,
 				4529168E1EC176F60033314F /* Classes */,
@@ -516,9 +556,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
+				1CCD81AC1EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png in Resources */,
 				45F4CCC11EC1C55300F4B6BD /* DLMineViewController.xib in Resources */,
+				1CCD81A81EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png in Resources */,
+				1CCD81AA1EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png in Resources */,
+				1CCD81AD1EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png in Resources */,
+				1CCD81A91EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png in Resources */,
+				1CCD81A71EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png in Resources */,
+				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

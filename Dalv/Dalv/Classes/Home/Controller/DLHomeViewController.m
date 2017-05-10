@@ -34,7 +34,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
     
-    UIView *homeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 200)];
+    UIView *homeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 134)];
     
     homeView.backgroundColor = [UIColor greenColor];
     
