@@ -50,6 +50,7 @@
 		45F4CD1D1EC2E07600F4B6BD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD1C1EC2E07600F4B6BD /* SystemConfiguration.framework */; };
 		45F4CD1F1EC2E08400F4B6BD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */; };
 		45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */; };
+		45F4CD261EC2EBEF00F4B6BD /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CD251EC2EBEF00F4B6BD /* UIColor+Addition.m */; };
 		54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,8 @@
 		45F4CD1C1EC2E07600F4B6BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		45F4CD241EC2EBEF00F4B6BD /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
+		45F4CD251EC2EBEF00F4B6BD /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dalv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -463,6 +466,7 @@
 		45F4CCC31EC2B41600F4B6BD /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				45F4CD231EC2EBEF00F4B6BD /* 十六进制设置颜色 */,
 				45F4CD0B1EC2E00000F4B6BD /* SMS_SDK */,
 			);
 			path = Other;
@@ -476,6 +480,15 @@
 				45F4CD0E1EC2E00000F4B6BD /* SMS_SDK.framework */,
 			);
 			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		45F4CD231EC2EBEF00F4B6BD /* 十六进制设置颜色 */ = {
+			isa = PBXGroup;
+			children = (
+				45F4CD241EC2EBEF00F4B6BD /* UIColor+Addition.h */,
+				45F4CD251EC2EBEF00F4B6BD /* UIColor+Addition.m */,
+			);
+			path = "十六进制设置颜色";
 			sourceTree = "<group>";
 		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
@@ -632,6 +645,7 @@
 				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
+				45F4CD261EC2EBEF00F4B6BD /* UIColor+Addition.m in Sources */,
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
