@@ -17,4 +17,9 @@ pod 'MJRefresh', '~> 3.1.12'
 pod 'MJExtension', '~> 3.0.13'
 pod 'CocoaLumberjack', '~> 2.3.0'
 pod 'FLEX', :configurations => ['Debug']
+
+# Mob产品公共库
+pod 'MOBFoundation_IDFA'
+pod 'SMSSDK'
+
 end

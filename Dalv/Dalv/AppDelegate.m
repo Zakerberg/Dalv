@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DLTabBarController.h"
-
+#import <SMS_SDK/SMSSDK.h>
 
 @interface AppDelegate ()
 
@@ -39,6 +39,11 @@
 //    }
     [self.window makeKeyAndVisible];
 
+    
+    [SMSSDK registerApp:@"" withSecret:@""];
+    
+    
+    
 
     return YES;
 }
