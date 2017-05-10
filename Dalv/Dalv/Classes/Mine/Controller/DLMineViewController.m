@@ -28,9 +28,8 @@
 - (IBAction)BtnClick:(id)sender {
     
     [self openCountdown];
-    [self.authCodeBtn sizeToFit];
     
-       [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:@"159****1689" zone:@"86" customIdentifier:nil result:^(NSError *error) {
+       [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
           
            if (!error) {
                NSLog(@"获取验证码成功");
@@ -50,7 +49,6 @@
         {
             if (!error)
             {
-                
                 NSLog(@"验证成功");
             }
             else
