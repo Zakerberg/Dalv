@@ -10,15 +10,6 @@
 #import <MJRefresh/MJRefresh.h>
 
 @interface DLHomeViewController ()
-//@property (nonatomic) CGPoint contentOfset;//这个属性用来表示滚动的位置，内容左上角与scroview左上角的间距值(x,y)
-//
-//@property (nonatomic) CGSize contenSize;//滚动范围，能滚多远
-//
-//@property(nonatomic) UIEdgeInsets contentInsize;//四周增加额外的滚动区域。
-//
-//
-//@property(nonatomic,strong)UIScrollView *scrollView;
-//
 @property(nonatomic,strong)NSArray *viewControllers;
 @property(nonatomic,strong)UITextField *textField;
 @property(nonatomic,strong)UISearchBar *searchBar;
@@ -84,10 +75,7 @@
     _searchBar.placeholder = @"请输入商品名称";
     
     self.navigationItem.titleView = self.searchBar;
-    
-    
+
 }
-
-
 
 @end

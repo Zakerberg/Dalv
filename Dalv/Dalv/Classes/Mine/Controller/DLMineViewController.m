@@ -28,18 +28,12 @@
 
 - (IBAction)BtnClick:(id)sender {
     
-    
-    
     //判断手机号的正则表达式
-    
     NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
     
     NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
-    
-    
+
      BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
-    
-    
     
     if (!isMatchPhoneNum){
         
@@ -160,7 +154,6 @@
         
         [alertSecretNil show];
     }
-    
 }
 
 
