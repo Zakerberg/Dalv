@@ -33,7 +33,6 @@
                NSLog(@"错误信息：%@",error);
            }
        }];
-    
     /**
      * @brief                   提交验证码(Commit the verification code)
      * @param code              验证码(Verification code)
@@ -55,10 +54,6 @@
             }
         }
     }];
-    
-    
-    
-    
 }
 
 
