@@ -63,6 +63,20 @@
     return words;
 }
 
++ (NSString *)randomChineseWords:(NSInteger)length {
+    NSMutableString *words = [NSMutableString string];
+    for (int i = 0; i < length; i++) {
+        NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        NSInteger randomH = 0xA1 + arc4random() % (0xFE - 0xA1+1);
+        NSInteger randomL = 0xB0 + arc4random() % (0xF7 - 0xB0+1);
+        NSInteger number = (randomH << 8) + randomL;
+        NSData *data = [NSData dataWithBytes:&number length:2];
+        NSString *word = [[NSString alloc] initWithData:data encoding:gbkEncoding];
+        [words appendFormat:@"%@", word];
+    }
+    return [words copy];
+}
+
 + (NSString *)randomWords:(NSInteger)length {
     
     NSMutableString *words = [NSMutableString string];

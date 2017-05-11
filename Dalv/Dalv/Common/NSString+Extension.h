@@ -63,6 +63,16 @@ typedef NS_ENUM(NSUInteger,MISFileType) {
  */
 + (NSString *)randomWords:(NSInteger)length;
 
+/**
+ *  生成指定长度的中文字符串
+ *
+ *  @param length 指定长度
+ *
+ *  @return 字符串
+ */
++ (NSString *)randomChineseWords:(NSInteger)length;
+
+
 // json 转字典
 + (NSArray *)jsonStringToArray:(NSString *)jsonStr;
 

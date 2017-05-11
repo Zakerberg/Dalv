@@ -26,19 +26,19 @@ static const void *HUDKey = &HUDKey;
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
-    HUD.labelText = hint;
+    HUD.label.text = hint;
     [view addSubview:HUD];
-    [HUD show:YES];
+    [HUD showAnimated:YES];
     [self setHUD:HUD];
 }
 
 - (void)showHudInView:(UIView *)view hint:(NSString *)hint yOffset:(float)yOffset {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:view];
-    HUD.labelText = hint;
+    HUD.label.text = hint;
     HUD.margin = 10.f;
     HUD.yOffset += yOffset;
     [view addSubview:HUD];
-    [HUD show:YES];
+    [HUD showAnimated:YES];
     [self setHUD:HUD];
 }
 
@@ -48,11 +48,11 @@ static const void *HUDKey = &HUDKey;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = hint;
+    hud.label.text = hint;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     
-    [hud hide:YES afterDelay:2];
+    [hud hideAnimated:YES afterDelay:2];
 }
 
 - (void)showHint:(NSString *)hint inView:(UIView *)view {
@@ -61,11 +61,11 @@ static const void *HUDKey = &HUDKey;
     [view addSubview:hud];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = hint;
+    hud.label.text = hint;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud show:YES];
-    [hud hide:YES afterDelay:2];
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:2];
 }
 
 - (void)showHint:(NSString *)hint yOffset:(float)yOffset {
@@ -74,15 +74,15 @@ static const void *HUDKey = &HUDKey;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = hint;
+    hud.label.text = hint;
     hud.margin = 10.f;
     hud.yOffset += yOffset;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:2];
+    [hud hideAnimated:YES afterDelay:2];
 }
 
 - (void)hideHud {
-    [[self HUD] hide:YES];
+    [[self HUD] hideAnimated:YES];
 }
 
 

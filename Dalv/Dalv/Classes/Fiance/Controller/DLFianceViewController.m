@@ -14,10 +14,14 @@
 
 @implementation DLFianceViewController
 
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupNavbar];
     [self setupSubviews];
+    [self fetchData];
 }
 
 #pragma mark - Setup navbar
@@ -45,6 +49,23 @@
         make.height.equalTo(@100);
     }];
 }
+
+#pragma mark - Layout
+
+- (void)updateViewConstraints {
+    
+    [super updateViewConstraints];
+}
+
+#pragma mark - Fetch data
+
+- (void)fetchData {
+    
+}
+
+#pragma mark - Event Handler
+
+#pragma mark - Getter
 
 
 @end

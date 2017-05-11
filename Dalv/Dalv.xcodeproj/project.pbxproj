@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C5383E11EC3DC5C00AC30F9 /* DLHomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383E01EC3DC5C00AC30F9 /* DLHomeMenuItem.m */; };
+		1C5383E41EC3DCD800AC30F9 /* DLHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383E31EC3DCD800AC30F9 /* DLHomePageViewModel.m */; };
+		1C5383E81EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383E71EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.m */; };
+		1C5383EF1EC3E87900AC30F9 /* DLRecommendRouteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383EE1EC3E87900AC30F9 /* DLRecommendRouteModel.m */; };
+		1C5383F21EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F11EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m */; };
+		1C5383F51EC41F2300AC30F9 /* DLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F41EC41F2300AC30F9 /* DLMenuViewController.m */; };
+		1C5383F81EC41F5A00AC30F9 /* DLRecommendRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F71EC41F5A00AC30F9 /* DLRecommendRouteViewController.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
@@ -56,6 +63,21 @@
 
 /* Begin PBXFileReference section */
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
+		1C5383DF1EC3DC5C00AC30F9 /* DLHomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeMenuItem.h; sourceTree = "<group>"; };
+		1C5383E01EC3DC5C00AC30F9 /* DLHomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeMenuItem.m; sourceTree = "<group>"; };
+		1C5383E21EC3DCD800AC30F9 /* DLHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomePageViewModel.h; sourceTree = "<group>"; };
+		1C5383E31EC3DCD800AC30F9 /* DLHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomePageViewModel.m; sourceTree = "<group>"; };
+		1C5383E61EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeMenuCollectionViewCell.h; sourceTree = "<group>"; };
+		1C5383E71EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeMenuCollectionViewCell.m; sourceTree = "<group>"; };
+		1C5383ED1EC3E87900AC30F9 /* DLRecommendRouteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteModel.h; sourceTree = "<group>"; };
+		1C5383EE1EC3E87900AC30F9 /* DLRecommendRouteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteModel.m; sourceTree = "<group>"; };
+		1C5383F01EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteCollectionViewCell.h; sourceTree = "<group>"; };
+		1C5383F11EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteCollectionViewCell.m; sourceTree = "<group>"; };
+		1C5383F31EC41F2300AC30F9 /* DLMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMenuViewController.h; sourceTree = "<group>"; };
+		1C5383F41EC41F2300AC30F9 /* DLMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMenuViewController.m; sourceTree = "<group>"; };
+		1C5383F61EC41F5A00AC30F9 /* DLRecommendRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteViewController.h; sourceTree = "<group>"; };
+		1C5383F71EC41F5A00AC30F9 /* DLRecommendRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteViewController.m; sourceTree = "<group>"; };
+		1C5383F91EC4267900AC30F9 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -150,6 +172,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C5383DE1EC3DC2200AC30F9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1C5383DF1EC3DC5C00AC30F9 /* DLHomeMenuItem.h */,
+				1C5383E01EC3DC5C00AC30F9 /* DLHomeMenuItem.m */,
+				1C5383E21EC3DCD800AC30F9 /* DLHomePageViewModel.h */,
+				1C5383E31EC3DCD800AC30F9 /* DLHomePageViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1C5383E51EC3E4A800AC30F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C5383E61EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.h */,
+				1C5383E71EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.m */,
+				1C5383F01EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.h */,
+				1C5383F11EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C5383EC1EC3E7DF00AC30F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C5383ED1EC3E87900AC30F9 /* DLRecommendRouteModel.h */,
+				1C5383EE1EC3E87900AC30F9 /* DLRecommendRouteModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1CCD819D1EC2EE94002A80AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +278,7 @@
 				452916771EC1741E0033314F /* main.m */,
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
 				1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */,
+				1C5383F91EC4267900AC30F9 /* Consts.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,9 +331,10 @@
 		452916931EC176F60033314F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1C5383EC1EC3E7DF00AC30F9 /* Model */,
+				1C5383E51EC3E4A800AC30F9 /* View */,
+				1C5383DE1EC3DC2200AC30F9 /* ViewModel */,
 				452916941EC176F60033314F /* Controller */,
-				452916951EC176F60033314F /* Model */,
-				452916961EC176F60033314F /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,22 +344,12 @@
 			children = (
 				45F4CCA61EC18F4F00F4B6BD /* DLHomeViewController.h */,
 				45F4CCA71EC18F4F00F4B6BD /* DLHomeViewController.m */,
+				1C5383F31EC41F2300AC30F9 /* DLMenuViewController.h */,
+				1C5383F41EC41F2300AC30F9 /* DLMenuViewController.m */,
+				1C5383F61EC41F5A00AC30F9 /* DLRecommendRouteViewController.h */,
+				1C5383F71EC41F5A00AC30F9 /* DLRecommendRouteViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		452916951EC176F60033314F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		452916961EC176F60033314F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		452916971EC176F60033314F /* Mine */ = {
@@ -641,20 +686,27 @@
 			files = (
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
+				1C5383F81EC41F5A00AC30F9 /* DLRecommendRouteViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
+				1C5383F51EC41F2300AC30F9 /* DLMenuViewController.m in Sources */,
 				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
+				1C5383E81EC3E51A00AC30F9 /* DLHomeMenuCollectionViewCell.m in Sources */,
+				1C5383F21EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				45F4CD261EC2EBEF00F4B6BD /* UIColor+Addition.m in Sources */,
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
+				1C5383E41EC3DCD800AC30F9 /* DLHomePageViewModel.m in Sources */,
+				1C5383E11EC3DC5C00AC30F9 /* DLHomeMenuItem.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
+				1C5383EF1EC3E87900AC30F9 /* DLRecommendRouteModel.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
