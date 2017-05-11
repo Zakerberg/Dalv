@@ -27,7 +27,7 @@
     
     UIViewController *vc3 =  [self makeChildViewController:@"DLFianceViewController" andTabBarTitle:@"财务" andTabBarImage:@"shopCart"];
     vc3.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    UIViewController *vc4 =  [self makeChildViewController:@"DLMineViewController" andTabBarTitle:@"个人中心" andTabBarImage:@"v2_my"];
+    UIViewController *vc4 =  [self makeChildViewController:@"DLMineCenterController" andTabBarTitle:@"个人中心" andTabBarImage:@"v2_my"];
     
     self.viewControllers = @[vc1, vc2, vc3, vc4];
     

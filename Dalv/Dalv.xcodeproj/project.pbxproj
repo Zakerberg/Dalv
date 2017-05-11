@@ -39,6 +39,11 @@
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
 		452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */; };
 		452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916AA1EC177830033314F /* UIColor+BLMColor.m */; };
+		452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65AA1EC45F8F00C33B67 /* DLMineModel.m */; };
+		452C65AE1EC45F8F00C33B67 /* Mine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452C65AC1EC45F8F00C33B67 /* Mine.plist */; };
+		452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B01EC45F9700C33B67 /* DLMineCell.m */; };
+		452C65B31EC45F9700C33B67 /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452C65B11EC45F9700C33B67 /* DLMineCell.xib */; };
+		452C65B61EC4614400C33B67 /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B41EC4614400C33B67 /* DLMineCenterController.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA71EC18F4F00F4B6BD /* DLHomeViewController.m */; };
@@ -120,6 +125,14 @@
 		452916A51EC1773C0033314F /* UIViewController+BLMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BLMHUD.m"; sourceTree = "<group>"; };
 		452916A91EC177830033314F /* UIColor+BLMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BLMColor.h"; sourceTree = "<group>"; };
 		452916AA1EC177830033314F /* UIColor+BLMColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BLMColor.m"; sourceTree = "<group>"; };
+		452C65AA1EC45F8F00C33B67 /* DLMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineModel.m; sourceTree = "<group>"; };
+		452C65AB1EC45F8F00C33B67 /* DLMineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineModel.h; sourceTree = "<group>"; };
+		452C65AC1EC45F8F00C33B67 /* Mine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Mine.plist; sourceTree = "<group>"; };
+		452C65AF1EC45F9700C33B67 /* DLMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCell.h; sourceTree = "<group>"; };
+		452C65B01EC45F9700C33B67 /* DLMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCell.m; sourceTree = "<group>"; };
+		452C65B11EC45F9700C33B67 /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
+		452C65B41EC4614400C33B67 /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
+		452C65B51EC4614400C33B67 /* DLMineCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCenterController.h; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -360,9 +373,9 @@
 		452916971EC176F60033314F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				452C65A81EC45F6F00C33B67 /* Model */,
+				452C65A91EC45F6F00C33B67 /* View */,
 				452916981EC176F60033314F /* Controller */,
-				452916991EC176F60033314F /* Model */,
-				4529169A1EC176F60033314F /* View */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -370,25 +383,13 @@
 		452916981EC176F60033314F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				452C65B41EC4614400C33B67 /* DLMineCenterController.m */,
+				452C65B51EC4614400C33B67 /* DLMineCenterController.h */,
 				45F4CCBD1EC1C55300F4B6BD /* DLMineViewController.h */,
 				45F4CCBE1EC1C55300F4B6BD /* DLMineViewController.m */,
 				45F4CCBF1EC1C55300F4B6BD /* DLMineViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		452916991EC176F60033314F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4529169A1EC176F60033314F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4529169B1EC176F60033314F /* Order */ = {
@@ -474,6 +475,26 @@
 				452916AA1EC177830033314F /* UIColor+BLMColor.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		452C65A81EC45F6F00C33B67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				452C65AA1EC45F8F00C33B67 /* DLMineModel.m */,
+				452C65AB1EC45F8F00C33B67 /* DLMineModel.h */,
+				452C65AC1EC45F8F00C33B67 /* Mine.plist */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		452C65A91EC45F6F00C33B67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				452C65AF1EC45F9700C33B67 /* DLMineCell.h */,
+				452C65B01EC45F9700C33B67 /* DLMineCell.m */,
+				452C65B11EC45F9700C33B67 /* DLMineCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -621,8 +642,10 @@
 			files = (
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
+				452C65B31EC45F9700C33B67 /* DLMineCell.xib in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
 				1CCD81AC1EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png in Resources */,
+				452C65AE1EC45F8F00C33B67 /* Mine.plist in Resources */,
 				45F4CCC11EC1C55300F4B6BD /* DLMineViewController.xib in Resources */,
 				1CCD81A81EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png in Resources */,
 				1CCD81AA1EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png in Resources */,
@@ -706,11 +729,14 @@
 				1CA3FC211EC455A7003C59AB /* DLCityMenultem.m in Sources */,
 				1C5383E41EC3DCD800AC30F9 /* DLHomePageViewModel.m in Sources */,
 				1C5383E11EC3DC5C00AC30F9 /* DLHomeMenuItem.m in Sources */,
+				452C65B61EC4614400C33B67 /* DLMineCenterController.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
+				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
+				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				1C5383EF1EC3E87900AC30F9 /* DLRecommendRouteModel.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
