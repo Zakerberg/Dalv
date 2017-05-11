@@ -96,12 +96,12 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         [cell.contentView addSubview:self.appCenterViewController.view];
         [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 0) {
         [cell.contentView addSubview:self.performanceView];
         [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
@@ -148,9 +148,9 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         return [self.appCenterViewController contentHeight];
-    } else if (indexPath.section == 1) {
+    } else if (indexPath.section == 0) {
         return self.activityList.count > 0 ? 100.0f : 0.0f;
     } else if (indexPath.section == 2) {
         return [self.hotTopicViewController contentHeight];
@@ -193,17 +193,8 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 #pragma mark - Fetch data
 
 - (void)fetchData {
-    //  模拟请求推荐线路的数据
-    NSMutableArray *recommendRouteArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < random() % 30; i++) {
-        DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
-        [recommendRouteArray addObject:topic];
-    }
-    
-    [self.activityList removeAllObjects];
-    [self.activityList addObjectsFromArray:recommendRouteArray];
-    
-    [self.homeTableView reloadData];
+    [self.hotTopicViewController beginLoading];
+
 }
 
 #pragma mark - Event Handler
@@ -250,6 +241,7 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 - (UIView *)performanceView {
     if (_performanceView == nil) {
         _performanceView = [[UIView alloc] init];
+        _performanceView.backgroundColor = [UIColor randomColor];
         
       }
     return _performanceView;

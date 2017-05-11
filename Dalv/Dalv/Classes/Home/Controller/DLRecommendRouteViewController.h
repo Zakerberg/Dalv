@@ -20,4 +20,10 @@
  */
 @property (nonatomic, copy) void (^didCompleteLoad)();
 
+/**
+ *  重新加载数据
+ */
+- (void)beginLoading;
+
+
 @end

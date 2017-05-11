@@ -30,8 +30,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-    
-    [self fetchData];
 
 }
 
@@ -77,6 +75,9 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 
 #pragma mark - Fetch data
 
+- (void)beginLoading {
+    [self fetchData];
+}
 - (void)fetchData {
     
     //  模拟请求推荐线路的数据
