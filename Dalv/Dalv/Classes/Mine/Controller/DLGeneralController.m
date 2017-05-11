@@ -7,24 +7,45 @@
 //
 
 #import "DLGeneralController.h"
-#import "BLM_UploadUserIcon.h"
 
-@interface DLGeneralController () <BLM_UploadUserIconDelegate>
+@interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,strong) UITableView *tableview;
 @end
 
+
 @implementation DLGeneralController
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
-}
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self setupUI];
 
-#pragma mark - 代理方法
-- (void)uploadImageToServerWithImage:(UIImage *)image {
+    
     
 }
+
+
+-(void)setupUI{
+    
+    
+}
+
+
+
+- (void)back {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 
 

@@ -44,8 +44,9 @@
 		452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B01EC45F9700C33B67 /* DLMineCell.m */; };
 		452C65B31EC45F9700C33B67 /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452C65B11EC45F9700C33B67 /* DLMineCell.xib */; };
 		452C65B61EC4614400C33B67 /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B41EC4614400C33B67 /* DLMineCenterController.m */; };
-		452C65B91EC4629500C33B67 /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B81EC4629500C33B67 /* DLGeneralController.m */; };
 		452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */; };
+		452C65C11EC4721000C33B67 /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65BF1EC4721000C33B67 /* DLGeneralController.m */; };
+		452C65C51EC4725D00C33B67 /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65C41EC4725D00C33B67 /* DLGenralModel.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA71EC18F4F00F4B6BD /* DLHomeViewController.m */; };
@@ -135,10 +136,12 @@
 		452C65B11EC45F9700C33B67 /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
 		452C65B41EC4614400C33B67 /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		452C65B51EC4614400C33B67 /* DLMineCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCenterController.h; sourceTree = "<group>"; };
-		452C65B71EC4629500C33B67 /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
-		452C65B81EC4629500C33B67 /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
 		452C65BB1EC46CBC00C33B67 /* BLM_UploadUserIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLM_UploadUserIcon.h; sourceTree = "<group>"; };
 		452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLM_UploadUserIcon.m; sourceTree = "<group>"; };
+		452C65BE1EC4721000C33B67 /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
+		452C65BF1EC4721000C33B67 /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
+		452C65C31EC4725D00C33B67 /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
+		452C65C41EC4725D00C33B67 /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -394,8 +397,8 @@
 				45F4CCBD1EC1C55300F4B6BD /* DLMineViewController.h */,
 				45F4CCBE1EC1C55300F4B6BD /* DLMineViewController.m */,
 				45F4CCBF1EC1C55300F4B6BD /* DLMineViewController.xib */,
-				452C65B71EC4629500C33B67 /* DLGeneralController.h */,
-				452C65B81EC4629500C33B67 /* DLGeneralController.m */,
+				452C65BE1EC4721000C33B67 /* DLGeneralController.h */,
+				452C65BF1EC4721000C33B67 /* DLGeneralController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -488,8 +491,10 @@
 		452C65A81EC45F6F00C33B67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				452C65AA1EC45F8F00C33B67 /* DLMineModel.m */,
+				452C65C31EC4725D00C33B67 /* DLGenralModel.h */,
+				452C65C41EC4725D00C33B67 /* DLGenralModel.m */,
 				452C65AB1EC45F8F00C33B67 /* DLMineModel.h */,
+				452C65AA1EC45F8F00C33B67 /* DLMineModel.m */,
 				452C65AC1EC45F8F00C33B67 /* Mine.plist */,
 			);
 			path = Model;
@@ -748,13 +753,14 @@
 				1CA3FC211EC455A7003C59AB /* DLCityMenultem.m in Sources */,
 				1C5383E41EC3DCD800AC30F9 /* DLHomePageViewModel.m in Sources */,
 				1C5383E11EC3DC5C00AC30F9 /* DLHomeMenuItem.m in Sources */,
-				452C65B91EC4629500C33B67 /* DLGeneralController.m in Sources */,
 				452C65B61EC4614400C33B67 /* DLMineCenterController.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
+				452C65C11EC4721000C33B67 /* DLGeneralController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
+				452C65C51EC4725D00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
