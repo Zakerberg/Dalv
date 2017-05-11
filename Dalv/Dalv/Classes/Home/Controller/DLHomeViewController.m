@@ -10,6 +10,7 @@
 #import "DLMenuViewController.h"
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteModel.h"
+#import "DLCityMenultem.h"
 
 static NSString *kMSHomeTableViewCell = @"MSHomeTableViewCell";
 static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
@@ -50,7 +51,7 @@ static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
     self.navigationItem.titleView = self.searchBar;
     
     UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"icon_search" highImageName:nil target:self action:@selector(didTapOperateAction:)];
-    self.navigationItem.rightBarButtonItem = operateItem;
+    self.navigationItem.leftBarButtonItem = operateItem;
 }
 
 #pragma mark - Setup subViews
@@ -210,7 +211,17 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
     NSLog(@"点击搜索");
+    DLCityMenultem *menuView = [[DLCityMenultem alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:@[@"北京市",@"天津市",@"石家庄",@"唐山市"]];
+    menuView.clickedBlock = ^(NSInteger index){
+        NSLog(@"++++++第%ld城市",index + 1);
+    };
+    [self.view addSubview:menuView];
 }
+- (void)navigationMenuView:(DLCityMenultem *)menuView clickedAtIndex:(NSInteger)index;
+{
+    NSLog(@"------第%ld城市",index + 1);
+}
+
 
 #pragma mark - Getter
 
