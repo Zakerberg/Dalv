@@ -14,6 +14,7 @@
 		1C5383F21EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F11EC3E99B00AC30F9 /* DLRecommendRouteCollectionViewCell.m */; };
 		1C5383F51EC41F2300AC30F9 /* DLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F41EC41F2300AC30F9 /* DLMenuViewController.m */; };
 		1C5383F81EC41F5A00AC30F9 /* DLRecommendRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5383F71EC41F5A00AC30F9 /* DLRecommendRouteViewController.m */; };
+		1CA3FC211EC455A7003C59AB /* DLCityMenultem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3FC201EC455A7003C59AB /* DLCityMenultem.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
@@ -78,6 +79,8 @@
 		1C5383F61EC41F5A00AC30F9 /* DLRecommendRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteViewController.h; sourceTree = "<group>"; };
 		1C5383F71EC41F5A00AC30F9 /* DLRecommendRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteViewController.m; sourceTree = "<group>"; };
 		1C5383F91EC4267900AC30F9 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
+		1CA3FC1F1EC455A7003C59AB /* DLCityMenultem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityMenultem.h; sourceTree = "<group>"; };
+		1CA3FC201EC455A7003C59AB /* DLCityMenultem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityMenultem.m; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 		1C5383DE1EC3DC2200AC30F9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1CA3FC1F1EC455A7003C59AB /* DLCityMenultem.h */,
+				1CA3FC201EC455A7003C59AB /* DLCityMenultem.m */,
 				1C5383DF1EC3DC5C00AC30F9 /* DLHomeMenuItem.h */,
 				1C5383E01EC3DC5C00AC30F9 /* DLHomeMenuItem.m */,
 				1C5383E21EC3DCD800AC30F9 /* DLHomePageViewModel.h */,
@@ -698,6 +703,7 @@
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
+				1CA3FC211EC455A7003C59AB /* DLCityMenultem.m in Sources */,
 				1C5383E41EC3DCD800AC30F9 /* DLHomePageViewModel.m in Sources */,
 				1C5383E11EC3DC5C00AC30F9 /* DLHomeMenuItem.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
@@ -826,6 +832,7 @@
 			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Other/SMS_SDK",
@@ -844,6 +851,7 @@
 			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Other/SMS_SDK",
