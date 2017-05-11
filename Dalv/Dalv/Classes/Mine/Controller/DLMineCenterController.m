@@ -10,12 +10,14 @@
 #import "DLMineModel.h"
 #import "DLMineCell.h"
 #import <Masonry.h>
+#import "DLGeneralController.h"
+#import "BLM_UploadUserIcon.h"
 
 static NSString *cellID  = @"cellID";
 
 #define KscreenWidth  [UIScreen mainScreen].bounds.size.width   //设备屏幕的宽度
 #define KscreenHeight [UIScreen mainScreen].bounds.size.height //设备屏幕的高度
-@interface DLMineCenterController ()
+@interface DLMineCenterController ()<BLM_UploadUserIconDelegate>
 @property(nonatomic,strong)NSArray * mineArrayData;
 @property(nonatomic,strong)UIView *headerView;  //headerView属性
 @property(nonatomic,strong)UIImageView * picImg; //背景图
@@ -79,13 +81,23 @@ static NSString *cellID  = @"cellID";
 -(void)PersonbuttonClick{
     
     
+    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
     
-    
-    
+//   ----------------------------------------------------------------------
     
     
     
 }
+
+#pragma mark - 代理方法
+- (void)uploadImageToServerWithImage:(UIImage *)image {
+   
+    
+    
+}
+
+
+
 
 //通过传进来的Plist文件。加载内容
 - (NSArray *)loadingPlist
@@ -116,14 +128,35 @@ static NSString *cellID  = @"cellID";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    if (indexPath == 0) {
+    if (indexPath.section == 0) {
+        
+        NSLog(@"第一行");
+    }
+    
+    /***  我的推荐   ***/
+    if (indexPath.section == 2) {
+
+    }
+    
+    /***  我的直客   ***/
+    if (indexPath.section == 3) {
+        
+    }
+    
+    /***  线路查询   ***/
+    if (indexPath.section == 4) {
         
     }
     
     
+    /***  通用   ***/
+    if (indexPath.section == 5) {
+        
+        DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
+        
+        [self.navigationController pushViewController:genralVC animated:YES];
+    }
 }
-
-
 
 //创建label的封装
 - (UILabel *)makeLabelWithText:(NSString *)text andTextFont:(CGFloat)font andTextColor:(UIColor *)color {
@@ -148,10 +181,6 @@ static NSString *cellID  = @"cellID";
 {
     return 50;
 }
-
-
-
-
 
 
 #pragma mark - Table view data source
@@ -179,7 +208,6 @@ static NSString *cellID  = @"cellID";
     cell.imageView.image = [UIImage imageNamed:mineModel.pic];
     cell.textLabel.text = mineModel.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     
     return cell;
 }

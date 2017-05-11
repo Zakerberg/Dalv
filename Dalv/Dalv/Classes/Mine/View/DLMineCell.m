@@ -9,7 +9,6 @@
 #import "DLMineCell.h"
 #import "DLMineModel.h"
 
-
 @interface DLMineCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *picImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -26,9 +25,6 @@
     self.titleLabel.text = mineModel.title;
     
 }
-
-
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
