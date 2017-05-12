@@ -10,8 +10,13 @@
 #import "DLGeneralController.h"
 #import "DLMineModel.h"
 #import "DLMineCell.h"
+#import <SDWebImage/SDImageCache.h>
+#import <MBProgressHUD.h>
+#import <SVProgressHUD.h>
+#import "BLMClearCacheTool.h"
 
 static NSString *cellID  = @"cellID";
+#define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
 
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSArray * mineArrayData;
@@ -68,6 +73,40 @@ static NSString *cellID  = @"cellID";
     return arrM.copy;
 }
 
+//选中某一行cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if(indexPath.section == 1){
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
+            //清除缓存
+            BOOL isSuccess = [BLMClearCacheTool clearCacheWithFilePath:filePath];
+            if (isSuccess) {
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+            }
+        }];
+    
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+        [alert addAction:actionOk];
+        [alert addAction:actionCancle];
+        
+        //显示弹框控制器
+        [self presentViewController:alert animated:YES completion:nil];
+    
+    }
+}
+
 - (void)back {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -96,6 +135,16 @@ static NSString *cellID  = @"cellID";
     cell.imageView.image = [UIImage imageNamed:mineModel.pic];
     cell.textLabel.text = mineModel.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    
+    if (indexPath.section == 1) {
+        NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:filePath];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",fileSize];
+    }
+    
+    
+    
     
     return cell;
     

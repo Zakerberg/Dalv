@@ -21,5 +21,6 @@ pod 'ReactiveCocoa', '~> 2.5'
 # Mob产品公共库
 pod 'MOBFoundation_IDFA'
 pod 'SMSSDK'
+pod 'SVProgressHUD'
 
 end

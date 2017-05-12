@@ -48,6 +48,7 @@
 		452C65CE1EC5545C00C33B67 /* DLMine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452C65CB1EC5545C00C33B67 /* DLMine.plist */; };
 		452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65CF1EC554AF00C33B67 /* DLGeneralController.m */; };
 		452C65D41EC554AF00C33B67 /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D11EC554AF00C33B67 /* DLMineCenterController.m */; };
+		452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCA81EC18F4F00F4B6BD /* DLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA71EC18F4F00F4B6BD /* DLHomeViewController.m */; };
@@ -144,6 +145,8 @@
 		452C65D01EC554AF00C33B67 /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
 		452C65D11EC554AF00C33B67 /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		452C65D21EC554AF00C33B67 /* DLMineCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCenterController.h; sourceTree = "<group>"; };
+		452C65D61EC55DFF00C33B67 /* BLMClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMClearCacheTool.h; sourceTree = "<group>"; };
+		452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMClearCacheTool.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -441,6 +444,7 @@
 		4529169F1EC1773C0033314F /* Toos */ = {
 			isa = PBXGroup;
 			children = (
+				452C65D51EC55DEA00C33B67 /* ClearCache */,
 				452916A01EC1773C0033314F /* Device */,
 				452916A31EC1773C0033314F /* HUD */,
 			);
@@ -520,6 +524,15 @@
 				452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */,
 			);
 			path = "相机封装";
+			sourceTree = "<group>";
+		};
+		452C65D51EC55DEA00C33B67 /* ClearCache */ = {
+			isa = PBXGroup;
+			children = (
+				452C65D61EC55DFF00C33B67 /* BLMClearCacheTool.h */,
+				452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */,
+			);
+			path = ClearCache;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -770,6 +783,7 @@
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				1C5383EF1EC3E87900AC30F9 /* DLRecommendRouteModel.m in Sources */,
+				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
