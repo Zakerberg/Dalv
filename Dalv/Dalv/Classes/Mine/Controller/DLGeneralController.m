@@ -57,17 +57,23 @@ static NSString *cellID  = @"cellID";
     [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
     [LogoutButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
+    
     [LogoutButton addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:LogoutButton];
     
 }
 
--(void)LogoutBtnClick{
+-(void)LogoutBtnClick {
+    
+    
+    
+    
+    
+    
+    
     
 }
-
-
 
 //通过传进来的Plist文件。加载内容
 - (NSArray *)loadingPlist
