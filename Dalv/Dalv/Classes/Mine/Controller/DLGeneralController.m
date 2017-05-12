@@ -36,22 +36,41 @@ static NSString *cellID  = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self setupUI];
     
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.mineArrayData = [self loadingPlist];  //赋值加载数据
+    self.mineArrayData = [self loadingPlist]; //赋值加载数据
     
     [self.tableView registerClass:[DLMineCell class] forCellReuseIdentifier:cellID];
     
     self.tableView.tableFooterView = [UIView new];
-
-  
+    
 }
+
+-(void)setupUI{
+    
+  self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+ 
+    UIButton *LogoutButton = [[UIButton alloc] initWithFrame:CGRectMake(46, 309, 295, 30)];
+    
+    [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    [LogoutButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    [LogoutButton addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:LogoutButton];
+    
+}
+
+-(void)LogoutBtnClick{
+    
+}
+
+
 
 //通过传进来的Plist文件。加载内容
 - (NSArray *)loadingPlist
-
 {
     
     NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"MineGeneral.plist" withExtension:nil]];
@@ -103,7 +122,6 @@ static NSString *cellID  = @"cellID";
         
         //显示弹框控制器
         [self presentViewController:alert animated:YES completion:nil];
-    
     }
 }
 
@@ -136,18 +154,13 @@ static NSString *cellID  = @"cellID";
     cell.textLabel.text = mineModel.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    
     if (indexPath.section == 1) {
         NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:filePath];
         
         cell.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",fileSize];
     }
     
-    
-    
-    
     return cell;
-    
 }
 
 

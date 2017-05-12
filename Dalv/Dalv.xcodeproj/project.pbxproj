@@ -397,10 +397,10 @@
 		452916981EC176F60033314F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				452C65CF1EC554AF00C33B67 /* DLGeneralController.m */,
 				452C65D01EC554AF00C33B67 /* DLGeneralController.h */,
-				452C65D11EC554AF00C33B67 /* DLMineCenterController.m */,
+				452C65CF1EC554AF00C33B67 /* DLGeneralController.m */,
 				452C65D21EC554AF00C33B67 /* DLMineCenterController.h */,
+				452C65D11EC554AF00C33B67 /* DLMineCenterController.m */,
 				45F4CCBD1EC1C55300F4B6BD /* DLMineViewController.h */,
 				45F4CCBE1EC1C55300F4B6BD /* DLMineViewController.m */,
 				45F4CCBF1EC1C55300F4B6BD /* DLMineViewController.xib */,

@@ -43,9 +43,7 @@
     {
         //拼接每一个文件的全路径
         filePath =[path stringByAppendingPathComponent:subpath];
-        
-        
-        
+
         //isDirectory，是否是文件夹，默认不是
         BOOL isDirectory = NO;
         
@@ -110,7 +108,6 @@
         }else {
             message = @"成功了";
         }
-        
     }
     NSLog(@"%@",message);
     

@@ -41,9 +41,6 @@ static NSString *cellID  = @"cellID";
 
 }
 
-
-
-
 - (void)setupHeaderView
 {
     //头部视图View
@@ -202,9 +199,6 @@ static NSString *cellID  = @"cellID";
     
     return [self.mineArrayData[section] count];
 }
-
-
-
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
