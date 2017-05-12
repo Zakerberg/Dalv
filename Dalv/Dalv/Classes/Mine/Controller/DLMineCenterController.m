@@ -41,9 +41,6 @@ static NSString *cellID  = @"cellID";
 
 }
 
-
-
-
 - (void)setupHeaderView
 {
     //头部视图View
@@ -92,7 +89,7 @@ static NSString *cellID  = @"cellID";
 #pragma mark - 代理方法
 - (void)uploadImageToServerWithImage:(UIImage *)image {
    
-    
+    //
     
 }
 
@@ -102,7 +99,7 @@ static NSString *cellID  = @"cellID";
 //通过传进来的Plist文件。加载内容
 - (NSArray *)loadingPlist
 {
-    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"Mine.plist" withExtension:nil]];
+    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"DLMine.plist" withExtension:nil]];
     NSMutableArray * arrM = [[NSMutableArray alloc]init];
     for (NSArray* arr in array) {
         
@@ -128,29 +125,38 @@ static NSString *cellID  = @"cellID";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    if (indexPath.section == 0) {
+    /****   修改个人资料    ****/
+    if (indexPath.section == 0){
         
-        NSLog(@"第一行");
+        NSLog(@"修改个人资料");
+    }
+
+    /*****  模块排序    *****/
+    if (indexPath.section == 1) {
+        NSLog(@"模块排序");
     }
     
     /***  我的推荐   ***/
     if (indexPath.section == 2) {
-
+       
+        NSLog(@"我的推荐");
     }
     
     /***  我的直客   ***/
     if (indexPath.section == 3) {
-        
+        NSLog(@"我的直客");
     }
     
     /***  线路查询   ***/
     if (indexPath.section == 4) {
-        
+        NSLog(@"线路查询");
     }
     
     
     /***  通用   ***/
     if (indexPath.section == 5) {
+        
+        NSLog(@"通用");
         
         DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
         
@@ -193,9 +199,6 @@ static NSString *cellID  = @"cellID";
     
     return [self.mineArrayData[section] count];
 }
-
-
-
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
