@@ -1,36 +1,30 @@
 //
-//  DLHomeViewController.m
+//  DLLineTourViewController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/5/9.
+//  Created by Nie on 2017/5/12.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLHomeViewController.h"
+#import "DLLineTourViewController.h"
 #import "DLMenuViewController.h"
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteModel.h"
-#import "DLCityPopMenuView.h"
 
 static NSString *kMSHomeTableViewCell = @"MSHomeTableViewCell";
 static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
-@interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, weak) UIScrollView *backgroundScrollView;
-@property (nonatomic, strong) UIView *performanceView;
+@interface DLLineTourViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView *homeTableView;
-@property (nonatomic, strong) DLCityPopMenuView *popMenuView;
+@property (nonatomic, strong) UIView *performanceView;
+@property (nonatomic, weak) UIScrollView *backgroundScrollView;
 
 @property (nonatomic, strong) DLMenuViewController *appCenterViewController;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
 
-
 @end
 
-@implementation DLHomeViewController
-
-#pragma mark - Life cycle
+@implementation DLLineTourViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,15 +36,8 @@ static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
 }
 
 #pragma mark - Setup navbar
-
 - (void)setupNavbar {
-    self.searchBar  = [[UISearchBar alloc]init];
-    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.searchBar.placeholder = @"请输入商品名称";
-    self.navigationItem.titleView = self.searchBar;
-    
-    UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"iv_address" highImageName:nil target:self action:@selector(didTapOperateAction:)];
-    self.navigationItem.leftBarButtonItem = operateItem;
+    self.title = @"大旅游";
 }
 
 #pragma mark - Setup subViews
@@ -101,12 +88,12 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
         [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
+//    } else if (indexPath.section == 1) {
+//        [cell.contentView addSubview:self.appCenterViewController.view];
+//        [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(cell.contentView);
+//        }];
     } else if (indexPath.section == 1) {
-        [cell.contentView addSubview:self.appCenterViewController.view];
-        [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(cell.contentView);
-        }];
-     } else if (indexPath.section == 2) {
         [cell.contentView addSubview:self.hotTopicViewController.view];
         [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
@@ -116,43 +103,14 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 2 && [self.hotTopicViewController contentHeight] > 0) {
-        UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kMSHomeTableViewHeader];
-        
-        UIView *flagView = [[UIView alloc] init];
-        flagView.backgroundColor = [UIColor colorWithHexString:@"#f74c31"];
-        
-        UILabel *headerLabel = [[UILabel alloc] init];
-        headerLabel.text = @"推荐线路";
-        headerLabel.textColor = [UIColor ms_blackColor];
-        headerLabel.font = [UIFont systemFontOfSize:14];
-        
-        [headerView.contentView addSubview:flagView];
-        [headerView.contentView addSubview:headerLabel];
-        [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(headerView.contentView);
-            make.size.mas_equalTo(CGSizeMake(5, 15));
-            make.centerY.equalTo(headerView.contentView);
-        }];
-        [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(flagView.mas_right).with.offset(5);
-            make.height.equalTo(@15);
-            make.centerY.equalTo(headerView.contentView);
-        }];
-        return headerView;
-    }
-    return nil;
-}
-
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 100.f;
+//    } else if (indexPath.section == 1) {
+//        return [self.appCenterViewController contentHeight];
     } else if (indexPath.section == 1) {
-        return [self.appCenterViewController contentHeight];
-    } else if (indexPath.section == 2) {
         NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
         return [self.hotTopicViewController contentHeight];
     }
@@ -169,49 +127,34 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (searchBar.text.length) {
-        [self.searchBar resignFirstResponder];
-        NSLog(@"点击搜索");
-    } else {//toast
-        NSLog(@"请输入搜索内容");
-    }
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    if (searchBar.text.length) {
+//        [self.searchBar resignFirstResponder];
+//        NSLog(@"点击搜索");
+//    } else {//toast
+//        NSLog(@"请输入搜索内容");
+//    }
+//}
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.searchBar resignFirstResponder];
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+//    [self.searchBar resignFirstResponder];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 #pragma mark - Fetch data
 
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
-
+    
 }
 
-#pragma mark - Event Handler
-
-- (void)didTapOperateAction:(UIBarButtonItem *)sender {
-    if (!self.popMenuView) {
-        NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
-        self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
-        self.popMenuView.clickedBlock = ^(NSInteger index){
-            NSLog(@"选中了++++++ %@",cityArray[index]);
-        };
-        [self.view addSubview:self.popMenuView];
-     } else {
-        self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
-     }
-}
 
 #pragma mark - Getter
 
@@ -246,7 +189,7 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
         _performanceView = [[UIView alloc] init];
         _performanceView.backgroundColor = [UIColor randomColor];
         
-      }
+    }
     return _performanceView;
 }
 

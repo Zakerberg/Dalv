@@ -9,6 +9,7 @@
 #import "DLMenuViewController.h"
 #import "DLHomeMenuCollectionViewCell.h"
 #import "DLHomePageViewModel.h"
+#import "DLLineTourViewController.h"
 
 @interface DLMenuViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -102,7 +103,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    NSLog(@"点击了cell");
+    DLLineTourViewController *DLlinetourVC = [[DLLineTourViewController alloc]init];
+    [self.navigationController pushViewController:DLlinetourVC animated:YES];
 }
 
 

@@ -1,14 +1,14 @@
 //
-//  DLCityMenultem.m
+//  DLCityPopMenuView.m
 //  Dalv
 //
 //  Created by Nie on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLCityMenultem.h"
+#import "DLCityPopMenuView.h"
 
-@interface DLCityMenultem ()
+@interface DLCityPopMenuView ()
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *titleArray;
@@ -17,10 +17,9 @@
 
 @end
 
-@implementation DLCityMenultem 
+@implementation DLCityPopMenuView
 
-- (instancetype)initWithPositionOfDirection:(CGPoint)point titleArray:(NSArray *)titleArray
-{
+- (instancetype)initWithPositionOfDirection:(CGPoint)point titleArray:(NSArray *)titleArray {
     self = [super initWithFrame:[UIScreen mainScreen].bounds];
     if (self) {
         _point = point;
@@ -49,34 +48,12 @@
                 maxLenght = title.length;
             }
         }
-        CGFloat tableViewW = maxLenght * 16.5 + 74;
-        CGFloat tableViewX = 0.0f;
-        CGFloat tableViewH = _titleArray.count * 44;
-        if (point.x < self.frame.size.width/2) {
-            if (point.x > tableViewW - 8) {
-                tableViewX = point.x - tableViewW + 12;
-            }else {
-                tableViewX = 4;
-            }
-        }else {
-            if (self.frame.size.width - point.x > tableViewW - 8) {
-                tableViewX = point.x - 12;
-            }else {
-                tableViewX = self.frame.size.width - tableViewW - 4;
-            }
-        }
-        BOOL scrollEnabled = NO;
-        if (self.frame.size.height - point.y - 15 < tableViewH) {
-            tableViewH = self.frame.size.height - point.y - 15;
-            scrollEnabled = YES;
-        }
-        
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(tableViewX, point.y + 8, tableViewW, tableViewH) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(10,0, maxLenght * 16.5 + 40, _titleArray.count * 44) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.layer.cornerRadius = 4;
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        _tableView.scrollEnabled = scrollEnabled;
+        _tableView.scrollEnabled = NO;
         [self addSubview:_tableView];
         
     }
@@ -84,13 +61,11 @@
     return self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _titleArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -102,10 +77,12 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
+    
+    [self hiddenPopMenu];
+    
     if (_clickedBlock) {
         _clickedBlock(indexPath.row);
     }
@@ -114,8 +91,7 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [UIView animateWithDuration:.2f animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
@@ -129,28 +105,24 @@
     }];
 }
 
-- (void)willMoveToSuperview:(nullable UIView *)newSuperview
-{
+- (void)willMoveToSuperview:(nullable UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     
     if (newSuperview) {
         CGRect tableViewFrame = _tableView.frame;
-        
         UIViewController *nextResponder = (UIViewController *)[newSuperview nextResponder];
         if (!_shapeView.superview && [nextResponder isKindOfClass:[UIViewController class]]) {
             if (nextResponder.navigationController && _shapeView.frame.origin.y < 64) {
-                
                 [nextResponder.navigationController.view addSubview:_shapeView];
                 tableViewFrame.origin.y = 64;
                 _tableView.frame = tableViewFrame;
-                
-            }else {
+            } else {
                 [self addSubview:_shapeView];
             }
         }
         
         _tableView.layer.anchorPoint = CGPointMake((_point.x - tableViewFrame.origin.x)/tableViewFrame.size.width, 0);
-        _tableView.center = CGPointMake(_point.x, _point.y + 8);
+        _tableView.center = CGPointMake(_point.x,0 + 8);
         
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         _tableView.alpha = 0.0f;
@@ -164,8 +136,25 @@
             _shapeView.alpha = 1.0f;
             
         }];
-        
     }
+}
+
+- (void)hiddenPopMenu {
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    _tableView.transform = CGAffineTransformMakeScale(0.001, 0.001);
+    _tableView.alpha = 0.0f;
+    _shapeView.alpha = 0.0f;
     
+    self.isShow = NO;
+}
+
+- (void)showPopMenu {
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.3f];
+    _tableView.transform = CGAffineTransformMakeScale(1, 1);
+    _tableView.alpha = 1.0f;
+    _shapeView.alpha = 1.0f;
+    
+    self.isShow = YES;
+
 }
 @end

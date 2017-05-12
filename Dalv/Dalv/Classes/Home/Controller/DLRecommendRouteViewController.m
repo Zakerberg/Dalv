@@ -30,6 +30,8 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
+    
+//    [self fetchData];
 
 }
 
@@ -86,7 +88,7 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
         DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
         [recommendRouteArray addObject:topic];
     }
-    
+    [self.topicList removeAllObjects];
     [self.topicList addObjectsFromArray:recommendRouteArray];
     [self.hotTopicCollectionView reloadData];
     
@@ -105,7 +107,7 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DLRecommendRouteCollectionViewCell *cell = [DLRecommendRouteCollectionViewCell cellWithCollectionView:collectionView indexPath:indexPath];
     DLRecommendRouteModel *model = [self.topicList objectAtIndex:indexPath.row];
-     [cell configureCell:model];
+    [cell configureCell:model];
     return cell;
 }
 
