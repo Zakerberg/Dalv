@@ -169,7 +169,6 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 
