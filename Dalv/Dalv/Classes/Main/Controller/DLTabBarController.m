@@ -9,6 +9,8 @@
 #import "DLTabBarController.h"
 #import "DLNavigationController.h"
 
+static BOOL isGuwen;
+
 @interface DLTabBarController ()
 
 @end
@@ -19,39 +21,36 @@
     [super viewDidLoad];
     
     
-    UIViewController *vc1 =  [self makeChildViewController:@"DLHomeViewController" andTabBarTitle:@"首页" andTabBarImage:@"v2_home"];
+    UIViewController *VC1 =  [self makeChildViewController:@"DLHomeViewController" andTabBarTitle:@"首页" andTabBarImage:@"v2_home"];
     
+    UIViewController *VC2 =  [self makeChildViewController:@"DLOrderViewController" andTabBarTitle:@"订单" andTabBarImage:@"v2_order"];
+            
+        UIViewController *VC3 =  [self makeChildViewController:@"DLFianceViewController" andTabBarTitle:@"财务" andTabBarImage:@""];
+        VC3.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+
     
-    UIViewController *vc2 =  [self makeChildViewController:@"DLOrderViewController" andTabBarTitle:@"订单" andTabBarImage:@"v2_order"];
+    UIViewController *VC4 =  [self makeChildViewController:@"DLMineCenterController" andTabBarTitle:@"个人中心" andTabBarImage:@""];
     
+    UIViewController *VC5 = [self makeChildViewController:@"DLShopViewController" andTabBarTitle:@"商城" andTabBarImage:@""];
     
-    UIViewController *vc3 =  [self makeChildViewController:@"DLFianceViewController" andTabBarTitle:@"财务" andTabBarImage:@"shopCart"];
-    vc3.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    UIViewController *vc4 =  [self makeChildViewController:@"DLMineCenterController" andTabBarTitle:@"个人中心" andTabBarImage:@"v2_my"];
-    
-    self.viewControllers = @[vc1, vc2, vc3, vc4];
+    self.viewControllers = @[VC1, VC2, VC3, VC4,VC5];
     
     self.tabBar.tintColor = [UIColor grayColor];
     
     // 关闭标签栏的半透明效果
     //控制器的view就不会到底屏幕最底部了,而是到了标签栏的上面
     self.tabBar.translucent = NO;
-    
-    
 }
-
 
 - (UIViewController *)makeChildViewController:(NSString *)className andTabBarTitle:(NSString *)title andTabBarImage:(NSString *)imageName
 {
     
     Class class = NSClassFromString(className);
     
-    
     UIViewController *vc = [[class alloc] init];
     
     // 设置标签栏上控制器对应的标题文字
     //    vc.tabBarItem.title = title;
-    
     
     vc.title = title;
     

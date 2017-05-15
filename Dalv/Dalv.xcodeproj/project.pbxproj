@@ -57,10 +57,11 @@
 		452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */; };
 		452C65CC1EC5545C00C33B67 /* MineGeneral.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452C65C81EC5545C00C33B67 /* MineGeneral.plist */; };
 		452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65CA1EC5545C00C33B67 /* DLGenralModel.m */; };
-		452C65CE1EC5545C00C33B67 /* DLMine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452C65CB1EC5545C00C33B67 /* DLMine.plist */; };
 		452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65CF1EC554AF00C33B67 /* DLGeneralController.m */; };
 		452C65D41EC554AF00C33B67 /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D11EC554AF00C33B67 /* DLMineCenterController.m */; };
 		452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */; };
+		45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45420E961EC997AB0044B9C6 /* DLShopViewController.m */; };
+		4546E3521EC9B5DB00C7A9A5 /* DLMine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -165,13 +166,15 @@
 		452C65C81EC5545C00C33B67 /* MineGeneral.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MineGeneral.plist; sourceTree = "<group>"; };
 		452C65C91EC5545C00C33B67 /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
 		452C65CA1EC5545C00C33B67 /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
-		452C65CB1EC5545C00C33B67 /* DLMine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DLMine.plist; sourceTree = "<group>"; };
 		452C65CF1EC554AF00C33B67 /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
 		452C65D01EC554AF00C33B67 /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
 		452C65D11EC554AF00C33B67 /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		452C65D21EC554AF00C33B67 /* DLMineCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCenterController.h; sourceTree = "<group>"; };
 		452C65D61EC55DFF00C33B67 /* BLMClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMClearCacheTool.h; sourceTree = "<group>"; };
 		452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMClearCacheTool.m; sourceTree = "<group>"; };
+		45420E951EC997AB0044B9C6 /* DLShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShopViewController.h; sourceTree = "<group>"; };
+		45420E961EC997AB0044B9C6 /* DLShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShopViewController.m; sourceTree = "<group>"; };
+		4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DLMine.plist; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -329,6 +332,7 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
+				45420E8D1EC9382B0044B9C6 /* Login */,
 				1CCD819D1EC2EE94002A80AB /* Resources */,
 				45F4CCC31EC2B41600F4B6BD /* Other */,
 				45F4CCB31EC1901D00F4B6BD /* Adverstising */,
@@ -359,6 +363,7 @@
 		4529168E1EC176F60033314F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45420E911EC996BA0044B9C6 /* shop */,
 				45F4CC9D1EC18D9100F4B6BD /* Main */,
 				4529168F1EC176F60033314F /* Fiance */,
 				452916931EC176F60033314F /* Home */,
@@ -545,7 +550,7 @@
 				452C65C81EC5545C00C33B67 /* MineGeneral.plist */,
 				452C65C91EC5545C00C33B67 /* DLGenralModel.h */,
 				452C65CA1EC5545C00C33B67 /* DLGenralModel.m */,
-				452C65CB1EC5545C00C33B67 /* DLMine.plist */,
+				4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -576,6 +581,71 @@
 				452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */,
 			);
 			path = ClearCache;
+			sourceTree = "<group>";
+		};
+		45420E8D1EC9382B0044B9C6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				45420E8E1EC9382B0044B9C6 /* Controller */,
+				45420E8F1EC9382B0044B9C6 /* Model */,
+				45420E901EC9382B0044B9C6 /* View */,
+			);
+			name = Login;
+			path = Classes/Login;
+			sourceTree = "<group>";
+		};
+		45420E8E1EC9382B0044B9C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45420E8F1EC9382B0044B9C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45420E901EC9382B0044B9C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45420E911EC996BA0044B9C6 /* shop */ = {
+			isa = PBXGroup;
+			children = (
+				45420E921EC996BA0044B9C6 /* Controller */,
+				45420E931EC996BA0044B9C6 /* Model */,
+				45420E941EC996BA0044B9C6 /* View */,
+			);
+			path = shop;
+			sourceTree = "<group>";
+		};
+		45420E921EC996BA0044B9C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45420E951EC997AB0044B9C6 /* DLShopViewController.h */,
+				45420E961EC997AB0044B9C6 /* DLShopViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		45420E931EC996BA0044B9C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45420E941EC996BA0044B9C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -725,9 +795,9 @@
 			files = (
 				452C65CC1EC5545C00C33B67 /* MineGeneral.plist in Resources */,
 				1C0B27811EC5B2FC006CDFF1 /* nav_3@3x.png in Resources */,
+				4546E3521EC9B5DB00C7A9A5 /* DLMine.plist in Resources */,
 				1C0B27851EC5B2FC006CDFF1 /* nav_5@3x.png in Resources */,
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
-				452C65CE1EC5545C00C33B67 /* DLMine.plist in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1C0B27831EC5B2FC006CDFF1 /* nav_4@3x.png in Resources */,
 				1C0B277D1EC5B2FC006CDFF1 /* iv_address.png in Resources */,
@@ -820,6 +890,7 @@
 				1C0B27641EC5B2AE006CDFF1 /* DLRecommendRouteModel.m in Sources */,
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
+				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
 				1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */,

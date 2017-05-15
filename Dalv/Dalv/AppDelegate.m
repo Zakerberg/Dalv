@@ -26,6 +26,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
 //    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
@@ -37,9 +38,6 @@
 //        NSLog(@"非首次启动");
 //        //创建标签控制器
 //        AdvertisingViewController * adVC = [[AdvertisingViewController alloc]init];
-    
-    
-    
     
         //给窗口指定根控制器
     self.window.rootViewController = [[DLTabBarController alloc] init];
@@ -56,6 +54,9 @@
 
     return YES;
 }
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

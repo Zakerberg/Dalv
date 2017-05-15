@@ -153,8 +153,15 @@ static NSString *cellID  = @"cellID";
     }
     
     
-    /***  通用   ***/
+    /**** 供应商查询   ****/
     if (indexPath.section == 5) {
+        NSLog(@"供应商查询");
+        
+        
+    }
+    
+    /***  通用   ***/
+    if (indexPath.section == 6) {
         
         NSLog(@"通用");
         
@@ -162,6 +169,7 @@ static NSString *cellID  = @"cellID";
         
         [self.navigationController pushViewController:genralVC animated:YES];
     }
+    
 }
 
 //创建label的封装
@@ -214,8 +222,5 @@ static NSString *cellID  = @"cellID";
     
     return cell;
 }
-
-
-
 
 @end

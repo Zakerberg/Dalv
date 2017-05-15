@@ -69,11 +69,9 @@ static NSString *cellID  = @"cellID";
     
     
     
-    
-    
-    
-    
 }
+
+
 
 //通过传进来的Plist文件。加载内容
 - (NSArray *)loadingPlist
