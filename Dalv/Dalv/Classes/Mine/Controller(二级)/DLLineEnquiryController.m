@@ -7,7 +7,6 @@
 //
 
 #import "DLLineEnquiryController.h"
-#import "BLMCityViewController.h"
 
 @interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableview;
@@ -59,12 +58,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
     if (indexPath.row == 0) {
         
-        BLMCityViewController *controller = [[BLMCityViewController alloc] init];
-        controller.selectString = ^(NSString *string){
-            self.cityLabel.text = string;
-        };
-        [self presentViewController:controller animated:YES completion:nil];
-
+       
         
     }
     if (indexPath.row == 1) {

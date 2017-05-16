@@ -69,13 +69,6 @@
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
 		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
 		4546E3681ECACDA700C7A9A5 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */; };
-		4546E36B1ECADDE900C7A9A5 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E36A1ECADDE900C7A9A5 /* citydict.plist */; };
-		4546E3711ECADE4D00C7A9A5 /* BLMCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3701ECADE4D00C7A9A5 /* BLMCityModel.m */; };
-		4546E3741ECADEA400C7A9A5 /* BLMCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3731ECADEA300C7A9A5 /* BLMCityViewController.m */; };
-		4546E3771ECADF6600C7A9A5 /* BLMResultCityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3761ECADF6600C7A9A5 /* BLMResultCityController.m */; };
-		4546E37A1ECADFE600C7A9A5 /* BLMCustomSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3791ECADFE600C7A9A5 /* BLMCustomSearchView.m */; };
-		4546E37D1ECAE04400C7A9A5 /* BLMCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E37C1ECAE04400C7A9A5 /* BLMCityTableViewCell.m */; };
-		4546E3801ECAE09700C7A9A5 /* BLMCustomTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E37F1ECAE09700C7A9A5 /* BLMCustomTopView.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -203,19 +196,6 @@
 		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		4546E3661ECACDA700C7A9A5 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
 		4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
-		4546E36A1ECADDE900C7A9A5 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
-		4546E36F1ECADE4D00C7A9A5 /* BLMCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMCityModel.h; sourceTree = "<group>"; };
-		4546E3701ECADE4D00C7A9A5 /* BLMCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMCityModel.m; sourceTree = "<group>"; };
-		4546E3721ECADEA300C7A9A5 /* BLMCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMCityViewController.h; sourceTree = "<group>"; };
-		4546E3731ECADEA300C7A9A5 /* BLMCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMCityViewController.m; sourceTree = "<group>"; };
-		4546E3751ECADF6600C7A9A5 /* BLMResultCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMResultCityController.h; sourceTree = "<group>"; };
-		4546E3761ECADF6600C7A9A5 /* BLMResultCityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMResultCityController.m; sourceTree = "<group>"; };
-		4546E3781ECADFE600C7A9A5 /* BLMCustomSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMCustomSearchView.h; sourceTree = "<group>"; };
-		4546E3791ECADFE600C7A9A5 /* BLMCustomSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMCustomSearchView.m; sourceTree = "<group>"; };
-		4546E37B1ECAE04400C7A9A5 /* BLMCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMCityTableViewCell.h; sourceTree = "<group>"; };
-		4546E37C1ECAE04400C7A9A5 /* BLMCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMCityTableViewCell.m; sourceTree = "<group>"; };
-		4546E37E1ECAE09700C7A9A5 /* BLMCustomTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMCustomTopView.h; sourceTree = "<group>"; };
-		4546E37F1ECAE09700C7A9A5 /* BLMCustomTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMCustomTopView.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -546,7 +526,6 @@
 		4529169F1EC1773C0033314F /* Toos */ = {
 			isa = PBXGroup;
 			children = (
-				4546E3691ECADD6A00C7A9A5 /* BLMCityChoice */,
 				452C65D51EC55DEA00C33B67 /* ClearCache */,
 				452916A01EC1773C0033314F /* Device */,
 				452916A31EC1773C0033314F /* HUD */,
@@ -710,50 +689,6 @@
 				4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */,
 			);
 			path = "Controller(二级)";
-			sourceTree = "<group>";
-		};
-		4546E3691ECADD6A00C7A9A5 /* BLMCityChoice */ = {
-			isa = PBXGroup;
-			children = (
-				4546E36C1ECADE1400C7A9A5 /* View */,
-				4546E36D1ECADE1400C7A9A5 /* Controller */,
-				4546E36E1ECADE1400C7A9A5 /* Model */,
-				4546E36A1ECADDE900C7A9A5 /* citydict.plist */,
-			);
-			path = BLMCityChoice;
-			sourceTree = "<group>";
-		};
-		4546E36C1ECADE1400C7A9A5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4546E3781ECADFE600C7A9A5 /* BLMCustomSearchView.h */,
-				4546E3791ECADFE600C7A9A5 /* BLMCustomSearchView.m */,
-				4546E37B1ECAE04400C7A9A5 /* BLMCityTableViewCell.h */,
-				4546E37C1ECAE04400C7A9A5 /* BLMCityTableViewCell.m */,
-				4546E37E1ECAE09700C7A9A5 /* BLMCustomTopView.h */,
-				4546E37F1ECAE09700C7A9A5 /* BLMCustomTopView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4546E36D1ECADE1400C7A9A5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				4546E3721ECADEA300C7A9A5 /* BLMCityViewController.h */,
-				4546E3731ECADEA300C7A9A5 /* BLMCityViewController.m */,
-				4546E3751ECADF6600C7A9A5 /* BLMResultCityController.h */,
-				4546E3761ECADF6600C7A9A5 /* BLMResultCityController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		4546E36E1ECADE1400C7A9A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4546E36F1ECADE4D00C7A9A5 /* BLMCityModel.h */,
-				4546E3701ECADE4D00C7A9A5 /* BLMCityModel.m */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -922,7 +857,6 @@
 				1CCD81AA1EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png in Resources */,
 				1CCD81AD1EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png in Resources */,
 				1CCD81A91EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png in Resources */,
-				4546E36B1ECADDE900C7A9A5 /* citydict.plist in Resources */,
 				1CCD81A71EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png in Resources */,
 				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
@@ -991,7 +925,6 @@
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
-				4546E37D1ECAE04400C7A9A5 /* BLMCityTableViewCell.m in Sources */,
 				1C0B27701EC5B2BE006CDFF1 /* DLRecommendRouteViewController.m in Sources */,
 				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				1C0B27571EC5B28B006CDFF1 /* DLHomeMenuItem.m in Sources */,
@@ -1013,7 +946,6 @@
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
-				4546E3771ECADF6600C7A9A5 /* BLMResultCityController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
@@ -1023,18 +955,14 @@
 				1C0B276D1EC5B2BE006CDFF1 /* DLHomeViewController.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
-				4546E37A1ECADFE600C7A9A5 /* BLMCustomSearchView.m in Sources */,
 				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
-				4546E3711ECADE4D00C7A9A5 /* BLMCityModel.m in Sources */,
 				1CC9F92D1EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m in Sources */,
 				1C0B27601EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m in Sources */,
-				4546E3741ECADEA400C7A9A5 /* BLMCityViewController.m in Sources */,
-				4546E3801ECAE09700C7A9A5 /* BLMCustomTopView.m in Sources */,
 				1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
