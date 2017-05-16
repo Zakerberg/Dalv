@@ -12,6 +12,12 @@
 #import <Masonry.h>
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
+#import "DLChangePersonDataController.h"
+#import "DLSortController.h"
+#import "DLRemmendController.h"
+#import "DLMyCustomerController.h"
+#import "DLLineQueryController.h"
+#import "DLSupplierqueryController.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -128,7 +134,12 @@ static NSString *cellID  = @"cellID";
     /****   修改个人资料    ****/
     if (indexPath.section == 0){
         
-        NSLog(@"修改个人资料");
+        
+        
+        
+        
+        
+        
     }
 
     /*****  模块排序    *****/
@@ -144,20 +155,27 @@ static NSString *cellID  = @"cellID";
     
     /***  我的直客   ***/
     if (indexPath.section == 3) {
-        NSLog(@"我的直客");
+        
+        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
+        
+        [self.navigationController pushViewController:CustomerVC animated:YES];
     }
     
     /***  线路查询   ***/
     if (indexPath.section == 4) {
-        NSLog(@"线路查询");
+        
+        DLLineQueryController * linequery = [[DLLineQueryController alloc]init];
+        
+        [self.navigationController pushViewController:linequery animated:YES ];
     }
-    
     
     /**** 供应商查询   ****/
     if (indexPath.section == 5) {
         NSLog(@"供应商查询");
         
+        DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
         
+        [self.navigationController pushViewController:sipplierVC animated:YES];
     }
     
     /***  通用   ***/

@@ -54,9 +54,11 @@ static NSString *cellID  = @"cellID";
  
     UIButton *LogoutButton = [[UIButton alloc] initWithFrame:CGRectMake(46, 309, 295, 30)];
     
-    [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
-    [LogoutButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+
+    [LogoutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    LogoutButton.backgroundColor = [UIColor redColor];
     
+    [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
     
     [LogoutButton addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -66,9 +68,21 @@ static NSString *cellID  = @"cellID";
 
 -(void)LogoutBtnClick {
     
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
     
+        
+        
+    }];
+                             
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
+    [alert addAction:actionOk];
+    [alert addAction:actionCancle];
+    
+    //显示弹框控制器
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
