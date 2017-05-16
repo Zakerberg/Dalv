@@ -8,6 +8,7 @@
 //
 
 #import "DLLineQueryController.h"
+#import "DLLineEnquiryController.h"
 
 @interface DLLineQueryController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableview;
@@ -58,6 +59,7 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
     }
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
     return cell;
 }
 
@@ -67,7 +69,12 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0){
 
+        DLLineEnquiryController *line = [[DLLineEnquiryController  alloc] init];
+        
+        [self.navigationController pushViewController:line animated:YES];
+        
     }
+    
     if(indexPath.row ==1){
         
         
