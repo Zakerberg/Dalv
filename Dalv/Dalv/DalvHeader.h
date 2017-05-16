@@ -28,4 +28,7 @@
 
 #import "Consts.h"
 
+// View
+#import "DLHUDManager.h"
+#import "DLAlertView.h"
 #endif /* DalvHeader_h */
