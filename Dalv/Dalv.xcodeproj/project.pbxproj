@@ -83,6 +83,16 @@
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
 		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
+<<<<<<< HEAD
+		4546E3681ECACDA700C7A9A5 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */; };
+		4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E3821ECAE5F200C7A9A5 /* CityData.plist */; };
+		4546E3931ECAE6F000C7A9A5 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3891ECAE6F000C7A9A5 /* TLCity.m */; };
+		4546E3941ECAE6F000C7A9A5 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */; };
+		4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */; };
+		4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */; };
+		4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */; };
+=======
+>>>>>>> faa4baef0456a455392c2d1bf97f4eceda30ca72
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -229,6 +239,23 @@
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
 		4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		4546E3661ECACDA700C7A9A5 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
+		4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
+		4546E3821ECAE5F200C7A9A5 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		4546E3881ECAE6F000C7A9A5 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
+		4546E3891ECAE6F000C7A9A5 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
+		4546E38A1ECAE6F000C7A9A5 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
+		4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
+		4546E38C1ECAE6F000C7A9A5 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
+		4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
+		4546E38E1ECAE6F000C7A9A5 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
+		4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
+		4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
+		4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
+		4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
+=======
+>>>>>>> faa4baef0456a455392c2d1bf97f4eceda30ca72
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -632,6 +659,7 @@
 		4529169F1EC1773C0033314F /* Toos */ = {
 			isa = PBXGroup;
 			children = (
+				4546E3811ECAE5EA00C7A9A5 /* BLMCityChoice */,
 				452C65D51EC55DEA00C33B67 /* ClearCache */,
 				452916A01EC1773C0033314F /* Device */,
 				452916A31EC1773C0033314F /* HUD */,
@@ -763,6 +791,33 @@
 				1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */,
 			);
 			path = "Controller(二级)";
+			sourceTree = "<group>";
+		};
+		4546E3811ECAE5EA00C7A9A5 /* BLMCityChoice */ = {
+			isa = PBXGroup;
+			children = (
+				4546E3821ECAE5F200C7A9A5 /* CityData.plist */,
+				4546E3871ECAE6F000C7A9A5 /* TLCityPicker */,
+			);
+			path = BLMCityChoice;
+			sourceTree = "<group>";
+		};
+		4546E3871ECAE6F000C7A9A5 /* TLCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				4546E3881ECAE6F000C7A9A5 /* TLCity.h */,
+				4546E3891ECAE6F000C7A9A5 /* TLCity.m */,
+				4546E38A1ECAE6F000C7A9A5 /* TLCityGroupCell.h */,
+				4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */,
+				4546E38C1ECAE6F000C7A9A5 /* TLCityHeaderView.h */,
+				4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */,
+				4546E38E1ECAE6F000C7A9A5 /* TLCityPickerController.h */,
+				4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */,
+				4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */,
+				4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */,
+				4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */,
+			);
+			path = TLCityPicker;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -946,6 +1001,7 @@
 				1C57A31C1ECAA80800C959C9 /* login_btn@2x.png in Resources */,
 				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
 				1C0B277F1EC5B2FC006CDFF1 /* nav_2@3x.png in Resources */,
+				4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,6 +1063,7 @@
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
+				4546E3941ECAE6F000C7A9A5 /* TLCityGroupCell.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
@@ -1031,15 +1088,19 @@
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
+				4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
+				4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */,
+				4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
 				1C0B276D1EC5B2BE006CDFF1 /* DLHomeViewController.m in Sources */,
+				4546E3931ECAE6F000C7A9A5 /* TLCity.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
 				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
