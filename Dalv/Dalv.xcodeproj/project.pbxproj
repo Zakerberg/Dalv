@@ -28,7 +28,6 @@
 		1C0B27841EC5B2FC006CDFF1 /* nav_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B277A1EC5B2FC006CDFF1 /* nav_5@2x.png */; };
 		1C0B27851EC5B2FC006CDFF1 /* nav_5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B277B1EC5B2FC006CDFF1 /* nav_5@3x.png */; };
 		1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A3061ECAA0E200C959C9 /* DLLoginViewController.m */; };
-		1C57A30A1ECAA24D00C959C9 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C57A3091ECAA24D00C959C9 /* DLLoginView.m */; };
 		1C57A3181ECAA80800C959C9 /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A30C1ECAA80800C959C9 /* lock@2x.png */; };
 		1C57A3191ECAA80800C959C9 /* lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A30D1ECAA80800C959C9 /* lock@3x.png */; };
 		1C57A31A1ECAA80800C959C9 /* login_bj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A30E1ECAA80800C959C9 /* login_bj@2x.png */; };
@@ -39,6 +38,8 @@
 		1C57A31F1ECAA80800C959C9 /* login_input@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A3131ECAA80800C959C9 /* login_input@3x.png */; };
 		1C57A3221ECAA80800C959C9 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A3161ECAA80800C959C9 /* user@2x.png */; };
 		1C57A3231ECAA80800C959C9 /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A3171ECAA80800C959C9 /* user@3x.png */; };
+		1CA73B0B1ECAEB19009A5812 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */; };
+		1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
@@ -82,7 +83,6 @@
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
 		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
-		4546E3681ECACDA700C7A9A5 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -140,8 +140,6 @@
 		1C5383F91EC4267900AC30F9 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		1C57A3051ECAA0E200C959C9 /* DLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginViewController.h; sourceTree = "<group>"; };
 		1C57A3061ECAA0E200C959C9 /* DLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginViewController.m; sourceTree = "<group>"; };
-		1C57A3081ECAA24D00C959C9 /* DLLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginView.h; sourceTree = "<group>"; };
-		1C57A3091ECAA24D00C959C9 /* DLLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginView.m; sourceTree = "<group>"; };
 		1C57A30C1ECAA80800C959C9 /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
 		1C57A30D1ECAA80800C959C9 /* lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@3x.png"; sourceTree = "<group>"; };
 		1C57A30E1ECAA80800C959C9 /* login_bj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bj@2x.png"; sourceTree = "<group>"; };
@@ -152,6 +150,9 @@
 		1C57A3131ECAA80800C959C9 /* login_input@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_input@3x.png"; sourceTree = "<group>"; };
 		1C57A3161ECAA80800C959C9 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		1C57A3171ECAA80800C959C9 /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
+		1CA73B091ECAEB19009A5812 /* DLLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginView.h; sourceTree = "<group>"; };
+		1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginView.m; sourceTree = "<group>"; };
+		1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -227,8 +228,6 @@
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
 		4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		4546E3661ECACDA700C7A9A5 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
-		4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -362,8 +361,8 @@
 		1C57A3031ECAA04300C959C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C57A3081ECAA24D00C959C9 /* DLLoginView.h */,
-				1C57A3091ECAA24D00C959C9 /* DLLoginView.m */,
+				1CA73B091ECAEB19009A5812 /* DLLoginView.h */,
+				1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,8 +758,7 @@
 		4546E3651ECAA3A300C7A9A5 /* Controller(二级) */ = {
 			isa = PBXGroup;
 			children = (
-				4546E3661ECACDA700C7A9A5 /* DLLineEnquiryController.h */,
-				4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */,
+				1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */,
 			);
 			path = "Controller(二级)";
 			sourceTree = "<group>";
@@ -1035,10 +1033,10 @@
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
+				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
-
 				1C0B276D1EC5B2BE006CDFF1 /* DLHomeViewController.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
@@ -1049,6 +1047,7 @@
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
+				1CA73B0B1ECAEB19009A5812 /* DLLoginView.m in Sources */,
 				1CC9F92D1EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m in Sources */,
 				1C0B27601EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */,
