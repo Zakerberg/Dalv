@@ -11,6 +11,7 @@
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteModel.h"
 #import "DLCityPopMenuView.h"
+#import "DLLoginViewController.h"
 
 static NSString *kMSHomeTableViewCell = @"MSHomeTableViewCell";
 static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
@@ -51,6 +52,9 @@ static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
     
     UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"iv_address" highImageName:nil target:self action:@selector(didTapOperateAction:)];
     self.navigationItem.leftBarButtonItem = operateItem;
+    
+    UIBarButtonItem *registerbutton= [UIBarButtonItem itemWithTitle:@"登陆" target:self action:@selector(didLoginButton)];
+    self.navigationItem.rightBarButtonItem = registerbutton;
 }
 
 #pragma mark - Setup subViews
@@ -210,6 +214,12 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
      } else {
         self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
      }
+    
+}
+- (void)didLoginButton
+{
+    DLLoginViewController *DLloginVC = [[DLLoginViewController alloc]init];
+    [self.navigationController pushViewController:DLloginVC animated:YES];
 }
 
 #pragma mark - Getter
