@@ -160,7 +160,7 @@ static NSString *cellID  = @"cellID";
     
     /***  线路查询   ***/
     if (indexPath.section == 4) {
-        NSLog(@"线路查询");
+        
     }
     
     
@@ -168,7 +168,9 @@ static NSString *cellID  = @"cellID";
     if (indexPath.section == 5) {
         NSLog(@"供应商查询");
         
+        DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
         
+        [self.navigationController pushViewController:sipplierVC animated:YES];
     }
     
     /***  通用   ***/

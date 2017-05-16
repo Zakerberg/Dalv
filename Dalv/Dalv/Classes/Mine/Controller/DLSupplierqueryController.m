@@ -9,29 +9,65 @@
 #import "DLSupplierqueryController.h"
 
 @interface DLSupplierqueryController ()
-
+@property (nonatomic, strong) UITextField *searchTF;
 @end
 
 @implementation DLSupplierqueryController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+-(void)setupUI{
+    
+    
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    
+    UITextField *searchTF = [[UITextField alloc] initWithFrame:CGRectMake(46, 101, 213, 30)];
+    
+    searchTF.borderStyle = UITextBorderStyleRoundedRect;
+    searchTF.font = [UIFont systemFontOfSize:13.0];
+    searchTF.placeholder = @"请输入供应商名称";
+    self.searchTF = searchTF;
+    
+    [self.view addSubview:searchTF];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(264, 101, 77, 30)];
+    
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor greenColor];
+    
+    [button setTitle:@"搜索" forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:button];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)buttonClick{
+    
+    
+    
+    
 }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
