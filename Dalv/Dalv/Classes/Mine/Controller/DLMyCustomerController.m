@@ -8,16 +8,84 @@
 
 #import "DLMyCustomerController.h"
 
-@interface DLMyCustomerController ()
+@interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,strong) UITableView *tableview;
 
 @end
 
+static NSString *MyCustomerCellID = @"MyCustomer_Cell_ID";
 @implementation DLMyCustomerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self setupUI];
+
 }
+
+
+-(void)setupUI{
+    self.title = @"线路查询";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
+    UITableView *tableview = [[UITableView alloc]init];
+    tableview.frame = self.view.bounds;
+    [self.view addSubview:tableview];
+    self.tableview = tableview;
+    
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    
+    [tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:MyCustomerCellID];
+    
+    tableview.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    tableview.tableFooterView = [[UIView alloc]init];
+
+}
+
+#pragma mark - 数据源方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyCustomerCellID forIndexPath:indexPath];
+    
+    if(indexPath.row == 0){
+        cell.textLabel.text = @"我的佣金";
+    }else {
+        cell.textLabel.text = @"直客机票订单";
+    }
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
+}
+
+#pragma mark - 监听cell点击
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row == 0){
+        
+    }
+    if(indexPath.row ==1){
+        
+        
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (void)back {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

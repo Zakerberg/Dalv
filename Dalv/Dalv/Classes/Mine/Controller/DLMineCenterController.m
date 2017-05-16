@@ -155,7 +155,10 @@ static NSString *cellID  = @"cellID";
     
     /***  我的直客   ***/
     if (indexPath.section == 3) {
-        NSLog(@"我的直客");
+        
+        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
+        
+        [self.navigationController pushViewController:CustomerVC animated:YES];
     }
     
     /***  线路查询   ***/
