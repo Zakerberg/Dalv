@@ -12,6 +12,12 @@
 #import <Masonry.h>
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
+#import "DLChangePersonDataController.h"
+#import "DLSortController.h"
+#import "DLRemmendController.h"
+#import "DLMyCustomerController.h"
+#import "DLLineQueryController.h"
+#import "DLSupplierqueryController.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -128,7 +134,12 @@ static NSString *cellID  = @"cellID";
     /****   修改个人资料    ****/
     if (indexPath.section == 0){
         
-        NSLog(@"修改个人资料");
+        
+        
+        
+        
+        
+        
     }
 
     /*****  模块排序    *****/

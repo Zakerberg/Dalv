@@ -62,6 +62,12 @@
 		452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D71EC55DFF00C33B67 /* BLMClearCacheTool.m */; };
 		45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45420E961EC997AB0044B9C6 /* DLShopViewController.m */; };
 		4546E3521EC9B5DB00C7A9A5 /* DLMine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */; };
+		4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3541ECA896700C7A9A5 /* DLChangePersonDataController.m */; };
+		4546E3581ECA8AE000C7A9A5 /* DLSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3571ECA8AE000C7A9A5 /* DLSortController.m */; };
+		4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */; };
+		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
+		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
+		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -175,6 +181,18 @@
 		45420E951EC997AB0044B9C6 /* DLShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShopViewController.h; sourceTree = "<group>"; };
 		45420E961EC997AB0044B9C6 /* DLShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShopViewController.m; sourceTree = "<group>"; };
 		4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DLMine.plist; sourceTree = "<group>"; };
+		4546E3531ECA896700C7A9A5 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
+		4546E3541ECA896700C7A9A5 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
+		4546E3561ECA8AE000C7A9A5 /* DLSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSortController.h; sourceTree = "<group>"; };
+		4546E3571ECA8AE000C7A9A5 /* DLSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSortController.m; sourceTree = "<group>"; };
+		4546E3591ECA8AF800C7A9A5 /* DLRemmendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemmendController.h; sourceTree = "<group>"; };
+		4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemmendController.m; sourceTree = "<group>"; };
+		4546E35C1ECA8B1500C7A9A5 /* DLMyCustomerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerController.h; sourceTree = "<group>"; };
+		4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
+		4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
+		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
+		4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
+		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -452,6 +470,18 @@
 				45F4CCBD1EC1C55300F4B6BD /* DLMineViewController.h */,
 				45F4CCBE1EC1C55300F4B6BD /* DLMineViewController.m */,
 				45F4CCBF1EC1C55300F4B6BD /* DLMineViewController.xib */,
+				4546E3531ECA896700C7A9A5 /* DLChangePersonDataController.h */,
+				4546E3541ECA896700C7A9A5 /* DLChangePersonDataController.m */,
+				4546E3561ECA8AE000C7A9A5 /* DLSortController.h */,
+				4546E3571ECA8AE000C7A9A5 /* DLSortController.m */,
+				4546E3591ECA8AF800C7A9A5 /* DLRemmendController.h */,
+				4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */,
+				4546E35C1ECA8B1500C7A9A5 /* DLMyCustomerController.h */,
+				4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */,
+				4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */,
+				4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */,
+				4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */,
+				4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -878,6 +908,7 @@
 			files = (
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
+				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
@@ -885,6 +916,7 @@
 				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				1C0B27571EC5B28B006CDFF1 /* DLHomeMenuItem.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,
+				4546E3581ECA8AE000C7A9A5 /* DLSortController.m in Sources */,
 				45F4CD261EC2EBEF00F4B6BD /* UIColor+Addition.m in Sources */,
 				452C65D41EC554AF00C33B67 /* DLMineCenterController.m in Sources */,
 				1C0B27641EC5B2AE006CDFF1 /* DLRecommendRouteModel.m in Sources */,
@@ -897,7 +929,10 @@
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
+				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
+				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
+				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
@@ -906,6 +941,7 @@
 				1C0B276D1EC5B2BE006CDFF1 /* DLHomeViewController.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
+				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
