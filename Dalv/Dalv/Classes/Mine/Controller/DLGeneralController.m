@@ -53,7 +53,6 @@ static NSString *cellID  = @"cellID";
   self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
  
     UIButton *LogoutButton = [[UIButton alloc] initWithFrame:CGRectMake(46, 309, 295, 30)];
-    
 
     [LogoutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     LogoutButton.backgroundColor = [UIColor redColor];

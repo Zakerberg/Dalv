@@ -19,13 +19,10 @@
     [self setupUI];
 }
 
-
-
 -(void)setupUI{
     
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
     
     UITextField *searchTF = [[UITextField alloc] initWithFrame:CGRectMake(46, 101, 213, 30)];
     

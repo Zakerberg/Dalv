@@ -57,12 +57,11 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
+    /********   出发地   *******/
     if (indexPath.row == 0) {
         
-        
-        
         UILabel *cityLabel = [[UILabel alloc] init];
-        
         
         self.cityLabel = cityLabel;
         
@@ -77,15 +76,23 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
         }];
         
     }
+    
+    
+    /*****   目的地    ****/
     if (indexPath.row == 1) {
         
     }
+    
+    /****   旅游人数    *****/
     if (indexPath.row == 2) {
         
     }
+    /****  出发时间   *****/
     if (indexPath.row == 3) {
         
     }
+    
+    /*****   备注   *****/
     if (indexPath.row == 4) {
         
     }
