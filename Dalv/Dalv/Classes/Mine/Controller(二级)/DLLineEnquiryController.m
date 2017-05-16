@@ -46,8 +46,6 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 
 
 #pragma mark - Table view data source
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return 5;
@@ -60,10 +58,6 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
     /********   出发地   *******/
     if (indexPath.row == 0) {
-        
-        UILabel *cityLabel = [[UILabel alloc] init];
-        
-        self.cityLabel = cityLabel;
         
         TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
         [cityPickerVC setDelegate:self];
@@ -103,10 +97,8 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 {
 //    [self.cityPickerButton setTitle:city.cityName forState:UIControlStateNormal];
     
-    self.cityLabel.text = city.cityName;
-    
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
+
     }];
 }
 
@@ -135,8 +127,10 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
     
     if (indexPath.row == 0) {
+        
         cell.textLabel.text = @"出发城市";
     }
+    
     if (indexPath.row == 1) {
         cell.textLabel.text = @"目的地";
     }
@@ -149,6 +143,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     if (indexPath.row == 4) {
         cell.textLabel.text = @"备注";
     }
+
     
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

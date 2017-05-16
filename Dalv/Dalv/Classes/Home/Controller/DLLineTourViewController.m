@@ -80,8 +80,8 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMSHomeTableViewCell];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor clearColor];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor redColor];
     
     if (indexPath.section == 0) {
         [cell.contentView addSubview:self.performanceView];
