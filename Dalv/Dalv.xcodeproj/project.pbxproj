@@ -453,6 +453,7 @@
 		452916971EC176F60033314F /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				4546E3651ECAA3A300C7A9A5 /* Controller(二级) */,
 				452C65A81EC45F6F00C33B67 /* Model */,
 				452C65A91EC45F6F00C33B67 /* View */,
 				452916981EC176F60033314F /* Controller */,
@@ -676,6 +677,13 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4546E3651ECAA3A300C7A9A5 /* Controller(二级) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Controller(二级)";
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {

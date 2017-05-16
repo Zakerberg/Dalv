@@ -161,8 +161,10 @@ static NSString *cellID  = @"cellID";
     /***  线路查询   ***/
     if (indexPath.section == 4) {
         
+        DLLineQueryController * linequery = [[DLLineQueryController alloc]init];
+        
+        [self.navigationController pushViewController:linequery animated:YES ];
     }
-    
     
     /**** 供应商查询   ****/
     if (indexPath.section == 5) {
