@@ -17,7 +17,7 @@
 #import "DLRemmendController.h"
 #import "DLMyCustomerController.h"
 #import "DLLineQueryController.h"
-//#import "DLSupplierqueryController.h"
+#import "DLSupplierqueryController.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -173,9 +173,9 @@ static NSString *cellID  = @"cellID";
     if (indexPath.section == 5) {
         NSLog(@"供应商查询");
         
-//        DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-//        
-//        [self.navigationController pushViewController:sipplierVC animated:YES];
+        DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
+//
+        [self.navigationController pushViewController:sipplierVC animated:YES];
     }
     
     /***  通用   ***/

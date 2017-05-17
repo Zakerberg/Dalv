@@ -46,10 +46,7 @@
 		1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */; };
 		1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */; };
 		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
-
-		1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */; };
-		1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */; };
-		1CC993401ECC4FE0004D10F3 /* DLSupplierqueryController.h in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */; };
+		1CC993401ECC4FE0004D10F3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
@@ -233,7 +230,7 @@
 		452C65B11EC45F9700C33B67 /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
 		452C65BB1EC46CBC00C33B67 /* BLM_UploadUserIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLM_UploadUserIcon.h; sourceTree = "<group>"; };
 		452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLM_UploadUserIcon.m; sourceTree = "<group>"; };
-		452C65C81EC5545C00C33B67 /* MineGeneral.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MineGeneral.plist; sourceTree = "<group>"; };
+		452C65C81EC5545C00C33B67 /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
 		452C65C91EC5545C00C33B67 /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
 		452C65CA1EC5545C00C33B67 /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
 		452C65CF1EC554AF00C33B67 /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
@@ -283,7 +280,6 @@
 		45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
-
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -771,7 +767,7 @@
 			children = (
 				452C65AB1EC45F8F00C33B67 /* DLMineModel.h */,
 				452C65AA1EC45F8F00C33B67 /* DLMineModel.m */,
-				452C65C81EC5545C00C33B67 /* MineGeneral.plist */,
+				452C65C81EC5545C00C33B67 /* zzz.plist */,
 				452C65C91EC5545C00C33B67 /* DLGenralModel.h */,
 				452C65CA1EC5545C00C33B67 /* DLGenralModel.m */,
 				4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */,
@@ -1127,8 +1123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */,
-
-				1CC993401ECC4FE0004D10F3 /* DLSupplierqueryController.h in Sources */,
+				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,

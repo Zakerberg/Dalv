@@ -76,7 +76,6 @@ static NSString *cellID  = @"cellID";
         
         [self presentViewController:loginVC animated:YES completion:nil];
         
-        
     }];
                              
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -94,7 +93,7 @@ static NSString *cellID  = @"cellID";
 - (NSArray *)loadingPlist
 {
     
-    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"MineGeneral.plist" withExtension:nil]];
+    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"zzz.plist" withExtension:nil]];
     NSMutableArray * arrM = [[NSMutableArray alloc]init];
     for (NSArray* arr in array) {
         
