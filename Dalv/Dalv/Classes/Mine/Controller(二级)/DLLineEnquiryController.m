@@ -54,7 +54,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return 3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,19 +85,19 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
         
     }
     
-    /****   旅游人数    *****/
+//    /****   旅游人数    *****/
+//    if (indexPath.row == 2) {
+//        
+//    }
+    /****  出发时间   *****/
     if (indexPath.row == 2) {
         
     }
-    /****  出发时间   *****/
-    if (indexPath.row == 3) {
-        
-    }
     
-    /*****   备注   *****/
-    if (indexPath.row == 4) {
-        
-    }
+//    /*****   备注   *****/
+//    if (indexPath.row == 4) {
+//        
+//    }
 }
 
 
@@ -135,15 +135,15 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     if (indexPath.row == 1) {
         cell.textLabel.text = @"目的地";
     }
+//    if (indexPath.row == 2) {
+//        cell.textLabel.text = @"旅游人数";
+//    }
     if (indexPath.row == 2) {
-        cell.textLabel.text = @"旅游人数";
-    }
-    if (indexPath.row == 3) {
         cell.textLabel.text = @"出发时间";
     }
-    if (indexPath.row == 4) {
-        cell.textLabel.text = @"备注";
-    }
+//    if (indexPath.row == 4) {
+//        cell.textLabel.text = @"备注";
+//    }
 
     
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
@@ -166,16 +166,11 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     [pickerSingle show];
     [self.view endEditing:YES];
     
-
-    
-    
 }
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
     NSLog(@"选择%@",selectedTitle);
     [SelectCityButton setTitle:selectedTitle forState:UIControlStateNormal];
 }
-
-
 
 @end
