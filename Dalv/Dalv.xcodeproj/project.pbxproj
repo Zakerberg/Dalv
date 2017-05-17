@@ -40,8 +40,9 @@
 		1C57A3231ECAA80800C959C9 /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A3171ECAA80800C959C9 /* user@3x.png */; };
 		1CA73B0B1ECAEB19009A5812 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */; };
 		1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */; };
+		1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993111ECBF791004D10F3 /* DLAlertView.m */; };
+		1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993131ECBF791004D10F3 /* DLHUDManager.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
-		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
 		1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */; };
@@ -59,8 +60,6 @@
 		1CCD81AC1EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */; };
 		1CCD81AD1EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */; };
 		1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */; };
-		1CE0E33A1ECAD748002FF9A5 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */; };
-		1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		4529167B1EC1741E0033314F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167A1EC1741E0033314F /* AppDelegate.m */; };
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
@@ -83,14 +82,12 @@
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
 		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
-		4546E3681ECACDA700C7A9A5 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */; };
 		4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E3821ECAE5F200C7A9A5 /* CityData.plist */; };
 		4546E3931ECAE6F000C7A9A5 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3891ECAE6F000C7A9A5 /* TLCity.m */; };
 		4546E3941ECAE6F000C7A9A5 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */; };
 		4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */; };
 		4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */; };
 		4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */; };
-
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -162,6 +159,11 @@
 		1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginView.m; sourceTree = "<group>"; };
 		1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CA73B0E1ECAEE38009A5812 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
+		1CC993101ECBF791004D10F3 /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
+		1CC993111ECBF791004D10F3 /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
+		1CC993121ECBF791004D10F3 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
+		1CC993131ECBF791004D10F3 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
+		1CC993141ECBF791004D10F3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -191,11 +193,6 @@
 		1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_my_pre@2x ..png"; sourceTree = "<group>"; };
 		1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_nor@2x .png"; sourceTree = "<group>"; };
 		1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_pre@2x .png"; sourceTree = "<group>"; };
-		1CE0E3381ECAD748002FF9A5 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
-		1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
-		1CE0E33B1ECAD7D9002FF9A5 /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
-		1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
-		1CE0E33E1ECADB81002FF9A5 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -237,8 +234,6 @@
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
 		4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		4546E3661ECACDA700C7A9A5 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
-		4546E3671ECACDA700C7A9A5 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		4546E3821ECAE5F200C7A9A5 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		4546E3881ECAE6F000C7A9A5 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
 		4546E3891ECAE6F000C7A9A5 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
@@ -251,7 +246,6 @@
 		4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
 		4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
 		4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
-
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -415,6 +409,34 @@
 			path = login;
 			sourceTree = "<group>";
 		};
+		1CC9930E1ECBF791004D10F3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				1CC9930F1ECBF791004D10F3 /* Config */,
+				1CC993151ECBF791004D10F3 /* Network */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		1CC9930F1ECBF791004D10F3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1CC993101ECBF791004D10F3 /* DLAlertView.h */,
+				1CC993111ECBF791004D10F3 /* DLAlertView.m */,
+				1CC993121ECBF791004D10F3 /* DLHUDManager.h */,
+				1CC993131ECBF791004D10F3 /* DLHUDManager.m */,
+				1CC993141ECBF791004D10F3 /* SynthesizeSingleton.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1CC993151ECBF791004D10F3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		1CCD819D1EC2EE94002A80AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,18 +460,6 @@
 				1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */,
 			);
 			path = Tabar;
-			sourceTree = "<group>";
-		};
-		1CE0E3371ECAD714002FF9A5 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				1CE0E33E1ECADB81002FF9A5 /* SynthesizeSingleton.h */,
-				1CE0E3381ECAD748002FF9A5 /* DLHUDManager.h */,
-				1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */,
-				1CE0E33B1ECAD7D9002FF9A5 /* DLAlertView.h */,
-				1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */,
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 		368985653E9A7EB73AACF252 /* Pods */ = {
@@ -512,6 +522,7 @@
 		4529168E1EC176F60033314F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1CC9930E1ECBF791004D10F3 /* General */,
 				1C57A3001ECAA04300C959C9 /* Login */,
 				45420E911EC996BA0044B9C6 /* shop */,
 				45F4CC9D1EC18D9100F4B6BD /* Main */,
@@ -819,7 +830,6 @@
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1CE0E3371ECAD714002FF9A5 /* Config */,
 				45F4CC9E1EC18D9100F4B6BD /* Controller */,
 				45F4CC9F1EC18D9100F4B6BD /* Other */,
 			);
@@ -995,7 +1005,6 @@
 				1C57A31F1ECAA80800C959C9 /* login_input@3x.png in Resources */,
 				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1C57A31C1ECAA80800C959C9 /* login_btn@2x.png in Resources */,
-				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
 				1C0B277F1EC5B2FC006CDFF1 /* nav_2@3x.png in Resources */,
 				4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */,
 			);
@@ -1077,10 +1086,10 @@
 				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
+				1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */,
 				1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
-				1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
@@ -1092,6 +1101,7 @@
 				4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
+				1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
@@ -1102,7 +1112,6 @@
 				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
-				1CE0E33A1ECAD748002FF9A5 /* DLHUDManager.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
