@@ -131,7 +131,7 @@ typedef void (^SMSCommitCodeResultHandler) (SMSSDKUserInfo *userInfo,NSError *er
 
 /**
  * @brief 验证码验证回调
- * @param 0:代表验证成功 1:代表验证失败
+ * @param state 1:代表验证失败
  */
 typedef void (^SMSCommitVerifyCodeBlock)(enum SMSResponseState state);
 

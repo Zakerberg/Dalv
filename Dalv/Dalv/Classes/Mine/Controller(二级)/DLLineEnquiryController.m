@@ -8,6 +8,7 @@
 
 #import "DLLineEnquiryController.h"
 #import "DLCityPickerView.h"
+#import "CalendarHomeViewController.h"
 
 @interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate>{
         UIButton *SelectCityButton;
@@ -75,10 +76,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
         
         [pickerSingle show];
         [self.view endEditing:YES];
-
-        
     }
-    
     
     /*****   目的地    ****/
     if (indexPath.row == 1) {
@@ -91,6 +89,19 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 //    }
     /****  出发时间   *****/
     if (indexPath.row == 2) {
+        
+        CalendarHomeViewController *dtViewC = [[CalendarHomeViewController alloc] init];
+        
+        dtViewC.calendartitle = @"选择日期";
+        
+        [dtViewC setAirPlaneToDay:720 ToDateforString:nil];
+        
+        dtViewC.calendarblock = ^(CalendarDayModel *model){
+            
+            
+        };
+        
+        [self.navigationController pushViewController:dtViewC animated:YES];
         
     }
     
@@ -117,19 +128,10 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:lineEnquiryCellID forIndexPath:indexPath];
     
-//    SelectCityButton=[UIButton buttonWithType:UIButtonTypeCustom];
-//    
-//    [SelectCityButton setTitle:@"XXXXXX" forState:UIControlStateNormal];
-//    
-//    [SelectCityButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [SelectCityButton addTarget:self action:@selector(pickViewSelect:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//
-//    [cell.contentView addSubview:SelectCityButton];
-//    
-    if (indexPath.row == 0) {
 
-      cell.textLabel.text = @"出发城市";
+    if (indexPath.row == 0) {
+        
+            cell.textLabel.text = @"出发城市";
     }
     
     if (indexPath.row == 1) {

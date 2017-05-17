@@ -72,7 +72,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (globalHUD) {
-            [globalHUD hide:YES];
+            [globalHUD hideAnimated:YES];
             globalHUD = nil;
         }
         if (text.length <= 0) {
@@ -82,12 +82,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
             hud.userInteractionEnabled = NO;
             hud.mode = MBProgressHUDModeText;
-            hud.detailsLabelText = text;
+            hud.detailsLabel.text = text;
             hud.margin = 10.f;
             hud.yOffset = offSet;
             hud.removeFromSuperViewOnHide = YES;
             
-            [hud hide:YES afterDelay:time];
+            [hud hideAnimated:YES afterDelay:2];
         }
     });
 }
@@ -124,8 +124,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
         HUD.yOffset = offSet;
         HUD.mode = MBProgressHUDModeCustomView;
         
-        [HUD show:YES];
-        [HUD hide:YES afterDelay:2];
+        [HUD showAnimated:YES];
+        [HUD hideAnimated:YES afterDelay:2];
     });
     
 }
@@ -147,10 +147,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
         
         // Set custom view mode
         HUD.mode = MBProgressHUDModeCustomView;
-        HUD.detailsLabelText = text;
+        HUD.detailsLabel.text = text;
         
-        [HUD show:YES];
-        [HUD hide:YES afterDelay:2];
+        [HUD showAnimated:YES];
+        [HUD hideAnimated:YES afterDelay:2];
         
     });
 }
@@ -225,7 +225,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
             [closeButton addTarget:self action:@selector(hiddenHUD) forControlEvents:UIControlEventTouchUpInside];
             [imageView addSubview:closeButton];
         }
-        [globalHUD show:YES];
+        [globalHUD showAnimated:YES];
     });
 }
 
@@ -234,7 +234,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (globalHUD) {
-            [globalHUD hide:YES];
+            [globalHUD hideAnimated:YES];
             globalHUD = nil;
         }
     });

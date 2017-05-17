@@ -14,6 +14,7 @@
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
 #import "BLMClearCacheTool.h"
+#import "DLLoginViewController.h"
 
 static NSString *cellID  = @"cellID";
 #define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
@@ -71,6 +72,9 @@ static NSString *cellID  = @"cellID";
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
     
+        DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+        
+        [self presentViewController:loginVC animated:YES completion:nil];
         
         
     }];

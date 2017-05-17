@@ -9,7 +9,6 @@
 #import "DLTabBarController.h"
 #import "DLNavigationController.h"
 
-static BOOL isGuwen;
 
 @interface DLTabBarController ()
 
