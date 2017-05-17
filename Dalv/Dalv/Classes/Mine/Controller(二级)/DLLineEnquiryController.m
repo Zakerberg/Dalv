@@ -7,9 +7,13 @@
 //
 
 #import "DLLineEnquiryController.h"
-#import "TLCityPickerController.h"
+#import "DLCityPickerView.h"
 
-@interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,TLCityPickerDelegate>
+@interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate>{
+        UIButton *SelectCityButton;
+    
+}
+
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,strong) UILabel *cityLabel;
 
@@ -20,6 +24,8 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    
     [self setupUI];
 }
 
@@ -59,15 +65,17 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     /********   出发地   *******/
     if (indexPath.row == 0) {
         
-        TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
-        [cityPickerVC setDelegate:self];
+        NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市", nil];
         
-        cityPickerVC.locationCityID = @"1400010000";
-        //    cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];        // 最近访问城市，如果不设置，将自动管理
-        cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
+        DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
         
-        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
-        }];
+        [pickerSingle setDataArray:arrayData];
+        [pickerSingle setDefalutSelectRowStr:arrayData[0]];
+        [pickerSingle setDelegate:self];
+        
+        [pickerSingle show];
+        [self.view endEditing:YES];
+
         
     }
     
@@ -92,22 +100,6 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     }
 }
 
-#pragma mark - TLCityPickerDelegate
-- (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
-{
-//    [self.cityPickerButton setTitle:city.cityName forState:UIControlStateNormal];
-    
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-
-    }];
-}
-
-- (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
-{
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -125,10 +117,19 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:lineEnquiryCellID forIndexPath:indexPath];
     
-    
+//    SelectCityButton=[UIButton buttonWithType:UIButtonTypeCustom];
+//    
+//    [SelectCityButton setTitle:@"XXXXXX" forState:UIControlStateNormal];
+//    
+//    [SelectCityButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [SelectCityButton addTarget:self action:@selector(pickViewSelect:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//
+//    [cell.contentView addSubview:SelectCityButton];
+//    
     if (indexPath.row == 0) {
-        
-        cell.textLabel.text = @"出发城市";
+
+      cell.textLabel.text = @"出发城市";
     }
     
     if (indexPath.row == 1) {
@@ -152,10 +153,29 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)pickViewSelect:(UIButton *)button{
+    
+    NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市", nil];
+    
+    DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
+    
+    [pickerSingle setDataArray:arrayData];
+    [pickerSingle setDefalutSelectRowStr:arrayData[0]];
+    [pickerSingle setDelegate:self];
+    
+    [pickerSingle show];
+    [self.view endEditing:YES];
+    
+
+    
+    
 }
+
+-(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
+    NSLog(@"选择%@",selectedTitle);
+    [SelectCityButton setTitle:selectedTitle forState:UIControlStateNormal];
+}
+
 
 
 @end
