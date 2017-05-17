@@ -40,8 +40,15 @@
 		1C57A3231ECAA80800C959C9 /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C57A3171ECAA80800C959C9 /* user@3x.png */; };
 		1CA73B0B1ECAEB19009A5812 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */; };
 		1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */; };
+		1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993111ECBF791004D10F3 /* DLAlertView.m */; };
+		1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993131ECBF791004D10F3 /* DLHUDManager.m */; };
+		1CC993291ECC1DC4004D10F3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993281ECC1DC4004D10F3 /* DLFileManager.m */; };
+		1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */; };
+		1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */; };
+		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
+		1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */; };
+		1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
-		1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9101EC20DAD002D7EFB /* Info.plist */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
 		1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */; };
@@ -59,8 +66,6 @@
 		1CCD81AC1EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */; };
 		1CCD81AD1EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */; };
 		1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */; };
-		1CE0E33A1ECAD748002FF9A5 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */; };
-		1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		4529167B1EC1741E0033314F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4529167A1EC1741E0033314F /* AppDelegate.m */; };
 		452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916A21EC1773C0033314F /* UIDevice+SLExtension.m */; };
@@ -82,9 +87,11 @@
 		4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */; };
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
+		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
+<<<<<<< HEAD
 		45B262651ECC02B4001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */; };
 		45B262661ECC02B4001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */; };
 		45B262791ECC24EE001E54D7 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262691ECC24EE001E54D7 /* CalendarDayCell.m */; };
@@ -97,6 +104,8 @@
 		45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */; };
 		45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262821ECC326D001E54D7 /* DLDestinationController.m */; };
 		45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262831ECC326D001E54D7 /* DLDestinationController.xib */; };
+=======
+>>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -168,6 +177,22 @@
 		1CA73B0A1ECAEB19009A5812 /* DLLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginView.m; sourceTree = "<group>"; };
 		1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CA73B0E1ECAEE38009A5812 /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
+		1CC993101ECBF791004D10F3 /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
+		1CC993111ECBF791004D10F3 /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
+		1CC993121ECBF791004D10F3 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
+		1CC993131ECBF791004D10F3 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
+		1CC993141ECBF791004D10F3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		1CC993271ECC1DC4004D10F3 /* DLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileManager.h; sourceTree = "<group>"; };
+		1CC993281ECC1DC4004D10F3 /* DLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFileManager.m; sourceTree = "<group>"; };
+		1CC9932A1ECC1E95004D10F3 /* DLHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHttpRequest.h; sourceTree = "<group>"; };
+		1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHttpRequest.m; sourceTree = "<group>"; };
+		1CC9932D1ECC2126004D10F3 /* DLRequestSerVice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRequestSerVice.h; sourceTree = "<group>"; };
+		1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestSerVice.m; sourceTree = "<group>"; };
+		1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourDetailViewController.h; sourceTree = "<group>"; };
+		1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailViewController.m; sourceTree = "<group>"; };
+		1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
+		1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
+		1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,11 +222,6 @@
 		1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_my_pre@2x ..png"; sourceTree = "<group>"; };
 		1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_nor@2x .png"; sourceTree = "<group>"; };
 		1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_pre@2x .png"; sourceTree = "<group>"; };
-		1CE0E3381ECAD748002FF9A5 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
-		1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
-		1CE0E33B1ECAD7D9002FF9A5 /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
-		1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
-		1CE0E33E1ECADB81002FF9A5 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,11 +261,13 @@
 		4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
 		4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
+		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45B262541ECBE836001E54D7 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
 		45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		45B262621ECC02B4001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
@@ -269,6 +291,8 @@
 		45B262811ECC326D001E54D7 /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
 		45B262821ECC326D001E54D7 /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
+=======
+>>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -433,6 +457,40 @@
 			path = login;
 			sourceTree = "<group>";
 		};
+		1CC9930E1ECBF791004D10F3 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				1CC9930F1ECBF791004D10F3 /* Config */,
+				1CC993151ECBF791004D10F3 /* Network */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		1CC9930F1ECBF791004D10F3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1CC993101ECBF791004D10F3 /* DLAlertView.h */,
+				1CC993111ECBF791004D10F3 /* DLAlertView.m */,
+				1CC993121ECBF791004D10F3 /* DLHUDManager.h */,
+				1CC993131ECBF791004D10F3 /* DLHUDManager.m */,
+				1CC993141ECBF791004D10F3 /* SynthesizeSingleton.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1CC993151ECBF791004D10F3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1CC993271ECC1DC4004D10F3 /* DLFileManager.h */,
+				1CC993281ECC1DC4004D10F3 /* DLFileManager.m */,
+				1CC9932A1ECC1E95004D10F3 /* DLHttpRequest.h */,
+				1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */,
+				1CC9932D1ECC2126004D10F3 /* DLRequestSerVice.h */,
+				1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		1CCD819D1EC2EE94002A80AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,18 +514,6 @@
 				1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */,
 			);
 			path = Tabar;
-			sourceTree = "<group>";
-		};
-		1CE0E3371ECAD714002FF9A5 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				1CE0E33E1ECADB81002FF9A5 /* SynthesizeSingleton.h */,
-				1CE0E3381ECAD748002FF9A5 /* DLHUDManager.h */,
-				1CE0E3391ECAD748002FF9A5 /* DLHUDManager.m */,
-				1CE0E33B1ECAD7D9002FF9A5 /* DLAlertView.h */,
-				1CE0E33C1ECAD7D9002FF9A5 /* DLAlertView.m */,
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 		368985653E9A7EB73AACF252 /* Pods */ = {
@@ -530,6 +576,7 @@
 		4529168E1EC176F60033314F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1CC9930E1ECBF791004D10F3 /* General */,
 				1C57A3001ECAA04300C959C9 /* Login */,
 				45420E911EC996BA0044B9C6 /* shop */,
 				45F4CC9D1EC18D9100F4B6BD /* Main */,
@@ -590,12 +637,14 @@
 			children = (
 				1C0B27651EC5B2BE006CDFF1 /* DLHomeViewController.h */,
 				1C0B27661EC5B2BE006CDFF1 /* DLHomeViewController.m */,
-				1C0B27671EC5B2BE006CDFF1 /* DLLineTourViewController.h */,
-				1C0B27681EC5B2BE006CDFF1 /* DLLineTourViewController.m */,
 				1C0B27691EC5B2BE006CDFF1 /* DLMenuViewController.h */,
 				1C0B276A1EC5B2BE006CDFF1 /* DLMenuViewController.m */,
 				1C0B276B1EC5B2BE006CDFF1 /* DLRecommendRouteViewController.h */,
 				1C0B276C1EC5B2BE006CDFF1 /* DLRecommendRouteViewController.m */,
+				1C0B27671EC5B2BE006CDFF1 /* DLLineTourViewController.h */,
+				1C0B27681EC5B2BE006CDFF1 /* DLLineTourViewController.m */,
+				1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */,
+				1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -631,9 +680,9 @@
 				4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */,
 				4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */,
 				4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */,
-				45B262621ECC02B4001E54D7 /* DLSupplierqueryController.h */,
-				45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */,
-				45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */,
+				1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */,
+				1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */,
+				1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -850,7 +899,6 @@
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				1CE0E3371ECAD714002FF9A5 /* Config */,
 				45F4CC9E1EC18D9100F4B6BD /* Controller */,
 				45F4CC9F1EC18D9100F4B6BD /* Other */,
 			);
@@ -1003,7 +1051,6 @@
 				45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */,
 				1C57A31D1ECAA80800C959C9 /* login_btn@3x.png in Resources */,
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
-				45B262661ECC02B4001E54D7 /* DLSupplierqueryController.xib in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1C57A31B1ECAA80800C959C9 /* login_bj@3x.png in Resources */,
 				1C0B27831EC5B2FC006CDFF1 /* nav_4@3x.png in Resources */,
@@ -1027,9 +1074,9 @@
 				1CCD81A91EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png in Resources */,
 				1CCD81A71EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png in Resources */,
 				1C57A31F1ECAA80800C959C9 /* login_input@3x.png in Resources */,
+				1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */,
 				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1C57A31C1ECAA80800C959C9 /* login_btn@2x.png in Resources */,
-				1CC9F9131EC20DAD002D7EFB /* Info.plist in Resources */,
 				1C0B277F1EC5B2FC006CDFF1 /* nav_2@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1093,7 +1140,9 @@
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
+				1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */,
 				45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */,
+				1CC993291ECC1DC4004D10F3 /* DLFileManager.m in Sources */,
 				1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
@@ -1111,22 +1160,31 @@
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */,
+				1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */,
 				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45B2627F1ECC24EE001E54D7 /* CalendarViewController.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
+				1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */,
+				1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */,
 				1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
+<<<<<<< HEAD
 				45B2627D1ECC24EE001E54D7 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */,
+=======
+>>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
+				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
+				1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
+				1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
@@ -1137,14 +1195,12 @@
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
 				45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */,
 				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
-				1CE0E33A1ECAD748002FF9A5 /* DLHUDManager.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,
 				45F4CCB61EC1913100F4B6BD /* DLNavigationController.m in Sources */,
 				1CA73B0B1ECAEB19009A5812 /* DLLoginView.m in Sources */,
 				45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */,
 				1CC9F92D1EC217DF002D7EFB /* UIBarButtonItem+MSExtension.m in Sources */,
-				45B262651ECC02B4001E54D7 /* DLSupplierqueryController.m in Sources */,
 				1C0B27601EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */,
 				45B2627C1ECC24EE001E54D7 /* CalendarLogic.m in Sources */,
