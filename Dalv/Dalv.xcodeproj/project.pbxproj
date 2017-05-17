@@ -46,8 +46,6 @@
 		1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */; };
 		1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */; };
 		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
-		1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */; };
-		1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
@@ -91,8 +89,6 @@
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
-		45B262651ECC02B4001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */; };
-		45B262661ECC02B4001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */; };
 		45B262791ECC24EE001E54D7 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262691ECC24EE001E54D7 /* CalendarDayCell.m */; };
 		45B2627A1ECC24EE001E54D7 /* CalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2626B1ECC24EE001E54D7 /* CalendarDayModel.m */; };
 		45B2627B1ECC24EE001E54D7 /* CalendarHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2626D1ECC24EE001E54D7 /* CalendarHomeViewController.m */; };
@@ -103,6 +99,8 @@
 		45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */; };
 		45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262821ECC326D001E54D7 /* DLDestinationController.m */; };
 		45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262831ECC326D001E54D7 /* DLDestinationController.xib */; };
+		45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */; };
+		45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -187,9 +185,6 @@
 		1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestSerVice.m; sourceTree = "<group>"; };
 		1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourDetailViewController.h; sourceTree = "<group>"; };
 		1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailViewController.m; sourceTree = "<group>"; };
-		1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
-		1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
-		1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -264,9 +259,6 @@
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
 		45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
-		45B262621ECC02B4001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
-		45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
 		45B262681ECC24EE001E54D7 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
 		45B262691ECC24EE001E54D7 /* CalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayCell.m; sourceTree = "<group>"; };
 		45B2626A1ECC24EE001E54D7 /* CalendarDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayModel.h; sourceTree = "<group>"; };
@@ -287,7 +279,9 @@
 		45B262811ECC326D001E54D7 /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
 		45B262821ECC326D001E54D7 /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
-
+		45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
+		45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
+		45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -675,9 +669,9 @@
 				4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */,
 				4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */,
 				4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */,
-				1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */,
-				1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */,
-				1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */,
+				45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */,
+				45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */,
+				45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1045,6 +1039,7 @@
 				1C0B27851EC5B2FC006CDFF1 /* nav_5@3x.png in Resources */,
 				45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */,
 				1C57A31D1ECAA80800C959C9 /* login_btn@3x.png in Resources */,
+				45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */,
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1C57A31B1ECAA80800C959C9 /* login_bj@3x.png in Resources */,
@@ -1069,7 +1064,6 @@
 				1CCD81A91EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png in Resources */,
 				1CCD81A71EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png in Resources */,
 				1C57A31F1ECAA80800C959C9 /* login_input@3x.png in Resources */,
-				1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */,
 				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1C57A31C1ECAA80800C959C9 /* login_btn@2x.png in Resources */,
 				1C0B277F1EC5B2FC006CDFF1 /* nav_2@3x.png in Resources */,
@@ -1131,11 +1125,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */,
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
-				1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */,
 				45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */,
 				1CC993291ECC1DC4004D10F3 /* DLFileManager.m in Sources */,
 				1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */,
@@ -1166,7 +1160,6 @@
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				45B2627D1ECC24EE001E54D7 /* CalendarMonthCollectionViewLayout.m in Sources */,
-				1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
