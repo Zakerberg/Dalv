@@ -48,6 +48,7 @@
 		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
 		1CC993371ECC42A2004D10F3 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CC993351ECC42A2004D10F3 /* DLSupplierqueryController.xib */; };
 		1CC993391ECC42E3004D10F3 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993381ECC42E3004D10F3 /* DLSupplierqueryController.m */; };
+		1CC993401ECC4FE0004D10F3 /* DLSupplierqueryController.h in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993331ECC42A2004D10F3 /* DLSupplierqueryController.h */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
@@ -75,7 +76,6 @@
 		452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65B01EC45F9700C33B67 /* DLMineCell.m */; };
 		452C65B31EC45F9700C33B67 /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452C65B11EC45F9700C33B67 /* DLMineCell.xib */; };
 		452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */; };
-		452C65CC1EC5545C00C33B67 /* MineGeneral.plist in Resources */ = {isa = PBXBuildFile; fileRef = 452C65C81EC5545C00C33B67 /* MineGeneral.plist */; };
 		452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65CA1EC5545C00C33B67 /* DLGenralModel.m */; };
 		452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65CF1EC554AF00C33B67 /* DLGeneralController.m */; };
 		452C65D41EC554AF00C33B67 /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C65D11EC554AF00C33B67 /* DLMineCenterController.m */; };
@@ -87,12 +87,9 @@
 		4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */; };
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
-		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
-		45B262651ECC02B4001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */; };
-		45B262661ECC02B4001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */; };
 		45B262791ECC24EE001E54D7 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262691ECC24EE001E54D7 /* CalendarDayCell.m */; };
 		45B2627A1ECC24EE001E54D7 /* CalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2626B1ECC24EE001E54D7 /* CalendarDayModel.m */; };
 		45B2627B1ECC24EE001E54D7 /* CalendarHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2626D1ECC24EE001E54D7 /* CalendarHomeViewController.m */; };
@@ -258,15 +255,11 @@
 		4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
 		4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
-		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45B262541ECBE836001E54D7 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
 		45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
-		45B262621ECC02B4001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
-		45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
 		45B262681ECC24EE001E54D7 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
 		45B262691ECC24EE001E54D7 /* CalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayCell.m; sourceTree = "<group>"; };
 		45B2626A1ECC24EE001E54D7 /* CalendarDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayModel.h; sourceTree = "<group>"; };
@@ -287,7 +280,6 @@
 		45B262811ECC326D001E54D7 /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
 		45B262821ECC326D001E54D7 /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
-
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -1037,7 +1029,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452C65CC1EC5545C00C33B67 /* MineGeneral.plist in Resources */,
 				1C57A3181ECAA80800C959C9 /* lock@2x.png in Resources */,
 				1C57A3231ECAA80800C959C9 /* user@3x.png in Resources */,
 				1C0B27811EC5B2FC006CDFF1 /* nav_3@3x.png in Resources */,
@@ -1131,6 +1122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC993401ECC4FE0004D10F3 /* DLSupplierqueryController.h in Sources */,
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
@@ -1166,10 +1158,8 @@
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				45B2627D1ECC24EE001E54D7 /* CalendarMonthCollectionViewLayout.m in Sources */,
-				1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
-				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
 				1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
