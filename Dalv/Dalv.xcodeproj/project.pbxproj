@@ -88,6 +88,9 @@
 		4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */; };
 		4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */; };
 		4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */; };
+		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
+		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
+		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -246,6 +249,11 @@
 		4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
 		4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
 		4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
+		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45B262541ECBE836001E54D7 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
+		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
+		45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
+		45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */,
 				45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */,
 				45F4CD1F1EC2E08400F4B6BD /* CoreTelephony.framework in Frameworks */,
 				45F4CD1D1EC2E07600F4B6BD /* SystemConfiguration.framework in Frameworks */,
@@ -666,7 +675,7 @@
 		4529169F1EC1773C0033314F /* Toos */ = {
 			isa = PBXGroup;
 			children = (
-				4546E3811ECAE5EA00C7A9A5 /* BLMCityChoice */,
+				45B262531ECBE7E7001E54D7 /* City */,
 				452C65D51EC55DEA00C33B67 /* ClearCache */,
 				452916A01EC1773C0033314F /* Device */,
 				452916A31EC1773C0033314F /* HUD */,
@@ -800,31 +809,15 @@
 			path = "Controller(二级)";
 			sourceTree = "<group>";
 		};
-		4546E3811ECAE5EA00C7A9A5 /* BLMCityChoice */ = {
+		45B262531ECBE7E7001E54D7 /* City */ = {
 			isa = PBXGroup;
 			children = (
-				4546E3821ECAE5F200C7A9A5 /* CityData.plist */,
-				4546E3871ECAE6F000C7A9A5 /* TLCityPicker */,
+				45B262541ECBE836001E54D7 /* DLBasePickerView.h */,
+				45B262551ECBE836001E54D7 /* DLBasePickerView.m */,
+				45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */,
+				45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */,
 			);
-			path = BLMCityChoice;
-			sourceTree = "<group>";
-		};
-		4546E3871ECAE6F000C7A9A5 /* TLCityPicker */ = {
-			isa = PBXGroup;
-			children = (
-				4546E3881ECAE6F000C7A9A5 /* TLCity.h */,
-				4546E3891ECAE6F000C7A9A5 /* TLCity.m */,
-				4546E38A1ECAE6F000C7A9A5 /* TLCityGroupCell.h */,
-				4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */,
-				4546E38C1ECAE6F000C7A9A5 /* TLCityHeaderView.h */,
-				4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */,
-				4546E38E1ECAE6F000C7A9A5 /* TLCityPickerController.h */,
-				4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */,
-				4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */,
-				4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */,
-				4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */,
-			);
-			path = TLCityPicker;
+			path = City;
 			sourceTree = "<group>";
 		};
 		45F4CC9D1EC18D9100F4B6BD /* Main */ = {
@@ -896,6 +889,7 @@
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45B262511ECBDDE8001E54D7 /* CoreLocation.framework */,
 				45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */,
 				45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */,
 				45F4CD1C1EC2E07600F4B6BD /* SystemConfiguration.framework */,
@@ -1006,7 +1000,6 @@
 				1CCD81AB1EC2EF01002A80AB /* dalvu_tabar_my_nor@2x .png in Resources */,
 				1C57A31C1ECAA80800C959C9 /* login_btn@2x.png in Resources */,
 				1C0B277F1EC5B2FC006CDFF1 /* nav_2@3x.png in Resources */,
-				4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,8 +1061,8 @@
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
-				4546E3941ECAE6F000C7A9A5 /* TLCityGroupCell.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
+				45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */,
 				1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
@@ -1083,6 +1076,7 @@
 				1C0B27641EC5B2AE006CDFF1 /* DLRecommendRouteModel.m in Sources */,
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
+				45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */,
 				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
@@ -1093,12 +1087,9 @@
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
-				4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
-				4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */,
-				4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */,
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
 				1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */,
@@ -1106,7 +1097,6 @@
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
 				1C0B276D1EC5B2BE006CDFF1 /* DLHomeViewController.m in Sources */,
-				4546E3931ECAE6F000C7A9A5 /* TLCity.m in Sources */,
 				452C65B21EC45F9700C33B67 /* DLMineCell.m in Sources */,
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
 				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
