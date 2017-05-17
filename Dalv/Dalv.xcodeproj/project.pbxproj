@@ -91,7 +91,6 @@
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
-<<<<<<< HEAD
 		45B262651ECC02B4001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */; };
 		45B262661ECC02B4001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */; };
 		45B262791ECC24EE001E54D7 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262691ECC24EE001E54D7 /* CalendarDayCell.m */; };
@@ -104,8 +103,6 @@
 		45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */; };
 		45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262821ECC326D001E54D7 /* DLDestinationController.m */; };
 		45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262831ECC326D001E54D7 /* DLDestinationController.xib */; };
-=======
->>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -267,7 +264,6 @@
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		45B262571ECBE8EC001E54D7 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
 		45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		45B262621ECC02B4001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		45B262631ECC02B4001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262641ECC02B4001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
@@ -291,8 +287,7 @@
 		45B262811ECC326D001E54D7 /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
 		45B262821ECC326D001E54D7 /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
-=======
->>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
+
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -1170,11 +1165,8 @@
 				1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
-<<<<<<< HEAD
 				45B2627D1ECC24EE001E54D7 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CE0E33D1ECAD7D9002FF9A5 /* DLAlertView.m in Sources */,
-=======
->>>>>>> 0ed39aec22cf0695b447762d77dad82609c008d9
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
