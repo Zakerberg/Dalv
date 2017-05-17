@@ -42,6 +42,10 @@
 		1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */; };
 		1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993111ECBF791004D10F3 /* DLAlertView.m */; };
 		1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993131ECBF791004D10F3 /* DLHUDManager.m */; };
+		1CC993291ECC1DC4004D10F3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993281ECC1DC4004D10F3 /* DLFileManager.m */; };
+		1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */; };
+		1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */; };
+		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
@@ -82,12 +86,6 @@
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
 		4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */; };
-		4546E3831ECAE5F200C7A9A5 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4546E3821ECAE5F200C7A9A5 /* CityData.plist */; };
-		4546E3931ECAE6F000C7A9A5 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3891ECAE6F000C7A9A5 /* TLCity.m */; };
-		4546E3941ECAE6F000C7A9A5 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */; };
-		4546E3951ECAE6F000C7A9A5 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */; };
-		4546E3961ECAE6F000C7A9A5 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */; };
-		4546E3971ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
@@ -167,6 +165,14 @@
 		1CC993121ECBF791004D10F3 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
 		1CC993131ECBF791004D10F3 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
 		1CC993141ECBF791004D10F3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		1CC993271ECC1DC4004D10F3 /* DLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileManager.h; sourceTree = "<group>"; };
+		1CC993281ECC1DC4004D10F3 /* DLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFileManager.m; sourceTree = "<group>"; };
+		1CC9932A1ECC1E95004D10F3 /* DLHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHttpRequest.h; sourceTree = "<group>"; };
+		1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHttpRequest.m; sourceTree = "<group>"; };
+		1CC9932D1ECC2126004D10F3 /* DLRequestSerVice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRequestSerVice.h; sourceTree = "<group>"; };
+		1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestSerVice.m; sourceTree = "<group>"; };
+		1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourDetailViewController.h; sourceTree = "<group>"; };
+		1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailViewController.m; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -237,18 +243,6 @@
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
 		4546E3621ECA8BC500C7A9A5 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		4546E3631ECA8BC500C7A9A5 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		4546E3821ECAE5F200C7A9A5 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
-		4546E3881ECAE6F000C7A9A5 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
-		4546E3891ECAE6F000C7A9A5 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
-		4546E38A1ECAE6F000C7A9A5 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
-		4546E38B1ECAE6F000C7A9A5 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
-		4546E38C1ECAE6F000C7A9A5 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
-		4546E38D1ECAE6F000C7A9A5 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
-		4546E38E1ECAE6F000C7A9A5 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
-		4546E38F1ECAE6F000C7A9A5 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
-		4546E3901ECAE6F000C7A9A5 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
-		4546E3911ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
-		4546E3921ECAE6F000C7A9A5 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45B262541ECBE836001E54D7 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
@@ -442,6 +436,12 @@
 		1CC993151ECBF791004D10F3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1CC993271ECC1DC4004D10F3 /* DLFileManager.h */,
+				1CC993281ECC1DC4004D10F3 /* DLFileManager.m */,
+				1CC9932A1ECC1E95004D10F3 /* DLHttpRequest.h */,
+				1CC9932B1ECC1E95004D10F3 /* DLHttpRequest.m */,
+				1CC9932D1ECC2126004D10F3 /* DLRequestSerVice.h */,
+				1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -592,12 +592,14 @@
 			children = (
 				1C0B27651EC5B2BE006CDFF1 /* DLHomeViewController.h */,
 				1C0B27661EC5B2BE006CDFF1 /* DLHomeViewController.m */,
-				1C0B27671EC5B2BE006CDFF1 /* DLLineTourViewController.h */,
-				1C0B27681EC5B2BE006CDFF1 /* DLLineTourViewController.m */,
 				1C0B27691EC5B2BE006CDFF1 /* DLMenuViewController.h */,
 				1C0B276A1EC5B2BE006CDFF1 /* DLMenuViewController.m */,
 				1C0B276B1EC5B2BE006CDFF1 /* DLRecommendRouteViewController.h */,
 				1C0B276C1EC5B2BE006CDFF1 /* DLRecommendRouteViewController.m */,
+				1C0B27671EC5B2BE006CDFF1 /* DLLineTourViewController.h */,
+				1C0B27681EC5B2BE006CDFF1 /* DLLineTourViewController.m */,
+				1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */,
+				1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1063,6 +1065,7 @@
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
 				45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */,
+				1CC993291ECC1DC4004D10F3 /* DLFileManager.m in Sources */,
 				1C57A3071ECAA0E200C959C9 /* DLLoginViewController.m in Sources */,
 				1C0B276E1EC5B2BE006CDFF1 /* DLLineTourViewController.m in Sources */,
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
@@ -1077,16 +1080,19 @@
 				45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */,
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */,
+				1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */,
 				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */,
 				1CC993171ECBF791004D10F3 /* DLHUDManager.m in Sources */,
+				1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */,
 				1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */,
 				1CC9F92F1EC217DF002D7EFB /* UIView+LayoutMethods.m in Sources */,
 				1C0B27611EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				452916A71EC1773C0033314F /* UIViewController+BLMHUD.m in Sources */,
 				4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */,
 				4546E3641ECA8BC500C7A9A5 /* DLSupplierqueryController.m in Sources */,
+				1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */,
 				45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */,
 				4546E3551ECA896700C7A9A5 /* DLChangePersonDataController.m in Sources */,
 				1CC9F92C1EC217DF002D7EFB /* NSString+Extension.m in Sources */,
