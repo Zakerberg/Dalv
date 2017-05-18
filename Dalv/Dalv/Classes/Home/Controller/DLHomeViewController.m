@@ -12,9 +12,10 @@
 #import "DLRecommendRouteModel.h"
 #import "DLCityPopMenuView.h"
 #import "DLLoginViewController.h"
+#import "DLHomeViewTask.h"
 
-static NSString *kMSHomeTableViewCell = @"MSHomeTableViewCell";
-static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
+static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
+static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
@@ -69,9 +70,9 @@ static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
     homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
-          forCellReuseIdentifier:kMSHomeTableViewCell];
+          forCellReuseIdentifier:kDLHomeTableViewCell];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
+forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
@@ -96,7 +97,7 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMSHomeTableViewCell];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     
@@ -122,7 +123,7 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 2 && [self.hotTopicViewController contentHeight] > 0) {
-        UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kMSHomeTableViewHeader];
+        UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kDLHomeTableViewHeader];
         
         UIView *flagView = [[UIView alloc] init];
         flagView.backgroundColor = [UIColor colorWithHexString:@"#f74c31"];
@@ -199,6 +200,12 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
 
+//    NSDictionary *param = @{@"login_name" : @"13126997215",
+//                            @"login_pwd" : @"654321",
+//                            };
+    [DLHomeViewTask getHomeVCData:nil completion:^(id result, NSError *error) {
+        
+    }];
 }
 
 #pragma mark - Event Handler

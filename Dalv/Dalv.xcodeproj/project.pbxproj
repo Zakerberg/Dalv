@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C075D081ECD4EB800BF646D /* shangwuhezuo_bj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */; };
+		1C075D111ECD52C700BF646D /* DLLineDetialPriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */; };
 		1C0B27571EC5B28B006CDFF1 /* DLHomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B27541EC5B28B006CDFF1 /* DLHomeMenuItem.m */; };
 		1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B27561EC5B28B006CDFF1 /* DLHomePageViewModel.m */; };
 		1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B275A1EC5B29B006CDFF1 /* DLCityPopMenuView.m */; };
@@ -47,6 +49,8 @@
 		1CC9932F1ECC2126004D10F3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */; };
 		1CC993321ECC3445004D10F3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */; };
 		1CC993401ECC4FE0004D10F3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		1CC993461ECC8826004D10F3 /* DLHomeViewTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993451ECC8826004D10F3 /* DLHomeViewTask.m */; };
+		1CC993491ECC8BF8004D10F3 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC993481ECC8BF8004D10F3 /* NSArray+Log.m */; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */; };
@@ -127,6 +131,10 @@
 
 /* Begin PBXFileReference section */
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
+		1C075D051ECD319F00BF646D /* InterfaceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfig.h; sourceTree = "<group>"; };
+		1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shangwuhezuo_bj.png; sourceTree = "<group>"; };
+		1C075D0F1ECD52C700BF646D /* DLLineDetialPriceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialPriceView.h; sourceTree = "<group>"; };
+		1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialPriceView.m; sourceTree = "<group>"; };
 		1C0B27531EC5B28B006CDFF1 /* DLHomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeMenuItem.h; sourceTree = "<group>"; };
 		1C0B27541EC5B28B006CDFF1 /* DLHomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeMenuItem.m; sourceTree = "<group>"; };
 		1C0B27551EC5B28B006CDFF1 /* DLHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomePageViewModel.h; sourceTree = "<group>"; };
@@ -187,6 +195,10 @@
 		1CC9932E1ECC2126004D10F3 /* DLRequestSerVice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestSerVice.m; sourceTree = "<group>"; };
 		1CC993301ECC3445004D10F3 /* DLLineTourDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourDetailViewController.h; sourceTree = "<group>"; };
 		1CC993311ECC3445004D10F3 /* DLLineTourDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailViewController.m; sourceTree = "<group>"; };
+		1CC993441ECC8826004D10F3 /* DLHomeViewTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeViewTask.h; sourceTree = "<group>"; };
+		1CC993451ECC8826004D10F3 /* DLHomeViewTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeViewTask.m; sourceTree = "<group>"; };
+		1CC993471ECC8BF8004D10F3 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		1CC993481ECC8BF8004D10F3 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -340,6 +352,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C075D061ECD4EB800BF646D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		1C0B27711EC5B2FC006CDFF1 /* Homecommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +397,8 @@
 				1C0B275C1EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m */,
 				1C0B275D1EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.h */,
 				1C0B275E1EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m */,
+				1C075D0F1ECD52C700BF646D /* DLLineDetialPriceView.h */,
+				1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,9 +506,19 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		1CC993431ECC87D9004D10F3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1CC993441ECC8826004D10F3 /* DLHomeViewTask.h */,
+				1CC993451ECC8826004D10F3 /* DLHomeViewTask.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		1CCD819D1EC2EE94002A80AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1C075D061ECD4EB800BF646D /* Common */,
 				1C57A30B1ECAA80800C959C9 /* login */,
 				1C0B27711EC5B2FC006CDFF1 /* Homecommon */,
 				1CCD819E1EC2EEB9002A80AB /* Tabar */,
@@ -562,6 +594,7 @@
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
 				1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */,
 				1C5383F91EC4267900AC30F9 /* Consts.h */,
+				1C075D051ECD319F00BF646D /* InterfaceConfig.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -617,6 +650,7 @@
 		452916931EC176F60033314F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1CC993431ECC87D9004D10F3 /* Service */,
 				1C5383EC1EC3E7DF00AC30F9 /* Model */,
 				1C5383E51EC3E4A800AC30F9 /* View */,
 				1C5383DE1EC3DC2200AC30F9 /* ViewModel */,
@@ -762,6 +796,8 @@
 				1CC9F92A1EC217DF002D7EFB /* UIViewController+MSExtension.m */,
 				1CC9F9191EC21679002D7EFB /* UIColor+MSExtension.h */,
 				1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */,
+				1CC993471ECC8BF8004D10F3 /* NSArray+Log.h */,
+				1CC993481ECC8BF8004D10F3 /* NSArray+Log.m */,
 				452916A91EC177830033314F /* UIColor+BLMColor.h */,
 				452916AA1EC177830033314F /* UIColor+BLMColor.m */,
 			);
@@ -1057,6 +1093,7 @@
 				1C0B27821EC5B2FC006CDFF1 /* nav_4@2x.png in Resources */,
 				452C65B31EC45F9700C33B67 /* DLMineCell.xib in Resources */,
 				1C57A3221ECAA80800C959C9 /* user@2x.png in Resources */,
+				1C075D081ECD4EB800BF646D /* shangwuhezuo_bj.png in Resources */,
 				1C57A31A1ECAA80800C959C9 /* login_bj@2x.png in Resources */,
 				1C0B27841EC5B2FC006CDFF1 /* nav_5@2x.png in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
@@ -1136,6 +1173,7 @@
 				45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */,
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
+				1C075D111ECD52C700BF646D /* DLLineDetialPriceView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
@@ -1198,6 +1236,8 @@
 				1C0B27601EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				1CC9F91B1EC21679002D7EFB /* UIColor+MSExtension.m in Sources */,
 				45B2627C1ECC24EE001E54D7 /* CalendarLogic.m in Sources */,
+				1CC993491ECC8BF8004D10F3 /* NSArray+Log.m in Sources */,
+				1CC993461ECC8826004D10F3 /* DLHomeViewTask.m in Sources */,
 				45B2627B1ECC24EE001E54D7 /* CalendarHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
