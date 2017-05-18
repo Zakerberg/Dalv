@@ -8,6 +8,7 @@
 
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteCollectionViewCell.h"
+#import "DLLineTourDetailViewController.h"
 
 static NSString *kMSHotTopicTableViewHeader = @"MSHotTopicTableViewHeader";
 static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
@@ -163,9 +164,12 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    NSLog(@"点击了推荐线路");
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    DLLineTourDetailViewController *DLlinetourDetailVC = [[DLLineTourDetailViewController alloc]init];
+    [self.navigationController pushViewController:DLlinetourDetailVC animated:YES];
+
+//    NSLog(@"点击了推荐线路");
  }
 
 

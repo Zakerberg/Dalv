@@ -11,8 +11,8 @@
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteModel.h"
 
-static NSString *kMSHomeTableViewCell = @"MSHomeTableViewCell";
-static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
+static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
+static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 @interface DLLineTourViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) UITableView *homeTableView;
@@ -52,9 +52,9 @@ static NSString *kMSHomeTableViewHeader = @"MSHomeTableViewHeader";
     homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
-          forCellReuseIdentifier:kMSHomeTableViewCell];
+          forCellReuseIdentifier:kDLHomeTableViewCell];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
+forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
@@ -79,7 +79,7 @@ forHeaderFooterViewReuseIdentifier:kMSHomeTableViewHeader];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMSHomeTableViewCell];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor redColor];
     
