@@ -27,6 +27,7 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong)NSArray * mineArrayData;
 @property(nonatomic,strong)UIView *headerView;  //headerView属性
 @property(nonatomic,strong)UIImageView * picImg; //背景图
+@property(nonatomic,strong)UIButton * personBtn;
 
 @end
 
@@ -68,16 +69,16 @@ static NSString *cellID  = @"cellID";
     }];
     
     //设置头像按钮
-    UIButton * personBtn = [[UIButton alloc]init];
-    [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
-    [picImg addSubview:personBtn];
+    self.personBtn = [[UIButton alloc]init];
+    [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
+    [picImg addSubview:self.personBtn];
     
-    [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(picImg);
         make.width.height.offset(67);
     }];
     
-    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 //头像按钮的点击事件
@@ -88,14 +89,12 @@ static NSString *cellID  = @"cellID";
     
 //   ----------------------------------------------------------------------
     
-    
-    
 }
 
 #pragma mark - 代理方法
 - (void)uploadImageToServerWithImage:(UIImage *)image {
-   
-    //
+    
+    [self.personBtn setImage:image forState:UIControlStateNormal];
     
 }
 
@@ -143,9 +142,9 @@ static NSString *cellID  = @"cellID";
     }
 
     /*****  模块排序    *****/
-    if (indexPath.section == 1) {
-        NSLog(@"模块排序");
-    }
+//    if (indexPath.section == 1) {
+//        NSLog(@"模块排序");
+//    }
     
     /***  我的推荐   ***/
     if (indexPath.section == 2) {
