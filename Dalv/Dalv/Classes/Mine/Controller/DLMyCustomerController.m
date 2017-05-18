@@ -7,6 +7,7 @@
 //
 
 #import "DLMyCustomerController.h"
+#import "DLCommissionController.h"
 
 @interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableview;
@@ -67,6 +68,10 @@ static NSString *MyCustomerCellID = @"MyCustomer_Cell_ID";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.row == 0){
+        
+        DLCommissionController *commisonVC = [[DLCommissionController alloc] init];
+        
+        [self presentViewController:commisonVC animated:YES completion:nil];
         
     }
     if(indexPath.row ==1){

@@ -153,6 +153,15 @@
         UIAlertView *alertSecretNil=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"密码不能为空" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
         
         [alertSecretNil show];
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }
 

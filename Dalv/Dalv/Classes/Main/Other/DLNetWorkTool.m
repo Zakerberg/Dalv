@@ -9,6 +9,7 @@
 #import "DLNetWorkTool.h"
 
 @implementation DLNetWorkTool
+#define  DLPort  http://dalvuapi.dalvu.com/index.php/Api/
 
 
 // 全局访问点

@@ -96,10 +96,13 @@
 		45B2627E1ECC24EE001E54D7 /* CalendarMonthHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262731ECC24EE001E54D7 /* CalendarMonthHeaderView.m */; };
 		45B2627F1ECC24EE001E54D7 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262751ECC24EE001E54D7 /* CalendarViewController.m */; };
 		45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */; };
-		45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262821ECC326D001E54D7 /* DLDestinationController.m */; };
 		45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262831ECC326D001E54D7 /* DLDestinationController.xib */; };
 		45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */; };
 		45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */; };
+		45CC9DBE1ECC88F3005B5C1A /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45CC9DBD1ECC88F3005B5C1A /* zzz.plist */; };
+		45CC9DC21ECD300D005B5C1A /* DLCommissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CC9DC01ECD300D005B5C1A /* DLCommissionController.m */; };
+		45CC9DC31ECD300D005B5C1A /* DLCommissionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CC9DC11ECD300D005B5C1A /* DLCommissionController.xib */; };
+		45CC9DC91ECD373E005B5C1A /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CC9DC81ECD373E005B5C1A /* DLDestinationController.m */; };
 		45F4CCA21EC18DF600F4B6BD /* DLNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */; };
 		45F4CCA51EC18EED00F4B6BD /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCA41EC18EED00F4B6BD /* DLTabBarController.m */; };
 		45F4CCAE1EC18FB000F4B6BD /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F4CCAD1EC18FB000F4B6BD /* DLOrderViewController.m */; };
@@ -230,7 +233,6 @@
 		452C65B11EC45F9700C33B67 /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
 		452C65BB1EC46CBC00C33B67 /* BLM_UploadUserIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLM_UploadUserIcon.h; sourceTree = "<group>"; };
 		452C65BC1EC46CBC00C33B67 /* BLM_UploadUserIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLM_UploadUserIcon.m; sourceTree = "<group>"; };
-		452C65C81EC5545C00C33B67 /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
 		452C65C91EC5545C00C33B67 /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
 		452C65CA1EC5545C00C33B67 /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
 		452C65CF1EC554AF00C33B67 /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
@@ -274,12 +276,16 @@
 		45B262761ECC24EE001E54D7 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		45B262771ECC24EE001E54D7 /* NSDate+WQCalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WQCalendarLogic.h"; sourceTree = "<group>"; };
 		45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WQCalendarLogic.m"; sourceTree = "<group>"; };
-		45B262811ECC326D001E54D7 /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
-		45B262821ECC326D001E54D7 /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
 		45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
+		45CC9DBD1ECC88F3005B5C1A /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
+		45CC9DBF1ECD300D005B5C1A /* DLCommissionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCommissionController.h; sourceTree = "<group>"; };
+		45CC9DC01ECD300D005B5C1A /* DLCommissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCommissionController.m; sourceTree = "<group>"; };
+		45CC9DC11ECD300D005B5C1A /* DLCommissionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCommissionController.xib; sourceTree = "<group>"; };
+		45CC9DC71ECD373E005B5C1A /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
+		45CC9DC81ECD373E005B5C1A /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		45F4CCA01EC18DF600F4B6BD /* DLNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNetWorkTool.h; sourceTree = "<group>"; };
 		45F4CCA11EC18DF600F4B6BD /* DLNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNetWorkTool.m; sourceTree = "<group>"; };
 		45F4CCA31EC18EED00F4B6BD /* DLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTabBarController.h; sourceTree = "<group>"; };
@@ -765,9 +771,9 @@
 		452C65A81EC45F6F00C33B67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				45CC9DBD1ECC88F3005B5C1A /* zzz.plist */,
 				452C65AB1EC45F8F00C33B67 /* DLMineModel.h */,
 				452C65AA1EC45F8F00C33B67 /* DLMineModel.m */,
-				452C65C81EC5545C00C33B67 /* zzz.plist */,
 				452C65C91EC5545C00C33B67 /* DLGenralModel.h */,
 				452C65CA1EC5545C00C33B67 /* DLGenralModel.m */,
 				4546E3511EC9B5DB00C7A9A5 /* DLMine.plist */,
@@ -841,8 +847,11 @@
 			children = (
 				1CA73B0E1ECAEE38009A5812 /* DLLineEnquiryController.h */,
 				1CA73B0C1ECAEBEA009A5812 /* DLLineEnquiryController.m */,
-				45B262811ECC326D001E54D7 /* DLDestinationController.h */,
-				45B262821ECC326D001E54D7 /* DLDestinationController.m */,
+				45CC9DBF1ECD300D005B5C1A /* DLCommissionController.h */,
+				45CC9DC01ECD300D005B5C1A /* DLCommissionController.m */,
+				45CC9DC11ECD300D005B5C1A /* DLCommissionController.xib */,
+				45CC9DC71ECD373E005B5C1A /* DLDestinationController.h */,
+				45CC9DC81ECD373E005B5C1A /* DLDestinationController.m */,
 				45B262831ECC326D001E54D7 /* DLDestinationController.xib */,
 			);
 			path = "Controller(二级)";
@@ -1035,9 +1044,11 @@
 				4546E3521EC9B5DB00C7A9A5 /* DLMine.plist in Resources */,
 				1C0B27851EC5B2FC006CDFF1 /* nav_5@3x.png in Resources */,
 				45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */,
+				45CC9DC31ECD300D005B5C1A /* DLCommissionController.xib in Resources */,
 				1C57A31D1ECAA80800C959C9 /* login_btn@3x.png in Resources */,
 				45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */,
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
+				45CC9DBE1ECC88F3005B5C1A /* zzz.plist in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1C57A31B1ECAA80800C959C9 /* login_bj@3x.png in Resources */,
 				1C0B27831EC5B2FC006CDFF1 /* nav_4@3x.png in Resources */,
@@ -1148,6 +1159,7 @@
 				452916A61EC1773C0033314F /* UIDevice+SLExtension.m in Sources */,
 				45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */,
 				1CC9932C1ECC1E95004D10F3 /* DLHttpRequest.m in Sources */,
+				45CC9DC21ECD300D005B5C1A /* DLCommissionController.m in Sources */,
 				45420E971EC997AB0044B9C6 /* DLShopViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				45B2627F1ECC24EE001E54D7 /* CalendarViewController.m in Sources */,
@@ -1167,6 +1179,7 @@
 				1C0B276F1EC5B2BE006CDFF1 /* DLMenuViewController.m in Sources */,
 				1CA73B0D1ECAEBEA009A5812 /* DLLineEnquiryController.m in Sources */,
 				1CC993161ECBF791004D10F3 /* DLAlertView.m in Sources */,
+				45CC9DC91ECD373E005B5C1A /* DLDestinationController.m in Sources */,
 				452C65D31EC554AF00C33B67 /* DLGeneralController.m in Sources */,
 				452C65CD1EC5545C00C33B67 /* DLGenralModel.m in Sources */,
 				452C65AD1EC45F8F00C33B67 /* DLMineModel.m in Sources */,
@@ -1175,7 +1188,6 @@
 				452C65BD1EC46CBC00C33B67 /* BLM_UploadUserIcon.m in Sources */,
 				4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */,
 				1CC9F9311EC217DF002D7EFB /* UIViewController+MSExtension.m in Sources */,
-				45B262841ECC326D001E54D7 /* DLDestinationController.m in Sources */,
 				452C65D81EC55DFF00C33B67 /* BLMClearCacheTool.m in Sources */,
 				1CC9F92B1EC217DF002D7EFB /* NSDate+MSExtension.m in Sources */,
 				45F4CCB11EC18FC300F4B6BD /* DLFianceViewController.m in Sources */,

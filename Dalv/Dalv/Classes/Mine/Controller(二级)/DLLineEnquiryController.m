@@ -9,14 +9,19 @@
 #import "DLLineEnquiryController.h"
 #import "DLCityPickerView.h"
 #import "CalendarHomeViewController.h"
+#import "DLDestinationController.h"
 
-@interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate>{
+@interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate> {
         UIButton *SelectCityButton;
     
 }
 
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,strong) UILabel *cityLabel;
+@property (nonatomic,strong) UITableViewCell *chufacell;
+@property (nonatomic,strong) UITableViewCell *Datecell;
+@property (nonatomic,strong) UITableViewCell *Destinationcell;
+
 
 @end
 static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
@@ -28,6 +33,8 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
     
     [self setupUI];
+    
+    
 }
 
 
@@ -49,6 +56,9 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     tableview.tableFooterView = [[UIView alloc]init];
     
 }
+
+
+
 
 
 
@@ -81,6 +91,13 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     /*****   目的地    ****/
     if (indexPath.row == 1) {
         
+        DLDestinationController *destinationVC = [[DLDestinationController alloc] init];
+        
+        destinationVC.cityBlock = ^(NSString *cityStr){
+            self.Destinationcell.textLabel.text = cityStr;
+        };
+        
+      [self presentViewController:destinationVC animated:YES completion:nil];
     }
     
 //    /****   旅游人数    *****/
@@ -98,7 +115,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
         
         dtViewC.calendarblock = ^(CalendarDayModel *model){
             
-            
+            self.Datecell.textLabel.text = [model toString];
         };
         
         [self.navigationController pushViewController:dtViewC animated:YES];
@@ -131,17 +148,21 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 
     if (indexPath.row == 0) {
         
-            cell.textLabel.text = @"出发城市";
+        cell.textLabel.text = @"出发城市";
+        self.chufacell = cell;
     }
     
     if (indexPath.row == 1) {
         cell.textLabel.text = @"目的地";
+        self.Destinationcell = cell; 
     }
 //    if (indexPath.row == 2) {
 //        cell.textLabel.text = @"旅游人数";
 //    }
     if (indexPath.row == 2) {
         cell.textLabel.text = @"出发时间";
+        
+        self.Datecell = cell;
     }
 //    if (indexPath.row == 4) {
 //        cell.textLabel.text = @"备注";
@@ -172,6 +193,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
     NSLog(@"选择%@",selectedTitle);
+    self.chufacell.textLabel.text = selectedTitle;
     [SelectCityButton setTitle:selectedTitle forState:UIControlStateNormal];
 }
 

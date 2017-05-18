@@ -1,33 +1,32 @@
 //
-//  DLDestinationController.m
+//  DLCommissionController.m
 //  Dalv
 //
 //  Created by Michael 柏 on 2017/5/18.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLDestinationController.h"
+#import "DLCommissionController.h"
 
-@interface DLDestinationController ()
+@interface DLCommissionController ()
+@property (strong, nonatomic) IBOutlet UIView *commisionLabel;
 
-@property (weak, nonatomic) IBOutlet UITextField *destinationTF;
 @end
 
-@implementation DLDestinationController
+@implementation DLCommissionController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-}
-
-
-- (IBAction)BtnClick:(id)sender {
-
-    self.cityBlock(self.destinationTF.text);
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-
+    
+    
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
 #pragma mark - Navigation
