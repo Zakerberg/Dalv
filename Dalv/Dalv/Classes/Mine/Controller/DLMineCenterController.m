@@ -67,7 +67,7 @@ static NSString *cellID  = @"cellID";
         make.left.top.right.equalTo(headerView).offset(0);
         make.height.offset(150);
     }];
-    
+        
     //设置头像按钮
     self.personBtn = [[UIButton alloc]init];
     [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
@@ -93,6 +93,9 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark - 代理方法
 - (void)uploadImageToServerWithImage:(UIImage *)image {
+    
+    
+    
     
     [self.personBtn setImage:image forState:UIControlStateNormal];
     
@@ -132,9 +135,6 @@ static NSString *cellID  = @"cellID";
 
     /****   修改个人资料    ****/
     if (indexPath.section == 0){
-        
-        
-        
         
         
         
