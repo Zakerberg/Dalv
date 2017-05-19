@@ -89,6 +89,8 @@
 		4546E35B1ECA8AF800C7A9A5 /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35A1ECA8AF800C7A9A5 /* DLRemmendController.m */; };
 		4546E35E1ECA8B1500C7A9A5 /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */; };
 		4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */; };
+		4579AF6E1ECEA263007B5D32 /* home-10-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 4579AF6C1ECEA263007B5D32 /* home-10-04.png */; };
+		4579AF6F1ECEA263007B5D32 /* home-10-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 4579AF6D1ECEA263007B5D32 /* home-10-02.png */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45B262561ECBE836001E54D7 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262551ECBE836001E54D7 /* DLBasePickerView.m */; };
 		45B262591ECBE8EC001E54D7 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262581ECBE8EC001E54D7 /* DLCityPickerView.m */; };
@@ -265,6 +267,8 @@
 		4546E35D1ECA8B1500C7A9A5 /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
 		4546E35F1ECA8B2A00C7A9A5 /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
 		4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryController.m; sourceTree = "<group>"; };
+		4579AF6C1ECEA263007B5D32 /* home-10-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-10-04.png"; sourceTree = "<group>"; };
+		4579AF6D1ECEA263007B5D32 /* home-10-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-10-02.png"; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45B262541ECBE836001E54D7 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
 		45B262551ECBE836001E54D7 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
@@ -527,6 +531,8 @@
 		1CCD819E1EC2EEB9002A80AB /* Tabar */ = {
 			isa = PBXGroup;
 			children = (
+				4579AF6C1ECEA263007B5D32 /* home-10-04.png */,
+				4579AF6D1ECEA263007B5D32 /* home-10-02.png */,
 				1CCD819F1EC2EF01002A80AB /* dalvu_tabar_finance_nor@2x.png */,
 				1CCD81A01EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png */,
 				1CCD81A11EC2EF01002A80AB /* dalvu_tabar_homepage_nor@2x .png */,
@@ -1072,6 +1078,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C57A3181ECAA80800C959C9 /* lock@2x.png in Resources */,
+				4579AF6E1ECEA263007B5D32 /* home-10-04.png in Resources */,
 				1C57A3231ECAA80800C959C9 /* user@3x.png in Resources */,
 				1C0B27811EC5B2FC006CDFF1 /* nav_3@3x.png in Resources */,
 				4546E3521EC9B5DB00C7A9A5 /* DLMine.plist in Resources */,
@@ -1098,6 +1105,7 @@
 				1C57A3191ECAA80800C959C9 /* lock@3x.png in Resources */,
 				1CCD81A81EC2EF01002A80AB /* dalvu_tabar_finance_pre@2x.png in Resources */,
 				1C0B277C1EC5B2FC006CDFF1 /* domestic-travel.png in Resources */,
+				4579AF6F1ECEA263007B5D32 /* home-10-02.png in Resources */,
 				1C0B27801EC5B2FC006CDFF1 /* nav_3@2x.png in Resources */,
 				1C57A31E1ECAA80800C959C9 /* login_input@2x.png in Resources */,
 				1CCD81AA1EC2EF01002A80AB /* dalvu_tabar_homepage_pre@2x .png in Resources */,

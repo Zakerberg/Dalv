@@ -7,6 +7,7 @@
 //
 
 #import "DLShopViewController.h"
+#import "DLLoginViewController.h"
 
 @interface DLShopViewController ()
 
@@ -33,7 +34,7 @@
 {
 
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"";
+    backItem.title = @"返回";
     self.navigationItem.backBarButtonItem = backItem;
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:252/255.0 green:74/255.0 blue:132/255.0 alpha:0.9];//里面的item颜色
@@ -43,13 +44,13 @@
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightButton setBackgroundImage:[UIImage imageNamed:@"home-10-02"] forState:UIControlStateNormal];
     rightButton.frame = CGRectMake(0, 0, 20, 20);
-    [rightButton addTarget:self action:@selector(rightBtnClick1:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton addTarget:self action:@selector(RightSearchClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     
     UIButton *leftBUtton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftBUtton setBackgroundImage:[UIImage imageNamed:@"home-10-04"] forState:UIControlStateNormal];
     leftBUtton.frame = CGRectMake(0, 0, 24, 24);
-    [leftBUtton addTarget:self action:@selector(rightBtnClick2:) forControlEvents:UIControlEventTouchUpInside];
+    [leftBUtton addTarget:self action:@selector(leftShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:leftBUtton];
     
     self.navigationItem.rightBarButtonItems = @[item1,item2];
@@ -57,22 +58,20 @@
     self.navigationItem.title = @"商城";
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 
-
-
-
-
 }
 
--(void)rightBtnClick1:(UIButton *)button{
+-(void)RightSearchClick:(UIButton *)button{
+    
     
 }
 
 
-
--(void)rightBtnClick2:(UIButton *)button{
+-(void)leftShopCarClick:(UIButton *)button{
     
+    DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+    
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
-
 
 
 
