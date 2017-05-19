@@ -10,14 +10,38 @@
 
 @implementation DLHomeViewTask
 
-+ (void)getHomeVCData:(NSDictionary *)param
++ (void)getHomeIndexMod:(NSDictionary *)param
            completion:(void (^)(id result, NSError *error))completionHandler {
     
-    [DLRequestSerVice POST:DL_HomeRequest param:param success:^(id responseData) {
+    [DLRequestSerVice POST:DL_HomeIndexMod param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 
 }
+
++ (void)getHomeIndexLineList:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler {
+    
+    [DLRequestSerVice POST:DL_HomeIndexLineList param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
++ (void)getLineDetial:(NSDictionary *)param
+                  completion:(void (^)(id result, NSError *error))completionHandler {
+    
+    [DLRequestSerVice POST:DL_LineDetial param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
+
 @end

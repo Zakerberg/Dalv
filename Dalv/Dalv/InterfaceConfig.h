@@ -13,35 +13,100 @@
 // 接口服务器
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 
-// 1.测试默认首页地址
-#define DL_HomeRequest DL_HOST@"index.php/Api/index/index"
+// 1.测试默认首页模块地址
+#define DL_HomeIndexMod DL_HOST@"index.php/Api/index/indexMod"
 
-// 2.测试登陆接口地址
+// 2.测试默认首页线路列表地址
+#define DL_HomeIndexLineList DL_HOST@"index.php/Api/index/indexLineList"
+
+// 3.测试默认详情页地址
+#define DL_LineDetial DL_HOST@"/index.php/Api/index/index"
+
+// 4.测试登陆接口地址
 #define DL_Login DL_HOST@"index.php/Api/login/agencyIndex"
 
-// 3.测试顾问首页接口地址
-#define DL_AgencyHome DL_HOST@"index.php/Api/index/agencyIndex"
+// 5.测试顾问首页模块接口地址
+#define DL_HomeAgencyIndexMod DL_HOST@"index.php/Api/index/agencyIndexMod"
 
-// 4.测试顾问个人中心接口地址
-#define DL_AgencyPersonal DL_HOST@"index.php/Api/agencyPersonal/index"
+// 6.测试顾问首页线路列表接口地址
+#define DL_HomeAgencyLinelist DL_HOST@"index.php/Api/index/agencyIndexLinelist"
 
-// 5.测试顾问修改密码接口页面
-#define DL_AgencyPersonalEditPass DL_HOST@"index.php/Api/agencyPersonal/agencyEditPass"
+// 7.测试顾问（登陆状态）线路详情页接口地址
+#define DL_AgencyDetails DL_HOST@"index.php/Api/agency/details"
 
-// 6.测试顾问修改密码处理接口
-#define DL_AgencyPersonalEditPassHandle DL_HOST@"index.php/Api/agencyPersonal/agencyEditPassHandle"
+// 8.测试顾问个人中心接口地址
+#define DL_AgencyPersonal DL_HOST@"/index.php/Api/agencyPersonal/index"
 
-// 7.测试顾问页面设置页面接口
-#define DL_AgencyPersonalPageSetUp DL_HOST@"index.php/Api/agencyPersonal/agencyPageSetUp"
+// 9.测试顾问修改密码页面接口
+#define DL_AgencyEditPass DL_HOST@"index.php/Api/agencyPersonal/agencyEditPass"
 
-// 8.测试顾问模块排序页面接口
-#define DL_AgencyPersonalColumnSort DL_HOST@"index.php/Api/agencyPersonal/agencyColumnSort"
+// 10.测试顾问修改密码处理接口
+#define DL_AgencyEditPassHandle DL_HOST@"index.php/Api/agencyPersonal/agencyEditPassHandle"
 
-// 9.测试顾问模块排序处理接口
-#define DL_AgencyPersonalColumnSortHandle DL_HOST@"index.php/Api/agencyPersonal/agencyColumnSortHandle"
+// 11.测试顾问页面设置页面接口
+#define DL_AgencyPageSetUp DL_HOST@"index.php/Api/agencyPersonal/agencyPageSetUp"
 
-// 10.测试顾问线路订单列表接口
-#define DL_AgencyPersonalLineOrder DL_HOST@"index.php/api/Agencypersonal/agencyLineOrder.html"
+// 12.测试顾问模块排序页面接口
+#define DL_AgencyColumnSort DL_HOST@"index.php/Api/agencyPersonal/agencyColumnSort"
 
+// 13.测试顾问模块排序处理接口
+#define DL_AgencyColumnSortHandle DL_HOST@"index.php/Api/agencyPersonal/agencyColumnSortHandle"
+
+// 14.测试顾问线路订单列表接口
+#define DL_AgencyLineOrder DL_HOST@"index.php/api/Agencypersonal/agencyLineOrder.html"
+
+// 15.测试顾问签证订单列表接口
+#define DL_AgencyOrderVisaOrder DL_HOST@"index.php/Api/agencyOrder/visaOrder"
+
+// 16.测试顾问Wifi订单列表接口
+#define DL_AgencyOrderWifiOrder DL_HOST@"index.php/Api/agencyOrder/wifiOrder"
+
+// 17.测试顾问其他订单列表接口
+#define DL_AgencyOrderOtherOrder DL_HOST@"index.php/Api/agencyOrder/otherOrder"
+
+// 18.测试顾问财务管理列表接口
+#define DL_AgencyFinance DL_HOST@"index.php/Api/agencyFinance/index"
+
+// 19.测试顾问财务管理->交易记录接口
+#define DL_AgencyFinanceAccountTransaction DL_HOST@"index.php/Api/agencyFinance/accountTransaction"
+
+// 20.测试顾问财务管理->交易记录接口
+#define DL_AgencyFinanceApplyTopup DL_HOST@"index.php/Api/agencyFinance/applyTopup"
+
+// 21.测试顾问财务管理->充值申请处理接口（线下充值）
+#define DL_AgencyFinanceApplyTopupHandle DL_HOST@"index.php/Api/agencyFinance/applyTopupHandle"
+
+// 22.测试顾问财务管理->充值申请记录接口
+#define DL_AgencyFinanceTopupList DL_HOST@"index.php/Api/agencyFinance/topupList"
+
+// 23.测试顾问财务管理->提现申请页面接口
+#define DL_AgencyFinanceApplyWithdraw DL_HOST@"index.php/Api/agencyFinance/applyWithdraw"
+
+// 24.测试顾问财务管理->提现申请页面接口
+#define DL_AgencyFinanceApplyWithdrawHandle DL_HOST@"index.php/Api/agencyFinance/applyWithdrawHandle"
+
+// 25.测试顾问财务管理->提现记录列表接口
+#define DL_AgencyFinanceWithdrawList DL_HOST@"index.php/Api/agencyFinance/withdrawList"
+
+// 26.测试顾问财务管理->发票申请页面接口
+#define DL_AgencyFinanceApplyInvoicet DL_HOST@"index.php/Api/agencyFinance/applyInvoice"
+
+// 27.测试顾问财务管理->发票申请处理接口
+#define DL_AgencyFinanceApplyInvoicetHandle DL_HOST@"index.php/Api/agencyFinance/applyInvoiceHandle"
+
+// 28.测试顾问财务管理->发票记录列表接口
+#define DL_AgencyFinanceInvoicetList DL_HOST@"index.php/Api/agencyFinance/invoiceList"
+
+// 29.测试顾问财务管理->合同申请页面接口
+#define DL_AgencyFinanceApplyContract DL_HOST@"index.php/Api/agencyFinance/applyContract"
+
+// 30.测试顾问财务管理->合同申请处理接口
+#define DL_AgencyFinanceApplyContractHandle DL_HOST@"index.php/Api/agencyFinance/applyContractHandle"
+
+// 31.测试顾问财务管理->合同申请记录列表接口
+#define DL_AgencyFinanceContractList DL_HOST@"index.php/Api/agencyFinance/contractList"
+
+// 32.测试顾问个人中心->我的推荐列表接口
+#define DL_AgencyFinanceMyRecommend DL_HOST@"index.php/Api/agencyFinance/myrecommend"
 
 #endif /* InterfaceConfig_h */
