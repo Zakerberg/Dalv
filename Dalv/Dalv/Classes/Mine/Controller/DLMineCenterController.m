@@ -27,6 +27,7 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong)NSArray * mineArrayData;
 @property(nonatomic,strong)UIView *headerView;  //headerView属性
 @property(nonatomic,strong)UIImageView * picImg; //背景图
+@property(nonatomic,strong)UIButton * personBtn;
 
 @end
 
@@ -68,16 +69,20 @@ static NSString *cellID  = @"cellID";
     }];
     
     //设置头像按钮
-    UIButton * personBtn = [[UIButton alloc]init];
-    [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
-    [picImg addSubview:personBtn];
+    self.personBtn = [[UIButton alloc]init];
+    [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
+    [picImg addSubview:self.personBtn];
     
-    [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(picImg);
         make.width.height.offset(67);
     }];
     
-    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [_personBtn.layer setMasksToBounds:YES];
+    
+    [_personBtn.layer setCornerRadius:28.0];//设置矩形四个圆角半径
+    /*--------------------------------------------------------------------*/
+    [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 //头像按钮的点击事件
@@ -88,14 +93,15 @@ static NSString *cellID  = @"cellID";
     
 //   ----------------------------------------------------------------------
     
-    
-    
 }
 
 #pragma mark - 代理方法
 - (void)uploadImageToServerWithImage:(UIImage *)image {
-   
-    //
+    
+    
+    
+    
+    [self.personBtn setImage:image forState:UIControlStateNormal];
     
 }
 
@@ -134,22 +140,23 @@ static NSString *cellID  = @"cellID";
     /****   修改个人资料    ****/
     if (indexPath.section == 0){
         
+        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
         
-        
-        
-        
-        
+        [self.navigationController pushViewController:chageDataVC animated:YES];
         
     }
 
     /*****  模块排序    *****/
-    if (indexPath.section == 1) {
-        NSLog(@"模块排序");
-    }
+//    if (indexPath.section == 1) {
+//        NSLog(@"模块排序");
+//    }
     
     /***  我的推荐   ***/
     if (indexPath.section == 2) {
        
+        DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
+        [self.navigationController pushViewController:remmendVC animated:YES];
+        
         NSLog(@"我的推荐");
     }
     
@@ -174,7 +181,8 @@ static NSString *cellID  = @"cellID";
         NSLog(@"供应商查询");
         
         DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-//
+         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar 在
+    
         [self.navigationController pushViewController:sipplierVC animated:YES];
     }
     
