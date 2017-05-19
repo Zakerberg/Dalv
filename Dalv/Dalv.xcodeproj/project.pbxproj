@@ -101,7 +101,6 @@
 		45B2627F1ECC24EE001E54D7 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262751ECC24EE001E54D7 /* CalendarViewController.m */; };
 		45B262801ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262781ECC24EE001E54D7 /* NSDate+WQCalendarLogic.m */; };
 		45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262831ECC326D001E54D7 /* DLDestinationController.xib */; };
-		45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */; };
 		45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */; };
 		45CC9DBE1ECC88F3005B5C1A /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45CC9DBD1ECC88F3005B5C1A /* zzz.plist */; };
 		45CC9DC21ECD300D005B5C1A /* DLCommissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CC9DC01ECD300D005B5C1A /* DLCommissionController.m */; };
@@ -291,7 +290,6 @@
 		45B262831ECC326D001E54D7 /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
 		45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
 		45CC9DBD1ECC88F3005B5C1A /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
 		45CC9DBF1ECD300D005B5C1A /* DLCommissionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCommissionController.h; sourceTree = "<group>"; };
 		45CC9DC01ECD300D005B5C1A /* DLCommissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCommissionController.m; sourceTree = "<group>"; };
@@ -709,7 +707,6 @@
 				4546E3601ECA8B2A00C7A9A5 /* DLLineQueryController.m */,
 				45B262861ECC4E89001E54D7 /* DLSupplierqueryController.h */,
 				45B262871ECC4E89001E54D7 /* DLSupplierqueryController.m */,
-				45B262881ECC4E89001E54D7 /* DLSupplierqueryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1082,7 +1079,6 @@
 				45B262851ECC326D001E54D7 /* DLDestinationController.xib in Resources */,
 				45CC9DC31ECD300D005B5C1A /* DLCommissionController.xib in Resources */,
 				1C57A31D1ECAA80800C959C9 /* login_btn@3x.png in Resources */,
-				45B2628A1ECC4E89001E54D7 /* DLSupplierqueryController.xib in Resources */,
 				1CCD81AE1EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png in Resources */,
 				45CC9DBE1ECC88F3005B5C1A /* zzz.plist in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
