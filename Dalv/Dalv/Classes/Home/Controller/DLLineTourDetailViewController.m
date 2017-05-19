@@ -7,8 +7,10 @@
 //
 
 #import "DLLineTourDetailViewController.h"
+#import "DLLineDetialpriceTableViewCell.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
+static NSString *kDLLineDetialpriceTableViewCell = @"DLLineDetialpriceTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UIView *performanceView;
@@ -46,6 +48,8 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
           forCellReuseIdentifier:kDLHomeTableViewCell];
+    [homeTableView registerClass:[UITableViewCell class]
+          forCellReuseIdentifier:kDLLineDetialpriceTableViewCell];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
 forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
@@ -68,7 +72,11 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    } else {
+        return 4;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,10 +90,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.edges.equalTo(cell.contentView);
         }];
     } else if (indexPath.section == 1) {
-//        [cell.contentView addSubview:self.appCenterViewController.view];
-//        [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(cell.contentView);
-//        }];
+        
     } else if (indexPath.section == 2) {
 //        [cell.contentView addSubview:self.hotTopicViewController.view];
 //        [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {

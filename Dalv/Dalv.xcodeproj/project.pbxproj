@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C075D081ECD4EB800BF646D /* shangwuhezuo_bj.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */; };
-		1C075D111ECD52C700BF646D /* DLLineDetialPriceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */; };
+		1C075D141ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C075D131ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m */; };
 		1C0B27571EC5B28B006CDFF1 /* DLHomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B27541EC5B28B006CDFF1 /* DLHomeMenuItem.m */; };
 		1C0B27581EC5B28B006CDFF1 /* DLHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B27561EC5B28B006CDFF1 /* DLHomePageViewModel.m */; };
 		1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B275A1EC5B29B006CDFF1 /* DLCityPopMenuView.m */; };
@@ -134,8 +134,8 @@
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
 		1C075D051ECD319F00BF646D /* InterfaceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfig.h; sourceTree = "<group>"; };
 		1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shangwuhezuo_bj.png; sourceTree = "<group>"; };
-		1C075D0F1ECD52C700BF646D /* DLLineDetialPriceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialPriceView.h; sourceTree = "<group>"; };
-		1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialPriceView.m; sourceTree = "<group>"; };
+		1C075D121ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialpriceTableViewCell.h; sourceTree = "<group>"; };
+		1C075D131ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialpriceTableViewCell.m; sourceTree = "<group>"; };
 		1C0B27531EC5B28B006CDFF1 /* DLHomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeMenuItem.h; sourceTree = "<group>"; };
 		1C0B27541EC5B28B006CDFF1 /* DLHomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeMenuItem.m; sourceTree = "<group>"; };
 		1C0B27551EC5B28B006CDFF1 /* DLHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomePageViewModel.h; sourceTree = "<group>"; };
@@ -399,8 +399,8 @@
 				1C0B275C1EC5B29B006CDFF1 /* DLHomeMenuCollectionViewCell.m */,
 				1C0B275D1EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.h */,
 				1C0B275E1EC5B29B006CDFF1 /* DLRecommendRouteCollectionViewCell.m */,
-				1C075D0F1ECD52C700BF646D /* DLLineDetialPriceView.h */,
-				1C075D101ECD52C700BF646D /* DLLineDetialPriceView.m */,
+				1C075D121ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.h */,
+				1C075D131ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1177,7 +1177,6 @@
 				45B2628C1ECC4FA1001E54D7 /* DLSupplierqueryController.m in Sources */,
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				1C0B275F1EC5B29B006CDFF1 /* DLCityPopMenuView.m in Sources */,
-				1C075D111ECD52C700BF646D /* DLLineDetialPriceView.m in Sources */,
 				1CC9F9301EC217DF002D7EFB /* UIView+MSExtension.m in Sources */,
 				4546E3611ECA8B2A00C7A9A5 /* DLLineQueryController.m in Sources */,
 				452916AB1EC177830033314F /* UIColor+BLMColor.m in Sources */,
@@ -1188,6 +1187,7 @@
 				45F4CCC01EC1C55300F4B6BD /* DLMineViewController.m in Sources */,
 				45B262791ECC24EE001E54D7 /* CalendarDayCell.m in Sources */,
 				1C0B27701EC5B2BE006CDFF1 /* DLRecommendRouteViewController.m in Sources */,
+				1C075D141ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m in Sources */,
 				1CC9F92E1EC217DF002D7EFB /* UIImage+MSExtension.m in Sources */,
 				1C0B27571EC5B28B006CDFF1 /* DLHomeMenuItem.m in Sources */,
 				4529167B1EC1741E0033314F /* AppDelegate.m in Sources */,

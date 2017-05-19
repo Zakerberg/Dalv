@@ -203,7 +203,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 //    NSDictionary *param = @{@"login_name" : @"13126997215",
 //                            @"login_pwd" : @"654321",
 //                            };
-    [DLHomeViewTask getHomeVCData:nil completion:^(id result, NSError *error) {
+    [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
         
     }];
 }
