@@ -47,11 +47,11 @@
     [rightButton addTarget:self action:@selector(RightSearchClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     
-    UIButton *leftBUtton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBUtton setBackgroundImage:[UIImage imageNamed:@"home-10-04"] forState:UIControlStateNormal];
-    leftBUtton.frame = CGRectMake(0, 0, 24, 24);
-    [leftBUtton addTarget:self action:@selector(leftShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:leftBUtton];
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"home-10-04"] forState:UIControlStateNormal];
+    leftButton.frame = CGRectMake(0, 0, 24, 24);
+    [leftButton addTarget:self action:@selector(leftShopCarClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     
     self.navigationItem.rightBarButtonItems = @[item1,item2];
     

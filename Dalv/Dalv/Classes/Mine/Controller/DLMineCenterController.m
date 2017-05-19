@@ -141,6 +141,7 @@ static NSString *cellID  = @"cellID";
     if (indexPath.section == 0){
         
         DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
+        self.navigationItem.accessibilityElementsHidden = NO;
         
         [self.navigationController pushViewController:chageDataVC animated:YES];
         
@@ -181,7 +182,7 @@ static NSString *cellID  = @"cellID";
         NSLog(@"供应商查询");
         
         DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar 在
+         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar
     
         [self.navigationController pushViewController:sipplierVC animated:YES];
     }
@@ -203,9 +204,7 @@ static NSString *cellID  = @"cellID";
     
     UILabel *label = [[UILabel alloc] init];
     label.text = text;
-    // 设置字体大小
     label.font = [UIFont systemFontOfSize:font];
-    // 设置文字颜色
     label.textColor = color;
     
     return label;
