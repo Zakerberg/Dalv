@@ -154,14 +154,6 @@
         
         [alertSecretNil show];
         
-        
-        
-        
-        
-        
-        
-        
-        
     }
 }
 

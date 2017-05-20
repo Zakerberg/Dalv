@@ -2,16 +2,17 @@
 //  DLLoginViewController.m
 //  Dalv
 //
-//  Created by Nie on 2017/5/16.
+//  Created by Michael 柏 on 2017/5/16.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
 #import "DLLoginViewController.h"
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
+#import "DLRegisterAlertView.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
-
+@property (nonatomic,strong)DLRegisterAlertView *registerAlertView;
 @end
 
 @implementation DLLoginViewController
@@ -22,6 +23,8 @@
     [self setupNavbar];
     [self configureSubViews];
     [self fetchData];
+    [self showRegisterAlertView];
+
 }
 
 #pragma mark - Setup navbar
@@ -94,9 +97,39 @@
 //注册
 - (void)didRegisterButton
 {
-    DLMineViewController *DLRegisterVC = [[DLMineViewController alloc]init];
-    [self.navigationController pushViewController:DLRegisterVC animated:YES];
+    
 }
+
+
+- (void)showRegisterAlertView {
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    
+    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] firstObject];
+    self.registerAlertView.frame = self.view.bounds;
+    [window addSubview:self.registerAlertView];
+    //alert中普通用户和供应商两个按钮的点击事件block
+    __weak DLLoginViewController *weakVC = self;
+    self.registerAlertView.toRegisterVCStr = ^(NSString *toRegisterVCStr){
+        if ([toRegisterVCStr isEqualToString:@"generalVC"]) {
+            //跳转到普通用户注册
+            UINavigationController *resister = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"DLMineViewController"];
+            [weakVC presentViewController:resister animated:YES completion:nil];
+            
+        }
+        if ([toRegisterVCStr isEqualToString:@"supplierVC"]) {
+            //跳转到供应商注册
+            UINavigationController *registerNav = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"registerDelegateNavigationController"];
+            [weakVC presentViewController:registerNav animated:YES completion:nil];
+            
+        }
+    };
+    
+}
+
+
+
+
+
 
 #pragma mark - Fetch data
 
