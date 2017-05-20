@@ -118,7 +118,7 @@
                 //设置按钮的样式
                 [self.authCodeBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                 
-                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"0xFB8557"] forState:UIControlStateNormal];
+                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"  0xFB8557"] forState:UIControlStateNormal];
                 
                 self.authCodeBtn.userInteractionEnabled = YES;
             });
