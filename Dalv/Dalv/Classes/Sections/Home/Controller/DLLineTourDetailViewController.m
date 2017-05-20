@@ -51,7 +51,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [homeTableView registerClass:[UITableViewCell class]
           forCellReuseIdentifier:kDLLineDetialpriceTableViewCell];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
+    forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];

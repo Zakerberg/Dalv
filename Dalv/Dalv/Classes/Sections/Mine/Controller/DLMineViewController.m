@@ -8,7 +8,6 @@
 
 #import "DLMineViewController.h"
 #import <SMS_SDK/SMSSDK.h>
-#import "UIColor+Addition.h"
 #import <MBProgressHUD.h>
 
 @interface DLMineViewController ()
@@ -119,7 +118,7 @@
                 //设置按钮的样式
                 [self.authCodeBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                 
-                [self.authCodeBtn setTitleColor:[UIColor colorWithHex:0xFB8557] forState:UIControlStateNormal];
+                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"0xFB8557"] forState:UIControlStateNormal];
                 
                 self.authCodeBtn.userInteractionEnabled = YES;
             });
@@ -131,7 +130,7 @@
                 
                 //设置按钮显示读秒效果
                 [self.authCodeBtn setTitle:[NSString stringWithFormat:@"重发(%.2d)", seconds] forState:UIControlStateNormal];
-                [self.authCodeBtn setTitleColor:[UIColor colorWithHex:0x979797] forState:UIControlStateNormal];
+                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"0x979797"] forState:UIControlStateNormal];
                 self.authCodeBtn.userInteractionEnabled = NO;
             });
             time--;

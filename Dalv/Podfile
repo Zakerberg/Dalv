@@ -18,6 +18,7 @@ pod 'MJExtension', '~> 3.0.13'
 pod 'CocoaLumberjack', '~> 2.3.0'
 pod 'FLEX', :configurations => ['Debug']
 pod 'ReactiveCocoa', '~> 2.5'
+pod 'OpenUDID', '~> 1.0.0'
 # Mob产品公共库
 pod 'MOBFoundation_IDFA'
 pod 'SMSSDK'

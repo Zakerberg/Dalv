@@ -19,7 +19,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @property (nonatomic, strong) UIView *performanceView;
 @property (nonatomic, weak) UIScrollView *backgroundScrollView;
 
-@property (nonatomic, strong) DLMenuViewController *appCenterViewController;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
 
 @end
@@ -71,7 +70,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -80,7 +79,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor redColor];
     
     if (indexPath.section == 0) {
@@ -88,11 +87,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
-//    } else if (indexPath.section == 1) {
-//        [cell.contentView addSubview:self.appCenterViewController.view];
-//        [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(cell.contentView);
-//        }];
     } else if (indexPath.section == 1) {
         [cell.contentView addSubview:self.hotTopicViewController.view];
         [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,8 +102,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 100.f;
-//    } else if (indexPath.section == 1) {
-//        return [self.appCenterViewController contentHeight];
     } else if (indexPath.section == 1) {
         NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
         return [self.hotTopicViewController contentHeight];
@@ -157,19 +149,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 
 #pragma mark - Getter
-
-- (DLMenuViewController *)appCenterViewController {
-    if (_appCenterViewController == nil) {
-        _appCenterViewController = [[DLMenuViewController alloc] init];
-        @weakify(self);
-        [_appCenterViewController setDidCompleteLoad:^{
-            @strongify(self);
-            [self.homeTableView reloadData];
-        }];
-        [self addChildViewController:_appCenterViewController];
-    }
-    return _appCenterViewController;
-}
 
 - (DLRecommendRouteViewController *)hotTopicViewController {
     if (_hotTopicViewController == nil) {
