@@ -132,7 +132,6 @@
 
 /* Begin PBXFileReference section */
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
-		1C075D051ECD319F00BF646D /* InterfaceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfig.h; sourceTree = "<group>"; };
 		1C075D071ECD4EB800BF646D /* shangwuhezuo_bj.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shangwuhezuo_bj.png; sourceTree = "<group>"; };
 		1C075D121ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialpriceTableViewCell.h; sourceTree = "<group>"; };
 		1C075D131ECDA65B00BF646D /* DLLineDetialpriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialpriceTableViewCell.m; sourceTree = "<group>"; };
@@ -166,7 +165,6 @@
 		1C0B27791EC5B2FC006CDFF1 /* nav_4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_4@3x.png"; sourceTree = "<group>"; };
 		1C0B277A1EC5B2FC006CDFF1 /* nav_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_5@2x.png"; sourceTree = "<group>"; };
 		1C0B277B1EC5B2FC006CDFF1 /* nav_5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_5@3x.png"; sourceTree = "<group>"; };
-		1C5383F91EC4267900AC30F9 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		1C57A3051ECAA0E200C959C9 /* DLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginViewController.h; sourceTree = "<group>"; };
 		1C57A3061ECAA0E200C959C9 /* DLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginViewController.m; sourceTree = "<group>"; };
 		1C57A30C1ECAA80800C959C9 /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dalv-PrefixHeader.pch"; sourceTree = "<group>"; };
 		1CC9F9191EC21679002D7EFB /* UIColor+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MSExtension.h"; sourceTree = "<group>"; };
 		1CC9F91A1EC21679002D7EFB /* UIColor+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MSExtension.m"; sourceTree = "<group>"; };
-		1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DalvHeader.h; sourceTree = "<group>"; };
 		1CC9F91D1EC217DF002D7EFB /* NSDate+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSExtension.h"; sourceTree = "<group>"; };
 		1CC9F91E1EC217DF002D7EFB /* NSDate+MSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSExtension.m"; sourceTree = "<group>"; };
 		1CC9F91F1EC217DF002D7EFB /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -229,6 +226,9 @@
 		1CCD81A41EC2EF01002A80AB /* dalvu_tabar_my_pre@2x ..png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_my_pre@2x ..png"; sourceTree = "<group>"; };
 		1CCD81A51EC2EF01002A80AB /* dalvu_tabar_myorder_nor@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_nor@2x .png"; sourceTree = "<group>"; };
 		1CCD81A61EC2EF01002A80AB /* dalvu_tabar_myorder_pre@2x .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dalvu_tabar_myorder_pre@2x .png"; sourceTree = "<group>"; };
+		1CD166301ECFC0A900E54AB3 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
+		1CD166311ECFC0A900E54AB3 /* DalvHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DalvHeader.h; sourceTree = "<group>"; };
+		1CD166321ECFC0A900E54AB3 /* InterfaceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceConfig.h; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		452916791EC1741E0033314F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -545,6 +545,16 @@
 			path = Tabar;
 			sourceTree = "<group>";
 		};
+		1CD1662F1ECFC0A900E54AB3 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				1CD166301ECFC0A900E54AB3 /* Consts.h */,
+				1CD166311ECFC0A900E54AB3 /* DalvHeader.h */,
+				1CD166321ECFC0A900E54AB3 /* InterfaceConfig.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		368985653E9A7EB73AACF252 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				1CCD819D1EC2EE94002A80AB /* Resources */,
+				1CD1662F1ECFC0A900E54AB3 /* Header */,
 				45F4CCC31EC2B41600F4B6BD /* Other */,
 				45F4CCB31EC1901D00F4B6BD /* Adverstising */,
 				4529168E1EC176F60033314F /* Classes */,
@@ -596,9 +607,6 @@
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
-				1CC9F91C1EC2172C002D7EFB /* DalvHeader.h */,
-				1C5383F91EC4267900AC30F9 /* Consts.h */,
-				1C075D051ECD319F00BF646D /* InterfaceConfig.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
