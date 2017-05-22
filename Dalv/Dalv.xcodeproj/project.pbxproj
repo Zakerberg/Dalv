@@ -56,7 +56,6 @@
 		1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */; };
 		1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F01ECFC41600BDC2D3 /* DLHttpRequest.m */; };
 		1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F21ECFC41600BDC2D3 /* DLRequestSerVice.m */; };
-		1CB9538A1ECFC41600BDC2D3 /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F51ECFC41600BDC2D3 /* DLAlertView.m */; };
 		1CB9538B1ECFC41600BDC2D3 /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F71ECFC41600BDC2D3 /* DLHUDManager.m */; };
 		1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953001ECFC41600BDC2D3 /* DLNavigationController.m */; };
 		1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953021ECFC41600BDC2D3 /* DLTabBarController.m */; };
@@ -126,6 +125,7 @@
 		1CC993401ECC4FE0004D10F3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
+		1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD121EC2E01400F4B6BD /* libz.tbd */; };
@@ -213,8 +213,6 @@
 		1CB952F01ECFC41600BDC2D3 /* DLHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHttpRequest.m; sourceTree = "<group>"; };
 		1CB952F11ECFC41600BDC2D3 /* DLRequestSerVice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRequestSerVice.h; sourceTree = "<group>"; };
 		1CB952F21ECFC41600BDC2D3 /* DLRequestSerVice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestSerVice.m; sourceTree = "<group>"; };
-		1CB952F41ECFC41600BDC2D3 /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
-		1CB952F51ECFC41600BDC2D3 /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
 		1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHUDManager.h; sourceTree = "<group>"; };
 		1CB952F71ECFC41600BDC2D3 /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
 		1CB952FA1ECFC41600BDC2D3 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
@@ -332,6 +330,8 @@
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dalv-PrefixHeader.pch"; sourceTree = "<group>"; };
+		1CD1663C1ECFE4D800E54AB3 /* DLActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLActionSheet.h; sourceTree = "<group>"; };
+		1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLActionSheet.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -496,10 +496,10 @@
 			children = (
 				1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */,
 				1CB954011ECFCA9100BDC2D3 /* Calendar */,
-				1CB952F41ECFC41600BDC2D3 /* DLAlertView.h */,
-				1CB952F51ECFC41600BDC2D3 /* DLAlertView.m */,
 				1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */,
 				1CB952F71ECFC41600BDC2D3 /* DLHUDManager.m */,
+				1CD1663C1ECFE4D800E54AB3 /* DLActionSheet.h */,
+				1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */,
 				1CB953D51ECFC49600BDC2D3 /* SynthesizeSingleton.h */,
 			);
 			path = UIkit;
@@ -1119,7 +1119,6 @@
 				1CB953F41ECFC7E200BDC2D3 /* UIBarButtonItem+MSExtension.m in Sources */,
 				1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */,
 				1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */,
-				1CB9538A1ECFC41600BDC2D3 /* DLAlertView.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
@@ -1138,6 +1137,7 @@
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
+				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */,
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,

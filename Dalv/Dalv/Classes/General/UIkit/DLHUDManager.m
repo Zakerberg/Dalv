@@ -7,7 +7,7 @@
 //
 
 #import "DLHUDManager.h"
-#import "DLAlertView.h"
+#import "DLActionSheet.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "SynthesizeSingleton.h"
@@ -31,7 +31,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
     }else if (message.length <= 0){
         return;
     }
-    [[DLAlertView alertViewWithMessage:message] show];
+//    [[DLAlertView alertViewWithMessage:message] show];
 }
 
 - (void)showTextOnly:(NSString *)text {

@@ -10,4 +10,8 @@
 
 @implementation DLRecommendRouteModel
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"routeId" : @"id",};
+}
+
 @end

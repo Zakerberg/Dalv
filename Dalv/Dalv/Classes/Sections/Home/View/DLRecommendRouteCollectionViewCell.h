@@ -11,6 +11,7 @@
 
 @interface DLRecommendRouteCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) DLRecommendRouteModel *routeModel;
 /**
  *  Cell构造方法
  */

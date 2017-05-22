@@ -9,6 +9,7 @@
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteCollectionViewCell.h"
 #import "DLLineTourDetailViewController.h"
+#import "DLHomeViewTask.h"
 
 static NSString *kMSHotTopicTableViewHeader = @"MSHotTopicTableViewHeader";
 static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
@@ -32,7 +33,7 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self setupSubviews];
     [self setupConstraints];
     
-//    [self fetchData];
+    [self fetchData];
 
 }
 
@@ -82,20 +83,36 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self fetchData];
 }
 - (void)fetchData {
-    
-    //  模拟请求推荐线路的数据
-    NSMutableArray *recommendRouteArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < random() % 30; i++) {
-        DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
-        [recommendRouteArray addObject:topic];
-    }
-    [self.topicList removeAllObjects];
-    [self.topicList addObjectsFromArray:recommendRouteArray];
-    [self.hotTopicCollectionView reloadData];
-    
-    if (self.didCompleteLoad) {
-        self.didCompleteLoad();
-    }
+     //    NSDictionary *param = @{@"login_name" : @"13126997215",
+    //                            @"login_pwd" : @"654321",
+    //                            };
+    [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
+         if (result) {
+            NSArray *recommendRouteArray =[DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.topicList removeAllObjects];
+            [self.topicList addObjectsFromArray:recommendRouteArray];
+            [self.hotTopicCollectionView reloadData];
+            
+            if (self.didCompleteLoad) {
+                self.didCompleteLoad();
+            }
+         } else {
+             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+         }
+    }];
+//    //  模拟请求推荐线路的数据
+//    NSMutableArray *recommendRouteArray = [[NSMutableArray alloc] init];
+//    for (int i = 0; i < random() % 30; i++) {
+//        DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
+//        [recommendRouteArray addObject:topic];
+//    }
+//    [self.topicList removeAllObjects];
+//    [self.topicList addObjectsFromArray:recommendRouteArray];
+//    [self.hotTopicCollectionView reloadData];
+//    
+//    if (self.didCompleteLoad) {
+//        self.didCompleteLoad();
+//    }
 
 }
 
@@ -107,8 +124,9 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DLRecommendRouteCollectionViewCell *cell = [DLRecommendRouteCollectionViewCell cellWithCollectionView:collectionView indexPath:indexPath];
-    DLRecommendRouteModel *model = [self.topicList objectAtIndex:indexPath.row];
-    [cell configureCell:model];
+    DLRecommendRouteModel *routeModel = [self.topicList objectAtIndex:indexPath.item];
+    cell.routeModel = routeModel;
+    [cell configureCell:routeModel];
     return cell;
 }
 
@@ -164,12 +182,16 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    DLLineTourDetailViewController *DLlinetourDetailVC = [[DLLineTourDetailViewController alloc]init];
-    [self.navigationController pushViewController:DLlinetourDetailVC animated:YES];
 
-//    NSLog(@"点击了推荐线路");
+    DLRecommendRouteModel *routeModel = [self.topicList objectAtIndex:indexPath.item];
+
+//    DLRecommendRouteCollectionViewCell *cell = (DLRecommendRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    DLLineTourDetailViewController *linetourDetailVC = [[DLLineTourDetailViewController alloc]init];
+    linetourDetailVC.routeModel = routeModel;
+    [self.navigationController pushViewController:linetourDetailVC animated:YES];
+
  }
 
 
