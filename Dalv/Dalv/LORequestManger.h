@@ -1,15 +1,19 @@
 //
-//  DLRequestManger.h
-//  Dalv
+//  LORequestManger.h
+//  PlanB
 //
-//  Created by Michael 柏 on 2017/5/22.
-//  Copyright © 2017年 Michael 柏. All rights reserved.
+//  Created by Michael 柏 on 15/5/6.
+//  Copyright (c) 2015年 Michael 柏. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
 
-@interface DLRequestManger : NSObject
+
+/**
+ *  base网络请求
+ */
+
+@interface LORequestManger : NSObject
 
 //+ (void)POST:(NSString *)URL params:(NSDictionary * )params success:(void (^)(id response))success
 //     failure:(void (^)(AFHTTPRequestOperation *operation,NSError *error))Error;
