@@ -23,8 +23,6 @@
     [self setupNavbar];
     [self configureSubViews];
     [self fetchData];
-    [self showRegisterAlertView];
-
 }
 
 #pragma mark - Setup navbar
@@ -43,6 +41,15 @@
 }
 
 - (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password{
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     //    [[DLHUDManager sharedInstance] showProgressWithText:@"登录中"];
     //    [DLHttpManager loginWithUsename:usename Password:password Completion:^(id responseData) {
@@ -97,6 +104,9 @@
 //注册
 - (void)didRegisterButton
 {
+    
+    [self showRegisterAlertView];
+
     
 }
 

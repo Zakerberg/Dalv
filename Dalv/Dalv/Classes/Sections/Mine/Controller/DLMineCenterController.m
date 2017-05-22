@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//DL_AgencyPersonal
 
 #import "DLMineCenterController.h"
 #import "DLMineModel.h"
@@ -48,6 +48,9 @@ static NSString *cellID  = @"cellID";
     
     self.tableView.tableFooterView = [UIView new];
 
+    [self fetchData];
+    
+    
 }
 
 - (void)setupHeaderView
@@ -270,5 +273,36 @@ static NSString *cellID  = @"cellID";
     
     return cell;
 }
+
+
+
+-(void)fetchData{
+    
+//    [LORequestManger GET:[NSString stringWithFormat:kMoreWonderfulStory, self.everydayArr.count] success:^(id response) {
+//        
+//        NSDictionary *dict = (NSDictionary *)response;
+//        for (NSDictionary *data in dict[@"data"][@"hot_spot_list"]) {
+//                EveryDayModel *model = [EveryDayModel shareJsonWithDictionary:data];
+//                [self.everydayArr addObject:model];
+//                UserInfo *userInfo = [UserInfo shareJasonWithDictionary:model.user];
+//                [self.userinfoArr addObject:userInfo];
+//        }
+//        [self.collectionView reloadData];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//   
+//    }];
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
 
 @end

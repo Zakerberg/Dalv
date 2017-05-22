@@ -128,6 +128,7 @@
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
+		45E119A41ED2BAC600FDFEBA /* DLRequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */; };
 		45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD121EC2E01400F4B6BD /* libz.tbd */; };
 		45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */; };
 		45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD161EC2E03900F4B6BD /* MessageUI.framework */; };
@@ -335,6 +336,8 @@
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45E119A21ED2BAC600FDFEBA /* DLRequestManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRequestManger.h; sourceTree = "<group>"; };
+		45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestManger.m; sourceTree = "<group>"; };
 		45F4CD121EC2E01400F4B6BD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		45F4CD161EC2E03900F4B6BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -913,6 +916,8 @@
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
+				45E119A21ED2BAC600FDFEBA /* DLRequestManger.h */,
+				45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1121,6 +1126,7 @@
 				1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */,
 				1CB9538A1ECFC41600BDC2D3 /* DLAlertView.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
+				45E119A41ED2BAC600FDFEBA /* DLRequestManger.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
