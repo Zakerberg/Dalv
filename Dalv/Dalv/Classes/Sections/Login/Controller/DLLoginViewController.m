@@ -132,7 +132,7 @@
             //跳转到普通用户注册
 //            UINavigationController *resister = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"DLMineViewController"];
   
-            DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+            DLLoginViewController *loginVC = [[DLLoginViewController alloc] initWithNibName:@"DLMineViewController" bundle:nil];
             
             [weakVC presentViewController:loginVC animated:YES completion:nil];
             
