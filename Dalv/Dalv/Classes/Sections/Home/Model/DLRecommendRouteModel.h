@@ -11,13 +11,15 @@
 /** 推荐线路的模型 */
 @interface DLRecommendRouteModel : NSObject
 
+/** 价格 */
+@property (nonatomic, copy) NSString *min_price;
+/** 线路Id */
+@property (nonatomic, copy) NSString *routeId;
 /** 图片地址 */
-@property (nonatomic, copy) NSString *url;
-/** 标题 */
-@property (nonatomic, copy) NSString *title;
-/** 出发地点 */
-@property (nonatomic, copy) NSString *departureLocation;
-/** 价格*/
-@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *cover_pic;
+/** 标题*/
+@property (nonatomic, copy) NSString *name;
+/** 地址*/
+@property (nonatomic, copy) NSString *departure;
 
 @end

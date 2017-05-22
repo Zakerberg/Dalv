@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLRecommendRouteModel.h"
 
 @interface DLLineTourDetailViewController : UIViewController
+
+@property (nonatomic, strong) DLRecommendRouteModel *routeModel;
 
 @end
