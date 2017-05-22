@@ -18,6 +18,7 @@
 #import "DLMyCustomerController.h"
 #import "DLLineQueryController.h"
 #import "DLSupplierqueryController.h"
+#import <AVFoundation/AVFoundation.h>
 
 static NSString *cellID  = @"cellID";
 
@@ -28,6 +29,7 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong)UIView *headerView;  //headerView属性
 @property(nonatomic,strong)UIImageView * picImg; //背景图
 @property(nonatomic,strong)UIButton * personBtn;
+@property(nonatomic,strong)UILabel *label;
 
 @end
 
@@ -68,6 +70,20 @@ static NSString *cellID  = @"cellID";
         make.height.offset(150);
     }];
     
+    
+//    UIImageView *iamgeView = [[UIImageView alloc] initWithFrame:CGRectMake(137, 41, 81, 75)];
+//    iamgeView.image = [UIImage imageNamed:@"v2_my_avatar"];
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:iamgeView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:iamgeView.bounds.size];
+//    
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    
+//    
+//    maskLayer.frame = iamgeView.bounds;
+//    //设置图形样子
+//    maskLayer.path = maskPath.CGPath;
+//    iamgeView.layer.mask = maskLayer;
+//    [self.view addSubview:iamgeView];
+////
     //设置头像按钮
     self.personBtn = [[UIButton alloc]init];
     [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
@@ -80,9 +96,20 @@ static NSString *cellID  = @"cellID";
     
     [_personBtn.layer setMasksToBounds:YES];
     
-    [_personBtn.layer setCornerRadius:28.0];//设置矩形四个圆角半径
+    [_personBtn.layer setCornerRadius:28.6];//设置矩形四个圆角半径
     /*--------------------------------------------------------------------*/
     [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    self.label = [[UILabel alloc] init];
+//    self.label.text = @"13899998888";
+//    self.label.width = 150;
+//    [picImg addSubview:self.label];
+//    [self.label sizeToFit];
+//    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.personBtn).offset(8);
+//    }];
+    
+    
 }
 
 //头像按钮的点击事件
@@ -97,9 +124,6 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark - 代理方法
 - (void)uploadImageToServerWithImage:(UIImage *)image {
-    
-    
-    
     
     [self.personBtn setImage:image forState:UIControlStateNormal];
     
@@ -141,7 +165,6 @@ static NSString *cellID  = @"cellID";
     if (indexPath.section == 0){
         
         DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
-        self.navigationItem.accessibilityElementsHidden = NO;
         
         [self.navigationController pushViewController:chageDataVC animated:YES];
         
@@ -153,7 +176,7 @@ static NSString *cellID  = @"cellID";
 //    }
     
     /***  我的推荐   ***/
-    if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
        
         DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
         [self.navigationController pushViewController:remmendVC animated:YES];
@@ -162,7 +185,7 @@ static NSString *cellID  = @"cellID";
     }
     
     /***  我的直客   ***/
-    if (indexPath.section == 3) {
+    if (indexPath.section == 2) {
         
         DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
         
@@ -170,7 +193,7 @@ static NSString *cellID  = @"cellID";
     }
     
     /***  线路查询   ***/
-    if (indexPath.section == 4) {
+    if (indexPath.section == 3) {
         
         DLLineQueryController * linequery = [[DLLineQueryController alloc]init];
         
@@ -178,7 +201,7 @@ static NSString *cellID  = @"cellID";
     }
     
     /**** 供应商查询   ****/
-    if (indexPath.section == 5) {
+    if (indexPath.section == 4) {
         NSLog(@"供应商查询");
         
         DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
@@ -188,7 +211,7 @@ static NSString *cellID  = @"cellID";
     }
     
     /***  通用   ***/
-    if (indexPath.section == 6) {
+    if (indexPath.section == 5) {
         
         NSLog(@"通用");
         
