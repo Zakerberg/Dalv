@@ -30,9 +30,9 @@
     
     UIViewController *VC4 =  [self makeChildViewController:@"DLMineCenterController" andTabBarTitle:@"我的" andTabBarImage:@""];
     
-    UIViewController *VC5 = [self makeChildViewController:@"DLShopViewController" andTabBarTitle:@"商城" andTabBarImage:@""];
+//    UIViewController *VC5 = [self makeChildViewController:@"DLShopViewController" andTabBarTitle:@"商城" andTabBarImage:@""];
     
-    self.viewControllers = @[VC1, VC2, VC3,VC5, VC4];
+    self.viewControllers = @[VC1, VC2, VC3, VC4];
     
     self.tabBar.tintColor = [UIColor grayColor];
     

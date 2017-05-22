@@ -112,14 +112,18 @@
     self.registerAlertView.toRegisterVCStr = ^(NSString *toRegisterVCStr){
         if ([toRegisterVCStr isEqualToString:@"generalVC"]) {
             //跳转到普通用户注册
-            UINavigationController *resister = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"DLMineViewController"];
-            [weakVC presentViewController:resister animated:YES completion:nil];
+//            UINavigationController *resister = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"DLMineViewController"];
+  
+            DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+            
+            
+            [weakVC presentViewController:loginVC animated:YES completion:nil];
             
         }
         if ([toRegisterVCStr isEqualToString:@"supplierVC"]) {
             //跳转到供应商注册
-            UINavigationController *registerNav = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"registerDelegateNavigationController"];
-            [weakVC presentViewController:registerNav animated:YES completion:nil];
+//            UINavigationController *registerNav = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"registerDelegateNavigationController"];
+//            [weakVC presentViewController:registerNav animated:YES completion:nil];
             
         }
     };

@@ -15,14 +15,6 @@
 			<key>pic</key>
 			<string>icon_mystore</string>
 			<key>title</key>
-			<string>模块排序</string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>pic</key>
-			<string>icon_mystore</string>
-			<key>title</key>
 			<string>我的推荐</string>
 		</dict>
 	</array>
