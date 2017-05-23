@@ -122,6 +122,13 @@
 		1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954121ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m */; };
 		1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9541D1ECFCAB300BDC2D3 /* DLBasePickerView.m */; };
 		1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9541F1ECFCAB300BDC2D3 /* DLCityPickerView.m */; };
+		1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9031ED2E45100310CCB /* DLCycleScrollView.m */; };
+		1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9061ED2E56300310CCB /* DLCycleCollectionViewCell.m */; };
+		1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9091ED2FD7400310CCB /* DLLineDetailsScrollViewController.m */; };
+		1CBCF90D1ED3226200310CCB /* dl_linedetail_tell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBCF90B1ED3226200310CCB /* dl_linedetail_tell@2x.png */; };
+		1CBCF90E1ED3226200310CCB /* dl_linedetail_tell@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBCF90C1ED3226200310CCB /* dl_linedetail_tell@3x.png */; };
+		1CBCF9111ED32C1500310CCB /* dl_linedetail_heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBCF90F1ED32C1500310CCB /* dl_linedetail_heart@2x.png */; };
+		1CBCF9121ED32C1500310CCB /* dl_linedetail_heart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CBCF9101ED32C1500310CCB /* dl_linedetail_heart@3x.png */; };
 		1CC993401ECC4FE0004D10F3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
@@ -327,6 +334,16 @@
 		1CB9541D1ECFCAB300BDC2D3 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		1CB9541E1ECFCAB300BDC2D3 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
 		1CB9541F1ECFCAB300BDC2D3 /* DLCityPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCityPickerView.m; sourceTree = "<group>"; };
+		1CBCF9021ED2E45100310CCB /* DLCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCycleScrollView.h; sourceTree = "<group>"; };
+		1CBCF9031ED2E45100310CCB /* DLCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCycleScrollView.m; sourceTree = "<group>"; };
+		1CBCF9051ED2E56300310CCB /* DLCycleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCycleCollectionViewCell.h; sourceTree = "<group>"; };
+		1CBCF9061ED2E56300310CCB /* DLCycleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCycleCollectionViewCell.m; sourceTree = "<group>"; };
+		1CBCF9081ED2FD7400310CCB /* DLLineDetailsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetailsScrollViewController.h; sourceTree = "<group>"; };
+		1CBCF9091ED2FD7400310CCB /* DLLineDetailsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetailsScrollViewController.m; sourceTree = "<group>"; };
+		1CBCF90B1ED3226200310CCB /* dl_linedetail_tell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_linedetail_tell@2x.png"; sourceTree = "<group>"; };
+		1CBCF90C1ED3226200310CCB /* dl_linedetail_tell@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_linedetail_tell@3x.png"; sourceTree = "<group>"; };
+		1CBCF90F1ED32C1500310CCB /* dl_linedetail_heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_linedetail_heart@2x.png"; sourceTree = "<group>"; };
+		1CBCF9101ED32C1500310CCB /* dl_linedetail_heart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_linedetail_heart@3x.png"; sourceTree = "<group>"; };
 		1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CC9F9101EC20DAD002D7EFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CC9F9161EC20DC0002D7EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -473,6 +490,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1CBCF9011ED2E41200310CCB /* CycleScrollView */,
 				1CB953FA1ECFC84000BDC2D3 /* Utility */,
 				1CB953DE1ECFC78A00BDC2D3 /* Categories */,
 				1CB952EC1ECFC41600BDC2D3 /* Network */,
@@ -551,6 +569,10 @@
 		1CB953071ECFC41600BDC2D3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1CBCF90F1ED32C1500310CCB /* dl_linedetail_heart@2x.png */,
+				1CBCF9101ED32C1500310CCB /* dl_linedetail_heart@3x.png */,
+				1CBCF90B1ED3226200310CCB /* dl_linedetail_tell@2x.png */,
+				1CBCF90C1ED3226200310CCB /* dl_linedetail_tell@3x.png */,
 				1CB953081ECFC41600BDC2D3 /* shangwuhezuo_bj.png */,
 			);
 			path = Common;
@@ -664,6 +686,8 @@
 				1CB953321ECFC41600BDC2D3 /* DLHomeViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
 				1CB953341ECFC41600BDC2D3 /* DLLineTourDetailViewController.m */,
+				1CBCF9081ED2FD7400310CCB /* DLLineDetailsScrollViewController.h */,
+				1CBCF9091ED2FD7400310CCB /* DLLineDetailsScrollViewController.m */,
 				1CB953351ECFC41600BDC2D3 /* DLLineTourViewController.h */,
 				1CB953361ECFC41600BDC2D3 /* DLLineTourViewController.m */,
 				1CB953371ECFC41600BDC2D3 /* DLMenuViewController.h */,
@@ -872,6 +896,17 @@
 			path = CityPickerView;
 			sourceTree = "<group>";
 		};
+		1CBCF9011ED2E41200310CCB /* CycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				1CBCF9021ED2E45100310CCB /* DLCycleScrollView.h */,
+				1CBCF9031ED2E45100310CCB /* DLCycleScrollView.m */,
+				1CBCF9051ED2E56300310CCB /* DLCycleCollectionViewCell.h */,
+				1CBCF9061ED2E56300310CCB /* DLCycleCollectionViewCell.m */,
+			);
+			path = CycleScrollView;
+			sourceTree = "<group>";
+		};
 		368985653E9A7EB73AACF252 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,6 +1037,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBCF9111ED32C1500310CCB /* dl_linedetail_heart@2x.png in Resources */,
 				1CB953941ECFC41600BDC2D3 /* nav_3@2x.png in Resources */,
 				1CC9F9121EC20DAD002D7EFB /* Assets.xcassets in Resources */,
 				1CB953A51ECFC41600BDC2D3 /* dalvu_tabar_finance_pre@2x.png in Resources */,
@@ -1043,8 +1079,11 @@
 				1CB770E21ECFE03B00F6EFDF /* lock@3x.png in Resources */,
 				1CB953971ECFC41600BDC2D3 /* nav_4@3x.png in Resources */,
 				1CB770E91ECFE03B00F6EFDF /* user@2x.png in Resources */,
+				1CBCF90D1ED3226200310CCB /* dl_linedetail_tell@2x.png in Resources */,
 				1CB770E01ECFE03B00F6EFDF /* d_pic_bj@3x.png in Resources */,
 				1CB953A41ECFC41600BDC2D3 /* dalvu_tabar_finance_nor@2x.png in Resources */,
+				1CBCF90E1ED3226200310CCB /* dl_linedetail_tell@3x.png in Resources */,
+				1CBCF9121ED32C1500310CCB /* dl_linedetail_heart@3x.png in Resources */,
 				1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */,
 				1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */,
 				1CB953981ECFC41600BDC2D3 /* nav_5@2x.png in Resources */,
@@ -1119,6 +1158,7 @@
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				1CB953AE1ECFC41600BDC2D3 /* DLFianceViewController.m in Sources */,
+				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
 				1CB953F41ECFC7E200BDC2D3 /* UIBarButtonItem+MSExtension.m in Sources */,
@@ -1128,6 +1168,7 @@
 				45E119A41ED2BAC600FDFEBA /* DLRequestManger.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
+				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1CB770C51ECFE00100F6EFDF /* DLRegisterAlertView.m in Sources */,
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
@@ -1169,6 +1210,7 @@
 				1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */,
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
+				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
