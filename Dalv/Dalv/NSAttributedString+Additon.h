@@ -2,8 +2,8 @@
 //  NSAttributedString+Additon.h
 //  Zhifubao
 //
-//  Created by itheima on 16/4/26.
-//  Copyright © 2016年 itcast. All rights reserved.
+//  Created by  on 16/4/26.
+//  Copyright © 2016年 . All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

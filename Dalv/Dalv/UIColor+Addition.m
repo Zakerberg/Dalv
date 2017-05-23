@@ -2,7 +2,7 @@
 //  UIColor+Addition.m
 //  01-生活圈
 //
-//  Copyright © 2016年 itcast. All rights reserved.
+//  Copyright © 2016年 . All rights reserved.
 //
 
 #import "UIColor+Addition.h"

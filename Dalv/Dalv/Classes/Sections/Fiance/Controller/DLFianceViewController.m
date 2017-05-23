@@ -9,72 +9,41 @@
 #import "DLFianceViewController.h"
 #import "DLFianceFlowLayout.h"
 #import "UIColor+MSExtension.h"
-#import "DLFianceOptionCell.h"
-
-static NSString *FianceOptionCell = @"Fiance_option_cell";
+static NSString *ID = @"businessType";
 static NSString *funcListCell = @"Func_List_cell";
-@interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
+static NSString *DlBalanceCell = @"balance_cell";
+@interface DLFianceViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *mineOptionData;
-
+@property (nonatomic, weak) UICollectionView *collectionView;
 @end
 
 @implementation DLFianceViewController
 
 #pragma mark - Life cycle
-- (instancetype)init {
-    DLFianceFlowLayout *flowLayout = [[DLFianceFlowLayout alloc] init];
-    return [super initWithCollectionViewLayout:flowLayout];
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self setupUI];
 }
 
-
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setupNavbar];
-    
+    [self setupUI];
     [self fetchData];
 }
 
 #pragma mark - Setup navbar
-- (void)setupNavbar {
-    self.navigationItem.title = @"财务";
-    self.collectionView.backgroundColor = [UIColor colorWithHexString:@"0xf5f5f9"];
+-(void)setupUI{
+//    DLFianceFlowLayout *flowLayout = [[DLFianceFlowLayout alloc]init];
+//    
+//    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 266) collectionViewLayout:flowLayout];
+//    [self addSubview:collectionView];
+//    collectionView.dataSource = self;
+//    collectionView.delegate = self;
+//    [collectionView registerClass:[businessTypeCell class] forCellWithReuseIdentifier:ID];
+//    collectionView.backgroundColor = [UIColor whiteColor];
+//    
+//    self.collectionView = collectionView;
+
     
-    UINib *fianceOptionCell = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
-    
-    
-    [self.collectionView registerNib:fianceOptionCell forCellWithReuseIdentifier:FianceOptionCell];
-    
-}
-
-
-
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
-}
-
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 2;
-    }
-    return 0;
-}
-
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-
-    if (indexPath.section == 0) {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:FianceOptionCell forIndexPath:indexPath];
-    }
-    
-    return [collectionView dequeueReusableCellWithReuseIdentifier:funcListCell forIndexPath:indexPath];
-
 }
 
 
@@ -82,20 +51,28 @@ static NSString *funcListCell = @"Func_List_cell";
 
 
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-   
-    if (indexPath.section == 0) {
-        return CGSizeMake(self.collectionView.bounds.size.width, 100);
-    }
 
 
-    DLFianceFlowLayout *flowLayout = (DLFianceFlowLayout *)collectionViewLayout;
-    NSInteger count = 2;
-    CGFloat w = (self.collectionView.bounds.size.width - (count - 1) * flowLayout.minimumInteritemSpacing) / count;
-    CGFloat h = 64;
-    return CGSizeMake(w, h);
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,23 +80,23 @@ static NSString *funcListCell = @"Func_List_cell";
 
 
 #pragma mark - Setup subViews
-- (void)setupSubviews {
-    self.view.backgroundColor = [UIColor ms_backgroundColor];
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"这是财务界面";
-    label.textColor = [UIColor ms_blackColor];
-    label.font = [UIFont systemFontOfSize:25];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor randomColor];
-    
-    [self.view addSubview:label];
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.left.and.right.equalTo(self.view);
-        make.height.equalTo(@100);
-    }];
-}
+//- (void)setupSubviews {
+//    self.view.backgroundColor = [UIColor ms_backgroundColor];
+//    
+//    UILabel *label = [[UILabel alloc] init];
+//    label.text = @"这是财务界面";
+//    label.textColor = [UIColor ms_blackColor];
+//    label.font = [UIFont systemFontOfSize:25];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.backgroundColor = [UIColor randomColor];
+//    
+//    [self.view addSubview:label];
+//    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.view);
+//        make.left.and.right.equalTo(self.view);
+//        make.height.equalTo(@100);
+//    }];
+//}
 
 
 
@@ -143,7 +120,7 @@ static NSString *funcListCell = @"Func_List_cell";
 #pragma mark - Layout
 - (void)updateViewConstraints {
     
-    [super updateViewConstraints];
+    
 }
 
 #pragma mark - Fetch data
