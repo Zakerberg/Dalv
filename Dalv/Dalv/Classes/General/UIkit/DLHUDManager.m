@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
 #import "SynthesizeSingleton.h"
+#import "DLAlertView.h"
 
 static DLHUDManager* hudInstance = nil;
 
@@ -31,7 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_ARC(DLHUDManager)
     }else if (message.length <= 0){
         return;
     }
-//    [[DLAlertView alertViewWithMessage:message] show];
+    [[DLAlertView alertViewWithMessage:message] show];
 }
 
 - (void)showTextOnly:(NSString *)text {
