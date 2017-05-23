@@ -216,10 +216,6 @@
 		1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
-		45E119A71ED2C62600FDFEBA /* LORequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119A51ED2C62600FDFEBA /* LORequestManger.m */; };
-		45E119E31ED2CB1300FDFEBA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */; };
-		45E119E41ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */; };
-		45E119E71ED2CB5900FDFEBA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
 		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
@@ -527,14 +523,6 @@
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		45E119A51ED2C62600FDFEBA /* LORequestManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LORequestManger.m; sourceTree = "<group>"; };
-		45E119A61ED2C62600FDFEBA /* LORequestManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LORequestManger.h; sourceTree = "<group>"; };
-		45E119DF1ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		45E119E01ED2CB1300FDFEBA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		45E119E61ED2CB5900FDFEBA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1239,14 +1227,6 @@
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
-				45E119A51ED2C62600FDFEBA /* LORequestManger.m */,
-				45E119A61ED2C62600FDFEBA /* LORequestManger.h */,
-				45E119DF1ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.h */,
-				45E119E01ED2CB1300FDFEBA /* AFHTTPRequestOperation.h */,
-				45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */,
-				45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */,
-				45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */,
-				45E119E61ED2CB5900FDFEBA /* AFURLConnectionOperation.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1577,15 +1557,12 @@
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
-				45E119E71ED2CB5900FDFEBA /* AFURLConnectionOperation.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
-				45E119E41ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				1CB770B91ECFE00100F6EFDF /* DLSupplierqueryController.m in Sources */,
-				45E119A71ED2C62600FDFEBA /* LORequestManger.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
@@ -1602,7 +1579,6 @@
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
-				45E119E31ED2CB1300FDFEBA /* AFHTTPRequestOperation.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,

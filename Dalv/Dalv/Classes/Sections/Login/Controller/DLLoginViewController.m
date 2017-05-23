@@ -110,6 +110,10 @@
 {
     
     [self showRegisterAlertView];
+    
+    
+    
+    
 
     
 }
@@ -122,9 +126,12 @@
 - (void)showRegisterAlertView {
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     
-    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] firstObject];
+    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] lastObject];
     self.registerAlertView.frame = self.view.bounds;
     [window addSubview:self.registerAlertView];
+    
+    
+    
     //alert中普通用户和供应商两个按钮的点击事件block
     __weak DLLoginViewController *weakVC = self;
     self.registerAlertView.toRegisterVCStr = ^(NSString *toRegisterVCStr){
