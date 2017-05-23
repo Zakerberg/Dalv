@@ -11,9 +11,14 @@
 @implementation DLFianceFlowLayout
 
 - (void)prepareLayout {
-    self.minimumInteritemSpacing = 1;
-    self.minimumLineSpacing = 1;
+    [super prepareLayout];
+    
+    // 设置行列间距
+    self.minimumLineSpacing = 1 / [UIScreen mainScreen].scale;
+    self.minimumInteritemSpacing = 0;
+    // 设置每一组的尾部间距
     self.sectionInset = UIEdgeInsetsMake(0, 0, 16, 0);
+    
 }
 
 @end

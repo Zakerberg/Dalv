@@ -1,5 +1,5 @@
 //
-//  DLFuncList.h
+//  DLOptionModel.h
 //  Dalv
 //
 //  Created by Michael 柏 on 2017/5/23.
@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DLFuncList : NSObject
+@interface DLOptionModel : NSObject
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *name;
-
-+ (instancetype)functionListWithDict:(NSDictionary *)dict;
-
 @end

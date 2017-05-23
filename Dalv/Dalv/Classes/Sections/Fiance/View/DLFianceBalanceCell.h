@@ -1,5 +1,5 @@
 //
-//  DLFianceViewController.h
+//  DLFianceBalanceCell.h
 //  Dalv
 //
 //  Created by Michael 柏 on 2017/5/23.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DLFianceViewController : UICollectionViewController
+@interface DLFianceBalanceCell : UICollectionViewCell
 
 @end
