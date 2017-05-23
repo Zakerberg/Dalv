@@ -9,8 +9,10 @@
 #import "DLFianceViewController.h"
 #import "DLFianceFlowLayout.h"
 #import "UIColor+MSExtension.h"
+#import "DLFianceOptionCell.h"
 
-static NSString *FianceBalanceCell = @"Fiance_balance_cell";
+static NSString *FianceOptionCell = @"Fiance_option_cell";
+static NSString *funcListCell = @"Func_List_cell";
 @interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) NSArray *mineOptionData;
 
@@ -39,34 +41,15 @@ static NSString *FianceBalanceCell = @"Fiance_balance_cell";
     self.navigationItem.title = @"财务";
     self.collectionView.backgroundColor = [UIColor colorWithHexString:@"0xf5f5f9"];
     
-}
-
-
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UINib *fianceOptionCell = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
     
     
-    
-    
-    
-    
-    
-    
+    [self.collectionView registerNib:fianceOptionCell forCellWithReuseIdentifier:FianceOptionCell];
     
 }
 
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 2;
@@ -86,49 +69,33 @@ static NSString *FianceBalanceCell = @"Fiance_balance_cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
 
-    if (indexPath.section == 0 && indexPath.item == 0) {
-        return [collectionView dequeueReusableCellWithReuseIdentifier:FianceBalanceCell forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:FianceOptionCell forIndexPath:indexPath];
+    }
+    
+    return [collectionView dequeueReusableCellWithReuseIdentifier:funcListCell forIndexPath:indexPath];
+
+}
+
+
+
+
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+   
+    if (indexPath.section == 0) {
+        return CGSizeMake(self.collectionView.bounds.size.width, 100);
     }
 
 
-
-
-
-
-
-}
-
-
-
-
-
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-
-
-
-
+    DLFianceFlowLayout *flowLayout = (DLFianceFlowLayout *)collectionViewLayout;
+    NSInteger count = 2;
+    CGFloat w = (self.collectionView.bounds.size.width - (count - 1) * flowLayout.minimumInteritemSpacing) / count;
+    CGFloat h = 64;
+    return CGSizeMake(w, h);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
