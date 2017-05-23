@@ -7,31 +7,135 @@
 //
 
 #import "DLFianceViewController.h"
+#import "DLFianceFlowLayout.h"
+#import "UIColor+MSExtension.h"
 
-@interface DLFianceViewController ()
+static NSString *FianceBalanceCell = @"Fiance_balance_cell";
+@interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
+@property (nonatomic, strong) NSArray *mineOptionData;
 
 @end
 
 @implementation DLFianceViewController
 
 #pragma mark - Life cycle
+- (instancetype)init {
+    DLFianceFlowLayout *flowLayout = [[DLFianceFlowLayout alloc] init];
+    return [super initWithCollectionViewLayout:flowLayout];
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self setupNavbar];
-    [self setupSubviews];
+    
     [self fetchData];
 }
 
 #pragma mark - Setup navbar
-
 - (void)setupNavbar {
-    self.title = @"财务";
+    self.navigationItem.title = @"财务";
+    self.collectionView.backgroundColor = [UIColor colorWithHexString:@"0xf5f5f9"];
+    
 }
 
-#pragma mark - Setup subViews
 
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 2;
+    }
+    return 0;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    if (indexPath.section == 0 && indexPath.item == 0) {
+        return [collectionView dequeueReusableCellWithReuseIdentifier:FianceBalanceCell forIndexPath:indexPath];
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark - Setup subViews
 - (void)setupSubviews {
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     
@@ -50,8 +154,26 @@
     }];
 }
 
-#pragma mark - Layout
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark - Layout
 - (void)updateViewConstraints {
     
     [super updateViewConstraints];

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DLFianceViewController : UIViewController
+@interface DLFianceViewController : UICollectionViewController
 
 @end

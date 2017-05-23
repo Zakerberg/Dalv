@@ -134,6 +134,8 @@
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
+		4572B17B1ED3CAA2007927EE /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B17A1ED3CAA2007927EE /* DLFianceFlowLayout.m */; };
+		4572B17E1ED3D2D5007927EE /* DLFianceOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B17D1ED3D2D5007927EE /* DLFianceOption.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45E119A71ED2C62600FDFEBA /* LORequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119A51ED2C62600FDFEBA /* LORequestManger.m */; };
 		45E119E31ED2CB1300FDFEBA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */; };
@@ -363,6 +365,10 @@
 		1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLActionSheet.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4572B1791ED3CAA2007927EE /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
+		4572B17A1ED3CAA2007927EE /* DLFianceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceFlowLayout.m; sourceTree = "<group>"; };
+		4572B17C1ED3D2D5007927EE /* DLFianceOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceOption.h; sourceTree = "<group>"; };
+		4572B17D1ED3D2D5007927EE /* DLFianceOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceOption.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45E119A51ED2C62600FDFEBA /* LORequestManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LORequestManger.m; sourceTree = "<group>"; };
 		45E119A61ED2C62600FDFEBA /* LORequestManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LORequestManger.h; sourceTree = "<group>"; };
@@ -687,6 +693,9 @@
 		1CB9532B1ECFC41600BDC2D3 /* Fiance */ = {
 			isa = PBXGroup;
 			children = (
+				4572B1761ED3CA7F007927EE /* Other */,
+				4572B1771ED3CA7F007927EE /* View */,
+				4572B1781ED3CA7F007927EE /* Model */,
 				1CB9532C1ECFC41600BDC2D3 /* Controller */,
 			);
 			path = Fiance;
@@ -998,6 +1007,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4572B1761ED3CA7F007927EE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		4572B1771ED3CA7F007927EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4572B1791ED3CAA2007927EE /* DLFianceFlowLayout.h */,
+				4572B17A1ED3CAA2007927EE /* DLFianceFlowLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4572B1781ED3CA7F007927EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4572B17C1ED3D2D5007927EE /* DLFianceOption.h */,
+				4572B17D1ED3D2D5007927EE /* DLFianceOption.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1257,7 @@
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
+				4572B17E1ED3D2D5007927EE /* DLFianceOption.m in Sources */,
 				1CB770C51ECFE00100F6EFDF /* DLRegisterAlertView.m in Sources */,
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
@@ -1273,6 +1308,7 @@
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,
+				4572B17B1ED3CAA2007927EE /* DLFianceFlowLayout.m in Sources */,
 				1CB770AE1ECFE00100F6EFDF /* DLChangePersonDataController.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
