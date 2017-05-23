@@ -8,7 +8,7 @@
 //
 
 #import "DLRemmendController.h"
-
+#import <YYModel.h>
 @interface DLRemmendController ()
 
 @end
@@ -19,6 +19,33 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
 }
+
+
++ (void)getAgencyFinanceMyRecommend:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFinanceMyRecommend param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+        NSArray *dic = responseData;
+        NSDictionary *dict = dic.firstObject;
+        
+        [dic yy_modelSetWithDictionary:dict];
+        
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
