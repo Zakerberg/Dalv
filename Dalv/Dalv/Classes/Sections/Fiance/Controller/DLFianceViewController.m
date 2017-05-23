@@ -11,15 +11,14 @@
 #import "NSArray+Adition.h"
 #import "DLFianceOptionCell.h"
 #import "DLFianceBalanceCell.h"
-@interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
+#import "DLHomeViewTask.h"
+@interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
 // 保存所有模型数据
 @property (nonatomic, strong) NSArray *mineOptionsData;
+@property (nonatomic,strong) NSDictionary *dic;
+@property(nonatomic,strong) DLOptionModel *model;
+
 @end
-
-#define FristSectionCount  5 // 第1组的格子个数
-#define SecondSectionCount  4// 第2组的格子个数
-#define ThirdSectionCount   6//
-
 
 // balacneCell重用标识
 static NSString *FianceBalanceCellID = @"Fiance_Balance_Cell_ID";
@@ -36,6 +35,9 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setData];
+    
+    self.collectionView.delegate = self;
  
     // 设置collectionView的背景
     self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -59,7 +61,7 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 #pragma mark - 数据源方法
 // 返回有多少组
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 4;
+    return 2;
 }
 
 
@@ -68,24 +70,25 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     
     // 第0组返回1个
     if (section == 0) { // 第一组返回5个格子
-        return FristSectionCount;
-    } else if (section == 1) { // 第二组返回4个格子
-        return SecondSectionCount;
+        return 1;
+    
     }
-    
-    return ThirdSectionCount; // 返回最后一组为6个格子
-    
+        return self.mineOptionsData.count;
 }
 
 // 返回每一组的每一个格子
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+//    DLOptionModel *model = [DLOptionModel dLOptionModelWithDict:self.dic];
     
-        
         
      if (indexPath.section == 1 && indexPath.item == 0) {
         // 返回balanceCell
+         
         DLFianceBalanceCell *balanceCell = [collectionView dequeueReusableCellWithReuseIdentifier:FianceBalanceCellID forIndexPath:indexPath];
+         if(_model){
+            balanceCell.model = _model;
+         }
         return balanceCell;
         
     }
@@ -93,17 +96,9 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     // 返回optionCell
     DLFianceOptionCell *optionCell = [collectionView dequeueReusableCellWithReuseIdentifier:FianceOptionCellID forIndexPath:indexPath];
     
-      if (indexPath.section == 2) { // 如果是第2组item从0开始 + 前面已经用过的数据 + 4
-        optionCell.option = self.mineOptionsData[indexPath.item];
-        
-    } else if (indexPath.section == 3) { // 如果是第3组item0 + 前面用过的8个,从第8个下标去取数据
-        optionCell.option = self.mineOptionsData[indexPath.item];
-    }
-    
-    
-    
     return optionCell;
 }
+
 
 // 设置每一个格子的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,25 +110,34 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
         // 返回infoCell的尺寸
         
         return CGSizeMake(collectionViewW, 100);
-        
-        
-        
-    } else if (indexPath.section == 1 && indexPath.item == 0) {
-        // 返回balanceCell的尺寸
-        
-        return CGSizeMake(collectionViewW, 68);
-        
     }
-    
     
     // 返回optionCell的尺寸
     return CGSizeMake((collectionViewW - 1 / [UIScreen mainScreen].scale) * 0.5, 68);
     
 }
 
-
-
-
+-(void)setData{
+    
+    NSDictionary *dict = @{@"uid": @"1132",
+                           @"sign_token":@"d7eabff2586161efbf0845b0eba46337"
+                  };
+    
+    [DLHomeViewTask getAgencyFinance:dict completion:^(id result, NSError *error) {
+//        NSLog(@"-------------%@",result);
+        if(!error){
+            NSDictionary *dic = result[@"agencyInfo"];
+            DLOptionModel *oModel = [DLOptionModel dLOptionModelWithDict:dic];
+            NSLog(@"总额, %@", oModel.account_balance);
+            self.model = oModel;
+            [self.collectionView reloadData];
+        }
+        
+    }];
+    
+//    [self.collectionView reloadData];
+    
+}
 
 #pragma mark - 加载数据
 - (NSArray *)loadMineOptionsData {
