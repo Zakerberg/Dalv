@@ -135,7 +135,18 @@
 		1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
-		45E119A41ED2BAC600FDFEBA /* DLRequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */; };
+		45E119A71ED2C62600FDFEBA /* LORequestManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119A51ED2C62600FDFEBA /* LORequestManger.m */; };
+		45E119E31ED2CB1300FDFEBA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */; };
+		45E119E41ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */; };
+		45E119E71ED2CB5900FDFEBA /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */; };
+		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
+		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
+		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
+		45E119F21ED2FF8000FDFEBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F11ED2FF8000FDFEBA /* Foundation.framework */; };
+		45E119F41ED2FF8B00FDFEBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F31ED2FF8B00FDFEBA /* UIKit.framework */; };
+		45E119F61ED2FF9700FDFEBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F51ED2FF9700FDFEBA /* Security.framework */; };
+		45E119F81ED3017100FDFEBA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F71ED3017100FDFEBA /* UserNotifications.framework */; };
+		45E119FA1ED3017F00FDFEBA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F91ED3017F00FDFEBA /* libresolv.tbd */; };
 		45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD121EC2E01400F4B6BD /* libz.tbd */; };
 		45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */; };
 		45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD161EC2E03900F4B6BD /* MessageUI.framework */; };
@@ -353,8 +364,23 @@
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		45E119A21ED2BAC600FDFEBA /* DLRequestManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRequestManger.h; sourceTree = "<group>"; };
-		45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRequestManger.m; sourceTree = "<group>"; };
+		45E119A51ED2C62600FDFEBA /* LORequestManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LORequestManger.m; sourceTree = "<group>"; };
+		45E119A61ED2C62600FDFEBA /* LORequestManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LORequestManger.h; sourceTree = "<group>"; };
+		45E119DF1ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		45E119E01ED2CB1300FDFEBA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		45E119E61ED2CB5900FDFEBA /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45E119F11ED2FF8000FDFEBA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45E119F31ED2FF8B00FDFEBA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45E119F51ED2FF9700FDFEBA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		45E119F71ED3017100FDFEBA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		45E119F91ED3017F00FDFEBA /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		45E119FB1ED301C400FDFEBA /* Dalv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dalv.entitlements; sourceTree = "<group>"; };
 		45F4CD121EC2E01400F4B6BD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		45F4CD161EC2E03900F4B6BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -372,17 +398,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E119FA1ED3017F00FDFEBA /* libresolv.tbd in Frameworks */,
+				45E119F81ED3017100FDFEBA /* UserNotifications.framework in Frameworks */,
+				45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */,
+				45E119F61ED2FF9700FDFEBA /* Security.framework in Frameworks */,
+				45E119F41ED2FF8B00FDFEBA /* UIKit.framework in Frameworks */,
+				45E119F21ED2FF8000FDFEBA /* Foundation.framework in Frameworks */,
+				45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */,
+				45F4CD1D1EC2E07600F4B6BD /* SystemConfiguration.framework in Frameworks */,
+				45F4CD1F1EC2E08400F4B6BD /* CoreTelephony.framework in Frameworks */,
+				45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */,
+				45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */,
 				45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */,
 				1CB953DB1ECFC71800BDC2D3 /* MOBFoundation.framework in Frameworks */,
 				1CB953DD1ECFC71800BDC2D3 /* SMS_SDK.framework in Frameworks */,
 				45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */,
-				45F4CD1F1EC2E08400F4B6BD /* CoreTelephony.framework in Frameworks */,
-				45F4CD1D1EC2E07600F4B6BD /* SystemConfiguration.framework in Frameworks */,
 				45F4CD1B1EC2E06000F4B6BD /* libstdc++.tbd in Frameworks */,
 				45F4CD191EC2E04500F4B6BD /* JavaScriptCore.framework in Frameworks */,
 				45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */,
 				45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */,
-				45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */,
 				54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */,
 				1CB953DC1ECFC71800BDC2D3 /* MOBFoundationEx.framework in Frameworks */,
 			);
@@ -937,6 +971,7 @@
 		452916751EC1741E0033314F /* Dalv */ = {
 			isa = PBXGroup;
 			children = (
+				45E119FB1ED301C400FDFEBA /* Dalv.entitlements */,
 				1CB952EA1ECFC41600BDC2D3 /* Classes */,
 				452916761EC1741E0033314F /* Supporting Files */,
 			);
@@ -951,8 +986,14 @@
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
-				45E119A21ED2BAC600FDFEBA /* DLRequestManger.h */,
-				45E119A31ED2BAC600FDFEBA /* DLRequestManger.m */,
+				45E119A51ED2C62600FDFEBA /* LORequestManger.m */,
+				45E119A61ED2C62600FDFEBA /* LORequestManger.h */,
+				45E119DF1ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.h */,
+				45E119E01ED2CB1300FDFEBA /* AFHTTPRequestOperation.h */,
+				45E119E11ED2CB1300FDFEBA /* AFHTTPRequestOperation.m */,
+				45E119E21ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m */,
+				45E119E51ED2CB5900FDFEBA /* AFURLConnectionOperation.m */,
+				45E119E61ED2CB5900FDFEBA /* AFURLConnectionOperation.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -960,6 +1001,14 @@
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E119F91ED3017F00FDFEBA /* libresolv.tbd */,
+				45E119F71ED3017100FDFEBA /* UserNotifications.framework */,
+				45E119F51ED2FF9700FDFEBA /* Security.framework */,
+				45E119F31ED2FF8B00FDFEBA /* UIKit.framework */,
+				45E119F11ED2FF8000FDFEBA /* Foundation.framework */,
+				45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */,
+				45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */,
+				45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */,
 				45B262511ECBDDE8001E54D7 /* CoreLocation.framework */,
 				45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */,
 				45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */,
@@ -1011,6 +1060,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = C4FG39LTV3;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1165,7 +1219,6 @@
 				1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */,
 				1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
-				45E119A41ED2BAC600FDFEBA /* DLRequestManger.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
@@ -1191,12 +1244,15 @@
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
+				45E119E71ED2CB5900FDFEBA /* AFURLConnectionOperation.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
+				45E119E41ED2CB1300FDFEBA /* AFHTTPRequestOperationManager.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				1CB770B91ECFE00100F6EFDF /* DLSupplierqueryController.m in Sources */,
+				45E119A71ED2C62600FDFEBA /* LORequestManger.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
@@ -1213,6 +1269,7 @@
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
+				45E119E31ED2CB1300FDFEBA /* AFHTTPRequestOperation.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,
@@ -1334,6 +1391,7 @@
 			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dalv/Dalv.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
 				DEVELOPMENT_TEAM = C4FG39LTV3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1356,6 +1414,7 @@
 			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dalv/Dalv.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (

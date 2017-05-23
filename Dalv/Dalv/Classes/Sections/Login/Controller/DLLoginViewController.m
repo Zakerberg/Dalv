@@ -10,6 +10,7 @@
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
 #import "DLRegisterAlertView.h"
+#import "DLHttpRequest.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
 @property (nonatomic,strong)DLRegisterAlertView *registerAlertView;
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     [self setupNavbar];
     [self configureSubViews];
-    [self fetchData];
+    
 }
 
 #pragma mark - Setup navbar
@@ -43,9 +44,12 @@
 - (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password{
     
     
-    
-    
-    
+    [DLRequestSerVice POST:DL_Login param:usename
+                   success:^(id responseData) {
+
+                   } failure:^(NSError *error) {
+        
+    }];
     
     
     
@@ -111,6 +115,10 @@
 }
 
 
+
+
+
+
 - (void)showRegisterAlertView {
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     
@@ -124,25 +132,19 @@
             //跳转到普通用户注册
 //            UINavigationController *resister = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"DLMineViewController"];
   
-            DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
-            
+            DLLoginViewController *loginVC = [[DLLoginViewController alloc] initWithNibName:@"DLMineViewController" bundle:nil];
             
             [weakVC presentViewController:loginVC animated:YES completion:nil];
             
         }
         if ([toRegisterVCStr isEqualToString:@"supplierVC"]) {
             //跳转到供应商注册
-//            UINavigationController *registerNav = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"registerDelegateNavigationController"];
+//      UINavigationController *registerNav = [weakVC.storyboard instantiateViewControllerWithIdentifier:@"registerDelegateNavigationController"];
 //            [weakVC presentViewController:registerNav animated:YES completion:nil];
             
         }
     };
-    
 }
-
-
-
-
 
 
 #pragma mark - Fetch data

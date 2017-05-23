@@ -1,14 +1,16 @@
 //
-//  DLRequestManger.m
-//  Dalv
+//  LORequestManger.m
+//  PlanB
 //
-//  Created by Michael 柏 on 2017/5/22.
-//  Copyright © 2017年 Michael 柏. All rights reserved.
+//  Created by Michael 柏 on 15/5/6.
+//  Copyright (c) 2015年 Michael 柏. All rights reserved.
 //
 
-#import "DLRequestManger.h"
-//#define serverUrl @"http://192.168.1.1:8080/jiekou"
-@implementation DLRequestManger
+#import "LORequestManger.h"
+
+#define serverUrl @"http://192.168.1.1:8080/jiekou"
+
+@implementation LORequestManger
 //+ (void)POST:(NSString *)URL params:(NSDictionary * )params success:(void (^)(id response))success
 //     failure:(void (^)(AFHTTPRequestOperation *operation,NSError *error))Error
 //{
@@ -16,7 +18,7 @@
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    
 //    // 请求超时时间
-//    
+//
 //    manager.requestSerializer.timeoutInterval = 30;
 //    NSString *postStr = URL;
 //    if (![URL hasPrefix:@"http"]) {
@@ -49,20 +51,20 @@
 //    [manager.requestSerializer setHTTPShouldHandleCookies:NO];
 //    manager.requestSerializer.timeoutInterval = 30;
 //    NSString *getStr = URL;
-//    //    NSLog(@"getStr======%@",getStr);
+////    NSLog(@"getStr======%@",getStr);
 //    if (![URL hasPrefix:@"http"]) {
 //        
 //        getStr = [NSString stringWithFormat:@"%@%@", serverUrl,URL] ;
 //    }
-//    
-//    
+//
+//   
 //    // 发送GET请求
 //    [manager GET:getStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        //        NSLog(@"getStr------------%@",getStr);
+////        NSLog(@"getStr------------%@",getStr);
 //        NSDictionary *responseDict = (NSDictionary *)responseObject;
-//        
-//        success(responseDict);
-//        
+//     
+//            success(responseDict);
+//
 //        
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        if (!operation.responseObject) {
@@ -70,7 +72,7 @@
 //        }
 //        Error( operation,error);
 //    }];
-//    
+//
 //    
 //}
 //
@@ -92,22 +94,22 @@
 //    
 //    NSString *postStr = [NSString stringWithFormat:@"%@%@", serverUrl,URL] ;
 //    NSMutableDictionary *dict = [params mutableCopy];
-//    
+//
 //    [manager POST:postStr parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 //        NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
 //        [formData appendPartWithFileData:imageData name:@"img" fileName:@"head.jpg" mimeType:@"image/jpeg"];
 //        
 //    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
+//
 //        NSDictionary *responseDict = (NSDictionary *)responseObject;
-//        success(responseDict);
-//        
+//                success(responseDict);
+// 
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        Error( operation,error);
 //        
 //    }];
-//    
-//    
+//
+//
 //}
-
+//
 @end
