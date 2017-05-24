@@ -9,5 +9,12 @@
 #import "DLOptionModel.h"
 
 @implementation DLOptionModel
-
++(instancetype)dLOptionModelWithDict:(NSDictionary *)dict{
+    DLOptionModel *model = [[DLOptionModel alloc] init];
+    [model setValuesForKeysWithDictionary:dict];
+    return model;
+}
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
 @end

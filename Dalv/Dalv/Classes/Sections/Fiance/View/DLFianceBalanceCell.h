@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLOptionModel.h"
 
 @interface DLFianceBalanceCell : UICollectionViewCell
 
+@property (nonatomic,strong)DLOptionModel *model;
 @end

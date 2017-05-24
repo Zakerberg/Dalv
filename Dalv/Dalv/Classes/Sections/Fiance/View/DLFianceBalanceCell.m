@@ -24,5 +24,13 @@
     [super awakeFromNib];
     // Initialization code
 }
+- (void)setModel:(DLOptionModel *)model{
+    _model = model;
+    
+    self.AmountfrozenLabel.text = [NSString stringWithFormat:@"%@",model.freezeMoney];
+    self.AvailablBbalanceLabel.text = [NSString stringWithFormat:@"%@",model.availableBalance];
+    self.totalLabel.text = [NSString stringWithFormat:@"%@",model.account_balance];
+    
+}
 
 @end
