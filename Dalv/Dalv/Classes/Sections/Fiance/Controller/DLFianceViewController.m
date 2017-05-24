@@ -48,12 +48,12 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     [self.collectionView registerNib:balanceCellNib forCellWithReuseIdentifier:FianceBalanceCellID];
     
 //    // 3.注册OptionCell
-//    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
-//    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
+    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
+    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
 //    
     
     // 5.加载数据
-    self.mineOptionsData = [self loadMineOptionsData];
+//    self.mineOptionsData = [self loadMineOptionsData];
 
 }
 
@@ -94,9 +94,9 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
         
     }
 
-    // 返回optionCell
+//    // 返回optionCell
     DLFianceOptionCell *optionCell = [collectionView dequeueReusableCellWithReuseIdentifier:FianceOptionCellID forIndexPath:indexPath];
-    
+//
     
     
     return optionCell;
@@ -109,14 +109,14 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     // 九宫格视图的宽
     CGFloat collectionViewW = collectionView.bounds.size.width;
     // 第0组的cell
-    if (indexPath.section == 0) {
-        // 返回infoCell的尺寸
+//    if (indexPath.section == 0) {
+    
         
         return CGSizeMake(collectionViewW, 100);
-    }
-    
-    // 返回optionCell的尺寸
-    return CGSizeMake((collectionViewW - 1 / [UIScreen mainScreen].scale) * 0.5, 68);
+//    }
+//
+//    
+//    return CGSizeMake((collectionViewW - 1 / [UIScreen mainScreen].scale) * 0.5, 68);
 }
 
 -(void)setData{
@@ -139,9 +139,6 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     [self.collectionView reloadData];
     
 }
-
-
-
 
 #pragma mark - 加载数据
 - (NSArray *)loadMineOptionsData {

@@ -224,7 +224,6 @@
 		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
 		4572B18E1ED3DE5E007927EE /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B18A1ED3DE5E007927EE /* UIColor+Addition.m */; };
 		4572B18F1ED3DE5E007927EE /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B18C1ED3DE5E007927EE /* NSAttributedString+Additon.m */; };
-		4572B1961ED406A7007927EE /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4572B1951ED406A7007927EE /* bus.png */; };
 		4572B19D1ED40BA7007927EE /* MineOption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4572B19C1ED40BA7007927EE /* MineOption.plist */; };
 		4572B1A01ED40D2D007927EE /* NSArray+Adition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B19F1ED40D2D007927EE /* NSArray+Adition.m */; };
 		4572B1A31ED40D74007927EE /* NSObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B1A21ED40D74007927EE /* NSObject+Addition.m */; };
@@ -551,7 +550,6 @@
 		4572B18B1ED3DE5E007927EE /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		4572B18C1ED3DE5E007927EE /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
 		4572B18D1ED3DE5E007927EE /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
-		4572B1951ED406A7007927EE /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
 		4572B19C1ED40BA7007927EE /* MineOption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MineOption.plist; sourceTree = "<group>"; };
 		4572B19E1ED40D2C007927EE /* NSArray+Adition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Adition.h"; sourceTree = "<group>"; };
 		4572B19F1ED40D2D007927EE /* NSArray+Adition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Adition.m"; sourceTree = "<group>"; };
@@ -1260,7 +1258,6 @@
 		452916761EC1741E0033314F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4572B1951ED406A7007927EE /* bus.png */,
 				1CC9F90F1EC20DAD002D7EFB /* Assets.xcassets */,
 				1CC9F9101EC20DAD002D7EFB /* Info.plist */,
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
@@ -1512,7 +1509,6 @@
 				1C051D271ED3D25D0039A79C /* universal_property@3x.png in Resources */,
 				1C051D0D1ED3D25D0039A79C /* order@3x.png in Resources */,
 				1C051D251ED3D25D0039A79C /* transaction_record@3x.png in Resources */,
-				4572B1961ED406A7007927EE /* bus.png in Resources */,
 				1C051D291ED3D25D0039A79C /* vendor_inquiries@3x.png in Resources */,
 				1CB953951ECFC41600BDC2D3 /* nav_3@3x.png in Resources */,
 				1CB770E21ECFE03B00F6EFDF /* lock@3x.png in Resources */,
