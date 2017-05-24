@@ -78,13 +78,14 @@
     [super layoutSubviews];
     
     [self.libImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView.mas_centerY).with.offset(5);
+//        make.bottom.equalTo(self.contentView.mas_centerY).with.offset(5);
         make.centerX.equalTo(self.contentView);
+        make.top.equalTo(self.contentView.mas_top).offset(5);
         make.size.mas_lessThanOrEqualTo(CGSizeMake(45, 45));
     }];
     
     [self.libNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.libImageView.mas_bottom).with.offset(15);
+        make.top.equalTo(self.libImageView.mas_bottom).with.offset(10);
         make.centerX.equalTo(self.libImageView);
     }];
     
@@ -96,7 +97,7 @@
     
     [self.rightSeparator mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
-        make.right.equalTo(self.contentView);
+        make.right.equalTo(self.contentView.mas_right).offset(-0.5);
         make.bottom.equalTo(self.contentView);
         make.width.equalTo(@0.5f);
     }];

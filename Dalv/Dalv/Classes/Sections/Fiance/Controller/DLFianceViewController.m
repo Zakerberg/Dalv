@@ -8,12 +8,12 @@
 
 #import "DLFianceViewController.h"
 #import "DLFianceFlowLayout.h"
-#import "NSArray+Adition.h"
 #import "DLFianceOptionCell.h"
 #import "DLFianceBalanceCell.h"
+
 @interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
 // 保存所有模型数据
-@property (nonatomic, strong) NSArray *mineOptionsData;
+@property (nonatomic, strong) NSMutableArray *mineOptionsData;
 @end
 
 #define FristSectionCount  5 // 第1组的格子个数
@@ -49,10 +49,6 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
     [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
     
-    
-    // 5.加载数据
-    self.mineOptionsData = [self loadMineOptionsData];
-
 }
 
 
@@ -136,8 +132,14 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 
 
 #pragma mark - 加载数据
-- (NSArray *)loadMineOptionsData {
-    return [NSArray objectListWithPlistName:@"MineOption.plist" clsName:@"DLOptionModel"];
+- (NSMutableArray *)mineOptionsData {
+    if (_mineOptionsData == nil) {
+        _mineOptionsData = [[NSMutableArray alloc]init];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"MineOption" ofType:@"plist"];
+        NSArray *temArray = [NSArray arrayWithContentsOfFile:path];
+        _mineOptionsData = [DLOptionModel mj_objectArrayWithKeyValuesArray:temArray];
+    }
+    return _mineOptionsData;
 }
 
 
