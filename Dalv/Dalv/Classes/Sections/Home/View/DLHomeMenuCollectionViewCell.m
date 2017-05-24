@@ -80,7 +80,7 @@
     [self.libImageView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.bottom.equalTo(self.contentView.mas_centerY).with.offset(5);
         make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.contentView.mas_top).offset(5);
+        make.top.equalTo(self.contentView.mas_top).offset(10);
         make.size.mas_lessThanOrEqualTo(CGSizeMake(45, 45));
     }];
     
