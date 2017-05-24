@@ -68,7 +68,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     
     UIButton *pushHomePageBtn = [[UIButton alloc]init];
     [pushHomePageBtn setTitle:@"推到首页" forState:(UIControlStateNormal)];
-    [pushHomePageBtn setImage:[UIImage imageNamed:@"dl_linedetail_heart.png"] forState:UIControlStateNormal];
+    [pushHomePageBtn setImage:[UIImage imageNamed:@"recommended_home.png"] forState:UIControlStateNormal];
     [pushHomePageBtn addTarget:self action:@selector(pushHomePageBtn) forControlEvents:UIControlEventTouchUpInside];
     pushHomePageBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
@@ -94,7 +94,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     // 电话咨询和立即订购按钮
     UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-104, SCREEN_WIDTH/2, 40)];
     [telSonsultationBtn setTitle:@"电话咨询" forState:(UIControlStateNormal)];
-    [telSonsultationBtn setImage:[UIImage imageNamed:@"dl_linedetail_tell.png"] forState:UIControlStateNormal];
+    [telSonsultationBtn setImage:[UIImage imageNamed:@"phone.png"] forState:UIControlStateNormal];
     [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
     [telSonsultationBtn  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     telSonsultationBtn.backgroundColor = [UIColor whiteColor];
