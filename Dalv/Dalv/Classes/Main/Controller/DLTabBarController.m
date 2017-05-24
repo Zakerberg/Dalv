@@ -24,7 +24,7 @@
     
     UIViewController *VC2 =  [self makeChildViewController:@"DLOrderViewController" andTabBarTitle:@"订单" andTabBarImage:@"v2_order"];
             
-        UIViewController *VC3 =  [self makeChildViewController:@"DLFianceViewController" andTabBarTitle:@"财务" andTabBarImage:@""];
+        UIViewController *VC3 =  [self makeChildViewController:@"DLFianceController" andTabBarTitle:@"财务" andTabBarImage:@""];
         VC3.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 
     
