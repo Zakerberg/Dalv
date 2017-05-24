@@ -9,13 +9,27 @@
 #import "DLMineViewController.h"
 #import <SMS_SDK/SMSSDK.h>
 #import <MBProgressHUD.h>
+#import "DLCityPickerView.h"
 
 #define kColor(X,Y,Z,A) [UIColor colorWithRed:X/255.0 green:Y/255.0 blue:Z/255.0 alpha:A]
 
-@interface DLMineViewController ()
+@interface DLMineViewController ()<DLCityPickerViewDelegate>
+/****  姓名  ****/
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+/****  选择城市  ****/
+@property (weak, nonatomic) IBOutlet UIButton *changeCityBtn;
+/****  电话号码  ****/
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
+/****  验证码  ****/
 @property (weak, nonatomic) IBOutlet UITextField *passCodeTF;
+/****  获取验证码  ****/
 @property (weak, nonatomic) IBOutlet UIButton *authCodeBtn;
+/****  密码  ****/
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+/****  确认密码  ****/
+@property (weak, nonatomic) IBOutlet UITextField *determinePasswordTF;
+/****  输入的职位(可选)  ****/
+@property (weak, nonatomic) IBOutlet UITextField *positionTF;
 
 @end
 
@@ -27,14 +41,32 @@
     
 }
 
+
+
+/*****  选择城市   ****/
+- (IBAction)changeCityBtnClick:(UIButton *)sender {
+    
+    NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
+    
+    DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
+    
+    [pickerSingle setDataArray:arrayData];
+    [pickerSingle setDefalutSelectRowStr:arrayData[0]];
+    [pickerSingle setDelegate:self];
+    [pickerSingle show];
+    [self.view endEditing:YES];
+
+}
+
+/*****  获取验证码  *****/
 - (IBAction)BtnClick:(id)sender {
     
     //判断手机号的正则表达式
     NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
     
     NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
-
-     BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
+    
+    BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
     
     if (!isMatchPhoneNum){
         
@@ -42,7 +74,6 @@
         UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
         
         [alertPhoneNum show];
-    
     }
     
     if (self.phoneTextFiled.text == nil) {
@@ -50,16 +81,15 @@
         [self showHint:@"手机号码不能为空"];
     }
     
-    
     if(isMatchPhoneNum){
         
-     [self openCountdown];
+        [self openCountdown];
         
     }
     
     
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil
-        result:^(NSError *error)
+                                 result:^(NSError *error)
      {
          if (!error)
              
@@ -69,15 +99,15 @@
              [alert show];
          }
      }];
-     
-//               UIAlertView* alert=[[UIAlertView alloc] initWithTitle:  NSLocalizedString(@"codesenderrtitle", nil)
-//                                                             message:[NSString stringWithFormat:@"：%zi ,：%@",error.errorCode,error.errorDescription]
-//                                                            delegate:self
-//                                                   cancelButtonTitle:NSLocalizedString(@"sure", nil)
-//                                                   otherButtonTitles:nil, nil nil];
-//               [alert show];
-//           
-
+    
+//      UIAlertView* alert=[[UIAlertView alloc] initWithTitle:  NSLocalizedString(@"codesenderrtitle", nil)
+    //                                                             message:[NSString stringWithFormat:@"：%zi ,：%@",error.errorCode,error.errorDescription]
+    //                                                            delegate:self
+    //                                                   cancelButtonTitle:NSLocalizedString(@"sure", nil)
+    //                                                   otherButtonTitles:nil, nil nil];
+    //               [alert show];
+    //
+    
     /**
      * @brief                   提交验证码(Commit the verification code)
      * @param code              验证码(Verification code)
@@ -143,7 +173,8 @@
     });
     dispatch_resume(_timer);
 }
-
+#pragma mark     ------------------------------ 立即注册 ------------------------------
+/**** 立即注册 ****/
 - (IBAction)registerNowBtn:(id)sender {
     
     
@@ -173,6 +204,13 @@
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
+}
+#pragma mark  ------------------------DLCityPickerViewDelegate-------------------------
+
+-(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
+    NSLog(@"选择%@",selectedTitle);
+    self.changeCityBtn.titleLabel.text = selectedTitle;
+    [self.changeCityBtn setTitle:selectedTitle forState:UIControlStateNormal];
 }
 
 @end

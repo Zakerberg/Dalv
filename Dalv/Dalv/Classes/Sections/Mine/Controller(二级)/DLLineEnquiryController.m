@@ -30,10 +30,8 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    
+
     [self setupUI];
-    
     
 }
 
@@ -57,21 +55,16 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
 }
 
+#pragma mark --------------------- Tableview data source -------------------------------
 
-
-
-
-
-#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 3;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     
     /********   出发地   *******/
     if (indexPath.row == 0) {
@@ -122,13 +115,11 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
         
     }
     
-//    /*****   备注   *****/
-//    if (indexPath.row == 4) {
-//        
-//    }
+    //    /*****   备注   *****/
+    //    if (indexPath.row == 4) {
+    //
+    //    }
 }
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10;
@@ -145,7 +136,7 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:lineEnquiryCellID forIndexPath:indexPath];
     
-
+    
     if (indexPath.row == 0) {
         
         cell.textLabel.text = @"出发城市";
@@ -154,19 +145,19 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
     if (indexPath.row == 1) {
         cell.textLabel.text = @"目的地";
-        self.Destinationcell = cell; 
+        self.Destinationcell = cell;
     }
-//    if (indexPath.row == 2) {
-//        cell.textLabel.text = @"旅游人数";
-//    }
+    //    if (indexPath.row == 2) {
+    //        cell.textLabel.text = @"旅游人数";
+    //    }
     if (indexPath.row == 2) {
         cell.textLabel.text = @"出发时间";
         
         self.Datecell = cell;
     }
-//    if (indexPath.row == 4) {
-//        cell.textLabel.text = @"备注";
-//    }
+    //    if (indexPath.row == 4) {
+    //        cell.textLabel.text = @"备注";
+    //    }
 
     
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
@@ -191,6 +182,9 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     
 }
 
+#pragma mark  ------------------------DLCityPickerViewDelegate-------------------------
+
+/***  DLCityPickerViewDelegate  *****/
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
     NSLog(@"选择%@",selectedTitle);
     self.chufacell.textLabel.text = selectedTitle;

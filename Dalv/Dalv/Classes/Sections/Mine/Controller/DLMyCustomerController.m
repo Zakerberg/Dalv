@@ -70,8 +70,7 @@ static NSString *MyCustomerCellID = @"MyCustomer_Cell_ID";
     if(indexPath.row == 0){
         
         DLCommissionController *commisonVC = [[DLCommissionController alloc] init];
-        
-        [self presentViewController:commisonVC animated:YES completion:nil];
+        [self.navigationController pushViewController:commisonVC animated:YES];
         
     }
     if(indexPath.row ==1){

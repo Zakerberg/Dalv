@@ -11,6 +11,7 @@
 #import "DLMineViewController.h"
 #import "DLRegisterAlertView.h"
 #import "DLHttpRequest.h"
+#import "DLJudgeIdentityController.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
 @property (nonatomic,strong)DLRegisterAlertView *registerAlertView;
@@ -111,17 +112,21 @@
     
 //    [self showRegisterAlertView];
     
+//    
+//    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+//    
+//    DLRegisterAlertView *regView = [[DLRegisterAlertView alloc] init];
+//    
+//    self.registerAlertView = regView;
+//    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] lastObject];
+//    self.registerAlertView.frame = self.view.bounds;
+//    [window addSubview:self.registerAlertView];
+//    
+    DLMineViewController *minVC  = [[DLMineViewController alloc] init];
+    [self.navigationController pushViewController:minVC animated:YES];
     
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
-    
-    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] lastObject];
-    self.registerAlertView.frame = self.view.bounds;
-    [window addSubview:self.registerAlertView];
     
     
-    
-    
-
     
 }
 
