@@ -60,10 +60,6 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
     [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
     
-//    // 3.注册OptionCell
-    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
-    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
-//    
     
     // 5.加载数据
 //    self.mineOptionsData = [self loadMineOptionsData];

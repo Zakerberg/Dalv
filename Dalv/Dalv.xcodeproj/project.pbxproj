@@ -221,7 +221,7 @@
 		45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B071ED4278F003CC22E /* DLFianceOptionCell.m */; };
 		45646B0A1ED4278F003CC22E /* DLFianceOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */; };
 		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
-		4572B1961ED406A7007927EE /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4572B1951ED406A7007927EE /* bus.png */; };
+
 		4572B18E1ED3DE5E007927EE /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B18A1ED3DE5E007927EE /* UIColor+Addition.m */; };
 		4572B18F1ED3DE5E007927EE /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4572B18C1ED3DE5E007927EE /* NSAttributedString+Additon.m */; };
 		4572B19D1ED40BA7007927EE /* MineOption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4572B19C1ED40BA7007927EE /* MineOption.plist */; };
@@ -544,7 +544,6 @@
 		45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceOptionCell.xib; sourceTree = "<group>"; };
 		45646B0B1ED49A0F003CC22E /* DLFianceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceModel.h; sourceTree = "<group>"; };
 		45646B0C1ED49A0F003CC22E /* DLFianceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceModel.m; sourceTree = "<group>"; };
-		4572B1951ED406A7007927EE /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
 		4572B18A1ED3DE5E007927EE /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		4572B18B1ED3DE5E007927EE /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		4572B18C1ED3DE5E007927EE /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
@@ -1521,7 +1520,7 @@
 				1CE2C1C91ED5270E00B898BA /* my_highlight@3x.png in Resources */,
 				1CE2C1C01ED5270E00B898BA /* financial_highlight@2x.png in Resources */,
 				1CE2C1C81ED5270E00B898BA /* my_highlight@2x.png in Resources */,
-				4572B1961ED406A7007927EE /* bus.png in Resources */,
+				
 				1C051D271ED3D25D0039A79C /* universal_property@3x.png in Resources */,
 				1C051D0D1ED3D25D0039A79C /* order@3x.png in Resources */,
 				1C051D251ED3D25D0039A79C /* transaction_record@3x.png in Resources */,
