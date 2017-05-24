@@ -47,10 +47,10 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     UINib *balanceCellNib = [UINib nibWithNibName:@"DLFianceBalanceCell" bundle:nil];
     [self.collectionView registerNib:balanceCellNib forCellWithReuseIdentifier:FianceBalanceCellID];
     
-    // 3.注册OptionCell
-    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
-    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
-    
+//    // 3.注册OptionCell
+//    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
+//    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
+//    
     
     // 5.加载数据
     self.mineOptionsData = [self loadMineOptionsData];
@@ -61,7 +61,7 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 #pragma mark - 数据源方法
 // 返回有多少组
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 1;
 }
 
 
@@ -69,11 +69,12 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
     // 第0组返回1个
-    if (section == 0) { // 第一组返回5个格子
+//    if (section == 0)
+//    {
         return 1;
     
-    }
-        return self.mineOptionsData.count;
+//    }
+//        return self.mineOptionsData.count;
 }
 
 // 返回每一组的每一个格子
@@ -96,6 +97,8 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     // 返回optionCell
     DLFianceOptionCell *optionCell = [collectionView dequeueReusableCellWithReuseIdentifier:FianceOptionCellID forIndexPath:indexPath];
     
+    
+    
     return optionCell;
 }
 
@@ -114,7 +117,6 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     
     // 返回optionCell的尺寸
     return CGSizeMake((collectionViewW - 1 / [UIScreen mainScreen].scale) * 0.5, 68);
-    
 }
 
 -(void)setData{
@@ -132,12 +134,14 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
             self.model = oModel;
             [self.collectionView reloadData];
         }
-        
     }];
     
-//    [self.collectionView reloadData];
+    [self.collectionView reloadData];
     
 }
+
+
+
 
 #pragma mark - 加载数据
 - (NSArray *)loadMineOptionsData {

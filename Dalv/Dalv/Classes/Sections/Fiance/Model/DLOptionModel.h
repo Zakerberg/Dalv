@@ -29,14 +29,14 @@
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, weak) NSString *title;
 @property (nonatomic, weak) NSString *msg;
-@property (nonatomic, weak) NSString *mobile;
-@property (nonatomic, weak) NSString *id;
-@property (nonatomic, weak) NSString *availableBalance;
-@property (nonatomic, weak) NSString *account_balance;
-@property (nonatomic, weak) NSString *freezeMoney;
+@property (nonatomic, weak) NSNumber *mobile;
+@property (nonatomic, weak) NSNumber *id;
+@property (nonatomic, weak) NSNumber *availableBalance;
+@property (nonatomic, weak) NSNumber *account_balance;
+@property (nonatomic, weak) NSNumber *freezeMoney;
 @property (nonatomic, weak) NSString *share_home_title;
 @property (nonatomic, weak) NSString *name;
-@property (nonatomic, weak) NSString *operator_id;
+@property (nonatomic, weak) NSNumber *operator_id;
 @property(nonatomic,strong) NSDictionary * agencyInfo;
 
 
