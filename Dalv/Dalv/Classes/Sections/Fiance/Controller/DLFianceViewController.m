@@ -22,10 +22,9 @@
 #import "DLHomeViewTask.h"
 @interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
 // 保存所有模型数据
-@property (nonatomic, strong) NSArray *mineOptionsData;
+//@property (nonatomic, strong) NSArray *mineOptionsData;
 @property (nonatomic,strong) NSDictionary *dic;
 @property(nonatomic,strong) DLOptionModel *model;
->>>>>>> a3b64228f7374d099ec900ccefbae705f438aff1
 
 @end
 
@@ -67,7 +66,7 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 //    
     
     // 5.加载数据
-    self.mineOptionsData = [self loadMineOptionsData];
+//    self.mineOptionsData = [self loadMineOptionsData];
 
 }
 
