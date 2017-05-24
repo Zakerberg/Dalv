@@ -109,7 +109,14 @@
 - (void)didRegisterButton
 {
     
-    [self showRegisterAlertView];
+//    [self showRegisterAlertView];
+    
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    
+    self.registerAlertView = [[[NSBundle mainBundle] loadNibNamed:@"RegisterAlertView" owner:self options:nil] lastObject];
+    self.registerAlertView.frame = self.view.bounds;
+    [window addSubview:self.registerAlertView];
     
     
     

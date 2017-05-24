@@ -10,6 +10,8 @@
 #import <SMS_SDK/SMSSDK.h>
 #import <MBProgressHUD.h>
 
+#define kColor(X,Y,Z,A) [UIColor colorWithRed:X/255.0 green:Y/255.0 blue:Z/255.0 alpha:A]
+
 @interface DLMineViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *passCodeTF;
@@ -102,6 +104,9 @@
 -(void)openCountdown{
     
     __block NSInteger time = 59; //倒计时时间
+    self.authCodeBtn.enabled = NO;
+    //背景变灰色
+    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
