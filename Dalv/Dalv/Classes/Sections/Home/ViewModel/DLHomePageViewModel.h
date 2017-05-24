@@ -15,4 +15,8 @@
  */
 + (NSArray *)creatMenuItems;
 
+/**
+ *  生成财务菜单条目
+ */
++ (NSArray *)creatFianceMenuItems;
 @end

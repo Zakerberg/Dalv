@@ -7,7 +7,6 @@
 //
 
 #import "DLFianceOptionCell.h"
-#import "DLOptionModel.h"
 @interface DLFianceOptionCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

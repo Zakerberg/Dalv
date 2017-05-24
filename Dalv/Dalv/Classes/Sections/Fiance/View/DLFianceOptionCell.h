@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DLOptionModel;
+#import "DLOptionModel.h"
+
 @interface DLFianceOptionCell : UICollectionViewCell
 @property (nonatomic,strong) DLOptionModel *option;
 @end

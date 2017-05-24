@@ -8,13 +8,21 @@
 
 #import "DLFianceViewController.h"
 #import "DLFianceFlowLayout.h"
-#import "NSArray+Adition.h"
 #import "DLFianceOptionCell.h"
 #import "DLFianceBalanceCell.h"
+
+@interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout>
+// 保存所有模型数据
+@property (nonatomic, strong) NSMutableArray *mineOptionsData;
+@end
+
+#define FristSectionCount  5 // 第1组的格子个数
+#define SecondSectionCount  4// 第2组的格子个数
+#define ThirdSectionCount   6//
 #import "DLHomeViewTask.h"
 @interface DLFianceViewController ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate>
 // 保存所有模型数据
-@property (nonatomic, strong) NSArray *mineOptionsData;
+//@property (nonatomic, strong) NSArray *mineOptionsData;
 @property (nonatomic,strong) NSDictionary *dic;
 @property(nonatomic,strong) DLOptionModel *model;
 
@@ -46,6 +54,11 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
     // 2.注册BalanceCell
     UINib *balanceCellNib = [UINib nibWithNibName:@"DLFianceBalanceCell" bundle:nil];
     [self.collectionView registerNib:balanceCellNib forCellWithReuseIdentifier:FianceBalanceCellID];
+    
+
+    // 3.注册OptionCell
+    UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
+    [self.collectionView registerNib:optionCellNib forCellWithReuseIdentifier:FianceOptionCellID];
     
 //    // 3.注册OptionCell
     UINib *optionCellNib = [UINib nibWithNibName:@"DLFianceOptionCell" bundle:nil];
@@ -141,8 +154,14 @@ static NSString *FianceOptionCellID = @"Fiance_Option_Cell_ID";
 }
 
 #pragma mark - 加载数据
-- (NSArray *)loadMineOptionsData {
-    return [NSArray objectListWithPlistName:@"MineOption.plist" clsName:@"DLOptionModel"];
+- (NSMutableArray *)mineOptionsData {
+    if (_mineOptionsData == nil) {
+        _mineOptionsData = [[NSMutableArray alloc]init];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"MineOption" ofType:@"plist"];
+        NSArray *temArray = [NSArray arrayWithContentsOfFile:path];
+        _mineOptionsData = [DLOptionModel mj_objectArrayWithKeyValuesArray:temArray];
+    }
+    return _mineOptionsData;
 }
 
 

@@ -104,7 +104,8 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     DLLineTourViewController *DLlinetourVC = [[DLLineTourViewController alloc]init];
-    [self.navigationController pushViewController:DLlinetourVC animated:YES];}
+    [self.navigationController pushViewController:DLlinetourVC animated:YES];
+}
 
 
 #pragma mark - Public Methods
