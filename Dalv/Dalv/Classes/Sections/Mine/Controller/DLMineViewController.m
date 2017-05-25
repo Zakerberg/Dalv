@@ -11,9 +11,11 @@
 #import <MBProgressHUD.h>
 #import "DLCityPickerView.h"
 #import "DLHomeViewTask.h"
+#import <MJExtension.h>
 
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 #define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"
+#define DL_ConsultRegister DL_HOST@"index.php/Api/login/agencyRegister"
 
 #define kColor(X,Y,Z,A) [UIColor colorWithRed:X/255.0 green:Y/255.0 blue:Z/255.0 alpha:A]
 #define kMainColor [UIColor colorWithRed:208/255.0 green:23/255.0 blue:21/255.0 alpha:1]
@@ -58,6 +60,8 @@
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
     
     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
+    
+    
     
     [pickerSingle setDataArray:arrayData];
     [pickerSingle setDefalutSelectRowStr:arrayData[0]];
@@ -154,17 +158,17 @@
     }
     
     
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil
-                                 result:^(NSError *error)
-     {
-         if (!error)
-             
-         {
+//    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneTextFiled.text zone:@"86" customIdentifier:nil
+//                                 result:^(NSError *error)
+//     {
+//         if (!error)
+         
+//         {
              UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
              
              [alert show];
-         }
-     }];
+//         }
+//     }];
     
 //      UIAlertView* alert=[[UIAlertView alloc] initWithTitle:  NSLocalizedString(@"codesenderrtitle", nil)
     //                                                             message:[NSString stringWithFormat:@"：%zi ,：%@",error.errorCode,error.errorDescription]
@@ -180,12 +184,6 @@
      * @param phoneNumber       电话号码(The phone number)
      * @param zone              区域号，不要加"+"号(Area code)
      * @param result            请求结果回调(Results of the request)
-   
-     //按钮不可点击
-     self.getCodeButton.enabled = NO;
-     [self.getCodeButton setTitle:[NSString stringWithFormat:@"倒计时 %ld",self.countDownTime] forState:UIControlStateNormal];
-     //背景变灰色
-     self.getCodeButton.backgroundColor = kColor(153, 153, 153, 1);
 
      */
 //    [SMSSDK commitVerificationCode:self.passCodeTF.text phoneNumber:_phoneTextFiled.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
@@ -209,7 +207,7 @@
     __block NSInteger time = 59; //倒计时时间
     self.authCodeBtn.enabled = NO;
     //背景变灰色
-    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
+//    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -225,7 +223,6 @@
 
             //按钮可以点击
            self.authCodeBtn.enabled = YES;
-           self.authCodeBtn.backgroundColor = kMainColor;
             
             
             dispatch_source_cancel(_timer);
@@ -313,8 +310,26 @@
 //                [SVProgressHUD show];
 //            }
 
+    /**
+     name：姓名
+     province ： 城市 选择，1北京市，3天津市，4石家庄市，5唐山市，1其他（并附加输入框，附件一个参数 thecity）
+     phone：手机
+     vercode ：验证码
+     password：密码
+     vocation ：职务（员工，导游）
+     返回数据：
+
+     */
+    
     
             if(self.passCodeTF.text != nil && [self.passCodeTF.text isEqualToString:self.determinePasswordTF.text]){
+                
+//                [DLRequestSerVice POST:DL_ConsultRegister param:param success:<#^(id responseData)successHandler#> failure:<#^(NSError *error)failureHandler#>]
+                
+                
+                
+                
+                
                 
                 
             }

@@ -80,9 +80,6 @@
 		1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953551ECFC41600BDC2D3 /* DLLoginView.m */; };
 		1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953821ECFC41600BDC2D3 /* DLOrderViewController.m */; };
 		1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953861ECFC41600BDC2D3 /* DLShopViewController.m */; };
-		1CB953DB1ECFC71800BDC2D3 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB953D81ECFC71800BDC2D3 /* MOBFoundation.framework */; };
-		1CB953DC1ECFC71800BDC2D3 /* MOBFoundationEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB953D91ECFC71800BDC2D3 /* MOBFoundationEx.framework */; };
-		1CB953DD1ECFC71800BDC2D3 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB953DA1ECFC71800BDC2D3 /* SMS_SDK.framework */; };
 		1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E01ECFC7E200BDC2D3 /* NSArray+Log.m */; };
 		1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E21ECFC7E200BDC2D3 /* NSDate+MSExtension.m */; };
 		1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E41ECFC7E200BDC2D3 /* NSString+Extension.m */; };
@@ -220,6 +217,7 @@
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
+		45305A251ED6C89B0023E892 /* DLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A241ED6C89B0023E892 /* DLManager.m */; };
 		45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AF61ED4252B003CC22E /* DLOptionModel.m */; };
 		45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */; };
 		45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */; };
@@ -372,9 +370,6 @@
 		1CB953851ECFC41600BDC2D3 /* DLShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShopViewController.h; sourceTree = "<group>"; };
 		1CB953861ECFC41600BDC2D3 /* DLShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShopViewController.m; sourceTree = "<group>"; };
 		1CB953D51ECFC49600BDC2D3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		1CB953D81ECFC71800BDC2D3 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		1CB953D91ECFC71800BDC2D3 /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
-		1CB953DA1ECFC71800BDC2D3 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		1CB953DF1ECFC7E200BDC2D3 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		1CB953E01ECFC7E200BDC2D3 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		1CB953E11ECFC7E200BDC2D3 /* NSDate+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSExtension.h"; sourceTree = "<group>"; };
@@ -542,6 +537,8 @@
 		45305A1B1ED668B60023E892 /* DLChoseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLChoseViewController.xib; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
 		45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@2x.png"; sourceTree = "<group>"; };
+		45305A231ED6C89B0023E892 /* DLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManager.h; sourceTree = "<group>"; };
+		45305A241ED6C89B0023E892 /* DLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManager.m; sourceTree = "<group>"; };
 		45646AF51ED4252B003CC22E /* DLOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOptionModel.h; sourceTree = "<group>"; };
 		45646AF61ED4252B003CC22E /* DLOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOptionModel.m; sourceTree = "<group>"; };
 		45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
@@ -596,15 +593,12 @@
 				45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */,
 				45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */,
 				45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */,
-				1CB953DB1ECFC71800BDC2D3 /* MOBFoundation.framework in Frameworks */,
-				1CB953DD1ECFC71800BDC2D3 /* SMS_SDK.framework in Frameworks */,
 				45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */,
 				45F4CD1B1EC2E06000F4B6BD /* libstdc++.tbd in Frameworks */,
 				45F4CD191EC2E04500F4B6BD /* JavaScriptCore.framework in Frameworks */,
 				45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */,
 				45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */,
 				54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */,
-				1CB953DC1ECFC71800BDC2D3 /* MOBFoundationEx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,19 +1045,8 @@
 		1CB953D61ECFC6CA00BDC2D3 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				1CB953D71ECFC71800BDC2D3 /* SMS_SDK */,
 			);
 			path = Vendors;
-			sourceTree = "<group>";
-		};
-		1CB953D71ECFC71800BDC2D3 /* SMS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				1CB953D81ECFC71800BDC2D3 /* MOBFoundation.framework */,
-				1CB953D91ECFC71800BDC2D3 /* MOBFoundationEx.framework */,
-				1CB953DA1ECFC71800BDC2D3 /* SMS_SDK.framework */,
-			);
-			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		1CB953DE1ECFC78A00BDC2D3 /* Categories */ = {
@@ -1104,6 +1087,8 @@
 				1CB953FC1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m */,
 				1C8438261ECFCC1E006DF42E /* DLUtils.h */,
 				1C8438271ECFCC1E006DF42E /* DLUtils.m */,
+				45305A231ED6C89B0023E892 /* DLManager.h */,
+				45305A241ED6C89B0023E892 /* DLManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1691,6 +1676,7 @@
 				1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */,
 				45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */,
 				1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */,
+				45305A251ED6C89B0023E892 /* DLManager.m in Sources */,
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
