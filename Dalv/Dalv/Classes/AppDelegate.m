@@ -10,8 +10,8 @@
 #import "DLTabBarController.h"
 #import <SMS_SDK/SMSSDK.h>
 
-#define MobAppKey @"1db8868702eb6"
-#define MobApp_Secret @"69d530b2044f3f48bdd339fe7e7e0677"
+//#define MobAppKey @"1db8868702eb6"
+//#define MobApp_Secret @"69d530b2044f3f48bdd339fe7e7e0677"
 
 #if DEBUG
 #import "FLEX.h"
@@ -46,7 +46,7 @@
     [self.window makeKeyAndVisible];
 
     
-    [SMSSDK registerApp:MobAppKey withSecret:MobApp_Secret];
+//    [SMSSDK registerApp:MobAppKey withSecret:MobApp_Secret];
 
     #if DEBUG
         [[FLEXManager sharedManager] showExplorer];

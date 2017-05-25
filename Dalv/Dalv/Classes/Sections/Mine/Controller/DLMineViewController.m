@@ -4,14 +4,19 @@
 //
 //  Created by Michael 柏 on 2017/5/9.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//@"index.php/Api/login/agencyVerificationCode"
 
 #import "DLMineViewController.h"
 #import <SMS_SDK/SMSSDK.h>
 #import <MBProgressHUD.h>
 #import "DLCityPickerView.h"
+#import "DLHomeViewTask.h"
+
+#define DL_HOST @"http://dalvuapi.dalvu.com/"
+#define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"
 
 #define kColor(X,Y,Z,A) [UIColor colorWithRed:X/255.0 green:Y/255.0 blue:Z/255.0 alpha:A]
+#define kMainColor [UIColor colorWithRed:208/255.0 green:23/255.0 blue:21/255.0 alpha:1]
 
 @interface DLMineViewController ()<DLCityPickerViewDelegate>
 /****  姓名  ****/
@@ -28,8 +33,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 /****  确认密码  ****/
 @property (weak, nonatomic) IBOutlet UITextField *determinePasswordTF;
-/****  输入的职位(可选)  ****/
-@property (weak, nonatomic) IBOutlet UITextField *positionTF;
+
+///****  输入的职位(可选)  ****/
+//@property (weak, nonatomic) IBOutlet UITextField *positionTF;
+
+
+@property (nonatomic,strong) NSDictionary *data;
 
 @end
 
@@ -60,6 +69,63 @@
 
 /*****  获取验证码  *****/
 - (IBAction)BtnClick:(id)sender {
+    
+    /*
+     
+     [parement setValue:@"8" forKey:@"call"];
+     
+     
+     [[AXFNetworkTools shared] requestMethod:POST urlString:urlstr parameters:parement success:^(id responseObject) {
+     
+     NSDictionary *dic = responseObject;
+     NSArray *dataArr = dic[@"data"];
+     NSMutableArray *arrM = [NSMutableArray array];
+     [dataArr enumerateObjectsUsingBlock:^(NSDictionary *dic, NSUInteger idx, BOOL * _Nonnull stop) {
+     
+     AXFSearchModel *model = [AXFSearchModel axfSearchModelWithDic:dic];
+     [arrM addObject:model];
+     
+     
+     }];
+     self.dicArr = arrM.copy;
+     
+     
+     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+     
+     [self.collectionView reloadData];
+     [self.hud hideAnimated:YES];
+     self.collectionView.hidden = NO;
+     self.shopButton.hidden = NO;
+     
+     }];：{phone : 13126997216 }
+
+     测试注册时发送短信接口地址：
+     http://dalvuapi.dalvu.com/index.php/Api/login/agencyRegister
+     请求方式：POST
+     请求参数：
+     name：姓名
+     province ： 城市 选择，1北京市，3天津市，4石家庄市，5唐山市，1其他（并附加输入框，附件一个参数 thecity）
+     phone：手机
+     vercode ：验证码
+     password：密码
+     vocation ：职务（员工，导游）
+     返回数据：
+     {
+     "status": "00000",
+     "msg": "成功"
+     }
+
+     */
+    
+    NSMutableDictionary *parement = [NSMutableDictionary dictionary];
+    
+    [parement setValue:self.phoneTextFiled.text forKey:@"phone"];
+    
+    [DLRequestSerVice POST:DL_consultGetCode param:parement success:^(id responseData) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
     //判断手机号的正则表达式
     NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
@@ -114,20 +180,27 @@
      * @param phoneNumber       电话号码(The phone number)
      * @param zone              区域号，不要加"+"号(Area code)
      * @param result            请求结果回调(Results of the request)
+   
+     //按钮不可点击
+     self.getCodeButton.enabled = NO;
+     [self.getCodeButton setTitle:[NSString stringWithFormat:@"倒计时 %ld",self.countDownTime] forState:UIControlStateNormal];
+     //背景变灰色
+     self.getCodeButton.backgroundColor = kColor(153, 153, 153, 1);
+
      */
-    [SMSSDK commitVerificationCode:self.passCodeTF.text phoneNumber:_phoneTextFiled.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
-        
-        {
-            if (!error)
-            {
-                NSLog(@"验证成功");
-            }
-            else
-            {
-                NSLog(@"错误信息:%@",error);
-            }
-        }
-    }];
+//    [SMSSDK commitVerificationCode:self.passCodeTF.text phoneNumber:_phoneTextFiled.text zone:@"86" result:^(SMSSDKUserInfo *userInfo, NSError *error) {
+//        
+//        {
+//            if (!error)
+//            {
+//                NSLog(@"验证成功");
+//            }
+//            else
+//            {
+//                NSLog(@"错误信息:%@",error);
+//            }
+//        }
+//    }];
 }
 
 // 开启倒计时效果
@@ -146,6 +219,14 @@
     dispatch_source_set_event_handler(_timer, ^{
         
         if(time <= 0){ //倒计时结束，关闭
+            //倒计时回归
+            
+            //停止倒计时
+
+            //按钮可以点击
+           self.authCodeBtn.enabled = YES;
+           self.authCodeBtn.backgroundColor = kMainColor;
+            
             
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -173,9 +254,70 @@
     });
     dispatch_resume(_timer);
 }
-#pragma mark     ------------------------------ 立即注册 ------------------------------
+#pragma mark  ------------------ 立即注册 ----------------------
+
+
+/*
+ 
+ if (self.areaID != nil && ![self.areaID isEqualToString:@""]) {
+ if ([self.passwordTextField.text isEqualToString:self.passwordAgainTextField.text]) {
+ //注册
+ if ([SVProgressHUD isVisible] == NO) {
+ [SVProgressHUD show];
+ }
+ 
+ [[Manager shareInstance] httpRegisterWithMobileNumber:self.mobileNumber withPassword:self.passwordTextField.text withUserType:@"2" withAreaId:self.areaID withRegisterSuccess:^(id successResult) {
+ [SVProgressHUD dismiss];
+ 
+ if ([successResult isEqualToString:@"注册成功"]) {
+ AlertManager *alert = [AlertManager shareIntance];
+ [alert showAlertViewWithTitle:nil withMessage:successResult actionTitleArr:@[@"确定"] withViewController:self withReturnCodeBlock:^(NSInteger actionBlockNumber) {
+ [self dismissViewControllerAnimated:YES completion:nil];
+ }];
+ 
+ }
+ 
+ 
+ } withRegisterFailResult:^(NSString *failResultStr) {
+ [SVProgressHUD dismiss];
+ AlertManager *alert = [AlertManager shareIntance];
+ [alert showAlertViewWithTitle:nil withMessage:failResultStr actionTitleArr:@[@"确定"] withViewController:self withReturnCodeBlock:nil];
+ 
+ }];
+ 
+ }else {
+ AlertManager *alert = [AlertManager shareIntance];
+ [alert showAlertViewWithTitle:nil withMessage:@"两个密码输入的不一致" actionTitleArr:@[@"确定"] withViewController:self withReturnCodeBlock:nil];        }
+ }else {
+ AlertManager *alert = [AlertManager shareIntance];
+ [alert showAlertViewWithTitle:nil withMessage:@"请您选择所在地区" actionTitleArr:@[@"确定"] withViewController:self withReturnCodeBlock:nil];
+ }
+ */
+
+
+
+
+
+
+
+
 /**** 立即注册 ****/
 - (IBAction)registerNowBtn:(id)sender {
+    
+    
+    
+//    if (self.areaID != nil && ![self.areaID isEqualToString:@""]) {
+//        if ([self.passwordTextField.text isEqualToString:self.passwordAgainTextField.text]) {
+//            //注册
+//            if ([SVProgressHUD isVisible] == NO) {
+//                [SVProgressHUD show];
+//            }
+
+    
+            if(self.passCodeTF.text != nil && [self.passCodeTF.text isEqualToString:self.determinePasswordTF.text]){
+                
+                
+            }
     
     
     //手机号匹配
@@ -205,12 +347,13 @@
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
 }
-#pragma mark  ------------------------DLCityPickerViewDelegate-------------------------
+
+
+#pragma mark  ----------DLCityPickerViewDelegate------------
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
-    NSLog(@"选择%@",selectedTitle);
+//    NSLog(@"选择%@",selectedTitle);
     self.changeCityBtn.titleLabel.text = selectedTitle;
     [self.changeCityBtn setTitle:selectedTitle forState:UIControlStateNormal];
 }
-
 @end
