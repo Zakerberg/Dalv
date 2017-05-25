@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DLChoseViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKJ-4x-rDd">
+                    <rect key="frame" x="67" y="520" width="240" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="4pt-4r-0aZ"/>
+                        <constraint firstAttribute="height" constant="35" id="shJ-Gn-1sx"/>
+                    </constraints>
+                    <state key="normal" title="顾问注册"/>
+                    <connections>
+                        <action selector="consultantRegisterBtnClick:" destination="-1" eventType="touchUpInside" id="Yey-In-Kx3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHr-8o-qTF">
+                    <rect key="frame" x="67" y="575" width="240" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="8PX-3N-FIu"/>
+                        <constraint firstAttribute="height" constant="30" id="X3R-WS-ERc"/>
+                    </constraints>
+                    <state key="normal" title="顾客注册"/>
+                    <connections>
+                        <action selector="customerRegisterBtnClick:" destination="-1" eventType="touchUpInside" id="PfQ-2D-5ZU"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loginlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="qFB-DV-pyf">
+                    <rect key="frame" x="53" y="123" width="260" height="151"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="151" id="kMh-wh-OPw"/>
+                        <constraint firstAttribute="width" constant="260" id="uWD-WH-3da"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="LKJ-4x-rDd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="67" id="BJX-56-Dnl"/>
+                <constraint firstAttribute="trailing" secondItem="IHr-8o-qTF" secondAttribute="trailing" constant="68" id="Hzc-Yw-aad"/>
+                <constraint firstItem="IHr-8o-qTF" firstAttribute="top" secondItem="LKJ-4x-rDd" secondAttribute="bottom" constant="20" id="Tcq-CK-UFS"/>
+                <constraint firstItem="LKJ-4x-rDd" firstAttribute="top" secondItem="qFB-DV-pyf" secondAttribute="bottom" constant="246" id="hAx-S1-Ijb"/>
+                <constraint firstItem="qFB-DV-pyf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="123" id="hDz-KX-Xj6"/>
+                <constraint firstAttribute="trailing" secondItem="LKJ-4x-rDd" secondAttribute="trailing" constant="68" id="lgM-id-LJB"/>
+                <constraint firstItem="qFB-DV-pyf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="oqZ-dQ-gAm"/>
+                <constraint firstAttribute="trailing" secondItem="qFB-DV-pyf" secondAttribute="trailing" constant="62" id="oxC-OT-H9D"/>
+                <constraint firstAttribute="bottom" secondItem="qFB-DV-pyf" secondAttribute="bottom" constant="393" id="yXV-2Y-GAw"/>
+                <constraint firstItem="IHr-8o-qTF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="67" id="z5T-Tm-5Ia"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Loginlogo.png" width="99" height="43"/>
+    </resources>
+</document>
