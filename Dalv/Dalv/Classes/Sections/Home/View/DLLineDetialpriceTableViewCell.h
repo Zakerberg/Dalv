@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLLineTourDetailInforModel.h"
 
 @interface DLLineDetialpriceTableViewCell : UITableViewCell
-@property (nonatomic,strong)UILabel *linedetialpricelab;
+
+/**
+ *  Cell 重用ID
+ */
++ (NSString *)cellIdentifier;
+
+/** 配置Cell */
+- (void)configureCell:(DLLineTourDetailInforModel *)lineTourDetailInforModel;
 
 @end

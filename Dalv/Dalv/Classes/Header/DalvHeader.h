@@ -25,6 +25,7 @@
 #import "UIView+LayoutMethods.h"
 
 #import "NSString+Extension.h"
+#import "UIViewController+MSExtension.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import <UIImageView+WebCache.h>
@@ -38,4 +39,5 @@
 // View
 #import "DLHUDManager.h"
 #import "DLActionSheet.h"
+#import "DLAlertView.h"
 #endif /* DalvHeader_h */

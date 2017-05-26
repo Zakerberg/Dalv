@@ -8,56 +8,99 @@
 
 #import "DLNavigationController.h"
 
-@interface DLNavigationController ()
+@interface DLNavigationController ()<UIGestureRecognizerDelegate>
 
 @end
 
 @implementation DLNavigationController
 
+#pragma mark - Class methods
+
++ (void)initialize {
+    [self setupNavBarTheme];
+    [self setupBarButtonItemTheme];
+}
+
++ (void)setupNavBarTheme {
+    UINavigationBar *appearance = [UINavigationBar appearance];
+    appearance.tintColor = [UIColor ms_blackColor];
+    //    appearance.barTintColor = [UIColor whiteColor];
+    [appearance setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]]
+                    forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [appearance setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor ms_blackColor],
+                                         NSFontAttributeName: [UIFont systemFontOfSize:18]}];
+    [appearance setShadowImage:[UIImage imageWithColor:[UIColor ms_separatorColor]
+                                                  size:CGSizeMake(0.6f, 0.6f)]];
+}
+
++ (void)setupBarButtonItemTheme {
+    UIBarButtonItem *appearance = [UIBarButtonItem appearance];
+    [appearance setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor ms_blackColor],
+                                         NSFontAttributeName: [UIFont systemFontOfSize:16]}
+                              forState:UIControlStateNormal];
+    
+    [appearance setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor ms_orangeColor],
+                                         NSFontAttributeName: [UIFont systemFontOfSize:16]}
+                              forState:UIControlStateHighlighted];
+}
+
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
-    
-    // 设置导航条相关的内容
-    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    // 清空阴影图片
-    [self.navigationBar setShadowImage:[UIImage new]];
-    
-    // 设置导航条及状态栏的背景色"64"
-    self.navigationBar.barTintColor = [UIColor colorWithRed:253/255.0 green:208/255.0 blue:0 alpha:0.5];
-    
-    // 取消半透明效果
-    self.navigationBar.translucent = NO;
-    
-    // 设置导航条内容主题色
-    self.navigationBar.tintColor = [UIColor blackColor];
-    
-    // 设置导航条标题文字颜色及字体大小
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont systemFontOfSize:17], NSForegroundColorAttributeName : [UIColor blackColor]};
-    
-    //如果要改的是颜色及文字属性相关的找bar
-    self.navigationItem.titleView = [[UILabel alloc] init];
-    
+    //    self.navigationBar.layer.shadowOpacity = 0.1f;
+    //    self.navigationBar.layer.shadowOffset = CGSizeZero;
+    self.interactivePopGestureRecognizer.delegate = self;
 }
 
-// 设置状态栏的样式"如果有导航控制器时设置状态栏的样式权限默认是交给导航控制器做全局处理"
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+- (BOOL)dl_blueNavbar {
+    return YES;
 }
 
-
-// 重写导航控制器的push方法拦截它push过程
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
-    
-    // 只有导航控制器的非根控制器才需要隐藏tabBar
-    if (self.childViewControllers.count > 0) {
-        // 隐藏tabBar
+    if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
+        [self setupBack:viewController];
     }
     
     [super pushViewController:viewController animated:animated];
 }
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return self.childViewControllers.count > 1;
+}
+
+#pragma mark - Setup
+
+- (void)setupBack:(UIViewController *)viewController {
+    if (viewController.dl_blueNavbar) {
+        UIBarButtonItem *backItem = [UIBarButtonItem itemWithImageName:@"navbar_back_white"
+                                                         highImageName:@"navbar_back_white"
+                                                                target:self
+                                                                action:@selector(didTapBack:)];
+        viewController.navigationItem.leftBarButtonItem = backItem;
+    } else {
+        UIBarButtonItem *backItem = [UIBarButtonItem itemWithImageName:@"navbar_back_gray"
+                                                         highImageName:@"navbar_back_gray"
+                                                                target:self
+                                                                action:@selector(didTapBack:)];
+        viewController.navigationItem.leftBarButtonItem = backItem;
+    }
+}
+
+#pragma mark - Action
+
+- (void)didTapBack:(UIBarButtonItem *)sender {
+    UIViewController *viewController = [self viewControllers].lastObject;
+    if ([viewController respondsToSelector:@selector(didTapBack:)]) {
+        [viewController performSelector:@selector(didTapBack:) withObject:sender];
+    } else {
+        [self popViewControllerAnimated:YES];
+    }
+}
+
 
 @end
