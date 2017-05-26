@@ -28,7 +28,7 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
-  - MOBFoundation_IDFA (2.2.13)
+  - MOBFoundation_IDFA (2.2.19)
   - OpenUDID (1.0.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -40,7 +40,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SMSSDK (2.1.4):
+  - SMSSDK (2.1.5):
     - MOBFoundation_IDFA
   - SVProgressHUD (2.1.2)
   - YYModel (1.0.4)
@@ -71,11 +71,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MOBFoundation_IDFA: 13a97a3a8dff584e745f71ca58d7c172797981e3
+  MOBFoundation_IDFA: 4561562ab2364873a904a590dcdffea9f10ab8c6
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SMSSDK: 4b5c95fc74522969187123df61b2c9567f48435e
+  SMSSDK: 7d19654f9d36392988e96bf697afdac983808b1a
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
