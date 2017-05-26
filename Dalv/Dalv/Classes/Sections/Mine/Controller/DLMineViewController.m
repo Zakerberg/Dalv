@@ -12,7 +12,7 @@
 #import "DLCityPickerView.h"
 #import "DLHomeViewTask.h"
 #import <MJExtension.h>
-#import "DLRegisterModel.h"
+
 
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 #define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"

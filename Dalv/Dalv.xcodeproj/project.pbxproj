@@ -40,8 +40,6 @@
 		1CB770C21ECFE00100F6EFDF /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770A61ECFE00100F6EFDF /* zzz.plist */; };
 		1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A91ECFE00100F6EFDF /* DLMineCell.m */; };
 		1CB770C41ECFE00100F6EFDF /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */; };
-		1CB770C51ECFE00100F6EFDF /* DLRegisterAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770AC1ECFE00100F6EFDF /* DLRegisterAlertView.m */; };
-		1CB770C61ECFE00100F6EFDF /* DLRegisterAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770AD1ECFE00100F6EFDF /* DLRegisterAlertView.xib */; };
 		1CB770D91ECFE03B00F6EFDF /* d_btn_dls@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770C71ECFE03B00F6EFDF /* d_btn_dls@2x.png */; };
 		1CB770DA1ECFE03B00F6EFDF /* d_btn_dls@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770C81ECFE03B00F6EFDF /* d_btn_dls@3x.png */; };
 		1CB770DB1ECFE03B00F6EFDF /* d_btn_ptyh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770C91ECFE03B00F6EFDF /* d_btn_ptyh@2x.png */; };
@@ -314,9 +312,6 @@
 		1CB770A81ECFE00100F6EFDF /* DLMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCell.h; sourceTree = "<group>"; };
 		1CB770A91ECFE00100F6EFDF /* DLMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCell.m; sourceTree = "<group>"; };
 		1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
-		1CB770AB1ECFE00100F6EFDF /* DLRegisterAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRegisterAlertView.h; sourceTree = "<group>"; };
-		1CB770AC1ECFE00100F6EFDF /* DLRegisterAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRegisterAlertView.m; sourceTree = "<group>"; };
-		1CB770AD1ECFE00100F6EFDF /* DLRegisterAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLRegisterAlertView.xib; sourceTree = "<group>"; };
 		1CB770C71ECFE03B00F6EFDF /* d_btn_dls@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d_btn_dls@2x.png"; sourceTree = "<group>"; };
 		1CB770C81ECFE03B00F6EFDF /* d_btn_dls@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d_btn_dls@3x.png"; sourceTree = "<group>"; };
 		1CB770C91ECFE03B00F6EFDF /* d_btn_ptyh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d_btn_ptyh@2x.png"; sourceTree = "<group>"; };
@@ -697,9 +692,6 @@
 				1CB770A81ECFE00100F6EFDF /* DLMineCell.h */,
 				1CB770A91ECFE00100F6EFDF /* DLMineCell.m */,
 				1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */,
-				1CB770AB1ECFE00100F6EFDF /* DLRegisterAlertView.h */,
-				1CB770AC1ECFE00100F6EFDF /* DLRegisterAlertView.m */,
-				1CB770AD1ECFE00100F6EFDF /* DLRegisterAlertView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1486,7 +1478,6 @@
 				1CE2C2231ED52E8C00B898BA /* ticket_order_highlight@2x.png in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
 				1CE2C2281ED52E8C00B898BA /* visa_order_highlight@3x.png in Resources */,
-				1CB770C61ECFE00100F6EFDF /* DLRegisterAlertView.xib in Resources */,
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
 				1CB770DE1ECFE03B00F6EFDF /* d_icon_off@3x.png in Resources */,
 				1CE2C2261ED52E8C00B898BA /* ticket_order@3x.png in Resources */,
@@ -1666,7 +1657,6 @@
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
-				1CB770C51ECFE00100F6EFDF /* DLRegisterAlertView.m in Sources */,
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
