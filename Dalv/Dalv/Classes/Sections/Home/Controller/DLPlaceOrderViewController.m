@@ -12,8 +12,9 @@
 #import "DLLineOrderTripNumebrTableViewCell.h"
 #import "DLLineOrderSingleRoomTableViewCell.h"
 #import "DLLineOrderContactsTableViewCell.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
-@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
 @property (nonatomic, strong) UITableView *homeTableView;
 
@@ -31,6 +32,16 @@
     [self fetchData];
     
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [IQKeyboardManager sharedManager].enable = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [IQKeyboardManager sharedManager].enable = NO;
 }
 
 #pragma mark - Setup navbar
@@ -178,6 +189,21 @@
 #pragma mark - Event Handler
 
 - (void)placeOrderBtn {
-    NSLog(@"点击了提交订单");
+    UIAlertView *placeOrderAlert = [[UIAlertView alloc]initWithTitle:@"确定提交订单吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    placeOrderAlert.tag = 45;
+    [placeOrderAlert show];
 }
+
+#pragma mark -UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 45){
+        if (buttonIndex == 1) {
+//            if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"15701189832"]] ){
+//                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+//            }
+        }
+    }
+}
+
 @end

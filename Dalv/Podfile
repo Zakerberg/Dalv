@@ -19,6 +19,7 @@ pod 'CocoaLumberjack', '~> 2.3.0'
 pod 'FLEX', :configurations => ['Debug']
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'OpenUDID', '~> 1.0.0'
+pod 'IQKeyboardManager',  '~> 4.0.8'     # 键盘遮挡全局监听
 # Mob产品公共库
 pod 'MOBFoundation_IDFA'
 pod 'SMSSDK'

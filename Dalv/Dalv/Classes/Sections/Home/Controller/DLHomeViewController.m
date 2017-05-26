@@ -149,23 +149,48 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kDLHomeTableViewHeader];
         
         UIView *flagView = [[UIView alloc] init];
-        flagView.backgroundColor = [UIColor colorWithHexString:@"#f74c31"];
+        [headerView.contentView addSubview:flagView];
+
+        UIView *leftline = [[UIView alloc]init];
+        leftline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:leftline];
         
         UILabel *headerLabel = [[UILabel alloc] init];
-        headerLabel.text = @"推荐线路";
-        headerLabel.textColor = [UIColor ms_blackColor];
+        headerLabel.text = @"精选路线";
+        headerLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
+        headerLabel.textAlignment = NSTextAlignmentCenter;
         headerLabel.font = [UIFont systemFontOfSize:14];
+        [flagView addSubview:headerLabel];
         
-        [headerView.contentView addSubview:flagView];
-        [headerView.contentView addSubview:headerLabel];
+        UIView *rightline = [[UIView alloc]init];
+        rightline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:rightline];
+        
         [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(headerView.contentView);
-            make.size.mas_equalTo(CGSizeMake(5, 15));
+            make.left.equalTo(@100);
+            make.right.equalTo(@-100);
+            make.height.equalTo(@25);
             make.centerY.equalTo(headerView.contentView);
         }];
+        
+        [leftline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(headerLabel.mas_left).with.offset(5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
         [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(flagView.mas_right).with.offset(5);
+            make.left.equalTo(@20);
+            make.right.equalTo(@-20);
             make.height.equalTo(@15);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
+        [rightline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(headerLabel.mas_right).with.offset(-5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
             make.centerY.equalTo(headerView.contentView);
         }];
         return headerView;
