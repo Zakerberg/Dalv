@@ -10,6 +10,7 @@
 #import "DLLineDetialpriceTableViewCell.h"
 #import "DLCycleScrollView.h"
 #import "DLLineDetailsScrollViewController.h"
+#import "DLPlaceOrderViewController.h"
 
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
@@ -78,7 +79,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [pushHomePageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@40);
         make.bottom.equalTo(self.view.mas_bottom).offset(-50);
-        make.right.equalTo(self.view.mas_right).offset(-15);
+        make.right.equalTo(self.view.mas_right).offset(-10);
         make.width.equalTo(@150);
     }];
 
@@ -216,7 +217,10 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)OtherBtn
 {
-    NSLog(@"点击了立即订购");
+    DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
+        placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
+    [self.navigationController pushViewController:placeOrderVC animated:YES];
+
 }
 
 - (void)pushHomePageBtn

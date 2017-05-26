@@ -199,6 +199,11 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
+//        NSDictionary *param = @{@"login_name" : @"13126997215",
+//                                @"login_pwd" : @"654321",};
+        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
+            }];
+
 }
 
 #pragma mark - Event Handler
