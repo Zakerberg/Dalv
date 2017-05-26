@@ -38,4 +38,5 @@
 // View
 #import "DLHUDManager.h"
 #import "DLActionSheet.h"
+#import "DLAlertView.h"
 #endif /* DalvHeader_h */

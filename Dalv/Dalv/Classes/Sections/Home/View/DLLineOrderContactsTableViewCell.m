@@ -63,7 +63,7 @@
         [self.contentView  addSubview:line2];
         
         self.contacsTextField = [[UITextField alloc] init];
-        self.contacsTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.contacsTextField.keyboardType = UIKeyboardTypeTwitter;
         self.contacsTextField.placeholder = @"填写常用联系人";
         self.contacsTextField.font = font;
         self.contacsTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -75,22 +75,20 @@
         self.tellTextField = [[UITextField alloc] init];
         self.tellTextField.placeholder = @"填写入手机号";
         self.tellTextField.font = font;
-        self.tellTextField.returnKeyType = UIReturnKeyDone;
+        self.tellTextField.keyboardType = UIKeyboardTypeNumberPad;
         self.tellTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.tellTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.tellTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        [self.tellTextField  setSecureTextEntry:YES];
         self.tellTextField.leftViewMode = UITextFieldViewModeAlways;
         [self.contentView addSubview:self.tellTextField];
 
         self.remarksTextField = [[UITextField alloc] init];
         self.remarksTextField.placeholder = @"有什么是大旅需要注意的呢?";
         self.remarksTextField.font = font;
-        self.remarksTextField.returnKeyType = UIReturnKeyDone;
+        self.remarksTextField.keyboardType = UIKeyboardTypeTwitter;
         self.remarksTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.remarksTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.remarksTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        [self.remarksTextField  setSecureTextEntry:YES];
         self.remarksTextField.leftViewMode = UITextFieldViewModeAlways;
         [self.contentView addSubview:self.remarksTextField];
         
@@ -118,7 +116,7 @@
         [self.contacsTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(contactslab);
             make.left.equalTo(contactslab.mas_right);
-            make.width.equalTo(@150);
+            make.width.equalTo(self.contentView).with.offset(-100);
             make.height.equalTo(@40);
         }];
 
@@ -140,7 +138,7 @@
         [self.tellTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(telllab);
             make.left.equalTo(telllab.mas_right);
-            make.width.equalTo(@150);
+            make.width.equalTo(self.contentView).with.offset(-100);
             make.height.equalTo(@40);
         }];
 
@@ -161,7 +159,7 @@
         [self.remarksTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(remarkslab);
             make.left.equalTo(remarkslab.mas_right);
-            make.width.equalTo(@250);
+            make.width.equalTo(self.contentView).with.offset(-100);
             make.height.equalTo(@40);
         }];
     }
