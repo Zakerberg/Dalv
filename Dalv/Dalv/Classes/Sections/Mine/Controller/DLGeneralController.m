@@ -15,6 +15,7 @@
 #import <SVProgressHUD.h>
 #import "BLMClearCacheTool.h"
 #import "DLLoginViewController.h"
+#import "DLFeedBackController.h"
 
 static NSString *cellID  = @"cellID";
 #define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
@@ -115,6 +116,15 @@ static NSString *cellID  = @"cellID";
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == 0){
+        
+        DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
+        [self.navigationController pushViewController:feedbackVC animated:YES];
+        
+    }
+    
+    
+    
     
     if(indexPath.section == 1){
     
@@ -143,6 +153,17 @@ static NSString *cellID  = @"cellID";
         //显示弹框控制器
         [self presentViewController:alert animated:YES completion:nil];
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 - (void)back {
