@@ -9,13 +9,25 @@
 #import "DLLoginViewController.h"
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
-#import "DLRegisterAlertView.h"
 #import "DLHttpRequest.h"
 #import "DLChoseViewController.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
-@property (nonatomic,strong)DLRegisterAlertView *registerAlertView;
+
 @end
+
+/*
+ 
+ 测试登陆接口地址：
+ http://dalvuapi.dalvu.com/index.php/Api/login/agencyIndex
+ 请求方式：POST
+ 请求参数：{login_name : 13126997216 ,login_pwd : 123456}
+ 返回数据：
+ */
+ 
+ 
+ 
+
 
 @implementation DLLoginViewController
 
@@ -44,18 +56,15 @@
 
 - (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password{
     
-    
+
     [DLRequestSerVice POST:DL_Login param:usename
                    success:^(id responseData) {
 
+                       NSLog(@"登录成功!");
                    } failure:^(NSError *error) {
-        
+                       
+                       
     }];
-    
-    
-    
-    
-    
 }
 
 

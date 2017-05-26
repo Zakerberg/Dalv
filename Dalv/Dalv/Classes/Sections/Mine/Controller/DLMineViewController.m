@@ -12,6 +12,7 @@
 #import "DLCityPickerView.h"
 #import "DLHomeViewTask.h"
 #import <MJExtension.h>
+#import "DLRegisterModel.h"
 
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 #define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"
@@ -243,7 +244,7 @@
                 
                 //设置按钮显示读秒效果
                 [self.authCodeBtn setTitle:[NSString stringWithFormat:@"重发(%.2d)", seconds] forState:UIControlStateNormal];
-                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"0x979797"] forState:UIControlStateNormal];
+//                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"0x979797"] forState:UIControlStateNormal];
                 self.authCodeBtn.userInteractionEnabled = NO;
             });
             time--;
@@ -324,16 +325,20 @@
     
             if(self.passCodeTF.text != nil && [self.passCodeTF.text isEqualToString:self.determinePasswordTF.text]){
                 
-//                [DLRequestSerVice POST:DL_ConsultRegister param:param success:<#^(id responseData)successHandler#> failure:<#^(NSError *error)failureHandler#>]
+                NSDictionary *param = @{
+                                      @"姓名":@"name",
+                                      @"":@"",
+                                      @"":@""
+                                      
+                                      };
                 
-                
-                
-                
-                
-                
-                
+
+                [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
+                    NSLog(@"注册成功!");
+                } failure:^(NSError *error) {
+                    
+                }];
             }
-    
     
     //手机号匹配
     /*

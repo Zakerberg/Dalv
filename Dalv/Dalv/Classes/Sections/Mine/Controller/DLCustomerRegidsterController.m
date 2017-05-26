@@ -40,24 +40,10 @@
 /**** 立即注册   ****/
 - (IBAction)registerBtnClick:(id)sender {
     
-    
-    
-    
-    
-    
-    
 }
 
 /**** 获取验证码   ****/
 - (IBAction)obtainCodeBtnClick:(id)sender {
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

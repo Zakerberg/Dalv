@@ -90,7 +90,10 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
             self.Destinationcell.textLabel.text = cityStr;
         };
         
-      [self presentViewController:destinationVC animated:YES completion:nil];
+//      [self presentViewController:destinationVC animated:YES completion:nil];
+        
+        [self.navigationController pushViewController:destinationVC animated:YES];
+        
     }
     
 //    /****   旅游人数    *****/
