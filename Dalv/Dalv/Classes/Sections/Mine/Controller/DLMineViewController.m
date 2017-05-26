@@ -12,7 +12,8 @@
 #import "DLCityPickerView.h"
 #import "DLHomeViewTask.h"
 #import <MJExtension.h>
-
+#import "DLSalertView.h"
+#import "DLConsultModel.h"
 
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 #define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"
@@ -21,7 +22,7 @@
 #define kColor(X,Y,Z,A) [UIColor colorWithRed:X/255.0 green:Y/255.0 blue:Z/255.0 alpha:A]
 #define kMainColor [UIColor colorWithRed:208/255.0 green:23/255.0 blue:21/255.0 alpha:1]
 
-@interface DLMineViewController ()<DLCityPickerViewDelegate>
+@interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate>
 /****  姓名  ****/
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 /****  选择城市  ****/
@@ -37,10 +38,10 @@
 /****  确认密码  ****/
 @property (weak, nonatomic) IBOutlet UITextField *determinePasswordTF;
 
-///****  输入的职位(可选)  ****/
-//@property (weak, nonatomic) IBOutlet UITextField *positionTF;
+///****  输入的职位  ****/
+@property (weak, nonatomic) IBOutlet UITextField *positionTF;
 
-
+@property (nonatomic,strong) DLSalertView *alertView;
 @property (nonatomic,strong) NSDictionary *data;
 
 @end
@@ -50,8 +51,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 }
+
+
 
 
 
@@ -152,10 +155,14 @@
         [self showHint:@"手机号码不能为空"];
     }
     
+    
+    
     if(isMatchPhoneNum){
         
         [self openCountdown];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         
+        [alert show];
     }
     
     
@@ -165,9 +172,6 @@
 //         if (!error)
          
 //         {
-             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-             
-             [alert show];
 //         }
 //     }];
     
@@ -319,20 +323,40 @@
      password：密码
      vocation ：职务（员工，导游）
      返回数据：
-
-     */
+     *nameTF;
+    *  选择城市
+    @property (weak, nonatomic) IBOutlet UIButton *changeCityBtn;
+    ***  电话号码  ***
+    @property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
+    ***  验证码  ***
+    @property (weak, nonatomic) IBOutlet UITextField *passCodeTF;
+    ***  获取验证码  ***
+    @property (weak, nonatomic) IBOutlet UIButton *authCodeBtn;
+    ***  密码  ***
+    @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+    ***  确认密码  ***
+    @property (weak, nonatomic) IBOutlet UITextField *determinePasswordTF;
     
-    
+     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+     NSDictionary *param = @{@"email":text2.text, @"pwd":text3.text, @"name":text1.text};
+     NSString *url=@"http://oneexpress.duapp.com/api/save/user";
+     
+*/
             if(self.passCodeTF.text != nil && [self.passCodeTF.text isEqualToString:self.determinePasswordTF.text]){
+             
                 
-                NSDictionary *param = @{
-                                      @"姓名":@"name",
-                                      @"":@"",
-                                      @"":@""
-                                      
-                                      };
+                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                manager.requestSerializer = [AFJSONRequestSerializer serializer];
                 
-
+        NSDictionary *param = @{
+                                @"name":self.nameTF.text,
+                                @"province":self.changeCityBtn.titleLabel.text,
+                                @"phone":self.phoneTextFiled.text,
+                                @"vercode":self.passCodeTF.text,
+                                @"vocation":self.positionTF.text
+                                };
+                
                 [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
                     NSLog(@"注册成功!");
                 } failure:^(NSError *error) {
@@ -373,7 +397,32 @@
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
 //    NSLog(@"选择%@",selectedTitle);
+    
+    if ([selectedTitle isEqualToString:@"其他"])  {
+        
+        [self.alertView showView];
+
+    }
+
     self.changeCityBtn.titleLabel.text = selectedTitle;
     [self.changeCityBtn setTitle:selectedTitle forState:UIControlStateNormal];
 }
+
+-(void)requestEventAction:(UIButton *)button{
+    
+    [self.alertView closeView];
+    
+}
+
+- (DLSalertView *)alertView
+{
+    if (!_alertView) {
+        self.alertView = [[DLSalertView alloc] initWithFrame:CGRectMake(40, 200, [UIScreen mainScreen].bounds.size.width - 80, 220)];
+        self.alertView.backgroundColor = [UIColor whiteColor];
+        self.alertView.delegate = self;
+    }
+    return _alertView;
+}
+
+
 @end
