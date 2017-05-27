@@ -44,14 +44,6 @@
 		1CB770C21ECFE00100F6EFDF /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770A61ECFE00100F6EFDF /* zzz.plist */; };
 		1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A91ECFE00100F6EFDF /* DLMineCell.m */; };
 		1CB770C41ECFE00100F6EFDF /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */; };
-		1CB770E11ECFE03B00F6EFDF /* lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770CF1ECFE03B00F6EFDF /* lock@2x.png */; };
-		1CB770E21ECFE03B00F6EFDF /* lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D01ECFE03B00F6EFDF /* lock@3x.png */; };
-		1CB770E51ECFE03B00F6EFDF /* login_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D31ECFE03B00F6EFDF /* login_btn@2x.png */; };
-		1CB770E61ECFE03B00F6EFDF /* login_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D41ECFE03B00F6EFDF /* login_btn@3x.png */; };
-		1CB770E71ECFE03B00F6EFDF /* login_input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D51ECFE03B00F6EFDF /* login_input@2x.png */; };
-		1CB770E81ECFE03B00F6EFDF /* login_input@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D61ECFE03B00F6EFDF /* login_input@3x.png */; };
-		1CB770E91ECFE03B00F6EFDF /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D71ECFE03B00F6EFDF /* user@2x.png */; };
-		1CB770EA1ECFE03B00F6EFDF /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770D81ECFE03B00F6EFDF /* user@3x.png */; };
 		1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */; };
 		1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F01ECFC41600BDC2D3 /* DLHttpRequest.m */; };
 		1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F21ECFC41600BDC2D3 /* DLRequestSerVice.m */; };
@@ -335,14 +327,6 @@
 		1CB770A81ECFE00100F6EFDF /* DLMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCell.h; sourceTree = "<group>"; };
 		1CB770A91ECFE00100F6EFDF /* DLMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCell.m; sourceTree = "<group>"; };
 		1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
-		1CB770CF1ECFE03B00F6EFDF /* lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@2x.png"; sourceTree = "<group>"; };
-		1CB770D01ECFE03B00F6EFDF /* lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lock@3x.png"; sourceTree = "<group>"; };
-		1CB770D31ECFE03B00F6EFDF /* login_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn@2x.png"; sourceTree = "<group>"; };
-		1CB770D41ECFE03B00F6EFDF /* login_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn@3x.png"; sourceTree = "<group>"; };
-		1CB770D51ECFE03B00F6EFDF /* login_input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_input@2x.png"; sourceTree = "<group>"; };
-		1CB770D61ECFE03B00F6EFDF /* login_input@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_input@3x.png"; sourceTree = "<group>"; };
-		1CB770D71ECFE03B00F6EFDF /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
-		1CB770D81ECFE03B00F6EFDF /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
 		1CB952ED1ECFC41600BDC2D3 /* DLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileManager.h; sourceTree = "<group>"; };
 		1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFileManager.m; sourceTree = "<group>"; };
 		1CB952EF1ECFC41600BDC2D3 /* DLHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHttpRequest.h; sourceTree = "<group>"; };
@@ -900,14 +884,6 @@
 			children = (
 				45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */,
 				45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */,
-				1CB770CF1ECFE03B00F6EFDF /* lock@2x.png */,
-				1CB770D01ECFE03B00F6EFDF /* lock@3x.png */,
-				1CB770D31ECFE03B00F6EFDF /* login_btn@2x.png */,
-				1CB770D41ECFE03B00F6EFDF /* login_btn@3x.png */,
-				1CB770D51ECFE03B00F6EFDF /* login_input@2x.png */,
-				1CB770D61ECFE03B00F6EFDF /* login_input@3x.png */,
-				1CB770D71ECFE03B00F6EFDF /* user@2x.png */,
-				1CB770D81ECFE03B00F6EFDF /* user@3x.png */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1592,9 +1568,7 @@
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
-				1CB770E71ECFE03B00F6EFDF /* login_input@2x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
-				1CB770E11ECFE03B00F6EFDF /* lock@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
 				1CE2C1C31ED5270E00B898BA /* financial@3x.png in Resources */,
 				1CB953AD1ECFC41600BDC2D3 /* home-10-04.png in Resources */,
@@ -1617,10 +1591,8 @@
 				1CE2C20A1ED52BA100B898BA /* recharge_application@3x.png in Resources */,
 				1CE2C2431ED57BE400B898BA /* vendor_inquiries@3x.png in Resources */,
 				1CE2C2201ED52E8C00B898BA /* line_order_highlight@3x.png in Resources */,
-				1CB770E51ECFE03B00F6EFDF /* login_btn@2x.png in Resources */,
 				1CE2C22B1ED52E8C00B898BA /* wifi_order_highlight@2x.png in Resources */,
 				1CE2C1CC1ED5270E00B898BA /* order_heighlight@2x.png in Resources */,
-				1CB770EA1ECFE03B00F6EFDF /* user@3x.png in Resources */,
 				1CE2C18D1ED525E000B898BA /* add@2x.png in Resources */,
 				1CE2C18F1ED525E000B898BA /* arrowhead_up@2x.png in Resources */,
 				1CE2C19B1ED525E000B898BA /* go_back@2x.png in Resources */,
@@ -1650,14 +1622,11 @@
 				1CE2C2341ED57B1100B898BA /* geographical_position@2x.png in Resources */,
 				45646B021ED42748003CC22E /* DLFianceBalanceCell.xib in Resources */,
 				1CE2C21F1ED52E8C00B898BA /* line_order_highlight@2x.png in Resources */,
-				1CB770E81ECFE03B00F6EFDF /* login_input@3x.png in Resources */,
 				1CE2C1A61ED525E000B898BA /* phone@3x.png in Resources */,
 				1CE2C1C91ED5270E00B898BA /* my_highlight@3x.png in Resources */,
 				1CE2C1C01ED5270E00B898BA /* financial_highlight@2x.png in Resources */,
 				1CE2C1C81ED5270E00B898BA /* my_highlight@2x.png in Resources */,
-				1CB770E21ECFE03B00F6EFDF /* lock@3x.png in Resources */,
 				1CE2C1A41ED525E000B898BA /* hotel@3x.png in Resources */,
-				1CB770E91ECFE03B00F6EFDF /* user@2x.png in Resources */,
 				1CE2C20C1ED52BA100B898BA /* recharge_record@3x.png in Resources */,
 				1CE2C1B01ED525E000B898BA /* travel_days@3x.png in Resources */,
 				1CE2C2221ED52E8C00B898BA /* line_order@3x.png in Resources */,
@@ -1673,7 +1642,6 @@
 				1CE8D8021ED7FEFA00FFEF8B /* navbar_close_white@2x.png in Resources */,
 				1CE2C2421ED57BE400B898BA /* vendor_inquiries@2x.png in Resources */,
 				1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */,
-				1CB770E61ECFE03B00F6EFDF /* login_btn@3x.png in Resources */,
 				1CE2C2251ED52E8C00B898BA /* ticket_order@2x.png in Resources */,
 				1CE2C1991ED525E000B898BA /* edit@2x.png in Resources */,
 				1CE2C1951ED525E000B898BA /* departure_traffic@2x.png in Resources */,

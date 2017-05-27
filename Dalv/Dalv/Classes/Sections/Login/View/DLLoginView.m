@@ -9,12 +9,7 @@
 #import "DLLoginView.h"
 
 @interface DLLoginView ()<UITextFieldDelegate>
-{
-    UIImageView *accountImage;
-    UIImageView *pwdImage;
-    UIImageView *inputImage;
-    NSArray *allTextFields;
-}
+
 @property (nonatomic, assign) CGRect defaultViewRect;
 @end
 
@@ -36,12 +31,19 @@
     UIColor *color = [UIColor whiteColor];
     self.backgroundColor = [UIColor whiteColor];
     
-    accountImage=[[UIImageView alloc] initWithFrame:CGRectMake(80, 150, 25, 25)];
-    accountImage.image = [UIImage imageNamed:@"user.png"];
-    [self addSubview:accountImage];
+    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-20, 40, 40, 40)];
+    loginImage.image = [UIImage imageNamed:@"Loginlogo"];
+    [self addSubview:loginImage];
+    
+    UILabel *loginLab = [[UILabel alloc]initWithFrame:CGRectMake(100, loginImage.bottom, SCREEN_WIDTH-200, 40)];
+    loginLab.textAlignment = NSTextAlignmentCenter;
+    loginLab.text = @"大旅账号登陆";
+    loginLab.textColor = [UIColor colorWithHexString:@"#444444"];
+    loginLab.font = [UIFont systemFontOfSize:18];
+    [self addSubview:loginLab];
     
     self.loginIdTextField = [[UITextField alloc] init];
-    self.loginIdTextField.frame = CGRectMake(accountImage.right+10,150, SCREEN_WIDTH-160, 30);
+    self.loginIdTextField.frame = CGRectMake(25,loginLab.bottom+30, SCREEN_WIDTH-50, 40);
     self.loginIdTextField.font = font;
     self.loginIdTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.loginIdTextField.placeholder = @"请输入手机号";
@@ -53,17 +55,12 @@
     self.loginIdTextField.delegate = self;
     [self addSubview:self.loginIdTextField];
     
-    inputImage = [[UIImageView alloc] init];
-    inputImage.frame = CGRectMake(accountImage.x,self.loginIdTextField.bottom-0.5 ,self.loginIdTextField.width, 0.5);
-    inputImage.image = [UIImage imageNamed:@"login_input.png"];
-    [self addSubview:inputImage];
-    
-    pwdImage = [[UIImageView alloc] initWithFrame:CGRectMake(accountImage.x, self.loginIdTextField.bottom+30, 25, 25)];
-    pwdImage.image = [UIImage imageNamed:@"lock.png"];
-    [self addSubview:pwdImage];
-    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(self.loginIdTextField.x,self.loginIdTextField.bottom+5, self.loginIdTextField.width, 1)];
+    line.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+    [self addSubview:line];
+
     self.passwordTextField = [[UITextField alloc] init];
-    self.passwordTextField.frame=CGRectMake(self.loginIdTextField.x,pwdImage.y, SCREEN_WIDTH-160,30);
+    self.passwordTextField.frame=CGRectMake(self.loginIdTextField.x,line.bottom+5, self.loginIdTextField.width,40);
     self.passwordTextField.font = font;
     self.passwordTextField.placeholder = @"请输入密码";
     self.passwordTextField.backgroundColor = color;
@@ -76,27 +73,26 @@
     self.passwordTextField.delegate = self;
     [self addSubview:self.passwordTextField];
     
-    inputImage = [[UIImageView alloc] init];
-    inputImage.frame = CGRectMake(accountImage.x,self.passwordTextField.bottom-0.5 ,self.passwordTextField.width, 0.5);
-    inputImage.image = [UIImage imageNamed:@"login_input.png"];
-    [self addSubview:inputImage];
-    
+    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(self.passwordTextField.x,self.passwordTextField.bottom+5, self.passwordTextField.width, 1)];
+    line1.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+    [self addSubview:line1];
+
+        
     UIButton *footBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    footBtn.frame=CGRectMake(70, self.passwordTextField.bottom+30, SCREEN_WIDTH-140, 40);
+    footBtn.frame=CGRectMake(self.passwordTextField.x, self.passwordTextField.bottom+30, self.passwordTextField.width, 40);
     [footBtn setTitle:@"登录" forState:UIControlStateNormal];
-    [footBtn setBackgroundImage:[UIImage imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
-    [footBtn setBackgroundImage:[UIImage imageNamed:@"login_btn.png"] forState:UIControlStateHighlighted];
+    footBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
     [footBtn  addTarget:self action:@selector(performLoginAction) forControlEvents:UIControlEventTouchUpInside];
-    
+    footBtn.layer.cornerRadius = 8.0;
     [self addSubview:footBtn];
     
-        UIButton *forgetBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-        forgetBtn.frame=CGRectMake(100, footBtn.bottom+45, SCREEN_WIDTH-200, 30);
-        [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
-        forgetBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-        [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [forgetBtn  addTarget:self action:@selector(performForgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:forgetBtn];
+    UIButton *forgetBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+    forgetBtn.frame=CGRectMake(100, footBtn.bottom+25, SCREEN_WIDTH-200, 30);
+    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+    forgetBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [forgetBtn  addTarget:self action:@selector(performForgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:forgetBtn];
 }
 
 #pragma mark - ButtonAction
