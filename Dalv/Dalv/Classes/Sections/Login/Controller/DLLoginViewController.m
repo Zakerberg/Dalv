@@ -65,7 +65,9 @@
     [DLRequestSerVice POST:DL_Login param:usename
                    success:^(id responseData) {
 
-                       NSLog(@"登录成功!");
+                       NSLog(@"登录成功!%@",responseData);
+                       [self.navigationController popViewControllerAnimated:YES];
+                       //在这给单例类赋值
                    } failure:^(NSError *error) {
                        
                        

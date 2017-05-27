@@ -112,7 +112,7 @@
         [self.bgV addSubview:self.cancelBtn];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(150);
             make.left.mas_equalTo(15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
@@ -127,7 +127,7 @@
         [self.bgV addSubview:self.conpleteBtn];
         [self.conpleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.bottom.mas_equalTo(0);
+            make.top.mas_equalTo(self.cancelBtn);
             make.right.mas_equalTo(-15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);

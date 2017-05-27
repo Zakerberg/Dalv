@@ -49,6 +49,7 @@ static NSString *cellID  = @"cellID";
     self.tableView.tableFooterView = [UIView new];
 
     [self fetchData];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
 }
 
@@ -96,9 +97,9 @@ static NSString *cellID  = @"cellID";
         make.width.height.offset(67);
     }];
     
+    [_personBtn.layer setCornerRadius:67/2];//设置矩形四个圆角半径
     [_personBtn.layer setMasksToBounds:YES];
     
-    [_personBtn.layer setCornerRadius:28.6];//设置矩形四个圆角半径
     /*--------------------------------------------------------------------*/
     [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -117,10 +118,8 @@ static NSString *cellID  = @"cellID";
 //头像按钮的点击事件
 -(void)PersonbuttonClick{
     
-    
     [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
     
-//   ----------------------------------------------------------------------
     
 }
 
@@ -293,12 +292,11 @@ static NSString *cellID  = @"cellID";
     
     
     
-    
-    
-    
-    
 }
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 
 

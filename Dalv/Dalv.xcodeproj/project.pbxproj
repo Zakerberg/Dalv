@@ -221,6 +221,7 @@
 		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
 		450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */; };
 		450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */; };
+		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -568,6 +569,8 @@
 		450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
 		450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLChangePasswordController.xib; sourceTree = "<group>"; };
 		450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
+		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
+		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -697,8 +700,8 @@
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
 				1CB770951ECFE00100F6EFDF /* DLSupplierqueryController.h */,
 				1CB770961ECFE00100F6EFDF /* DLSupplierqueryController.m */,
-				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 				450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */,
+				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				450105F01ED9C34000AA7A17 /* common */,
 				1C3416051ED9494000752071 /* SegmentView */,
 				1CBCF9011ED2E41200310CCB /* CycleScrollView */,
 				1CB953FA1ECFC84000BDC2D3 /* Utility */,
@@ -1353,6 +1357,15 @@
 			path = JHPickView;
 			sourceTree = "<group>";
 		};
+		450105F01ED9C34000AA7A17 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				450105F11ED9C39100AA7A17 /* DLManagerMessage.h */,
+				450105F21ED9C39100AA7A17 /* DLManagerMessage.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		4529166A1EC1741E0033314F = {
 			isa = PBXGroup;
 			children = (
@@ -1731,6 +1744,7 @@
 				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
+				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
 				1CB953F41ECFC7E200BDC2D3 /* UIBarButtonItem+MSExtension.m in Sources */,
 				1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */,

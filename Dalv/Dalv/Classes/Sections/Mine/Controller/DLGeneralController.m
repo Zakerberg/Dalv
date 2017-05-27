@@ -72,10 +72,12 @@ static NSString *cellID  = @"cellID";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出登录吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-    
-        DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+    //清空所用注册信息 
+//        DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
         
-        [self presentViewController:loginVC animated:YES completion:nil];
+        self.tabBarController.selectedIndex = 0;
+//        [self.navigationController pushViewController:loginVC animated:YES];
+        
         
     }];
                              

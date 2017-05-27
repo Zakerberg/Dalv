@@ -51,11 +51,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    self.selectedIndexPath = indexPath ;
+    self.selectedIndexPath = indexPath ;
     
     /**  姓名 **/
     if (indexPath.row == 0) {
-        
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
+        cell.detailTextLabel.text = @"dada";
         
     }
     /**  年龄 **/
@@ -86,7 +87,8 @@
 
     /**  修改密码 **/
     if (indexPath.section == 1) {
-        
+        DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
+        [self.navigationController pushViewController:changePwdVC animated:YES];
 
     }
 }

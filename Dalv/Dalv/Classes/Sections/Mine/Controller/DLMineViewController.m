@@ -43,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *positionTF;
 
 @property (nonatomic,strong) DLSalertView *alertView;
+@property(nonatomic,strong)UITextField *firstField;
 @property (nonatomic,strong) NSDictionary *data;
 
 @end
@@ -344,26 +345,67 @@
      NSString *url=@"http://oneexpress.duapp.com/api/save/user";
      
 */
-            if(self.passCodeTF.text != nil && [self.passCodeTF.text isEqualToString:self.determinePasswordTF.text]){
+            if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
              
                 
                 AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
                 manager.requestSerializer = [AFJSONRequestSerializer serializer];
+                NSString *CityStr = @"1";
+                 if ([self.changeCityBtn.titleLabel.text isEqualToString:@"天津市"]) {
+                    CityStr = @"3";
+                 } else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"石家庄市"]){
+                     
+                     CityStr = @"4";
+                 }else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"唐山市"]){
+                     
+                     CityStr = @"5";
+                 }
+
+                
                 
         NSDictionary *param = @{
                                 @"name":self.nameTF.text,
-                                @"province":self.changeCityBtn.titleLabel.text,
+                                @"province":CityStr,
                                 @"phone":self.phoneTextFiled.text,
                                 @"vercode":self.passCodeTF.text,
                                 @"vocation":self.positionTF.text
                                 };
-                
-                [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
-                    NSLog(@"注册成功!");
-                } failure:^(NSError *error) {
+            
+        NSDictionary *param2 = @{
+                                @"name":self.nameTF.text,
+                                @"province":CityStr,
+                                @"phone":self.phoneTextFiled.text,
+                                @"vercode":self.passCodeTF.text,
+                                @"vocation":self.positionTF.text,
+                                @"thecity":self.firstField.text
+                                };
+                if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
                     
-                }];
-            }
+                    [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
+                        
+                        //                    NSLog(@"注册成功!");
+                        [self.navigationController popViewControllerAnimated:YES];
+                    } failure:^(NSError *error) {
+                        // 在此写提示框
+                    }];
+                }else{
+                    [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
+                        
+                        //                    NSLog(@"注册成功!");
+                        [self.navigationController popViewControllerAnimated:YES];
+                    } failure:^(NSError *error) {
+                        // 在此写提示框
+                    }];
+
+                
+                
+                }
+
+        }
+                
+                
+                
+                
     
     //手机号匹配
     /*
@@ -419,6 +461,7 @@
 {
     if (!_alertView) {
         self.alertView = [[DLSalertView alloc] initWithFrame:CGRectMake(40, 200, [UIScreen mainScreen].bounds.size.width - 80, 220)];
+        self.firstField = self.alertView.firstField;
         self.alertView.backgroundColor = [UIColor whiteColor];
         self.alertView.delegate = self;
     }
