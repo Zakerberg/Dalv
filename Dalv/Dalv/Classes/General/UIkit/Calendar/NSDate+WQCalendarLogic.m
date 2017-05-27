@@ -12,7 +12,7 @@
 - (NSUInteger)numberOfDaysInCurrentMonth
 {
     // 频繁调用 [NSCalendar currentCalendar] 可能存在性能问题
-    return [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:self].length;
+    return [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self].length;
 }
 
 
@@ -39,7 +39,7 @@
 /*计算这个月的第一天是礼拜几*/
 - (NSUInteger)weeklyOrdinality{
     
-    return  [[NSCalendar currentCalendar] ordinalityOfUnit:NSDayCalendarUnit inUnit:NSWeekCalendarUnit forDate:self];
+    return  [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitWeekday forDate:self];
     
     
 }

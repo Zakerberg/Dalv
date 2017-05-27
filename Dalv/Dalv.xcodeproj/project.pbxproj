@@ -214,10 +214,13 @@
 		1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D80B1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m */; };
 		1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
-		450105B91ED932BA00AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105B61ED932BA00AA7A17 /* JHPickView.m */; };
-		450105BA1ED932BA00AA7A17 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105B81ED932BA00AA7A17 /* MySingleton.m */; };
-		450105BE1ED933A100AA7A17 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 450105BB1ED933A100AA7A17 /* province_data.json */; };
-		450105BF1ED933A100AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105BC1ED933A100AA7A17 /* CityModelData.m */; };
+		450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105DE1ED97CF000AA7A17 /* CityModelData.m */; };
+		450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E01ED97CF000AA7A17 /* JHPickView.m */; };
+		450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E21ED97CF000AA7A17 /* MySingleton.m */; };
+		450105E71ED97CF000AA7A17 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 450105E31ED97CF000AA7A17 /* province_data.json */; };
+		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
+		450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */; };
+		450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -230,7 +233,6 @@
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45305A421ED90D1E0023E892 /* Assets.xcassets */; };
-		45305A4B1ED921820023E892 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A4A1ED921820023E892 /* DLChangePersonDataController.m */; };
 		45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AF61ED4252B003CC22E /* DLOptionModel.m */; };
 		45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */; };
 		45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */; };
@@ -554,13 +556,18 @@
 		1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailInforModel.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
-		450105B51ED932BA00AA7A17 /* JHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPickView.h; sourceTree = "<group>"; };
-		450105B61ED932BA00AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
-		450105B71ED932BA00AA7A17 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
-		450105B81ED932BA00AA7A17 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
-		450105BB1ED933A100AA7A17 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
-		450105BC1ED933A100AA7A17 /* CityModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModelData.m; sourceTree = "<group>"; };
-		450105BD1ED933A100AA7A17 /* CityModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModelData.h; sourceTree = "<group>"; };
+		450105DD1ED97CF000AA7A17 /* CityModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModelData.h; sourceTree = "<group>"; };
+		450105DE1ED97CF000AA7A17 /* CityModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModelData.m; sourceTree = "<group>"; };
+		450105DF1ED97CF000AA7A17 /* JHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPickView.h; sourceTree = "<group>"; };
+		450105E01ED97CF000AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
+		450105E11ED97CF000AA7A17 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
+		450105E21ED97CF000AA7A17 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
+		450105E31ED97CF000AA7A17 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
+		450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
+		450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
+		450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
+		450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLChangePasswordController.xib; sourceTree = "<group>"; };
+		450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -581,8 +588,6 @@
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		45305A421ED90D1E0023E892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		45305A491ED921820023E892 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
-		45305A4A1ED921820023E892 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
 		45646AF51ED4252B003CC22E /* DLOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOptionModel.h; sourceTree = "<group>"; };
 		45646AF61ED4252B003CC22E /* DLOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOptionModel.m; sourceTree = "<group>"; };
 		45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
@@ -692,8 +697,8 @@
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
 				1CB770951ECFE00100F6EFDF /* DLSupplierqueryController.h */,
 				1CB770961ECFE00100F6EFDF /* DLSupplierqueryController.m */,
-				45305A491ED921820023E892 /* DLChangePersonDataController.h */,
-				45305A4A1ED921820023E892 /* DLChangePersonDataController.m */,
+				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
+				450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -711,6 +716,9 @@
 				1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */,
 				45305A3C1ED832CA0023E892 /* DLFeedBackController.h */,
 				45305A3D1ED832CA0023E892 /* DLFeedBackController.m */,
+				450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */,
+				450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */,
+				450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */,
 			);
 			path = "Controller(二级)";
 			sourceTree = "<group>";
@@ -784,7 +792,7 @@
 		1CB952F31ECFC41600BDC2D3 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
-				450105B41ED931C200AA7A17 /* PickerView */,
+				450105DC1ED97CF000AA7A17 /* JHPickView */,
 				1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */,
 				1CB954011ECFCA9100BDC2D3 /* Calendar */,
 				1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */,
@@ -1331,18 +1339,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		450105B41ED931C200AA7A17 /* PickerView */ = {
+		450105DC1ED97CF000AA7A17 /* JHPickView */ = {
 			isa = PBXGroup;
 			children = (
-				450105BB1ED933A100AA7A17 /* province_data.json */,
-				450105BC1ED933A100AA7A17 /* CityModelData.m */,
-				450105BD1ED933A100AA7A17 /* CityModelData.h */,
-				450105B51ED932BA00AA7A17 /* JHPickView.h */,
-				450105B61ED932BA00AA7A17 /* JHPickView.m */,
-				450105B71ED932BA00AA7A17 /* MySingleton.h */,
-				450105B81ED932BA00AA7A17 /* MySingleton.m */,
+				450105DD1ED97CF000AA7A17 /* CityModelData.h */,
+				450105DE1ED97CF000AA7A17 /* CityModelData.m */,
+				450105DF1ED97CF000AA7A17 /* JHPickView.h */,
+				450105E01ED97CF000AA7A17 /* JHPickView.m */,
+				450105E11ED97CF000AA7A17 /* MySingleton.h */,
+				450105E21ED97CF000AA7A17 /* MySingleton.m */,
+				450105E31ED97CF000AA7A17 /* province_data.json */,
 			);
-			path = PickerView;
+			path = JHPickView;
 			sourceTree = "<group>";
 		};
 		4529166A1EC1741E0033314F = {
@@ -1549,7 +1557,6 @@
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
 				1CE2C1941ED525E000B898BA /* departure_city@3x.png in Resources */,
-				450105BE1ED933A100AA7A17 /* province_data.json in Resources */,
 				1CE2C1E11ED528C800B898BA /* surrounding_tourism@2x.png in Resources */,
 				1CE2C2291ED52E8C00B898BA /* visa_order@2x.png in Resources */,
 				1CE2C2231ED52E8C00B898BA /* ticket_order_highlight@2x.png in Resources */,
@@ -1567,6 +1574,7 @@
 				45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */,
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
+				450105E71ED97CF000AA7A17 /* province_data.json in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
@@ -1636,6 +1644,7 @@
 				1CE2C1981ED525E000B898BA /* destination@3x.png in Resources */,
 				1CE2C1A31ED525E000B898BA /* hotel@2x.png in Resources */,
 				1CE2C22C1ED52E8C00B898BA /* wifi_order_highlight@3x.png in Resources */,
+				450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */,
 				1CE2C1AF1ED525E000B898BA /* travel_days@2x.png in Resources */,
 				1CE2C22E1ED52E8C00B898BA /* wifi_order@3x.png in Resources */,
 				1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */,
@@ -1716,11 +1725,10 @@
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
 				1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
-				450105B91ED932BA00AA7A17 /* JHPickView.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
-				450105BF1ED933A100AA7A17 /* CityModelData.m in Sources */,
+				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
@@ -1740,6 +1748,7 @@
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
+				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */,
 				1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */,
@@ -1748,7 +1757,6 @@
 				1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */,
 				1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */,
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
-				45305A4B1ED921820023E892 /* DLChangePersonDataController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
@@ -1764,10 +1772,13 @@
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */,
+				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
+				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
+				450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */,
 				1CB770B91ECFE00100F6EFDF /* DLSupplierqueryController.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
@@ -1779,7 +1790,6 @@
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
 				1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */,
-				450105BA1ED932BA00AA7A17 /* MySingleton.m in Sources */,
 				1CB9538B1ECFC41600BDC2D3 /* DLHUDManager.m in Sources */,
 				1C0B57DF1ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m in Sources */,
 				1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */,

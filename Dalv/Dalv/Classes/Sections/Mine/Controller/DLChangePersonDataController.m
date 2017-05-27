@@ -87,8 +87,7 @@
     /**  修改密码 **/
     if (indexPath.section == 1) {
         
-        DLChangePasswordController *changePwdVC = [[DLChangePasswordController alloc] init];
-        [self.navigationController pushViewController:changePwdVC animated:YES];
+
     }
 }
 
