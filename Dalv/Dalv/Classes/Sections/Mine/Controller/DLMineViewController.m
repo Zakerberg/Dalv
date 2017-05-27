@@ -23,6 +23,7 @@
 #define kMainColor [UIColor colorWithRed:208/255.0 green:23/255.0 blue:21/255.0 alpha:1]
 
 @interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate>
+
 /****  姓名  ****/
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 /****  选择城市  ****/

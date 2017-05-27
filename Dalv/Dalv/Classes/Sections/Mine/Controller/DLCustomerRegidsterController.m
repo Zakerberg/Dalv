@@ -44,6 +44,11 @@
 /**** 立即注册   ****/
 - (IBAction)registerBtnClick:(id)sender {
     
+    
+    
+    
+    
+    
 }
 
 
