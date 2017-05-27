@@ -35,8 +35,14 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 
 #pragma mark - Setup navbar
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+    
+}
+
 - (void)setupNavbar {
     self.title = @"订单";
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Setup subViews
@@ -127,7 +133,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
            viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
         UICollectionReusableView *hotTopicHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kDLFianceCollectionViewHeader forIndexPath:indexPath];
-        hotTopicHeaderView.backgroundColor = [UIColor randomColor];
+        hotTopicHeaderView.backgroundColor = [UIColor whiteColor];
         UIView *flagView = [[UIView alloc] init];
         flagView.backgroundColor = [UIColor colorWithHexString:@"#f74c31"];
         

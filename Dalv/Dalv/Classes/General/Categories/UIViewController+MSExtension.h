@@ -11,9 +11,19 @@
 @interface UIViewController (MSExtension)
 
 /**
+ *  导航栏颜色
+ */
+@property (nonatomic, assign) BOOL dl_blueNavbar;
+
+/**
  *  设置导航栏默认主题
  */
 - (void)setupNavBarDefaultTheme;
+
+/**
+ *  设置导航栏黑色主题
+ */
+- (void)setupNavBarBlackTheme;
 
 /**
  *  设置导航栏背景色和导航栏标题颜色
@@ -36,5 +46,10 @@
  *  @param rightBarButtonItem 右侧按钮
  */
 - (void)setupRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem;
+
+/**
+ *  当前控制器
+ */
++ (UIViewController *)currentViewController;
 
 @end

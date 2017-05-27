@@ -11,7 +11,7 @@
 #import "DLCycleScrollView.h"
 #import "DLLineDetailsScrollViewController.h"
 #import "DLPlaceOrderViewController.h"
-
+#import "DLHomeViewTask.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLLineDetialpriceTableViewCell = @"DLLineDetialpriceTableViewCell";
@@ -35,9 +35,28 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupNavBarBackgroundColor:[UIColor colorWithHexString:@"#315599"]titleColor:[UIColor whiteColor]];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self setupNavBarDefaultTheme];
+    
+}
+
 #pragma mark - Setup navbar
 - (void)setupNavbar {
     self.title = @"线路详情";
+    
+    UIBarButtonItem *backItem = [UIBarButtonItem itemWithImageName:@"navbar_back_white"
+                                                     highImageName:nil
+                                                            target:self
+                                                            action:@selector(didTapBackAction:)];
+    self.navigationItem.leftBarButtonItem = backItem;
+
 }
 
 #pragma mark - Setup subViews
@@ -168,7 +187,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 2 ? 40.0f : 10.0f;
+    return section == 0 ? CGFLOAT_MIN : 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -185,6 +204,55 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self.navigationController pushViewController:DLLineDetScrVC animated:YES];
 }
 
+
+#pragma mark - Fetch data
+
+- (void)fetchData {
+    
+    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
+    [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
+         @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            DLLineTourDetailInforModel * detaiInfo= [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+            self.advertCarouselView.imageURLStringsGroup = detaiInfo.picArr;
+            NSLog(@"线路详情%@",detaiInfo.list);
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+   
+
+}
+
+#pragma mark - Event Handler
+
+- (void)telSonsultationBtn {
+    NSLog(@"点击了电话咨询");
+}
+
+- (void)OtherBtn {
+    DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
+        placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
+    [self.navigationController pushViewController:placeOrderVC animated:YES];
+
+}
+
+- (void)pushHomePageBtn {
+    NSLog(@"点击了推到首页");
+}
+
+
+- (void)didTapBackAction:(UIBarButtonItem *)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Getter
+
 - (DLCycleScrollView *)advertCarouselView {
     if (_advertCarouselView == nil) {
         _advertCarouselView = [[DLCycleScrollView alloc] init];
@@ -196,37 +264,5 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     }
     return _advertCarouselView;
 }
-
-#pragma mark - Fetch data
-
-- (void)fetchData {
-    self.advertCarouselView.imageURLStringsGroup = @[@"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5900ada55a074.png",
-                                                     @"http://7xje8b.com1.z0.glb.clouddn.com/huodong1@3x.png",
-                                                     @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img59018d4a6d8f9.png",
-                                                     @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5901926890af4.png",
-                                                     @"http://7xje8b.com1.z0.glb.clouddn.com/huodong1@3x.png"];
-   
-
-}
-
-
-- (void)telSonsultationBtn
-{
-    NSLog(@"点击了电话咨询");
-}
-
-- (void)OtherBtn
-{
-    DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
-        placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
-    [self.navigationController pushViewController:placeOrderVC animated:YES];
-
-}
-
-- (void)pushHomePageBtn
-{
-    NSLog(@"点击了推到首页");
-}
-
 
 @end

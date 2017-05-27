@@ -19,8 +19,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, weak) UIScrollView *backgroundScrollView;
-@property (nonatomic, strong) UIView *performanceView;
+@property (nonatomic, strong) UIImageView *performanceView;
 @property (nonatomic, weak) UITableView *homeTableView;
 @property (nonatomic, strong) DLCityPopMenuView *popMenuView;
 
@@ -43,12 +42,35 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self fetchData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    self.navigationController.navigationBar.translucent = NO;
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 #pragma mark - Setup navbar
 
+
 - (void)setupNavbar {
-    self.searchBar  = [[UISearchBar alloc]init];
-    self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+ 
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.ms_width, 44)];
     self.searchBar.placeholder = @"请输入商品名称";
+    self.searchBar.delegate = self;
+    self.searchBar.tintColor = [UIColor ms_orangeColor];
+    
+    self.searchBar.backgroundColor = [UIColor whiteColor];
+    [self.searchBar setBackgroundImage: [UIImage imageWithColor:[UIColor whiteColor] ] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    for (UIView *view in self.searchBar.subviews.firstObject.subviews) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            view.backgroundColor = [UIColor ms_backgroundColor];
+        }
+    }
     self.navigationItem.titleView = self.searchBar;
     
     UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"geographical_position" highImageName:nil target:self action:@selector(didTapOperateAction:)];
@@ -71,6 +93,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
           forCellReuseIdentifier:kDLHomeTableViewCell];
+    homeTableView.showsVerticalScrollIndicator = NO;
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
 forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
@@ -126,23 +149,48 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kDLHomeTableViewHeader];
         
         UIView *flagView = [[UIView alloc] init];
-        flagView.backgroundColor = [UIColor colorWithHexString:@"#f74c31"];
+        [headerView.contentView addSubview:flagView];
+
+        UIView *leftline = [[UIView alloc]init];
+        leftline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:leftline];
         
         UILabel *headerLabel = [[UILabel alloc] init];
-        headerLabel.text = @"推荐线路";
-        headerLabel.textColor = [UIColor ms_blackColor];
+        headerLabel.text = @"精选路线";
+        headerLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
+        headerLabel.textAlignment = NSTextAlignmentCenter;
         headerLabel.font = [UIFont systemFontOfSize:14];
+        [flagView addSubview:headerLabel];
         
-        [headerView.contentView addSubview:flagView];
-        [headerView.contentView addSubview:headerLabel];
+        UIView *rightline = [[UIView alloc]init];
+        rightline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:rightline];
+        
         [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(headerView.contentView);
-            make.size.mas_equalTo(CGSizeMake(5, 15));
+            make.left.equalTo(@100);
+            make.right.equalTo(@-100);
+            make.height.equalTo(@25);
             make.centerY.equalTo(headerView.contentView);
         }];
+        
+        [leftline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(headerLabel.mas_left).with.offset(5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
         [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(flagView.mas_right).with.offset(5);
+            make.left.equalTo(@20);
+            make.right.equalTo(@-20);
             make.height.equalTo(@15);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
+        [rightline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(headerLabel.mas_right).with.offset(-5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
             make.centerY.equalTo(headerView.contentView);
         }];
         return headerView;
@@ -165,6 +213,9 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return CGFLOAT_MIN;
+    }
     return section == 2 ? 40.0f : 10.0f;
 }
 
@@ -257,7 +308,8 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (UIView *)performanceView {
     if (_performanceView == nil) {
-        _performanceView = [[UIView alloc] init];
+        _performanceView = [[UIImageView  alloc] init];
+        _performanceView.image = [UIImage imageNamed:@"mine_theme"];
         _performanceView.backgroundColor = [UIColor randomColor];
         
       }

@@ -23,7 +23,7 @@
     DLHomeMenuItem *liberumLib = [DLHomeMenuItem itemWithImage:[UIImage imageNamed:@"free_walker"] name:@"自由行" selector:NSSelectorFromString(@"didTapLiberumLib")];
     
     DLHomeMenuItem *remind = [DLHomeMenuItem itemWithImage:[UIImage imageNamed:@"passenger_ticket"] name:@"机票" selector:NSSelectorFromString(@"didTapRemind")];
-    DLHomeMenuItem *search = [DLHomeMenuItem itemWithImage:[UIImage imageNamed:@"domestic-travel"] name:@"国内游" selector:NSSelectorFromString(@"didTapLiberumLib")];
+    DLHomeMenuItem *search = [DLHomeMenuItem itemWithImage:[UIImage imageNamed:@"dl_domestic_tourism"] name:@"国内游" selector:NSSelectorFromString(@"didTapLiberumLib")];
     
     return @[memberLib, privateLib, tempLib, liberumLib,remind,search];
  }

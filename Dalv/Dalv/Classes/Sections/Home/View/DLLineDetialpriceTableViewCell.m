@@ -7,44 +7,53 @@
 //
 
 #import "DLLineDetialpriceTableViewCell.h"
+@interface DLLineDetialpriceTableViewCell ()
+@property (nonatomic, strong) UILabel *lineDetialNameLab;
+
+@end
 
 @implementation DLLineDetialpriceTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
-        _linedetialpricelab = [[UILabel alloc]init];
-        _linedetialpricelab.textColor = [UIColor blackColor];
-        _linedetialpricelab.textAlignment = NSTextAlignmentLeft;
-        _linedetialpricelab.font = [UIFont systemFontOfSize:16];
-        _linedetialpricelab.text = @"标题XXXXXX";
-
-        [self.contentView addSubview:_linedetialpricelab];
-        
-        
-        UIView *line1 = [[UIView alloc]init];
-        line1.backgroundColor = UIColorFromHex(0xdcdcdc);
-        [self.contentView  addSubview:line1];
-        
-        [_linedetialpricelab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@20);
-            make.left.equalTo(@25);
-            make.width.equalTo(@200);
-            make.height.lessThanOrEqualTo(@40);
-        }];
-        
-        
-        [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_linedetialpricelab.mas_bottom).with.offset(20);
-            make.left.equalTo(@0);
-            make.width.equalTo(self.contentView);
-            make.height.equalTo(@0.5);
-        }];
-        
+        [self setupCellSubviews];
+        [self layoutCellSubviews];
     }
     return self;
 }
+
+- (void)setupCellSubviews {
+    _lineDetialNameLab = [[UILabel alloc]init];
+    _lineDetialNameLab.textColor = [UIColor blackColor];
+    _lineDetialNameLab.textAlignment = NSTextAlignmentLeft;
+    _lineDetialNameLab.font = [UIFont systemFontOfSize:16];
+    _lineDetialNameLab.text = @"标题XXXXXX";
+    
+    [self.contentView addSubview:_lineDetialNameLab];
+
+}
+
+- (void)layoutCellSubviews {
+    [_lineDetialNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@20);
+        make.left.equalTo(@25);
+        make.width.equalTo(@200);
+        make.height.lessThanOrEqualTo(@40);
+    }];
+
+}
+
++ (NSString *)cellIdentifier {
+    return NSStringFromClass([self class]);
+}
+
+/** 配置Cell */
+- (void)configureCell:(DLLineTourDetailInforModel *)lineTourDetailInforModel {
+
+
+
+}
+
 
 @end
