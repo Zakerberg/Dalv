@@ -50,7 +50,6 @@ static NSString *cellID  = @"cellID";
 
     [self fetchData];
     
-    
 }
 
 - (void)setupHeaderView

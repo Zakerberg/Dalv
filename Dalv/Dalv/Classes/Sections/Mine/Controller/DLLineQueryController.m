@@ -25,6 +25,8 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
 
 }
 
+
+
 -(void)setupUI{
     self.title = @"线路查询";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
