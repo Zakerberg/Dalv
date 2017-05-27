@@ -14,7 +14,7 @@
 @property (nonatomic, weak) UILabel *topicTitleLabel;
 @property (nonatomic, weak) UIView *containerView;
 @property (nonatomic, weak) UIButton *pageviewsButton;
-@property (nonatomic, weak) UIButton *commentButton;
+@property (nonatomic, weak) UILabel *minPriceLabel;
 
 @end
 
@@ -78,18 +78,15 @@
     pageviewsButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
     self.pageviewsButton = pageviewsButton;
     
-    UIButton *commentButton = [[UIButton alloc] init];
-    commentButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    [commentButton setTitle:@"0" forState:UIControlStateNormal];
-    [commentButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [commentButton setImage:[UIImage imageNamed:@"topic_comment"] forState:UIControlStateNormal];
-    
-    commentButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-    self.commentButton = commentButton;
+    UILabel *minPriceLabel = [[UILabel alloc] init];
+    minPriceLabel.font = [UIFont systemFontOfSize:12];
+    minPriceLabel.textColor = [UIColor redColor];
+    minPriceLabel.textAlignment = NSTextAlignmentCenter;
+    self.minPriceLabel = minPriceLabel;
     
     [containerView addSubview:pageviewsButton];
-    [containerView addSubview:commentButton];
-    NSArray *operationButtons = @[pageviewsButton, commentButton];
+    [containerView addSubview:minPriceLabel];
+    NSArray *operationButtons = @[pageviewsButton, minPriceLabel];
     [operationButtons mas_distributeViewsAlongAxis:MASAxisTypeHorizontal
                                   withFixedSpacing:0.0f leadSpacing:0.0f tailSpacing:0.0f];
     [operationButtons mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,26 +124,26 @@
 
 - (void)configureCell:(DLRecommendRouteModel *)model {
     
-//    // 先造假数据 接口联调后用模型赋值
-//    NSArray *list = @[@"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5900ada55a074.png",
-//                      @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img59018d4a6d8f9.png",
-//                      @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5901926890af4.png",
-//                      @"http://7xje8b.com1.z0.glb.clouddn.com/huodong1@3x.png"];
-//    
-//    NSURL *URL = [NSURL URLWithString:[list objectAtIndex:random() % 4]];
-//    NSString *pageViews = [NSString stringWithFormat:@"%ld", random() % 50];
-//    NSString *comment = [NSString stringWithFormat:@"%ld", random() % 100];
-//    [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-//    self.topicTitleLabel.text = [NSString stringWithFormat:@"#%@#", [NSString randomChineseWords:random() % 30]];
-//    [self.pageviewsButton setTitle:pageViews forState:UIControlStateNormal];
-//    [self.commentButton setTitle:comment forState:UIControlStateNormal];
+    //    // 先造假数据 接口联调后用模型赋值
+    //    NSArray *list = @[@"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5900ada55a074.png",
+    //                      @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img59018d4a6d8f9.png",
+    //                      @"http://u1.img.mobile.sina.cn/public/files/image/640x172_img5901926890af4.png",
+    //                      @"http://7xje8b.com1.z0.glb.clouddn.com/huodong1@3x.png"];
+    //
+    //    NSURL *URL = [NSURL URLWithString:[list objectAtIndex:random() % 4]];
+    //    NSString *pageViews = [NSString stringWithFormat:@"%ld", random() % 50];
+    //    NSString *comment = [NSString stringWithFormat:@"%ld", random() % 100];
+    //    [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    //    self.topicTitleLabel.text = [NSString stringWithFormat:@"#%@#", [NSString randomChineseWords:random() % 30]];
+    //    [self.pageviewsButton setTitle:pageViews forState:UIControlStateNormal];
+    //    [self.commentButton setTitle:comment forState:UIControlStateNormal];
     
     NSURL *URL = [NSURL URLWithString:model.cover_pic];
     [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     self.topicTitleLabel.text = model.name;
     [self.pageviewsButton setTitle:model.departure forState:UIControlStateNormal];
-    [self.commentButton setTitle:model.min_price forState:UIControlStateNormal];
-
+    self.minPriceLabel.text = [NSString stringWithFormat:@"¥%.f起",[model.min_price integerValue]/100.00];
+    
 }
 
 @end

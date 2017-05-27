@@ -11,6 +11,8 @@
 
 @interface DLLineDetialpriceTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
+
 /**
  *  Cell 重用ID
  */

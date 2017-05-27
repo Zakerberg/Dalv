@@ -17,6 +17,8 @@
 		1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */; };
 		1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */; };
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
+		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
+		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
 		1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */; };
 		1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */; };
 		1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438271ECFCC1E006DF42E /* DLUtils.m */; };
@@ -136,8 +138,8 @@
 		1CE2C1AC1ED525E000B898BA /* return_details@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1881ED525E000B898BA /* return_details@3x.png */; };
 		1CE2C1AD1ED525E000B898BA /* return_traffic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1891ED525E000B898BA /* return_traffic@2x.png */; };
 		1CE2C1AE1ED525E000B898BA /* return_traffic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C18A1ED525E000B898BA /* return_traffic@3x.png */; };
-		1CE2C1AF1ED525E000B898BA /* travel_days @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C18B1ED525E000B898BA /* travel_days @2x.png */; };
-		1CE2C1B01ED525E000B898BA /* travel_days @3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C18C1ED525E000B898BA /* travel_days @3x.png */; };
+		1CE2C1AF1ED525E000B898BA /* travel_days@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C18B1ED525E000B898BA /* travel_days@2x.png */; };
+		1CE2C1B01ED525E000B898BA /* travel_days@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C18C1ED525E000B898BA /* travel_days@3x.png */; };
 		1CE2C1C01ED5270E00B898BA /* financial_highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1B11ED5270E00B898BA /* financial_highlight@2x.png */; };
 		1CE2C1C11ED5270E00B898BA /* financial_highlight@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1B21ED5270E00B898BA /* financial_highlight@3x.png */; };
 		1CE2C1C21ED5270E00B898BA /* financial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1B31ED5270E00B898BA /* financial@2x.png */; };
@@ -286,6 +288,10 @@
 		1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddReduceButton.m; sourceTree = "<group>"; };
 		1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@2x.png"; sourceTree = "<group>"; };
 		1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@3x.png"; sourceTree = "<group>"; };
+		1C3416061ED9494000752071 /* DLRemindSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemindSegmentView.h; sourceTree = "<group>"; };
+		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
+		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
+		1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialCollectionViewCell.m; sourceTree = "<group>"; };
 		1C8438201ECFCBEB006DF42E /* BLMClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMClearCacheTool.h; sourceTree = "<group>"; };
 		1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMClearCacheTool.m; sourceTree = "<group>"; };
 		1C8438231ECFCBFA006DF42E /* UIViewController+BLMHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BLMHUD.h"; sourceTree = "<group>"; };
@@ -477,8 +483,8 @@
 		1CE2C1881ED525E000B898BA /* return_details@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_details@3x.png"; sourceTree = "<group>"; };
 		1CE2C1891ED525E000B898BA /* return_traffic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_traffic@2x.png"; sourceTree = "<group>"; };
 		1CE2C18A1ED525E000B898BA /* return_traffic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "return_traffic@3x.png"; sourceTree = "<group>"; };
-		1CE2C18B1ED525E000B898BA /* travel_days @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "travel_days @2x.png"; sourceTree = "<group>"; };
-		1CE2C18C1ED525E000B898BA /* travel_days @3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "travel_days @3x.png"; sourceTree = "<group>"; };
+		1CE2C18B1ED525E000B898BA /* travel_days@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "travel_days@2x.png"; sourceTree = "<group>"; };
+		1CE2C18C1ED525E000B898BA /* travel_days@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "travel_days@3x.png"; sourceTree = "<group>"; };
 		1CE2C1B11ED5270E00B898BA /* financial_highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "financial_highlight@2x.png"; sourceTree = "<group>"; };
 		1CE2C1B21ED5270E00B898BA /* financial_highlight@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "financial_highlight@3x.png"; sourceTree = "<group>"; };
 		1CE2C1B31ED5270E00B898BA /* financial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "financial@2x.png"; sourceTree = "<group>"; };
@@ -659,6 +665,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C3416051ED9494000752071 /* SegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				1C3416061ED9494000752071 /* DLRemindSegmentView.h */,
+				1C3416071ED9494000752071 /* DLRemindSegmentView.m */,
+			);
+			path = SegmentView;
+			sourceTree = "<group>";
+		};
 		1CB7707F1ECFE00100F6EFDF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,6 +774,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1C3416051ED9494000752071 /* SegmentView */,
 				1CBCF9011ED2E41200310CCB /* CycleScrollView */,
 				1CB953FA1ECFC84000BDC2D3 /* Utility */,
 				1CB953DE1ECFC78A00BDC2D3 /* Categories */,
@@ -1017,6 +1033,8 @@
 				1CB953451ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m */,
 				1CB953461ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.h */,
 				1CB953471ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m */,
+				1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */,
+				1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */,
 				1CB953481ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.h */,
 				1CB953491ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m */,
 				1C0B57D91ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.h */,
@@ -1305,8 +1323,8 @@
 				1CE2C1881ED525E000B898BA /* return_details@3x.png */,
 				1CE2C1891ED525E000B898BA /* return_traffic@2x.png */,
 				1CE2C18A1ED525E000B898BA /* return_traffic@3x.png */,
-				1CE2C18B1ED525E000B898BA /* travel_days @2x.png */,
-				1CE2C18C1ED525E000B898BA /* travel_days @3x.png */,
+				1CE2C18B1ED525E000B898BA /* travel_days@2x.png */,
+				1CE2C18C1ED525E000B898BA /* travel_days@3x.png */,
 			);
 			path = LineDetails;
 			sourceTree = "<group>";
@@ -1641,7 +1659,7 @@
 				1CE2C1A41ED525E000B898BA /* hotel@3x.png in Resources */,
 				1CB770E91ECFE03B00F6EFDF /* user@2x.png in Resources */,
 				1CE2C20C1ED52BA100B898BA /* recharge_record@3x.png in Resources */,
-				1CE2C1B01ED525E000B898BA /* travel_days @3x.png in Resources */,
+				1CE2C1B01ED525E000B898BA /* travel_days@3x.png in Resources */,
 				1CE2C2221ED52E8C00B898BA /* line_order@3x.png in Resources */,
 				1CE2C1921ED525E000B898BA /* brightened_dot@3x.png in Resources */,
 				1CE2C1C51ED5270E00B898BA /* home_highlight@3x.png in Resources */,
@@ -1649,7 +1667,7 @@
 				1CE2C1981ED525E000B898BA /* destination@3x.png in Resources */,
 				1CE2C1A31ED525E000B898BA /* hotel@2x.png in Resources */,
 				1CE2C22C1ED52E8C00B898BA /* wifi_order_highlight@3x.png in Resources */,
-				1CE2C1AF1ED525E000B898BA /* travel_days @2x.png in Resources */,
+				1CE2C1AF1ED525E000B898BA /* travel_days@2x.png in Resources */,
 				1CE2C22E1ED52E8C00B898BA /* wifi_order@3x.png in Resources */,
 				1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */,
 				1CE8D8021ED7FEFA00FFEF8B /* navbar_close_white@2x.png in Resources */,
@@ -1733,6 +1751,7 @@
 				450105B91ED932BA00AA7A17 /* JHPickView.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */,
+				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				450105BF1ED933A100AA7A17 /* CityModelData.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
@@ -1815,6 +1834,7 @@
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,
+				1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,26 @@
 //
 
 #import "DLLineDetialpriceTableViewCell.h"
-@interface DLLineDetialpriceTableViewCell ()
-@property (nonatomic, strong) UILabel *lineDetialNameLab;
+#import "DLLineDetialCollectionViewCell.h"
+#import "DLRemindSegmentView.h"
+
+@interface DLLineDetialpriceTableViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic, strong) UILabel *lineDetialNameLab;//标题
+@property (nonatomic, strong) UILabel *lineDetialNumberLab;//代码
+@property (nonatomic, strong) UILabel *lineDetialSupplierLab;//供应商
+@property (nonatomic, strong) UILabel *lineDetialContactsLab;//联系人
+@property (nonatomic, strong) UILabel *lineDetialPriceLab;//价格
+@property (nonatomic, strong) UIView *lineView;
+
+@property (nonatomic, strong) UIView *departureScheduleView;
+@property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) UIImageView *dateImageView;
+@property (nonatomic, strong) UILabel *groupDatelab;
+@property (nonatomic, strong) UIImageView *rightimage;
+
+@property (nonatomic, strong) UICollectionView *collectionView;//菜单
+@property (nonatomic, strong) DLRemindSegmentView*segmentnView;
+
 
 @end
 
@@ -25,23 +43,186 @@
 
 - (void)setupCellSubviews {
     _lineDetialNameLab = [[UILabel alloc]init];
-    _lineDetialNameLab.textColor = [UIColor blackColor];
+    _lineDetialNameLab.textColor = [UIColor colorWithHexString:@"373737"];
     _lineDetialNameLab.textAlignment = NSTextAlignmentLeft;
-    _lineDetialNameLab.font = [UIFont systemFontOfSize:16];
+    _lineDetialNameLab.font = [UIFont systemFontOfSize:14];
     _lineDetialNameLab.text = @"标题XXXXXX";
-    
+    _lineDetialNameLab.numberOfLines = 0;
     [self.contentView addSubview:_lineDetialNameLab];
-
+    
+    _lineDetialNumberLab = [[UILabel alloc]init];
+    _lineDetialNumberLab.textColor = [UIColor blackColor];
+    _lineDetialNumberLab.textAlignment = NSTextAlignmentLeft;
+    _lineDetialNumberLab.font = [UIFont systemFontOfSize:10];
+    _lineDetialNumberLab.text = @"代码：104231";
+    [self.contentView addSubview:_lineDetialNumberLab];
+    
+    _lineDetialSupplierLab = [[UILabel alloc]init];
+    _lineDetialSupplierLab.textColor = [UIColor blackColor];
+    _lineDetialSupplierLab.textAlignment = NSTextAlignmentCenter;
+    _lineDetialSupplierLab.font = [UIFont systemFontOfSize:10];
+    _lineDetialSupplierLab.text = @"供应商：金旅假期";
+    [self.contentView addSubview:_lineDetialSupplierLab];
+    
+    _lineDetialContactsLab = [[UILabel alloc]init];
+    _lineDetialContactsLab.textColor = [UIColor blackColor];
+    _lineDetialContactsLab.textAlignment = NSTextAlignmentRight;
+    _lineDetialContactsLab.font = [UIFont systemFontOfSize:10];
+    _lineDetialContactsLab.text = @"联系人：聂玉林";
+    [self.contentView addSubview:_lineDetialContactsLab];
+    
+    _lineView = [[UIView alloc]init];
+    _lineView.backgroundColor = [UIColor ms_separatorColor];
+    [self.contentView  addSubview:_lineView];
+    
+    _lineDetialPriceLab = [[UILabel alloc]init];
+    _lineDetialPriceLab.textColor = [UIColor blackColor];
+    _lineDetialPriceLab.textAlignment = NSTextAlignmentLeft;
+    _lineDetialPriceLab.font = [UIFont systemFontOfSize:16];
+    _lineDetialPriceLab.textColor = [UIColor colorWithHexString:@"fe603b"];
+    _lineDetialPriceLab.text = @"¥1699.0";
+    [self.contentView addSubview:_lineDetialPriceLab];
+    
+    _departureScheduleView = [[UIView alloc]init];
+    _departureScheduleView.backgroundColor = [UIColor colorWithHexString:@"f3f3f3"];
+    [self.contentView  addSubview:_departureScheduleView];
+    
+    _backView = [[UIView alloc]init];
+    _backView.backgroundColor = [UIColor whiteColor];
+    _backView.tag = 200;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectDateView:)];
+    [_backView addGestureRecognizer:tap];
+    [_departureScheduleView  addSubview:_backView];
+    
+    _dateImageView = [[UIImageView alloc]init];
+    _dateImageView.image = [UIImage imageNamed:@"group_date_select"];
+    [_backView addSubview:_dateImageView];
+    
+    _groupDatelab = [[UILabel alloc]init];
+    _groupDatelab.textColor = [UIColor blackColor];
+    _groupDatelab.textAlignment = NSTextAlignmentLeft;
+    _groupDatelab.font = [UIFont systemFontOfSize:16];
+    _groupDatelab.text = @"出团班期";
+    [_backView addSubview:_groupDatelab];
+    
+    _rightimage = [[UIImageView alloc]init];
+    _rightimage.image = [UIImage imageNamed:@"arrowhead_left"];
+    [_backView addSubview:_rightimage];
+    
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    layout.itemSize = CGSizeMake(SCREEN_WIDTH * 0.5f, 40);
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.alwaysBounceVertical = YES;
+    [collectionView registerClass:[DLLineDetialCollectionViewCell class]
+       forCellWithReuseIdentifier:[DLLineDetialCollectionViewCell cellIdentifier]];
+    self.collectionView = collectionView;
+    
+    [self.contentView addSubview:collectionView];
+    
 }
 
 - (void)layoutCellSubviews {
+    
+    CGFloat width = (self.contentView.ms_width - 30)/3;
+    CGFloat titleHeight = [_lineDetialNameLab.text autolableHeightWithFont:[UIFont systemFontOfSize:14] Width:(self.collectionView.width - 30)];
+    
     [_lineDetialNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@20);
-        make.left.equalTo(@25);
-        make.width.equalTo(@200);
-        make.height.lessThanOrEqualTo(@40);
+        make.top.equalTo(@0);
+        make.left.equalTo(@15);
+        make.right.equalTo(self.contentView).offset(-15);
     }];
-
+    
+    [_lineDetialNumberLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_lineDetialNameLab.mas_bottom).with.offset(15);
+        make.left.equalTo(@15);
+        make.width.equalTo(@(width));
+        make.height.lessThanOrEqualTo(@30);
+    }];
+    
+    [_lineDetialSupplierLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lineDetialNumberLab);
+        make.left.equalTo(_lineDetialNumberLab.mas_right);
+        make.width.equalTo(@(width));
+        make.height.lessThanOrEqualTo(@30);
+    }];
+    
+    [_lineDetialContactsLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lineDetialNumberLab);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.width.equalTo(@(width));
+        make.height.lessThanOrEqualTo(@30);
+    }];
+    
+    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_lineDetialNumberLab.mas_bottom).offset(5);
+        make.left.right.equalTo(self.contentView);
+        make.height.equalTo(@0.5);
+    }];
+    
+    [_lineDetialPriceLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_lineView.mas_bottom).offset(5);
+        make.left.equalTo(@15);
+        make.width.equalTo(@200);
+        make.height.equalTo(@30);
+    }];
+    
+    [_departureScheduleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_lineDetialPriceLab.mas_bottom);
+        make.left.equalTo(self.contentView);
+        make.width.equalTo(self.contentView);
+        make.height.equalTo(@52);
+    }];
+    
+    [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_departureScheduleView).offset(5);
+        make.left.equalTo(@0);
+        make.width.equalTo(self.contentView);
+        make.height.equalTo(@40);
+    }];
+    
+    [_dateImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_backView.mas_top).offset(5);
+        make.left.equalTo(@15);
+        make.width.equalTo(@30);
+        make.height.equalTo(@30);
+    }];
+    
+    [_groupDatelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_dateImageView);
+        make.left.equalTo(_dateImageView.mas_right).with.offset(10);
+        make.width.equalTo(@120);
+        make.height.equalTo(@30);
+    }];
+    
+    [_rightimage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_dateImageView);
+        make.right.equalTo(@-15);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+    }];
+    
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.width.equalTo(self.contentView);
+        make.height.equalTo(@160);
+        make.top.equalTo(_departureScheduleView.mas_bottom);
+    }];
+    
+    NSArray *titleArray = [NSArray arrayWithObjects:@"行程安排", @"产品亮点", @"费用说明",@"注意事项", nil];
+    CGFloat segmentWidth = SCREEN_WIDTH;
+    CGFloat eachWidth = segmentWidth / (titleArray.count);
+    NSArray *widthArr = [NSArray arrayWithObjects:@(eachWidth), @(eachWidth), @(eachWidth), @(eachWidth), nil];
+    _segmentnView = [[DLRemindSegmentView alloc] initWithFrame:CGRectMake(0, self.collectionView.bottom+120, segmentWidth, 42) titletextArr:titleArray widthArr:widthArr selectIndex:0];
+    _segmentnView.backgroundColor = [UIColor clearColor];
+    [self.collectionView addSubview:_segmentnView];
+    
+    
 }
 
 + (NSString *)cellIdentifier {
@@ -50,10 +231,45 @@
 
 /** 配置Cell */
 - (void)configureCell:(DLLineTourDetailInforModel *)lineTourDetailInforModel {
-
-
-
+    
+    self.lineDetialNameLab.text = lineTourDetailInforModel.list.name;
+    self.lineDetialNumberLab.text = [NSString stringWithFormat:@"代码：10%@",lineTourDetailInforModel.list.lineTourId];
+    self.lineDetialSupplierLab.text  = [NSString stringWithFormat:@"供应商：%@",lineTourDetailInforModel.list.provider_name];
+    self.lineDetialContactsLab.text = [NSString stringWithFormat:@"联系人：%@",lineTourDetailInforModel.list.contact_person];
+    self.lineDetialPriceLab.text = [NSString stringWithFormat:@"¥ %.2f",[lineTourDetailInforModel.list.min_price integerValue]/100.00];
+    [self.collectionView reloadData];
+    
+    
 }
 
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    DLLineDetialCollectionViewCell *cell = [DLLineDetialCollectionViewCell cellWithCollectionView:collectionView indexPath:indexPath];
+    [cell configureCell:self.detaiInfoModel indexPath:indexPath];
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - private methods
+- (void)selectDateView:(UITapGestureRecognizer *)tap
+{
+    NSLog(@"点击了选择日期");
+    
+}
 
 @end

@@ -73,7 +73,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     }
     self.navigationItem.titleView = self.searchBar;
     
-    UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"geographical_position" highImageName:nil target:self action:@selector(didTapOperateAction:)];
+    UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"line_order" highImageName:nil target:self action:@selector(didTapOperateAction:)];
     self.navigationItem.leftBarButtonItem = operateItem;
     
     UIBarButtonItem *registerbutton= [UIBarButtonItem itemWithTitle:@"登陆" target:self action:@selector(didLoginButton)];

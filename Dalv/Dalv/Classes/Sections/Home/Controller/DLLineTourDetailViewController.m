@@ -14,11 +14,12 @@
 #import "DLHomeViewTask.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
-static NSString *kDLLineDetialpriceTableViewCell = @"DLLineDetialpriceTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
+
 @interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate>
 @property (nonatomic, weak) UITableView *homeTableView;
 @property (nonatomic, strong) DLCycleScrollView *advertCarouselView;
+@property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
 
 @end
 
@@ -30,7 +31,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
-
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
@@ -38,7 +39,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupNavBarBackgroundColor:[UIColor colorWithHexString:@"#315599"]titleColor:[UIColor whiteColor]];
-
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -56,7 +57,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
                                                             target:self
                                                             action:@selector(didTapBackAction:)];
     self.navigationItem.leftBarButtonItem = backItem;
-
+    
 }
 
 #pragma mark - Setup subViews
@@ -72,10 +73,10 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
           forCellReuseIdentifier:kDLHomeTableViewCell];
-    [homeTableView registerClass:[UITableViewCell class]
-          forCellReuseIdentifier:kDLLineDetialpriceTableViewCell];
+    [homeTableView registerClass:[DLLineDetialpriceTableViewCell class]
+          forCellReuseIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-    forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
+forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
@@ -101,7 +102,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         make.right.equalTo(self.view.mas_right).offset(-10);
         make.width.equalTo(@150);
     }];
-
+    
     UIView *bottomView = [[UIView alloc]init];
     bottomView.backgroundColor = [UIColor ms_separatorColor];
     [self.view addSubview:bottomView];
@@ -143,11 +144,8 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else {
-        return 4;
-    }
+    return 1;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -160,13 +158,19 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         [self.advertCarouselView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
+        return cell;
     } else if (indexPath.section == 1) {
-        
+        DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
+        cell.detaiInfoModel = self.detaiInfoModel;
+        [cell configureCell:self.detaiInfoModel];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     } else if (indexPath.section == 2) {
-//        [cell.contentView addSubview:self.hotTopicViewController.view];
-//        [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(cell.contentView);
-//        }];
+        
+        //        [cell.contentView addSubview:self.hotTopicViewController.view];
+        //        [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.edges.equalTo(cell.contentView);
+        //        }];
         
     }
     return cell;
@@ -178,10 +182,11 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     if (indexPath.section == 0) {
         return 100.f;
     } else if (indexPath.section == 1) {
-//        return [self.appCenterViewController contentHeight];
+        return 100;
+        //        return [self.appCenterViewController contentHeight];
     } else if (indexPath.section == 2) {
-//        NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
-//        return [self.hotTopicViewController contentHeight];
+        //        NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
+        //        return [self.hotTopicViewController contentHeight];
     }
     return 0;
 }
@@ -214,18 +219,18 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
     @weakify(self);
     [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
-         @strongify(self);
+        @strongify(self);
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
-            DLLineTourDetailInforModel * detaiInfo= [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
-            self.advertCarouselView.imageURLStringsGroup = detaiInfo.picArr;
-            NSLog(@"线路详情%@",detaiInfo.list);
+            self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+            self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
+            [self.homeTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
-   
-
+    
+    
 }
 
 #pragma mark - Event Handler
@@ -236,9 +241,9 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)OtherBtn {
     DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
-        placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
+    placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
     [self.navigationController pushViewController:placeOrderVC animated:YES];
-
+    
 }
 
 - (void)pushHomePageBtn {
