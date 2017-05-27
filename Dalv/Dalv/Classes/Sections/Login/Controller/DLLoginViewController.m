@@ -44,6 +44,11 @@
     self.title = @"登陆";
 }
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+    
+}
+
 #pragma mark - configureSubViews
 - (void)configureSubViews{
     DLLoginView *loginView = [[DLLoginView alloc] init];
