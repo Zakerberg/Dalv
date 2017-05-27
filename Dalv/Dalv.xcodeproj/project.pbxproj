@@ -222,6 +222,8 @@
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
 		450105B91ED932BA00AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105B61ED932BA00AA7A17 /* JHPickView.m */; };
 		450105BA1ED932BA00AA7A17 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105B81ED932BA00AA7A17 /* MySingleton.m */; };
+		450105BE1ED933A100AA7A17 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 450105BB1ED933A100AA7A17 /* province_data.json */; };
+		450105BF1ED933A100AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105BC1ED933A100AA7A17 /* CityModelData.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -566,6 +568,9 @@
 		450105B61ED932BA00AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
 		450105B71ED932BA00AA7A17 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		450105B81ED932BA00AA7A17 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
+		450105BB1ED933A100AA7A17 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
+		450105BC1ED933A100AA7A17 /* CityModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModelData.m; sourceTree = "<group>"; };
+		450105BD1ED933A100AA7A17 /* CityModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModelData.h; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -1335,6 +1340,9 @@
 		450105B41ED931C200AA7A17 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
+				450105BB1ED933A100AA7A17 /* province_data.json */,
+				450105BC1ED933A100AA7A17 /* CityModelData.m */,
+				450105BD1ED933A100AA7A17 /* CityModelData.h */,
 				450105B51ED932BA00AA7A17 /* JHPickView.h */,
 				450105B61ED932BA00AA7A17 /* JHPickView.m */,
 				450105B71ED932BA00AA7A17 /* MySingleton.h */,
@@ -1547,6 +1555,7 @@
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
 				1CE2C1941ED525E000B898BA /* departure_city@3x.png in Resources */,
+				450105BE1ED933A100AA7A17 /* province_data.json in Resources */,
 				1CE2C1E11ED528C800B898BA /* surrounding_tourism@2x.png in Resources */,
 				1CE2C2291ED52E8C00B898BA /* visa_order@2x.png in Resources */,
 				1CE2C2231ED52E8C00B898BA /* ticket_order_highlight@2x.png in Resources */,
@@ -1724,6 +1733,7 @@
 				450105B91ED932BA00AA7A17 /* JHPickView.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */,
+				450105BF1ED933A100AA7A17 /* CityModelData.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,

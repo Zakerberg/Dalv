@@ -7,8 +7,8 @@
 //
 
 #import "DLChangePersonDataController.h"
-
-@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource>
+#import "JHPickView.h"
+@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,JHPickerDelegate>
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
@@ -48,28 +48,38 @@
 {
     self.selectedIndexPath =  indexPath ;
     
+    /**  姓名 **/
     if (indexPath.row == 0) {
         
         
     }
-    
+    /**  年龄 **/
     if (indexPath.row == 1) {
         
         
     }
-    
+    /**  性别 **/
     if (indexPath.row == 3) {
 
     }
+    
+    /**  从业时间 **/
     if (indexPath.row == 4) {
     }
     
+    /**  手机号 **/
     if (indexPath.row == 5) {
     }
     
+    /**  邮箱 **/
     if (indexPath.row == 6) {
     }
 
+    /**  修改密码 **/
+    if (indexPath.section == 1) {
+        
+    }
+    
 
 
 
