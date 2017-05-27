@@ -24,7 +24,7 @@
 -(void)setUI{
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"意见反馈";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"navbar_back_gray"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(btnClick)];
     
     UILabel *textLabel = [UILabel blm_labelWithText:@"您的批评和帮助能帮助我们更好的完善产品,请留下您宝贵的意见!" fontSize:14.0 color:[UIColor blackColor]];
@@ -45,7 +45,11 @@
 
 }
 
+
+/****发送按钮 ****/
 - (void)btnClick {
+    
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"已发送" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
