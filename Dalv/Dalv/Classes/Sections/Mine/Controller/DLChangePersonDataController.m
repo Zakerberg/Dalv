@@ -56,11 +56,35 @@
     /**  姓名 **/
     if (indexPath.row == 0) {
         UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
-        cell.detailTextLabel.text = @"dada";
+        cell.detailTextLabel.text = @"88888 ";
         
     }
     /**  年龄 **/
     if (indexPath.row == 1) {
+        
+        
+        
+        /*
+       
+        
+            
+            NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
+            
+            DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
+            
+            [pickerSingle setDataArray:arrayData];
+            [pickerSingle setDefalutSelectRowStr:arrayData[0]];
+            [pickerSingle setDelegate:self];
+            [pickerSingle show];
+            [self.view endEditing:YES];
+            
+        
+
+         */
+        NSMutableArray *ageArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
+        
+        
+        
         
     }
     /**  性别 **/
