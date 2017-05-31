@@ -95,17 +95,47 @@
         picker.delegate = self ;
         picker.arrayType = WorkTimeArray;
         [self.view addSubview:picker];
-
-
     }
     
     /**  手机号 **/
     if (indexPath.row == 4) {
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入您的手机号";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            
+            if ([self isValidateMobile:inputString]) {
+                weakSelf.cell.detailTextLabel.text = inputString;
+            } else {
+                
+                UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+              
+                [alertPhoneNum show];
+
+            }
+        }];
+        
+        [alertView show];
     }
     
     /**  邮箱 **/
     if (indexPath.row == 5) {
         
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入您的邮箱";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            
+            if ([self isValidateEmail:inputString]) {
+                weakSelf.cell.detailTextLabel.text = inputString;
+            } else {
+                
+                UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+                [alertPhoneNum show];
+            }
+        }];
+        
+        [alertView show]; 
     }
 
     /**  修改密码 **/
@@ -116,6 +146,20 @@
     }
 }
 
+//手机号码的正则表达式
+- (BOOL)isValidateMobile:(NSString *)mobile{
+    //手机号以13、15、18开头，八个\d数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:mobile];
+}
+
+//邮箱地址的正则表达式
+- (BOOL)isValidateEmail:(NSString *)email{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
 
 #pragma mark - --------------- JHPickerDelegate -------------------
 
@@ -125,49 +169,7 @@
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
     cell.detailTextLabel.text = str ;
     
-//    if (self.selectedIndexPath.row == 1) {
-    
-//        NSDateFormatter* formater = [[NSDateFormatter alloc] init];
-//        formater.dateFormat = @"yyyy年MM月d日" ;
-//        NSDate* date = [formater dateFromString:str];
-        
-//        NSDateComponents* components  = [self getDateComponentsFromDate:date];
-//        NSString* str = [self getAstroWithMonth: components.month  day: components.day] ;
-        
-//        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndexPath.row+1 inSection:self.selectedIndexPath.section]] ;
-//        
-//        cell.detailTextLabel.text = str ;
-    
-        
-//    }
-    
 }
-
-//-(NSString *)getAstroWithMonth:(NSInteger)m day:(NSInteger)d{
-//    
-//    NSString *astroString = @"魔羯水瓶双鱼白羊金牛双子巨蟹狮子处女天秤天蝎射手魔羯";
-//    NSString *astroFormat = @"102123444543";
-//    NSString *result;
-//    
-//    if (m<1||m>12||d<1||d>31){
-//        return @"错误日期格式!";
-//    }
-//    
-//    if(m==2 && d>29)
-//    {
-//        return @"错误日期格式!!";
-//    }else if(m==4 || m==6 || m==9 || m==11) {
-//        
-//        if (d>30) {
-//            return @"错误日期格式!!!";
-//        }
-//    }
-//    
-//    result=[NSString stringWithFormat:@"%@",[astroString substringWithRange:NSMakeRange(m*2-(d < [[astroFormat substringWithRange:NSMakeRange((m-1), 1)] intValue] - (-19))*2,2)]];
-//    
-//    
-//    return [NSString stringWithFormat:@"%@座",result];
-//}
 
 -(NSDateComponents*)getDateComponentsFromDate:(NSDate*)date{
     
@@ -224,6 +226,10 @@
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
         NSLog(@"选择%@",selectedTitle);
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
