@@ -38,6 +38,7 @@ static NSString* cellID = @"cellID";
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
         _tableView.showsVerticalScrollIndicator = NO ;
+        _tableView.tableFooterView = [UIView new];
         _tableView.delegate = self ;
         _tableView.dataSource = self ;
         [self.view  addSubview: _tableView];
@@ -117,15 +118,12 @@ static NSString* cellID = @"cellID";
     
     if (indexPath.row == 1) {
         
+        
+        
     }
     
     
-    
-    
-    
-    
-    
-    
+   
     
 }
 

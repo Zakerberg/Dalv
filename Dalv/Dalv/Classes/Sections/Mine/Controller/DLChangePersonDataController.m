@@ -26,7 +26,7 @@ static NSString* cellID = @"cellID";
 {
     if (!_cellTiltleArr) {
         
-        _cellTiltleArr = @[@"姓名",@"年龄",@"性别",@"从业时间",@"手机号",@"邮箱",@"修改密码"];
+        _cellTiltleArr = @[@"姓名",@"年龄",@"性别",@"从业时间",@"手机号",@"邮箱",@"",@"修改密码"];
     }
     
     return _cellTiltleArr ;
@@ -37,6 +37,7 @@ static NSString* cellID = @"cellID";
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
         _tableView.showsVerticalScrollIndicator = NO ;
+        _tableView.tableFooterView = [UIView new];
         _tableView.delegate = self ;
         _tableView.dataSource = self ;
         [self.view  addSubview: _tableView];
@@ -53,7 +54,6 @@ static NSString* cellID = @"cellID";
 }
 
 -(void)setupUI{
-//  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn－menu-h"] style:UIBarButtonItemStylePlain target:self action:@selector(menuBtnClick)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(completeClick)];
     
@@ -231,10 +231,11 @@ static NSString* cellID = @"cellID";
     }
     
     /**  修改密码 **/
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
     
     DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
     [self.navigationController pushViewController:changePwdVC animated:YES];
+        
     }
 }
 
