@@ -217,7 +217,6 @@
 		450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105DE1ED97CF000AA7A17 /* CityModelData.m */; };
 		450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E01ED97CF000AA7A17 /* JHPickView.m */; };
 		450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E21ED97CF000AA7A17 /* MySingleton.m */; };
-		450105E71ED97CF000AA7A17 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 450105E31ED97CF000AA7A17 /* province_data.json */; };
 		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
 		450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */; };
 		450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */; };
@@ -566,7 +565,6 @@
 		450105E01ED97CF000AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
 		450105E11ED97CF000AA7A17 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		450105E21ED97CF000AA7A17 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
-		450105E31ED97CF000AA7A17 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
 		450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
 		450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
 		450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
@@ -1361,7 +1359,6 @@
 				450105E01ED97CF000AA7A17 /* JHPickView.m */,
 				450105E11ED97CF000AA7A17 /* MySingleton.h */,
 				450105E21ED97CF000AA7A17 /* MySingleton.m */,
-				450105E31ED97CF000AA7A17 /* province_data.json */,
 			);
 			path = JHPickView;
 			sourceTree = "<group>";
@@ -1617,7 +1614,6 @@
 				45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */,
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
-				450105E71ED97CF000AA7A17 /* province_data.json in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,

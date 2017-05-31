@@ -10,12 +10,14 @@
 #import "JHPickView.h"
 #import "DLCityPickerView.h"
 #import "DLChangePasswordController.h"
+#import "ZYInputAlertView.h"
 #define MAIN_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define MAIN_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 @interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,JHPickerDelegate>
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
+@property (assign,nonatomic) UITableViewCell* cell;
 
 @end
 
@@ -52,40 +54,30 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedIndexPath = indexPath ;
-    
+    self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
     /**  姓名 **/
     if (indexPath.row == 0) {
-        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
-        cell.detailTextLabel.text = @"88888 ";
         
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入您的姓名";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            weakSelf.cell.detailTextLabel.text = inputString;
+        }];
+        [alertView show];
+
     }
     /**  年龄 **/
     if (indexPath.row == 1) {
         
-        
-        
-        /*
-       
-        
-            
-            NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
-            
-            DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
-            
-            [pickerSingle setDataArray:arrayData];
-            [pickerSingle setDefalutSelectRowStr:arrayData[0]];
-            [pickerSingle setDelegate:self];
-            [pickerSingle show];
-            [self.view endEditing:YES];
-            
-        
-
-         */
-        NSMutableArray *ageArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
-        
-        
-        
-        
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入您的年龄";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            weakSelf.cell.detailTextLabel.text = inputString;
+        }];
+        [alertView show];
+ 
     }
     /**  性别 **/
     if (indexPath.row == 2) {
@@ -98,6 +90,13 @@
     
     /**  从业时间 **/
     if (indexPath.row == 3) {
+        
+        JHPickView *picker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        picker.delegate = self ;
+        picker.arrayType = WorkTimeArray;
+        [self.view addSubview:picker];
+
+
     }
     
     /**  手机号 **/
