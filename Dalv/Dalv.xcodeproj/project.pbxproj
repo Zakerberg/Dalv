@@ -213,6 +213,8 @@
 		1CE8D8091ED808A200FFEF8B /* mine_theme@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE8D8071ED808A200FFEF8B /* mine_theme@3x.png */; };
 		1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D80B1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m */; };
 		1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */; };
+		1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */; };
+		1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
 		450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105DE1ED97CF000AA7A17 /* CityModelData.m */; };
 		450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E01ED97CF000AA7A17 /* JHPickView.m */; };
@@ -556,6 +558,10 @@
 		1CE8D80B1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailDaysModel.m; sourceTree = "<group>"; };
 		1CE8D80D1ED8299600FFEF8B /* DLLineTourDetailInforModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourDetailInforModel.h; sourceTree = "<group>"; };
 		1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourDetailInforModel.m; sourceTree = "<group>"; };
+		1CE8D8101EDE5EA600FFEF8B /* DLLineDetialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialTableViewCell.h; sourceTree = "<group>"; };
+		1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialTableViewCell.m; sourceTree = "<group>"; };
+		1CE8D8131EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineSchedulingTableViewCell.h; sourceTree = "<group>"; };
+		1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineSchedulingTableViewCell.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
 		450105DD1ED97CF000AA7A17 /* CityModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModelData.h; sourceTree = "<group>"; };
@@ -1025,8 +1031,12 @@
 				1CB953451ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m */,
 				1CB953461ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.h */,
 				1CB953471ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m */,
+				1CE8D8101EDE5EA600FFEF8B /* DLLineDetialTableViewCell.h */,
+				1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */,
 				1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */,
 				1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */,
+				1CE8D8131EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.h */,
+				1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */,
 				1CB953481ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.h */,
 				1CB953491ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m */,
 				1C0B57D91ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.h */,
@@ -1777,6 +1787,7 @@
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
+				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
@@ -1816,6 +1827,7 @@
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
+				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
 				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
 				1CB770B91ECFE00100F6EFDF /* DLSupplierqueryController.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,

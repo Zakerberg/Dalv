@@ -53,7 +53,8 @@
     funcButton.userInteractionEnabled = NO;
     funcButton.titleLabel.font = [UIFont systemFontOfSize:11];
     [funcButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    funcButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    funcButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    funcButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     self.funcButton = funcButton;
     
     UIView *verticalSeparator = [[UIView alloc] init];
@@ -83,7 +84,7 @@
     [self.funcButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.left.equalTo(self.contentView).offset(10);
-        make.width.equalTo(@80);
+        make.width.equalTo(@85);
     }];
     
     [self.valueLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,27 +115,27 @@
     switch (indexPath.item) {
         case 0:
             [self.funcButton setImage:[UIImage imageNamed:@"departure_city"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"出发城市:" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"出发城市 :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.departure;
             break;
         case 1:
             [self.funcButton setImage:[UIImage imageNamed:@"destination"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"目的地  :" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"目的地 :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.destinations;
         break;
         case 2:
             [self.funcButton setImage:[UIImage imageNamed:@"departure_traffic"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"出发交通:" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"出发交通 :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.traffic_go;
             break;
         case 3:
             [self.funcButton setImage:[UIImage imageNamed:@"return_traffic"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"返回交通:" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"返回交通 :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.traffic_back;
             break;
         case 4:
             [self.funcButton setImage:[UIImage imageNamed:@"travel_days"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"行程天数:" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"行程天数 :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.totalDay;
             break;
      

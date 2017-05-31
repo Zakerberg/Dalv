@@ -12,15 +12,19 @@
 #import "DLLineDetailsScrollViewController.h"
 #import "DLPlaceOrderViewController.h"
 #import "DLHomeViewTask.h"
+#import "DLLineDetialTableViewCell.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
-@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate>
+@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate,DLLineDetialTableViewCellDelegate>
 @property (nonatomic, weak) UITableView *homeTableView;
-@property (nonatomic, strong) DLCycleScrollView *advertCarouselView;
-@property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
 
+@property (nonatomic, strong) DLCycleScrollView *advertCarouselView;
+
+@property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;//线路详情模型
+@property (nonatomic, copy) NSString *htmlString;//htmlString
+@property (nonatomic, strong) NSMutableArray <DLLineTourDetailDaysModel *> *schedulingArray;//日程安排数据
 @end
 
 @implementation DLLineTourDetailViewController
@@ -31,8 +35,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
     
 }
 
@@ -75,8 +77,10 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
           forCellReuseIdentifier:kDLHomeTableViewCell];
     [homeTableView registerClass:[DLLineDetialpriceTableViewCell class]
           forCellReuseIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
+    [homeTableView registerClass:[DLLineDetialTableViewCell class]
+          forCellReuseIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
+          forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
@@ -162,16 +166,15 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     } else if (indexPath.section == 1) {
         DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
         cell.detaiInfoModel = self.detaiInfoModel;
+        cell.delegate = self;
         [cell configureCell:self.detaiInfoModel];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.section == 2) {
-        
-        //        [cell.contentView addSubview:self.hotTopicViewController.view];
-        //        [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        //            make.edges.equalTo(cell.contentView);
-        //        }];
-        
+        DLLineDetialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
+        cell.schedulingArray = self.schedulingArray;
+        [cell configureCell:self.htmlString];
+        return cell;
     }
     return cell;
 }
@@ -182,17 +185,26 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     if (indexPath.section == 0) {
         return 100.f;
     } else if (indexPath.section == 1) {
-        return 100;
-        //        return [self.appCenterViewController contentHeight];
-    } else if (indexPath.section == 2) {
-        //        NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
-        //        return [self.hotTopicViewController contentHeight];
-    }
+        CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+            return (titleHeight > 20) ? (titleHeight + 240 + 42) : (265 + 42);
+     } else if (indexPath.section == 2) {
+         if ([NSString isNotBlank:self.htmlString]) {
+             NSAttributedString * attributeStr = [NSString attributedStringWithHTMLString:[NSString htmlEntityDecode:self.htmlString]];
+             CGFloat height =  [attributeStr boundingRectWithSize:CGSizeMake((self.view.width - 30), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size.height;
+             return height;
+         } else {
+             CGFloat height = 0.0;
+             for (DLLineTourDetailDaysModel *schedulModel in self.schedulingArray) {
+                 height = height + ([schedulModel.daysDescription autolableHeightWithFont:[UIFont systemFontOfSize:11] Width:(self.view.width - 30)] + 100);
+             }
+             return height;
+         }
+     }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 0 ? CGFLOAT_MIN : 10.0f;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -203,12 +215,65 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
+#pragma mark - DLCycleScrollViewDelegate
 - (void)cycleScrollView:(DLCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     DLLineDetailsScrollViewController *DLLineDetScrVC = [[DLLineDetailsScrollViewController alloc]init];
     [self.navigationController pushViewController:DLLineDetScrVC animated:YES];
 }
 
+#pragma mark - DLLineDetialTableViewCellDelegate
+
+- (void)segmentTapDelegate:(NSUInteger)index {
+     NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    switch (index) {
+        case 0:
+        {
+            self.htmlString = @"";
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        }
+            break;
+        case 1:
+        {
+            @weakify(self);
+            [DLHomeViewTask getLineDetialsEdge:param completion:^(id result, NSError *error) {
+                @strongify(self);
+                NSDictionary *detailsEdgeDict = [result objectForKey:@"list"];
+                self.htmlString = [detailsEdgeDict objectForKey:@"description"];
+                NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+                [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            }];
+        }
+            break;
+        case 2:
+        {
+            @weakify(self);
+            [DLHomeViewTask getLineDetialsCostExplain:param completion:^(id result, NSError *error) {
+                @strongify(self);
+                NSDictionary *detailsEdgeDict = [result objectForKey:@"list"];
+                self.htmlString = [detailsEdgeDict objectForKey:@"fee_include"];
+                NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+                [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            }];
+        }
+            break;
+        case 3:
+        {
+            @weakify(self);
+            [DLHomeViewTask getLineDetialsNotice:param completion:^(id result, NSError *error) {
+                @strongify(self);
+                NSDictionary *detailsEdgeDict = [result objectForKey:@"list"];
+                self.htmlString = [detailsEdgeDict objectForKey:@"notice"];
+                NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+                [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            }];
+        }
+            break;
+        default:
+            break;
+    }
+
+}
 
 #pragma mark - Fetch data
 
@@ -224,13 +289,23 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         if (result) {
             self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
             self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
-            [self.homeTableView reloadData];
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
     
+    [DLHomeViewTask getLineDetialsScheduling:param completion:^(id result, NSError *error) {
+        NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
+        [self.schedulingArray removeAllObjects];
+        [self.schedulingArray addObjectsFromArray:schedulingArray];
+         NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+         [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+
+    }];
     
+
 }
 
 #pragma mark - Event Handler
@@ -241,7 +316,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)OtherBtn {
     DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
-    placeOrderVC.routeName = @"迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游迷情乌镇双飞三日游";
+    placeOrderVC.detaiInfoModel = self.detaiInfoModel;
     [self.navigationController pushViewController:placeOrderVC animated:YES];
     
 }
@@ -268,6 +343,15 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         _advertCarouselView.pageDotColor = [UIColor whiteColor];
     }
     return _advertCarouselView;
+}
+
+#pragma mark - Getter
+
+- (NSMutableArray *)schedulingArray {
+    if (_schedulingArray == nil) {
+        _schedulingArray = [[NSMutableArray alloc] init];
+    }
+    return _schedulingArray;
 }
 
 @end
