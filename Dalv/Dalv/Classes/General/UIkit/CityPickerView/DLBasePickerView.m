@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         
-        _pickerViewHeight      = 250;
+        _pickerViewHeight  = 250;
         
         
         self.bounds = [UIScreen mainScreen].bounds;

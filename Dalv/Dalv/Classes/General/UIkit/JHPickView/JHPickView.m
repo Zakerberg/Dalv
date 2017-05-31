@@ -210,27 +210,7 @@
 {
     _arrayType = arrayType;
     
-    if (self.arrayType == DeteArray) {
-        //选择器
-        self.datePicker = [UIDatePicker new];
-        [self.bgV addSubview:self.datePicker];
-        [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.bottom.mas_equalTo(_line);
-            make.top.mas_equalTo(self.bgV);
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            
-        }];
-        
-        //日期
-        [_datePicker setDate:[NSDate date] animated:YES];
-        [_datePicker setMaximumDate:[NSDate date]];
-        [_datePicker setDatePickerMode:UIDatePickerModeDate];
-        
-        [_datePicker setMinimumDate:[self.formatter dateFromString:@"1900年1月1日"]] ;
-        
-    }else{
+  
         //选择器
         self.pickerV = [UIPickerView new];
         [self.bgV addSubview:self.pickerV];
@@ -245,8 +225,8 @@
         self.pickerV.delegate = self;
         self.pickerV.dataSource = self;
         
-    }
-    switch (arrayType) {
+    
+        switch (arrayType) {
             
             
         case GenderArray:
@@ -255,43 +235,19 @@
             [self.array addObject:@[@"男",@"女"]];
         }
             break;
-        case HeightArray:
+        case WorkTimeArray:
         {
-            self.selectLb.text = @"选择身高";
+            self.selectLb.text = @"选择从业时间";
             NSMutableArray *arr = [NSMutableArray array];
-            for (int i = 100; i <= 250; i++) {
+            for (int i = 1; i <= 10; i++) {
                 
-                NSString *str = [NSString stringWithFormat:@"%d cm",i];
+                NSString *str = [NSString stringWithFormat:@"%d 年",i];
                 [arr addObject:str];
             }
             [self.array addObject:(NSArray *)arr];
         }
             break;
-        case weightArray:
-        {
-            self.selectLb.text = @"选择体重";
-            NSMutableArray *arr = [NSMutableArray array];
-            for (int i = 30; i <= 200; i++) {
-                
-                NSString *str = [NSString stringWithFormat:@"%d kg",i];
-                [arr addObject:str];
-            }
-            [self.array addObject:(NSArray *)arr];
-        }
-            break;
-        case DeteArray:
-        {
-            self.selectLb.text = @"选择出生年月";
-        }
-            break;
-            
-          case AreaArray:
-        {
-            self.selectLb.text = @"选择省市区";
-            [self getAreaData];
-        }
-            break ;
-        default:
+            default:
             break;
     }
 }
@@ -307,33 +263,18 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
-    if (self.arrayType == AreaArray) {
-        return  3 ;
-    }else{
        return self.array.count;
-    }
+    
     
    
-}
+    }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     NSArray * arr = (NSArray *)[self.array objectAtIndex:component];
     
-    if (self.arrayType == AreaArray) {
-        
-        Province *province=self.allProvince[self.selectRowWithProvince];
-        City *city=province.city[self.selectRowWithCity];
-        if (component==0) return self.allProvince.count;
-        if (component==1) return province.city.count;
-        if (component==2) return city.district.count;
-        return 0;
-
-    }
-    else{
-        
-        return arr.count;
-    }
+    return arr.count;
+    
     
 }
 
@@ -348,51 +289,18 @@
     
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if (self.arrayType == AreaArray) {
-        if (component==0) {                    // 只有点击了第一列才去刷新第二个列对应的数据
-            self.selectRowWithProvince=row;   //  刷新的下标
-            self.selectRowWithCity=0;
-            [pickerView reloadComponent:1];  //   刷新第一,二列
-            [pickerView reloadComponent:2];
-        }
-        else if(component==1){
-            self.selectRowWithCity=row;       //  选中的市级的下标
-            [pickerView reloadComponent:2];  //   刷新第三列
-        }
-        else if(component==2){
-            self.selectRowWithTown=row;
-        }
-
-    }
+    
+        self.selectRowWithTown=row;
+    
     
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    if (self.arrayType == AreaArray) {
-        NSString *showTitleValue=@"";
-        if (component==0){
-            Province *province=self.allProvince[row];
-            showTitleValue=province.name;
-        }
-        if (component==1){
-            Province *province=self.allProvince[self.selectRowWithProvince];
-            City *city=province.city[row];
-            showTitleValue=city.name;
-        }
-        if (component==2) {
-            Province *province=self.allProvince[self.selectRowWithProvince];
-            City *city=province.city[self.selectRowWithCity];
-            District *dictrictObj=city.district[row];
-            showTitleValue=dictrictObj.name;
-        }
-        return showTitleValue;
-
-    }else{
-        
+    
         NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
         return [arr objectAtIndex:row % arr.count];
-    }
+
   
     
 }
@@ -400,16 +308,8 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    
-    if ( self.arrayType == AreaArray) {
-        
-        return (ScreenWidth - 30)/3.0;
-        
-    }else{
-        
         return (ScreenWidth - 30);
-    }
-    
+
 }
 
 #pragma mark-----点击方法
@@ -428,23 +328,12 @@
         
         NSArray *arr = [self.array objectAtIndex:i];
         
-               if (self.arrayType == AreaArray) {
-            
-            fullStr = [self finaSureCity];
-        }
-        else{
-            
-            NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
+                    NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
             fullStr = [fullStr stringByAppendingString:str];
-        }
+        
         
     }
     
-    if (self.arrayType == DeteArray) {
-        
-           fullStr   =  [self.formatter stringFromDate:_datePicker.date] ;
-       }
-
     
     if (_delegate && [_delegate respondsToSelector:@selector(PickerSelectorIndixString:)]) {
         

@@ -219,10 +219,7 @@
 		450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105DE1ED97CF000AA7A17 /* CityModelData.m */; };
 		450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E01ED97CF000AA7A17 /* JHPickView.m */; };
 		450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E21ED97CF000AA7A17 /* MySingleton.m */; };
-		450105E71ED97CF000AA7A17 /* province_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 450105E31ED97CF000AA7A17 /* province_data.json */; };
 		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
-		450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */; };
-		450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
@@ -245,6 +242,10 @@
 		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		4572B19D1ED40BA7007927EE /* MineOption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4572B19C1ED40BA7007927EE /* MineOption.plist */; };
+		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
+		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
+		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
+		458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
@@ -569,12 +570,8 @@
 		450105E01ED97CF000AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
 		450105E11ED97CF000AA7A17 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		450105E21ED97CF000AA7A17 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
-		450105E31ED97CF000AA7A17 /* province_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = province_data.json; sourceTree = "<group>"; };
 		450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
 		450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
-		450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
-		450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLChangePasswordController.xib; sourceTree = "<group>"; };
-		450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
 		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -612,6 +609,13 @@
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		4572B19C1ED40BA7007927EE /* MineOption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MineOption.plist; sourceTree = "<group>"; };
+		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		458CB5941EDE5FE70001084D /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
+		458CB5951EDE5FE70001084D /* ZYInputAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYInputAlertView.m; sourceTree = "<group>"; };
+		458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYInputAlertView.xib; sourceTree = "<group>"; };
+		458CB59A1EDE8EB60001084D /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
+		458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -725,9 +729,8 @@
 				1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */,
 				45305A3C1ED832CA0023E892 /* DLFeedBackController.h */,
 				45305A3D1ED832CA0023E892 /* DLFeedBackController.m */,
-				450105EB1ED97E0600AA7A17 /* DLChangePasswordController.h */,
-				450105EC1ED97E0600AA7A17 /* DLChangePasswordController.xib */,
-				450105ED1ED97E0600AA7A17 /* DLChangePasswordController.m */,
+				458CB59A1EDE8EB60001084D /* DLChangePasswordController.h */,
+				458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */,
 			);
 			path = "Controller(二级)";
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				458CB5901EDE5FE70001084D /* InputAlert */,
 				450105F01ED9C34000AA7A17 /* common */,
 				1C3416051ED9494000752071 /* SegmentView */,
 				1CBCF9011ED2E41200310CCB /* CycleScrollView */,
@@ -1362,7 +1366,6 @@
 				450105E01ED97CF000AA7A17 /* JHPickView.m */,
 				450105E11ED97CF000AA7A17 /* MySingleton.h */,
 				450105E21ED97CF000AA7A17 /* MySingleton.m */,
-				450105E31ED97CF000AA7A17 /* province_data.json */,
 			);
 			path = JHPickView;
 			sourceTree = "<group>";
@@ -1448,6 +1451,26 @@
 				45646B0C1ED49A0F003CC22E /* DLFianceModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		458CB5901EDE5FE70001084D /* InputAlert */ = {
+			isa = PBXGroup;
+			children = (
+				458CB5911EDE5FE70001084D /* UITextView */,
+				458CB5941EDE5FE70001084D /* ZYInputAlertView.h */,
+				458CB5951EDE5FE70001084D /* ZYInputAlertView.m */,
+				458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */,
+			);
+			path = InputAlert;
+			sourceTree = "<group>";
+		};
+		458CB5911EDE5FE70001084D /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */,
+				458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
@@ -1549,6 +1572,7 @@
 				1CE2C2021ED52BA100B898BA /* contract_record@3x.png in Resources */,
 				1CE2C2411ED57BE400B898BA /* universal_property@3x.png in Resources */,
 				1CE2C19C1ED525E000B898BA /* go_back@3x.png in Resources */,
+				458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */,
 				45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */,
 				1CE2C1AE1ED525E000B898BA /* return_traffic@3x.png in Resources */,
 				1CE2C1911ED525E000B898BA /* brightened_dot@2x.png in Resources */,
@@ -1597,7 +1621,6 @@
 				45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */,
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
-				450105E71ED97CF000AA7A17 /* province_data.json in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
@@ -1667,7 +1690,6 @@
 				1CE2C1981ED525E000B898BA /* destination@3x.png in Resources */,
 				1CE2C1A31ED525E000B898BA /* hotel@2x.png in Resources */,
 				1CE2C22C1ED52E8C00B898BA /* wifi_order_highlight@3x.png in Resources */,
-				450105EE1ED97E0600AA7A17 /* DLChangePasswordController.xib in Resources */,
 				1CE2C1AF1ED525E000B898BA /* travel_days@2x.png in Resources */,
 				1CE2C22E1ED52E8C00B898BA /* wifi_order@3x.png in Resources */,
 				1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */,
@@ -1775,6 +1797,7 @@
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
+				458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */,
 				1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */,
 				1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */,
 				1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */,
@@ -1783,6 +1806,7 @@
 				1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */,
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
+				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */,
@@ -1791,6 +1815,7 @@
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */,
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,
+				458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */,
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
 				45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
@@ -1804,7 +1829,6 @@
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
 				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
-				450105EF1ED97E0600AA7A17 /* DLChangePasswordController.m in Sources */,
 				1CB770B91ECFE00100F6EFDF /* DLSupplierqueryController.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
