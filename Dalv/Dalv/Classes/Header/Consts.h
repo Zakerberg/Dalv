@@ -15,6 +15,8 @@
 
 #define UIColorFromHex(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:1.0]
 
+#define MAIN_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define MAIN_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #define STRONGSELF()  __strong typeof(weakSelf)strongSelf = weakSelf
 #define BLOCKSELF() __block __typeof(&*self)blockSelf = self
