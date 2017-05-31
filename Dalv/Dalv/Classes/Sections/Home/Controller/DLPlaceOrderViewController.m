@@ -52,6 +52,7 @@
     return YES;
     
 }
+
 #pragma mark - Setup subViews
 
 - (void)setupSubviews {
@@ -128,7 +129,7 @@
     if (indexPath.section == 0) {
     DLLineOrderPriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderPriceTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell configureCell:self.routeName];
+        [cell configureCell:self.detaiInfoModel.list.name];
        return cell;
     } else if (indexPath.section == 1) {
         DLLineOrderChoiceDateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderChoiceDateTableViewCell cellIdentifier]];
@@ -154,7 +155,7 @@
     switch (indexPath.section) {
         case 0:
         {
-             CGFloat titleHeight = [self.routeName autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+             CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
             return titleHeight + 95;
             
         }
@@ -198,8 +199,7 @@
 }
 
 #pragma mark -UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 45){
         if (buttonIndex == 1) {
 //            if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"15701189832"]] ){

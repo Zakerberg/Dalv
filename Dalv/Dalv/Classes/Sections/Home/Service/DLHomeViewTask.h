@@ -74,7 +74,7 @@
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
  */
-+ (void)LineDetialsNotice:(NSDictionary *)param
++ (void)getLineDetialsNotice:(NSDictionary *)param
             completion:(void (^)(id result, NSError *error))completionHandler;
 
 

@@ -25,8 +25,8 @@
 @property (nonatomic, strong) UIImageView *rightimage;
 
 @property (nonatomic, strong) UICollectionView *collectionView;//菜单
-@property (nonatomic, strong) DLRemindSegmentView*segmentnView;
 
+@property (nonatomic, strong) DLRemindSegmentView*segmentView;
 
 @end
 
@@ -117,6 +117,7 @@
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.dataSource = self;
     collectionView.delegate = self;
+    collectionView.scrollEnabled = NO;
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.alwaysBounceVertical = YES;
     [collectionView registerClass:[DLLineDetialCollectionViewCell class]
@@ -125,15 +126,29 @@
     
     [self.contentView addSubview:collectionView];
     
+    NSArray *titleArray = [NSArray arrayWithObjects:@"行程安排", @"产品亮点", @"费用说明",@"注意事项", nil];
+    CGFloat segmentWidth = SCREEN_WIDTH;
+    CGFloat eachWidth = segmentWidth / (titleArray.count);
+    NSArray *widthArr = [NSArray arrayWithObjects:@(eachWidth), @(eachWidth), @(eachWidth), @(eachWidth), nil];
+    _segmentView = [[DLRemindSegmentView alloc] initWithFrame:CGRectMake(0, 0, segmentWidth, 42) titletextArr:titleArray widthArr:widthArr selectIndex:0];
+    _segmentView.backgroundColor = [UIColor clearColor];
+    [self.contentView addSubview:_segmentView];
+    @weakify(self);
+    _segmentView.selectBlock = ^(NSInteger index) {
+        @strongify(self);
+        if (self.delegate && [self.delegate respondsToSelector:@selector(segmentTapDelegate:)]) {
+            [self.delegate segmentTapDelegate:index];
+        }
+    };
+
 }
 
 - (void)layoutCellSubviews {
     
     CGFloat width = (self.contentView.ms_width - 30)/3;
-    CGFloat titleHeight = [_lineDetialNameLab.text autolableHeightWithFont:[UIFont systemFontOfSize:14] Width:(self.collectionView.width - 30)];
     
     [_lineDetialNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
+        make.top.equalTo(@10);
         make.left.equalTo(@15);
         make.right.equalTo(self.contentView).offset(-15);
     }];
@@ -210,19 +225,18 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentView);
         make.width.equalTo(self.contentView);
-        make.height.equalTo(@160);
+        make.height.equalTo(@120);
         make.top.equalTo(_departureScheduleView.mas_bottom);
     }];
     
-    NSArray *titleArray = [NSArray arrayWithObjects:@"行程安排", @"产品亮点", @"费用说明",@"注意事项", nil];
-    CGFloat segmentWidth = SCREEN_WIDTH;
-    CGFloat eachWidth = segmentWidth / (titleArray.count);
-    NSArray *widthArr = [NSArray arrayWithObjects:@(eachWidth), @(eachWidth), @(eachWidth), @(eachWidth), nil];
-    _segmentnView = [[DLRemindSegmentView alloc] initWithFrame:CGRectMake(0, self.collectionView.bottom+120, segmentWidth, 42) titletextArr:titleArray widthArr:widthArr selectIndex:0];
-    _segmentnView.backgroundColor = [UIColor clearColor];
-    [self.collectionView addSubview:_segmentnView];
-    
-    
+    [_segmentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.width.equalTo(self.contentView);
+        make.height.equalTo(@42);
+        make.top.equalTo(_collectionView.mas_bottom);
+    }];
+
+
 }
 
 + (NSString *)cellIdentifier {
@@ -266,8 +280,7 @@
 }
 
 #pragma mark - private methods
-- (void)selectDateView:(UITapGestureRecognizer *)tap
-{
+- (void)selectDateView:(UITapGestureRecognizer *)tap {
     NSLog(@"点击了选择日期");
     
 }

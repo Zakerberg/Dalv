@@ -9,7 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "DLLineTourDetailInforModel.h"
 
+@protocol DLLineDetialTableViewCellDelegate <NSObject>
+
+@optional
+
+- (void)segmentTapDelegate:(NSUInteger  )index;
+
+@end
+
+/** 线路详情cell*/
 @interface DLLineDetialpriceTableViewCell : UITableViewCell
+
+@property (nonatomic , weak) id <DLLineDetialTableViewCellDelegate>delegate;
 
 @property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
 

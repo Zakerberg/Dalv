@@ -76,7 +76,7 @@
     
 }
 
-+ (void)LineDetialsNotice:(NSDictionary *)param
++ (void)getLineDetialsNotice:(NSDictionary *)param
                completion:(void (^)(id result, NSError *error))completionHandler {
     
     [DLRequestSerVice POST:DL_LineDetialsNotice param:param success:^(id responseData) {

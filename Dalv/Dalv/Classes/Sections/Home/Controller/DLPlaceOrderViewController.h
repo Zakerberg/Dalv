@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DLLineTourDetailInforModel.h"
 @interface DLPlaceOrderViewController : UIViewController
-// 传入线路模型 先只传名字
-@property (nonatomic, copy) NSString *routeName;
+/// 传入线路模型
+@property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
 
 @end
