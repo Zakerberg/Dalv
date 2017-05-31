@@ -7,6 +7,7 @@
 //
 
 #import "DLChangePasswordController.h"
+#import "ZYInputAlertView.h"
 static NSString* cellID = @"cellID";
 @interface DLChangePasswordController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView* tableView;
@@ -114,8 +115,9 @@ static NSString* cellID = @"cellID";
     self.selectedIndexPath = indexPath ;
     self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
     
-    
-    
+    if (indexPath.row == 1) {
+        
+    }
     
     
     
