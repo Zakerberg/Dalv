@@ -119,7 +119,7 @@
             break;
         case 1:
             [self.funcButton setImage:[UIImage imageNamed:@"destination"] forState:UIControlStateNormal];
-            [self.funcButton setTitle:@"目的城市:" forState:UIControlStateNormal];
+            [self.funcButton setTitle:@"目的地  :" forState:UIControlStateNormal];
             self.valueLab.text = model.list.destinations;
         break;
         case 2:

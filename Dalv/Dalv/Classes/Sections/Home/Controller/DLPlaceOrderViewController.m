@@ -48,7 +48,10 @@
 - (void)setupNavbar {
     self.title = @"填写和提交";
 }
-
+- (BOOL)dl_blueNavbar {
+    return YES;
+    
+}
 #pragma mark - Setup subViews
 
 - (void)setupSubviews {
