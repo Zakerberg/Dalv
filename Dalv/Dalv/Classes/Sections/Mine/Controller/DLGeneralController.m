@@ -156,16 +156,7 @@ static NSString *cellID  = @"cellID";
         [self presentViewController:alert animated:YES completion:nil];
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
 
 - (void)back {

@@ -102,10 +102,10 @@
     [self ms_presentViewController:viewControllerToPresent animated:animated completion:completion];
 }
 
-- (void)ms_dealloc {
-    NSLog(@"=========== %@ 释放了。===========", self);
-    [self ms_dealloc];
-}
+//- (void)ms_dealloc {
+//    NSLog(@"=========== %@ 释放了。===========", self);
+//    [self ms_dealloc];
+//}
 
 - (void)setupCancel:(UIViewController *)viewController {
     if ([viewController isKindOfClass:[UINavigationController class]]) {

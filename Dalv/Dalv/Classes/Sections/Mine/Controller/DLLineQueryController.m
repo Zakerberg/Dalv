@@ -77,7 +77,7 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
         
     }
     
-    if(indexPath.row ==1){
+    if(indexPath.row == 1){
         
         
     }

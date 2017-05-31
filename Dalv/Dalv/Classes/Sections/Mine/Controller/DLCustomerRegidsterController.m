@@ -128,7 +128,7 @@
                 //设置按钮的样式
                 [self.obtainCodeBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                 
-                [self.obtainCodeBtn setTitleColor:[UIColor colorWithHexString:@"  0xFB8557"] forState:UIControlStateNormal];
+                [self.obtainCodeBtn setTitleColor:[UIColor colorWithHexString:@"0xFB8557"] forState:UIControlStateNormal];
                 
                 self.obtainCodeBtn.userInteractionEnabled = YES;
             });
