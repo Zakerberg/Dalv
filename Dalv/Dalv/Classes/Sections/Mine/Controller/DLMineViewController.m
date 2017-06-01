@@ -217,17 +217,26 @@
                         
                         //NSLog(@"注册成功!");
                         [self.navigationController popViewControllerAnimated:YES];
-                    } failure:^(NSError *error) {
-                        // 在此写提示框
                         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                         [successV show];
+                        
+                    } failure:^(NSError *error) {
+                        // 在此写提示框
+                        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                        [failureV show];
 
                     }];
-                }  else {
+                    
+                } else {
+                    
                     [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
                         
                         //NSLog(@"注册成功!");
                         [self.navigationController popViewControllerAnimated:YES];
+                        
+                        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                        [successV show];
+                        
                     } failure:^(NSError *error) {
                         // 在此写提示框
                         UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -237,8 +246,6 @@
                 }
             
         }
-        
-
     
     //手机号匹配
     /*
@@ -272,7 +279,6 @@
 #pragma mark  ----------DLCityPickerViewDelegate------------
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
-//    NSLog(@"选择%@",selectedTitle);
     
     if ([selectedTitle isEqualToString:@"其他"])  {
         

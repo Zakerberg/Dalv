@@ -60,9 +60,9 @@
                             @"password":self.customerPasswordTF.text,
                             @"theAgencyPhone":self.customerBindingNumberTF.text
                             };
-    
     if (1) {
         
+    
         if (self.customerNamelTF.text == nil) {
             
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"姓名不能为空" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
@@ -93,26 +93,27 @@
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
             
-        }
-    } else {
         
+        } else {
         
         [DLRequestSerVice POST:DL_CustomerRegister param:param success:^(id responseData) {
             
-            NSLog(@"顾客注册成功!");
+//            NSLog(@"顾客注册成功!");
+            [self.navigationController popViewControllerAnimated:YES];
+            //写个提示框!
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
             
         } failure:^(NSError *error) {
             
+            //写个提示框!
+            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [failureV show];
+            
         }];
-    }
-    
+     }
+   }
 }
-
-
-
-
-
-
 
 /**** 获取验证码   ****/
 - (IBAction)obtainCodeBtnClick:(id)sender {
