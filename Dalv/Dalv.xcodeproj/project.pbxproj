@@ -243,17 +243,9 @@
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45305A421ED90D1E0023E892 /* Assets.xcassets */; };
-
 		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
-		45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AF61ED4252B003CC22E /* DLOptionModel.m */; };
-		45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */; };
-		45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */; };
-		45646B021ED42748003CC22E /* DLFianceBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */; };
-		45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B071ED4278F003CC22E /* DLFianceOptionCell.m */; };
-		45646B0A1ED4278F003CC22E /* DLFianceOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */; };
-		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
@@ -630,25 +622,12 @@
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		45305A421ED90D1E0023E892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-
 		4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDefaultsManager.h; sourceTree = "<group>"; };
 		4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDefaultsManager.m; sourceTree = "<group>"; };
 		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
 		4550B9601EDFE0FA002269BF /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		4550B9621EDFE118002269BF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
 		4550B9631EDFE118002269BF /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
-		45646AF51ED4252B003CC22E /* DLOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOptionModel.h; sourceTree = "<group>"; };
-		45646AF61ED4252B003CC22E /* DLOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOptionModel.m; sourceTree = "<group>"; };
-		45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
-		45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceFlowLayout.m; sourceTree = "<group>"; };
-		45646AFE1ED42748003CC22E /* DLFianceBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceBalanceCell.h; sourceTree = "<group>"; };
-		45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceBalanceCell.m; sourceTree = "<group>"; };
-		45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceBalanceCell.xib; sourceTree = "<group>"; };
-		45646B061ED4278F003CC22E /* DLFianceOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceOptionCell.h; sourceTree = "<group>"; };
-		45646B071ED4278F003CC22E /* DLFianceOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceOptionCell.m; sourceTree = "<group>"; };
-		45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceOptionCell.xib; sourceTree = "<group>"; };
-		45646B0B1ED49A0F003CC22E /* DLFianceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceModel.h; sourceTree = "<group>"; };
-		45646B0C1ED49A0F003CC22E /* DLFianceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceModel.m; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
@@ -1496,16 +1475,6 @@
 			path = UserDefaultManager;
 			sourceTree = "<group>";
 		};
-		4572B1761ED3CA7F007927EE /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				4572B19C1ED40BA7007927EE /* MineOption.plist */,
-				45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */,
-				45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		4572B1771ED3CA7F007927EE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1608,7 +1577,7 @@
 				TargetAttributes = {
 					452916721EC1741E0033314F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = C4FG39LTV3;
+						DevelopmentTeam = 2J738B5H56;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1985,7 +1954,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2007,6 +1977,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2034,7 +2005,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2049,6 +2021,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2060,8 +2033,8 @@
 			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
-				DEVELOPMENT_TEAM = C4FG39LTV3;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
+				DEVELOPMENT_TEAM = 2J738B5H56;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/SMS_SDK",
@@ -2072,8 +2045,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "00c5a36f-10e8-4449-b861-d8e257216c14";
-				PROVISIONING_PROFILE_SPECIFIER = hui;
+				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
+				PROVISIONING_PROFILE_SPECIFIER = Dalv;
 			};
 			name = Debug;
 		};
@@ -2082,8 +2055,8 @@
 			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: fei zhou (9NY3E4S8BD)";
-				DEVELOPMENT_TEAM = C4FG39LTV3;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
+				DEVELOPMENT_TEAM = 2J738B5H56;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/SMS_SDK",
@@ -2094,8 +2067,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "00c5a36f-10e8-4449-b861-d8e257216c14";
-				PROVISIONING_PROFILE_SPECIFIER = hui;
+				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
+				PROVISIONING_PROFILE_SPECIFIER = Dalv;
 			};
 			name = Release;
 		};
