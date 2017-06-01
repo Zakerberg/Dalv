@@ -98,8 +98,8 @@
         
         [DLRequestSerVice POST:DL_CustomerRegister param:param success:^(id responseData) {
             
-//            NSLog(@"顾客注册成功!");
-            [self.navigationController popViewControllerAnimated:YES];
+//            NSLog(@"顾客注册成功!");  !
+//            [self.navigationController popViewControllerAnimated:YES];
             //写个提示框!
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
@@ -146,7 +146,6 @@
     if(isMatchPhoneNum){
         
         [self openCountdown];
-        
     }
 }
 // 开启倒计时效果
@@ -213,7 +212,6 @@
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
 }
-
 
 
 - (void)viewDidLoad {

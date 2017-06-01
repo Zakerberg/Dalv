@@ -48,7 +48,13 @@ static NSString *cellID  = @"cellID";
     
     self.tableView.tableFooterView = [UIView new];
     
+    self.title = @"通用";
 }
+
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
+
 
 -(void)setupUI{
     
@@ -125,9 +131,7 @@ static NSString *cellID  = @"cellID";
         
     }
     
-    
-    
-    
+
     if(indexPath.section == 1){
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];

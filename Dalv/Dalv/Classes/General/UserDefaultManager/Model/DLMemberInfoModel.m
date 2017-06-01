@@ -20,7 +20,6 @@
 //  [aCoder encodeObject:self.u_login_id forKey:@"u_login_id"];
     [aCoder encodeObject:self.u_mobile forKey:@"u_mobile"];
     [aCoder encodeObject:self.userPassword forKey:@"userPassword"];
-    
 }
 
 //解码操作。将键值读出
@@ -30,15 +29,9 @@
         //        self.u_login_id = [aDecoder decodeObjectForKey:@"u_login_id"];
         self.u_mobile = [aDecoder decodeObjectForKey:@"u_mobile"];
         self.userPassword = [aDecoder decodeObjectForKey:@"userPassword"];
-        
     }
     
     return self;
 }
-
-
-
-
-
 
 @end

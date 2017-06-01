@@ -44,15 +44,5 @@
 - (void)logOffAction;
 
 
-/*
- 
- #pragma mark - 登录注册 -
- //密码登录
- - (void)loginActionWithUserID:(NSString *)userID withPassword:(NSString *)password withLoginSuccessResult:(SuccessResult )loginSuccessResult withLoginFailResult:(FailResult)loginFailResult;
- //注册代理商
- - (void)httpRegisterDelegateWithTrueName:(NSString *)trueName withPhone:(NSString *)phone withAreaId:(NSString *)areaId withRegisterSuccessResult:(SuccessResult)registerSuccessResult withRegisterFailResult:(FailResult)registerFailResult;
- 
- */
-
 
 @end
