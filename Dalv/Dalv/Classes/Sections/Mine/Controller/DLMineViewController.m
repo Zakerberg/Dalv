@@ -7,15 +7,10 @@
 //@"index.php/Api/login/agencyVerificationCode"
 
 #import "DLMineViewController.h"
-#import <SMS_SDK/SMSSDK.h>
 #import <MBProgressHUD.h>
 #import "DLCityPickerView.h"
-#import "DLHomeViewTask.h"
-#import <MJExtension.h>
 #import "DLSalertView.h"
 #import "DLConsultModel.h"
-
-
 
 @interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate>
 
@@ -215,7 +210,7 @@
                         [successV show];
 
                     }];
-                }else{
+                }  else {
                     [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
                         
                         //NSLog(@"注册成功!");

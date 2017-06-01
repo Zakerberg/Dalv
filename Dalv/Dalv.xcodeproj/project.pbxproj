@@ -243,6 +243,17 @@
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45305A421ED90D1E0023E892 /* Assets.xcassets */; };
+
+		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
+		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
+		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
+		45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AF61ED4252B003CC22E /* DLOptionModel.m */; };
+		45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */; };
+		45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */; };
+		45646B021ED42748003CC22E /* DLFianceBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */; };
+		45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B071ED4278F003CC22E /* DLFianceOptionCell.m */; };
+		45646B0A1ED4278F003CC22E /* DLFianceOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */; };
+		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
@@ -250,6 +261,7 @@
 		458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */; };
 		458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */; };
 		458CB5B11EDFA5DF0001084D /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5AF1EDFA5DF0001084D /* DLSupplierqueryController.xib */; };
+		458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
@@ -618,6 +630,25 @@
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		45305A421ED90D1E0023E892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+
+		4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDefaultsManager.h; sourceTree = "<group>"; };
+		4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDefaultsManager.m; sourceTree = "<group>"; };
+		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		4550B9601EDFE0FA002269BF /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		4550B9621EDFE118002269BF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		4550B9631EDFE118002269BF /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
+		45646AF51ED4252B003CC22E /* DLOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOptionModel.h; sourceTree = "<group>"; };
+		45646AF61ED4252B003CC22E /* DLOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOptionModel.m; sourceTree = "<group>"; };
+		45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
+		45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceFlowLayout.m; sourceTree = "<group>"; };
+		45646AFE1ED42748003CC22E /* DLFianceBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceBalanceCell.h; sourceTree = "<group>"; };
+		45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceBalanceCell.m; sourceTree = "<group>"; };
+		45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceBalanceCell.xib; sourceTree = "<group>"; };
+		45646B061ED4278F003CC22E /* DLFianceOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceOptionCell.h; sourceTree = "<group>"; };
+		45646B071ED4278F003CC22E /* DLFianceOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceOptionCell.m; sourceTree = "<group>"; };
+		45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceOptionCell.xib; sourceTree = "<group>"; };
+		45646B0B1ED49A0F003CC22E /* DLFianceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceModel.h; sourceTree = "<group>"; };
+		45646B0C1ED49A0F003CC22E /* DLFianceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceModel.m; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
@@ -630,6 +661,8 @@
 		458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		458CB5AF1EDFA5DF0001084D /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
+		458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLsupplierQueryModel.h; sourceTree = "<group>"; };
+		458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLsupplierQueryModel.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -761,6 +794,8 @@
 				45305A391ED7D9140023E892 /* DLConsultModel.h */,
 				45305A3A1ED7D9140023E892 /* DLConsultModel.m */,
 				1CB770A61ECFE00100F6EFDF /* zzz.plist */,
+				458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */,
+				458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -793,6 +828,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				4550B95B1EDFBEF1002269BF /* UserDefaultManager */,
 				458CB5901EDE5FE70001084D /* InputAlert */,
 				450105F01ED9C34000AA7A17 /* common */,
 				1C3416051ED9494000752071 /* SegmentView */,
@@ -1447,6 +1483,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4550B95B1EDFBEF1002269BF /* UserDefaultManager */ = {
+			isa = PBXGroup;
+			children = (
+				4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */,
+				4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */,
+				4550B95F1EDFE0FA002269BF /* NSString+JSON.h */,
+				4550B9601EDFE0FA002269BF /* NSString+JSON.m */,
+				4550B9621EDFE118002269BF /* NSObject+JSON.h */,
+				4550B9631EDFE118002269BF /* NSObject+JSON.m */,
+			);
+			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
+		4572B1761ED3CA7F007927EE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4572B19C1ED40BA7007927EE /* MineOption.plist */,
+				45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */,
+				45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		4572B1771ED3CA7F007927EE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1780,6 +1839,7 @@
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
+				4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
 				1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */,
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
@@ -1818,6 +1878,7 @@
 				1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */,
 				1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */,
 				1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */,
+				4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */,
 				458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */,
 				1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */,
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
@@ -1839,6 +1900,7 @@
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
+				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
@@ -1877,6 +1939,7 @@
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,
 				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
+				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
