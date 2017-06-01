@@ -206,7 +206,7 @@ static NSString *cellID  = @"cellID";
         NSLog(@"供应商查询");
         
         DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar
+//         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar
     
         [self.navigationController pushViewController:sipplierVC animated:YES];
     }

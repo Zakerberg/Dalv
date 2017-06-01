@@ -124,4 +124,13 @@
 // 37.测试顾问个人中心->我的推荐列表接口
 #define DL_AgencyFinanceMyRecommend DL_HOST@"index.php/Api/agencyFinance/myrecommend"
 
+//  获取验证码
+#define DL_consultGetCode DL_HOST@"index.php/Api/login/agencyVerificationCode"
+//  注册
+#define DL_ConsultRegister DL_HOST@"index.php/Api/login/agencyRegister"
+
+//  供应商查询
+#define DL_providerQuery DL_HOST@"index.php/Api/agencyPersonal/providerQuery"
+
+
 #endif /* InterfaceConfig_h */

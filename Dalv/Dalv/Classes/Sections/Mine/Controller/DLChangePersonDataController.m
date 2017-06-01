@@ -232,7 +232,6 @@ static NSString* cellID = @"cellID";
     
     /**  修改密码 **/
     if (indexPath.row == 7) {
-    
     DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
     [self.navigationController pushViewController:changePwdVC animated:YES];
         
