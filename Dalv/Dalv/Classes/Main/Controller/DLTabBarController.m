@@ -9,63 +9,97 @@
 #import "DLTabBarController.h"
 #import "DLNavigationController.h"
 
+static NSString * const HomeViewVC = @"DLHomeViewController";
+static NSString * const OrderViewVC = @"DLOrderViewController";
+static NSString * const FianceViewVC = @"DLFianceController";
+static NSString * const MineCenterVC = @"DLMineCenterController";
+
+static NSString * const TabbarTitle = @"TabbarTitle";
+static NSString * const TabbarImage = @"TabbarImage";
+static NSString * const TabbarSelectedImage = @"TabbarSelectedImage";
+static NSString * const TabbarItemBadgeValue = @"TabbarItemBadgeValue";
 
 @interface DLTabBarController ()
+
+@property (nonatomic, strong) NSArray *vcsOrder;
+@property (nonatomic, strong) NSDictionary *vcsInfoDict;
 
 @end
 
 @implementation DLTabBarController
 
+#pragma mark - life cycle
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupSubVCs];
     
-    
-    UIViewController *VC1 =  [self makeChildViewController:@"DLHomeViewController" andTabBarTitle:@"首页" andTabBarImage:@"v2_home"];
-    
-    UIViewController *VC2 =  [self makeChildViewController:@"DLOrderViewController" andTabBarTitle:@"订单" andTabBarImage:@"v2_order"];
-            
-        UIViewController *VC3 =  [self makeChildViewController:@"DLFianceController" andTabBarTitle:@"财务" andTabBarImage:@""];
-        VC3.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-
-    
-    UIViewController *VC4 =  [self makeChildViewController:@"DLMineCenterController" andTabBarTitle:@"我的" andTabBarImage:@""];
-    
-//    UIViewController *VC5 = [self makeChildViewController:@"DLShopViewController" andTabBarTitle:@"商城" andTabBarImage:@""];
-    
-    self.viewControllers = @[VC1, VC2, VC3, VC4];
-    
-    self.tabBar.tintColor = [UIColor grayColor];
-    
-    // 关闭标签栏的半透明效果
-    //控制器的view就不会到底屏幕最底部了,而是到了标签栏的上面
-    self.tabBar.translucent = NO;
 }
 
-- (UIViewController *)makeChildViewController:(NSString *)className andTabBarTitle:(NSString *)title andTabBarImage:(NSString *)imageName
-{
+#pragma mark - setupSubVCs
+
+- (void)setupSubVCs {
     
-    Class class = NSClassFromString(className);
+    [self.vcsOrder enumerateObjectsUsingBlock:^(id  _Nonnull vcName, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        NSDictionary *vcInfo = [self.vcsInfoDict objectForKey:vcName];
+        
+        Class clazz = NSClassFromString(vcName);
+        UIViewController *vc = [clazz new];
+        vc.title = vcInfo[TabbarTitle];
+        vc.tabBarItem.image = [[UIImage imageNamed:vcInfo[TabbarImage]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] ;
+        UIImage *selectedImage = [[UIImage imageNamed:vcInfo[TabbarSelectedImage]]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        vc.tabBarItem.selectedImage = selectedImage;
+        
+        [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:@"#999999"],
+                                                NSFontAttributeName : [UIFont systemFontOfSize:11]}
+                                     forState:UIControlStateNormal];
+        
+        [vc.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:@"5e73f4"]}
+                                     forState:UIControlStateSelected];
+        
+        DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:vc];
+        [self addChildViewController:nav];
+    }];
+}
+
+#pragma getters / setters
+
+- (NSArray *)vcsOrder {
     
-    UIViewController *vc = [[class alloc] init];
+    return @[HomeViewVC,OrderViewVC,FianceViewVC,MineCenterVC];
+}
+
+- (NSDictionary *)vcsInfoDict {
     
-    // 设置标签栏上控制器对应的标题文字
-    //    vc.tabBarItem.title = title;
-    
-    vc.title = title;
-    
-    vc.tabBarItem.image = [UIImage imageNamed:imageName];
-    
-    NSString *selImageName = [imageName stringByAppendingString:@"_r"];
-    
-    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    // vc.view.backgroundColor =  [UIColor whiteColor];
-    
-    //创建导航控制器,并给它添加根控制器
-    DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:vc];
-    
-    
-    return nav;
+    return @{HomeViewVC : @{
+                     TabbarTitle        : @"首页",
+                     TabbarImage        : @"home",
+                     TabbarSelectedImage: @"home_highlight",
+                     TabbarItemBadgeValue: @(0)
+                     },
+             
+             OrderViewVC : @{
+                     TabbarTitle        : @"订单",
+                     TabbarImage        : @"order",
+                     TabbarSelectedImage: @"order_heighlight",
+                     TabbarItemBadgeValue: @(0)
+                     },
+             
+             FianceViewVC : @{
+                     TabbarTitle        : @"财务",
+                     TabbarImage        : @"financial",
+                     TabbarSelectedImage: @"financial_highlight",
+                     TabbarItemBadgeValue: @(0)
+                     },
+             
+             MineCenterVC : @{
+                     TabbarTitle        : @"我的",
+                     TabbarImage        : @"my",
+                     TabbarSelectedImage: @"my_highlight",
+                     TabbarItemBadgeValue: @(0)
+                     }};
 }
 
 @end
