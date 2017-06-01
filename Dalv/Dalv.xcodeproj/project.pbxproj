@@ -246,6 +246,7 @@
 		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
+		4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9671EE0073C002269BF /* DLMemberInfoModel.m */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
@@ -628,6 +629,8 @@
 		4550B9601EDFE0FA002269BF /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		4550B9621EDFE118002269BF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
 		4550B9631EDFE118002269BF /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
+		4550B9661EE0073C002269BF /* DLMemberInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMemberInfoModel.h; sourceTree = "<group>"; };
+		4550B9671EE0073C002269BF /* DLMemberInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMemberInfoModel.m; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
@@ -1471,8 +1474,18 @@
 				4550B9601EDFE0FA002269BF /* NSString+JSON.m */,
 				4550B9621EDFE118002269BF /* NSObject+JSON.h */,
 				4550B9631EDFE118002269BF /* NSObject+JSON.m */,
+				4550B9651EE00724002269BF /* Model */,
 			);
 			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
+		4550B9651EE00724002269BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4550B9661EE0073C002269BF /* DLMemberInfoModel.h */,
+				4550B9671EE0073C002269BF /* DLMemberInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4572B1771ED3CA7F007927EE /* View */ = {
@@ -1902,6 +1915,7 @@
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
+				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
 				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
