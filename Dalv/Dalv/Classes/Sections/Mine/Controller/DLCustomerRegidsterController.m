@@ -40,6 +40,17 @@
 /**** 立即注册   ****/
 - (IBAction)registerBtnClick:(id)sender {
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSDictionary *param = @{
+                            @"name":self.customerNamelTF.text,
+                            @"phone":self.customerNumberTF.text,
+                            @"vercode":self.customerCodeTF.text,
+                            @"password":self.customerPasswordTF.text
+                            
+                            };
+    
     
     
     
@@ -56,15 +67,16 @@
 /**** 获取验证码   ****/
 - (IBAction)obtainCodeBtnClick:(id)sender {
     
+    NSMutableDictionary *parement = [NSMutableDictionary dictionary];
     
+    [parement setValue:self.customerNumberTF.text forKey:@"phone"];
     
+    [DLRequestSerVice POST:DL_consultGetCode param:parement success:^(id responseData) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
-    
-    
-    
-    
-    
-
     //判断手机号的正则表达式
     NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
     

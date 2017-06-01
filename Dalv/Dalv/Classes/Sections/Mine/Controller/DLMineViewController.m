@@ -174,12 +174,23 @@
             
             CityStr = @"5";
         }
+        /*
+         
+         name：姓名
+         province ： 城市 选择，1北京市，3天津市，4石家庄市，5唐山市，1其他（并附加输入框，附件一个参数 thecity）
+         phone：手机
+         vercode ：验证码
+         password：密码
+         vocation ：职务（员工，导游）
+         
+        */
         
         NSDictionary *param = @{
                                 @"name":self.nameTF.text,
                                 @"province":CityStr,
                                 @"phone":self.phoneTextFiled.text,
                                 @"vercode":self.passCodeTF.text,
+                                @"password":self.passwordTF.text,
                                 @"vocation":self.positionTF.text
                                 };
         
@@ -195,6 +206,7 @@
                                 @"province":CityStr,
                                 @"phone":self.phoneTextFiled.text,
                                 @"vercode":self.passCodeTF.text,
+                                @"password":self.passwordTF.text,
                                 @"vocation":self.positionTF.text,
                                 @"thecity":self.firstField.text
                                 };

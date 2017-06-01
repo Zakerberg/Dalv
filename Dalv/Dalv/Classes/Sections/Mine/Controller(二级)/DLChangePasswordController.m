@@ -69,16 +69,6 @@ static NSString* cellID = @"cellID";
 
 
 
-
-
-
-
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -113,15 +103,40 @@ static NSString* cellID = @"cellID";
     self.selectedIndexPath = indexPath ;
     self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
     
-    if (indexPath.row == 1) {
+    if (indexPath.row == 0) {
         
-        
-        
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入旧密码";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            weakSelf.cell.detailTextLabel.text = inputString;
+        }];
+        [alertView show];
+    
     }
     
+    if(indexPath.row == 1) {
+        
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"输入新密码";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            weakSelf.cell.detailTextLabel.text = inputString;
+        }];
+        [alertView show];
+
+    }
     
-   
-    
+    if(indexPath.row == 2) {
+        __weak typeof(self) weakSelf = self;
+        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+        alertView.placeholder = @"确认新密码";
+        [alertView confirmBtnClickBlock:^(NSString *inputString) {
+            weakSelf.cell.detailTextLabel.text = inputString;
+        }];
+        [alertView show];
+        
+    }
 }
 
 @end
