@@ -17,6 +17,17 @@
 		1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */; };
 		1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */; };
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
+		1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */; };
+		1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */; };
+		1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */; };
+		1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815E1EDFE2C400712524 /* DLPresentApplicationViewController.m */; };
+		1C2981691EDFE2C400712524 /* DLRechargeApplicationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981601EDFE2C400712524 /* DLRechargeApplicationViewController.m */; };
+		1C29816A1EDFE2C400712524 /* DLRechargeRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981621EDFE2C400712524 /* DLRechargeRecordViewController.m */; };
+		1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981641EDFE2C400712524 /* DLTransactionRecordViewController.m */; };
+		1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29816D1EDFE30500712524 /* DLTransactionRecordModel.m */; };
+		1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981701EDFE33900712524 /* DLCashRegisterViewTableViewCell.m */; };
+		1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981721EDFE33900712524 /* DLRechargeRecordTableViewCell.m */; };
+		1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981741EDFE33900712524 /* DLTransactionRecordTableViewCell.m */; };
 		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
 		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
 		1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */; };
@@ -232,15 +243,7 @@
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45305A421ED90D1E0023E892 /* Assets.xcassets */; };
-		45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AF61ED4252B003CC22E /* DLOptionModel.m */; };
-		45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */; };
-		45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */; };
-		45646B021ED42748003CC22E /* DLFianceBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */; };
-		45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B071ED4278F003CC22E /* DLFianceOptionCell.m */; };
-		45646B0A1ED4278F003CC22E /* DLFianceOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */; };
-		45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B0C1ED49A0F003CC22E /* DLFianceModel.m */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
-		4572B19D1ED40BA7007927EE /* MineOption.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4572B19C1ED40BA7007927EE /* MineOption.plist */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
@@ -287,6 +290,28 @@
 		1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddReduceButton.m; sourceTree = "<group>"; };
 		1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@2x.png"; sourceTree = "<group>"; };
 		1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@3x.png"; sourceTree = "<group>"; };
+		1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewController.h; sourceTree = "<group>"; };
+		1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewController.m; sourceTree = "<group>"; };
+		1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOfflineRechargeViewController.h; sourceTree = "<group>"; };
+		1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOfflineRechargeViewController.m; sourceTree = "<group>"; };
+		1C29815B1EDFE2C400712524 /* DLOnlineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOnlineRechargeViewController.h; sourceTree = "<group>"; };
+		1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOnlineRechargeViewController.m; sourceTree = "<group>"; };
+		1C29815D1EDFE2C400712524 /* DLPresentApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPresentApplicationViewController.h; sourceTree = "<group>"; };
+		1C29815E1EDFE2C400712524 /* DLPresentApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPresentApplicationViewController.m; sourceTree = "<group>"; };
+		1C29815F1EDFE2C400712524 /* DLRechargeApplicationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRechargeApplicationViewController.h; sourceTree = "<group>"; };
+		1C2981601EDFE2C400712524 /* DLRechargeApplicationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRechargeApplicationViewController.m; sourceTree = "<group>"; };
+		1C2981611EDFE2C400712524 /* DLRechargeRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRechargeRecordViewController.h; sourceTree = "<group>"; };
+		1C2981621EDFE2C400712524 /* DLRechargeRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRechargeRecordViewController.m; sourceTree = "<group>"; };
+		1C2981631EDFE2C400712524 /* DLTransactionRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTransactionRecordViewController.h; sourceTree = "<group>"; };
+		1C2981641EDFE2C400712524 /* DLTransactionRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTransactionRecordViewController.m; sourceTree = "<group>"; };
+		1C29816C1EDFE30500712524 /* DLTransactionRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTransactionRecordModel.h; sourceTree = "<group>"; };
+		1C29816D1EDFE30500712524 /* DLTransactionRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTransactionRecordModel.m; sourceTree = "<group>"; };
+		1C29816F1EDFE33900712524 /* DLCashRegisterViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewTableViewCell.h; sourceTree = "<group>"; };
+		1C2981701EDFE33900712524 /* DLCashRegisterViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewTableViewCell.m; sourceTree = "<group>"; };
+		1C2981711EDFE33900712524 /* DLRechargeRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRechargeRecordTableViewCell.h; sourceTree = "<group>"; };
+		1C2981721EDFE33900712524 /* DLRechargeRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRechargeRecordTableViewCell.m; sourceTree = "<group>"; };
+		1C2981731EDFE33900712524 /* DLTransactionRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTransactionRecordTableViewCell.h; sourceTree = "<group>"; };
+		1C2981741EDFE33900712524 /* DLTransactionRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTransactionRecordTableViewCell.m; sourceTree = "<group>"; };
 		1C3416061ED9494000752071 /* DLRemindSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemindSegmentView.h; sourceTree = "<group>"; };
 		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
 		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
@@ -593,21 +618,8 @@
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		45305A421ED90D1E0023E892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		45646AF51ED4252B003CC22E /* DLOptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOptionModel.h; sourceTree = "<group>"; };
-		45646AF61ED4252B003CC22E /* DLOptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOptionModel.m; sourceTree = "<group>"; };
-		45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceFlowLayout.h; sourceTree = "<group>"; };
-		45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceFlowLayout.m; sourceTree = "<group>"; };
-		45646AFE1ED42748003CC22E /* DLFianceBalanceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceBalanceCell.h; sourceTree = "<group>"; };
-		45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceBalanceCell.m; sourceTree = "<group>"; };
-		45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceBalanceCell.xib; sourceTree = "<group>"; };
-		45646B061ED4278F003CC22E /* DLFianceOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceOptionCell.h; sourceTree = "<group>"; };
-		45646B071ED4278F003CC22E /* DLFianceOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceOptionCell.m; sourceTree = "<group>"; };
-		45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLFianceOptionCell.xib; sourceTree = "<group>"; };
-		45646B0B1ED49A0F003CC22E /* DLFianceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceModel.h; sourceTree = "<group>"; };
-		45646B0C1ED49A0F003CC22E /* DLFianceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceModel.m; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
-		4572B19C1ED40BA7007927EE /* MineOption.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MineOption.plist; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		458CB5941EDE5FE70001084D /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
@@ -953,7 +965,6 @@
 		1CB9532B1ECFC41600BDC2D3 /* Fiance */ = {
 			isa = PBXGroup;
 			children = (
-				4572B1761ED3CA7F007927EE /* Other */,
 				4572B1771ED3CA7F007927EE /* View */,
 				4572B1781ED3CA7F007927EE /* Model */,
 				1CB9532C1ECFC41600BDC2D3 /* Controller */,
@@ -966,6 +977,20 @@
 			children = (
 				45646B1E1ED55F8F003CC22E /* DLFianceController.h */,
 				45646B1F1ED55F8F003CC22E /* DLFianceController.m */,
+				1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */,
+				1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */,
+				1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */,
+				1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */,
+				1C29815B1EDFE2C400712524 /* DLOnlineRechargeViewController.h */,
+				1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */,
+				1C29815D1EDFE2C400712524 /* DLPresentApplicationViewController.h */,
+				1C29815E1EDFE2C400712524 /* DLPresentApplicationViewController.m */,
+				1C29815F1EDFE2C400712524 /* DLRechargeApplicationViewController.h */,
+				1C2981601EDFE2C400712524 /* DLRechargeApplicationViewController.m */,
+				1C2981611EDFE2C400712524 /* DLRechargeRecordViewController.h */,
+				1C2981621EDFE2C400712524 /* DLRechargeRecordViewController.m */,
+				1C2981631EDFE2C400712524 /* DLTransactionRecordViewController.h */,
+				1C2981641EDFE2C400712524 /* DLTransactionRecordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1422,25 +1447,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4572B1761ED3CA7F007927EE /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				4572B19C1ED40BA7007927EE /* MineOption.plist */,
-				45646AFB1ED426BA003CC22E /* DLFianceFlowLayout.h */,
-				45646AFC1ED426BA003CC22E /* DLFianceFlowLayout.m */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		4572B1771ED3CA7F007927EE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45646AFE1ED42748003CC22E /* DLFianceBalanceCell.h */,
-				45646AFF1ED42748003CC22E /* DLFianceBalanceCell.m */,
-				45646B001ED42748003CC22E /* DLFianceBalanceCell.xib */,
-				45646B061ED4278F003CC22E /* DLFianceOptionCell.h */,
-				45646B071ED4278F003CC22E /* DLFianceOptionCell.m */,
-				45646B081ED4278F003CC22E /* DLFianceOptionCell.xib */,
+				1C29816F1EDFE33900712524 /* DLCashRegisterViewTableViewCell.h */,
+				1C2981701EDFE33900712524 /* DLCashRegisterViewTableViewCell.m */,
+				1C2981711EDFE33900712524 /* DLRechargeRecordTableViewCell.h */,
+				1C2981721EDFE33900712524 /* DLRechargeRecordTableViewCell.m */,
+				1C2981731EDFE33900712524 /* DLTransactionRecordTableViewCell.h */,
+				1C2981741EDFE33900712524 /* DLTransactionRecordTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1448,10 +1463,8 @@
 		4572B1781ED3CA7F007927EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				45646AF51ED4252B003CC22E /* DLOptionModel.h */,
-				45646AF61ED4252B003CC22E /* DLOptionModel.m */,
-				45646B0B1ED49A0F003CC22E /* DLFianceModel.h */,
-				45646B0C1ED49A0F003CC22E /* DLFianceModel.m */,
+				1C29816C1EDFE30500712524 /* DLTransactionRecordModel.h */,
+				1C29816D1EDFE30500712524 /* DLTransactionRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1598,11 +1611,9 @@
 				1CE2C1901ED525E000B898BA /* arrowhead_up@3x.png in Resources */,
 				1CE2C1CB1ED5270E00B898BA /* my@3x.png in Resources */,
 				1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */,
-				4572B19D1ED40BA7007927EE /* MineOption.plist in Resources */,
 				1CE2C19A1ED525E000B898BA /* edit@3x.png in Resources */,
 				1CE2C1E21ED528C800B898BA /* surrounding_tourism@3x.png in Resources */,
 				1CE2C1C61ED5270E00B898BA /* home@2x.png in Resources */,
-				45646B0A1ED4278F003CC22E /* DLFianceOptionCell.xib in Resources */,
 				1CE2C1CE1ED5270E00B898BA /* order@2x.png in Resources */,
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
@@ -1678,7 +1689,6 @@
 				1CE2C1C41ED5270E00B898BA /* home_highlight@2x.png in Resources */,
 				1CE2C2051ED52BA100B898BA /* invoice_record@2x.png in Resources */,
 				1CE2C2341ED57B1100B898BA /* geographical_position@2x.png in Resources */,
-				45646B021ED42748003CC22E /* DLFianceBalanceCell.xib in Resources */,
 				1CE2C21F1ED52E8C00B898BA /* line_order_highlight@2x.png in Resources */,
 				1CE2C1A61ED525E000B898BA /* phone@3x.png in Resources */,
 				1CE2C1C91ED5270E00B898BA /* my_highlight@3x.png in Resources */,
@@ -1771,11 +1781,11 @@
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
+				1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */,
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
 				1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
-				45646B0D1ED49A0F003CC22E /* DLFianceModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
@@ -1794,6 +1804,7 @@
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
+				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
@@ -1818,29 +1829,32 @@
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
 				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
+				1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */,
 				1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */,
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,
 				458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */,
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
-				45646B011ED42748003CC22E /* DLFianceBalanceCell.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
-				45646B091ED4278F003CC22E /* DLFianceOptionCell.m in Sources */,
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
+				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
 				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
+				1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,
 				1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */,
 				1C0B57E11ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.m in Sources */,
+				1C2981691EDFE2C400712524 /* DLRechargeApplicationViewController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
 				1CB770BA1ECFE00100F6EFDF /* DLCommissionController.m in Sources */,
+				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
 				1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */,
@@ -1849,21 +1863,23 @@
 				1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */,
 				45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */,
 				1CB770C11ECFE00100F6EFDF /* DLMineModel.m in Sources */,
+				1C29816A1EDFE2C400712524 /* DLRechargeRecordViewController.m in Sources */,
 				1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */,
-				45646AF71ED4252B003CC22E /* DLOptionModel.m in Sources */,
 				1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */,
 				45305A251ED6C89B0023E892 /* DLManager.m in Sources */,
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
+				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
-				45646AFD1ED426BA003CC22E /* DLFianceFlowLayout.m in Sources */,
 				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,
+				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
+				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,
 				1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */,
