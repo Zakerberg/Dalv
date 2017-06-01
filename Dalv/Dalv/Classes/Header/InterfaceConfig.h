@@ -133,4 +133,9 @@
 #define DL_providerQuery DL_HOST@"index.php/Api/agencyPersonal/providerQuery"
 
 
+//  顾客注册的接口
+#define  DL_CustomerRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
+
+
+
 #endif /* InterfaceConfig_h */

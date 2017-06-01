@@ -18,7 +18,7 @@
 /**** 顾客验证码   ****/
 @property (weak, nonatomic) IBOutlet UITextField *customerCodeTF;
 /**** 顾客密码   ****/
-@property (weak, nonatomic) IBOutlet id customerPasswordTF;
+@property (weak, nonatomic) IBOutlet UITextField *customerPasswordTF;
 
 /**** 顾客确认密码   ****/
 @property (weak, nonatomic) IBOutlet UITextField *customerDeterminePasswordTF;
@@ -43,18 +43,68 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
+    /*
+     name：姓名
+     phone：手机
+     vercode ：验证码
+     password：密码
+     theAgencyPhone：服务顾问手机号码
+
+     DL_CustomerRegister
+     */
+    
     NSDictionary *param = @{
                             @"name":self.customerNamelTF.text,
                             @"phone":self.customerNumberTF.text,
                             @"vercode":self.customerCodeTF.text,
-                            @"password":self.customerPasswordTF.text
-                            
+                            @"password":self.customerPasswordTF.text,
+                            @"theAgencyPhone":self.customerBindingNumberTF.text
                             };
     
-    
-    
-    
-    
+    if (1) {
+        
+        if (self.customerNamelTF.text == nil) {
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"姓名不能为空" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+        if (self.customerNumberTF.text == nil) {
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写手机号" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+        if (self.customerCodeTF.text == nil) {
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入验证码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+        if (self.customerPasswordTF.text == nil) {
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入密码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+        
+        if (self.customerPasswordTF.text != self.customerDeterminePasswordTF.text) {
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+    } else {
+        
+        
+        [DLRequestSerVice POST:DL_CustomerRegister param:param success:^(id responseData) {
+            
+            NSLog(@"顾客注册成功!");
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }
     
 }
 
@@ -92,19 +142,11 @@
         [alertPhoneNum show];
     }
     
-    if (self.customerNumberTF.text == nil) {
-        
-        [self showHint:@"手机号码不能为空"];
-    }
-    
     if(isMatchPhoneNum){
         
         [self openCountdown];
         
     }
-
-    
-    
 }
 // 开启倒计时效果
 -(void)openCountdown{

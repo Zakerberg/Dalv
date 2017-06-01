@@ -194,22 +194,23 @@
                                 @"vocation":self.positionTF.text
                                 };
         
+        
+        NSDictionary *param2 = @{
+                                 @"name":self.nameTF.text,
+                                 @"province":CityStr,
+                                 @"phone":self.phoneTextFiled.text,
+                                 @"vercode":self.passCodeTF.text,
+                                 @"password":self.passwordTF.text,
+                                 @"vocation":self.positionTF.text,
+                                 @"thecity":self.firstField.text
+                                 };
+
         if (self.nameTF.text && self.passCodeTF.text && self.passwordTF.text == nil) {
-            
             
         UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入手机号" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
             
-        
-        NSDictionary *param2 = @{
-                                @"name":self.nameTF.text,
-                                @"province":CityStr,
-                                @"phone":self.phoneTextFiled.text,
-                                @"vercode":self.passCodeTF.text,
-                                @"password":self.passwordTF.text,
-                                @"vocation":self.positionTF.text,
-                                @"thecity":self.firstField.text
-                                };
+        }
                 if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
                     
                     [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
@@ -237,7 +238,7 @@
             
         }
         
-}
+
     
     //手机号匹配
     /*

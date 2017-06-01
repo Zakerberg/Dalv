@@ -11,6 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DLCustomerRegidsterController">
             <connections>
+                <outlet property="customerBindingNumberTF" destination="EkB-DQ-tgp" id="fkl-eW-D01"/>
+                <outlet property="customerCodeTF" destination="6ZF-Mp-tVn" id="C2z-2G-Uah"/>
+                <outlet property="customerDeterminePasswordTF" destination="fed-Mw-J6e" id="ki2-IB-PB8"/>
+                <outlet property="customerNamelTF" destination="jqG-tU-VDl" id="u6Y-OU-mrt"/>
+                <outlet property="customerNumberTF" destination="ZzB-mo-hJs" id="0Gq-Hr-3OA"/>
+                <outlet property="customerPasswordTF" destination="9vn-ZD-lEn" id="RVu-ky-xoZ"/>
+                <outlet property="obtainCodeBtn" destination="52d-rg-dIM" id="YFV-yz-vVH"/>
+                <outlet property="registerNowBtn" destination="ag6-uZ-F8O" id="Edg-xb-Ja2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
