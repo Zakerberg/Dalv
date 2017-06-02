@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title = @"我的直客";
 }
 
 - (BOOL)dl_blueNavbar {

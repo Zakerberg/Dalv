@@ -48,7 +48,6 @@
 		1CB770BD1ECFE00100F6EFDF /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */; };
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
-		1CB770C01ECFE00100F6EFDF /* DLMine.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770A31ECFE00100F6EFDF /* DLMine.plist */; };
 		1CB770C11ECFE00100F6EFDF /* DLMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A51ECFE00100F6EFDF /* DLMineModel.m */; };
 		1CB770C21ECFE00100F6EFDF /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770A61ECFE00100F6EFDF /* zzz.plist */; };
 		1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A91ECFE00100F6EFDF /* DLMineCell.m */; };
@@ -241,13 +240,14 @@
 		45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3A1ED7D9140023E892 /* DLConsultModel.m */; };
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
-		45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45305A421ED90D1E0023E892 /* Assets.xcassets */; };
 		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
 		4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9671EE0073C002269BF /* DLMemberInfoModel.m */; };
 		4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */; };
 		4550B96D1EE0F55E002269BF /* DLMyCustomerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */; };
+		4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B97A1EE1ADAA002269BF /* DLRegisterView.m */; };
+		4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550B9801EE1B6C3002269BF /* Assets.xcassets */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
@@ -355,7 +355,6 @@
 		1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CB770A11ECFE00100F6EFDF /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
 		1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
-		1CB770A31ECFE00100F6EFDF /* DLMine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DLMine.plist; sourceTree = "<group>"; };
 		1CB770A41ECFE00100F6EFDF /* DLMineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineModel.h; sourceTree = "<group>"; };
 		1CB770A51ECFE00100F6EFDF /* DLMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineModel.m; sourceTree = "<group>"; };
 		1CB770A61ECFE00100F6EFDF /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
@@ -622,7 +621,6 @@
 		45305A3D1ED832CA0023E892 /* DLFeedBackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedBackController.m; sourceTree = "<group>"; };
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
-		45305A421ED90D1E0023E892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDefaultsManager.h; sourceTree = "<group>"; };
 		4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDefaultsManager.m; sourceTree = "<group>"; };
 		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
@@ -634,6 +632,9 @@
 		4550B9691EE0F55E002269BF /* DLMyCustomerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerController.h; sourceTree = "<group>"; };
 		4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
 		4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMyCustomerController.xib; sourceTree = "<group>"; };
+		4550B9791EE1ADAA002269BF /* DLRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRegisterView.h; sourceTree = "<group>"; };
+		4550B97A1EE1ADAA002269BF /* DLRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRegisterView.m; sourceTree = "<group>"; };
+		4550B9801EE1B6C3002269BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
@@ -771,7 +772,6 @@
 			children = (
 				1CB770A11ECFE00100F6EFDF /* DLGenralModel.h */,
 				1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */,
-				1CB770A31ECFE00100F6EFDF /* DLMine.plist */,
 				1CB770A41ECFE00100F6EFDF /* DLMineModel.h */,
 				1CB770A51ECFE00100F6EFDF /* DLMineModel.m */,
 				45305A391ED7D9140023E892 /* DLConsultModel.h */,
@@ -1141,6 +1141,8 @@
 				1CB953551ECFC41600BDC2D3 /* DLLoginView.m */,
 				45305A361ED7CD4C0023E892 /* DLSalertView.h */,
 				45305A371ED7CD4C0023E892 /* DLSalertView.m */,
+				4550B9791EE1ADAA002269BF /* DLRegisterView.h */,
+				4550B97A1EE1ADAA002269BF /* DLRegisterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1457,7 +1459,7 @@
 		452916761EC1741E0033314F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				45305A421ED90D1E0023E892 /* Assets.xcassets */,
+				4550B9801EE1B6C3002269BF /* Assets.xcassets */,
 				1CC9F9101EC20DAD002D7EFB /* Info.plist */,
 				1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */,
 				452916771EC1741E0033314F /* main.m */,
@@ -1648,7 +1650,6 @@
 				1CE2C1A21ED525E000B898BA /* have_dinner@3x.png in Resources */,
 				1CE2C1A91ED525E000B898BA /* reduce@2x.png in Resources */,
 				1CB953AC1ECFC41600BDC2D3 /* home-10-02.png in Resources */,
-				45305A431ED90D1E0023E892 /* Assets.xcassets in Resources */,
 				1CE8D8031ED7FEFA00FFEF8B /* navbar_close_white@3x.png in Resources */,
 				1CE2C1FE1ED52BA100B898BA /* cash_register@3x.png in Resources */,
 				1CE2C1AA1ED525E000B898BA /* reduce@3x.png in Resources */,
@@ -1675,6 +1676,7 @@
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
 				1CE2C2261ED52E8C00B898BA /* ticket_order@3x.png in Resources */,
 				1CB770B01ECFE00100F6EFDF /* DLCustomerRegidsterController.xib in Resources */,
+				4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */,
 				1CE2C20B1ED52BA100B898BA /* recharge_record@2x.png in Resources */,
 				1CE2C1A81ED525E000B898BA /* recommended_home@3x.png in Resources */,
 				1CE2C1931ED525E000B898BA /* departure_city@2x.png in Resources */,
@@ -1694,7 +1696,6 @@
 				1CE2C1E01ED528C800B898BA /* special_offer@2x.png in Resources */,
 				1CE8D8081ED808A200FFEF8B /* mine_theme@2x.png in Resources */,
 				1CE2C2241ED52E8C00B898BA /* ticket_order_highlight@3x.png in Resources */,
-				1CB770C01ECFE00100F6EFDF /* DLMine.plist in Resources */,
 				1CE2C2271ED52E8C00B898BA /* visa_order_highlight@2x.png in Resources */,
 				1CE8D8001ED7FEFA00FFEF8B /* navbar_close_gray@2x.png in Resources */,
 				1CE2C20D1ED52BA100B898BA /* transaction_record@2x.png in Resources */,
@@ -1898,6 +1899,7 @@
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
 				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
 				1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */,
+				4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,

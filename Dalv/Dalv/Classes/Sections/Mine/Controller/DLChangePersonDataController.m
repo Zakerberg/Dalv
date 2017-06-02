@@ -28,6 +28,7 @@ static NSString* cellID = @"cellID";
         _cellTiltleArr = @[@"姓名:", @"昵称:",@"性别:",@"年龄:",@"从业时间:",@"标签:",@"手机号:",@"邮箱:",@"我去过的地方:",];
     }
     
+    
     return _cellTiltleArr ;
 }
 

@@ -24,23 +24,51 @@ static NSString *cellID  = @"cellID";
 
 #define KscreenWidth  [UIScreen mainScreen].bounds.size.width   //设备屏幕的宽度
 #define KscreenHeight [UIScreen mainScreen].bounds.size.height //设备屏幕的高度
-@interface DLMineCenterController ()<BLM_UploadUserIconDelegate>
-@property(nonatomic,strong)NSArray * mineArrayData;
+@interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIView *headerView;  //headerView属性
 @property(nonatomic,strong)UIImageView * picImg; //背景图
 @property(nonatomic,strong)UIButton * personBtn;
 @property(nonatomic,strong)UILabel *label;
-
+@property (strong,nonatomic) NSArray* cellTiltleArr ;
+@property (strong,nonatomic) UITableView* tableView ;
 @end
 
 @implementation DLMineCenterController
 
+-(NSArray*)cellTiltleArr
+{
+    if (!_cellTiltleArr) {
+        
+        _cellTiltleArr = @[@"修改个人资料",@"我的直客",@"通用" ];
+    }
+    
+    return _cellTiltleArr ;
+}
+
+
+-(UITableView*)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
+        _tableView.showsVerticalScrollIndicator = NO ;
+        _tableView.tableFooterView = [UIView new];
+        _tableView.delegate = self ;
+        _tableView.dataSource = self ;
+        _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [self.view addSubview:_tableView];
+    }
+    
+    return _tableView ;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+
     
-    self.mineArrayData = [self loadingPlist];  //赋值加载数据
+     //赋值加载数据
     
     [self setupHeaderView];
     
@@ -53,8 +81,7 @@ static NSString *cellID  = @"cellID";
     
 }
 
-- (void)setupHeaderView
-{
+-(void)setupHeaderView{
     //头部视图View
     UIView *headerView = [[UIView alloc] init];
     headerView.frame = CGRectMake(0, 0, KscreenWidth, 160);
@@ -107,39 +134,13 @@ static NSString *cellID  = @"cellID";
 }
 
 
-
-
-//通过传进来的Plist文件。加载内容
-- (NSArray *)loadingPlist
-{
-    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"DLMine.plist" withExtension:nil]];
-    NSMutableArray * arrM = [[NSMutableArray alloc]init];
-    for (NSArray* arr in array) {
-        
-        NSMutableArray * groupArr = [[NSMutableArray alloc]init];
-        
-        for (NSDictionary* dict in arr) {
-            
-            DLMineModel * model = [DLMineModel MineModelWithDict:dict];
-            
-            [groupArr addObject:model];
-        }
-        
-        [arrM addObject:groupArr];
-    }
-    
-    
-    return arrM.copy;
-    
-}
-
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     /****   修改个人资料    ****/
-    if (indexPath.section == 0){
+    if (indexPath.row == 0){
         
         DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
         
@@ -147,48 +148,19 @@ static NSString *cellID  = @"cellID";
         
     }
     
-    /*****  模块排序    *****/
-    //    if (indexPath.section == 1) {
-    //        NSLog(@"模块排序");
-    //    }
-    
-    /***  我的推荐   ***/
-    if (indexPath.section == 1) {
-        
-        DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
-        [self.navigationController pushViewController:remmendVC animated:YES];
-        
-        NSLog(@"我的推荐");
-    }
-    
     /***  我的直客   ***/
-    if (indexPath.section == 2) {
+    if (indexPath.row == 1) {
         
         DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
         
         [self.navigationController pushViewController:CustomerVC animated:YES];
-    }
-    
-    /***  线路查询   ***/
-    if (indexPath.section == 3) {
+   
         
-        DLLineQueryController * linequery = [[DLLineQueryController alloc]init];
-        
-        [self.navigationController pushViewController:linequery animated:YES ];
-    }
-    
-    /**** 供应商查询   ****/
-    if (indexPath.section == 4) {
-        NSLog(@"供应商查询");
-        
-        DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-        //         sipplierVC.hidesBottomBarWhenPushed = YES;x//隐藏 tabBar
-        
-        [self.navigationController pushViewController:sipplierVC animated:YES];
+        NSLog(@"我的直客");
     }
     
     /***  通用   ***/
-    if (indexPath.section == 5) {
+    if (indexPath.row == 2) {
         
         NSLog(@"通用");
         
@@ -196,7 +168,7 @@ static NSString *cellID  = @"cellID";
         
         [self.navigationController pushViewController:genralVC animated:YES];
     }
-    
+
 }
 
 //创建label的封装
@@ -211,43 +183,49 @@ static NSString *cellID  = @"cellID";
 }
 
 //头部视图的间距
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 9;
 }
 //设置
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 45;
 }
 
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return self.mineArrayData.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.mineArrayData[section] count];
+    return self.cellTiltleArr.count;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //拿到每一组每一行的模型
-    DLMineModel * mineModel = self.mineArrayData[indexPath.section][indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    cell.imageView.image = [UIImage imageNamed:mineModel.pic];
-    cell.textLabel.text = mineModel.title;
+    if(indexPath.row == 0){
+        cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
+        cell.textLabel.text = @"修改个人资料";
+    }
+    if(indexPath.row == 1){
+        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+        cell.textLabel.text = @"我的直客";
+    }
+    
+    if(indexPath.row == 2){
+        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+        cell.textLabel.text = @"通用";
+    }
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
-
 
 
 -(void)fetchData{
@@ -258,9 +236,5 @@ static NSString *cellID  = @"cellID";
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
-
-
-
 
 @end

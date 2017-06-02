@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DLMineCenterController : UITableViewController
+@interface DLMineCenterController : UIViewController
 
 @end
