@@ -34,6 +34,12 @@
     
 }
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

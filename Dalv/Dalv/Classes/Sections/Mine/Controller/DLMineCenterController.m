@@ -253,8 +253,6 @@ static NSString *cellID  = @"cellID";
 -(void)fetchData{
     
     
-    
-    
 }
 
 - (BOOL)dl_blueNavbar {
