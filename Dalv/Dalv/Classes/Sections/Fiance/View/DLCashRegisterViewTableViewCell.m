@@ -153,5 +153,26 @@
     return NSStringFromClass([self class]);
 }
 
+/** 配置Cell */
+- (void)configureCell:(DLCashRegisterModel *)cashModel{
+    
+    if ([cashModel.state isEqualToString:@"1"]) {
+        self.transactionPricelab.text = @"待审核";
+        _transactionPricelab.textColor = [UIColor redColor];
+    } else if ([cashModel.state isEqualToString:@"2"]){
+        self.transactionPricelab.text = @"以确认，待财务处理";
+        _transactionPricelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+    }else if ([cashModel.state isEqualToString:@"3"]){
+        self.transactionPricelab.text = @"审核失败";
+        _transactionPricelab.textColor = [UIColor redColor];
+    }else {
+        self.transactionPricelab.text = @"已支付";
+        _transactionPricelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+    }
+    self.transactionTimelab.text = cashModel.create_time;
+    self.accountBalancelab.text  = [NSString stringWithFormat:@"¥ %@",cashModel.amount];
+    self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",cashModel.sn];
+}
+
 
 @end

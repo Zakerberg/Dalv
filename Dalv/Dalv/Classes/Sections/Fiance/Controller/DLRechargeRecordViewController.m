@@ -80,10 +80,10 @@
     [DLHomeViewTask getAgencyFinanceTopupList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-//            NSArray *rechargeRecordArray = [DLTransactionRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-//            [self.rechargeRecordList removeAllObjects];
-//            [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
-//            [self.rechargeRecordTableView reloadData];
+            NSArray *rechargeRecordArray = [DLRechargeRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.rechargeRecordList removeAllObjects];
+            [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
+            [self.rechargeRecordTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
@@ -93,20 +93,20 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.rechargeRecordList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLRechargeRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRechargeRecordTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //    DLTransactionRecordModel *trModel = [self.transactionRecordList objectAtIndex:indexPath.section];
-    //    cell.transactionRecordModel = trModel;
-    //    [cell configureCell:trModel];
+        DLRechargeRecordModel *trModel = [self.rechargeRecordList objectAtIndex:indexPath.section];
+        [cell configureCell:trModel];
     return cell;
 }
 
@@ -115,11 +115,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 2.0;
+    return 10.0;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - Getter
+
+- (NSMutableArray *)rechargeRecordList {
+    if (_rechargeRecordList == nil) {
+        _rechargeRecordList = [[NSMutableArray alloc] init];
+    }
+    return _rechargeRecordList;
+}
+
 
 @end

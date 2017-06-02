@@ -8,10 +8,12 @@
 
 #import "DLCashRegisterViewController.h"
 #import "DLCashRegisterViewTableViewCell.h"
+#import "DLHomeViewTask.h"
 
 @interface DLCashRegisterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *cashRegisterTableView;//
+@property (nonatomic, strong) NSMutableArray *cashRegisterList;
 
 @end
 
@@ -71,22 +73,39 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
-    
-}
+    NSDictionary *param = @{@"uid" : @"1132",
+                            @"page" : @"1",
+                            @"sign_token" : @"cd57116d68c992c8dee33c8fad1bc831",};
+    @weakify(self);
+    [DLHomeViewTask getAgencyFinanceWithdrawList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            NSArray *cashRegisterArray = [DLCashRegisterModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.cashRegisterList removeAllObjects];
+            [self.cashRegisterList addObjectsFromArray:cashRegisterArray];
+            [self.cashRegisterTableView reloadData];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+        
+    }];
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return self.cashRegisterList.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLCashRegisterViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLCashRegisterViewTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    DLCashRegisterModel *trModel = [self.cashRegisterList objectAtIndex:indexPath.section];
+    [cell configureCell:trModel];
     return cell;
 }
 
@@ -95,11 +114,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 2.0;
+    return 10.0;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - Getter
+
+- (NSMutableArray *)cashRegisterList {
+    if (_cashRegisterList == nil) {
+        _cashRegisterList = [[NSMutableArray alloc] init];
+    }
+    return _cashRegisterList;
+}
+
 
 @end

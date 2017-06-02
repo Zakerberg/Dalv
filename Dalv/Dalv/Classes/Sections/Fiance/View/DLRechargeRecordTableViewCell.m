@@ -210,4 +210,34 @@
     return NSStringFromClass([self class]);
 }
 
+/** 配置Cell */
+- (void)configureCell:(DLRechargeRecordModel *)rechargeModel{
+    
+    self.rechargeTimelab.text = rechargeModel.create_time;
+    if ([rechargeModel.state isEqualToString:@"1"]) {
+        self.rechargeTypelab.text = @"待审核";
+    _rechargeTypelab.textColor = [UIColor redColor];
+    } else if ([rechargeModel.state isEqualToString:@"2"]){
+        self.rechargeTypelab.text = @"审核通过";
+        _rechargeTypelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+    }else if ([rechargeModel.state isEqualToString:@"3"]){
+        self.rechargeTypelab.text = @"审核失败";
+        _rechargeTypelab.textColor = [UIColor redColor];
+    }else if ([rechargeModel.state isEqualToString:@"5"]){
+        self.rechargeTypelab.text = @"待支付";
+        _rechargeTypelab.textColor = [UIColor redColor];
+    }else {
+        self.rechargeTypelab.text = @"已支付";
+        _rechargeTypelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+    }
+    self.rechargeAmountlab.text = [NSString stringWithFormat:@"¥%.2f",[rechargeModel.amount integerValue]/100.00];
+    self.systemUsageFeelab.text = [NSString stringWithFormat:@"%.f%%",[rechargeModel.commission_rate integerValue]/1000.00];
+
+    self.actualArrivalab.text = [NSString stringWithFormat:@"¥%.2f",[rechargeModel.actualPrice integerValue]/100.00];
+    self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",rechargeModel.account];
+
+}
+
+
+
 @end

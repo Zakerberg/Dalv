@@ -167,6 +167,4 @@
     self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",transactionRmodel.sn];
 }
 
-
-
 @end

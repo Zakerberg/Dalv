@@ -22,6 +22,14 @@
 
 @property (nonatomic, strong) UILabel *hotelLab;//酒店lab 默认无
 
+@property (nonatomic, strong) UIImageView *dinnerimage;//用餐界面图标
+
+@property (nonatomic, strong) UILabel *haveDinnerLab;//用餐lab
+
+@property (nonatomic, strong) UIImageView *hotelimage;//酒店界面图标
+
+@property (nonatomic, strong) UILabel *hotelviewLab;//酒店lab
+
 @end
 
 @implementation DLLineSchedulingTableViewCell
@@ -56,6 +64,23 @@
     self.dinnerView.layer.borderColor = [[UIColor ms_backgroundColor] CGColor];
     [self.contentView addSubview:self.dinnerView];
     
+    self.dinnerimage = [[UIImageView alloc]init];
+    self.dinnerimage.image = [UIImage imageNamed:@"have_dinner"];
+    [self.dinnerView addSubview:self.dinnerimage];
+
+    self.haveDinnerLab = [[UILabel alloc]init];
+    self.haveDinnerLab.textColor = [UIColor blackColor];
+    self.haveDinnerLab.font = [UIFont systemFontOfSize:14];
+    self.haveDinnerLab.text = @"用餐:";
+    [self.dinnerView addSubview:self.haveDinnerLab];
+    
+    self.dinnerLab = [[UILabel alloc]init];
+    self.dinnerLab.textColor = [UIColor blackColor];
+    self.dinnerLab.font = [UIFont systemFontOfSize:11];
+    self.dinnerLab.textAlignment = NSTextAlignmentRight;
+    self.dinnerLab.text = @"111111";
+    [self.dinnerView addSubview:self.dinnerLab];
+    
     self.hotelView = [[UIView alloc]init];
     self.hotelView.layer.masksToBounds = YES;
     self.hotelView.layer.cornerRadius = 6.0;
@@ -63,6 +88,22 @@
     self.hotelView.layer.borderColor = [[UIColor ms_backgroundColor] CGColor];
     [self.contentView addSubview:self.hotelView];
 
+    self.hotelimage = [[UIImageView alloc]init];
+    self.hotelimage.image = [UIImage imageNamed:@"hotel"];
+    [self.hotelView addSubview:self.hotelimage];
+    
+    self.hotelviewLab = [[UILabel alloc]init];
+    self.hotelviewLab.textColor = [UIColor blackColor];
+    self.hotelviewLab.font = [UIFont systemFontOfSize:14];
+    self.hotelviewLab.text = @"酒店:";
+    [self.hotelView addSubview:self.hotelviewLab];
+    
+    self.hotelLab = [[UILabel alloc]init];
+    self.hotelLab.textColor = [UIColor blackColor];
+    self.hotelLab.font = [UIFont systemFontOfSize:11];
+    self.hotelLab.textAlignment = NSTextAlignmentRight;
+    self.hotelLab.text = @"222222";
+    [self.hotelView addSubview:self.hotelLab];
 }
 
 - (void)layoutCellSubviews {
@@ -87,12 +128,53 @@
         make.height.equalTo(@40);
     }];
     
+    [self.dinnerimage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@7.5);
+        make.left.equalTo(@5);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+    }];
+    
+    [self.haveDinnerLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.dinnerimage);
+        make.left.equalTo(self.dinnerimage.mas_right).offset(5);
+        make.width.equalTo(@35);
+        make.height.equalTo(@30);
+    }];
+
+    [self.dinnerLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.dinnerimage);
+        make.left.equalTo(self.haveDinnerLab.mas_right);
+        make.right.equalTo(self.dinnerView.mas_right).offset(-5);
+        make.height.equalTo(@30);
+    }];
     
     [self.hotelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.schedulingLab.mas_bottom).offset(10);
         make.left.equalTo(self.contentView.mas_centerX).offset(15);
         make.right.equalTo(self.contentView).offset(-15);
         make.height.equalTo(@40);
+    }];
+    
+    [self.hotelimage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@7.5);
+        make.left.equalTo(@5);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
+    }];
+    
+    [self.hotelviewLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.hotelimage);
+        make.left.equalTo(self.hotelimage.mas_right).offset(5);
+        make.width.equalTo(@35);
+        make.height.equalTo(@30);
+    }];
+    
+    [self.hotelLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.hotelimage);
+        make.left.equalTo(self.hotelviewLab.mas_right);
+        make.right.equalTo(self.hotelView.mas_right).offset(-5);
+        make.height.equalTo(@30);
     }];
 }
 
@@ -105,7 +187,8 @@
 
     self.schedulingLab.text = detailDaysModel.daysDescription;
     self.dayLab.text = [NSString stringWithFormat:@"第%ld天",(indexPath.row + 1)];
-
+    self.dinnerLab.text = detailDaysModel.dining;
+    self.hotelLab.text = detailDaysModel.hotel;
 }
 
 @end
