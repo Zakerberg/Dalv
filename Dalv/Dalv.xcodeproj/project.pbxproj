@@ -40,11 +40,8 @@
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
 		1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */; };
 		1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */; };
-		1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770901ECFE00100F6EFDF /* DLMyCustomerController.m */; };
 		1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770921ECFE00100F6EFDF /* DLRemmendController.m */; };
 		1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770941ECFE00100F6EFDF /* DLSortController.m */; };
-		1CB770BA1ECFE00100F6EFDF /* DLCommissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770991ECFE00100F6EFDF /* DLCommissionController.m */; };
-		1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7709A1ECFE00100F6EFDF /* DLCommissionController.xib */; };
 		1CB770BC1ECFE00100F6EFDF /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */; };
 		1CB770BD1ECFE00100F6EFDF /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */; };
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
@@ -247,6 +244,8 @@
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
 		4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9671EE0073C002269BF /* DLMemberInfoModel.m */; };
+		4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */; };
+		4550B96D1EE0F55E002269BF /* DLMyCustomerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
@@ -339,15 +338,10 @@
 		1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewController.h; sourceTree = "<group>"; };
 		1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewController.m; sourceTree = "<group>"; };
 		1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineViewController.xib; sourceTree = "<group>"; };
-		1CB7708F1ECFE00100F6EFDF /* DLMyCustomerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerController.h; sourceTree = "<group>"; };
-		1CB770901ECFE00100F6EFDF /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
 		1CB770911ECFE00100F6EFDF /* DLRemmendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemmendController.h; sourceTree = "<group>"; };
 		1CB770921ECFE00100F6EFDF /* DLRemmendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemmendController.m; sourceTree = "<group>"; };
 		1CB770931ECFE00100F6EFDF /* DLSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSortController.h; sourceTree = "<group>"; };
 		1CB770941ECFE00100F6EFDF /* DLSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSortController.m; sourceTree = "<group>"; };
-		1CB770981ECFE00100F6EFDF /* DLCommissionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCommissionController.h; sourceTree = "<group>"; };
-		1CB770991ECFE00100F6EFDF /* DLCommissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCommissionController.m; sourceTree = "<group>"; };
-		1CB7709A1ECFE00100F6EFDF /* DLCommissionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCommissionController.xib; sourceTree = "<group>"; };
 		1CB7709B1ECFE00100F6EFDF /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
 		1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
 		1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
@@ -631,6 +625,9 @@
 		4550B9631EDFE118002269BF /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
 		4550B9661EE0073C002269BF /* DLMemberInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMemberInfoModel.h; sourceTree = "<group>"; };
 		4550B9671EE0073C002269BF /* DLMemberInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMemberInfoModel.m; sourceTree = "<group>"; };
+		4550B9691EE0F55E002269BF /* DLMyCustomerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerController.h; sourceTree = "<group>"; };
+		4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
+		4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMyCustomerController.xib; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
@@ -731,8 +728,9 @@
 				1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */,
 				1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */,
 				1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */,
-				1CB7708F1ECFE00100F6EFDF /* DLMyCustomerController.h */,
-				1CB770901ECFE00100F6EFDF /* DLMyCustomerController.m */,
+				4550B9691EE0F55E002269BF /* DLMyCustomerController.h */,
+				4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */,
+				4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */,
 				1CB770911ECFE00100F6EFDF /* DLRemmendController.h */,
 				1CB770921ECFE00100F6EFDF /* DLRemmendController.m */,
 				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
@@ -749,9 +747,6 @@
 		1CB770971ECFE00100F6EFDF /* Controller(二级) */ = {
 			isa = PBXGroup;
 			children = (
-				1CB770981ECFE00100F6EFDF /* DLCommissionController.h */,
-				1CB770991ECFE00100F6EFDF /* DLCommissionController.m */,
-				1CB7709A1ECFE00100F6EFDF /* DLCommissionController.xib */,
 				1CB7709B1ECFE00100F6EFDF /* DLDestinationController.h */,
 				1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */,
 				1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */,
@@ -1660,6 +1655,7 @@
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
 				1CE2C1941ED525E000B898BA /* departure_city@3x.png in Resources */,
 				1CE2C1E11ED528C800B898BA /* surrounding_tourism@2x.png in Resources */,
+				4550B96D1EE0F55E002269BF /* DLMyCustomerController.xib in Resources */,
 				1CE2C2291ED52E8C00B898BA /* visa_order@2x.png in Resources */,
 				1CE2C2231ED52E8C00B898BA /* ticket_order_highlight@2x.png in Resources */,
 				1CE8D8051ED7FEFA00FFEF8B /* navbar_more@3x.png in Resources */,
@@ -1747,7 +1743,6 @@
 				1CE2C22C1ED52E8C00B898BA /* wifi_order_highlight@3x.png in Resources */,
 				1CE2C1AF1ED525E000B898BA /* travel_days@2x.png in Resources */,
 				1CE2C22E1ED52E8C00B898BA /* wifi_order@3x.png in Resources */,
-				1CB770BB1ECFE00100F6EFDF /* DLCommissionController.xib in Resources */,
 				1CE8D8021ED7FEFA00FFEF8B /* navbar_close_white@2x.png in Resources */,
 				1CE2C2421ED57BE400B898BA /* vendor_inquiries@2x.png in Resources */,
 				1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */,
@@ -1853,6 +1848,7 @@
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
+				4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */,
 				1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */,
@@ -1897,7 +1893,6 @@
 				1C0B57E11ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.m in Sources */,
 				1C2981691EDFE2C400712524 /* DLRechargeApplicationViewController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
-				1CB770BA1ECFE00100F6EFDF /* DLCommissionController.m in Sources */,
 				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
@@ -1916,7 +1911,6 @@
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
-				1CB770B61ECFE00100F6EFDF /* DLMyCustomerController.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
@@ -2055,7 +2049,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Dalv/Dalv-PrefixHeader.pch";
 				INFOPLIST_FILE = Dalv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2077,7 +2071,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Dalv/Dalv-PrefixHeader.pch";
 				INFOPLIST_FILE = Dalv/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
