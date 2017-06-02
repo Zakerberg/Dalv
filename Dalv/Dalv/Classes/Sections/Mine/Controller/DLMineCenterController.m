@@ -41,13 +41,13 @@ static NSString *cellID  = @"cellID";
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     self.mineArrayData = [self loadingPlist];  //赋值加载数据
-
+    
     [self setupHeaderView];
     
     [self.tableView registerClass:[DLMineCell class] forCellReuseIdentifier:cellID];
     
     self.tableView.tableFooterView = [UIView new];
-
+    
     [self fetchData];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
@@ -63,7 +63,7 @@ static NSString *cellID  = @"cellID";
     
     
     //背景图
-    UIImageView * picImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"v2_my_avatar_bg"]];
+    UIImageView * picImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mine_theme@2x"]];
     self.picImg = picImg;
     picImg.userInteractionEnabled = YES;
     [headerView addSubview:picImg];
@@ -73,20 +73,6 @@ static NSString *cellID  = @"cellID";
         make.height.offset(150);
     }];
     
-    
-//    UIImageView *iamgeView = [[UIImageView alloc] initWithFrame:CGRectMake(137, 41, 81, 75)];
-//    iamgeView.image = [UIImage imageNamed:@"v2_my_avatar"];
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:iamgeView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:iamgeView.bounds.size];
-//    
-//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//    
-//    
-//    maskLayer.frame = iamgeView.bounds;
-//    //设置图形样子
-//    maskLayer.path = maskPath.CGPath;
-//    iamgeView.layer.mask = maskLayer;
-//    [self.view addSubview:iamgeView];
-////
     //设置头像按钮
     self.personBtn = [[UIButton alloc]init];
     [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
@@ -100,17 +86,7 @@ static NSString *cellID  = @"cellID";
     [_personBtn.layer setCornerRadius:67/2];//设置矩形四个圆角半径
     [_personBtn.layer setMasksToBounds:YES];
     
-    /*--------------------------------------------------------------------*/
     [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
-    
-//    self.label = [[UILabel alloc] init];
-//    self.label.text = @"13899998888";
-//    self.label.width = 150;
-//    [picImg addSubview:self.label];
-//    [self.label sizeToFit];
-//    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.personBtn).offset(8);
-//    }];
     
     
 }
@@ -161,7 +137,7 @@ static NSString *cellID  = @"cellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     /****   修改个人资料    ****/
     if (indexPath.section == 0){
         
@@ -170,15 +146,15 @@ static NSString *cellID  = @"cellID";
         [self.navigationController pushViewController:chageDataVC animated:YES];
         
     }
-
+    
     /*****  模块排序    *****/
-//    if (indexPath.section == 1) {
-//        NSLog(@"模块排序");
-//    }
+    //    if (indexPath.section == 1) {
+    //        NSLog(@"模块排序");
+    //    }
     
     /***  我的推荐   ***/
     if (indexPath.section == 1) {
-       
+        
         DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
         [self.navigationController pushViewController:remmendVC animated:YES];
         
@@ -206,8 +182,8 @@ static NSString *cellID  = @"cellID";
         NSLog(@"供应商查询");
         
         DLSupplierqueryController *sipplierVC = [[DLSupplierqueryController alloc] init];
-//         sipplierVC.hidesBottomBarWhenPushed = YES;//隐藏 tabBar
-    
+        //         sipplierVC.hidesBottomBarWhenPushed = YES;x//隐藏 tabBar
+        
         [self.navigationController pushViewController:sipplierVC animated:YES];
     }
     
@@ -276,19 +252,6 @@ static NSString *cellID  = @"cellID";
 
 -(void)fetchData{
     
-//    [LORequestManger GET:[NSString stringWithFormat:kMoreWonderfulStory, self.everydayArr.count] success:^(id response) {
-//        
-//        NSDictionary *dict = (NSDictionary *)response;
-//        for (NSDictionary *data in dict[@"data"][@"hot_spot_list"]) {
-//                EveryDayModel *model = [EveryDayModel shareJsonWithDictionary:data];
-//                [self.everydayArr addObject:model];
-//                UserInfo *userInfo = [UserInfo shareJasonWithDictionary:model.user];
-//                [self.userinfoArr addObject:userInfo];
-//        }
-//        [self.collectionView reloadData];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//   
-//    }];
     
     
     

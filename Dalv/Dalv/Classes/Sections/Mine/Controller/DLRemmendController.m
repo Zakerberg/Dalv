@@ -18,8 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
+    self.title = @"我的推荐";
 }
-
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 + (void)getAgencyFinanceMyRecommend:(NSDictionary *)param
                          completion:(void (^)(id result, NSError *error))completionHandler{

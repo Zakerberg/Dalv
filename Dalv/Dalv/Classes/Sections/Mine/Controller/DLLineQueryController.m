@@ -22,14 +22,18 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self setupUI];
+    self.title = @"线路查询";
 
 }
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 
 -(void)setupUI{
     self.title = @"线路查询";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+
     
     UITableView *tableview = [[UITableView alloc]init];
     tableview.frame = self.view.bounds;
@@ -88,11 +92,6 @@ static NSString *lineQueryCellID = @"lineQuery_Cell_ID";
     return 10;
 }
 
-- (void)back {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

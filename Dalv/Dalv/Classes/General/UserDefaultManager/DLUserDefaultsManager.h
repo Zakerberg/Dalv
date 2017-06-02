@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DLMemberInfoModel.h"
 
 @interface DLUserDefaultsManager : NSObject
+
+@property (nonatomic,strong)DLMemberInfoModel *memberInfoModel;
 
 + (void)setBooleanValueWithKey:(BOOL)value key:(NSString *)key;
 + (BOOL)getBooleanValueWithKey:(NSString *)key;
@@ -19,15 +22,26 @@
 + (void)setUserInfo:(NSDictionary *)userInfo;
 
 
++ (DLUserDefaultsManager *)shareInstance;
+
+
 /**
  返回值为空时，可以看做未登录
  */
-
 + (NSDictionary *)getUserInfo;
 
-
+ 
 + (void)setDataWithKey:(NSData *)data key:(NSString *)key;
 + (NSData *)getDataWithKey:(NSString *)key;
+
+
+
+//判断现在是否是登录状态
+- (BOOL)isLoggedInStatus;
+//读取本地的个人信息
+- (BOOL)readMemberInfoModelFromLocation ;
+//退出登录
+- (void)logOffAction;
 
 
 

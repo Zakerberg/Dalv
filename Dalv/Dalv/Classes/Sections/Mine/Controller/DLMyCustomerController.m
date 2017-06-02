@@ -27,7 +27,7 @@ static NSString *MyCustomerCellID = @"MyCustomer_Cell_ID";
 
 
 -(void)setupUI{
-    self.title = @"线路查询";
+    self.title = @"我的直客";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"v2_goback"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
     
     UITableView *tableview = [[UITableView alloc]init];
@@ -88,6 +88,10 @@ static NSString *MyCustomerCellID = @"MyCustomer_Cell_ID";
     
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+- (BOOL)dl_blueNavbar {
+    return YES;
 }
 
 

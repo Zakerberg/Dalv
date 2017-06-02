@@ -67,6 +67,11 @@
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
+
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     textView.text=@"";
     
