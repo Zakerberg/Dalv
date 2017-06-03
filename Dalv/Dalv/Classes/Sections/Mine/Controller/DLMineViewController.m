@@ -55,30 +55,24 @@ static NSString *cellID  = @"cellID";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"旅游顾问注册";
     self.tableView.tableFooterView = [UIView new];
-    
+    [self setupRegisterBtn];
 }
 
--(UIButton *)regsterNow{
+
+-(void)setupRegisterBtn {
     
-    if (!_regsterNow) {
-        _regsterNow = [[UIButton alloc] init];
-        _regsterNow.backgroundColor = [UIColor colorWithHexString:@"4d65f3"];
-        _regsterNow.tintColor = [UIColor whiteColor];
-        [_regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
-        
-        _regsterNow.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _regsterNow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_tableView addSubview:_regsterNow];
-        
-        [_regsterNow mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.positionTF.mas_bottom).offset(23);
-            make.leftMargin.rightMargin.offset(20);
-            make.height.offset(43.5);
-            make.width.offset(336);
-        }];
-    }
+   UIButton *regsterNow = [[UIButton alloc] initWithFrame:CGRectMake(20, 419, 670/2, 52)];
+    self.regsterNow = regsterNow;
+    regsterNow.backgroundColor = [UIColor colorWithHexString:@"4d65f3"];
+    regsterNow.tintColor = [UIColor whiteColor];
+    [regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
     
-    return _regsterNow;
+    regsterNow.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    regsterNow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    regsterNow.layer.cornerRadius = 8.0;
+    [regsterNow addTarget:self action:@selector(registerNowBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_tableView addSubview:regsterNow];
+    
 }
 
 -(UITableView*)tableView
@@ -217,7 +211,7 @@ static NSString *cellID  = @"cellID";
 
 
 #pragma mark  ------------------ 立即注册 ----------------------
--(IBAction)registerNowBtn:(id)sender {
+-(void)registerNowBtn:(id)sender {
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
         
         
@@ -242,7 +236,7 @@ static NSString *cellID  = @"cellID";
          password：密码
          vocation ：职务（员工，导游）
          
-        */
+         */
         
         NSDictionary *param = @{
                                 @"name":self.nameTF.text,
@@ -263,48 +257,48 @@ static NSString *cellID  = @"cellID";
                                  @"vocation":self.positionTF.text,
                                  @"thecity":self.firstField.text
                                  };
-
+        
         if (self.nameTF.text && self.passCodeTF.text && self.passwordTF.text == nil) {
             
-        UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入手机号" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入手机号" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
             
         }
-                if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
-                    
-                    [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
-                        
-                        //NSLog(@"注册成功!");
-                        [self.navigationController popViewControllerAnimated:YES];
-                        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                        [successV show];
-                        
-                    } failure:^(NSError *error) {
-                        // 在此写提示框
-                        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                        [failureV show];
-
-                    }];
-                    
-                } else {
-                    
-                    [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
-                        
-                        //NSLog(@"注册成功!");
-                        [self.navigationController popViewControllerAnimated:YES];
-                        
-                        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                        [successV show];
-                        
-                    } failure:^(NSError *error) {
-                        // 在此写提示框
-                        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                        [failureV show];
-                    }];
-
-                }
+        if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
+            
+            [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
+                
+                //NSLog(@"注册成功!");
+                [self.navigationController popViewControllerAnimated:YES];
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+            } failure:^(NSError *error) {
+                // 在此写提示框
+                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [failureV show];
+                
+            }];
+            
+        } else {
+            
+            [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
+                
+                //NSLog(@"注册成功!");
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+            } failure:^(NSError *error) {
+                // 在此写提示框
+                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [failureV show];
+            }];
             
         }
+        
+    }
     
     //手机号匹配
     /*
@@ -321,7 +315,6 @@ static NSString *cellID  = @"cellID";
 }
 
 
-
 -(void)showHint:(NSString *)hint{
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];
@@ -333,7 +326,6 @@ static NSString *cellID  = @"cellID";
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
 }
-
 
 
 #pragma mark  ----------UITable View Delegate------------
@@ -388,11 +380,14 @@ static NSString *cellID  = @"cellID";
     }
     
     if (indexPath.row == 1) {
+        
         UIButton *changeCityBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 86, MAIN_SCREEN_WIDTH, 52)];
         self.changeCityBtn = changeCityBtn;
+        changeCityBtn.tintColor = [UIColor blackColor];
         [changeCityBtn setTitle:@"输入城市" forState:UIControlStateNormal];
+        changeCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [changeCityBtn addTarget:self action:@selector(changeCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [tableView addSubview:changeCityBtn];
+        [_tableView addSubview:changeCityBtn];
     }
     
     if (indexPath.row == 2) {
@@ -403,13 +398,13 @@ static NSString *cellID  = @"cellID";
         phoneTextFiled.keyboardType = UIKeyboardTypeNumberPad;
         [tableView addSubview:phoneTextFiled];
         
-        UIButton *authCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(533/2, 34+52+52, 177/2, 32)];
+        UIButton *authCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(245, 138, 90, 32)];
         [authCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
         authCodeBtn.tintColor = [UIColor colorWithHexString:@"4d65f3"];
         [authCodeBtn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventValueChanged];
         authCodeBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         authCodeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [tableView addSubview:authCodeBtn];
+        [_tableView addSubview:authCodeBtn];
     }
     
     
