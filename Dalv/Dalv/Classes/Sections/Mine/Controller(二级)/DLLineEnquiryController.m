@@ -9,7 +9,6 @@
 #import "DLLineEnquiryController.h"
 #import "DLCityPickerView.h"
 #import "CalendarHomeViewController.h"
-#import "DLDestinationController.h"
 
 @interface DLLineEnquiryController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate> {
         UIButton *SelectCityButton;
@@ -83,17 +82,17 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
     }
     
     /*****   目的地    ****/
-    if (indexPath.row == 1) {
-        
-        DLDestinationController *destinationVC = [[DLDestinationController alloc] init];
-        
-        destinationVC.cityBlock = ^(NSString *cityStr){
-            self.Destinationcell.textLabel.text = cityStr;
-        };
-        
+//    if (indexPath.row == 1) {
+//        
+//        DLDestinationController *destinationVC = [[DLDestinationController alloc] init];
+//        
+//        destinationVC.cityBlock = ^(NSString *cityStr){
+//            self.Destinationcell.textLabel.text = cityStr;
+//        };
+    
 //      [self presentViewController:destinationVC animated:YES completion:nil];
-        
-        [self.navigationController pushViewController:destinationVC animated:YES];
+//        
+//        [self.navigationController pushViewController:destinationVC animated:YES];
         
     }
     
@@ -102,28 +101,28 @@ static NSString *lineEnquiryCellID = @"lineEnquiry_Cell_ID";
 //        
 //    }
     /****  出发时间   *****/
-    if (indexPath.row == 2) {
-        
-        CalendarHomeViewController *dtViewC = [[CalendarHomeViewController alloc] init];
-        
-        dtViewC.calendartitle = @"选择日期";
-        
-        [dtViewC setAirPlaneToDay:720 ToDateforString:nil];
-        
-        dtViewC.calendarblock = ^(CalendarDayModel *model){
-            
-            self.Datecell.textLabel.text = [model toString];
-        };
-        
-        [self.navigationController pushViewController:dtViewC animated:YES];
-        
-    }
-    
+//    if (indexPath.row == 2) {
+//        
+//        CalendarHomeViewController *dtViewC = [[CalendarHomeViewController alloc] init];
+//        
+//        dtViewC.calendartitle = @"选择日期";
+//        
+//        [dtViewC setAirPlaneToDay:720 ToDateforString:nil];
+//        
+//        dtViewC.calendarblock = ^(CalendarDayModel *model){
+//            
+//            self.Datecell.textLabel.text = [model toString];
+//        };
+//        
+//        [self.navigationController pushViewController:dtViewC animated:YES];
+//        
+//    }
+//    
     //    /*****   备注   *****/
     //    if (indexPath.row == 4) {
     //
     //    }
-}
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10;

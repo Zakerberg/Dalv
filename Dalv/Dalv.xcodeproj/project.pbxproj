@@ -44,7 +44,6 @@
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
 		1CB770C11ECFE00100F6EFDF /* DLMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A51ECFE00100F6EFDF /* DLMineModel.m */; };
-		1CB770C21ECFE00100F6EFDF /* zzz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770A61ECFE00100F6EFDF /* zzz.plist */; };
 		1CB770C31ECFE00100F6EFDF /* DLMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A91ECFE00100F6EFDF /* DLMineCell.m */; };
 		1CB770C41ECFE00100F6EFDF /* DLMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */; };
 		1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */; };
@@ -344,7 +343,6 @@
 		1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
 		1CB770A41ECFE00100F6EFDF /* DLMineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineModel.h; sourceTree = "<group>"; };
 		1CB770A51ECFE00100F6EFDF /* DLMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineModel.m; sourceTree = "<group>"; };
-		1CB770A61ECFE00100F6EFDF /* zzz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zzz.plist; sourceTree = "<group>"; };
 		1CB770A81ECFE00100F6EFDF /* DLMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCell.h; sourceTree = "<group>"; };
 		1CB770A91ECFE00100F6EFDF /* DLMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCell.m; sourceTree = "<group>"; };
 		1CB770AA1ECFE00100F6EFDF /* DLMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCell.xib; sourceTree = "<group>"; };
@@ -754,7 +752,6 @@
 				1CB770A51ECFE00100F6EFDF /* DLMineModel.m */,
 				45305A391ED7D9140023E892 /* DLConsultModel.h */,
 				45305A3A1ED7D9140023E892 /* DLConsultModel.m */,
-				1CB770A61ECFE00100F6EFDF /* zzz.plist */,
 				458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */,
 				458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */,
 			);
@@ -1699,7 +1696,6 @@
 				1CE2C1AD1ED525E000B898BA /* return_traffic@2x.png in Resources */,
 				1CE8D7FE1ED7FEFA00FFEF8B /* navbar_back_white@2x.png in Resources */,
 				1CE2C1A11ED525E000B898BA /* have_dinner@2x.png in Resources */,
-				1CB770C21ECFE00100F6EFDF /* zzz.plist in Resources */,
 				1CE2C23E1ED57BE400B898BA /* arrowhead_left@3x.png in Resources */,
 				1CE2C18E1ED525E000B898BA /* add@3x.png in Resources */,
 				1CE8D8091ED808A200FFEF8B /* mine_theme@3x.png in Resources */,

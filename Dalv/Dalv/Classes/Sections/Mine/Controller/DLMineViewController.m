@@ -23,13 +23,13 @@
 /****  验证码  ****/
 @property (weak, nonatomic) UITextField *passCodeTF;
 /****  获取验证码  ****/
-@property (weak, nonatomic)  UIButton *authCodeBtn;
+@property (weak, nonatomic) UIButton *authCodeBtn;
 /****  密码  ****/
-@property (weak, nonatomic)  UITextField *passwordTF;
+@property (weak, nonatomic) UITextField *passwordTF;
 /****  确认密码  ****/
-@property (weak, nonatomic)  UITextField *determinePasswordTF;
+@property (weak, nonatomic) UITextField *determinePasswordTF;
 //****  输入的职位  ****/
-@property (weak, nonatomic)  UITextField *positionTF;
+@property (weak, nonatomic) UITextField *positionTF;
 //****  立即注册  ****/
 @property (strong, nonatomic)  UIButton *regsterNow;
 
@@ -127,13 +127,9 @@ static NSString *cellID  = @"cellID";
 -(void)BtnClick:(id)sender {
     
     NSMutableDictionary *parement = [NSMutableDictionary dictionary];
-    
     [parement setValue:self.phoneTextFiled.text forKey:@"phone"];
-    
     [DLRequestSerVice POST:DL_consultGetCode param:parement success:^(id responseData) {
-        
     } failure:^(NSError *error) {
-        
     }];
     
     //判断手机号的正则表达式

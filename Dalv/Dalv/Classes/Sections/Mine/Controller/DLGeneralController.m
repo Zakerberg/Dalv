@@ -18,11 +18,8 @@
 #import "DLFeedBackController.h"
 
 static NSString *cellID  = @"cellID";
-#define filePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
-
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)NSArray * mineArrayData;
-
+@property (nonatomic,strong) UIButton *logOutBtn;
 @property (nonatomic,strong) UITableView *tableview;
 @end
 
@@ -35,20 +32,12 @@ static NSString *cellID  = @"cellID";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
     [self setupUI];
-    
-    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    self.mineArrayData = [self loadingPlist]; //赋值加载数据
-    
-    [self.tableView registerClass:[DLMineCell class] forCellReuseIdentifier:cellID];
-    
-    self.tableView.tableFooterView = [UIView new];
-    
-    self.title = @"通用";
+    self.title = @"通用设置";
 }
 
 - (BOOL)dl_blueNavbar {
@@ -56,25 +45,24 @@ static NSString *cellID  = @"cellID";
 }
 
 
--(void)setupUI{
+-(void)setupUI {
     
   self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
- 
-    UIButton *LogoutButton = [[UIButton alloc] initWithFrame:CGRectMake(46, 309, 295, 30)];
-
-    [LogoutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    LogoutButton.backgroundColor = [UIColor redColor];
-    
-    [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
-    
-    [LogoutButton addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:LogoutButton];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+/* 退出登录 */
 -(void)LogoutBtnClick {
-    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出登录吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -97,107 +85,115 @@ static NSString *cellID  = @"cellID";
 }
 
 
+#pragma mark  ----------UITable View Delegate------------
 
-//通过传进来的Plist文件。加载内容
-- (NSArray *)loadingPlist
-{
-    
-    NSArray * array  = [NSArray arrayWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"zzz.plist" withExtension:nil]];
-    NSMutableArray * arrM = [[NSMutableArray alloc]init];
-    for (NSArray* arr in array) {
-        
-        NSMutableArray * groupArr = [[NSMutableArray alloc]init];
-        
-        for (NSDictionary* dict in arr) {
-            
-            DLMineModel * model = [DLMineModel MineModelWithDict:dict];
-            
-            [groupArr addObject:model];
-        }
-        
-        [arrM addObject:groupArr];
-    }
-    
-    return arrM.copy;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 44;
 }
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.1;
+    }
+    return 1;
+}
+
 
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0){
+    
+    if(indexPath.section == 0)
+    {
         
-        DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
-        [self.navigationController pushViewController:feedbackVC animated:YES];
-        
-    }
-    
-
-    if(indexPath.section == 1){
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-        UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        if (indexPath.row == 0) {
+            DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
+            [self.navigationController pushViewController:feedbackVC animated:YES];
+        }
+        if (indexPath.row == 1) {
+            //关于大旅游
+        }
+        if (indexPath.row == 2) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             
-            //清除缓存
-            BOOL isSuccess = [BLMClearCacheTool clearCacheWithFilePath:filePath];
-            if (isSuccess) {
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-                [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+            UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [SVProgressHUD dismiss];
-                });
-            }
-        }];
-    
-    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-        [alert addAction:actionOk];
-        [alert addAction:actionCancle];
-        
-        //显示弹框控制器
-        [self presentViewController:alert animated:YES completion:nil];
+                //清除缓存
+                BOOL isSuccess = [BLMClearCacheTool clearCacheWithFilePath:BLMfilePath];
+                if (isSuccess) {
+                    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+                    [SVProgressHUD showSuccessWithStatus:@"清除成功"];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
+                    });
+                }
+            }];
+            
+            UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            
+            [alert addAction:actionOk];
+            [alert addAction:actionCancle];
+            
+            //显示弹框控制器
+            [self presentViewController:alert animated:YES completion:nil];
+        }
     }
-    
-
 }
 
-- (void)back {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
-#pragma mark - Tableview data source
+#pragma mark ------------ Tableview data source -----------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return self.mineArrayData.count;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.mineArrayData[section] count];
+    if (section == 0) {
+        return 3;
+    }
+    
+    return 1;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //拿到每一组每一行的模型
-    DLMineModel * mineModel = self.mineArrayData[indexPath.section][indexPath.row];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    cell.imageView.image = [UIImage imageNamed:mineModel.pic];
-    cell.textLabel.text = mineModel.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    if (indexPath.section == 1) {
-        NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:filePath];
+
+    if (indexPath.section == 0) {
         
-        cell.textLabel.text = [NSString stringWithFormat:@"清除缓存(%@)",fileSize];
-    }
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"意见反馈";
+        }
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"关于大旅";
+        }
+        if (indexPath.row == 2) {
+            
+            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
+            cell.textLabel.text = [NSString stringWithFormat:@"清除缓存                                          %@",fileSize];
+        }
     
+        if (indexPath.section == 1) {
+            
+            UIButton *logOutBtn = [[UIButton alloc] init];
+            self.logOutBtn = logOutBtn;
+            [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+            logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
+            logOutBtn.contentVerticalAlignment = 0;
+            logOutBtn.contentHorizontalAlignment = 0;
+            [self.tableView addSubview:logOutBtn];
+            [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+
     return cell;
 }
 

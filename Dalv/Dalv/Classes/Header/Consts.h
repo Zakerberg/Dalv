@@ -64,6 +64,9 @@
 #define IOS8ONLY ([[[UIDevice currentDevice] systemVersion] floatValue]) >= 8.0 && ([[[UIDevice currentDevice] systemVersion] floatValue]) < 9.0
 
 
+#define BLMfilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
+
+
 #define VERSION_HIGHER_THAN_IOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
 
 //判断iphone4S

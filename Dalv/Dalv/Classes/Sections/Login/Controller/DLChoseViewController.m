@@ -8,7 +8,6 @@
 
 #import "DLChoseViewController.h"
 #import "DLMineViewController.h"
-#import "DLCustomerRegidsterController.h"
 
 @interface DLChoseViewController ()
 
@@ -27,10 +26,6 @@
 
 /*** 顾客注册  ***/
 - (IBAction)customerRegisterBtnClick:(id)sender {
-    
-    DLCustomerRegidsterController *customerVC = [[DLCustomerRegidsterController alloc] init];
-    
-    [self.navigationController pushViewController:customerVC animated:YES];
     
     
     

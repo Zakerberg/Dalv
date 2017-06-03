@@ -16,7 +16,15 @@ static NSString* cellID = @"cellID";
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
-@property (assign,nonatomic) UITableViewCell* cell;
+@property (weak,nonatomic) UITableViewCell* cell;
+/**** 昵称  ****/
+@property (weak, nonatomic) UITextField *nickNameTF;
+/**** 标签  ****/
+@property (weak, nonatomic) UITextField *noteLabelTF;
+/**** 邮箱  ****/
+@property (weak, nonatomic) UITextField *mailTF;
+/**** 年龄  ****/
+@property (weak, nonatomic) UITextField *ageTF;
 @end
 
 @implementation DLChangePersonDataController
@@ -33,29 +41,25 @@ static NSString* cellID = @"cellID";
 }
 
 
-
--(UITableView*)tableView
-{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
-        _tableView.showsVerticalScrollIndicator = NO ;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.delegate = self ;
-        _tableView.dataSource = self ;
-        _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [self.view addSubview:_tableView];
-    }
-    
-    return _tableView ;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.hidden = NO;
     self.title = @"修改个人资料";
     [self setupUI];
+    [self setupTableView];
 }
 
+-(void)setupTableView {
+    
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
+//        _tableView.showsVerticalScrollIndicator = NO ;
+        _tableView.tableFooterView = [UIView new];
+        _tableView.delegate = self ;
+        _tableView.dataSource = self ;
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [self.view addSubview:_tableView];
+}
 
 
 -(void)setupUI{
@@ -129,16 +133,23 @@ static NSString* cellID = @"cellID";
 
 #pragma mark -------------- UITable View Delegate ------------------
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+   
+    if (section == 0) {
+        return 0.1;
+    }
+    return 15;
+}
+
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
+
     if (indexPath.row == 8) {
-        return 176/2;
+        return 88;
     }
     
     return 44;
@@ -161,17 +172,57 @@ static NSString* cellID = @"cellID";
     
     
     if (!cell) {
-        
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     }
     
     cell.textLabel.text = self.cellTiltleArr[indexPath.row];
+   
+    if (indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4){
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    /*  年龄 */
+    if (indexPath.row == 3) {
+        UITextField *ageTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 132, MAIN_SCREEN_WIDTH-30, 44)];
+        ageTF.textAlignment = NSTextAlignmentRight;
+        ageTF.keyboardType = UIKeyboardTypeNumberPad;
+        self.ageTF = ageTF;
+        [tableView addSubview:ageTF];
+    }
+    /* 昵称 */
+    if (indexPath.row == 1) {
+        UITextField *nickNameTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 44, MAIN_SCREEN_WIDTH-15, 44)];
+        self.nickNameTF = nickNameTF;
+        nickNameTF.placeholder = @"请输入您的昵称 ";
+        nickNameTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:nickNameTF];
+    }
+    /* 标签 */
+    if (indexPath.row == 5) {
+        
+        UITextField *noteLabelTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 220, MAIN_SCREEN_WIDTH-15, 44)];
+        self.noteLabelTF = noteLabelTF;
+        noteLabelTF.placeholder = @"填写限5个,用逗号隔开 ";
+        noteLabelTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:noteLabelTF];
+    }
+    /* 邮箱 */
+    if (indexPath.row == 7) {
+
+        UITextField *mailTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 220+88, MAIN_SCREEN_WIDTH-15, 44)];
+        self.mailTF = mailTF;
+        mailTF.placeholder = @"填写您的邮箱 ";
+        mailTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:mailTF];
+    }
+    
+    
     if (indexPath.section == 1) {
         
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"修改密码";
     }
-   
     return cell ;
 }
 
@@ -180,19 +231,6 @@ static NSString* cellID = @"cellID";
 {
     self.selectedIndexPath = indexPath ;
     self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
-    
-
-    
-    /**  姓名 **/
-    if (indexPath.row == 0) {
-        
-
-    }
-    
-    /**  昵称 **/
-    if (indexPath.row == 1) {
-        
-    }
     
     /**  性别 **/
     if (indexPath.row == 2) {
@@ -224,11 +262,6 @@ static NSString* cellID = @"cellID";
     
     }
     
-    /**  手机号 **/
-    if (indexPath.row == 6) {
-
-        
-    }
     
     /** 邮箱  **/
     if (indexPath.row == 7) {
