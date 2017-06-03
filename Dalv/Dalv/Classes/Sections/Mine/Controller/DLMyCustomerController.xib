@@ -104,42 +104,42 @@
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="LJh-qe-6Sg"/>
                                     </constraints>
                                 </imageView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Lh8-td-RDS">
-                                    <rect key="frame" x="15" y="21" width="137" height="19"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lh8-td-RDS">
+                                    <rect key="frame" x="15" y="21" width="132" height="19"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyCustomer" translatesAutoresizingMaskIntoConstraints="NO" id="kr4-V6-GWm">
                                             <rect key="frame" x="0.0" y="0.0" width="18" height="19"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的直客列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtP-bf-1Ya">
-                                            <rect key="frame" x="33" y="0.0" width="104" height="19"/>
+                                            <rect key="frame" x="28" y="0.0" width="104" height="19"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="kfR-e3-68Q">
-                                    <rect key="frame" x="10" y="70" width="137" height="20.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="kfR-e3-68Q">
+                                    <rect key="frame" x="15" y="70" width="132" height="20.5"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tickerOrder" translatesAutoresizingMaskIntoConstraints="NO" id="SNq-d1-Nec">
-                                            <rect key="frame" x="0.0" y="0.0" width="18" height="20.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="tickerOrder" translatesAutoresizingMaskIntoConstraints="NO" id="SNq-d1-Nec">
+                                            <rect key="frame" x="0.0" y="0.0" width="19" height="20.5"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直客机票订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-Yz-8V7">
-                                            <rect key="frame" x="33" y="0.0" width="104" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="直客机票订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-Yz-8V7">
+                                            <rect key="frame" x="28" y="0.0" width="104" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-9A-wxa">
-                                    <rect key="frame" x="10" y="115" width="120" height="20.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ydI-9A-wxa">
+                                    <rect key="frame" x="15" y="115" width="115" height="20.5"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedback" translatesAutoresizingMaskIntoConstraints="NO" id="ooU-qc-3FX">
                                             <rect key="frame" x="0.0" y="0.0" width="18" height="20.5"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直客的评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-Al-oCt">
-                                            <rect key="frame" x="33" y="0.0" width="87" height="20.5"/>
+                                            <rect key="frame" x="28" y="0.0" width="87" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -203,6 +203,7 @@
                                 <constraint firstItem="Jaf-Zb-OG5" firstAttribute="top" secondItem="JbX-Ti-Fvq" secondAttribute="bottom" constant="13" id="UP6-Ue-8Ev"/>
                                 <constraint firstItem="s7M-YR-3q1" firstAttribute="leading" secondItem="kfR-e3-68Q" secondAttribute="trailing" constant="193" id="WDv-Zx-WCq"/>
                                 <constraint firstItem="pTQ-d8-qQr" firstAttribute="top" secondItem="kfR-e3-68Q" secondAttribute="bottom" constant="8" symbolic="YES" id="Xcu-xP-SVY"/>
+                                <constraint firstItem="kfR-e3-68Q" firstAttribute="leading" secondItem="sAC-5G-yyJ" secondAttribute="leading" constant="15" id="ZeR-xL-4S5"/>
                                 <constraint firstItem="yzr-CI-p6W" firstAttribute="leading" secondItem="sAC-5G-yyJ" secondAttribute="leading" constant="5" id="bSH-Kx-ZIw"/>
                                 <constraint firstItem="pTQ-d8-qQr" firstAttribute="trailing" secondItem="sAC-5G-yyJ" secondAttribute="trailingMargin" id="dR7-om-jIy"/>
                                 <constraint firstItem="yzr-CI-p6W" firstAttribute="top" secondItem="Lh8-td-RDS" secondAttribute="bottom" constant="8" symbolic="YES" id="jLh-pk-fHL"/>

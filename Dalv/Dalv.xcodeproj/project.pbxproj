@@ -35,17 +35,12 @@
 		1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */; };
 		1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */; };
 		1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438271ECFCC1E006DF42E /* DLUtils.m */; };
-		1CB770AF1ECFE00100F6EFDF /* DLCustomerRegidsterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770841ECFE00100F6EFDF /* DLCustomerRegidsterController.m */; };
-		1CB770B01ECFE00100F6EFDF /* DLCustomerRegidsterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB770851ECFE00100F6EFDF /* DLCustomerRegidsterController.xib */; };
 		1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770871ECFE00100F6EFDF /* DLGeneralController.m */; };
 		1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */; };
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
 		1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */; };
-		1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */; };
 		1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770921ECFE00100F6EFDF /* DLRemmendController.m */; };
 		1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770941ECFE00100F6EFDF /* DLSortController.m */; };
-		1CB770BC1ECFE00100F6EFDF /* DLDestinationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */; };
-		1CB770BD1ECFE00100F6EFDF /* DLDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */; };
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
 		1CB770C11ECFE00100F6EFDF /* DLMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A51ECFE00100F6EFDF /* DLMineModel.m */; };
@@ -254,7 +249,6 @@
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
 		458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */; };
 		458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */; };
-		458CB5B11EDFA5DF0001084D /* DLSupplierqueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5AF1EDFA5DF0001084D /* DLSupplierqueryController.xib */; };
 		458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
@@ -332,9 +326,6 @@
 		1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BLMHUD.m"; sourceTree = "<group>"; };
 		1C8438261ECFCC1E006DF42E /* DLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUtils.h; sourceTree = "<group>"; };
 		1C8438271ECFCC1E006DF42E /* DLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUtils.m; sourceTree = "<group>"; };
-		1CB770831ECFE00100F6EFDF /* DLCustomerRegidsterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerRegidsterController.h; sourceTree = "<group>"; };
-		1CB770841ECFE00100F6EFDF /* DLCustomerRegidsterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerRegidsterController.m; sourceTree = "<group>"; };
-		1CB770851ECFE00100F6EFDF /* DLCustomerRegidsterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerRegidsterController.xib; sourceTree = "<group>"; };
 		1CB770861ECFE00100F6EFDF /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
 		1CB770871ECFE00100F6EFDF /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
 		1CB770881ECFE00100F6EFDF /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
@@ -343,14 +334,10 @@
 		1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewController.h; sourceTree = "<group>"; };
 		1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewController.m; sourceTree = "<group>"; };
-		1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineViewController.xib; sourceTree = "<group>"; };
 		1CB770911ECFE00100F6EFDF /* DLRemmendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemmendController.h; sourceTree = "<group>"; };
 		1CB770921ECFE00100F6EFDF /* DLRemmendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemmendController.m; sourceTree = "<group>"; };
 		1CB770931ECFE00100F6EFDF /* DLSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSortController.h; sourceTree = "<group>"; };
 		1CB770941ECFE00100F6EFDF /* DLSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSortController.m; sourceTree = "<group>"; };
-		1CB7709B1ECFE00100F6EFDF /* DLDestinationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationController.h; sourceTree = "<group>"; };
-		1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationController.m; sourceTree = "<group>"; };
-		1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLDestinationController.xib; sourceTree = "<group>"; };
 		1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
 		1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CB770A11ECFE00100F6EFDF /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
@@ -646,7 +633,6 @@
 		458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
 		458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
 		458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
-		458CB5AF1EDFA5DF0001084D /* DLSupplierqueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierqueryController.xib; sourceTree = "<group>"; };
 		458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLsupplierQueryModel.h; sourceTree = "<group>"; };
 		458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLsupplierQueryModel.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -723,9 +709,6 @@
 		1CB770801ECFE00100F6EFDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1CB770831ECFE00100F6EFDF /* DLCustomerRegidsterController.h */,
-				1CB770841ECFE00100F6EFDF /* DLCustomerRegidsterController.m */,
-				1CB770851ECFE00100F6EFDF /* DLCustomerRegidsterController.xib */,
 				1CB770861ECFE00100F6EFDF /* DLGeneralController.h */,
 				1CB770871ECFE00100F6EFDF /* DLGeneralController.m */,
 				1CB770881ECFE00100F6EFDF /* DLLineQueryController.h */,
@@ -734,7 +717,6 @@
 				1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */,
 				1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */,
 				1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */,
-				1CB7708E1ECFE00100F6EFDF /* DLMineViewController.xib */,
 				4550B9691EE0F55E002269BF /* DLMyCustomerController.h */,
 				4550B96A1EE0F55E002269BF /* DLMyCustomerController.m */,
 				4550B96B1EE0F55E002269BF /* DLMyCustomerController.xib */,
@@ -746,7 +728,6 @@
 				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 				458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */,
 				458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */,
-				458CB5AF1EDFA5DF0001084D /* DLSupplierqueryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -754,9 +735,6 @@
 		1CB770971ECFE00100F6EFDF /* Controller(二级) */ = {
 			isa = PBXGroup;
 			children = (
-				1CB7709B1ECFE00100F6EFDF /* DLDestinationController.h */,
-				1CB7709C1ECFE00100F6EFDF /* DLDestinationController.m */,
-				1CB7709D1ECFE00100F6EFDF /* DLDestinationController.xib */,
 				1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */,
 				1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */,
 				45305A3C1ED832CA0023E892 /* DLFeedBackController.h */,
@@ -1643,7 +1621,6 @@
 				1CE2C1A51ED525E000B898BA /* phone@2x.png in Resources */,
 				1CE2C1C11ED5270E00B898BA /* financial_highlight@3x.png in Resources */,
 				1CE8D8041ED7FEFA00FFEF8B /* navbar_more@2x.png in Resources */,
-				1CB770BD1ECFE00100F6EFDF /* DLDestinationController.xib in Resources */,
 				1CE2C1AC1ED525E000B898BA /* return_details@3x.png in Resources */,
 				1CE2C22D1ED52E8C00B898BA /* wifi_order@2x.png in Resources */,
 				1CE2C1DB1ED528C800B898BA /* outbound_tourism@2x.png in Resources */,
@@ -1675,7 +1652,6 @@
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
 				1CE2C2261ED52E8C00B898BA /* ticket_order@3x.png in Resources */,
-				1CB770B01ECFE00100F6EFDF /* DLCustomerRegidsterController.xib in Resources */,
 				4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */,
 				1CE2C20B1ED52BA100B898BA /* recharge_record@2x.png in Resources */,
 				1CE2C1A81ED525E000B898BA /* recommended_home@3x.png in Resources */,
@@ -1712,7 +1688,6 @@
 				1CE2C18D1ED525E000B898BA /* add@2x.png in Resources */,
 				1CE2C18F1ED525E000B898BA /* arrowhead_up@2x.png in Resources */,
 				1CE2C19B1ED525E000B898BA /* go_back@2x.png in Resources */,
-				458CB5B11EDFA5DF0001084D /* DLSupplierqueryController.xib in Resources */,
 				1CE2C2001ED52BA100B898BA /* contract_application@3x.png in Resources */,
 				1CE2C19E1ED525E000B898BA /* group_date_select@3x.png in Resources */,
 				1CE2C1AB1ED525E000B898BA /* return_details@2x.png in Resources */,
@@ -1756,7 +1731,6 @@
 				1CE2C22E1ED52E8C00B898BA /* wifi_order@3x.png in Resources */,
 				1CE8D8021ED7FEFA00FFEF8B /* navbar_close_white@2x.png in Resources */,
 				1CE2C2421ED57BE400B898BA /* vendor_inquiries@2x.png in Resources */,
-				1CB770B51ECFE00100F6EFDF /* DLMineViewController.xib in Resources */,
 				1CE2C2251ED52E8C00B898BA /* ticket_order@2x.png in Resources */,
 				1CE2C1991ED525E000B898BA /* edit@2x.png in Resources */,
 				1CE2C1951ED525E000B898BA /* departure_traffic@2x.png in Resources */,
@@ -1822,8 +1796,6 @@
 			files = (
 				1CB954161ECFCA9100BDC2D3 /* CalendarLogic.m in Sources */,
 				1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */,
-				1CB770BC1ECFE00100F6EFDF /* DLDestinationController.m in Sources */,
-				1CB770AF1ECFE00100F6EFDF /* DLCustomerRegidsterController.m in Sources */,
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,

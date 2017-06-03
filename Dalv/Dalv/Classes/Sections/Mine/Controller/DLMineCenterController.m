@@ -22,15 +22,15 @@
 
 static NSString *cellID  = @"cellID";
 
-#define KscreenWidth  [UIScreen mainScreen].bounds.size.width   //设备屏幕的宽度
-#define KscreenHeight [UIScreen mainScreen].bounds.size.height //设备屏幕的高度
 @interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)UIView *headerView;  //headerView属性
+@property(nonatomic,strong)UIView *headerView;
 @property(nonatomic,strong)UIImageView * picImg; //背景图
 @property(nonatomic,strong)UIButton * personBtn;
 @property(nonatomic,strong)UILabel *label;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (strong,nonatomic) UITableView* tableView ;
+@property (strong,nonatomic) UILabel* numLabel;
+@property (strong,nonatomic) UILabel* nameLabel;
 @end
 
 @implementation DLMineCenterController
@@ -61,15 +61,10 @@ static NSString *cellID  = @"cellID";
     return _tableView ;
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    
      //赋值加载数据
-    
     [self setupHeaderView];
     
     [self.tableView registerClass:[DLMineCell class] forCellReuseIdentifier:cellID];
@@ -81,94 +76,88 @@ static NSString *cellID  = @"cellID";
     
 }
 
+
 -(void)setupHeaderView{
     //头部视图View
     UIView *headerView = [[UIView alloc] init];
-    headerView.frame = CGRectMake(0, 0, KscreenWidth, 160);
+    headerView.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 145);
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
-    
+   
     
     //背景图
-    UIImageView * picImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mine_theme@2x"]];
+    UIImageView * picImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mine_theme@2x"]];
+    
     self.picImg = picImg;
     picImg.userInteractionEnabled = YES;
     [headerView addSubview:picImg];
     
     [picImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.equalTo(headerView).offset(0);
-        make.height.offset(150);
+
+        make.edges.equalTo(self.headerView);
+        
     }];
     
     //设置头像按钮
-    self.personBtn = [[UIButton alloc]init];
-    [self.personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
-    [picImg addSubview:self.personBtn];
+    UIButton* personBtn = [[UIButton alloc]init];
+    self.personBtn = personBtn;
+    [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
+    [headerView addSubview:personBtn];
     
-    [self.personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(picImg);
-        make.width.height.offset(67);
+        make.width.height.offset(66);
+        make.top.equalTo(self.headerView.mas_top).offset(13);
     }];
     
-    [_personBtn.layer setCornerRadius:67/2];//设置矩形四个圆角半径
-    [_personBtn.layer setMasksToBounds:YES];
+    [personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
+    [personBtn.layer setMasksToBounds:YES];
     
-    [self.personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
     
     
+   UILabel *nameLabel = [[UILabel alloc] init];
+    self.nameLabel = nameLabel;
+    nameLabel.text = @"李元芳";
+    nameLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
+    nameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    [self.picImg addSubview:nameLabel];
+    
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.personBtn.mas_bottom).offset(10);
+        make.centerX.equalTo(self.personBtn);
+        make.width.offset(230);
+    }];
+    
+    self.numLabel = [[UILabel alloc] init];
+    self.numLabel.text = @"13898887888";
+    self.numLabel.textColor = [UIColor colorWithHexString:@"#6e6e6e"];
+    self.nameLabel.font = [UIFont systemFontOfSize:13];
+    [self.picImg addSubview:self.numLabel];
+    
+    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
+        make.height.offset(12);
+        make.centerX.centerY.equalTo(personBtn);
+    }];
+}
+
+
+-(void)fetchData{
+    
+    
+}
+
+- (BOOL)dl_blueNavbar {
+    return YES;
 }
 
 //头像按钮的点击事件
 -(void)PersonbuttonClick{
     
     [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
-    
-    
-}
-
-#pragma mark - 代理方法
-- (void)uploadImageToServerWithImage:(UIImage *)image {
-    
-    [self.personBtn setImage:image forState:UIControlStateNormal];
-    
-}
-
-
-//选中某一行cell
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    /****   修改个人资料    ****/
-    if (indexPath.row == 0){
-        
-        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
-        
-        [self.navigationController pushViewController:chageDataVC animated:YES];
-        
-    }
-    
-    /***  我的直客   ***/
-    if (indexPath.row == 1) {
-        
-        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
-        
-        [self.navigationController pushViewController:CustomerVC animated:YES];
-   
-        
-        NSLog(@"我的直客");
-    }
-    
-    /***  通用   ***/
-    if (indexPath.row == 2) {
-        
-        NSLog(@"通用");
-        
-        DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
-        
-        [self.navigationController pushViewController:genralVC animated:YES];
-    }
-
 }
 
 //创建label的封装
@@ -182,17 +171,59 @@ static NSString *cellID  = @"cellID";
     return label;
 }
 
-//头部视图的间距
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 9;
+
+#pragma mark ------------  Table view Delegate --------------
+
+//选中某一行cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    /****   修改个人资料    ****/
+    if (indexPath.row == 0){
+        
+        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
+        
+        [self.navigationController pushViewController:chageDataVC animated:YES];
+    }
+    
+    /***  我的直客   ***/
+    if (indexPath.row == 1) {
+        
+        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
+        
+        [self.navigationController pushViewController:CustomerVC animated:YES];
+    }
+    
+    /***  通用   ***/
+    if (indexPath.row == 2) {
+        DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
+        
+        [self.navigationController pushViewController:genralVC animated:YES];
+    }
+    
 }
-//设置
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 45;
 }
 
+//头部视图的间距
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 9;
+}
 
-#pragma mark - Table view data source
+
+#pragma mark    --------  BLM_UploadUserIconDelegate ------------
+
+- (void)uploadImageToServerWithImage:(UIImage *)image {
+    
+    [self.personBtn setImage:image forState:UIControlStateNormal];
+}
+
+
+#pragma mark ------------  Table view data source --------------
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -227,14 +258,5 @@ static NSString *cellID  = @"cellID";
     return cell;
 }
 
-
--(void)fetchData{
-    
-    
-}
-
-- (BOOL)dl_blueNavbar {
-    return YES;
-}
 
 @end

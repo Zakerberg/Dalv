@@ -12,47 +12,109 @@
 #import "DLSalertView.h"
 #import "DLConsultModel.h"
 
-@interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate>
+@interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 /****  姓名  ****/
-@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@property (weak,nonatomic) UITextField *nameTF;
 /****  选择城市  ****/
-@property (weak, nonatomic) IBOutlet UIButton *changeCityBtn;
+@property (weak,nonatomic) UIButton *changeCityBtn;
 /****  电话号码  ****/
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextFiled;
+@property (weak, nonatomic) UITextField *phoneTextFiled;
 /****  验证码  ****/
-@property (weak, nonatomic) IBOutlet UITextField *passCodeTF;
+@property (weak, nonatomic) UITextField *passCodeTF;
 /****  获取验证码  ****/
-@property (weak, nonatomic) IBOutlet UIButton *authCodeBtn;
+@property (weak, nonatomic)  UIButton *authCodeBtn;
 /****  密码  ****/
-@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic)  UITextField *passwordTF;
 /****  确认密码  ****/
-@property (weak, nonatomic) IBOutlet UITextField *determinePasswordTF;
+@property (weak, nonatomic)  UITextField *determinePasswordTF;
+//****  输入的职位  ****/
+@property (weak, nonatomic)  UITextField *positionTF;
+//****  立即注册  ****/
+@property (strong, nonatomic)  UIButton *regsterNow;
 
-///****  输入的职位  ****/
-@property (weak, nonatomic) IBOutlet UITextField *positionTF;
+@property(nonatomic,strong)UIView *headerView;
 
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
-@property (nonatomic,strong) NSDictionary *data;
-
+@property (nonatomic,strong) UITableView *tableView;
 @end
 
+static NSString *cellID  = @"cellID";
 
 @implementation DLMineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setupUI];
+    [self setupHeaderView];
 }
 
-/*****  选择城市   ****/
-- (IBAction)changeCityBtnClick:(UIButton *)sender {
+-(void)setupUI {
     
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.title = @"旅游顾问注册";
+    self.tableView.tableFooterView = [UIView new];
+    
+}
+
+-(UIButton *)regsterNow{
+    
+    if (!_regsterNow) {
+        _regsterNow = [[UIButton alloc] init];
+        _regsterNow.backgroundColor = [UIColor colorWithHexString:@"4d65f3"];
+        _regsterNow.tintColor = [UIColor whiteColor];
+        [_regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
+        
+        _regsterNow.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _regsterNow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [_tableView addSubview:_regsterNow];
+        
+        [_regsterNow mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.positionTF.mas_bottom).offset(23);
+            make.leftMargin.rightMargin.offset(20);
+            make.height.offset(43.5);
+            make.width.offset(336);
+        }];
+    }
+    
+    return _regsterNow;
+}
+
+-(UITableView*)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.tableFooterView = [UIView new];
+        _tableView.delegate = self ;
+        _tableView.dataSource = self ;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+        [self.view addSubview:_tableView];
+    }
+    
+    return _tableView ;
+}
+
+-(void)setupHeaderView{
+    
+    UIView *headerView = [[UIView alloc] init];
+    headerView.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 34);
+    self.headerView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
+    self.tableView.tableHeaderView = headerView;
+    self.headerView = headerView;
+    
+}
+
+
+/*****  选择城市   ****/
+
+-(void)changeCityBtnClick:(UIButton *)sender {
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
     
     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
-
+    
     [pickerSingle setDataArray:arrayData];
     [pickerSingle setDefalutSelectRowStr:arrayData[0]];
     [pickerSingle setDelegate:self];
@@ -62,7 +124,7 @@
 }
 
 /*****  获取验证码  *****/
-- (IBAction)BtnClick:(id)sender {
+-(void)BtnClick:(id)sender {
     
     NSMutableDictionary *parement = [NSMutableDictionary dictionary];
     
@@ -94,8 +156,6 @@
         [self showHint:@"手机号码不能为空"];
     }
     
-    
-    
     if(isMatchPhoneNum){
         
         [self openCountdown];
@@ -103,7 +163,10 @@
         
         [alert show];
     }
+
 }
+
+
 
 // 开启倒计时效果
 -(void)openCountdown{
@@ -158,7 +221,7 @@
 
 
 #pragma mark  ------------------ 立即注册 ----------------------
-- (IBAction)registerNowBtn:(id)sender {
+-(IBAction)registerNowBtn:(id)sender {
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
         
         
@@ -262,8 +325,8 @@
 }
 
 
-- (void)showHint:(NSString *)hint
-{
+
+-(void)showHint:(NSString *)hint{
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -273,6 +336,125 @@
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:2];
+}
+
+
+
+#pragma mark  ----------UITable View Delegate------------
+
+//选中某一行cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row == 0) {
+        
+        
+    }
+    
+    if (indexPath.row == 1) {
+        
+    }
+    
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 52;
+}
+
+//头部视图的间距
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0;
+}
+
+
+#pragma mark ------------  Table view data source --------------
+#pragma mark ------------  代码没封装,后期再处理   -----------------
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 7;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
+    if (indexPath.row == 0) {
+        UITextField *nameTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 34, MAIN_SCREEN_WIDTH, 52)];
+        self.nameTF = nameTF;
+        nameTF.placeholder = @"输入名字";
+        [tableView addSubview:nameTF];
+    }
+    
+    if (indexPath.row == 1) {
+        UIButton *changeCityBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 86, MAIN_SCREEN_WIDTH, 52)];
+        self.changeCityBtn = changeCityBtn;
+        [changeCityBtn setTitle:@"输入城市" forState:UIControlStateNormal];
+        [changeCityBtn addTarget:self action:@selector(changeCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [tableView addSubview:changeCityBtn];
+    }
+    
+    if (indexPath.row == 2) {
+
+        UITextField *phoneTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(20, 138, MAIN_SCREEN_WIDTH, 52)];
+        self.phoneTextFiled = phoneTextFiled;
+        phoneTextFiled.placeholder = @"输入手机号";
+        phoneTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+        [tableView addSubview:phoneTextFiled];
+        
+        UIButton *authCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(533/2, 34+52+52, 177/2, 32)];
+        [authCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+        authCodeBtn.tintColor = [UIColor colorWithHexString:@"4d65f3"];
+        [authCodeBtn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventValueChanged];
+        authCodeBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        authCodeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [tableView addSubview:authCodeBtn];
+    }
+    
+    
+    if (indexPath.row == 3) {
+        UITextField *passCodeTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
+        self.passCodeTF = passCodeTF;
+        passCodeTF.placeholder = @"输入手机验证码";
+        passCodeTF.keyboardType = UIKeyboardTypeNumberPad;
+        [tableView addSubview:passCodeTF];
+    }
+    
+    if (indexPath.row == 4) {
+        UITextField *passwordTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 242, MAIN_SCREEN_WIDTH, 52)];
+        self.passwordTF = passwordTF;
+        passwordTF.placeholder = @"输入密码";
+        [tableView addSubview:passwordTF];
+    }
+    
+    
+    if (indexPath.row == 5) {
+        UITextField *determinePasswordTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
+        self.determinePasswordTF = determinePasswordTF;
+        determinePasswordTF.placeholder = @"确认密码";
+        [tableView addSubview:determinePasswordTF];
+    }
+    
+    if (indexPath.row == 6) {
+        UITextField *positionTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
+        self.positionTF = positionTF;
+        positionTF.placeholder = @"职务 如: 领导、导游、职员等";
+        [tableView addSubview:positionTF];
+    }
+    
+    if (indexPath.row == 1) {
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else{
+        
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    return cell;
 }
 
 
@@ -293,11 +475,12 @@
 -(void)requestEventAction:(UIButton *)button{
     
     [self.alertView closeView];
-    
 }
 
-- (DLSalertView *)alertView
-{
+ 
+#pragma mark  ----------DLSalertViewDelegate------------
+
+- (DLSalertView *)alertView{
     if (!_alertView) {
         self.alertView = [[DLSalertView alloc] initWithFrame:CGRectMake(40, 200, [UIScreen mainScreen].bounds.size.width - 80, 220)];
         self.firstField = self.alertView.firstField;
@@ -306,6 +489,5 @@
     }
     return _alertView;
 }
-
 
 @end

@@ -22,6 +22,7 @@
 #define MAIN_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define MAIN_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+
 #define STRONGSELF()  __strong typeof(weakSelf)strongSelf = weakSelf
 #define BLOCKSELF() __block __typeof(&*self)blockSelf = self
 #define WEAKSELF() __weak __typeof(&*self)weakSelf = self

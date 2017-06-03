@@ -9,25 +9,60 @@
 #import "DLSupplierqueryController.h"
 #import "DLsupplierQueryModel.h"
 @interface DLSupplierqueryController ()
-@property (weak, nonatomic) IBOutlet UITextField *inputTF;
-@property (weak, nonatomic) IBOutlet UIButton *SearchBtn;
-/***  供应商详情  ***/
-@property (weak, nonatomic) IBOutlet UIImageView *detailImageV;
-@property (weak, nonatomic) IBOutlet UILabel *supplierNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *companyNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contactLabel;
-/*** 销售目的地  ***/
-@property (weak, nonatomic) IBOutlet UILabel *SaleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contactNumLabel;
-
+@property (weak, nonatomic) UITextField *inputTF;
+@property (weak, nonatomic)  UIButton *searchBtn;
+@property (strong, nonatomic)  UIView *searchView;
+@property (weak, nonatomic)  UILabel *nameLabel;
 @end
 
 @implementation DLSupplierqueryController
+
+-(UIView *)searchView {
+    if (!_searchView) {
+        _searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 132)];
+        _searchView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
+        [self.view addSubview:_searchView];
+    }
+    
+    return _searchView;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupUI];
+    [self setSearchView];
+}
+
+-(void)setupUI {
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.title = @"供应商查询";
+}
+
+-(void)setSearchView {
+    
+    UILabel *nameLabel = [[UILabel alloc] init];
+    self.nameLabel = nameLabel;
+    nameLabel.text = @"输入目的地或供应商名称";
+    nameLabel.font = [UIFont systemFontOfSize:13];
+    [nameLabel sizeToFit];
+    nameLabel.tintColor = [UIColor colorWithHexString:@"#3b3b3b"];
+    [_searchView addSubview:nameLabel];
+    
+    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(37);
+        make.leftMargin.offset(243/2);
+        make.height.offset(13);
+    }];
+}
+
 
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
+
+
+
 
 /***  搜索按钮   ***/
 - (IBAction)SearchBtnClick:(id)sender {
@@ -42,13 +77,6 @@
         
     }];
 
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHexString:@"F1F1F1"];
-    self.title = @"供应商查询";
-    
 }
 
 - (void)didReceiveMemoryWarning {
