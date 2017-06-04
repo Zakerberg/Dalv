@@ -103,7 +103,6 @@ static NSString *cellID  = @"cellID";
 
 
 /*****  选择城市   ****/
-
 -(void)changeCityBtnClick:(UIButton *)sender {
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
     

@@ -13,7 +13,10 @@ static NSString* cellID = @"cellID";
 @property (strong,nonatomic) UITableView* tableView;
 @property (strong,nonatomic) NSArray* cellTiltleArr;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
-@property (assign,nonatomic) UITableViewCell* cell;
+@property (weak,nonatomic) UITableViewCell* cell;
+@property (nonatomic,weak) UITextField *oldPasswordTF;
+@property (nonatomic,strong) UITextField *changePasswordTF;
+@property (nonatomic,strong) UITextField *changeTwoPasswordTF;
 @end
 @implementation DLChangePasswordController
 
@@ -68,13 +71,12 @@ static NSString* cellID = @"cellID";
 }
 
 
+#pragma mark -------------- UITable View Delegate ------------------
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
 }
 
-#pragma mark -------------- UITable View Delegate ------------------
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -92,6 +94,35 @@ static NSString* cellID = @"cellID";
         cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     }
     
+    
+    if (indexPath.row == 0) {
+        UITextField *oldPasswordTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_WIDTH-15, 50)];
+        self.oldPasswordTF = oldPasswordTF;
+        oldPasswordTF.placeholder = @"请输入旧密码";
+        oldPasswordTF.secureTextEntry = YES;
+        oldPasswordTF.clearsOnBeginEditing = YES;
+        oldPasswordTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:oldPasswordTF];
+    }
+    if (indexPath.row == 1) {
+        UITextField *changePasswordTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 50, MAIN_SCREEN_WIDTH-15, 50)];
+        self.changePasswordTF = changePasswordTF;
+        changePasswordTF.placeholder = @"请输入新密码";
+        changePasswordTF.secureTextEntry = YES;
+        changePasswordTF.clearsOnBeginEditing = YES;
+        changePasswordTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:changePasswordTF];
+    }
+    if (indexPath.row == 2) {
+        UITextField *changeTwoPasswordTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 100, MAIN_SCREEN_WIDTH-15, 50)];
+        self.changeTwoPasswordTF = changeTwoPasswordTF;
+        changeTwoPasswordTF.placeholder = @"请再次输入新密码";
+        changeTwoPasswordTF.secureTextEntry = YES;
+        changeTwoPasswordTF.clearsOnBeginEditing = YES;
+        changeTwoPasswordTF.textAlignment = NSTextAlignmentRight;
+        [tableView addSubview:changeTwoPasswordTF];
+    }
+    
     cell.textLabel.text = self.cellTiltleArr[indexPath.row];
     
     return cell ;
@@ -103,40 +134,6 @@ static NSString* cellID = @"cellID";
     self.selectedIndexPath = indexPath ;
     self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
     
-    if (indexPath.row == 0) {
-        
-        __weak typeof(self) weakSelf = self;
-        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
-        alertView.placeholder = @"输入旧密码";
-        [alertView confirmBtnClickBlock:^(NSString *inputString) {
-            weakSelf.cell.detailTextLabel.text = inputString;
-        }];
-        [alertView show];
-    
-    }
-    
-    if(indexPath.row == 1) {
-        
-        __weak typeof(self) weakSelf = self;
-        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
-        alertView.placeholder = @"输入新密码";
-        [alertView confirmBtnClickBlock:^(NSString *inputString) {
-            weakSelf.cell.detailTextLabel.text = inputString;
-        }];
-        [alertView show];
-
-    }
-    
-    if(indexPath.row == 2) {
-        __weak typeof(self) weakSelf = self;
-        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
-        alertView.placeholder = @"确认新密码";
-        [alertView confirmBtnClickBlock:^(NSString *inputString) {
-            weakSelf.cell.detailTextLabel.text = inputString;
-        }];
-        [alertView show];
-        
-    }
 }
 
 @end
