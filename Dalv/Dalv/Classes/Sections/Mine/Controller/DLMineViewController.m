@@ -33,7 +33,10 @@
 //****  立即注册  ****/
 @property (strong, nonatomic)  UIButton *regsterNow;
 
-@property(nonatomic,strong)UIView *headerView;
+@property(nonatomic,weak) UIView *headerView;
+
+/*** cell  ***/
+@property(nonatomic,weak) UITableViewCell *cell;
 
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
@@ -163,7 +166,7 @@ static NSString *cellID  = @"cellID";
     __block NSInteger time = 59; //倒计时时间
     self.authCodeBtn.enabled = NO;
     //背景变灰色
-//    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
+    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -179,7 +182,7 @@ static NSString *cellID  = @"cellID";
 
             //按钮可以点击
            self.authCodeBtn.enabled = YES;
-            
+           self.authCodeBtn.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
             
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -187,7 +190,7 @@ static NSString *cellID  = @"cellID";
                 //设置按钮的样式
                 [self.authCodeBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                 
-                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"  0xFB8557"] forState:UIControlStateNormal];
+                [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"  ffffff"] forState:UIControlStateNormal];
                 
                 self.authCodeBtn.userInteractionEnabled = YES;
             });
@@ -332,14 +335,6 @@ static NSString *cellID  = @"cellID";
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row == 0) {
-        
-        
-    }
-    
-    if (indexPath.row == 1) {
-        
-    }
     
     
     
@@ -379,31 +374,37 @@ static NSString *cellID  = @"cellID";
     }
     
     if (indexPath.row == 1) {
+        self.cell = cell;
+        cell.textLabel.text = @" 输入城市";
+        cell.textColor = [UIColor colorWithHexString:@"b4b4b4"];
         
         UIButton *changeCityBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 86, MAIN_SCREEN_WIDTH, 52)];
         self.changeCityBtn = changeCityBtn;
         changeCityBtn.tintColor = [UIColor blackColor];
-        [changeCityBtn setTitle:@"输入城市" forState:UIControlStateNormal];
+
         changeCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [changeCityBtn addTarget:self action:@selector(changeCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_tableView addSubview:changeCityBtn];
     }
     
     if (indexPath.row == 2) {
-
-        UITextField *phoneTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(20, 138, MAIN_SCREEN_WIDTH, 52)];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UITextField *phoneTextFiled = [[UITextField alloc] initWithFrame:CGRectMake(20, 138, 530/2-20, 52)];
         self.phoneTextFiled = phoneTextFiled;
         phoneTextFiled.placeholder = @"输入手机号";
         phoneTextFiled.keyboardType = UIKeyboardTypeNumberPad;
         [tableView addSubview:phoneTextFiled];
         
-        UIButton *authCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(245, 138, 90, 32)];
+        UIButton *authCodeBtn = [[UIButton alloc] initWithFrame:CGRectMake(570/2-20, 138+10, 175/2+15, 32)];
+        self.authCodeBtn = authCodeBtn;
+        [authCodeBtn setBackgroundColor:[UIColor colorWithHexString:@"#4d65f3"]];
+        authCodeBtn.layer.cornerRadius = 8.0;
         [authCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
         authCodeBtn.tintColor = [UIColor colorWithHexString:@"4d65f3"];
-        [authCodeBtn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventValueChanged];
+        [authCodeBtn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventTouchUpInside];
         authCodeBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         authCodeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_tableView addSubview:authCodeBtn];
+        [tableView addSubview:authCodeBtn];
     }
     
     
@@ -448,6 +449,8 @@ static NSString *cellID  = @"cellID";
 }
 
 
+
+
 #pragma mark  ----------DLCityPickerViewDelegate------------
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
@@ -457,9 +460,10 @@ static NSString *cellID  = @"cellID";
         [self.alertView showView];
 
     }
-
-    self.changeCityBtn.titleLabel.text = selectedTitle;
-    [self.changeCityBtn setTitle:selectedTitle forState:UIControlStateNormal];
+    
+    self.cell.textLabel.text = selectedTitle;
+    self.cell.textLabel.textColor = [UIColor blackColor];
+    
 }
 
 -(void)requestEventAction:(UIButton *)button{
