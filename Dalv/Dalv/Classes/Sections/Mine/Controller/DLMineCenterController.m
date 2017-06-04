@@ -116,32 +116,32 @@ static NSString *cellID  = @"cellID";
     [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
     
     
-   UILabel *nameLabel = [[UILabel alloc] init];
-    self.nameLabel = nameLabel;
-    nameLabel.text = @"李元芳";
-    nameLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
-    nameLabel.font = [UIFont boldSystemFontOfSize:17.0];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    [self.picImg addSubview:nameLabel];
-    
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.personBtn.mas_bottom).offset(10);
-        make.centerX.equalTo(self.personBtn);
-        make.width.offset(230);
-    }];
-    
-    self.numLabel = [[UILabel alloc] init];
-    self.numLabel.text = @"13898887888";
-    self.numLabel.textColor = [UIColor colorWithHexString:@"#6e6e6e"];
-    self.nameLabel.font = [UIFont systemFontOfSize:13];
-    [self.picImg addSubview:self.numLabel];
-    
-    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
-        make.height.offset(12);
-        make.centerX.centerY.equalTo(personBtn);
-    }];
+//   UILabel *nameLabel = [[UILabel alloc] init];
+//    self.nameLabel = nameLabel;
+//    nameLabel.text = @"李元芳";
+//    nameLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
+//    nameLabel.font = [UIFont boldSystemFontOfSize:17.0];
+//    nameLabel.textAlignment = NSTextAlignmentCenter;
+//    [self.picImg addSubview:nameLabel];
+//    
+//    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.personBtn.mas_bottom).offset(10);
+//        make.centerX.equalTo(self.personBtn);
+//        make.width.offset(230);
+//    }];
+//    
+//    self.numLabel = [[UILabel alloc] init];
+//    self.numLabel.text = @"13898887888";
+//    self.numLabel.textColor = [UIColor colorWithHexString:@"#6e6e6e"];
+//    self.nameLabel.font = [UIFont systemFontOfSize:13];
+//    [self.picImg addSubview:self.numLabel];
+//    
+//    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//       
+//        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
+//        make.height.offset(12);
+//        make.centerX.centerY.equalTo(personBtn);
+//    }];
 }
 
 

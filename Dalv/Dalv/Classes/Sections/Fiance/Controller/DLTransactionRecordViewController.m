@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UITableView *TRhomeTableView;
 @property (nonatomic, strong) NSMutableArray *transactionRecordList;
 
-
 @end
 
 @implementation DLTransactionRecordViewController

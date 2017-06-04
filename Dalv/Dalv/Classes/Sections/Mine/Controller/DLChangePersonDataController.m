@@ -12,7 +12,7 @@
 #import "DLChangePasswordController.h"
 #import "ZYInputAlertView.h"
 static NSString* cellID = @"cellID";
-@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,JHPickerDelegate>
+@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,JHPickerDelegate,UITextViewDelegate>
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
@@ -25,6 +25,11 @@ static NSString* cellID = @"cellID";
 @property (weak, nonatomic) UITextField *mailTF;
 /**** 年龄  ****/
 @property (weak, nonatomic) UITextField *ageTF;
+
+/**** 去过的城市textView  *****/
+@property (weak, nonatomic) UITextView *goCityView;
+
+
 @end
 
 @implementation DLChangePersonDataController
@@ -33,7 +38,7 @@ static NSString* cellID = @"cellID";
 {
     if (!_cellTiltleArr) {
         
-        _cellTiltleArr = @[@"姓名:", @"昵称:",@"性别:",@"年龄:",@"从业时间:",@"标签:",@"手机号:",@"邮箱:",@"我去过的地方:",];
+        _cellTiltleArr = @[@"姓名:", @"昵称:",@"性别:",@"年龄:",@"从业时间:",@"标签:",@"手机号:",@"邮箱:",@" ",];
     }
     
     
@@ -131,7 +136,28 @@ static NSString* cellID = @"cellID";
     
 }
 
-#pragma mark -------------- UITable View Delegate ------------------
+
+
+
+#pragma mark ---------  UITextViewDelegate  -------------
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@"描述你去过的地方"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor colorWithHexString:@"b6b6b6"];
+    }
+}
+
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    
+    if (textView.text == nil) {
+        textView.textColor = [UIColor blackColor];
+    }
+}
+
+
+
+#pragma mark --------- UITable View Delegate -------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
    
@@ -185,16 +211,18 @@ static NSString* cellID = @"cellID";
     /*  年龄 */
     if (indexPath.row == 3) {
         UITextField *ageTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 132, MAIN_SCREEN_WIDTH-30, 44)];
+        self.ageTF = ageTF;
         ageTF.textAlignment = NSTextAlignmentRight;
         ageTF.keyboardType = UIKeyboardTypeNumberPad;
-        self.ageTF = ageTF;
+        ageTF.textColor = [UIColor colorWithHexString:@"6b6b6b"];
         [tableView addSubview:ageTF];
     }
     /* 昵称 */
     if (indexPath.row == 1) {
         UITextField *nickNameTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 44, MAIN_SCREEN_WIDTH-15, 44)];
         self.nickNameTF = nickNameTF;
-        nickNameTF.placeholder = @"请输入您的昵称 ";
+        nickNameTF.placeholder = @"请输入您的昵称";
+        nickNameTF.textColor = [UIColor colorWithHexString:@"6b6b6b"];
         nickNameTF.textAlignment = NSTextAlignmentRight;
         [tableView addSubview:nickNameTF];
     }
@@ -203,7 +231,8 @@ static NSString* cellID = @"cellID";
         
         UITextField *noteLabelTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 220, MAIN_SCREEN_WIDTH-15, 44)];
         self.noteLabelTF = noteLabelTF;
-        noteLabelTF.placeholder = @"填写限5个,用逗号隔开 ";
+        noteLabelTF.textColor = [UIColor colorWithHexString:@"6b6b6b"];
+        noteLabelTF.placeholder = @"填写限5个,用逗号隔开";
         noteLabelTF.textAlignment = NSTextAlignmentRight;
         [tableView addSubview:noteLabelTF];
     }
@@ -212,11 +241,30 @@ static NSString* cellID = @"cellID";
 
         UITextField *mailTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 220+88, MAIN_SCREEN_WIDTH-15, 44)];
         self.mailTF = mailTF;
-        mailTF.placeholder = @"填写您的邮箱 ";
+        mailTF.textColor = [UIColor colorWithHexString:@"6b6b6b"];
+        mailTF.placeholder = @"填写您的邮箱";
         mailTF.textAlignment = NSTextAlignmentRight;
+#pragma mark ------------  少判断合法.后期处理---------
         [tableView addSubview:mailTF];
     }
     
+    /*  我去过的城市  */
+    if (indexPath.row == 8) {
+        UILabel *goCityLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 44*8+10, 173/2, 15)];
+        goCityLabel.text = @"我去过的城市:";
+        [goCityLabel sizeToFit];
+        [tableView addSubview:goCityLabel];
+    
+        UITextView *goCityView = [[UITextView alloc] initWithFrame:CGRectMake(40+173/2, 44*8+3, 520/2, 176/2-5)];
+        
+        self.goCityView = goCityView;
+        goCityView.font = [UIFont systemFontOfSize:15];
+        goCityView.delegate = self;
+        goCityView.textColor = [UIColor colorWithHexString:@"#6b6b6b"];
+        goCityView.text = @"描述你去过的地方";
+        [tableView addSubview:goCityView];
+        
+    }
     
     if (indexPath.section == 1) {
         
@@ -284,10 +332,10 @@ static NSString* cellID = @"cellID";
 
     }
     /**  我去过的地方  **/
-    if (indexPath.row == 8) {
-        
-    }
-    
+//    if (indexPath.row == 8) {
+//        
+//    }
+//    
     
 
 
