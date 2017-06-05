@@ -18,6 +18,7 @@
 @implementation DLSupplierqueryController
 
 -(UIView *)searchView {
+    
     if (!_searchView) {
         _searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 132)];
         _searchView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];

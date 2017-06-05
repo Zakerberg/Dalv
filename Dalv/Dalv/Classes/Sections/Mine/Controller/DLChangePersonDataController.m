@@ -255,7 +255,7 @@ static NSString* cellID = @"cellID";
         [goCityLabel sizeToFit];
         [tableView addSubview:goCityLabel];
     
-        UITextView *goCityView = [[UITextView alloc] initWithFrame:CGRectMake(40+173/2, 44*8+3, 520/2, 176/2-5)];
+        UITextView *goCityView = [[UITextView alloc] initWithFrame:CGRectMake(40+173/2, 44*8+3, 520/2-15, 176/2-5)];
         
         self.goCityView = goCityView;
         goCityView.font = [UIFont systemFontOfSize:15];

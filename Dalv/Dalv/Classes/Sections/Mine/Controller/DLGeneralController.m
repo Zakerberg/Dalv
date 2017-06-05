@@ -17,7 +17,7 @@
 
 static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,weak) UIButton *logOutBtn;
+@property (nonatomic,strong) UIButton *logOutBtn;
 @property (nonatomic,strong) UITableView *tableview;
 @end
 
@@ -44,18 +44,15 @@ static NSString *cellID  = @"cellID";
 }
 
 
-
-
-
-
 -(void)setupUI {
     
-  self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    self.tableView.tableFooterView = [UIView new];
-    self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+     UITableView *tableView = [[UITableView alloc]  initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.tableView = tableView;
+    
+    tableView.tableFooterView = [UIView new];
+    tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
 
 }
@@ -76,18 +73,17 @@ static NSString *cellID  = @"cellID";
          
          
          */
-        
-        
-        
-    UIButton *logOutBtn = [[UIButton alloc]init];
-        self.logOutBtn = logOutBtn;
-        logOutBtn.frame = CGRectMake(0, 44*3+9, MAIN_SCREEN_WIDTH, 44);
-        [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
- 
-        logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
-            logOutBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-        logOutBtn.backgroundColor = [UIColor whiteColor];
-        [self.view addSubview:logOutBtn];
+    
+    
+    
+    UIButton *logOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.logOutBtn = logOutBtn;
+    logOutBtn.frame = CGRectMake(13+10, 44*3+9+20, 670/2, 44);
+    [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    logOutBtn.backgroundColor = [UIColor redColor];
+    [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    logOutBtn.layer.cornerRadius = 8.0;
+    [self.tableView addSubview:logOutBtn];
     
 }
 

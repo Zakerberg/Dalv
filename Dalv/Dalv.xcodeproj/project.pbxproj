@@ -249,7 +249,6 @@
 		458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45BEE2031EE50EC400393EE5 /* DLHeadScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BEE2021EE50EC400393EE5 /* DLHeadScrollView.m */; };
-		45BEE2061EE52BED00393EE5 /* DLMyCustomerListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BEE2051EE52BED00393EE5 /* DLMyCustomerListController.m */; };
 		45DB47B01EE54DD700399A6D /* DLCustomerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47AE1EE54DD700399A6D /* DLCustomerListViewController.m */; };
 		45DB47B11EE54DD700399A6D /* DLCustomerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47AF1EE54DD700399A6D /* DLCustomerListViewController.xib */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
@@ -637,8 +636,6 @@
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45BEE2011EE50EC400393EE5 /* DLHeadScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHeadScrollView.h; sourceTree = "<group>"; };
 		45BEE2021EE50EC400393EE5 /* DLHeadScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHeadScrollView.m; sourceTree = "<group>"; };
-		45BEE2041EE52BED00393EE5 /* DLMyCustomerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerListController.h; sourceTree = "<group>"; };
-		45BEE2051EE52BED00393EE5 /* DLMyCustomerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerListController.m; sourceTree = "<group>"; };
 		45DB47AD1EE54DD700399A6D /* DLCustomerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListViewController.h; sourceTree = "<group>"; };
 		45DB47AE1EE54DD700399A6D /* DLCustomerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListViewController.m; sourceTree = "<group>"; };
 		45DB47AF1EE54DD700399A6D /* DLCustomerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerListViewController.xib; sourceTree = "<group>"; };
@@ -733,12 +730,10 @@
 				1CB770921ECFE00100F6EFDF /* DLRemmendController.m */,
 				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
-				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 				450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */,
+				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 				458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */,
 				458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */,
-				45BEE2041EE52BED00393EE5 /* DLMyCustomerListController.h */,
-				45BEE2051EE52BED00393EE5 /* DLMyCustomerListController.m */,
 				45DB47AD1EE54DD700399A6D /* DLCustomerListViewController.h */,
 				45DB47AE1EE54DD700399A6D /* DLCustomerListViewController.m */,
 				45DB47AF1EE54DD700399A6D /* DLCustomerListViewController.xib */,
@@ -1848,7 +1843,6 @@
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
-				45BEE2061EE52BED00393EE5 /* DLMyCustomerListController.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */,
