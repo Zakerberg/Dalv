@@ -8,8 +8,6 @@
 
 
 #import "DLGeneralController.h"
-#import "DLMineModel.h"
-#import "DLMineCell.h"
 #import <SDWebImage/SDImageCache.h>
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
@@ -19,7 +17,7 @@
 
 static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong) UIButton *logOutBtn;
+@property (nonatomic,weak) UIButton *logOutBtn;
 @property (nonatomic,strong) UITableView *tableview;
 @end
 
@@ -32,12 +30,13 @@ static NSString *cellID  = @"cellID";
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     [self setupUI];
     self.title = @"通用设置";
+    [self setupLogoutBtn];
+    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -45,18 +44,55 @@ static NSString *cellID  = @"cellID";
 }
 
 
+
+
+
+
 -(void)setupUI {
     
   self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.tableView.tableFooterView = [UIView new];
     self.tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+
 }
 
 
+-(void)setupLogoutBtn {
+        
+        
+        /*
+         
+         UIButton *footBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+         footBtn.frame=CGRectMake(self.passwordTextField.x, self.passwordTextField.bottom+30, self.passwordTextField.width, 40);
+         [footBtn setTitle:@"登录" forState:UIControlStateNormal];
+         footBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
+         [footBtn  addTarget:self action:@selector(performLoginAction) forControlEvents:UIControlEventTouchUpInside];
+         footBtn.layer.cornerRadius = 8.0;
+         [self addSubview:footBtn];
+         
+         
+         */
+        
+        
+        
+    UIButton *logOutBtn = [[UIButton alloc]init];
+        self.logOutBtn = logOutBtn;
+        logOutBtn.frame = CGRectMake(0, 44*3+9, MAIN_SCREEN_WIDTH, 44);
+        [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+ 
+        logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
+            logOutBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        logOutBtn.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:logOutBtn];
+    
+}
+
 - (void)back {
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -92,10 +128,8 @@ static NSString *cellID  = @"cellID";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
+    
         return 0.1;
-    }
-    return 1;
 }
 
 
@@ -103,9 +137,7 @@ static NSString *cellID  = @"cellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if(indexPath.section == 0)
-    {
-        
+    
         if (indexPath.row == 0) {
             DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
             [self.navigationController pushViewController:feedbackVC animated:YES];
@@ -139,23 +171,19 @@ static NSString *cellID  = @"cellID";
             //显示弹框控制器
             [self presentViewController:alert animated:YES completion:nil];
         }
-    }
+    
 }
 
 
 #pragma mark ------------ Tableview data source -----------
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 2;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    
+//    return 1;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section == 0) {
-        return 3;
-    }
-    
-    return 1;
+    return 3;
 }
 
 
@@ -180,17 +208,17 @@ static NSString *cellID  = @"cellID";
             cell.textLabel.text = [NSString stringWithFormat:@"清除缓存                                          %@",fileSize];
         }
     
-        if (indexPath.section == 1) {
-            
-            UIButton *logOutBtn = [[UIButton alloc] init];
-            self.logOutBtn = logOutBtn;
-            [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
-            logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
-            logOutBtn.contentVerticalAlignment = 0;
-            logOutBtn.contentHorizontalAlignment = 0;
-            [self.tableView addSubview:logOutBtn];
-            [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        }
+//        if (indexPath.section == 1) {
+//            
+//            UIButton *logOutBtn = [[UIButton alloc] init];
+//            self.logOutBtn = logOutBtn;
+//            [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+//            logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
+//            logOutBtn.contentVerticalAlignment = 0;
+//            logOutBtn.contentHorizontalAlignment = 0;
+//            [self.tableView addSubview:logOutBtn];
+//            [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//        }
     }
 
     return cell;

@@ -7,6 +7,7 @@
 //
 
 #import "DLMyCustomerController.h"
+#import "DLMyCustomerListController.h"
 
 @interface DLMyCustomerController ()
 @property (weak, nonatomic) IBOutlet UILabel *myCommisionLabel;
@@ -17,6 +18,11 @@
 
 /*** 我的直客列表 ***/
 - (IBAction)myCustomerListClick:(id)sender {
+    
+    DLMyCustomerListController *listVC = [[DLMyCustomerListController alloc ]init];
+    
+    [self.navigationController pushViewController:listVC animated:YES];
+    
 }
 
 /*** 直客机票订单 ***/

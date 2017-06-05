@@ -66,7 +66,7 @@ static NSString *cellID  = @"cellID";
     
    UIButton *regsterNow = [[UIButton alloc] initWithFrame:CGRectMake(20, 419, 670/2, 52)];
     self.regsterNow = regsterNow;
-    regsterNow.backgroundColor = [UIColor colorWithHexString:@"4d65f3"];
+    regsterNow.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
     regsterNow.tintColor = [UIColor whiteColor];
     [regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
     
@@ -330,13 +330,10 @@ static NSString *cellID  = @"cellID";
 }
 
 
-#pragma mark  ----------UITable View Delegate------------
+#pragma mark  ----------UITable View Delegate---------------
 
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
     
 }
 
@@ -365,6 +362,7 @@ static NSString *cellID  = @"cellID";
 {
     
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
     
     if (indexPath.row == 0) {
         UITextField *nameTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 34, MAIN_SCREEN_WIDTH, 52)];

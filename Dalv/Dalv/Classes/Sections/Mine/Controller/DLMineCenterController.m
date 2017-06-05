@@ -8,7 +8,6 @@
 
 #import "DLMineCenterController.h"
 #import "DLMineModel.h"
-#import "DLMineCell.h"
 #import <Masonry.h>
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
@@ -67,7 +66,7 @@ static NSString *cellID  = @"cellID";
      //赋值加载数据
     [self setupHeaderView];
     
-    [self.tableView registerClass:[DLMineCell class] forCellReuseIdentifier:cellID];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
     self.tableView.tableFooterView = [UIView new];
     
@@ -97,6 +96,7 @@ static NSString *cellID  = @"cellID";
         make.edges.equalTo(self.headerView);
         
     }];
+    
     
     //设置头像按钮
     UIButton* personBtn = [[UIButton alloc]init];
