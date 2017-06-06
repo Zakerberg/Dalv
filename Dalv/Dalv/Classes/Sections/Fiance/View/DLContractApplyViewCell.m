@@ -15,6 +15,7 @@
 
 @property(nonatomic,strong) DLAddReduceButton * button;
 @property(nonatomic,strong) DLAddReduceButton * button1;
+@property(nonatomic,strong) UIView *linView;
 
 @end
 
@@ -29,8 +30,10 @@
     
     self.moneyLabel.tintColor = [UIColor colorWithHexString:@"#fc5a2e"];
 
-    
-    
+    UIView *linView = [[UIView alloc] init];
+    self.linView = linView;
+    linView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.contentView addSubview:linView];
     
     
     DLAddReduceButton *button = [[DLAddReduceButton alloc] init];
@@ -39,7 +42,6 @@
     button.resultBlock = ^(NSInteger number, BOOL increaseStatus) {
         
     };
-    
     
     DLAddReduceButton *button1 = [[DLAddReduceButton alloc] init];
     self.button1 = button1;
@@ -71,6 +73,16 @@
         make.height.equalTo(@12);
         make.right.equalTo(self.button.mas_left).offset(-15);
     }];
+    
+    [linView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@1);
+        make.top.equalTo(@45);
+        make.left.right.equalTo(@0);
+    }];
+    
+    
+    
+    
 
 }
 
