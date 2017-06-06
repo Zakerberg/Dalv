@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ----------------------------  通用   ---------------------------------
 
 
 #import "DLGeneralController.h"
@@ -52,7 +52,7 @@ static NSString *cellID  = @"cellID";
     tableView.tableFooterView = [UIView new];
     tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 
 }

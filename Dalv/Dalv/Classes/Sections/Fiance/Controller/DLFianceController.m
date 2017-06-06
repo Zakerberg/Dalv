@@ -14,6 +14,7 @@
 #import "DLRechargeRecordViewController.h"
 #import "DLPresentApplicationViewController.h"
 #import "DLCashRegisterViewController.h"
+#import "DLContractApplyController.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
@@ -143,6 +144,27 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         {
             DLCashRegisterViewController *cashRVC = [[DLCashRegisterViewController alloc]init];
             [self.navigationController pushViewController:cashRVC animated:YES];
+        }
+            break;
+        case 5:
+        {
+            
+        }
+            break;
+        case 6:
+        {
+            
+        }
+            break;
+        case 7:
+        {
+            DLContractApplyController *contractVC = [[DLContractApplyController alloc] init];
+            [self.navigationController pushViewController:contractVC animated:YES];
+        }
+            break;
+        case 8:
+        {
+            
         }
             break;
         default:

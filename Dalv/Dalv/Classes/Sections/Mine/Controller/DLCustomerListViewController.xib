@@ -23,17 +23,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-gJ-6zs">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gfB-mM-yxz">
-                            <rect key="frame" x="12" y="15.5" width="120" height="20"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gfB-mM-yxz">
+                            <rect key="frame" x="12" y="16" width="120" height="20"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="MyCustomer" translatesAutoresizingMaskIntoConstraints="NO" id="PXB-Zt-L62">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyCustomer" translatesAutoresizingMaskIntoConstraints="NO" id="PXB-Zt-L62">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="7GE-Hn-rdU"/>
                                         <constraint firstAttribute="width" constant="20" id="eZ4-Iq-mYf"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="我的直客列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZX-0i-Wsl">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的直客列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZX-0i-Wsl">
                                     <rect key="frame" x="28" y="0.0" width="92" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
@@ -78,15 +78,18 @@
                     <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="RFH-39-k65" firstAttribute="centerY" secondItem="gfB-mM-yxz" secondAttribute="centerY" id="2OB-MY-4CY"/>
+                        <constraint firstItem="gfB-mM-yxz" firstAttribute="leading" secondItem="yeD-gJ-6zs" secondAttribute="leading" constant="12" id="8m2-5b-fN1"/>
                         <constraint firstAttribute="trailing" secondItem="RFH-39-k65" secondAttribute="trailing" constant="15" id="I8V-x4-K0v"/>
+                        <constraint firstAttribute="trailing" secondItem="RFH-39-k65" secondAttribute="trailing" constant="15" id="jfe-5r-M9x"/>
                         <constraint firstItem="RFH-39-k65" firstAttribute="top" secondItem="yeD-gJ-6zs" secondAttribute="top" constant="20" id="rt2-y3-7W0"/>
+                        <constraint firstItem="gfB-mM-yxz" firstAttribute="leading" secondItem="yeD-gJ-6zs" secondAttribute="leading" constant="12" id="vqv-B2-RHD"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="roB-0X-OA2">
-                    <rect key="frame" x="0.0" y="44" width="375" height="501"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="461"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="501" id="0xp-3i-f3Y"/>
+                        <constraint firstAttribute="height" constant="461" id="0xp-3i-f3Y"/>
                         <constraint firstAttribute="width" constant="375" id="dwh-oz-7a8"/>
                     </constraints>
                 </tableView>
@@ -95,13 +98,13 @@
             <constraints>
                 <constraint firstItem="yeD-gJ-6zs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="51y-lB-aYF"/>
                 <constraint firstAttribute="trailing" secondItem="roB-0X-OA2" secondAttribute="trailing" id="Aj6-o6-6gr"/>
-                <constraint firstItem="roB-0X-OA2" firstAttribute="top" secondItem="yeD-gJ-6zs" secondAttribute="bottom" id="GON-F7-0AE"/>
+                <constraint firstItem="roB-0X-OA2" firstAttribute="top" secondItem="yeD-gJ-6zs" secondAttribute="bottom" constant="40" id="GON-F7-0AE"/>
                 <constraint firstAttribute="trailing" secondItem="yeD-gJ-6zs" secondAttribute="trailing" id="Il4-pA-Dtb"/>
                 <constraint firstItem="yeD-gJ-6zs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sAB-g5-Vux"/>
                 <constraint firstItem="roB-0X-OA2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sYQ-al-eon"/>
                 <constraint firstAttribute="bottom" secondItem="yeD-gJ-6zs" secondAttribute="bottom" constant="623" id="tZh-F2-ZKt"/>
             </constraints>
-            <point key="canvasLocation" x="-20.5" y="-213.5"/>
+            <point key="canvasLocation" x="-40" y="-233"/>
         </view>
     </objects>
     <resources>
