@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="KGk-i7-Jjw" customClass="DLContractStyleCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-nN-9sA">
+                        <rect key="frame" x="0.0" y="23" width="152" height="91"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="152" id="45y-G0-We2"/>
+                        </constraints>
+                        <state key="normal" title="    快递"/>
+                        <connections>
+                            <action selector="courierBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ahd-eN-OG9"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZq-Ix-Muh">
+                        <rect key="frame" x="153" y="23" width="167" height="90"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title="    自取"/>
+                        <connections>
+                            <action selector="inviteBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EWw-mQ-eLb"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnCheck" translatesAutoresizingMaskIntoConstraints="NO" id="Y1T-04-ize">
+                        <rect key="frame" x="117" y="58" width="20" height="20"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnCheck" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-IE-qSs">
+                        <rect key="frame" x="289" y="58" width="23" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="23" id="Nul-th-q8o"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="索取方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBH-EE-L1c">
+                        <rect key="frame" x="5" y="0.0" width="101" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="OTX-Db-IPW"/>
+                            <constraint firstAttribute="width" constant="101" id="Z6N-gx-dyU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tXz-IE-qSs" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="2YY-oL-EhU"/>
+                    <constraint firstItem="GBH-EE-L1c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BA7-hJ-k1U"/>
+                    <constraint firstItem="ZZq-Ix-Muh" firstAttribute="top" secondItem="mTx-nN-9sA" secondAttribute="top" id="EFE-iR-hXu"/>
+                    <constraint firstItem="mTx-nN-9sA" firstAttribute="centerY" secondItem="Y1T-04-ize" secondAttribute="centerY" id="Pow-H7-mmA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="mTx-nN-9sA" secondAttribute="bottom" constant="-8.5" id="R2M-vT-4Hh"/>
+                    <constraint firstAttribute="trailing" secondItem="ZZq-Ix-Muh" secondAttribute="trailing" id="S4i-0G-36L"/>
+                    <constraint firstAttribute="trailing" secondItem="GBH-EE-L1c" secondAttribute="trailing" constant="214" id="Ve6-Ca-8qN"/>
+                    <constraint firstItem="GBH-EE-L1c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="VuC-ZA-oMa"/>
+                    <constraint firstItem="mTx-nN-9sA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ck8-r5-gju"/>
+                    <constraint firstItem="ZZq-Ix-Muh" firstAttribute="leading" secondItem="Y1T-04-ize" secondAttribute="trailing" constant="16" id="jSe-do-c37"/>
+                    <constraint firstItem="mTx-nN-9sA" firstAttribute="top" secondItem="GBH-EE-L1c" secondAttribute="bottom" constant="2" id="jTq-yq-WFm"/>
+                    <constraint firstItem="ZZq-Ix-Muh" firstAttribute="leading" secondItem="mTx-nN-9sA" secondAttribute="trailing" constant="1" id="kTC-mC-Wb8"/>
+                    <constraint firstItem="mTx-nN-9sA" firstAttribute="centerY" secondItem="tXz-IE-qSs" secondAttribute="centerY" id="nSz-HO-q9l"/>
+                    <constraint firstItem="ZZq-Ix-Muh" firstAttribute="centerY" secondItem="tXz-IE-qSs" secondAttribute="centerY" id="z7g-r3-08g"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <connections>
+                <outlet property="courierBtn" destination="mTx-nN-9sA" id="nDB-xh-n7o"/>
+                <outlet property="courierImageV" destination="Y1T-04-ize" id="FFK-gB-LpD"/>
+                <outlet property="inviteBtn" destination="ZZq-Ix-Muh" id="XmA-XO-Qru"/>
+                <outlet property="inviteImageV" destination="tXz-IE-qSs" id="mex-aN-73c"/>
+            </connections>
+            <point key="canvasLocation" x="117" y="113"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="UnCheck" width="20" height="20"/>
+    </resources>
+</document>

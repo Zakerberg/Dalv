@@ -254,13 +254,15 @@
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
 		45DB47B61EE5524200399A6D /* DLCustomerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */; };
 		45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B81EE57A3100399A6D /* DLContractApplyController.m */; };
-		45DB47BC1EE582FD00399A6D /* DLContractApplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47BB1EE582FD00399A6D /* DLContractApplyCell.m */; };
 		45DB47C01EE6478200399A6D /* DLContractApplyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */; };
 		45DB47C11EE6478200399A6D /* DLContractApplyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */; };
 		45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47C41EE68ABC00399A6D /* DLLineOrderController.m */; };
 		45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47CD1EE68B7C00399A6D /* DLVisaOrderController.m */; };
 		45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */; };
 		45DB47D41EE68BDD00399A6D /* DLTicketsOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */; };
+		45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47D61EE6A63500399A6D /* DLContractApplyStyleCell.m */; };
+		45DB47DB1EE6BFD100399A6D /* DLContractStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47D91EE6BFD100399A6D /* DLContractStyleCell.m */; };
+		45DB47DC1EE6BFD100399A6D /* DLContractStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47DA1EE6BFD100399A6D /* DLContractStyleCell.xib */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
 		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
@@ -652,8 +654,6 @@
 		45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerListCell.xib; sourceTree = "<group>"; };
 		45DB47B71EE57A3100399A6D /* DLContractApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyController.h; sourceTree = "<group>"; };
 		45DB47B81EE57A3100399A6D /* DLContractApplyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyController.m; sourceTree = "<group>"; };
-		45DB47BA1EE582FD00399A6D /* DLContractApplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyCell.h; sourceTree = "<group>"; };
-		45DB47BB1EE582FD00399A6D /* DLContractApplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyCell.m; sourceTree = "<group>"; };
 		45DB47BD1EE6478200399A6D /* DLContractApplyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyViewCell.h; sourceTree = "<group>"; };
 		45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyViewCell.m; sourceTree = "<group>"; };
 		45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLContractApplyViewCell.xib; sourceTree = "<group>"; };
@@ -665,6 +665,11 @@
 		45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLWiFiOrderViewController.m; sourceTree = "<group>"; };
 		45DB47D21EE68BDD00399A6D /* DLTicketsOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTicketsOrderController.h; sourceTree = "<group>"; };
 		45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTicketsOrderController.m; sourceTree = "<group>"; };
+		45DB47D51EE6A63500399A6D /* DLContractApplyStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyStyleCell.h; sourceTree = "<group>"; };
+		45DB47D61EE6A63500399A6D /* DLContractApplyStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyStyleCell.m; sourceTree = "<group>"; };
+		45DB47D81EE6BFD100399A6D /* DLContractStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractStyleCell.h; sourceTree = "<group>"; };
+		45DB47D91EE6BFD100399A6D /* DLContractStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractStyleCell.m; sourceTree = "<group>"; };
+		45DB47DA1EE6BFD100399A6D /* DLContractStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLContractStyleCell.xib; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1520,11 +1525,14 @@
 				1C2981721EDFE33900712524 /* DLRechargeRecordTableViewCell.m */,
 				1C2981731EDFE33900712524 /* DLTransactionRecordTableViewCell.h */,
 				1C2981741EDFE33900712524 /* DLTransactionRecordTableViewCell.m */,
-				45DB47BA1EE582FD00399A6D /* DLContractApplyCell.h */,
-				45DB47BB1EE582FD00399A6D /* DLContractApplyCell.m */,
 				45DB47BD1EE6478200399A6D /* DLContractApplyViewCell.h */,
 				45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */,
 				45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */,
+				45DB47D51EE6A63500399A6D /* DLContractApplyStyleCell.h */,
+				45DB47D61EE6A63500399A6D /* DLContractApplyStyleCell.m */,
+				45DB47D81EE6BFD100399A6D /* DLContractStyleCell.h */,
+				45DB47D91EE6BFD100399A6D /* DLContractStyleCell.m */,
+				45DB47DA1EE6BFD100399A6D /* DLContractStyleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1705,6 +1713,7 @@
 				1CE2C2231ED52E8C00B898BA /* ticket_order_highlight@2x.png in Resources */,
 				1CE8D8051ED7FEFA00FFEF8B /* navbar_more@3x.png in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
+				45DB47DC1EE6BFD100399A6D /* DLContractStyleCell.xib in Resources */,
 				1CE2C2281ED52E8C00B898BA /* visa_order_highlight@3x.png in Resources */,
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
@@ -1888,7 +1897,6 @@
 				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
 				45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
-				45DB47BC1EE582FD00399A6D /* DLContractApplyCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
 				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
@@ -1897,6 +1905,7 @@
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */,
+				45DB47DB1EE6BFD100399A6D /* DLContractStyleCell.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				45BEE2031EE50EC400393EE5 /* DLHeadScrollView.m in Sources */,
 				45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */,
@@ -1926,6 +1935,7 @@
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
+				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
