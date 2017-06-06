@@ -28,12 +28,16 @@
 -(void)setup {
     
     self.moneyLabel.tintColor = [UIColor colorWithHexString:@"#fc5a2e"];
+
+    
+    
+    
     
     DLAddReduceButton *button = [[DLAddReduceButton alloc] init];
     self.button = button;
     button.shakeAnimation = NO;
     button.resultBlock = ^(NSInteger number, BOOL increaseStatus) {
-        NSLog(@"  ------- @%ld -------  ",number);
+        
     };
     
     
@@ -41,7 +45,7 @@
     self.button1 = button1;
     button1.shakeAnimation = NO;
     button1.resultBlock = ^(NSInteger number, BOOL increaseStatus) {
-        NSLog(@"  ------- @%ld -------  ",number);
+        
     };
 
     [self.contentView addSubview:button];
