@@ -15,6 +15,7 @@
 #import "DLPresentApplicationViewController.h"
 #import "DLCashRegisterViewController.h"
 #import "DLContractApplyController.h"
+#import "DLContractApplyRecordController.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
@@ -164,7 +165,8 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
             break;
         case 8:
         {
-            
+            DLContractApplyRecordController *contractApplyRecordVC = [[DLContractApplyRecordController alloc] init];
+            [self.navigationController pushViewController:contractApplyRecordVC animated:YES];
         }
             break;
         default:

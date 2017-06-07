@@ -32,7 +32,6 @@
 
 - (BOOL)dl_blueNavbar {
     return YES;
-    
 }
 
 - (void)setupNavbar {
@@ -87,9 +86,7 @@
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
-        
     }];
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -100,7 +97,6 @@
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLRechargeRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRechargeRecordTableViewCell cellIdentifier]];
@@ -109,6 +105,7 @@
         [cell configureCell:trModel];
     return cell;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 190;

@@ -96,6 +96,7 @@
     _actualArrivalab.text = @"¥1499";
     [self.contentView addSubview:_actualArrivalab];
     
+    
     UIView *line1 = [[UIView alloc]init];
     line1.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     [self.contentView  addSubview:line1];

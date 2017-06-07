@@ -79,10 +79,6 @@
         make.top.equalTo(@45);
         make.left.right.equalTo(@0);
     }];
-    
-    
-    
-    
 
 }
 
