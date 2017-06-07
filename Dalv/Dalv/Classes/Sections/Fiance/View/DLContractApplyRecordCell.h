@@ -10,22 +10,22 @@
 #import "DLContractRecordModel.h"
 
 @interface DLContractApplyRecordCell : UITableViewCell
-//方式
+/*** 名称 ***/
 @property (nonatomic, strong) UILabel *contractNameLabel;
-//状态
+/*** 状态 ***/
 @property (nonatomic, strong) UILabel *contractTypelabel;
-//时间
+/*** 时间 ***/
 @property (nonatomic, strong) UILabel *contractTimeLabel;
-//国内合同份数
+/*** 国内合同份数 ***/
 @property (nonatomic, strong) UILabel *contractInlandCount;
-//境外合同份数
+/*** 境外合同份数 ***/
 @property (nonatomic, strong) UILabel *contractOutboundCount;
-//单项委托
+/*** 单项委托 ***/
 @property (nonatomic, strong) UILabel *contractPeritemCount;
-//订单号
+/*** 订单号 ***/
 @property (nonatomic, strong) UILabel *contractOrderNumber;
 
-//合同申请记录失败的原因
+/*** 合同申请记录失败的原因 ***/
 @property (nonatomic, strong) UILabel *contractMemo;
 
 @property (nonatomic, strong) DLContractRecordModel *contractRecordModel;

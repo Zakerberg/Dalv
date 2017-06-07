@@ -21,20 +21,22 @@
  */
 
 /*** 发票记录id ***/
-@property(nonatomic,strong) UILabel *invoiceid;
+@property(nonatomic,copy) NSString *invoiceid;
 /*** 发票公司名称 ***/
-@property(nonatomic,strong) UILabel *title;
+@property(nonatomic,copy) NSString *title;
 /*** 发票金额 ***/
-@property(nonatomic,strong) UILabel *amount;
+@property(nonatomic,copy) NSString *amount;
 /*** 发票项目 ***/
-@property(nonatomic,strong) UILabel *detail;
+@property(nonatomic,copy) NSString *detail;
 /*** 发票记录创建时间 ***/
-@property(nonatomic,strong) UILabel *create_time;
+@property(nonatomic,copy) NSString *create_time;
 /*** 发票状态 ***/
-@property(nonatomic,strong) UILabel *state;
+@property(nonatomic,copy) NSString *state;
 /*** 发票审核失败的理由 ***/
-@property(nonatomic,strong) UILabel *memo;
+@property(nonatomic,copy) NSString *memo;
 /*** 发票备注 ***/
-@property(nonatomic,strong) UILabel *detail_comm;
+@property(nonatomic,copy) NSString *detail_comm;
+/***  交易号  ***/
+@property (nonatomic, copy) NSString *account;
 
 @end
