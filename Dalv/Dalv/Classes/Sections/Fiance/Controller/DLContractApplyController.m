@@ -285,7 +285,7 @@ static NSString *section3CellID = @"section3CellID";
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
        
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        
+        se
         return cell;
     
     }
