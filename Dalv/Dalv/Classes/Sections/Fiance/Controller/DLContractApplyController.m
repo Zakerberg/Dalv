@@ -210,12 +210,35 @@ static NSString *section3CellID = @"section3CellID";
     if (section == 0) {
         return 0.1;
     }
-    return 36;
+    
+    if (section == 3)
+    {
+        return 10;
+    }
+    
+    return 25;
 }
+
+
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//}
+//
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath.section == 1 && indexPath.row == 1) {
+        return 80;
+    }
+    if (indexPath.section == 4)
+    {
         return 80;
     }
     
@@ -225,7 +248,7 @@ static NSString *section3CellID = @"section3CellID";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
    
-    return 4;
+    return 5;
     
 }
 
@@ -250,6 +273,9 @@ static NSString *section3CellID = @"section3CellID";
     
     if (section == 2) {
         return self.Section2Number;
+    }
+    if (section == 4) {
+        return 1;
     }
     
     return self.Section3Number;
@@ -285,7 +311,7 @@ static NSString *section3CellID = @"section3CellID";
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
        
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        se
+        
         return cell;
     
     }
