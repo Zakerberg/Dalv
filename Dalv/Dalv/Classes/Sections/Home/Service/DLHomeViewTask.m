@@ -342,6 +342,7 @@
     }];
 }
 
+//合同申请记录列表
 + (void)getAgencyFinanceContractList:(NSDictionary *)param
                           completion:(void (^)(id result, NSError *error))completionHandler{
     [DLRequestSerVice POST:DL_AgencyFinanceContractList param:param success:^(id responseData) {

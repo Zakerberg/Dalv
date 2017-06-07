@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/7.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//    ------------     合同申请记录   ---------
 
 #import <UIKit/UIKit.h>
 #import "DLContractRecordModel.h"
@@ -24,6 +24,9 @@
 @property (nonatomic, strong) UILabel *contractPeritemCount;
 //订单号
 @property (nonatomic, strong) UILabel *contractOrderNumber;
+
+//合同申请记录失败的原因
+@property (nonatomic, strong) UILabel *contractMemo;
 
 @property (nonatomic, strong) DLContractRecordModel *contractRecordModel;
 

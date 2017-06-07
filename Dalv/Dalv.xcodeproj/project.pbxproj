@@ -270,6 +270,9 @@
 		45DB47F21EE7D36700399A6D /* DLContractApplyRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47F11EE7D36700399A6D /* DLContractApplyRecordController.m */; };
 		45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47F41EE7DA4500399A6D /* DLContractApplyRecordCell.m */; };
 		45DB47F81EE7DD8300399A6D /* DLContractRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47F71EE7DD8300399A6D /* DLContractRecordModel.m */; };
+		45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47FA1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m */; };
+		45DB47FE1EE7FEAC00399A6D /* DLInvoiceRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */; };
+		45DB48011EE7FF2200399A6D /* DLInvoiceApplyRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48001EE7FF2100399A6D /* DLInvoiceApplyRecordCell.m */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
 		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
@@ -689,6 +692,12 @@
 		45DB47F41EE7DA4500399A6D /* DLContractApplyRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyRecordCell.m; sourceTree = "<group>"; };
 		45DB47F61EE7DD8300399A6D /* DLContractRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractRecordModel.h; sourceTree = "<group>"; };
 		45DB47F71EE7DD8300399A6D /* DLContractRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractRecordModel.m; sourceTree = "<group>"; };
+		45DB47F91EE7FE4300399A6D /* DLInvoiceApplyRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvoiceApplyRecordController.h; sourceTree = "<group>"; };
+		45DB47FA1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInvoiceApplyRecordController.m; sourceTree = "<group>"; };
+		45DB47FC1EE7FEAC00399A6D /* DLInvoiceRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvoiceRecordModel.h; sourceTree = "<group>"; };
+		45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInvoiceRecordModel.m; sourceTree = "<group>"; };
+		45DB47FF1EE7FF2100399A6D /* DLInvoiceApplyRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvoiceApplyRecordCell.h; sourceTree = "<group>"; };
+		45DB48001EE7FF2100399A6D /* DLInvoiceApplyRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInvoiceApplyRecordCell.m; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1053,6 +1062,8 @@
 				45DB47ED1EE7CED500399A6D /* DLCourierController.xib */,
 				45DB47F01EE7D36700399A6D /* DLContractApplyRecordController.h */,
 				45DB47F11EE7D36700399A6D /* DLContractApplyRecordController.m */,
+				45DB47F91EE7FE4300399A6D /* DLInvoiceApplyRecordController.h */,
+				45DB47FA1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1562,6 +1573,8 @@
 				45DB47DA1EE6BFD100399A6D /* DLContractStyleCell.xib */,
 				45DB47F31EE7DA4500399A6D /* DLContractApplyRecordCell.h */,
 				45DB47F41EE7DA4500399A6D /* DLContractApplyRecordCell.m */,
+				45DB47FF1EE7FF2100399A6D /* DLInvoiceApplyRecordCell.h */,
+				45DB48001EE7FF2100399A6D /* DLInvoiceApplyRecordCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1577,6 +1590,8 @@
 				1C29817C1EE0F40C00712524 /* DLCashRegisterModel.m */,
 				45DB47F61EE7DD8300399A6D /* DLContractRecordModel.h */,
 				45DB47F71EE7DD8300399A6D /* DLContractRecordModel.m */,
+				45DB47FC1EE7FEAC00399A6D /* DLInvoiceRecordModel.h */,
+				45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1977,6 +1992,7 @@
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
+				45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
@@ -2022,6 +2038,8 @@
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,
+				45DB47FE1EE7FEAC00399A6D /* DLInvoiceRecordModel.m in Sources */,
+				45DB48011EE7FF2200399A6D /* DLInvoiceApplyRecordCell.m in Sources */,
 				1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -219,7 +219,7 @@
     
     self.contractTimeLabel.text = contractRecordModel.create_time;
     if ([contractRecordModel.state isEqualToString:@"1"]) {
-        self.contractTypelabel.text = @"待审核";
+        self.contractTypelabel.text = @"未审核";
         _contractTypelabel.textColor = [UIColor redColor];
     } else if ([contractRecordModel.state isEqualToString:@"2"]){
         self.contractTypelabel.text = @"审核通过";
@@ -227,12 +227,6 @@
     }else if ([contractRecordModel.state isEqualToString:@"3"]){
         self.contractTypelabel.text = @"审核失败";
         _contractTypelabel.textColor = [UIColor redColor];
-    }else if ([contractRecordModel.state isEqualToString:@"5"]){
-        self.contractTypelabel.text = @"待支付";
-        _contractTypelabel.textColor = [UIColor redColor];
-    }else {
-        self.contractTypelabel.text = @"已支付";
-        _contractTypelabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }
     self.contractInlandCount.text = [NSString stringWithFormat:@"%@份",contractRecordModel.inland_count];
     self.contractOutboundCount.text = [NSString stringWithFormat:@"%@份",contractRecordModel.outbound_count];

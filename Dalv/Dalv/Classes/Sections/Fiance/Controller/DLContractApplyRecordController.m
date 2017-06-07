@@ -78,18 +78,19 @@
                             @"page" : @"1",
                             @"sign_token" : @"bc56bde4ae477773abc75b3177a263c7",};
     @weakify(self);
-    [DLHomeViewTask getAgencyFinanceTopupList:param completion:^(id result, NSError *error) {
+    
+    [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
         @strongify(self);
-        if (result) {
-            NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.contractRecordList removeAllObjects];
-            [self.contractRecordList addObjectsFromArray:contractRecordArray];
-            [self.contractRecordTableView reloadData];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-        }
-        
+                if (result) {
+                    NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+                    [self.contractRecordList removeAllObjects];
+                    [self.contractRecordList addObjectsFromArray:contractRecordArray];
+                    [self.contractRecordTableView reloadData];
+                } else {
+                    [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+                }
     }];
+    
 }
 
 

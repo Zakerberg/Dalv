@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/7.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//    ------------     合同申请记录   ---------
 
 #import <Foundation/Foundation.h>
 
@@ -25,4 +25,5 @@
 @property (nonatomic, copy) NSString *state;
 /***  交易号  ***/
 @property (nonatomic, copy) NSString *account;
+
 @end
