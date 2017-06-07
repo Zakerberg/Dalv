@@ -10,22 +10,36 @@
 #import "DLContractApplyViewCell.h"
 #import "DLCourierController.h"
 #import "DLinviteController.h"
+#import "DLContractApplySection1Cell.h"
+#import "DLContractApplySection2Cell.h"
 
-@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
-@property (nonatomic, strong) UIButton *courierBtn;
-@property (nonatomic, strong) UIButton *inviteBtn;
-@property(nonatomic,strong) UIScrollView *mainScrollerView;
-@property (nonatomic, strong) UIImageView *courierImageView;
-@property (nonatomic, strong) UIImageView *inviteImageView;
+@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource>
+//自取invite
+@property(nonatomic,strong)UIButton *inviteBtn;
+//快递Courier
+@property(nonatomic,strong)UIButton *courierBtn;
+
+
+//@property(nonatomic,strong) UIScrollView *mainScrollerView;
+//@property (nonatomic, strong) UIImageView *courierImageView;
+//@property (nonatomic, strong) UIImageView *inviteImageView;
 @property (nonatomic, strong) UITableView *contractTableView;
 
 @property (nonatomic, strong) DLCourierController *courierVC;
 @property (nonatomic, strong) DLinviteController *inviteVC;
 
+@property(nonatomic,assign) NSInteger Section1Number;
+@property(nonatomic,assign) NSInteger Section2Number;
+@property(nonatomic,assign) NSInteger Section3Number;
+
+
+
 @end
 static NSString *nibCellID = @"nibCellID";
-//static NSString *cellID = @"cellID";
-//static NSString *nibCell_id = @"nibCell_id";
+static NSString *section1CellID = @"section1CellID";
+static NSString *section2CellID = @"section2CellID";
+static NSString *section3CellID = @"section3CellID";
+
 @implementation DLContractApplyController
 
 - (void)viewDidLoad {
@@ -33,166 +47,82 @@ static NSString *nibCellID = @"nibCellID";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"合同申请";
     [self setTableView];
-    [self setUI];
-    [self setScrollerView];
-    
-//    //建立通知中心
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(received:) name:@"selectedControllerNoti" object:nil];
-//    
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(received2:) name:@"selectedNoti" object:nil];
-//    
-    /*
-     self.view.backgroundColor = [UIColor ms_backgroundColor];
-     self.homeTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-     self.homeTableView.dataSource = self;
-     self.homeTableView.backgroundColor = [UIColor ms_backgroundColor];
-     self.homeTableView.delegate = self;
-     [self.homeTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-     self.homeTableView.showsVerticalScrollIndicator = NO;
-     
-     [self.homeTableView registerClass:[DLLineOrderPriceTableViewCell class] forCellReuseIdentifier:[DLLineOrderPriceTableViewCell cellIdentifier]];
-     [self.homeTableView registerClass:[DLLineOrderChoiceDateTableViewCell class] forCellReuseIdentifier:[DLLineOrderChoiceDateTableViewCell cellIdentifier]];
-     [self.homeTableView registerClass:[DLLineOrderTripNumebrTableViewCell class] forCellReuseIdentifier:[DLLineOrderTripNumebrTableViewCell cellIdentifier]];
-     [self.homeTableView registerClass:[DLLineOrderSingleRoomTableViewCell class] forCellReuseIdentifier:[DLLineOrderSingleRoomTableViewCell cellIdentifier]];
-     [self.homeTableView registerClass:[DLLineOrderContactsTableViewCell class] forCellReuseIdentifier:[DLLineOrderContactsTableViewCell cellIdentifier]];
-     [self.view addSubview:self.homeTableView];
-     
-     [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.width.equalTo(self.view.mas_width);
-     make.top.equalTo(self.view.mas_top);
-     make.left.equalTo(self.view.mas_left);
-     make.bottom.equalTo(self.view.mas_bottom).offset(-50);
-     }];
-     */
-}
-//
-#pragma mark ---------- Set ScrollerView -----------------
-
--(void)setScrollerView {
-
-    self.mainScrollerView = [[UIScrollView alloc] init];
-    self.mainScrollerView.delegate = self;
-    self.mainScrollerView.contentSize = CGSizeMake(MAIN_SCREEN_WIDTH*2, 0);
-    self.mainScrollerView.pagingEnabled = YES;
-    self.mainScrollerView.backgroundColor = [UIColor randomColor];
-    [self.contractTableView addSubview:self.mainScrollerView];
+//    [self setUI];
+    self.Section1Number = 2;
+    self.Section2Number = 0;
+    self.Section3Number = 0;
     
     
     
-    self.courierVC = [[DLCourierController alloc] init];
-    [self addChildViewController:self.courierVC];
-    [self.mainScrollerView addSubview:self.courierVC.view];
     
-    [self.courierVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@10);
-        make.left.equalTo(@20);
-        make.width.height.equalTo(@50);
-    }];
-
-    [self.mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.offset(318);
-        make.top.equalTo(self.courierBtn.mas_bottom);
-        make.left.right.equalTo(@0);
-    }];
 }
 
 #pragma mark ----------------- Set UI -----------------
--(void)setUI {
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"索取方式";
-    label.textColor = [UIColor colorWithHexString:@"#494949"];
-    label.font = [UIFont systemFontOfSize:13];
-    [label sizeToFit];
-    [self.contractTableView addSubview:label];
+//-(void)setUI {
 
-    [label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@15);
-        make.top.equalTo(@(45*3+17));
-        make.height.equalTo(@15);
-    }];
+//    UIButton *courierBtn = [[UIButton alloc] init];
+//    self.courierBtn = courierBtn;
+//    [courierBtn setTitle:@"   快递" forState:UIControlStateNormal];
+//    courierBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
+//    courierBtn.contentHorizontalAlignment =
+//    UIControlContentHorizontalAlignmentLeft;
+//    courierBtn.tag = 100;
+//    courierBtn.tintColor = [UIColor colorWithHexString:@"#494949"];
+//    courierBtn.backgroundColor = [UIColor redColor];
+//    [courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [self.contractTableView addSubview: courierBtn];
+//    
+//    
+//    UIButton *inviteBtn = [[UIButton alloc] init];
+//    self.inviteBtn = inviteBtn;
+//    [inviteBtn setTitle:@"   自取" forState:UIControlStateNormal];
+//    inviteBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
+//    inviteBtn.contentHorizontalAlignment =
+//    UIControlContentHorizontalAlignmentLeft;
+//    inviteBtn.tag = 101;
+//    [inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    inviteBtn.tintColor = [UIColor colorWithHexString:@"#494949"];
+//    inviteBtn.backgroundColor = [UIColor greenColor];
+//    [self.contractTableView addSubview: inviteBtn];
     
-    UIButton *courierBtn = [[UIButton alloc] init];
-    self.courierBtn = courierBtn;
-    [courierBtn setTitle:@"   快递" forState:UIControlStateNormal];
-    courierBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
-    courierBtn.contentHorizontalAlignment =
-    UIControlContentHorizontalAlignmentLeft;
-    courierBtn.tag = 100;
-    courierBtn.tintColor = [UIColor colorWithHexString:@"#494949"];
-    courierBtn.backgroundColor = [UIColor redColor];
-    [courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.contractTableView addSubview: courierBtn];
-    
-    
-    UIButton *inviteBtn = [[UIButton alloc] init];
-    self.inviteBtn = inviteBtn;
-    [inviteBtn setTitle:@"   自取" forState:UIControlStateNormal];
-    inviteBtn.contentVerticalAlignment = UIControlContentHorizontalAlignmentCenter;
-    inviteBtn.contentHorizontalAlignment =
-    UIControlContentHorizontalAlignmentLeft;
-    inviteBtn.tag = 101;
-    [inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    inviteBtn.tintColor = [UIColor colorWithHexString:@"#494949"];
-    inviteBtn.backgroundColor = [UIColor greenColor];
-    [self.contractTableView addSubview: inviteBtn];
-    
-    UIImageView *courierImageView = [[UIImageView alloc] init];
-    self.courierImageView = courierImageView;
-    [courierImageView setImage:[UIImage imageNamed:@"UnCheck"]];
-    [courierBtn addSubview:courierImageView];
-    
-    UIImageView *inviteImageView = [[UIImageView alloc] init];
-    self.inviteImageView = inviteImageView;
-    [inviteImageView setImage:[UIImage imageNamed:@"UnCheck"]];
-    [inviteBtn addSubview:inviteImageView];
-    
-    [courierBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@45);
-        make.left.equalTo(@0);
-        make.top.equalTo(label.mas_bottom).offset(0);
-        make.width.equalTo(@(self.view.width/2));
-    }];
-    
-    
-    [inviteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.height.equalTo(@45);
-        make.right.equalTo(@0);
-        make.left.equalTo(courierBtn.mas_right).offset(1);
-        make.width.equalTo(@(self.view.width/2));
-        make.top.equalTo(label.mas_bottom).offset(0);
-    }];
-    
-    [courierImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(courierBtn);
-        make.right.equalTo(courierBtn.mas_right).offset(-20);
-        make.height.width.equalTo(@20);
-    }];
-    
-    [inviteImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(inviteBtn);
-        make.right.offset(-20);
-        make.height.width.equalTo(@20);
-    }];
-}
-     
-#pragma mark ----------------- BtnClick  -----------------
-
--(void)courierBtnClick {
-    
-    [self.courierImageView setImage:[UIImage imageNamed:@"Check"]];
-    [self.inviteImageView setImage:[UIImage imageNamed:@"UnCheck"]];
-}
-
-
-
--(void)inviteBtnClick {
-    
-    [self.inviteImageView setImage:[UIImage imageNamed:@"Check"]];
-    [self.courierImageView setImage:[UIImage imageNamed:@"UnCheck"]];
-}
-
+//    UIImageView *courierImageView = [[UIImageView alloc] init];
+//    self.courierImageView = courierImageView;
+//    [courierImageView setImage:[UIImage imageNamed:@"UnCheck"]];
+//    [courierBtn addSubview:courierImageView];
+//    
+//    UIImageView *inviteImageView = [[UIImageView alloc] init];
+//    self.inviteImageView = inviteImageView;
+//    [inviteImageView setImage:[UIImage imageNamed:@"UnCheck"]];
+//    [inviteBtn addSubview:inviteImageView];
+//    
+//    [courierBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.equalTo(@45);
+//        make.left.equalTo(@0);
+//        make.top.equalTo(label.mas_bottom).offset(0);
+//        make.width.equalTo(@(self.view.width/2));
+//    }];
+//    
+//    
+//    [inviteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//       make.height.equalTo(@45);
+//        make.right.equalTo(@0);
+//        make.left.equalTo(courierBtn.mas_right).offset(1);
+//        make.width.equalTo(@(self.view.width/2));
+//        make.top.equalTo(label.mas_bottom).offset(0);
+//    }];
+//    
+//    [courierImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(courierBtn);
+//        make.right.equalTo(courierBtn.mas_right).offset(-20);
+//        make.height.width.equalTo(@20);
+//    }];
+//    
+//    [inviteImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(inviteBtn);
+//        make.right.offset(-20);
+//        make.height.width.equalTo(@20);
+//    }];
+//}
 
      
 #pragma mark ----------------- Set TableView -----------------
@@ -211,8 +141,11 @@ static NSString *nibCellID = @"nibCellID";
     //注册
     [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplyViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     
-//    [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractStyleCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCell_id];
-//    
+    [self.contractTableView registerClass:[DLContractApplySection1Cell class] forCellReuseIdentifier:section1CellID];
+    
+    [self.contractTableView registerClass:[DLContractApplySection2Cell class] forCellReuseIdentifier:section2CellID];
+//    [self.contractTableView registerClass:[DLContractApplySection1Cell class] forCellReuseIdentifier:section3CellID];
+//
     [self.view addSubview:self.contractTableView];
     
     [self.contractTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -226,12 +159,6 @@ static NSString *nibCellID = @"nibCellID";
     
 }
 
-////移除通知
-//-(void)dealloc
-//{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
 
 - (BOOL)dl_blueNavbar {
     return YES;
@@ -246,68 +173,94 @@ static NSString *nibCellID = @"nibCellID";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark ----------- ScrollView Delegate ----------------
+#pragma mark -----------  BtnClick ----------------
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+/*** 自取按钮 ***/
+-(void)inviteBtnClick {
     
-
-    if (scrollView.contentOffset.x == MAIN_SCREEN_WIDTH) {
-        if (self.inviteVC == nil) {
-            
-        
-            self.inviteVC = [[DLinviteController alloc] init];
-            [self addChildViewController:self.inviteVC];
-            self.view.backgroundColor = [UIColor whiteColor];
-            
-            [self.mainScrollerView addSubview:self.inviteVC.view];
-            
-            [self.inviteVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.top.left.right.equalTo(@0);
-                make.height.equalTo(@80);
-            }];
-        
-        }
-    }
+    [self.inviteBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+    [self.courierBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    
+    self.Section1Number = 2;
+    self.Section2Number = 0;
+    self.Section3Number = 0;
+    [self.contractTableView reloadData];
 }
 
-
-
-
-
-
-
-
+/***  快递按钮 ***/
+-(void)courierBtnClick {
+    
+    [self.courierBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+    [self.inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    
+    self.Section1Number = 1;
+    self.Section2Number = 1;
+    self.Section3Number = 3;
+    [self.contractTableView reloadData];
+    
+    
+    
+    
+}
 
 #pragma mark  ----------UITable View Delegate------------
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    
-//    if (section == 0) {
-//        return 0.1;
-//    }
-//    return 36;
-//}
-//
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (section == 0) {
+        return 0.1;
+    }
+    return 36;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        return 80;
+    }
+    
     return 45;
 }
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+   
+    return 4;
+    
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    
+    if (section == 0) {
+        return 3;
+    }
+    
+    if (section == 1) {
+        
+        return self.Section1Number;
+    }
+    
+    if (section == 2) {
+        return self.Section2Number;
+    }
+    
+    return self.Section3Number;
+    
 }
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        
         DLContractApplyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -321,76 +274,36 @@ static NSString *nibCellID = @"nibCellID";
             cell.textLabel.text = @"单项委托";
         }
         return cell;
+    }
     
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        self.Section1Number = 2;
+        
+        DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
+        self.inviteBtn = cell.inviteBtn;
+        self.courierBtn = cell.courierBtn;
+        [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+       
+        [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        return cell;
     
+    }
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        
+        DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
+        
+        return cell;
+    }
     
+    DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
+    self.inviteBtn = cell.inviteBtn;
+    self.courierBtn = cell.courierBtn;
+    [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    return cell;
 }
-
-#pragma mark --------- contractStyleCellDelegate ----------
-
-////收到通知调用方法
-//-(void)received:(NSNotification *)notification
-//{
-//
-//    UIView *addressView = [[UIView alloc] init];
-//    addressView.backgroundColor = [UIColor greenColor];
-//    [self.view addSubview:addressView];
-//    
-////    UILabel *addressLabel = [[UILabel alloc] init];
-////    addressLabel.text = @"佛你已经就几个好几个很久很久";
-////    [addressLabel sizeToFit];
-////    [addressView addSubview:addressLabel];
-////    
-////    UILabel *numLabel = [[UILabel alloc] init];
-////    numLabel.text = @" 010-8567786872";
-////    [numLabel sizeToFit];
-////    [addressView addSubview:numLabel];
-//    
-//    
-//    [addressView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.offset(0);
-//        make.top.equalTo(@(430/2));
-//        make.height.equalTo(@90);
-//    }];
-//
-//    
-//}
-
-//
-//-(void)received2:(NSNotification *)notification{
-//    
-//    
-//    UIView *View = [[UIView alloc] init];
-//    View.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:View];
-//
-//    
-//    
-//    [View mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.offset(0);
-//        make.top.equalTo(@(430/2));
-//        make.height.equalTo(@190);
-//    }];
-//    
-
-//}
-
-
-
-//
-//
-//-(void)seletedControllerWith:(UIButton *)btn{
-//    
-//    self.mainScrollerView.contentOffset = CGPointMake(MAIN_SCREEN_WIDTH*2, 0);
-//
-//}
-//
-
-
-
-
-
-
-
 
 @end

@@ -61,7 +61,6 @@
     }];
 }
 
-
 #pragma mark - Layout
 
 - (void)setupConstraints {
@@ -93,6 +92,7 @@
     
 }
 
+#pragma mark ----------- UITable View Delegate ----------------
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.contractRecordList.count;
@@ -129,7 +129,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - Getter
+#pragma mark ------------------ Getter -----------------------
 
 -(NSMutableArray *)contractRecordList {
     if(_contractRecordList == nil) {
