@@ -34,7 +34,6 @@
     _invoiceTimeLabel.text = @"2017-06-01 12:20:05";
     [self.contentView addSubview:_invoiceTimeLabel];
     
-    
     UIView *line = [[UIView alloc]init];
     line.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     [self.contentView  addSubview:line];
@@ -212,8 +211,6 @@
 -(void)configureCell:(DLInvoiceRecordModel *)invoiceRecordModel{
     
     self.invoiceTimeLabel.text = _invoiceModel.create_time;
-//    self.invoiceNameLabel.text = _invoiceModel.invoiceid;
-    
     
     if ([invoiceRecordModel.state isEqualToString:@"1"]) {
         self.invoiceTypeLabel.text = @"未审核";

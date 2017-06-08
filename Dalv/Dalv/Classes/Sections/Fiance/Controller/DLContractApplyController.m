@@ -12,6 +12,9 @@
 #import "DLinviteController.h"
 #import "DLContractApplySection1Cell.h"
 #import "DLContractApplySection2Cell.h"
+#import "DLContractApplySection3Cell.h"
+#import "DLContractApplySection4Cell.h"
+#import "DLContractApplySection5Cell.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource>
 //自取invite
@@ -19,14 +22,19 @@
 //快递Courier
 @property(nonatomic,strong)UIButton *courierBtn;
 
+//到付
+@property(nonatomic,strong)UIButton *payforBtn;
+//邮寄
+@property(nonatomic,strong)UIButton *mailBtn;
+
 
 //@property(nonatomic,strong) UIScrollView *mainScrollerView;
 //@property (nonatomic, strong) UIImageView *courierImageView;
 //@property (nonatomic, strong) UIImageView *inviteImageView;
 @property (nonatomic, strong) UITableView *contractTableView;
 
-@property (nonatomic, strong) DLCourierController *courierVC;
-@property (nonatomic, strong) DLinviteController *inviteVC;
+//@property (nonatomic, strong) DLCourierController *courierVC;
+//@property (nonatomic, strong) DLinviteController *inviteVC;
 
 @property(nonatomic,assign) NSInteger Section1Number;
 @property(nonatomic,assign) NSInteger Section2Number;
@@ -39,6 +47,8 @@ static NSString *nibCellID = @"nibCellID";
 static NSString *section1CellID = @"section1CellID";
 static NSString *section2CellID = @"section2CellID";
 static NSString *section3CellID = @"section3CellID";
+static NSString *section4CellID = @"section4CellID";
+static NSString *section5CellID = @"section5CellID";
 
 @implementation DLContractApplyController
 
@@ -144,8 +154,9 @@ static NSString *section3CellID = @"section3CellID";
     [self.contractTableView registerClass:[DLContractApplySection1Cell class] forCellReuseIdentifier:section1CellID];
     
     [self.contractTableView registerClass:[DLContractApplySection2Cell class] forCellReuseIdentifier:section2CellID];
-//    [self.contractTableView registerClass:[DLContractApplySection1Cell class] forCellReuseIdentifier:section3CellID];
-//
+    
+    [self.contractTableView registerClass:[DLContractApplySection3Cell class] forCellReuseIdentifier:section3CellID];
+    
     [self.view addSubview:self.contractTableView];
     
     [self.contractTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -159,13 +170,9 @@ static NSString *section3CellID = @"section3CellID";
     
 }
 
-
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
-
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -197,11 +204,25 @@ static NSString *section3CellID = @"section3CellID";
     self.Section2Number = 1;
     self.Section3Number = 3;
     [self.contractTableView reloadData];
-    
-    
-    
-    
+
 }
+
+/*** 到付按钮 ***/
+-(void)payforBtnCLick {
+
+    [self.payforBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+    [self.mailBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+}
+
+/*** 邮寄按钮 ***/
+-(void)mailBtnCLick {
+
+    [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+}
+
+
+
 
 #pragma mark  ----------UITable View Delegate------------
 
@@ -266,19 +287,33 @@ static NSString *section3CellID = @"section3CellID";
         return 3;
     }
     
-    if (section == 1) {
-        
+    else if (section == 1){
         return self.Section1Number;
     }
     
-    if (section == 2) {
+    else if (section == 2){
         return self.Section2Number;
     }
-    if (section == 4) {
+    
+    else if (section == 4){
         return 1;
     }
     
     return self.Section3Number;
+    
+//    if (section == 1) {
+//        
+//        return self.Section1Number;
+//    }
+//    
+//    if (section == 2) {
+//        return self.Section2Number;
+//    }
+//    if (section == 4) {
+//        return 1;
+//    }
+//    
+//    return self.Section3Number;
     
 }
 
@@ -303,7 +338,7 @@ static NSString *section3CellID = @"section3CellID";
     }
     
     if (indexPath.section == 1 && indexPath.row == 0) {
-        self.Section1Number = 2;
+//        self.Section1Number = 2;
         
         DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
         self.inviteBtn = cell.inviteBtn;
@@ -322,6 +357,22 @@ static NSString *section3CellID = @"section3CellID";
         return cell;
     }
     
+    if (indexPath.section == 2) {
+        
+        DLContractApplySection3Cell *cell = [tableView dequeueReusableCellWithIdentifier:section3CellID];
+        
+        self.mailBtn = cell.mailBtn;
+        self.payforBtn = cell.payforBtn;
+        
+        [cell.payforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.mailBtn addTarget:self action:@selector(mailBtnCLick) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        return cell;
+    }
+    
+
     DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
     self.inviteBtn = cell.inviteBtn;
     self.courierBtn = cell.courierBtn;

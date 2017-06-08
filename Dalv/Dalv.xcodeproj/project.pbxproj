@@ -274,6 +274,8 @@
 		45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48031EE8480E00399A6D /* DLContractApplySection1Cell.m */; };
 		45DB48071EE8577200399A6D /* DLContractApplySection2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */; };
 		45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */; };
+		45DB480D1EE8E47D00399A6D /* DLContractApplySection4Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB480C1EE8E47D00399A6D /* DLContractApplySection4Cell.m */; };
+		45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB480F1EE8E49A00399A6D /* DLContractApplySection5Cell.m */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
 		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
@@ -702,6 +704,10 @@
 		45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection2Cell.m; sourceTree = "<group>"; };
 		45DB48081EE8DB6400399A6D /* DLContractApplySection3Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection3Cell.h; sourceTree = "<group>"; };
 		45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection3Cell.m; sourceTree = "<group>"; };
+		45DB480B1EE8E47D00399A6D /* DLContractApplySection4Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection4Cell.h; sourceTree = "<group>"; };
+		45DB480C1EE8E47D00399A6D /* DLContractApplySection4Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection4Cell.m; sourceTree = "<group>"; };
+		45DB480E1EE8E49A00399A6D /* DLContractApplySection5Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection5Cell.h; sourceTree = "<group>"; };
+		45DB480F1EE8E49A00399A6D /* DLContractApplySection5Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection5Cell.m; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1582,6 +1588,10 @@
 				45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */,
 				45DB48081EE8DB6400399A6D /* DLContractApplySection3Cell.h */,
 				45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */,
+				45DB480B1EE8E47D00399A6D /* DLContractApplySection4Cell.h */,
+				45DB480C1EE8E47D00399A6D /* DLContractApplySection4Cell.m */,
+				45DB480E1EE8E49A00399A6D /* DLContractApplySection5Cell.h */,
+				45DB480F1EE8E49A00399A6D /* DLContractApplySection5Cell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1963,6 +1973,7 @@
 				4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */,
 				45DB47EE1EE7CED500399A6D /* DLCourierController.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
+				45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */,
 				45BEE2031EE50EC400393EE5 /* DLHeadScrollView.m in Sources */,
 				45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */,
 				458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */,
@@ -1991,6 +2002,7 @@
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,
 				458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */,
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
+				45DB480D1EE8E47D00399A6D /* DLContractApplySection4Cell.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
