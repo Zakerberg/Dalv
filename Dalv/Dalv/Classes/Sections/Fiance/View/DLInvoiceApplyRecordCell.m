@@ -116,6 +116,7 @@
         make.height.equalTo(@30);
         
     }];
+
     
     [_invoiceTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_invoiceNameLabel);
@@ -210,7 +211,9 @@
 /** 配置Cell */
 -(void)configureCell:(DLInvoiceRecordModel *)invoiceRecordModel{
     
-    self.invoiceTimeLabel.text = _invoiceModel.create_time;
+    
+//    self.invoiceNameLabel.text = invoiceRecordModel.invoiceid;
+    self.invoiceTimeLabel.text = invoiceRecordModel.create_time;
     
     if ([invoiceRecordModel.state isEqualToString:@"1"]) {
         self.invoiceTypeLabel.text = @"未审核";

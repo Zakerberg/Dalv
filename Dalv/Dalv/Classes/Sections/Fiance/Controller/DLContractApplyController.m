@@ -30,13 +30,7 @@
 /*** 提交申请Btn  ***/
 @property(nonatomic,strong) UIButton * submitBtn;
 
-//@property(nonatomic,strong) UIScrollView *mainScrollerView;
-//@property (nonatomic, strong) UIImageView *courierImageView;
-//@property (nonatomic, strong) UIImageView *inviteImageView;
 @property (nonatomic, strong) UITableView *contractTableView;
-
-//@property (nonatomic, strong) DLCourierController *courierVC;
-//@property (nonatomic, strong) DLinviteController *inviteVC;
 
 @property(nonatomic,assign) NSInteger Section1Number;
 @property(nonatomic,assign) NSInteger Section2Number;
@@ -153,8 +147,47 @@ static NSString *section5CellID = @"section5CellID";
     [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
 }
 
+
+/*
+ 
+ #pragma mark - Fetch data
+ - (void)fetchData {
+ 
+ NSDictionary *param = @{@"uid" : @"1132",
+ @"page" : @"1",
+ @"sign_token" : @"bc56bde4ae477773abc75b3177a263c7",};
+ @weakify(self);
+ 
+ [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
+ @strongify(self);
+ if (result) {
+ NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+ [self.contractRecordList removeAllObjects];
+ [self.contractRecordList addObjectsFromArray:contractRecordArray];
+ [self.contractRecordTableView reloadData];
+ } else {
+ [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+ }
+ }];
+ 
+ }
+ 
+ 
+ */
+
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
+    
+    NSDictionary *param = @{
+                            
+                            
+                            
+                            
+                            
+                            };
+    
+    
+    
     
     
     

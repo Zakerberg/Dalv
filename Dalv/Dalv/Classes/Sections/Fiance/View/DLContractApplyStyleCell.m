@@ -92,7 +92,7 @@
 }
 
 
-#pragma mark - ----------------   BtnClick    ----------------------------
+#pragma mark - --------   BtnClick    -------------------
 
 -(void)inviteBtnClick {
     

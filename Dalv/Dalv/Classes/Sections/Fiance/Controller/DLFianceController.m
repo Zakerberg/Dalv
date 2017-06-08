@@ -17,6 +17,7 @@
 #import "DLContractApplyController.h"
 #import "DLContractApplyRecordController.h"
 #import "DLInvoiceApplyRecordController.h"
+#import "DLInvioiceApplyController.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
@@ -150,7 +151,8 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
             break;
         case 5:
         {
-            
+            DLInvioiceApplyController *invoiceApplyVC = [[DLInvioiceApplyController alloc] init];
+            [self.navigationController pushViewController:invoiceApplyVC animated:YES];
         }
             break;
         case 6:
