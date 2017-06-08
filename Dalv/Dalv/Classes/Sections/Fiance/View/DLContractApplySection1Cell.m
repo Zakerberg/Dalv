@@ -45,6 +45,11 @@
 
     [self.contentView addSubview:courierBtn];
     
+    UIView *line = [[UIView alloc] init];
+    line.backgroundColor = [UIColor colorWithHexString:@"#eeeeee"];
+    
+    [self.contentView addSubview:line];
+    
     UILabel *inviteLabel = [[UILabel alloc] init];
     self.inviteLabel = inviteLabel;
     inviteLabel.text = @"自取";
@@ -74,6 +79,12 @@
         make.right.equalTo(self.mas_right).offset(-12);
     }];
     
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(0);
+        make.center.offset(0);
+        make.width.offset(1);
+    }];
+
     [courierLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.offset(0);
         make.left.equalTo(self.mas_left).offset(15);

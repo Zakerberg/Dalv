@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/9.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//@"index.php/Api/login/agencyVerificationCode"
+//-------------------------- 顾问注册 --------------------
 
 #import "DLMineViewController.h"
 #import <MBProgressHUD.h>
@@ -60,7 +60,6 @@ static NSString *cellID  = @"cellID";
     self.tableView.tableFooterView = [UIView new];
     [self setupRegisterBtn];
 }
-
 
 -(void)setupRegisterBtn {
     
@@ -157,8 +156,6 @@ static NSString *cellID  = @"cellID";
     }
 
 }
-
-
 
 // 开启倒计时效果
 -(void)openCountdown{
@@ -347,7 +344,7 @@ static NSString *cellID  = @"cellID";
 }
 
 
-#pragma mark ------------  Table view data source --------------
+#pragma mark ------------  TableView DataSource --------------
 #pragma mark ------------  代码没封装,后期再处理   -----------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -445,9 +442,6 @@ static NSString *cellID  = @"cellID";
     }
     return cell;
 }
-
-
-
 
 #pragma mark  ----------DLCityPickerViewDelegate------------
 

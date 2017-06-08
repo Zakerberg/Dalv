@@ -16,17 +16,17 @@
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
 
-@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource>
-//自取invite
+@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+/*** 自取inviteBtn  ***/
 @property(nonatomic,strong)UIButton *inviteBtn;
-//快递Courier
+/*** 快递CourierBtn ***/
 @property(nonatomic,strong)UIButton *courierBtn;
-
-//到付
+/*** 到付Btn  ***/
 @property(nonatomic,strong)UIButton *payforBtn;
-//邮寄
+/*** 邮寄Btn  ***/
 @property(nonatomic,strong)UIButton *mailBtn;
-
+/*** 邮寄地址TextView  ***/
+@property(nonatomic,strong) UITextView * addressTV;
 
 //@property(nonatomic,strong) UIScrollView *mainScrollerView;
 //@property (nonatomic, strong) UIImageView *courierImageView;
@@ -157,6 +157,13 @@ static NSString *section5CellID = @"section5CellID";
     
     [self.contractTableView registerClass:[DLContractApplySection3Cell class] forCellReuseIdentifier:section3CellID];
     
+    [self.contractTableView registerClass:[DLContractApplySection4Cell class] forCellReuseIdentifier:section4CellID];
+    
+    [self.contractTableView registerClass:[DLContractApplySection5Cell class] forCellReuseIdentifier:section5CellID];
+    
+    
+    
+    
     [self.view addSubview:self.contractTableView];
     
     [self.contractTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -202,7 +209,7 @@ static NSString *section5CellID = @"section5CellID";
     
     self.Section1Number = 1;
     self.Section2Number = 1;
-    self.Section3Number = 3;
+    self.Section3Number = 1;
     [self.contractTableView reloadData];
 
 }
@@ -262,8 +269,13 @@ static NSString *section5CellID = @"section5CellID";
     {
         return 80;
     }
-    
+    if (indexPath.section == 3){
+        
+        return 165;
+    }
+
     return 45;
+    
 }
 
 
@@ -327,37 +339,38 @@ static NSString *section5CellID = @"section5CellID";
         
         if (indexPath.row == 0) {
             cell.textLabel.text = @"国内合同";
+            cell.textColor = [UIColor colorWithHexString:@"#494949"];
         }
         if (indexPath.row == 1) {
             cell.textLabel.text = @"境外合同";
+            cell.textColor = [UIColor colorWithHexString:@"#494949"];
         }
         if (indexPath.row == 2) {
             cell.textLabel.text = @"单项委托";
+            cell.textColor = [UIColor colorWithHexString:@"#494949"];
         }
         return cell;
-    }
-    
-    if (indexPath.section == 1 && indexPath.row == 0) {
-//        self.Section1Number = 2;
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        // self.Section1Number = 2;
         
         DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
         self.inviteBtn = cell.inviteBtn;
         self.courierBtn = cell.courierBtn;
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
-       
+        
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
-    
     }
-    if (indexPath.section == 1 && indexPath.row == 1) {
+    
+      else if (indexPath.section == 1 && indexPath.row == 1) {
         
         DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
         
         return cell;
     }
     
-    if (indexPath.section == 2) {
+     else if (indexPath.section == 2) {
         
         DLContractApplySection3Cell *cell = [tableView dequeueReusableCellWithIdentifier:section3CellID];
         
@@ -368,19 +381,82 @@ static NSString *section5CellID = @"section5CellID";
         
         [cell.mailBtn addTarget:self action:@selector(mailBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         
-        
         return cell;
     }
+     else if (indexPath.section == 3){
+         
+         DLContractApplySection4Cell *cell = [tableView dequeueReusableCellWithIdentifier:section4CellID];
+         
+         self.addressTV = cell.addressTV;
+         
+         self.addressTV.delegate = self;
+         
+         self.addressTV.font = [UIFont systemFontOfSize:15];
+         self.self.addressTV.text = @"请填写您的收货地址";
+         self.addressTV.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
+         
+         return cell;
+     }
     
-
-    DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
-    self.inviteBtn = cell.inviteBtn;
-    self.courierBtn = cell.courierBtn;
-    [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//     } else if(indexPath.section == 3 && indexPath.row == 1 ){
+         
+//         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:XTcellId];
+//         
+//         UILabel *nameLabel = [[UILabel alloc] init];
+//         nameLabel.text = @"联系人姓名:";
+//         nameLabel.font = [UIFont systemFontOfSize:15];
+//         nameLabel.textColor = [UIColor colorWithHexString:@"#494949"];
+//         
+//         
+//         
+//         
+//         
+//         
+//         
+//         
+//         
+//         
+//         
+//         return cell;
+//     }
+//    
+//     else if (indexPath.section == 3 && indexPath.row == 2){
+//        
+//         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:XTcellId];
+//         
+//         return cell;
+//         
+//     }
+//    
+    else {
+        
+        DLContractApplySection5Cell *cell = [tableView dequeueReusableCellWithIdentifier:section5CellID];
+        
+ 
+        
+        cell.backgroundColor = [UIColor clearColor];
+        
+        
+        return cell;
+  }
     
-    [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    return cell;
 }
 
+
+#pragma mark ---------  UITextViewDelegate  -------------
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@"请填写您的收货地址"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor colorWithHexString:@"b6b6b6"];
+    }
+}
+
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    
+    if (textView.text == nil) {
+        textView.textColor = [UIColor blackColor];
+    }
+}
 @end

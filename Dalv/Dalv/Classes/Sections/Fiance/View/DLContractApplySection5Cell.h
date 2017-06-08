@@ -10,4 +10,7 @@
 
 @interface DLContractApplySection5Cell : UITableViewCell
 
+/*** 提交申请Btn  ***/
+@property(nonatomic,strong) UIButton * submitBtn;
+
 @end

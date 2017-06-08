@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/27.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  -----------------   修改个人资料   -----------------
 
 #import "DLChangePersonDataController.h"
 #import "JHPickView.h"
@@ -25,10 +25,8 @@ static NSString* cellID = @"cellID";
 @property (weak, nonatomic) UITextField *mailTF;
 /**** 年龄  ****/
 @property (weak, nonatomic) UITextField *ageTF;
-
 /**** 去过的城市textView  *****/
 @property (weak, nonatomic) UITextView *goCityView;
-
 
 @end
 
@@ -140,6 +138,7 @@ static NSString* cellID = @"cellID";
 
 
 #pragma mark ---------  UITextViewDelegate  -------------
+
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     if ([textView.text isEqualToString:@"描述你去过的地方"]) {
         textView.text = @"";
@@ -255,6 +254,7 @@ static NSString* cellID = @"cellID";
         [goCityLabel sizeToFit];
         [tableView addSubview:goCityLabel];
     
+        
         UITextView *goCityView = [[UITextView alloc] initWithFrame:CGRectMake(40+173/2, 44*8+3, 520/2-15, 176/2-5)];
         
         self.goCityView = goCityView;
