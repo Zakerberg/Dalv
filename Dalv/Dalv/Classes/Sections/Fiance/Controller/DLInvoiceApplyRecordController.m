@@ -38,10 +38,6 @@
 }
 
 
-
-
-
-
 -(void)setupSubviews {
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];

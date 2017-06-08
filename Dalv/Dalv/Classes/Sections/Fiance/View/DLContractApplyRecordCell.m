@@ -44,14 +44,14 @@
     ContractType.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     ContractType.textAlignment = NSTextAlignmentLeft;
     ContractType.font = [UIFont systemFontOfSize:12];
-    ContractType.text = @"状态";
+    ContractType.text = @"状态:";
     [self.contentView addSubview:ContractType];
     
     UILabel *ContractInLandCount = [[UILabel alloc]init];
     ContractInLandCount.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     ContractInLandCount.textAlignment = NSTextAlignmentLeft;
     ContractInLandCount.font = [UIFont systemFontOfSize:12];
-    ContractInLandCount.text = @"国内合同申请份数";
+    ContractInLandCount.text = @"国内合同申请份数:";
     [self.contentView addSubview:ContractInLandCount];
     
     
@@ -59,14 +59,14 @@
     ContractOutboundCount.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     ContractOutboundCount.textAlignment = NSTextAlignmentLeft;
     ContractOutboundCount.font = [UIFont systemFontOfSize:12];
-    ContractOutboundCount.text = @"境外合同申请份数";
+    ContractOutboundCount.text = @"境外合同申请份数:";
     [self.contentView addSubview:ContractOutboundCount];
     
     UILabel *ContractPeritemCount = [[UILabel alloc]init];
     ContractPeritemCount.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     ContractPeritemCount.textAlignment = NSTextAlignmentLeft;
     ContractPeritemCount.font = [UIFont systemFontOfSize:12];
-    ContractPeritemCount.text = @"单项委托份数";
+    ContractPeritemCount.text = @"单项委托份数:";
     [self.contentView addSubview:ContractPeritemCount];
     
     _contractTypelabel = [[UILabel alloc]init];

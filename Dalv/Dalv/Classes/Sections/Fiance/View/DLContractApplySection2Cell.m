@@ -75,7 +75,6 @@
         make.height.offset(15);
     }];
     
-    
     [numberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.addressLabel1.mas_bottom).offset(15);
         make.left.height.offset(15);
@@ -86,8 +85,6 @@
         make.centerY.equalTo(numberLabel);
         make.height.offset(15);
     }];
-    
-
 }
 
 

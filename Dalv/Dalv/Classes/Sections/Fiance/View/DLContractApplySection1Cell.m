@@ -13,9 +13,6 @@
 @property(nonatomic,strong)UILabel *inviteLabel;
 @property(nonatomic,strong)UILabel *courierLabel;
 
-
-
-
 @end
 
 @implementation DLContractApplySection1Cell

@@ -24,7 +24,7 @@
     _invoiceNameLabel.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
     _invoiceNameLabel.textAlignment = NSTextAlignmentLeft;
     _invoiceNameLabel.font = [UIFont systemFontOfSize:16];
-    _invoiceNameLabel.text = @"合同申请";
+    _invoiceNameLabel.text = @"发票申请";
     [self.contentView addSubview:_invoiceNameLabel];
     
     _invoiceTimeLabel = [[UILabel alloc]init];
@@ -73,6 +73,30 @@
     _invoiceTypeLabel.font = [UIFont systemFontOfSize:12];
     _invoiceTypeLabel.text = @"审核通过";
     [self.contentView addSubview:_invoiceTypeLabel];
+    
+    
+    
+    _invoiceCompanyLabel = [[UILabel alloc]init];
+    _invoiceCompanyLabel.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    _invoiceCompanyLabel.textAlignment = NSTextAlignmentRight;
+    _invoiceCompanyLabel.font = [UIFont systemFontOfSize:12];
+    _invoiceCompanyLabel.text = @"5份";
+    [self.contentView addSubview:_invoiceCompanyLabel];
+    
+    _invoiceProjectLabel = [[UILabel alloc]init];
+    _invoiceProjectLabel.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    _invoiceProjectLabel.textAlignment = NSTextAlignmentRight;
+    _invoiceProjectLabel.font = [UIFont systemFontOfSize:12];
+    _invoiceProjectLabel.text = @"5份";
+    [self.contentView addSubview:_invoiceProjectLabel];
+    
+    
+    _invoiceAmountLabel = [[UILabel alloc]init];
+    _invoiceAmountLabel.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    _invoiceAmountLabel.textAlignment = NSTextAlignmentRight;
+    _invoiceAmountLabel.font = [UIFont systemFontOfSize:12];
+    _invoiceAmountLabel.text = @"5份";
+    [self.contentView addSubview:_invoiceAmountLabel];
     
     
     UIView *line1 = [[UIView alloc]init];
@@ -187,7 +211,9 @@
 /** 配置Cell */
 -(void)configureCell:(DLInvoiceRecordModel *)invoiceRecordModel{
     
-    self.invoiceNameLabel.text = _invoiceModel.create_time;
+    self.invoiceTimeLabel.text = _invoiceModel.create_time;
+//    self.invoiceNameLabel.text = _invoiceModel.invoiceid;
+    
     
     if ([invoiceRecordModel.state isEqualToString:@"1"]) {
         self.invoiceTypeLabel.text = @"未审核";

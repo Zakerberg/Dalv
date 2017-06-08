@@ -273,6 +273,7 @@
 		45DB48011EE7FF2200399A6D /* DLInvoiceApplyRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48001EE7FF2100399A6D /* DLInvoiceApplyRecordCell.m */; };
 		45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48031EE8480E00399A6D /* DLContractApplySection1Cell.m */; };
 		45DB48071EE8577200399A6D /* DLContractApplySection2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */; };
+		45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */; };
 		45E119EC1ED2FF4300FDFEBA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */; };
 		45E119EE1ED2FF4F00FDFEBA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */; };
 		45E119F01ED2FF7100FDFEBA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */; };
@@ -699,6 +700,8 @@
 		45DB48031EE8480E00399A6D /* DLContractApplySection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection1Cell.m; sourceTree = "<group>"; };
 		45DB48051EE8577200399A6D /* DLContractApplySection2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection2Cell.h; sourceTree = "<group>"; };
 		45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection2Cell.m; sourceTree = "<group>"; };
+		45DB48081EE8DB6400399A6D /* DLContractApplySection3Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection3Cell.h; sourceTree = "<group>"; };
+		45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection3Cell.m; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		45E119ED1ED2FF4F00FDFEBA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		45E119EF1ED2FF7100FDFEBA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1577,6 +1580,8 @@
 				45DB48031EE8480E00399A6D /* DLContractApplySection1Cell.m */,
 				45DB48051EE8577200399A6D /* DLContractApplySection2Cell.h */,
 				45DB48061EE8577200399A6D /* DLContractApplySection2Cell.m */,
+				45DB48081EE8DB6400399A6D /* DLContractApplySection3Cell.h */,
+				45DB48091EE8DB6400399A6D /* DLContractApplySection3Cell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1975,6 +1980,7 @@
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
 				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
+				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */,
