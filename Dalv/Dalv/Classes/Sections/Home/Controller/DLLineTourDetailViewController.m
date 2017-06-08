@@ -13,6 +13,7 @@
 #import "DLPlaceOrderViewController.h"
 #import "DLHomeViewTask.h"
 #import "DLLineDetialTableViewCell.h"
+#import "DLLineModificationViewController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -169,6 +170,10 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         cell.delegate = self;
         [cell configureCell:self.detaiInfoModel];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.btnClick = ^(){
+//        DLLineModificationViewController *lineModificationVC =[[DLLineModificationViewController alloc]init];
+//        [self.navigationController pushViewController:lineModificationVC animated:YES];
+//        };
         return cell;
     } else if (indexPath.section == 2) {
         DLLineDetialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
@@ -321,8 +326,16 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     
 }
 
+-(void)didClickButtonDelegate:(UIButton *)button
+{
+    DLLineModificationViewController *lineModificationVC = [[DLLineModificationViewController alloc]init];
+    [self.navigationController pushViewController:lineModificationVC animated:YES];
+}
+
 - (void)pushHomePageBtn {
     NSLog(@"点击了推到首页");
+    DLLineModificationViewController *lineModificationVC = [[DLLineModificationViewController alloc]init];
+    [self.navigationController pushViewController:lineModificationVC animated:YES];
 }
 
 

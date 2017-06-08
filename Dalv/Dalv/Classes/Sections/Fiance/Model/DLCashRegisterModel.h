@@ -19,7 +19,7 @@
 /** 状态*/
 @property (nonatomic, copy) NSString *state;
 /** 订单号*/
-@property (nonatomic, copy) NSString *sn;
+@property (nonatomic, copy) NSString *account;
 /** 提现审核失败后的理由*/
 @property (nonatomic, copy) NSString *memo;
 

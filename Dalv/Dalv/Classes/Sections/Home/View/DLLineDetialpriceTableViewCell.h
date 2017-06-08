@@ -14,6 +14,7 @@
 @optional
 
 - (void)segmentTapDelegate:(NSUInteger  )index;
+- (void)didClickButtonDelegate:(UIButton *)button;
 
 @end
 
@@ -23,6 +24,9 @@
 @property (nonatomic , weak) id <DLLineDetialTableViewCellDelegate>delegate;
 
 @property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
+
+@property (nonatomic, strong)void(^btnClick)();
+
 
 /**
  *  Cell 重用ID
