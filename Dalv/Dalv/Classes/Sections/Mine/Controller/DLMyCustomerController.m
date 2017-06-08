@@ -2,55 +2,137 @@
 //  DLMyCustomerController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/6/2.
+//  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
 #import "DLMyCustomerController.h"
-#import "DLCustomerListViewController.h"
 
-@interface DLMyCustomerController ()
-@property (weak, nonatomic) IBOutlet UILabel *myCommisionLabel;
+@interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong) UITableView * customerTableView;
 
 @end
 
+static NSString *cellID = @"cellID";
 @implementation DLMyCustomerController
-
-/*** 我的直客列表 ***/
-- (IBAction)myCustomerListClick:(id)sender {
-    
-    DLCustomerListViewController *listVC = [[DLCustomerListViewController alloc] init];
-    
-    [self.navigationController pushViewController:listVC animated:YES];
-    
-}
-
-/*** 直客机票订单 ***/
-- (IBAction)tickerOrderBtnClick:(id)sender {
-}
-
-/*** 直客评价 ***/
-- (IBAction)feedBackBtnClick:(id)sender {
-    
-}
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTableView];
     self.title = @"我的直客";
+    self.view.backgroundColor = [UIColor ms_backgroundColor];;
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
+    
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark -----------   Set UITableView ----------------
+
+-(void)setTableView {
+    
+    self.customerTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.customerTableView.dataSource = self;
+    self.customerTableView.backgroundColor = [UIColor ms_backgroundColor];
+    self.customerTableView.delegate = self;
+    [self.customerTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.customerTableView.showsVerticalScrollIndicator = NO;
+    
+    [self.customerTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    
+
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark ----------- UITable View Delegate ----------------
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    if (section == 0) {
+        return 0.1;
+    }
+    
+    return 25;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 45;
+}
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 1;
+    }
+    return 3;
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    return cell;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

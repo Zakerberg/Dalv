@@ -12,7 +12,7 @@
 
 @property(nonatomic,strong) UILabel * payforLabel;
 @property(nonatomic,strong) UILabel * mailLabel;
-
+@property(nonatomic,strong) UILabel * costLabel;
 @end
 
 @implementation DLContractApplySection3Cell
@@ -62,6 +62,17 @@
     
     [self.contentView addSubview:mailLabel];
     
+    
+    UILabel *costLabel = [[UILabel alloc] init];
+    self.costLabel = costLabel;
+    costLabel.text = @"(支付10元快递费)";
+    costLabel.font = [UIFont systemFontOfSize:13];
+    [costLabel sizeToFit];
+    costLabel.textColor = [UIColor colorWithHexString:@"#ff7838"];
+    
+    [self.contentView addSubview:costLabel];
+    
+    
     [payforBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.offset(0);
         make.height.with.offset(20);
@@ -69,7 +80,6 @@
     }];
     
     [mailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.centerY.offset(0);
         make.height.with.offset(20);
         make.right.equalTo(self.mas_right).offset(-12);
@@ -82,10 +92,18 @@
     }];
     
     [mailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.offset(0);
-        make.left.equalTo(self.mas_centerX).offset(15);
         make.height.offset(15);
+        make.centerX.equalTo(self.mas_centerX).offset(30);
+        make.centerY.equalTo(self.mas_centerY).offset(-10);
     }];
+    
+    [costLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(mailLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.mas_centerX).offset(10);
+        make.height.offset(13);
+    }];
+    
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

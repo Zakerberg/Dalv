@@ -23,7 +23,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self fetchData];
-    
+    self.title = @"合同申请记录";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -31,10 +31,6 @@
 
 - (BOOL)dl_blueNavbar {
     return YES;
-}
-
-- (void)setupNavbar {
-    self.title = @"合同申请记录";
 }
 
 - (void)setupSubviews {

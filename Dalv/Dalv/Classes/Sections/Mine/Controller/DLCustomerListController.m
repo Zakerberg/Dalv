@@ -1,22 +1,22 @@
 //
-//  DLCourierController.m
+//  DLCustomerListController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/6/7.
+//  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLCourierController.h"
+#import "DLCustomerListController.h"
 
-@interface DLCourierController ()
+@interface DLCustomerListController ()
 
 @end
 
-@implementation DLCourierController
+@implementation DLCustomerListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
