@@ -34,7 +34,6 @@
     submitBtn.backgroundColor = [UIColor colorWithHexString:@"#4d67ee"];
     submitBtn.layer.cornerRadius = 8.0;
     
-    
     [self.contentView addSubview:submitBtn];
     
     
