@@ -1,24 +1,22 @@
 //
-//  DLCustomerListViewController.m
+//  DLCustomerListController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/6/5.
+//  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLCustomerListViewController.h"
+#import "DLCustomerListController.h"
 
-@interface DLCustomerListViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *numLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface DLCustomerListController ()
 
 @end
 
-@implementation DLCustomerListViewController
+@implementation DLCustomerListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

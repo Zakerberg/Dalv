@@ -15,6 +15,7 @@
 @end
 
 static NSString *cellID = @"cellID";
+static NSString *cell2ID = @"cell2ID";
 @implementation DLInvioiceApplyController
 
 - (void)viewDidLoad {
@@ -42,7 +43,9 @@ static NSString *cellID = @"cellID";
 
     [self.invoiceTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
+    [self.invoiceTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cell2ID];
     
+
     
     
     
@@ -88,7 +91,9 @@ static NSString *cellID = @"cellID";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        return 75;
+    }
 
     return 45;
 }
@@ -124,9 +129,15 @@ static NSString *cellID = @"cellID";
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    if (indexPath.section == 0){
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
 
+    return cell;
+    }
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell2ID];
+    
     return cell;
 
 

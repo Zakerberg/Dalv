@@ -2,55 +2,36 @@
 //  DLMyCustomerController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/6/2.
+//  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  -------------------- 我的直客 ---------------------
+//
 
 #import "DLMyCustomerController.h"
-#import "DLCustomerListViewController.h"
 
 @interface DLMyCustomerController ()
-@property (weak, nonatomic) IBOutlet UILabel *myCommisionLabel;
 
 @end
 
 @implementation DLMyCustomerController
 
-/*** 我的直客列表 ***/
-- (IBAction)myCustomerListClick:(id)sender {
-    
-    DLCustomerListViewController *listVC = [[DLCustomerListViewController alloc] init];
-    
-    [self.navigationController pushViewController:listVC animated:YES];
-    
-}
-
-/*** 直客机票订单 ***/
-- (IBAction)tickerOrderBtnClick:(id)sender {
-}
-
-/*** 直客评价 ***/
-- (IBAction)feedBackBtnClick:(id)sender {
-    
-}
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的直客";
+    // Do any additional setup after loading the view.
 }
-
-- (BOOL)dl_blueNavbar {
-    return YES;
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
+    // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
