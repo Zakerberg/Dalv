@@ -14,6 +14,7 @@
 #import "DLContractApplyController.h"
 #import "DLContractApplyViewCell.h"
 #import "DLHomeViewTask.h"
+#import "DLRequestSerVice.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 /*** 自取inviteBtn  ***/
@@ -30,11 +31,28 @@
 /*** 提交申请Btn  ***/
 @property(nonatomic,strong) UIButton * submitBtn;
 
+
+/*** 联系人姓名TextFiled  ***/
+@property(nonatomic,strong) UITextField *nameTF;
+/*** 联系人电话TextFiled  ***/
+@property(nonatomic,strong) UITextField *numberTF;
+
+/** 输入框中的内容 */
+@property (nonatomic, assign ) NSInteger currentNumber;
+
 @property (nonatomic, strong) UITableView *contractTableView;
 
 @property(nonatomic,assign) NSInteger Section1Number;
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,assign) NSInteger Section3Number;
+
+
+//获取方式
+@property(nonatomic,assign) NSString *methodBtnNumber;
+
+//费用
+@property(nonatomic,assign) NSString *express_feeNumber;
+
 
 @end
 
@@ -111,6 +129,8 @@ static NSString *section5CellID = @"section5CellID";
 /*** 自取按钮 ***/
 -(void)inviteBtnClick {
     
+    self.methodBtnNumber = @"1";
+    
     [self.inviteBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     [self.courierBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     
@@ -122,6 +142,8 @@ static NSString *section5CellID = @"section5CellID";
 
 /***  快递按钮 ***/
 -(void)courierBtnClick {
+    
+    self.methodBtnNumber = @"2";
     
     [self.courierBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     [self.inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
@@ -136,6 +158,9 @@ static NSString *section5CellID = @"section5CellID";
 /*** 到付按钮 ***/
 -(void)payforBtnCLick {
 
+    
+    self.express_feeNumber = @"3";
+    
     [self.payforBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     [self.mailBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
 }
@@ -143,6 +168,8 @@ static NSString *section5CellID = @"section5CellID";
 /*** 邮寄按钮 ***/
 -(void)mailBtnCLick {
 
+    
+    self.express_feeNumber = @"4";
     [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
 }
@@ -171,27 +198,75 @@ static NSString *section5CellID = @"section5CellID";
  }];
  
  }
- 
+          [NSString stringWithFormat: @"%d", NSInteger];
  
  */
 
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
     
-    NSDictionary *param = @{
-                            
-                            
-                            
-                            
-                            
-                            };
+
     
+    //自取
+    if ([self.methodBtnNumber isEqualToString:@"1"]) {
+        
+        NSDictionary *param1 = @{
+                                 
+                                 @"uid":@"1132",
+                                 @"sign_token" : @"d192ea97b44fb3d7854e635256bf1f93",
+                                 @"request_method":self.methodBtnNumber,
+                                 @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                 @"outbound":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                 @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                 @"code":@"400",
+                                 };
+
+        [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
+                    }];
+                }
+
+    //快递
+    else if ([self.methodBtnNumber isEqualToString:@"2"]){
+        
+        if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
+            
+            NSDictionary *param = @{
+                                    
+                                    @"uid" : @"1132",
+                                    @"sign_token" : @"d192ea97b44fb3d7854e635256bf1f93",
+                                    @"addr":self.addressTV.text,
+                                    @"name":self.nameTF.text,
+                                    @"phone":self.numberTF.text,
+                                    @"request_method":self.methodBtnNumber,
+                                    @"express_fee":self.express_feeNumber,
+                                    @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                    @"outbound":[NSString stringWithFormat:@"%ld",(long  )self.currentNumber],
+                                    @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                    @"code":@"400",
+                                    };
+
+            [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
+                NSLog(@"%@",result);
+            }];
+        }else{
+        
+        }
+
+    }
     
-    
-    
-    
-    
-}
+//    }
+//
+//    if ([self.methodBtnNumber isEqualToString:@"1"]) {
+//        [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
+//        }];
+//    }
+//    
+//    [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
+//    }];
+//    
+//}}
+     
+     }
 
 #pragma mark  ----------UITable View Delegate------------
 
@@ -297,6 +372,7 @@ static NSString *section5CellID = @"section5CellID";
         
         DLContractApplyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
         
         if (indexPath.row == 0) {
             cell.textLabel.text = @"国内合同";
@@ -345,11 +421,11 @@ static NSString *section5CellID = @"section5CellID";
         return cell;
     }
     else if (indexPath.section == 3){
-        
         DLContractApplySection4Cell *cell = [tableView dequeueReusableCellWithIdentifier:section4CellID];
         
         self.addressTV = cell.addressTV;
-        
+        self.nameTF = cell.nameTF;
+        self.numberTF = cell.numberTF;
         self.addressTV.delegate = self;
         
         self.addressTV.font = [UIFont systemFontOfSize:15];

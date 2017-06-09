@@ -9,23 +9,24 @@
 #import "DLLoginViewController.h"
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
-#import "DLHttpRequest.h"
 #import "DLChoseViewController.h"
+#import "DLHomeViewTask.h"
+#import "DLRequestSerVice.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
+
+@property (strong,nonatomic) UITextField *loginIdTextField;
+@property (strong,nonatomic) UITextField *passwordTextField;
 
 @end
 
 /*
- 
  测试登陆接口地址：
  http://dalvuapi.dalvu.com/index.php/Api/login/agencyIndex
  请求方式：POST
  请求参数：{login_name : 13126997216 ,login_pwd : 123456}
  返回数据：
  */
- 
- 
  
 
 
@@ -36,7 +37,6 @@
     [super viewDidLoad];
     [self setupNavbar];
     [self configureSubViews];
-    
 }
 
 #pragma mark - Setup navbar
@@ -51,6 +51,7 @@
 
 #pragma mark - configureSubViews
 - (void)configureSubViews{
+    
     DLLoginView *loginView = [[DLLoginView alloc] init];
     loginView.delegate = self;
     self.view = loginView;
@@ -61,21 +62,28 @@
 
 - (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password{
     
-
-    [DLRequestSerVice POST:DL_Login param:usename
+    //http://dalvuapi.dalvu.com/index.php/Api/login/agencyIndex?login_name=13126997216&login_pwd=123456
+    
+    NSDictionary *param  = @{
+                             @"login_name":@13126997216,
+                             @"login_pwd":@123456,
+                             };
+//
+//    [DLHomeViewTask loginWithUserName:self.loginIdTextField.text password:self.passwordTextField.text completion:^(id result, NSError *error) {
+//        
+//    }];
+    
+    [DLRequestSerVice POST:DL_Login param:param
                    success:^(id responseData) {
 
                        NSLog(@"登录成功!%@",responseData);
                        [self.navigationController popViewControllerAnimated:YES];
                        //在这给单例类赋值
                    } failure:^(NSError *error) {
-                       
-                       
-    }];
+
+                   }];
+
 }
-
-
-
 
 //注册
 - (void)didRegisterButton
@@ -85,13 +93,6 @@
     
     
 }
-
-
-
-
-
-
-
 
 #pragma mark - Fetch data
 

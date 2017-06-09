@@ -255,8 +255,17 @@ static NSString *cell2ID = @"cell2ID";
 
             
             [amountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//               make
+                make.left.height.equalTo(@15);
+                make.top.offset(175);
             }];
+
+            [moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(amountLabel.mas_centerY).offset(0);
+                make.height.offset(32);
+                make.right.offset(0);
+                make.left.equalTo(amountLabel.mas_right).offset(15);
+            }];
+            
             
             
             

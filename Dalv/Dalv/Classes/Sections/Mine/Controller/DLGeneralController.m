@@ -53,38 +53,28 @@ static NSString *cellID  = @"cellID";
     tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
 
 }
 
 
 -(void)setupLogoutBtn {
-        
-        
-        /*
-         
-         UIButton *footBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-         footBtn.frame=CGRectMake(self.passwordTextField.x, self.passwordTextField.bottom+30, self.passwordTextField.width, 40);
-         [footBtn setTitle:@"登录" forState:UIControlStateNormal];
-         footBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
-         [footBtn  addTarget:self action:@selector(performLoginAction) forControlEvents:UIControlEventTouchUpInside];
-         footBtn.layer.cornerRadius = 8.0;
-         [self addSubview:footBtn];
-         
-         
-         */
-    
-    
-    
+
     UIButton *logOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.logOutBtn = logOutBtn;
-    logOutBtn.frame = CGRectMake(13+10, 44*3+9+20, 670/2, 44);
+//    logOutBtn.frame = CGRectMake(13+10, 44*3+9+20, 670/2, 44);
     [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     logOutBtn.backgroundColor = [UIColor redColor];
     [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     logOutBtn.layer.cornerRadius = 8.0;
     [self.tableView addSubview:logOutBtn];
     
+    
+    [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(15);
+        make.height.offset(44);
+        make.top.offset(45*3+33);
+        make.width.offset(MAIN_SCREEN_WIDTH- 30);
+    }];
 }
 
 - (void)back {
@@ -203,18 +193,6 @@ static NSString *cellID  = @"cellID";
             NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
             cell.textLabel.text = [NSString stringWithFormat:@"清除缓存                                          %@",fileSize];
         }
-    
-//        if (indexPath.section == 1) {
-//            
-//            UIButton *logOutBtn = [[UIButton alloc] init];
-//            self.logOutBtn = logOutBtn;
-//            [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
-//            logOutBtn.tintColor = [UIColor colorWithHexString:@"#fe603b"];
-//            logOutBtn.contentVerticalAlignment = 0;
-//            logOutBtn.contentHorizontalAlignment = 0;
-//            [self.tableView addSubview:logOutBtn];
-//            [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
-//        }
     }
 
     return cell;

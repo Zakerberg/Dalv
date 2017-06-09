@@ -11,6 +11,7 @@
 @interface DLLoginView ()<UITextFieldDelegate>
 
 @property (nonatomic, assign) CGRect defaultViewRect;
+
 @end
 
 @implementation DLLoginView
