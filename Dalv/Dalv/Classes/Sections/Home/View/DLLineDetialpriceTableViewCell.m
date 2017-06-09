@@ -9,6 +9,7 @@
 #import "DLLineDetialpriceTableViewCell.h"
 #import "DLLineDetialCollectionViewCell.h"
 #import "DLRemindSegmentView.h"
+#import "DLLineModificationViewController.h"
 
 @interface DLLineDetialpriceTableViewCell ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UILabel *lineDetialNameLab;//标题
@@ -23,6 +24,8 @@
 @property (nonatomic, strong) UIImageView *dateImageView;
 @property (nonatomic, strong) UILabel *groupDatelab;
 @property (nonatomic, strong) UIImageView *rightimage;
+@property (nonatomic, strong) UIButton *lineModificationBtn;
+
 
 @property (nonatomic, strong) UICollectionView *collectionView;//菜单
 
@@ -82,6 +85,14 @@
     _lineDetialPriceLab.textColor = [UIColor colorWithHexString:@"fe603b"];
     _lineDetialPriceLab.text = @"¥1699.0";
     [self.contentView addSubview:_lineDetialPriceLab];
+    
+    _lineModificationBtn = [[UIButton alloc]init];
+    [_lineModificationBtn setTitle:@"改价" forState:(UIControlStateNormal)];
+    [_lineModificationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_lineModificationBtn addTarget:self action:@selector(pushLineModification) forControlEvents:UIControlEventTouchUpInside];
+    _lineModificationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+       _lineModificationBtn.layer.cornerRadius = 2.0;
+    [self.contentView addSubview:_lineModificationBtn];
     
     _departureScheduleView = [[UIView alloc]init];
     _departureScheduleView.backgroundColor = [UIColor colorWithHexString:@"f3f3f3"];
@@ -181,12 +192,19 @@
     }];
     
     [_lineDetialPriceLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_lineView.mas_bottom).offset(5);
+        make.top.equalTo(_lineView.mas_bottom);
         make.left.equalTo(@15);
         make.width.equalTo(@200);
-        make.height.equalTo(@30);
+        make.height.equalTo(@40);
     }];
     
+    [_lineModificationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lineDetialPriceLab);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.width.equalTo(@60);
+        make.height.equalTo(@30);
+    }];
+
     [_departureScheduleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_lineDetialPriceLab.mas_bottom);
         make.left.equalTo(self.contentView);
@@ -285,4 +303,15 @@
     
 }
 
+//- (void)pushLineModificationBtn:(UIButton *)sender {
+//
+//    if (self.btnClick) {
+//        self.btnClick();
+//    }
+//}
+
+-(void)pushLineModification:(UIButton *)btn
+{
+    [self.delegate didClickButtonDelegate:btn];
+}
 @end

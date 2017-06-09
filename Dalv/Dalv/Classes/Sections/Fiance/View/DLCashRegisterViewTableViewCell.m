@@ -171,7 +171,7 @@
     }
     self.transactionTimelab.text = cashModel.create_time;
     self.accountBalancelab.text  = [NSString stringWithFormat:@"¥ %@",cashModel.amount];
-    self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",cashModel.sn];
+    self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",cashModel.account];
 }
 
 

@@ -32,6 +32,9 @@
 		1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29817C1EE0F40C00712524 /* DLCashRegisterModel.m */; };
 		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
 		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
+		1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */; };
+		1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */; };
+		1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */; };
 		1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */; };
 		1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */; };
 		1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438271ECFCC1E006DF42E /* DLUtils.m */; };
@@ -340,6 +343,12 @@
 		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
 		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
 		1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialCollectionViewCell.m; sourceTree = "<group>"; };
+		1C74F6C51EE8FD9F0012EB10 /* DLLineModificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewController.h; sourceTree = "<group>"; };
+		1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationViewController.m; sourceTree = "<group>"; };
+		1C74F6C81EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewDetailTableViewCell.h; sourceTree = "<group>"; };
+		1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationViewDetailTableViewCell.m; sourceTree = "<group>"; };
+		1C74F6CB1EE923E60012EB10 /* DLRoutePricingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRoutePricingTableViewCell.h; sourceTree = "<group>"; };
+		1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRoutePricingTableViewCell.m; sourceTree = "<group>"; };
 		1C8438201ECFCBEB006DF42E /* BLMClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMClearCacheTool.h; sourceTree = "<group>"; };
 		1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMClearCacheTool.m; sourceTree = "<group>"; };
 		1C8438231ECFCBFA006DF42E /* UIViewController+BLMHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BLMHUD.h"; sourceTree = "<group>"; };
@@ -1090,6 +1099,8 @@
 				1CB953381ECFC41600BDC2D3 /* DLMenuViewController.m */,
 				1CB953391ECFC41600BDC2D3 /* DLRecommendRouteViewController.h */,
 				1CB9533A1ECFC41600BDC2D3 /* DLRecommendRouteViewController.m */,
+				1C74F6C51EE8FD9F0012EB10 /* DLLineModificationViewController.h */,
+				1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1145,6 +1156,10 @@
 				1C0B57D81ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m */,
 				1C0B57EA1ED7DA3700592BBB /* DLAddReduceButton.h */,
 				1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */,
+				1C74F6C81EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.h */,
+				1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */,
+				1C74F6CB1EE923E60012EB10 /* DLRoutePricingTableViewCell.h */,
+				1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1931,6 +1946,8 @@
 				45305A411ED833730023E892 /* UILabel+Extension.m in Sources */,
 				45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
+				45DB47B01EE54DD700399A6D /* DLCustomerListViewController.m in Sources */,
+				1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
@@ -1948,6 +1965,9 @@
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
+				1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */,
+				4550B96C1EE0F55E002269BF /* DLMyCustomerController.m in Sources */,
+				45DB47EE1EE7CED500399A6D /* DLCourierController.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */,
 				45BEE2031EE50EC400393EE5 /* DLHeadScrollView.m in Sources */,
@@ -1971,6 +1991,7 @@
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
+				1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */,
 				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */,
