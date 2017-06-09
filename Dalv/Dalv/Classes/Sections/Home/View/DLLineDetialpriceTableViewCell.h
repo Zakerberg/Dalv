@@ -13,9 +13,9 @@
 
 @optional
 
-- (void)segmentTapDelegate:(NSUInteger  )index;
-- (void)didClickButtonDelegate:(UIButton *)button;
-
+- (void)segmentTapDelegate:(NSUInteger )index;
+- (void)changeThePriceButtonDelegate:(UIButton *)button;
+- (void)selectDateViewDelegate:(UITapGestureRecognizer *)tapdate;
 @end
 
 /** 线路详情cell*/
@@ -25,7 +25,6 @@
 
 @property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
 
-@property (nonatomic, strong)void(^btnClick)();
 
 
 /**
