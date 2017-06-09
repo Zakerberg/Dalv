@@ -205,8 +205,6 @@ static NSString *section5CellID = @"section5CellID";
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
     
-
-    
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
         
@@ -251,22 +249,8 @@ static NSString *section5CellID = @"section5CellID";
         }else{
         
         }
-
     }
-    
-//    }
-//
-//    if ([self.methodBtnNumber isEqualToString:@"1"]) {
-//        [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
-//        }];
-//    }
-//    
-//    [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
-//    }];
-//    
-//}}
-     
-     }
+}
 
 #pragma mark  ----------UITable View Delegate------------
 

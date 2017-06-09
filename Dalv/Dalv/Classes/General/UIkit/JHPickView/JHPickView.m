@@ -112,7 +112,7 @@
         [self.bgV addSubview:self.cancelBtn];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.top.mas_equalTo(150);
+            make.top.mas_equalTo(120);
             make.left.mas_equalTo(15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
@@ -138,7 +138,7 @@
         [self.conpleteBtn addTarget:self action:@selector(completeBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.conpleteBtn setTitleColor:[UIColor colorWithRed:1.00f green:0.59f blue:0.00f alpha:1.00f] forState:UIControlStateNormal];
         
-        //选择titi
+        //选择
         self.selectLb = [UILabel new];
         [self.bgV addSubview:self.selectLb];
         [self.selectLb mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -169,20 +169,6 @@
 }
 
 
-#pragma mark - setter、getter
-- (void)setSelectDate:(NSString *)selectDate {
-    
-    [_datePicker setDate:[self.formatter dateFromString:selectDate] animated:YES];
-}
-- (NSDateFormatter *)formatter {
-    if (_formatter) {
-        return _formatter;
-    }
-    _formatter =[[NSDateFormatter alloc] init];
-    [_formatter setDateFormat:@"yyyy年MM月d日"];
-    return _formatter;
-    
-}
 - (void)setCustomArr:(NSArray *)customArr{
     
     //选择器
@@ -190,8 +176,8 @@
     [self.bgV addSubview:self.pickerV];
     [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.bottom.mas_equalTo(_line);
-        make.top.mas_equalTo(self.bgV);
+        make.top.mas_equalTo(_line);
+//        make.top.mas_equalTo(self.bgV);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
         
@@ -348,7 +334,6 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self hideAnimation];
-    
 }
 
 #pragma mark 拼接最终的值

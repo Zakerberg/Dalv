@@ -190,8 +190,28 @@ static NSString *cellID  = @"cellID";
         }
         if (indexPath.row == 2) {
             
-            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
-            cell.textLabel.text = [NSString stringWithFormat:@"清除缓存                                          %@",fileSize];
+//            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
+//            
+//            UILabel *cacheLabel = [[UILabel alloc] init];
+//            
+//            cacheLabel.font = [UIFont systemFontOfSize:15];
+//            cacheLabel.text = [NSString stringWithFormat:@"%@",fileSize];
+//            [cacheLabel sizeToFit];
+//            [self.tableView addSubview:cacheLabel];
+//            
+//            
+//            [cacheLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//               
+////                make.centerY.offset(0);
+//                make.height.offset(15);
+//                make.top.offset(22*3);
+//                make.right.offset(15);
+////                make.bottom.equalTo(self.logOutBtn.mas_top).offset(15);
+//                
+//            }];
+//            
+
+            cell.textLabel.text = @"清除缓存";
         }
     }
 
