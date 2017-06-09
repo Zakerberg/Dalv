@@ -87,6 +87,28 @@
     
 }
 
++ (void)getLoginAgencyVerificationCode:(NSDictionary *)param
+                  completion:(void (^)(id result, NSError *error))completionHandler {
+    
+    [DLRequestSerVice POST:DL_LoginAgencyVerificationCode param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
++ (void)getLoginAgencyRegister:(NSDictionary *)param
+                  completion:(void (^)(id result, NSError *error))completionHandler {
+    
+    [DLRequestSerVice POST:DL_LoginAgencyRegister param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
 
 + (void)loginWithUserName:(NSString *)phoneStr
                  password:(NSString *)password
@@ -134,6 +156,61 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 }
+
++ (void)getAgencyPersonalChangeTitle:(NSDictionary *)param
+              completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyPersonalChangeTitle param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyChangePrice:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyChangePrice param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyChangePriceHandle:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyChangePriceHandle param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyRecommend:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyRecommend param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyOrderInfo:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyOrderInfo param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyOrderInfoHandle:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyOrderInfoHandle param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
 
 + (void)getAgencyPersonal:(NSDictionary *)param
                completion:(void (^)(id result, NSError *error))completionHandler{
@@ -355,6 +432,69 @@
 + (void)getAgencyFinanceMyRecommend:(NSDictionary *)param
                          completion:(void (^)(id result, NSError *error))completionHandler{
     [DLRequestSerVice POST:DL_AgencyFinanceMyRecommend param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFinanceMyRecommendDel:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFinanceMyRecommendDel param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFlightMyPlaneTicket:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFlightMyPlaneTicket param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFlightPlaneTicketDetail:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFlightPlaneTicketDetail param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFlightFlightProfit:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFlightFlightProfit param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFlightVisitorPlaneTicket:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFlightVisitorPlaneTicket param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyFlightPlaneProfitDetail:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyFlightPlaneProfitDetail param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
++ (void)getAgencyPersonalProviderQuery:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_AgencyPersonalProviderQuery param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;

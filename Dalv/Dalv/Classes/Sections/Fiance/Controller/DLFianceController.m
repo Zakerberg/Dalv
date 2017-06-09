@@ -18,6 +18,7 @@
 #import "DLContractApplyRecordController.h"
 #import "DLInvoiceApplyRecordController.h"
 #import "DLInvioiceApplyController.h"
+#import "DLHomeViewTask.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
@@ -25,6 +26,8 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 @property (nonatomic, weak) UICollectionView *appCollectionView;
 
 @property (nonatomic, strong) NSArray *apps;
+
+@property(nonatomic,strong) NSMutableDictionary *fianceDict;
 
 @end
 
@@ -95,6 +98,17 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (void)fetchData {
     self.apps = [DLHomePageViewModel creatFianceMenuItems];
     [self.appCollectionView reloadData];
+            NSDictionary *param = @{@"uid" : @"1132",
+                                    @"sign_token" : @"d7eabff2586161efbf0845b0eba46337",};
+     @weakify(self);
+    [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
+        @strongify(self);
+       if (result) {
+           self.fianceDict = [result objectForKey:@"agencyInfo"];
+       }else {
+           [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+       }
+    }];
     
 }
 

@@ -24,8 +24,8 @@
 @property (nonatomic, strong) UIImageView *dateImageView;
 @property (nonatomic, strong) UILabel *groupDatelab;
 @property (nonatomic, strong) UIImageView *rightimage;
-@property (nonatomic, strong) UIButton *lineModificationBtn;
-
+@property (nonatomic, strong) UIButton *lineModificationBtn;//改价
+@property (nonatomic, strong) UIButton *titleChangeBtn;//改标题
 
 @property (nonatomic, strong) UICollectionView *collectionView;//菜单
 
@@ -52,6 +52,15 @@
     _lineDetialNameLab.text = @"标题XXXXXX";
     _lineDetialNameLab.numberOfLines = 0;
     [self.contentView addSubview:_lineDetialNameLab];
+    
+    _titleChangeBtn = [[UIButton alloc]init];
+    [_titleChangeBtn setTitle:@"修改标题" forState:(UIControlStateNormal)];
+    [_titleChangeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_titleChangeBtn addTarget:self action:@selector(pushLineModification:) forControlEvents:UIControlEventTouchUpInside];
+    _titleChangeBtn.titleLabel.font = [UIFont systemFontOfSize: 13.0];
+    _titleChangeBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+    _titleChangeBtn.layer.cornerRadius = 2.0;
+    [self.contentView addSubview:_titleChangeBtn];
     
     _lineDetialNumberLab = [[UILabel alloc]init];
     _lineDetialNumberLab.textColor = [UIColor blackColor];
@@ -88,8 +97,8 @@
     
     _lineModificationBtn = [[UIButton alloc]init];
     [_lineModificationBtn setTitle:@"改价" forState:(UIControlStateNormal)];
-    [_lineModificationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_lineModificationBtn addTarget:self action:@selector(pushLineModification) forControlEvents:UIControlEventTouchUpInside];
+    [_lineModificationBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_lineModificationBtn addTarget:self action:@selector(pushLineModification:) forControlEvents:UIControlEventTouchUpInside];
     _lineModificationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
        _lineModificationBtn.layer.cornerRadius = 2.0;
     [self.contentView addSubview:_lineModificationBtn];
@@ -164,6 +173,13 @@
         make.right.equalTo(self.contentView).offset(-15);
     }];
     
+    [_titleChangeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lineDetialNameLab);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.width.equalTo(@60);
+        make.height.equalTo(@30);
+    }];
+
     [_lineDetialNumberLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_lineDetialNameLab.mas_bottom).with.offset(15);
         make.left.equalTo(@15);
@@ -300,18 +316,16 @@
 #pragma mark - private methods
 - (void)selectDateView:(UITapGestureRecognizer *)tap {
     NSLog(@"点击了选择日期");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectDateViewDelegate:)]) {
+        [self.delegate selectDateViewDelegate:tap];
+    }
+
     
 }
 
-//- (void)pushLineModificationBtn:(UIButton *)sender {
-//
-//    if (self.btnClick) {
-//        self.btnClick();
-//    }
-//}
-
--(void)pushLineModification:(UIButton *)btn
-{
-    [self.delegate didClickButtonDelegate:btn];
-}
+-(void)pushLineModification:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changeThePriceButtonDelegate:)]) {
+        [self.delegate changeThePriceButtonDelegate:btn];
+    }
+ }
 @end

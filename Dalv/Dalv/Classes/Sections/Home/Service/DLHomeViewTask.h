@@ -79,7 +79,25 @@
 
 
 /**
- * 8 测试登陆接口地址
+ * 8 测试注册时发送短信接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getLoginAgencyVerificationCode:(NSDictionary *)param
+                  completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 9 测测试顾问注册接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getLoginAgencyRegister:(NSDictionary *)param
+                  completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 10 测试登陆接口地址
  *  @param phoneStr 用户名：手机号
  *  @param password 密码
  *  @param completionHandler 完成后的回调
@@ -90,7 +108,7 @@
                completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 9 测试顾问首页模块接口地址
+ * 11 测试顾问首页模块接口地址
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -99,7 +117,7 @@
                     completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 10 测试顾问首页线路列表接口地址
+ * 12 测试顾问首页线路列表接口地址
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -109,7 +127,7 @@
 
 
 /**
- * 11 测试顾问（登陆状态）线路详情页接口地址
+ * 13 测试顾问（登陆状态）线路详情页接口地址
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -118,16 +136,62 @@
               completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 12 测试顾问线路修改标题接口地址
+ * 14 测试顾问线路修改标题接口地址
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
  */
-
++ (void)getAgencyPersonalChangeTitle:(NSDictionary *)param
+              completion:(void (^)(id result, NSError *error))completionHandler;
 
 
 /**
- * 13 测试顾问个人中心接口地址
+ * 15 测试顾问线路修改价格页面接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyChangePrice:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 16 测试顾问线路修改价格处理接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyChangePriceHandle:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 17 测试顾问推荐线路处理接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyRecommend:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 18 测试顾问提交订单页面接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyOrderInfo:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 19 测试顾问提交订单处理接口地址
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyOrderInfoHandle:(NSDictionary *)param
+                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 20 测试顾问个人中心接口地址
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -136,7 +200,7 @@
                completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 14 测试顾问修改密码页面接口
+ * 21 测试顾问修改密码页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -145,7 +209,7 @@
                completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 15 测试顾问修改密码处理接口
+ * 22 测试顾问修改密码处理接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -154,7 +218,7 @@
                      completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 16 测试顾问页面设置页面接口
+ * 23 测试顾问页面设置页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -163,7 +227,7 @@
                 completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 17 测试顾问模块排序页面接口
+ * 24 测试顾问模块排序页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -172,7 +236,7 @@
                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 18 测试顾问模块排序处理接口
+ * 25 测试顾问模块排序处理接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -181,7 +245,7 @@
                        completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 19 测试顾问线路订单列表接口
+ * 26 测试顾问线路订单列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -190,7 +254,7 @@
                 completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 20 测试顾问签证订单列表接口
+ * 27 测试顾问签证订单列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -199,7 +263,7 @@
                      completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 21 测试顾问Wifi订单列表接口
+ * 28 测试顾问Wifi订单列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -207,7 +271,7 @@
 + (void)getAgencyOrderWifiOrder:(NSDictionary *)param
                      completion:(void (^)(id result, NSError *error))completionHandler;
 /**
- * 22 测试顾问其他订单列表接口
+ * 29 测试顾问其他订单列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -216,7 +280,7 @@
                       completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 23 测试顾问财务管理列表接口
+ * 30 测试顾问财务管理列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -225,7 +289,7 @@
               completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 24 测试顾问财务管理->交易记录接口
+ * 31 测试顾问财务管理->交易记录接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -234,7 +298,7 @@
                                 completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 25 测试顾问财务管理->充值申请页面接口
+ * 32 测试顾问财务管理->充值申请页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -243,7 +307,7 @@
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 26 测试顾问财务管理->充值申请处理接口（线下充值)
+ * 33 测试顾问财务管理->充值申请处理接口（线下充值)
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -252,7 +316,7 @@
                               completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 27 测试顾问财务管理->充值申请记录接口
+ * 34 测试顾问财务管理->充值申请记录接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -261,7 +325,7 @@
                        completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 28 测试顾问财务管理->提现申请页面接口
+ * 35 测试顾问财务管理->提现申请页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -270,7 +334,7 @@
                            completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 29 测试顾问财务管理->提现申请页面接口
+ * 36 测试顾问财务管理->提现申请页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -279,7 +343,7 @@
                                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 30 测试顾问财务管理->提现记录列表接口
+ * 37 测试顾问财务管理->提现记录列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -288,7 +352,7 @@
                           completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 31 测试顾问财务管理->发票申请页面接口
+ * 38 测试顾问财务管理->发票申请页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -297,7 +361,7 @@
                            completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 32 测试顾问财务管理->发票申请处理接口
+ * 39 测试顾问财务管理->发票申请处理接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -306,7 +370,7 @@
                                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 33 测试顾问财务管理->发票记录列表接口
+ * 40 测试顾问财务管理->发票记录列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -315,7 +379,7 @@
                           completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 34 测试顾问财务管理->合同申请页面接口
+ * 41 测试顾问财务管理->合同申请页面接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -324,7 +388,7 @@
                            completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 35 测试顾问财务管理->合同申请处理接口
+ * 42 测试顾问财务管理->合同申请处理接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -333,7 +397,7 @@
                                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 36 测试顾问财务管理->合同申请记录列表接口
+ * 43 测试顾问财务管理->合同申请记录列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
@@ -342,11 +406,74 @@
                           completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 37 测试顾问个人中心->我的推荐列表接口
+ * 44 测试顾问个人中心->我的推荐列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
  */
 + (void)getAgencyFinanceMyRecommend:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 45 测试顾问个人中心->我的推荐线路删除接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFinanceMyRecommendDel:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 46 测试顾问个人中心->我的机票列表接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFlightMyPlaneTicket:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 47 测试顾问个人中心->我的机票详情接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFlightPlaneTicketDetail:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 48 测试顾问个人中心->我的直客页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFlightFlightProfit:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 49 测试顾问个人中心->我的直客机票订单列表接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFlightVisitorPlaneTicket:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 50 测试顾问个人中心->我的直客机票订单详情页接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyFlightPlaneProfitDetail:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 51 测试顾问个人中心->供应商查询页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyPersonalProviderQuery:(NSDictionary *)param
                          completion:(void (^)(id result, NSError *error))completionHandler;
 @end
