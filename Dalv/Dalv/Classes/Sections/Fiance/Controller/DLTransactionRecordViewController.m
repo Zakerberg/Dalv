@@ -74,9 +74,9 @@
 
 - (void)fetchData {
     
-    NSDictionary *param = @{@"uid" : @"1132",
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"page" : @"1",
-                            @"sign_token" : @"d7eabff2586161efbf0845b0eba46337",};
+                            @"sign_token" : [DLUtils getSign_token],};
     @weakify(self);
     [DLHomeViewTask getAgencyFinanceAccountTransaction:param completion:^(id result, NSError *error) {
         @strongify(self);

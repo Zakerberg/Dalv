@@ -26,6 +26,7 @@
 		1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */; };
 		1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */; };
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
+		1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */; };
 		1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */; };
 		1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */; };
 		1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */; };
@@ -346,6 +347,8 @@
 		1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddReduceButton.m; sourceTree = "<group>"; };
 		1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@2x.png"; sourceTree = "<group>"; };
 		1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@3x.png"; sourceTree = "<group>"; };
+		1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPresentApplicationModel.h; sourceTree = "<group>"; };
+		1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPresentApplicationModel.m; sourceTree = "<group>"; };
 		1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewController.h; sourceTree = "<group>"; };
 		1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewController.m; sourceTree = "<group>"; };
 		1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOfflineRechargeViewController.h; sourceTree = "<group>"; };
@@ -1688,6 +1691,8 @@
 				45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */,
 				451F39131EEAB66F005FE126 /* DLinvoiceModel.h */,
 				451F39141EEAB66F005FE126 /* DLinvoiceModel.m */,
+				1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */,
+				1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2110,6 +2115,7 @@
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
 				45DB48191EE93AB400399A6D /* DLCustomerListController.m in Sources */,
 				1C0864CE1EEA96F5005015DE /* LGLCalenderModel.m in Sources */,
+				1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,
 				1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */,
 				1C0B57E11ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.m in Sources */,

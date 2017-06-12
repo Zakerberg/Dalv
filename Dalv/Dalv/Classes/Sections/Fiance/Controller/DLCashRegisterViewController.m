@@ -73,9 +73,9 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
-    NSDictionary *param = @{@"uid" : @"1132",
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"page" : @"1",
-                            @"sign_token" : @"cd57116d68c992c8dee33c8fad1bc831",};
+                            @"sign_token" : [DLUtils getSign_token],};
     @weakify(self);
     [DLHomeViewTask getAgencyFinanceWithdrawList:param completion:^(id result, NSError *error) {
         @strongify(self);
