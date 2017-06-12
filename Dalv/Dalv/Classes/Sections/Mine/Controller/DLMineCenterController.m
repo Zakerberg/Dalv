@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  -------------------  我的 ------------------------
+//  -------------------  个人中心   ------------------------
 
 #import "DLMineCenterController.h"
 #import "DLMineModel.h"
@@ -94,9 +94,7 @@ static NSString *cellID  = @"cellID";
     [picImg mas_makeConstraints:^(MASConstraintMaker *make) {
 
         make.edges.equalTo(self.headerView);
-        
     }];
-    
     
     //设置头像按钮
     UIButton* personBtn = [[UIButton alloc]init];
@@ -146,6 +144,17 @@ static NSString *cellID  = @"cellID";
 
 
 -(void)fetchData{
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

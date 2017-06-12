@@ -18,6 +18,7 @@
 #import "DLinvoiceModel.h"
 #import "DLCityPickerView.h"
 #import "DLSalertView.h"
+#import "DLAddReduceButton.h"
 
 @interface DLInvioiceApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLCityPickerViewDelegate,DLSalertViewDelegate>
 @property (nonatomic, strong) UITableView *invoiceTableView;
@@ -78,10 +79,22 @@
 @property(nonatomic,strong)UITextField *firstField;
 
 
+@property(nonatomic,strong) DLAddReduceButton * currentBtn;
 
 
 
 @property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
+
+
+
+
+
+/** 输入框中的内容 */
+@property (nonatomic, assign ) NSInteger currentNumber;
+
+
+
+
 
 @end
 
@@ -110,7 +123,39 @@ static NSString *section5CellID = @"section5CellID";
     self.Section3Number = 0;
     self.Section4Number = 1;
     
+    [self setBtn];
+    
 }
+
+
+-(void)setBtn{
+    
+    
+    DLAddReduceButton *button1 = [[DLAddReduceButton alloc] init];
+    self.currentBtn = button1;
+    
+    
+    button1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+        NSLog(@"%ld",num);
+        self.currentNumber = num;
+    };
+
+    
+    
+    NSLog(@"%ld",self.currentNumber);
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
 
 #pragma mark ----------------- Set TableView -----------------
 
