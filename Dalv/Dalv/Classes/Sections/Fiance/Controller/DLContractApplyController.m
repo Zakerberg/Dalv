@@ -249,7 +249,7 @@ static NSString *section5CellID = @"section5CellID";
                                  @"code":@"400",
                                  };
 //
-//////
+//
 //        NSDictionary *param1 = @{
 //                                 
 //                                 @"uid":@"1132",
@@ -298,9 +298,7 @@ static NSString *section5CellID = @"section5CellID";
                                     
                                     @"code":@"400",
                                     };
-            
 
-            
 
             [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
                 NSLog(@"%@",result);
