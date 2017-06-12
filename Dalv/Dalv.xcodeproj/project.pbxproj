@@ -27,6 +27,22 @@
 		1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */; };
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
 		1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */; };
+		1C2978FA1EEEAA7400D3FEEA /* fiance_aipay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */; };
+		1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EB1EEEAA7400D3FEEA /* fiance_aipay@3x.png */; };
+		1C2978FC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png */; };
+		1C2978FD1EEEAA7400D3FEEA /* fiance_bank_transfer@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978ED1EEEAA7400D3FEEA /* fiance_bank_transfer@3x.png */; };
+		1C2978FE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png */; };
+		1C2978FF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png */; };
+		1C2979001EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F01EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png */; };
+		1C2979011EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F11EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png */; };
+		1C2979021EEEAA7400D3FEEA /* fiance_credit_card_recharge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F21EEEAA7400D3FEEA /* fiance_credit_card_recharge@2x.png */; };
+		1C2979031EEEAA7400D3FEEA /* fiance_credit_card_recharge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F31EEEAA7400D3FEEA /* fiance_credit_card_recharge@3x.png */; };
+		1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F41EEEAA7400D3FEEA /* fiance_not_selected@2x.png */; };
+		1C2979051EEEAA7400D3FEEA /* fiance_not_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F51EEEAA7400D3FEEA /* fiance_not_selected@3x.png */; };
+		1C2979061EEEAA7400D3FEEA /* fiance_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F61EEEAA7400D3FEEA /* fiance_selected@2x.png */; };
+		1C2979071EEEAA7400D3FEEA /* fiance_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */; };
+		1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */; };
+		1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */; };
 		1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */; };
 		1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */; };
 		1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */; };
@@ -348,6 +364,22 @@
 		1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@3x.png"; sourceTree = "<group>"; };
 		1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPresentApplicationModel.h; sourceTree = "<group>"; };
 		1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPresentApplicationModel.m; sourceTree = "<group>"; };
+		1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_aipay@2x.png"; sourceTree = "<group>"; };
+		1C2978EB1EEEAA7400D3FEEA /* fiance_aipay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_aipay@3x.png"; sourceTree = "<group>"; };
+		1C2978EC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_bank_transfer@2x.png"; sourceTree = "<group>"; };
+		1C2978ED1EEEAA7400D3FEEA /* fiance_bank_transfer@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_bank_transfer@3x.png"; sourceTree = "<group>"; };
+		1C2978EE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_cash_recharge@2x.png"; sourceTree = "<group>"; };
+		1C2978EF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_cash_recharge@3x.png"; sourceTree = "<group>"; };
+		1C2978F01EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_cheque_recharge@2x.png"; sourceTree = "<group>"; };
+		1C2978F11EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_cheque_recharge@3x.png"; sourceTree = "<group>"; };
+		1C2978F21EEEAA7400D3FEEA /* fiance_credit_card_recharge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_credit_card_recharge@2x.png"; sourceTree = "<group>"; };
+		1C2978F31EEEAA7400D3FEEA /* fiance_credit_card_recharge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_credit_card_recharge@3x.png"; sourceTree = "<group>"; };
+		1C2978F41EEEAA7400D3FEEA /* fiance_not_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_not_selected@2x.png"; sourceTree = "<group>"; };
+		1C2978F51EEEAA7400D3FEEA /* fiance_not_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_not_selected@3x.png"; sourceTree = "<group>"; };
+		1C2978F61EEEAA7400D3FEEA /* fiance_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_selected@2x.png"; sourceTree = "<group>"; };
+		1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_selected@3x.png"; sourceTree = "<group>"; };
+		1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@2x.png"; sourceTree = "<group>"; };
+		1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@3x.png"; sourceTree = "<group>"; };
 		1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewController.h; sourceTree = "<group>"; };
 		1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewController.m; sourceTree = "<group>"; };
 		1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOfflineRechargeViewController.h; sourceTree = "<group>"; };
@@ -1449,6 +1481,22 @@
 		1CE2C11E1ED5239500B898BA /* Fiance */ = {
 			isa = PBXGroup;
 			children = (
+				1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */,
+				1C2978EB1EEEAA7400D3FEEA /* fiance_aipay@3x.png */,
+				1C2978EC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png */,
+				1C2978ED1EEEAA7400D3FEEA /* fiance_bank_transfer@3x.png */,
+				1C2978EE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png */,
+				1C2978EF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png */,
+				1C2978F01EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png */,
+				1C2978F11EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png */,
+				1C2978F21EEEAA7400D3FEEA /* fiance_credit_card_recharge@2x.png */,
+				1C2978F31EEEAA7400D3FEEA /* fiance_credit_card_recharge@3x.png */,
+				1C2978F41EEEAA7400D3FEEA /* fiance_not_selected@2x.png */,
+				1C2978F51EEEAA7400D3FEEA /* fiance_not_selected@3x.png */,
+				1C2978F61EEEAA7400D3FEEA /* fiance_selected@2x.png */,
+				1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */,
+				1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */,
+				1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */,
 				1CE2C1EB1ED52BA100B898BA /* cash_register@2x.png */,
 				1CE2C1EC1ED52BA100B898BA /* cash_register@3x.png */,
 				1CE2C1ED1ED52BA100B898BA /* contract_application@2x.png */,
@@ -1833,6 +1881,7 @@
 				1CE2C1DB1ED528C800B898BA /* outbound_tourism@2x.png in Resources */,
 				1CE2C1A21ED525E000B898BA /* have_dinner@3x.png in Resources */,
 				1CE2C1A91ED525E000B898BA /* reduce@2x.png in Resources */,
+				1C2979021EEEAA7400D3FEEA /* fiance_credit_card_recharge@2x.png in Resources */,
 				1CB953AC1ECFC41600BDC2D3 /* home-10-02.png in Resources */,
 				1CE8D8031ED7FEFA00FFEF8B /* navbar_close_white@3x.png in Resources */,
 				1CE2C1FE1ED52BA100B898BA /* cash_register@3x.png in Resources */,
@@ -1841,12 +1890,18 @@
 				1CE2C1D91ED528C800B898BA /* free_walker@2x.png in Resources */,
 				1CE2C1901ED525E000B898BA /* arrowhead_up@3x.png in Resources */,
 				1CE2C1CB1ED5270E00B898BA /* my@3x.png in Resources */,
+				1C2979071EEEAA7400D3FEEA /* fiance_selected@3x.png in Resources */,
 				1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */,
 				1CE2C19A1ED525E000B898BA /* edit@3x.png in Resources */,
+				1C2978FF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png in Resources */,
 				1CE2C1E21ED528C800B898BA /* surrounding_tourism@3x.png in Resources */,
 				1CE2C1C61ED5270E00B898BA /* home@2x.png in Resources */,
 				1CE2C1CE1ED5270E00B898BA /* order@2x.png in Resources */,
+				1C2979061EEEAA7400D3FEEA /* fiance_selected@2x.png in Resources */,
+				1C2979051EEEAA7400D3FEEA /* fiance_not_selected@3x.png in Resources */,
+				1C2979001EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png in Resources */,
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
+				1C2979011EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
 				1CE2C1941ED525E000B898BA /* departure_city@3x.png in Resources */,
 				1CE2C1E11ED528C800B898BA /* surrounding_tourism@2x.png in Resources */,
@@ -1857,6 +1912,7 @@
 				1CE2C2281ED52E8C00B898BA /* visa_order_highlight@3x.png in Resources */,
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
+				1C2978FE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png in Resources */,
 				1CE2C2261ED52E8C00B898BA /* ticket_order@3x.png in Resources */,
 				4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */,
 				1CE2C20B1ED52BA100B898BA /* recharge_record@2x.png in Resources */,
@@ -1869,15 +1925,18 @@
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
+				1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */,
 				1CE2C1C31ED5270E00B898BA /* financial@3x.png in Resources */,
 				1CB953AD1ECFC41600BDC2D3 /* home-10-04.png in Resources */,
 				1CE2C1FD1ED52BA100B898BA /* cash_register@2x.png in Resources */,
 				1CE2C19F1ED525E000B898BA /* group_date@2x.png in Resources */,
 				1CE2C2351ED57B1100B898BA /* geographical_position@3x.png in Resources */,
 				1CE2C1971ED525E000B898BA /* destination@2x.png in Resources */,
+				1C2978FC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png in Resources */,
 				1CE2C1E01ED528C800B898BA /* special_offer@2x.png in Resources */,
 				1CE8D8081ED808A200FFEF8B /* mine_theme@2x.png in Resources */,
 				1CE2C2241ED52E8C00B898BA /* ticket_order_highlight@3x.png in Resources */,
+				1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */,
 				1CE2C2271ED52E8C00B898BA /* visa_order_highlight@2x.png in Resources */,
 				1CE8D8001ED7FEFA00FFEF8B /* navbar_close_gray@2x.png in Resources */,
 				1CE2C20D1ED52BA100B898BA /* transaction_record@2x.png in Resources */,
@@ -1885,6 +1944,7 @@
 				1CE2C2091ED52BA100B898BA /* recharge_application@2x.png in Resources */,
 				1CE2C1DC1ED528C800B898BA /* outbound_tourism@3x.png in Resources */,
 				1CE2C1DA1ED528C800B898BA /* free_walker@3x.png in Resources */,
+				1C2979031EEEAA7400D3FEEA /* fiance_credit_card_recharge@3x.png in Resources */,
 				45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */,
 				1CE2C20A1ED52BA100B898BA /* recharge_application@3x.png in Resources */,
 				1CE2C2431ED57BE400B898BA /* vendor_inquiries@3x.png in Resources */,
@@ -1897,6 +1957,7 @@
 				1CE2C19B1ED525E000B898BA /* go_back@2x.png in Resources */,
 				1CE2C2001ED52BA100B898BA /* contract_application@3x.png in Resources */,
 				1CE2C19E1ED525E000B898BA /* group_date_select@3x.png in Resources */,
+				1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */,
 				1CE2C1AB1ED525E000B898BA /* return_details@2x.png in Resources */,
 				1CE2C1DF1ED528C800B898BA /* special_offe@3x.png in Resources */,
 				1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */,
@@ -1907,16 +1968,19 @@
 				1CE2C1A11ED525E000B898BA /* have_dinner@2x.png in Resources */,
 				1CE2C23E1ED57BE400B898BA /* arrowhead_left@3x.png in Resources */,
 				1CE2C18E1ED525E000B898BA /* add@3x.png in Resources */,
+				1C2978FA1EEEAA7400D3FEEA /* fiance_aipay@2x.png in Resources */,
 				1CE8D8091ED808A200FFEF8B /* mine_theme@3x.png in Resources */,
 				1CE2C1DE1ED528C800B898BA /* passenger_ticket@3x.png in Resources */,
 				1CE2C20E1ED52BA100B898BA /* transaction_record@3x.png in Resources */,
 				1CE2C1CD1ED5270E00B898BA /* order_heighlight@3x.png in Resources */,
 				1CE2C2011ED52BA100B898BA /* contract_record@2x.png in Resources */,
 				1CE2C1CA1ED5270E00B898BA /* my@2x.png in Resources */,
+				1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */,
 				1CE2C23D1ED57BE400B898BA /* arrowhead_left@2x.png in Resources */,
 				1CE2C1C41ED5270E00B898BA /* home_highlight@2x.png in Resources */,
 				1CE2C2051ED52BA100B898BA /* invoice_record@2x.png in Resources */,
 				1CE2C2341ED57B1100B898BA /* geographical_position@2x.png in Resources */,
+				1C2978FD1EEEAA7400D3FEEA /* fiance_bank_transfer@3x.png in Resources */,
 				1CE2C21F1ED52E8C00B898BA /* line_order_highlight@2x.png in Resources */,
 				1CE2C1A61ED525E000B898BA /* phone@3x.png in Resources */,
 				451F39281EEE7120005FE126 /* DLContractApplySection0Cell.xib in Resources */,
