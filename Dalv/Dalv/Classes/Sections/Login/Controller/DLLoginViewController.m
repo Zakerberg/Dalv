@@ -74,8 +74,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.navigationController popViewControllerAnimated:YES];
+        [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
 
-            [self.navigationController popViewControllerAnimated:YES];
 
             }
         }

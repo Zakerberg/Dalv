@@ -15,6 +15,9 @@
 
 @property (nonatomic,strong) NSMutableDictionary *presentDict;
 
+@property (nonatomic,strong) UILabel *balancelPriceLabel;
+
+
 @end
 
 @implementation DLPresentApplicationViewController
@@ -23,10 +26,11 @@
     [super viewDidLoad];
     
     [self setupNavbar];
-    [self setupSubviews];
     [self fetchData];
 
     self.view.backgroundColor = [UIColor colorWithHexString:@"efefef"];
+    self.presentDict = [[NSMutableDictionary alloc] init];
+
 }
 
 #pragma mark - Setup navbar
@@ -52,6 +56,8 @@
         if (result) {
             self.presentDict = [[NSMutableDictionary alloc] init];
             self.presentDict = [result objectForKey:@"agencyInfo"];
+            [self setupSubviews];
+
         }else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
@@ -75,16 +81,18 @@
     [backview addSubview:cashAccountLabel];
 
     UILabel *bankCradLabel = [[UILabel alloc] init];
-//    bankCradLabel.text = @"111111111111";
     bankCradLabel.textAlignment = NSTextAlignmentLeft;
     bankCradLabel.textColor = [UIColor colorWithHexString:@"#aaaaaa"];
     bankCradLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:bankCradLabel];
-//    if (self.presentApplicationDict) {
-//        bankCradLabel.text = [NSString stringWithFormat:@"%@",[self.presentApplicationDict objectForKey:@"bank_account"]];
-//    }
-
     bankCradLabel.text = [self.presentDict objectForKey:@"bank_account"];
+    NSString *str1;
+    if (bankCradLabel.text.length >= 4) {
+        str1 = [bankCradLabel.text substringFromIndex:bankCradLabel.text.length- 4];
+    }
+    NSString *str2 = @"(尾号)";
+    bankCradLabel.text = [NSString stringWithFormat:@"%@ %@ %@",str2,str1,[self.presentDict objectForKey:@"bank_name"]];
+
 
     UIView *line = [[UIView alloc]init];
     line.backgroundColor = [UIColor colorWithHexString:@"efefef"];
@@ -98,12 +106,12 @@
     [backview addSubview:totalAccountLabel];
     
     UILabel *totalPriceLabel = [[UILabel alloc] init];
-    totalPriceLabel.text = @"9998.0";
     totalPriceLabel.textAlignment = NSTextAlignmentLeft;
     totalPriceLabel.textColor = [UIColor colorWithHexString:@"#ff592b"];
     totalPriceLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:totalPriceLabel];
-    
+    totalPriceLabel.text = [self.presentDict objectForKey:@"account_balance"];
+
     UIView *line1 = [[UIView alloc]init];
     line1.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     [backview  addSubview:line1];
@@ -121,6 +129,10 @@
     balancelPriceLabel.textColor = [UIColor colorWithHexString:@"#ff592b"];
     balancelPriceLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:balancelPriceLabel];
+    self.balancelPriceLabel = balancelPriceLabel;
+    if (self.presentDict) {
+    self.balancelPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.presentDict objectForKey:@"availableBalance"]integerValue]/100.00];
+    }
     
     UIView *line2 = [[UIView alloc]init];
     line2.backgroundColor = [UIColor colorWithHexString:@"efefef"];
@@ -140,7 +152,7 @@
     self.priceTextField = [[UITextField alloc] init];
     self.priceTextField.font = [UIFont systemFontOfSize:16];
     self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
-    self.priceTextField.placeholder = @"请输入转出金额";
+    self.priceTextField.placeholder = [NSString stringWithFormat:@"可转出金额：%@",self.balancelPriceLabel.text];
     self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.priceTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -173,7 +185,7 @@
     [bankCradLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(cashAccountLabel);
         make.left.equalTo(cashAccountLabel.mas_right);
-        make.width.equalTo(@120);
+        make.width.equalTo(@180);
         make.height.equalTo(@40);
     }];
     
@@ -194,7 +206,7 @@
     [totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(totalAccountLabel);
         make.left.equalTo(totalAccountLabel.mas_right);
-        make.width.equalTo(@120);
+        make.right.equalTo(line1.mas_left).offset(-15);
         make.height.equalTo(@60);
     }];
     
@@ -215,7 +227,7 @@
     [balancelPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(currentBalanceLabel);
         make.left.equalTo(currentBalanceLabel.mas_right);
-        make.width.equalTo(@120);
+        make.right.equalTo(@-15);
         make.height.equalTo(@60);
     }];
 
@@ -243,7 +255,7 @@
     [self.priceTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(backview1);
         make.left.equalTo(cashWithdrawalLabel.mas_right);
-        make.width.equalTo(backview1).with.offset(-80);
+        make.width.equalTo(backview1).with.offset(-100);
         make.height.equalTo(@50);
     }];
 
@@ -260,6 +272,24 @@
 {
     if (self.priceTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"请输入转出金额"];
+        return;
+    }if (self.priceTextField.text.length  >> self.balancelPriceLabel.text.length) {
+        [[DLHUDManager sharedInstance]showTextOnly:@"提现金额不能大于账户余额"];
+        return;
+    } else {
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"amount" : self.priceTextField.text,
+                                @"code" : @"400",
+                                @"sign_token" : [DLUtils getSign_token],};
+        [DLHomeViewTask getAgencyFinanceApplyWithdrawHandle:param completion:^(id result, NSError *error) {
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+        }];
+
     }
     
 }
