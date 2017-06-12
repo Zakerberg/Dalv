@@ -114,9 +114,9 @@
     [self.contentView addSubview:amountLabel];
     
     UILabel *moneyLabel = [[UILabel alloc] init];
-    self.moneyLabel =moneyLabel;
+    self.moneyLabel = moneyLabel;
     moneyLabel.text = @"XXXXX元";
-    moneyLabel.font = [UIFont systemFontOfSize:16];
+    moneyLabel.font = [UIFont systemFontOfSize:15];
     moneyLabel.textColor = [UIColor colorWithHexString:@"#ff623d"];
     [moneyLabel sizeToFit];
     

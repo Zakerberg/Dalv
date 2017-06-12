@@ -33,7 +33,6 @@
 /*** 提交申请Btn  ***/
 @property(nonatomic,strong) UIButton * submitBtn;
 
-
 /*** 联系人姓名TextFiled  ***/
 @property(nonatomic,strong) UITextField *nameTF;
 /*** 联系人电话TextFiled  ***/
@@ -48,47 +47,24 @@
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,assign) NSInteger Section3Number;
 
-
 //获取方式
 @property(nonatomic,assign) NSString *methodBtnNumber;
 
 //费用
 @property(nonatomic,assign) NSString *express_feeNumber;
 
-
-
-
-
-
-
-
-
 @property(nonatomic,strong)DLAddReduceButton *button1;
 @property(nonatomic,strong)DLAddReduceButton *button2;
 @property(nonatomic,strong)DLAddReduceButton *button3;
 
-
-
-
-
-@property(nonatomic, strong)UITextField *countTextField;
-@property(nonatomic, strong)UITextField *countTextField1;
-@property(nonatomic, strong)UITextField *countTextField2;
-
-
-
+//@property(nonatomic, strong)UITextField *countTextField;
+//@property(nonatomic, strong)UITextField *countTextField1;
+//@property(nonatomic, strong)UITextField *countTextField2;
 
 @end
 
 //static NSString *nibCellID = @"nibCellID";
-
-
 static NSString *section0CellID = @"section0CellID";
-
-
-
-
-
 static NSString *section1CellID = @"section1CellID";
 static NSString *section2CellID = @"section2CellID";
 static NSString *section3CellID = @"section3CellID";
@@ -102,12 +78,36 @@ static NSString *section5CellID = @"section5CellID";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"合同申请";
     [self setTableView];
+    
+    [self fetchData];
+    
     self.Section1Number = 2;
     self.Section2Number = 0;
     self.Section3Number = 0;
+}
+
+#pragma mark ----------------- fetchData -----------------
+
+-(void)fetchData{
+    
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    
+    [DLHomeViewTask getAgencyFinanceApplyContract:param completion:^(id result, NSError *error) {
+        
+    }];
+    
+    
+    
+    
+    
+    
     
 }
-     
+
+
 #pragma mark ----------------- Set TableView -----------------
 
 -(void)setTableView {
@@ -124,16 +124,10 @@ static NSString *section5CellID = @"section5CellID";
     //注册
 //    [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplyViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     
-    
 //    
 //    [self.contractTableView registerClass:[DLContractApplySection0Cell class] forCellReuseIdentifier:section0CellID];
     
-    
-    
-    
     [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplySection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:section0CellID];
-    
-    
     
     [self.contractTableView registerClass:[DLContractApplySection1Cell class] forCellReuseIdentifier:section1CellID];
     
@@ -216,7 +210,6 @@ static NSString *section5CellID = @"section5CellID";
     [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
 }
-
 
 /*
  
@@ -330,15 +323,9 @@ static NSString *section5CellID = @"section5CellID";
 
 //-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//}
 //
+//}
+
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -346,8 +333,6 @@ static NSString *section5CellID = @"section5CellID";
     if (indexPath.section == 0 ) {
         return 52*3;
     }
-    
-    
     
     if (indexPath.section == 1 && indexPath.row == 1) {
         return 80;
@@ -416,39 +401,24 @@ static NSString *section5CellID = @"section5CellID";
 }
 
 
-
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
         
         DLContractApplySection0Cell *cell = [tableView dequeueReusableCellWithIdentifier:section0CellID];
         
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        
         
         self.button1 = cell.button1;
         self.button2 = cell.button2;
         self.button3 = cell.button3;
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
 //        self.countTextField.text =cell.countTextField.text;
 //        self.countTextField1.text =cell.countTextField1.text;
 //        self.countTextField2.text =cell.countTextField2.text;
 //        
-        
-        
-        
+
 //        if (indexPath.row == 0) {
 //            cell.textLabel.text = @"国内合同";
 //            cell.textColor = [UIColor colorWithHexString:@"#494949"];
@@ -461,10 +431,6 @@ static NSString *section5CellID = @"section5CellID";
 //            cell.textLabel.text = @"单项委托";
 //            cell.textColor = [UIColor colorWithHexString:@"#494949"];
 //        }
-        
-        
-        
-        
         
         return cell;
     }else if (indexPath.section == 1 && indexPath.row == 0){
@@ -547,17 +513,11 @@ static NSString *section5CellID = @"section5CellID";
     }
 }
 
-
-
-
-
 #pragma mark ---------  DLAddReduceButtonDelegate  -------------
 
 
 - (void)pp_numberButton:(__kindof UIView *)numberButton number:(NSInteger)number increaseStatus:(BOOL)increaseStatus{
 
 }
-
-
 
 @end

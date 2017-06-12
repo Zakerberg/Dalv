@@ -34,7 +34,7 @@
     
     UIButton *inviteBtn = [[UIButton alloc] init];
     self.inviteBtn = inviteBtn;
-    [inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    [inviteBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     
     [self.contentView addSubview:inviteBtn];
     

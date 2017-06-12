@@ -62,8 +62,9 @@
 @property(nonatomic,assign) NSInteger Section3Number;
 @property(nonatomic,assign) NSInteger Section4Number;
 
-/***  剩余金额Label ***/
+/***  剩余发票额度Label ***/
 @property(nonatomic,strong)UILabel *moneyLabel;
+
 
 //获取方式
 @property(nonatomic,assign) NSString *methodBtnNumber;
@@ -80,19 +81,20 @@
 
 
 @property(nonatomic,strong) DLAddReduceButton * currentBtn;
-
-
-
 @property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
 
 
 
 
+/* 公司地址 */
+@property(nonatomic,strong) UILabel * addressLabel1;
+/* 公司电话 */
+@property(nonatomic,strong) UILabel * numberLabel1;
 
-/** 输入框中的内容 */
-@property (nonatomic, assign ) NSInteger currentNumber;
 
 
+@property(nonatomic,strong) NSString *companyStr;
+@property(nonatomic,strong) NSString *numStr;
 
 
 
@@ -123,38 +125,8 @@ static NSString *section5CellID = @"section5CellID";
     self.Section3Number = 0;
     self.Section4Number = 1;
     
-    [self setBtn];
     
 }
-
-
--(void)setBtn{
-    
-    
-    DLAddReduceButton *button1 = [[DLAddReduceButton alloc] init];
-    self.currentBtn = button1;
-    
-    
-    button1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-        NSLog(@"%ld",num);
-        self.currentNumber = num;
-    };
-
-    
-    
-    NSLog(@"%ld",self.currentNumber);
-    
-    
-    
-    
-    
-}
-
-
-
-
-
-
 
 
 #pragma mark ----------------- Set TableView -----------------
@@ -210,9 +182,8 @@ static NSString *section5CellID = @"section5CellID";
     
     NSDictionary *param = @{
                             
-                            @"uid":@"1132",
-                            @"sign_token":@"6821a2f7fe08a16c35104d59d74c3744",
-                            
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
                             };
     
     [DLHomeViewTask getAgencyFinanceApplyInvoicet:param completion:^(id result, NSError *error) {
@@ -238,7 +209,6 @@ static NSString *section5CellID = @"section5CellID";
         //            NSLog(@"name=%@", invoiceModel.detail);
         //
         //            [arr setValue:@"detail" forKey:@"旅游费"];
-        //
         //        }
         
         NSLog(@"%@",result[@"invoiceTypeList"]);
@@ -251,12 +221,59 @@ static NSString *section5CellID = @"section5CellID";
             [arrM addObject:str];
         }
         
-        
         NSMutableArray *dataArrM = [NSMutableArray array];
         self.dataArrM = dataArrM;
         [dataArrM addObject:arrM];
         
         
+        NSDictionary *invoiceDict = result;
+        
+        NSDictionary *operatorInfo = invoiceDict[@"operatorInfo"];
+        
+        
+        NSString *companyStr = operatorInfo[@"address"];
+        self.addressLabel1.text = companyStr;
+        NSString *numStr = operatorInfo[@"tel"];
+        self.numberLabel1.text = numStr;
+        
+
+        NSString * moneyStr = invoiceDict[@"lastTotal"];
+        
+        /*
+         
+         Label.text = [NSString stringWithFormat:@"%@",dic[@"name"]];可以正常展示
+         */
+    
+        NSInteger MoneyInter = [moneyStr integerValue];
+        
+        NSInteger finaInter = MoneyInter/100;
+        
+        
+//        self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneyStr];
+        
+        self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)finaInter];
+        
+        
+        
+        
+        
+        
+//        NSString *lastTotalStr = invoiceDict[@"lastTotal"];
+////
+//   NSInteger *monInter = [moneyStr intValue];
+//        
+//        
+//        self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(monInter/100)];
+////
+        
+        
+        
+        
+        
+        
+//        
+        
+//        self.numberLabel1.text = numStr;
         
         //
         ////        NSDictionary *listDict = dict[@"invoiceTypeList"];
@@ -282,9 +299,7 @@ static NSString *section5CellID = @"section5CellID";
 
 /***  发票项目 Btn ***/
 -(void)projectBtnClick {
-    
-    
-    
+
     //
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"团款",@"旅游费",nil];
     //
@@ -295,8 +310,6 @@ static NSString *section5CellID = @"section5CellID";
     [pickerSingle setDelegate:self];
     [pickerSingle show];
     [self.view endEditing:YES];
-    
-    
     
     /*
      
@@ -374,41 +387,42 @@ static NSString *section5CellID = @"section5CellID";
     
     
     
-    NSDictionary *param1 = @{
-                             
-                             @"uid":@"1132",
-                             @"sign_token" : @"ee8c73c21af33d030692a8a442328088",
-                             @"title":self.companyTF.text,
-                             @"amount":self.invoiceAmountTF.text,
-                             @"detail":self.projctButton.titleLabel.text,
-                             @"detail_comm":self.noteTextView.text,
-                             @"request_method":self.methodBtnNumber,
-                             @"code":@"400"
-                             
-                             };
-    
-    
-    
+//    NSDictionary *param1 = @{
+//                             
+//                             @"uid":[DLUtils getUid],
+//                             @"sign_token" : [DLUtils getSign_token],
+//                             @"title":self.companyTF.text,
+//                             @"amount":self.invoiceAmountTF.text,
+//                             @"detail":self.projctButton.titleLabel.text,
+//                             @"detail_comm":self.noteTextView.text,
+//                             @"request_method":self.methodBtnNumber,
+//                             @"code":@"400"
+//                             
+//                             };
+
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
         
+               NSDictionary *param1 = @{
         
+                                         @"uid":[DLUtils getUid],
+                                         @"sign_token" : [DLUtils getSign_token],
+                                         @"title":self.companyTF.text,
+                                         @"amount":self.invoiceAmountTF.text,
+                                         @"detail":self.projctButton.titleLabel.text,
+                                         @"detail_comm":self.noteTextView.text,
+                                         @"request_method":self.methodBtnNumber,
+                                         @"code":@"400"
         
-        
-        //        NSDictionary *param1 = @{
-        //
-        //                                 @"uid":@"1132",
-        //                                 @"sign_token" : @"ee8c73c21af33d030692a8a442328088",
-        //                                 @"title":self.companyTF.text,
-        //                                 @"amount":self.invoiceAmountTF.text,
-        //                                 @"detail":self.projctButton.titleLabel.text,
-        //                                 @"detail_comm":self.noteTextView.text,
-        //                                 @"request_method":self.methodBtnNumber,
-        //                                 @"code":@"400"
-        //
-        //                                 };
+                                         };
         
         [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
+            
+            
+            
+            //写个提示申请成功! ---> 跳转!
+            
+            
         }];
     }
     //
@@ -419,8 +433,8 @@ static NSString *section5CellID = @"section5CellID";
             
             NSDictionary *param = @{
                                     
-                                    @"uid" : @"1132",
-                                    @"sign_token" : @"ee8c73c21af33d030692a8a442328088",
+                                    @"uid":[DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],
                                     @"title":self.companyTF.text,
                                     @"amount":self.invoiceAmountTF.text,
                                     @"detail":self.projctButton.titleLabel.text,
@@ -435,9 +449,22 @@ static NSString *section5CellID = @"section5CellID";
                                     };
             
             [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
-                NSLog(@"%@",result);
+//                NSLog(@"%@",result);
+                
+                
+                
+                //写个提示申请成功! ---> 跳转!
+                
+                
+                
             }];
         }else{
+            
+            
+            
+            // 写个提示!  申请失败 !  联系客服 !
+            
+            
             
         }
     }
@@ -469,44 +496,31 @@ static NSString *section5CellID = @"section5CellID";
         return 222;
     }
     
-    
     else if (indexPath.section == 2 && indexPath.row == 1){
         return 80;
     }
     
-    
     else if (indexPath.section == 5){
         return 80;
     }
-    
     
     else if (indexPath.section == 4){
         return 165;
     }
     
     return 45;
-    
-    
-    
 }
 
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
     return 6;
 }
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
 }
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     
     if (section == 0) {
         return 1;
@@ -551,7 +565,6 @@ static NSString *section5CellID = @"section5CellID";
         
     }
     
-    
     //        发票金额
     else  if (indexPath.section == 1 ){
         
@@ -575,11 +588,12 @@ static NSString *section5CellID = @"section5CellID";
         
     }
     
-    
-    
     else if (indexPath.section == 2 && indexPath.row == 1)
     {
         DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
+        
+        self.addressLabel1 = cell.addressLabel1;
+        self.numberLabel1 = cell.numberLabel1;
         
         return cell;
         
@@ -626,11 +640,7 @@ static NSString *section5CellID = @"section5CellID";
         
         return cell;
     }
-    
-    
 }
-
-
 
 #pragma mark ---------  UITextViewDelegate  -------------
 
@@ -648,12 +658,6 @@ static NSString *section5CellID = @"section5CellID";
     }
 }
 
-
-
-
-
-
-
 #pragma mark  ----------DLCityPickerViewDelegate------------
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
@@ -667,10 +671,9 @@ static NSString *section5CellID = @"section5CellID";
     [self.alertView closeView];
 }
 
-
 #pragma mark  ----------DLSalertViewDelegate------------
 
-- (DLSalertView *)alertView{
+-(DLSalertView *)alertView{
     if (!_alertView) {
         self.alertView = [[DLSalertView alloc] initWithFrame:CGRectMake(40, 200, [UIScreen mainScreen].bounds.size.width - 80, 220)];
         self.firstField = self.alertView.firstField;
@@ -679,149 +682,5 @@ static NSString *section5CellID = @"section5CellID";
     }
     return _alertView;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end
