@@ -95,7 +95,7 @@
     
     noteTextView.font = [UIFont systemFontOfSize:15];
     noteTextView.textColor = [UIColor colorWithHexString:@"#c1c1c1"];
-    noteTextView.text = @"请填写备注 如代订机票等";
+//    noteTextView.text = @"请填写备注 如代订机票等";
     
     [self.contentView addSubview:noteTextView];
     

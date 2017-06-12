@@ -7,31 +7,172 @@
 //
 
 #import "DLLineOrderController.h"
+#import "DLHomeViewTask.h"
 
-@interface DLLineOrderController ()
-
+@interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *lineOrderTableView;
+@property (nonatomic, strong) NSMutableArray * lineOrderList;
 @end
 
 @implementation DLLineOrderController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor randomColor];
+    [self setUI];
+    [self fetchData];
+    [self setTableView];
+    
+    
 }
+
+
+
+
+
+- (void)setupSubviews {
+
+
+
+
+}
+
+
+#pragma mark  --------  setUI  ------------
+
+-(void)setUI{
+    
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    
+
+}
+
+#pragma mark  ------  fetchData  ------------
+
+-(void)fetchData{
+    
+    NSDictionary * param = @{
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             };
+    
+    
+    
+    
+    
+    @weakify(self);
+    [DLHomeViewTask getAgencyLineOrder: param completion:^(id result, NSError *error) {
+        @strongify(self);
+        
+    }];
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+}
+
+#pragma mark ----------------- Set TableView -----------------
+
+-(void)setTableView {
+    
+    self.lineOrderTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.lineOrderTableView.dataSource = self;
+    self.lineOrderTableView.backgroundColor = [UIColor ms_backgroundColor];
+    self.lineOrderTableView.delegate = self;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.lineOrderTableView.showsVerticalScrollIndicator = NO;
+
+
+
+}
+
+#pragma mark  ----------UITable View Delegate------------
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    
+    return 2;
+    
+}
+
+
+
+
+
+
+
+
+
+
+#pragma mark ------------------ Getter -----------------------
+
+
+-(NSMutableArray *)lineOrderList {
+    
+    if (_lineOrderList == nil) {
+        
+        _lineOrderList = [[NSMutableArray alloc] init];
+    }
+    
+    return _lineOrderList;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -39,7 +39,6 @@ static NSString* cellID = @"cellID";
         _cellTiltleArr = @[@"姓名:", @"昵称:",@"性别:",@"年龄:",@"从业时间:",@"标签:",@"手机号:",@"邮箱:",@" ",];
     }
     
-    
     return _cellTiltleArr ;
 }
 
@@ -50,7 +49,20 @@ static NSString* cellID = @"cellID";
     self.title = @"修改个人资料";
     [self setupUI];
     [self setupTableView];
+    [self fetchData];
 }
+
+
+-(void)fetchData {
+    
+    
+    
+    
+}
+
+
+
+
 
 -(void)setupTableView {
     
@@ -72,7 +84,6 @@ static NSString* cellID = @"cellID";
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
-
 
 //手机号码的正则表达式
 - (BOOL)isValidateMobile:(NSString *)mobile{

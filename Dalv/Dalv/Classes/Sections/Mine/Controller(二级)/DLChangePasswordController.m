@@ -8,6 +8,8 @@
 
 #import "DLChangePasswordController.h"
 #import "ZYInputAlertView.h"
+#import "DLHomeViewTask.h"
+
 static NSString* cellID = @"cellID";
 @interface DLChangePasswordController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView* tableView;
@@ -25,6 +27,22 @@ static NSString* cellID = @"cellID";
     self.tableView.hidden = NO;
     self.title = @"修改密码";
     [self setupUI];
+    [self fetchData];
+}
+
+-(void)fetchData {
+    
+    
+    NSDictionary *param = @{
+                            
+                            @"uid":@"1132",
+                            @"sign_token":@"054f9b77205f634d348ef05d98210783"
+    
+                            };
+    
+    [DLHomeViewTask  getAgencyEditPass:param completion:^(id result, NSError *error) {
+        
+    }];
 }
 
 -(NSArray*)cellTiltleArr
@@ -67,9 +85,35 @@ static NSString* cellID = @"cellID";
 -(void)completeClick {
     
     
-    
-}
+    if (self.changeTwoPasswordTF.text == nil) {
+        
+        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [failureV show];
 
+    }
+    if (self.oldPasswordTF.text != self.changeTwoPasswordTF.text) {
+        
+        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [failureV show];
+
+    }
+    
+    if (self.oldPasswordTF.text == self.changePasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
+        
+        NSDictionary *param = @{
+                                
+                                @"uid":@"1132",
+                                @"sign_token":@"054f9b77205f634d348ef05d98210783",
+                                @"oldPassword":self.oldPasswordTF.text,
+                                @"newPassword":self.changePasswordTF.text
+
+                                };
+        
+        [DLHomeViewTask getAgencyEditPassHandle:param completion:^(id result, NSError *error) {
+            
+        }];
+    }
+}
 
 #pragma mark -------------- UITable View Delegate ------------------
 

@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
-@property(nonatomic,strong) DLAddReduceButton * button;
-@property(nonatomic,strong) DLAddReduceButton * button1;
+//@property(nonatomic,strong) DLAddReduceButton * button;
+//@property(nonatomic,strong) DLAddReduceButton * button1;
 @property(nonatomic,strong) UIView *linView;
 
 @end
@@ -39,15 +39,17 @@
     DLAddReduceButton *button = [[DLAddReduceButton alloc] init];
     self.button = button;
     button.shakeAnimation = NO;
-    button.resultBlock = ^(NSInteger number, BOOL increaseStatus) {
-        
+//    button.delegate = self;
+    button.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+        NSLog(@"%ld",num);
     };
     
     DLAddReduceButton *button1 = [[DLAddReduceButton alloc] init];
     self.button1 = button1;
     button1.shakeAnimation = NO;
-    button1.resultBlock = ^(NSInteger number, BOOL increaseStatus) {
-        
+//    button1.delegate = self;
+    button1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+        NSLog(@"%ld",num);
     };
 
     [self.contentView addSubview:button];

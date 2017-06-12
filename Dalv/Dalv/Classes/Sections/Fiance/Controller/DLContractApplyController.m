@@ -16,7 +16,7 @@
 #import "DLHomeViewTask.h"
 #import "DLRequestSerVice.h"
 
-@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+@interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
 /*** 自取inviteBtn  ***/
 @property(nonatomic,strong)UIButton *inviteBtn;
 /*** 快递CourierBtn ***/
@@ -52,6 +52,36 @@
 
 //费用
 @property(nonatomic,assign) NSString *express_feeNumber;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@property(nonatomic, strong)UITextField *countTextField;
+@property(nonatomic, strong)UITextField *countTextField1;
+@property(nonatomic, strong)UITextField *countTextField2;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end
@@ -218,11 +248,36 @@ static NSString *section5CellID = @"section5CellID";
                                  @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
                                  @"code":@"400",
                                  };
-
+//
+//////
+//        NSDictionary *param1 = @{
+//                                 
+//                                 @"uid":@"1132",
+//                                 @"sign_token" : @"d192ea97b44fb3d7854e635256bf1f93",
+//                                 @"request_method":self.methodBtnNumber,
+////                                 @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+////                                 @"outbound":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+////                                 @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+//                               
+//                                 
+//                                 @"inland":self.countTextField.text,
+//                                 @"outbound":self.countTextField1.text,
+//                                 @"peritem":self.countTextField2.text,
+//                                 
+//                                 
+//                                 
+//                                 @"code":@"400",
+//                                 };
+////        
         [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
                     }];
-                }
-
+        NSLog(@"%@",self.countTextField2.text);
+        
+        
+    }
+    
+    
+    
     //快递
     else if ([self.methodBtnNumber isEqualToString:@"2"]){
         
@@ -238,10 +293,14 @@ static NSString *section5CellID = @"section5CellID";
                                     @"request_method":self.methodBtnNumber,
                                     @"express_fee":self.express_feeNumber,
                                     @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
-                                    @"outbound":[NSString stringWithFormat:@"%ld",(long  )self.currentNumber],
+                                    @"outbound":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
                                     @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
+                                    
                                     @"code":@"400",
                                     };
+            
+
+            
 
             [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
                 NSLog(@"%@",result);
@@ -350,6 +409,7 @@ static NSString *section5CellID = @"section5CellID";
 }
 
 
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
@@ -357,6 +417,12 @@ static NSString *section5CellID = @"section5CellID";
         DLContractApplyViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
+        self.countTextField.text =cell.countTextField.text;
+        self.countTextField1.text =cell.countTextField1.text;
+        self.countTextField2.text =cell.countTextField2.text;
+        
+        
+        
         
         if (indexPath.row == 0) {
             cell.textLabel.text = @"国内合同";
@@ -450,5 +516,18 @@ static NSString *section5CellID = @"section5CellID";
         textView.textColor = [UIColor blackColor];
     }
 }
+
+
+
+
+
+#pragma mark ---------  DLAddReduceButtonDelegate  -------------
+
+
+- (void)pp_numberButton:(__kindof UIView *)numberButton number:(NSInteger)number increaseStatus:(BOOL)increaseStatus{
+
+}
+
+
 
 @end

@@ -235,6 +235,9 @@
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
 		451F39151EEAB66F005FE126 /* DLinvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39141EEAB66F005FE126 /* DLinvoiceModel.m */; };
+		451F39181EED0F92005FE126 /* DLMineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39171EED0F92005FE126 /* DLMineViewCell.m */; };
+		451F391C1EED1DF5005FE126 /* DLMineXibViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F391A1EED1DF5005FE126 /* DLMineXibViewCell.m */; };
+		451F391D1EED1DF5005FE126 /* DLMineXibViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F391B1EED1DF5005FE126 /* DLMineXibViewCell.xib */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -648,6 +651,11 @@
 		451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceSection1Cell.m; sourceTree = "<group>"; };
 		451F39131EEAB66F005FE126 /* DLinvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceModel.h; sourceTree = "<group>"; };
 		451F39141EEAB66F005FE126 /* DLinvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceModel.m; sourceTree = "<group>"; };
+		451F39161EED0F92005FE126 /* DLMineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewCell.h; sourceTree = "<group>"; };
+		451F39171EED0F92005FE126 /* DLMineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewCell.m; sourceTree = "<group>"; };
+		451F39191EED1DF5005FE126 /* DLMineXibViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineXibViewCell.h; sourceTree = "<group>"; };
+		451F391A1EED1DF5005FE126 /* DLMineXibViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineXibViewCell.m; sourceTree = "<group>"; };
+		451F391B1EED1DF5005FE126 /* DLMineXibViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineXibViewCell.xib; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -898,6 +906,11 @@
 				45DB47B21EE5524200399A6D /* DLCustomerListCell.h */,
 				45DB47B31EE5524200399A6D /* DLCustomerListCell.m */,
 				45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */,
+				451F39161EED0F92005FE126 /* DLMineViewCell.h */,
+				451F39171EED0F92005FE126 /* DLMineViewCell.m */,
+				451F39191EED1DF5005FE126 /* DLMineXibViewCell.h */,
+				451F391A1EED1DF5005FE126 /* DLMineXibViewCell.m */,
+				451F391B1EED1DF5005FE126 /* DLMineXibViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1894,6 +1907,7 @@
 				1CE2C1A11ED525E000B898BA /* have_dinner@2x.png in Resources */,
 				1CE2C23E1ED57BE400B898BA /* arrowhead_left@3x.png in Resources */,
 				1CE2C18E1ED525E000B898BA /* add@3x.png in Resources */,
+				451F391D1EED1DF5005FE126 /* DLMineXibViewCell.xib in Resources */,
 				1CE8D8091ED808A200FFEF8B /* mine_theme@3x.png in Resources */,
 				1CE2C1DE1ED528C800B898BA /* passenger_ticket@3x.png in Resources */,
 				1CE2C20E1ED52BA100B898BA /* transaction_record@3x.png in Resources */,
@@ -2001,6 +2015,7 @@
 				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
 				1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
+				451F39181EED0F92005FE126 /* DLMineViewCell.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
@@ -2078,6 +2093,7 @@
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
+				451F391C1EED1DF5005FE126 /* DLMineXibViewCell.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
 				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,

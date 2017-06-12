@@ -104,16 +104,13 @@
     [self.headScrollView changeBtnTitleColorWith:scrollView.contentOffset.x/MAIN_SCREEN_WIDTH+100];
 }
 
-#pragma mark  ----------  seletedControllerDelegate  ------------
+#pragma mark  ------  seletedControllerDelegate  ------------
 
 -(void)seletedControllerWith:(UIButton *)btn{
     
     self.mainScrollView.contentOffset = CGPointMake(MAIN_SCREEN_WIDTH*(btn.tag - 100), 0);
 }
 @end
-
-
-
 
 
 
