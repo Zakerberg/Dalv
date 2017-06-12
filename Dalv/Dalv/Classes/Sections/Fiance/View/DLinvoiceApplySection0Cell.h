@@ -19,7 +19,7 @@
 /***  发票备注TV ***/
 @property(nonatomic,strong) UITextView* noteTextView;
 
-/***  剩余金额Label ***/
+/***  剩余发票额度Label ***/
 @property(nonatomic,strong)UILabel *moneyLabel;
 
 @end

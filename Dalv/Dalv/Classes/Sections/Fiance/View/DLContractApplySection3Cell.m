@@ -35,7 +35,7 @@
     
     UIButton *payforBtn = [[UIButton alloc] init];
     self.payforBtn = payforBtn;
-    [payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    [payforBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     
     [self.contentView addSubview:payforBtn];
     

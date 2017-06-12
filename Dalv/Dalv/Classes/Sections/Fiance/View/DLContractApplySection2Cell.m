@@ -10,9 +10,6 @@
 
 @interface DLContractApplySection2Cell ()
 
-@property(nonatomic,strong) UILabel * addressLabel1;
-@property(nonatomic,strong) UILabel * numberLabel1;
-
 
 @end
 
@@ -38,12 +35,14 @@
     UILabel *addressLabel = [[UILabel alloc] init];
     addressLabel.text = @"公司地址:";
     [addressLabel sizeToFit];
+    addressLabel.font = [UIFont systemFontOfSize:12];
     addressLabel.textColor = [UIColor blackColor];
     [self.contentView addSubview:addressLabel];
     
     UILabel *addressLabel1 = [[UILabel alloc] init];
     self.addressLabel1 = addressLabel1;
     addressLabel1.text = @"XXXXXXXXXXX";
+    addressLabel1.font = [UIFont systemFontOfSize:12];
     [addressLabel1 sizeToFit];
     addressLabel1.textColor = [UIColor blackColor];
     
@@ -52,6 +51,7 @@
     UILabel *numberLabel = [[UILabel alloc] init];
     numberLabel.text = @"联系电话:";
     [numberLabel sizeToFit];
+    numberLabel.font = [UIFont systemFontOfSize:12];
     numberLabel.textColor = [UIColor blackColor];
     [self.contentView addSubview:numberLabel];
     
@@ -59,6 +59,7 @@
     UILabel *numberLabel1 = [[UILabel alloc] init];
     self.numberLabel1 = numberLabel1;
     numberLabel1.text = @"010-XXXXXXXXX";
+    numberLabel1.font = [UIFont systemFontOfSize:12];
     [numberLabel1 sizeToFit];
     numberLabel1.textColor = [UIColor blackColor];
 
@@ -70,7 +71,7 @@
     }];
     
     [addressLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(addressLabel.mas_right).offset(15);
+        make.left.equalTo(addressLabel.mas_right).offset(0);
         make.centerY.equalTo(addressLabel).offset(0);
         make.height.offset(15);
     }];
@@ -81,7 +82,7 @@
     }];
     
     [numberLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(numberLabel.mas_right).offset(15);
+        make.left.equalTo(numberLabel.mas_right).offset(0);
         make.centerY.equalTo(numberLabel);
         make.height.offset(15);
     }];
