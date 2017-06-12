@@ -118,7 +118,7 @@
 // 35.测试顾问财务管理->提现申请页面接口
 #define DL_AgencyFinanceApplyWithdraw DL_HOST@"index.php/Api/agencyFinance/applyWithdraw"
 
-// 36.测试顾问财务管理->提现申请页面接口
+// 36.测试顾问财务管理->提现申请处理接口
 #define DL_AgencyFinanceApplyWithdrawHandle DL_HOST@"index.php/Api/agencyFinance/applyWithdrawHandle"
 
 // 37.测试顾问财务管理->提现记录列表接口

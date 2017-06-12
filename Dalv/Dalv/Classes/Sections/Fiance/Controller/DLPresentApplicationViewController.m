@@ -7,10 +7,13 @@
 //
 
 #import "DLPresentApplicationViewController.h"
-
+#import "DLHomeViewTask.h"
+#import "DLPresentApplicationModel.h"
 @interface DLPresentApplicationViewController ()<UITextFieldDelegate>
 
-@property (strong,nonatomic) UITextField *priceTextField;
+@property (nonatomic,strong) UITextField *priceTextField;
+
+@property (nonatomic,strong) NSMutableDictionary *presentDict;
 
 @end
 
@@ -18,8 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupNavbar];
     [self setupSubviews];
+    [self fetchData];
 
     self.view.backgroundColor = [UIColor colorWithHexString:@"efefef"];
 }
@@ -33,6 +38,25 @@
 
 - (void)setupNavbar {
     self.title = @"提现申请";
+}
+
+#pragma mark - Fetch data
+
+- (void)fetchData {
+  
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+     @weakify(self);
+    [DLHomeViewTask getAgencyFinanceApplyWithdraw:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            self.presentDict = [[NSMutableDictionary alloc] init];
+            self.presentDict = [result objectForKey:@"agencyInfo"];
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+    
 }
 
 #pragma mark - Setup subViews
@@ -51,12 +75,17 @@
     [backview addSubview:cashAccountLabel];
 
     UILabel *bankCradLabel = [[UILabel alloc] init];
-    bankCradLabel.text = @"111111111111";
+//    bankCradLabel.text = @"111111111111";
     bankCradLabel.textAlignment = NSTextAlignmentLeft;
     bankCradLabel.textColor = [UIColor colorWithHexString:@"#aaaaaa"];
     bankCradLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:bankCradLabel];
-    
+//    if (self.presentApplicationDict) {
+//        bankCradLabel.text = [NSString stringWithFormat:@"%@",[self.presentApplicationDict objectForKey:@"bank_account"]];
+//    }
+
+    bankCradLabel.text = [self.presentDict objectForKey:@"bank_account"];
+
     UIView *line = [[UIView alloc]init];
     line.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     [backview   addSubview:line];
@@ -231,7 +260,6 @@
 {
     if (self.priceTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"请输入转出金额"];
-        return;
     }
     
 }

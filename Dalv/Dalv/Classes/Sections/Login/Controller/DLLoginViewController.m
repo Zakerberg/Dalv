@@ -60,28 +60,27 @@
     self.navigationItem.rightBarButtonItem = registerbutton;
 }
 
-- (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password{
+- (void)loginBtnClickDelegateWithUsename:(NSString *)usename Password:(NSString *)password {
     
-    //http://dalvuapi.dalvu.com/index.php/Api/login/agencyIndex?login_name=13126997216&login_pwd=123456
-    
-    NSDictionary *param  = @{
-                             @"login_name":@13126997216,
-                             @"login_pwd":@123456,
-                             };
-//
-//    [DLHomeViewTask loginWithUserName:self.loginIdTextField.text password:self.passwordTextField.text completion:^(id result, NSError *error) {
-//        
-//    }];
-    
-    [DLRequestSerVice POST:DL_Login param:param
-                   success:^(id responseData) {
+    NSDictionary *param = @{@"login_name" : usename,
+                            @"login_pwd" : password,};
+       [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
+        if (error) {
+            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+        } else {
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                
+        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
+        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
+        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 
-                       NSLog(@"登录成功!%@",responseData);
-                       [self.navigationController popViewControllerAnimated:YES];
-                       //在这给单例类赋值
-                   } failure:^(NSError *error) {
+            [self.navigationController popViewControllerAnimated:YES];
 
-                   }];
+            }
+        }
+    }];
+
 
 }
 

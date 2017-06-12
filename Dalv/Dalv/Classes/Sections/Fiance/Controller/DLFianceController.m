@@ -24,10 +24,9 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 
 @interface DLFianceController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, weak) UICollectionView *appCollectionView;
-
 @property (nonatomic, strong) NSArray *apps;
 
-@property(nonatomic,strong) NSMutableDictionary *fianceDict;
+@property (nonatomic,strong) NSMutableDictionary *fianceDict;
 
 @end
 
@@ -98,13 +97,15 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (void)fetchData {
     self.apps = [DLHomePageViewModel creatFianceMenuItems];
     [self.appCollectionView reloadData];
-            NSDictionary *param = @{@"uid" : @"1132",
-                                    @"sign_token" : @"d7eabff2586161efbf0845b0eba46337",};
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
      @weakify(self);
     [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
         @strongify(self);
        if (result) {
+           self.fianceDict = [[NSMutableDictionary alloc] init];
            self.fianceDict = [result objectForKey:@"agencyInfo"];
+           [self.appCollectionView reloadData];
        }else {
            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
        }
@@ -200,11 +201,11 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         hotTopicHeaderView.backgroundColor = [UIColor whiteColor];
         
         UILabel *totalPriceLabel = [[UILabel alloc] init];
-        totalPriceLabel.text = @"4890.0";
         totalPriceLabel.textAlignment = NSTextAlignmentCenter;
         totalPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         totalPriceLabel.font = [UIFont systemFontOfSize:26];
         [hotTopicHeaderView addSubview:totalPriceLabel];
+        totalPriceLabel.text = [self.fianceDict objectForKey:@"account_balance"];
         
         UILabel *totalAccountLabel = [[UILabel alloc] init];
         totalAccountLabel.text = @"账户总额";
@@ -218,11 +219,14 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         [hotTopicHeaderView  addSubview:line];
         
         UILabel *blockedPriceLabel = [[UILabel alloc] init];
-        blockedPriceLabel.text = @"2000.0";
         blockedPriceLabel.textAlignment = NSTextAlignmentCenter;
         blockedPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         blockedPriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:blockedPriceLabel];
+        if (self.fianceDict) {
+            blockedPriceLabel.text = [NSString stringWithFormat:@"%@",[self.fianceDict objectForKey:@"freezeMoney"]];
+        }
+       
         
         UILabel *blockedAssetsLabel = [[UILabel alloc] init];
         blockedAssetsLabel.text = @"冻结资金";
@@ -237,11 +241,13 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         
         
         UILabel *availablePriceLabel = [[UILabel alloc] init];
-        availablePriceLabel.text = @"2890.0";
         availablePriceLabel.textAlignment = NSTextAlignmentCenter;
         availablePriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         availablePriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:availablePriceLabel];
+        if (self.fianceDict) {
+            availablePriceLabel.text = [NSString stringWithFormat:@"%@",[self.fianceDict objectForKey:@"availableBalance"]];
+        }
         
         UILabel *availableBalanceLabel = [[UILabel alloc] init];
         availableBalanceLabel.text = @"可用余额";

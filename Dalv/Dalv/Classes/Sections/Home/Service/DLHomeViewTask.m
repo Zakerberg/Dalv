@@ -109,13 +109,22 @@
     
 }
 
-
-+ (void)loginWithUserName:(NSString *)phoneStr
-                 password:(NSString *)password
-               completion:(void (^)(id result, NSError *error))completionHandler {
-    
-    NSDictionary * param = [[NSMutableDictionary alloc]init];
-    [param setValue:phoneStr forKey:@""];
+//+ (void)loginWithUserName:(NSString *)phoneStr
+//                 password:(NSString *)password
+//               completion:(void (^)(id result, NSError *error))completionHandler {
+//    
+//    NSDictionary * param = [[NSMutableDictionary alloc]init];
+//    [param setValue:phoneStr forKey:@""];
+//    
+//    [DLRequestSerVice POST:DL_Login param:param success:^(id responseData) {
+//        completionHandler ? completionHandler (responseData, nil) : nil;
+//    } failure:^(NSError *error) {
+//        completionHandler ? completionHandler (nil, error) : nil;
+//    }];
+//    
+//}
++ (void)getLogin:(NSDictionary *)param
+      completion:(void (^)(id result, NSError *error))completionHandler {
     
     [DLRequestSerVice POST:DL_Login param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
@@ -124,6 +133,8 @@
     }];
     
 }
+
+
 
 
 + (void)getHomeAgencyIndexModl:(NSDictionary *)param

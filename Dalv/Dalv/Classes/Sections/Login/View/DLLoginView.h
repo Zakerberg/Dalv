@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 @protocol  DLLoginViewDelegate <NSObject>
+
 - (void)loginBtnClickDelegateWithUsename:(NSString*)usename Password:(NSString*)password;
 
 @end
 
 @interface DLLoginView : UIView
-@property (strong,nonatomic) UITextField *loginIdTextField;
-@property (strong,nonatomic) UITextField *passwordTextField;
-@property (nonatomic,weak) id <DLLoginViewDelegate>delegate;
+@property (strong, nonatomic) UITextField *loginIdTextField;
+@property (strong, nonatomic) UITextField *passwordTextField;
+@property (nonatomic, weak) id <DLLoginViewDelegate>delegate;
 @end

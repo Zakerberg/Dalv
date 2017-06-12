@@ -40,4 +40,8 @@
 #import "DLHUDManager.h"
 #import "DLActionSheet.h"
 #import "DLAlertView.h"
+
+// Other
+#import "DLUtils.h"
+
 #endif /* DalvHeader_h */

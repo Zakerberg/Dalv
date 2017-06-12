@@ -16,8 +16,7 @@
 
 @implementation DLLoginView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self configureSubViews];
@@ -26,8 +25,7 @@
 }
 
 #pragma mark - configureSubViews
-- (void)configureSubViews
-{
+- (void)configureSubViews {
     UIFont *font = [UIFont systemFontOfSize:14];
     UIColor *color = [UIColor whiteColor];
     self.backgroundColor = [UIColor whiteColor];
@@ -97,10 +95,21 @@
 }
 
 #pragma mark - ButtonAction
-- (void)performLoginAction
-{
+- (void)performLoginAction {
+    
     if (self.loginIdTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"手机号不能为空"];
+        return;
+    }
+    //判断手机号的正则表达式
+    NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
+    
+    NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
+    
+    BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.loginIdTextField.text];
+    
+    if (!isMatchPhoneNum){
+        [[DLHUDManager sharedInstance]showTextOnly:@"你输入的号码格式有误"];
         return;
     }
     
@@ -114,8 +123,7 @@
     }
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [self endEditing:YES];
 }
 
@@ -125,7 +133,7 @@
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     
     UIWindow * window=[UIApplication sharedApplication].delegate.window;
     CGRect rc = [self convertRect:textField.frame toView:window];
@@ -134,22 +142,20 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     
     [self recoverViewFrame];
     
 }
 
 //忘记密码
-- (void)performForgotPasswordAction
-{
+- (void)performForgotPasswordAction {
     if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15701189832"]] ){
                         [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
     }
 }
 
-- (void)updateViewFrame:(CGRect)rect
-{
+- (void)updateViewFrame:(CGRect)rect {
     int y = rect.origin.y + rect.size.height + ([[UIScreen mainScreen] bounds].size.height > 480?30:0);
     int h = self.height - 260;
     int yh = y - h;
@@ -162,8 +168,7 @@
     }
     
 }
-- (void)recoverViewFrame
-{
+- (void)recoverViewFrame {
     [UIView animateWithDuration:0.3 animations:^{
         self.y = 64;
     } completion:^(BOOL completion){

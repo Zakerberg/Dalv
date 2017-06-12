@@ -210,8 +210,8 @@ static NSString *section5CellID = @"section5CellID";
         
         NSDictionary *param1 = @{
                                  
-                                 @"uid":@"1132",
-                                 @"sign_token" : @"d192ea97b44fb3d7854e635256bf1f93",
+                                 @"uid":[DLUtils getUid],
+                                 @"sign_token" : [DLUtils getSign_token],
                                  @"request_method":self.methodBtnNumber,
                                  @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
                                  @"outbound":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
@@ -230,8 +230,8 @@ static NSString *section5CellID = @"section5CellID";
             
             NSDictionary *param = @{
                                     
-                                    @"uid" : @"1132",
-                                    @"sign_token" : @"d192ea97b44fb3d7854e635256bf1f93",
+                                    @"uid" : [DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],
                                     @"addr":self.addressTV.text,
                                     @"name":self.nameTF.text,
                                     @"phone":self.numberTF.text,

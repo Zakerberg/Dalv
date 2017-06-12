@@ -28,5 +28,9 @@
 // 获取设备型号
 + (NSString *)getDeviceModel;
 
+// 获取uid
++ (NSString *)getUid;
 
+// 获取token
++ (NSString *)getSign_token;
 @end

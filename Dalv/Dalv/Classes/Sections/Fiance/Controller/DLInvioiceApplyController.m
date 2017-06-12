@@ -153,8 +153,8 @@ static NSString *section5CellID = @"section5CellID";
     
     NSDictionary *param = @{
                             
-                            @"uid":@"1132",
-                        @"sign_token":@"6821a2f7fe08a16c35104d59d74c3744",
+                            @"uid":[DLUtils getUid],
+                        @"sign_token":[DLUtils getSign_token],
                             
                             };
     
@@ -258,8 +258,8 @@ static NSString *section5CellID = @"section5CellID";
         
         NSDictionary *param1 = @{
                                  
-                                 @"uid":@"1132",
-                                 @"sign_token" : @"ee8c73c21af33d030692a8a442328088",
+                                 @"uid":[DLUtils getUid],
+                                 @"sign_token" : [DLUtils getSign_token],
                                  @"title":self.companyTF.text,
                                  @"amount":self.invoiceAmountTF.text,
                                  @"detail_comm":self.noteTextView.text,
@@ -279,8 +279,8 @@ static NSString *section5CellID = @"section5CellID";
             
             NSDictionary *param = @{
                                     
-                                    @"uid" : @"1132",
-                                    @"sign_token" : @"ee8c73c21af33d030692a8a442328088",
+                                    @"uid" : [DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],
                                     @"title":self.companyTF.text,
                                     @"amount":self.invoiceAmountTF.text,
                                     @"detail_comm":self.noteTextView.text,

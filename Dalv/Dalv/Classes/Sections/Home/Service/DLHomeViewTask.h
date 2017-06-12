@@ -103,9 +103,13 @@
  *  @param completionHandler 完成后的回调
  */
 
-+ (void)loginWithUserName:(NSString *)phoneStr
-                 password:(NSString *)password
-               completion:(void (^)(id result, NSError *error))completionHandler;
+//+ (void)loginWithUserName:(NSString *)phoneStr
+//                 password:(NSString *)password
+//               completion:(void (^)(id result, NSError *error))completionHandler;
++ (void)getLogin:(NSDictionary *)param
+                    completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 
 /**
  * 11 测试顾问首页模块接口地址
@@ -334,7 +338,7 @@
                            completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 36 测试顾问财务管理->提现申请页面接口
+ * 36 测试顾问财务管理->提现申请处理接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
