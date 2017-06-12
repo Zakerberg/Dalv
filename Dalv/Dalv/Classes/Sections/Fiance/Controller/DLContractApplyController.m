@@ -271,7 +271,7 @@ static NSString *section5CellID = @"section5CellID";
 ////        
         [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
                     }];
-        NSLog(@"%@",self.countTextField2.text);
+        
         
         
     }

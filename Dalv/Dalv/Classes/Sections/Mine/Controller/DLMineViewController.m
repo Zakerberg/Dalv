@@ -552,79 +552,78 @@ static NSString *cellID  = @"cellID";
         
     }
 ////
-////    
-//    if (indexPath.row == 3) {
-//        UITextField *passCodeTF = [[UITextField alloc] init];
-////    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
-//        self.passCodeTF = passCodeTF;
-//        passCodeTF.placeholder = @"输入手机验证码";
-//        passCodeTF.keyboardType = UIKeyboardTypeNumberPad;
-//        [tableView addSubview:passCodeTF];
-//        
-//        [passCodeTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.left.equalTo(@20);
-//            make.top.equalTo(self.phoneTextFiled.mas_bottom).offset(0);
-//            make.height.equalTo(@52);
-//            make.width.equalTo(@0);
-//        }];
-//
-//        
-//    }
+//    
+    if (indexPath.row == 3) {
+        UITextField *passCodeTF = [[UITextField alloc] init];
+//    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
+        self.passCodeTF = passCodeTF;
+        passCodeTF.placeholder = @"输入手机验证码";
+        passCodeTF.keyboardType = UIKeyboardTypeNumberPad;
+        [tableView addSubview:passCodeTF];
+        
+        [passCodeTF mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.equalTo(self.phoneTextFiled.mas_bottom).offset(0);
+            make.width.offset(MAIN_SCREEN_WIDTH);
+            make.height.offset(52);
+            make.left.equalTo(@20);
+
+        }];
+
+    }
 ////
-//    if (indexPath.row == 4) {
-//        UITextField *passwordTF = [[UITextField alloc] init];
-//        //WithFrame:CGRectMake(20, 242, MAIN_SCREEN_WIDTH, 52)];
-//      
-//        self.passwordTF = passwordTF;
-//        passwordTF.placeholder = @"输入密码";
-//        [tableView addSubview:passwordTF];
-//        
-//        
-//        [passwordTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.passCodeTF.mas_bottom).offset(0);
-//            make.left.equalTo(@20);
-//            make.width.equalTo(@0);
-//            make.height.equalTo(@52);
-//        }];
-////
-////        
-////        
-//    }
-//    
-//    
-//    if (indexPath.row == 5) {
-//        UITextField *determinePasswordTF = [[UITextField alloc] init];
-//   //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
+    if (indexPath.row == 4) {
+        UITextField *passwordTF = [[UITextField alloc] init];
+        //WithFrame:CGRectMake(20, 242, MAIN_SCREEN_WIDTH, 52)];
+      
+        self.passwordTF = passwordTF;
+        passwordTF.placeholder = @"输入密码";
+        [tableView addSubview:passwordTF];
+        
+        
+        [passwordTF mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.passCodeTF.mas_bottom).offset(0);
+            make.left.equalTo(@20);
+            make.width.offset(MAIN_SCREEN_WIDTH);
+            make.height.offset(52);
+        }];
+
+    }
+    
 //
-//        self.determinePasswordTF = determinePasswordTF;
-//        determinePasswordTF.placeholder = @"确认密码";
-//        [tableView addSubview:determinePasswordTF];
-//        
-//        [determinePasswordTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.passwordTF.mas_bottom).offset(0);
-//            make.left.equalTo(@20);
-//            make.height.equalTo(@52);
-//            make.width.equalTo(@0);
-//        }];
+    if (indexPath.row == 5) {
+        UITextField *determinePasswordTF = [[UITextField alloc] init];
+   //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
+
+        self.determinePasswordTF = determinePasswordTF;
+        determinePasswordTF.placeholder = @"确认密码";
+        [tableView addSubview:determinePasswordTF];
+        
+        [determinePasswordTF mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.passwordTF.mas_bottom).offset(0);
+            make.left.equalTo(@20);
+            make.height.offset(52);
+            make.width.offset(MAIN_SCREEN_WIDTH);
+        }];
+
+    }
 //
-//    }
-//    
-//    if (indexPath.row == 6) {
-//        UITextField *positionTF = [[UITextField alloc] init];
-//                                   
-//    //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
-//        self.positionTF = positionTF;
-//        positionTF.placeholder = @"职务 如: 领导、导游、职员等";
-//        [tableView addSubview:positionTF];
-//        
-//        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
-//            make.left.equalTo(@20);
-//            make.height.equalTo(@52);
-//            make.width.equalTo(@0);
-//        }];
-//
-//    }
+    if (indexPath.row == 6) {
+        UITextField *positionTF = [[UITextField alloc] init];
+                                   
+    //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
+        self.positionTF = positionTF;
+        positionTF.placeholder = @"职务 如: 领导、导游、职员等";
+        [tableView addSubview:positionTF];
+        
+        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
+            make.left.equalTo(@20);
+            make.height.offset(52);
+            make.width.offset(MAIN_SCREEN_WIDTH);
+        }];
+
+    }
     
     if (indexPath.row == 1) {
         

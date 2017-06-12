@@ -39,17 +39,20 @@
     DLAddReduceButton *button = [[DLAddReduceButton alloc] init];
     self.button = button;
     button.shakeAnimation = NO;
-//    button.delegate = self;
+
     button.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
+        self.currentNumber = num;
+
     };
     
     DLAddReduceButton *button1 = [[DLAddReduceButton alloc] init];
     self.button1 = button1;
     button1.shakeAnimation = NO;
-//    button1.delegate = self;
+
     button1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
+        self.currentNumber = num;
     };
 
     [self.contentView addSubview:button];

@@ -18,4 +18,13 @@
 @property(nonatomic, strong)UITextField *countTextField1;
 @property(nonatomic, strong)UITextField *countTextField2;
 
+
+
+
+/** 输入框中的内容 */
+@property (nonatomic, assign ) NSInteger currentNumber;
+
+
+
+
 @end
