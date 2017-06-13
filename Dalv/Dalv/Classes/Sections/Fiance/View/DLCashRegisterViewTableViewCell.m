@@ -18,9 +18,8 @@
     }
     return self;
 }
-
 - (void)setupCellSubviews {
-    
+         
     _transactionTypelab = [[UILabel alloc]init];
     _transactionTypelab.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
     _transactionTypelab.textAlignment = NSTextAlignmentLeft;
@@ -40,19 +39,37 @@
     line.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     [self.contentView  addSubview:line];
     
-    UILabel *tpricelab = [[UILabel alloc]init];
-    tpricelab.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-    tpricelab.textAlignment = NSTextAlignmentLeft;
-    tpricelab.font = [UIFont systemFontOfSize:12];
-    tpricelab.text = @"提现状态";
-    [self.contentView addSubview:tpricelab];
+    _tpricelab = [[UILabel alloc]init];
+    _tpricelab.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+    _tpricelab.textAlignment = NSTextAlignmentLeft;
+    _tpricelab.font = [UIFont systemFontOfSize:12];
+    _tpricelab.text = @"提现状态";
+    [self.contentView addSubview:_tpricelab];
     
-    UILabel *abalance = [[UILabel alloc]init];
-    abalance.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-    abalance.textAlignment = NSTextAlignmentLeft;
-    abalance.font = [UIFont systemFontOfSize:12];
-    abalance.text = @"提现金额";
-    [self.contentView addSubview:abalance];
+    _backview = [[UIView alloc]init];
+    _backview.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+    [self.contentView  addSubview:_backview];
+    
+    _failureReasonlab = [[UILabel alloc]init];
+    _failureReasonlab.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    _failureReasonlab.textAlignment = NSTextAlignmentLeft;
+    _failureReasonlab.font = [UIFont systemFontOfSize:12];
+    _failureReasonlab.text = @"失败原因：";
+    [_backview addSubview:_failureReasonlab];
+    
+    _memolab = [[UILabel alloc]init];
+    _memolab.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
+    _memolab.textAlignment = NSTextAlignmentLeft;
+    _memolab.font = [UIFont systemFontOfSize:12];
+    _memolab.text = @"提现失败";
+    [_backview addSubview:_memolab];
+    
+    _abalancelab = [[UILabel alloc]init];
+    _abalancelab.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+    _abalancelab.textAlignment = NSTextAlignmentLeft;
+    _abalancelab.font = [UIFont systemFontOfSize:12];
+    _abalancelab.text = @"提现金额";
+    [self.contentView addSubview:_abalancelab];
     
     _transactionPricelab = [[UILabel alloc]init];
     _transactionPricelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
@@ -68,9 +85,9 @@
     _accountBalancelab.text = @"¥1399";
     [self.contentView addSubview:_accountBalancelab];
     
-    UIView *line1 = [[UIView alloc]init];
-    line1.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
-    [self.contentView  addSubview:line1];
+    _line1 = [[UIView alloc]init];
+    _line1.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
+    [self.contentView  addSubview:_line1];
     
     _orderNumberlab = [[UILabel alloc]init];
     _orderNumberlab.textColor = [UIColor colorWithHexString:@"#aaaaaa"];
@@ -101,48 +118,70 @@
         make.height.equalTo(@0.5);
     }];
     
-    [tpricelab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_tpricelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
     }];
     
-    [abalance mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(tpricelab.mas_bottom);
+    [_backview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_tpricelab.mas_bottom);
+        make.left.equalTo(@15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.height.equalTo(@20);
+        
+    }];
+    
+    [_failureReasonlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@10);
+        make.width.equalTo(@65);
+        make.height.equalTo(@20);
+    }];
+    
+    [_memolab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_failureReasonlab);
+        make.left.equalTo(_failureReasonlab.mas_right);
+        make.right.equalTo(_backview).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+    
+    [_abalancelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_backview.mas_bottom);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
     }];
     
     [_transactionPricelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(tpricelab);
+        make.centerY.equalTo(_tpricelab);
         make.right.equalTo(@-15);
         make.width.equalTo(@250);
         make.height.equalTo(@25);
     }];
     
     [_accountBalancelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(abalance);
+        make.centerY.equalTo(_abalancelab);
         make.right.equalTo(@-15);
         make.width.equalTo(@250);
         make.height.equalTo(@25);
     }];
     
-    [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(abalance.mas_bottom);
+    [_line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_abalancelab.mas_bottom);
         make.left.equalTo(@0);
         make.width.equalTo(self.contentView);
         make.height.equalTo(@0.5);
     }];
     
     [_orderNumberlab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(line1.mas_bottom);
+        make.top.equalTo(_line1.mas_bottom);
         make.left.equalTo(@15);
         make.width.equalTo(@250);
         make.height.equalTo(@25);
     }];
-    
     
 }
 
@@ -156,6 +195,8 @@
 /** 配置Cell */
 - (void)configureCell:(DLCashRegisterModel *)cashModel{
     
+    _backview.hidden = YES;
+
     if ([cashModel.state isEqualToString:@"1"]) {
         self.transactionPricelab.text = @"待审核";
         _transactionPricelab.textColor = [UIColor redColor];
@@ -164,6 +205,8 @@
         _transactionPricelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }else if ([cashModel.state isEqualToString:@"3"]){
         self.transactionPricelab.text = @"审核失败";
+        _backview.hidden = NO;
+        _memolab.text = cashModel.memo;
         _transactionPricelab.textColor = [UIColor redColor];
     }else {
         self.transactionPricelab.text = @"已支付";

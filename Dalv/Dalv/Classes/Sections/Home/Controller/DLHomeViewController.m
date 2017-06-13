@@ -13,6 +13,8 @@
 #import "DLCityPopMenuView.h"
 #import "DLLoginViewController.h"
 #import "DLHomeViewTask.h"
+#import "DLNavigationController.h"
+#import "DLGlobalSearchViewViewController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -230,21 +232,29 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 #pragma mark - UISearchBarDelegate
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (searchBar.text.length) {
-        [self.searchBar resignFirstResponder];
-        NSLog(@"点击搜索");
-    } else {//toast
-        NSLog(@"请输入搜索内容");
-    }
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
+    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
+    [self presentViewController:navbar animated:NO completion:nil];
+    return NO;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.searchBar resignFirstResponder];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    if (searchBar.text.length) {
+//        [self.searchBar resignFirstResponder];
+//        NSLog(@"点击搜索");
+//    } else {//toast
+//        NSLog(@"请输入搜索内容");
+//    }
+//}
+//
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+//    [self.searchBar resignFirstResponder];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+//
 
 #pragma mark - Fetch data
 
