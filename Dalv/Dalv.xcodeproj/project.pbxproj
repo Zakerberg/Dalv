@@ -235,10 +235,10 @@
 		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
-		451F39151EEAB66F005FE126 /* DLinvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39141EEAB66F005FE126 /* DLinvoiceModel.m */; };
 		451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F391F1EEE600E005FE126 /* DLInvioiceApplyController.m */; };
 		451F39271EEE7120005FE126 /* DLContractApplySection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */; };
 		451F39281EEE7120005FE126 /* DLContractApplySection0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F39261EEE7120005FE126 /* DLContractApplySection0Cell.xib */; };
+		451F392C1EEF87D0005FE126 /* DLlineOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F392B1EEF87D0005FE126 /* DLlineOrderModel.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -651,13 +651,13 @@
 		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		451F39101EEA9445005FE126 /* DLinvoiceSection1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceSection1Cell.h; sourceTree = "<group>"; };
 		451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceSection1Cell.m; sourceTree = "<group>"; };
-		451F39131EEAB66F005FE126 /* DLinvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceModel.h; sourceTree = "<group>"; };
-		451F39141EEAB66F005FE126 /* DLinvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceModel.m; sourceTree = "<group>"; };
 		451F391E1EEE600E005FE126 /* DLInvioiceApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvioiceApplyController.h; sourceTree = "<group>"; };
 		451F391F1EEE600E005FE126 /* DLInvioiceApplyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLInvioiceApplyController.m; sourceTree = "<group>"; };
 		451F39241EEE7120005FE126 /* DLContractApplySection0Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplySection0Cell.h; sourceTree = "<group>"; };
 		451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection0Cell.m; sourceTree = "<group>"; };
 		451F39261EEE7120005FE126 /* DLContractApplySection0Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLContractApplySection0Cell.xib; sourceTree = "<group>"; };
+		451F392A1EEF87D0005FE126 /* DLlineOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLlineOrderModel.h; sourceTree = "<group>"; };
+		451F392B1EEF87D0005FE126 /* DLlineOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLlineOrderModel.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -1282,6 +1282,7 @@
 		1CB9537F1ECFC41600BDC2D3 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				451F39291EEF87B5005FE126 /* Model */,
 				1CB953801ECFC41600BDC2D3 /* Controller */,
 			);
 			path = Order;
@@ -1569,6 +1570,15 @@
 			path = common;
 			sourceTree = "<group>";
 		};
+		451F39291EEF87B5005FE126 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				451F392A1EEF87D0005FE126 /* DLlineOrderModel.h */,
+				451F392B1EEF87D0005FE126 /* DLlineOrderModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4529166A1EC1741E0033314F = {
 			isa = PBXGroup;
 			children = (
@@ -1684,8 +1694,6 @@
 				45DB47F71EE7DD8300399A6D /* DLContractRecordModel.m */,
 				45DB47FC1EE7FEAC00399A6D /* DLInvoiceRecordModel.h */,
 				45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */,
-				451F39131EEAB66F005FE126 /* DLinvoiceModel.h */,
-				451F39141EEAB66F005FE126 /* DLinvoiceModel.m */,
 				1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */,
 				1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */,
 			);
@@ -2060,6 +2068,7 @@
 				1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */,
 				1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */,
 				1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */,
+				451F392C1EEF87D0005FE126 /* DLlineOrderModel.m in Sources */,
 				45DB481C1EEA5AB000399A6D /* DLinvoiceApplySection0Cell.m in Sources */,
 				1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */,
 				1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */,
@@ -2118,7 +2127,6 @@
 				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
 				1C0864CF1EEA96F5005015DE /* LGLCalenderSubModel.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
-				451F39151EEAB66F005FE126 /* DLinvoiceModel.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
 				1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */,
 				45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */,

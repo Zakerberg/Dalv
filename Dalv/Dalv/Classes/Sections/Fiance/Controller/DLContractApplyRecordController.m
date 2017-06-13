@@ -10,6 +10,7 @@
 #import "DLContractApplyRecordCell.h"
 #import "DLHomeViewTask.h"
 
+
 @interface DLContractApplyRecordController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *contractRecordTableView;
@@ -91,6 +92,7 @@
     }];
     
 }
+
 
 #pragma mark ----------- UITable View Delegate ----------------
 

@@ -43,7 +43,7 @@
     self.invoiceAmountTF = invoiceAmountTF;
     invoiceAmountTF.placeholder = @"请输入发票金额";
     invoiceAmountTF.borderStyle = UITextBorderStyleNone;
-    invoiceAmountTF.keyboardType = UIKeyboardTypeNumberPad;
+//    invoiceAmountTF.keyboardType = UIKeyboardTypeNumberPad;
     
     [self.contentView addSubview:invoiceAmountTF];
     

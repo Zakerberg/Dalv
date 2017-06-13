@@ -48,10 +48,10 @@
 @property(nonatomic,assign) NSInteger Section3Number;
 
 //获取方式
-@property(nonatomic,assign) NSString *methodBtnNumber;
+@property(nonatomic,weak) NSString *methodBtnNumber;
 
 //费用
-@property(nonatomic,assign) NSString *express_feeNumber;
+@property(nonatomic,weak) NSString *express_feeNumber;
 
 @property(nonatomic,strong)DLAddReduceButton *button1;
 @property(nonatomic,strong)DLAddReduceButton *button2;
@@ -254,13 +254,11 @@ static NSString *section5CellID = @"section5CellID";
 //                                 @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
 //                                 @"code":@"400",
 //                                 };
-////
 //
         NSDictionary *param1 = @{
                                  
                                  @"uid":[DLUtils getUid],
                                  @"sign_token" : [DLUtils getSign_token],
-                                 
                                  @"request_method":self.methodBtnNumber,
                                  @"inland":[NSString stringWithFormat:@"%ld",self.button1.currentNumber],
                                  @"outbound":[NSString stringWithFormat:@"%ld",self.button2.currentNumber],
@@ -268,9 +266,16 @@ static NSString *section5CellID = @"section5CellID";
                                
                                  @"code":@"400",
                                  };
-////
+//
         [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
-                    }];
+            
+            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [failureV show];
+            
+
+        
+        
+        }];
     }
     
     //快递
@@ -297,6 +302,11 @@ static NSString *section5CellID = @"section5CellID";
 
             [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
                 NSLog(@"%@",result);
+                
+                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [failureV show];
+
+                
             }];
         }else{
         

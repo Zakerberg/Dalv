@@ -15,7 +15,6 @@
 #import "DLContractApplySection5Cell.h"
 #import "DLinvoiceApplySection0Cell.h"
 #import "DLinvoiceSection1Cell.h"
-#import "DLinvoiceModel.h"
 #import "DLCityPickerView.h"
 #import "DLSalertView.h"
 #import "DLAddReduceButton.h"
@@ -67,10 +66,10 @@
 
 
 //获取方式
-@property(nonatomic,assign) NSString *methodBtnNumber;
+@property(nonatomic,strong) NSString *methodBtnNumber;
 
-//费用
-@property(nonatomic,assign) NSString *express_feeNumber;
+//邮寄方式
+@property(nonatomic,strong) NSString *express_feeNumber;
 
 
 /***  发票项目 Btn ***/
@@ -101,7 +100,7 @@
 @end
 
 
-static NSString *CellID = @"CellID";
+//static NSString *CellID = @"CellID";
 
 static NSString *section0CellID = @"section0CellID";
 static NSString *invoiceSection1cellID = @"invoiceSection1cellID";
@@ -124,8 +123,6 @@ static NSString *section5CellID = @"section5CellID";
     self.Section2Number = 2;
     self.Section3Number = 0;
     self.Section4Number = 1;
-    
-    
 }
 
 
@@ -155,7 +152,7 @@ static NSString *section5CellID = @"section5CellID";
     
     [self.invoiceTableView registerClass:[DLContractApplySection5Cell class] forCellReuseIdentifier:section5CellID];
     
-    [self.invoiceTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
+//    [self.invoiceTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
     
     [self.view addSubview:self.invoiceTableView];
     
@@ -221,10 +218,10 @@ static NSString *section5CellID = @"section5CellID";
             [arrM addObject:str];
         }
         
-        NSMutableArray *dataArrM = [NSMutableArray array];
-        self.dataArrM = dataArrM;
-        [dataArrM addObject:arrM];
-        
+//        NSMutableArray *dataArrM = [NSMutableArray array];
+//        self.dataArrM = dataArrM;
+//        [dataArrM addObject:arrM];
+//        
         
         NSDictionary *invoiceDict = result;
         
@@ -252,13 +249,9 @@ static NSString *section5CellID = @"section5CellID";
 //        self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneyStr];
         
         self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)finaInter];
+
         
-        
-        
-        
-        
-        
-//        NSString *lastTotalStr = invoiceDict[@"lastTotal"];
+        //        NSString *lastTotalStr = invoiceDict[@"lastTotal"];
 ////
 //   NSInteger *monInter = [moneyStr intValue];
 //        
@@ -311,20 +304,6 @@ static NSString *section5CellID = @"section5CellID";
     [pickerSingle show];
     [self.view endEditing:YES];
     
-    /*
-     
-     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
-     
-     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
-     
-     [pickerSingle setDataArray:arrayData];
-     [pickerSingle setDefalutSelectRowStr:arrayData[0]];
-     [pickerSingle setDelegate:self];
-     [pickerSingle show];
-     [self.view endEditing:YES];
-     
-     
-     */
     
 }
 
@@ -402,7 +381,7 @@ static NSString *section5CellID = @"section5CellID";
 
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
-        
+//        
                NSDictionary *param1 = @{
         
                                          @"uid":[DLUtils getUid],
@@ -416,18 +395,50 @@ static NSString *section5CellID = @"section5CellID";
         
                                          };
         
-        [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
+        [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param1 completion:^(id result, NSError *error) {
             
+                        //写个提示申请成功! ---> 跳转!
             
-            
-            //写个提示申请成功! ---> 跳转!
-            
+
+            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [failureV show];
             
         }];
+        
+        
+        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [failureV show];
+        
+
+        
+        
+        
+        
     }
     //
     //快递
     else if ([self.methodBtnNumber isEqualToString:@"2"]){
+        
+        
+        
+//        NSDictionary *param = @{
+//                                
+//                                @"uid":[DLUtils getUid],
+//                                @"sign_token" : [DLUtils getSign_token],
+//                                @"title":self.companyTF.text,
+//                                @"amount":self.invoiceAmountTF.text,
+//                                @"detail":self.projctButton.titleLabel.text,
+//                                @"detail_comm":self.noteTextView.text,
+//                                @"request_method":self.methodBtnNumber,
+//                                @"express_fee":self.express_feeNumber,
+//                                @"addr":self.addressTV.text,
+//                                @"name":self.nameTF.text,
+//                                @"phone":self.numberTF.text,
+//                                @"code":@"400"
+//                                
+//                                };
+
+        
         
         if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
             
@@ -448,19 +459,21 @@ static NSString *section5CellID = @"section5CellID";
                                     
                                     };
             
-            [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
-//                NSLog(@"%@",result);
-                
-                
+            
+            [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param completion:^(id result, NSError *error) {
                 
                 //写个提示申请成功! ---> 跳转!
+
                 
+//                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//                [failureV show];
+
                 
                 
             }];
+            
+            
         }else{
-            
-            
             
             // 写个提示!  申请失败 !  联系客服 !
             
@@ -554,9 +567,16 @@ static NSString *section5CellID = @"section5CellID";
         DLinvoiceApplySection0Cell *section0Cell = [tableView dequeueReusableCellWithIdentifier:section0CellID];
         
         self.section0Cell = section0Cell;
+        //抬头
+        self.companyTF = section0Cell.companyTF;
+        //项目
         self.projctButton = section0Cell.projctButton;
-        self.moneyLabel = section0Cell.moneyLabel;
+        //备注
         self.noteTextView = section0Cell.noteTextView;
+        
+        //剩余金额
+        self.moneyLabel = section0Cell.moneyLabel;
+        
         self.noteTextView.text = @"请填写备注 如代订机票等";
         self.noteTextView.delegate = self;
         [self.projctButton addTarget:self action:@selector(projectBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -565,11 +585,12 @@ static NSString *section5CellID = @"section5CellID";
         
     }
     
-    //        发票金额
+    /**发票金额**/
     else  if (indexPath.section == 1 ){
         
         DLinvoiceSection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:invoiceSection1cellID];
         
+        //发票金额
         self.invoiceAmountTF = cell.invoiceAmountTF;
         return cell;
     }
@@ -591,7 +612,9 @@ static NSString *section5CellID = @"section5CellID";
     else if (indexPath.section == 2 && indexPath.row == 1)
     {
         DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
+       
         
+        //公司的地址和电话
         self.addressLabel1 = cell.addressLabel1;
         self.numberLabel1 = cell.numberLabel1;
         
@@ -649,6 +672,11 @@ static NSString *section5CellID = @"section5CellID";
         textView.text = @"";
         textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
     }
+    
+    if ([textView.text isEqualToString:@"请填写您的收货地址"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
+    }    
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView{
@@ -657,6 +685,8 @@ static NSString *section5CellID = @"section5CellID";
         textView.textColor = [UIColor blackColor];
     }
 }
+
+
 
 #pragma mark  ----------DLCityPickerViewDelegate------------
 

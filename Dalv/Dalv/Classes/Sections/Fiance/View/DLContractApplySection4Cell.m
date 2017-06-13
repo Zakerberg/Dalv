@@ -87,7 +87,7 @@
     UITextField *numberTF = [[UITextField alloc] init];
     self.numberTF = numberTF;
     numberTF.placeholder = @"输入手机号码";
-    numberTF.keyboardType = UIKeyboardTypeNumberPad;
+//    numberTF.keyboardType = UIKeyboardTypeNumberPad;
     numberTF.font = [UIFont systemFontOfSize:15];
     
     [self.contentView addSubview:numberTF];

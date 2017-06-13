@@ -9,6 +9,7 @@
 #import "DLHeadScrollView.h"
 
 #define BTNWIDTH 107.0
+#define ImageHEIGHT 18.0
 @interface DLHeadScrollView ()
 {
     int _currentIndex;
@@ -39,9 +40,39 @@
 
 -(void)createBtn{
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     for (int i = 0; i < [self.headArray count]; i++) {
         
+//        NSArray *nameArr = @[
+//                         @"line_order",
+//                         @"visa_order",
+//                         @"wifi_order",
+//                         @"ticket_order"
+//                         ];
+//        
+//        
+        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        
+//        UIImageView *imageV = [[UIImageView alloc] init];
+//        
+//        
+//        for (int i = 0; i <[self.headArray count]; i++) {
+//            
+//            imageV.frame = CGRectMake(16+ BTNWIDTH*i , ImageHEIGHT, BTNWIDTH, ImageHEIGHT);
+//            
+//            [imageV setImage:[UIImage imageNamed:nameArr[i]]];
+//        }
+        
         button.frame = CGRectMake(0 + BTNWIDTH*i, 0, BTNWIDTH, 48);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:[self.headArray objectAtIndex:i] forState:UIControlStateNormal];
