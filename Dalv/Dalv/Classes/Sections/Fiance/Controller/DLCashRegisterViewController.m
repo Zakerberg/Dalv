@@ -26,7 +26,34 @@
     [self setupSubviews];
     [self fetchData];
     
-    self.view.backgroundColor = [UIColor whiteColor];}
+//    //默认【下拉刷新】
+//    self.cashRegisterTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+//    //默认【上拉加载】
+//    self.cashRegisterTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
+    
+    __weak typeof(self) weakSelf = self;
+    //默认block方法：设置下拉刷新
+    self.cashRegisterTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf fetchData];
+    }];
+    
+    //默认block方法：设置上拉加载更多
+    self.cashRegisterTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf fetchData];
+    }];
+
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+//-(void)refresh
+//{
+//    [self fetchData];
+//}
+//-(void)loadMore
+//{
+//    [self fetchData];
+//}
 
 #pragma mark - Setup navbar
 
@@ -110,7 +137,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 130;
+    return 150;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

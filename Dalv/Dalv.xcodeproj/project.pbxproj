@@ -44,6 +44,7 @@
 		1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */; };
 		1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */; };
 		1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */; };
+		1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */; };
 		1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */; };
 		1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */; };
 		1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */; };
@@ -388,6 +389,8 @@
 		1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@3x.png"; sourceTree = "<group>"; };
 		1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
 		1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
+		1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGlobalSearchViewViewController.h; sourceTree = "<group>"; };
+		1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGlobalSearchViewViewController.m; sourceTree = "<group>"; };
 		1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewController.h; sourceTree = "<group>"; };
 		1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewController.m; sourceTree = "<group>"; };
 		1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOfflineRechargeViewController.h; sourceTree = "<group>"; };
@@ -1208,6 +1211,8 @@
 			children = (
 				1CB953311ECFC41600BDC2D3 /* DLHomeViewController.h */,
 				1CB953321ECFC41600BDC2D3 /* DLHomeViewController.m */,
+				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
+				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
 				1CB953341ECFC41600BDC2D3 /* DLLineTourDetailViewController.m */,
 				1C0B57D21ED7B99F00592BBB /* DLPlaceOrderViewController.h */,
@@ -2201,6 +2206,7 @@
 				45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				45DB48161EE93A7E00399A6D /* DLMyCustomerController.m in Sources */,
+				1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */,
 				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */,

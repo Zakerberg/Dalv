@@ -82,6 +82,24 @@
     _rechargeAmountlab.text = @"¥1399";
     [self.contentView addSubview:_rechargeAmountlab];
     
+    _backview = [[UIView alloc]init];
+    _backview.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+    [self.contentView  addSubview:_backview];
+    
+    _failureReasonlab = [[UILabel alloc]init];
+    _failureReasonlab.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    _failureReasonlab.textAlignment = NSTextAlignmentLeft;
+    _failureReasonlab.font = [UIFont systemFontOfSize:12];
+    _failureReasonlab.text = @"失败原因：";
+    [_backview addSubview:_failureReasonlab];
+    
+    _memolab = [[UILabel alloc]init];
+    _memolab.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
+    _memolab.textAlignment = NSTextAlignmentLeft;
+    _memolab.font = [UIFont systemFontOfSize:12];
+    _memolab.text = @"提现失败";
+    [_backview addSubview:_memolab];
+    
     _systemUsageFeelab = [[UILabel alloc]init];
     _systemUsageFeelab.textColor = [UIColor colorWithHexString:@"#ff7735"];
     _systemUsageFeelab.textAlignment = NSTextAlignmentRight;
@@ -138,7 +156,7 @@
     }];
     
     [ramount mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(rtypeab.mas_bottom);
+        make.top.equalTo(_backview.mas_bottom);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
@@ -166,6 +184,29 @@
         make.height.equalTo(@25);
     }];
     
+    [_backview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_rechargeTypelab.mas_bottom);
+        make.left.equalTo(@15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.height.equalTo(@20);
+        
+    }];
+    
+    [_failureReasonlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@10);
+        make.width.equalTo(@65);
+        make.height.equalTo(@20);
+    }];
+    
+    [_memolab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_failureReasonlab);
+        make.left.equalTo(_failureReasonlab.mas_right);
+        make.right.equalTo(_backview).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+
     [_rechargeAmountlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(ramount);
         make.right.equalTo(@-15);
@@ -214,6 +255,8 @@
 /** 配置Cell */
 - (void)configureCell:(DLRechargeRecordModel *)rechargeModel{
     
+    _backview.hidden = YES;
+
     self.rechargeTimelab.text = rechargeModel.create_time;
     if ([rechargeModel.state isEqualToString:@"1"]) {
         self.rechargeTypelab.text = @"待审核";
@@ -223,6 +266,8 @@
         _rechargeTypelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }else if ([rechargeModel.state isEqualToString:@"3"]){
         self.rechargeTypelab.text = @"审核失败";
+        _backview.hidden = NO;
+        _memolab.text = rechargeModel.memo;
         _rechargeTypelab.textColor = [UIColor redColor];
     }else if ([rechargeModel.state isEqualToString:@"5"]){
         self.rechargeTypelab.text = @"待支付";
