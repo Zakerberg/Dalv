@@ -260,6 +260,8 @@
 		451F39331EEF8A9D005FE126 /* DLLineOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39321EEF8A9D005FE126 /* DLLineOrderViewCell.m */; };
 		451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39351EEF9B55005FE126 /* DLLineOrderXibCell.m */; };
 		451F39381EEF9B55005FE126 /* DLLineOrderXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F39361EEF9B55005FE126 /* DLLineOrderXibCell.xib */; };
+		451F393B1EEFD683005FE126 /* DLMineCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F393A1EEFD683005FE126 /* DLMineCenterHeaderView.m */; };
+		451F393D1EEFD69C005FE126 /* DLMineCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F393C1EEFD69C005FE126 /* DLMineCenterHeaderView.xib */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
 		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
@@ -703,6 +705,9 @@
 		451F39341EEF9B55005FE126 /* DLLineOrderXibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderXibCell.h; sourceTree = "<group>"; };
 		451F39351EEF9B55005FE126 /* DLLineOrderXibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderXibCell.m; sourceTree = "<group>"; };
 		451F39361EEF9B55005FE126 /* DLLineOrderXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderXibCell.xib; sourceTree = "<group>"; };
+		451F39391EEFD683005FE126 /* DLMineCenterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineCenterHeaderView.h; sourceTree = "<group>"; };
+		451F393A1EEFD683005FE126 /* DLMineCenterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterHeaderView.m; sourceTree = "<group>"; };
+		451F393C1EEFD69C005FE126 /* DLMineCenterHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCenterHeaderView.xib; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
@@ -949,6 +954,9 @@
 				45DB47B21EE5524200399A6D /* DLCustomerListCell.h */,
 				45DB47B31EE5524200399A6D /* DLCustomerListCell.m */,
 				45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */,
+				451F39391EEFD683005FE126 /* DLMineCenterHeaderView.h */,
+				451F393A1EEFD683005FE126 /* DLMineCenterHeaderView.m */,
+				451F393C1EEFD69C005FE126 /* DLMineCenterHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1949,6 +1957,7 @@
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
+				451F393D1EEFD69C005FE126 /* DLMineCenterHeaderView.xib in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
 				1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */,
@@ -2184,6 +2193,7 @@
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
+				451F393B1EEFD683005FE126 /* DLMineCenterHeaderView.m in Sources */,
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,

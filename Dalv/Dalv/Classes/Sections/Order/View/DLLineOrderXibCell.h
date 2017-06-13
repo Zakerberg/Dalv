@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPriceLabel;
 /* 订单状态 */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStateLabel;
+
+
+
 #pragma mark - configure
 
 

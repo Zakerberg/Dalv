@@ -18,6 +18,27 @@
 
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
 
+
+
+
+
+
+/* 订单图片 */
+@property (weak, nonatomic)  UIImageView *lineOrderPicture;
+/* 订单名称 */
+@property (weak, nonatomic)  UILabel *lineOrderNameLabel;
+/* 团期时间 */
+@property (weak, nonatomic)  UILabel *lineOrderTimeLabel;
+/* 订单价格(应付金额) */
+@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
+/* 订单状态 */
+@property (weak, nonatomic)  UILabel *lineOrderStateLabel;
+
+
+
+
+
+
 @end
 
 
@@ -48,11 +69,45 @@ static NSString *nibCellID = @"nibCellID";
     // Dispose of any resources that can be recreated.
 }
 
+
+
+/*
+ 
+ 
+ - (void)setupSubviews {
+ 
+ 
+ 
+ [self.contractRecordTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+ 
+ self.contractRecordTableView.showsVerticalScrollIndicator = NO;
+ 
+ [self.contractRecordTableView registerClass:[DLContractApplyRecordCell class] forCellReuseIdentifier:[DLContractApplyRecordCell cellIdentifier]];
+ 
+ [self.view addSubview:self.contractRecordTableView];
+ 
+ [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+ make.width.equalTo(self.view.mas_width);
+ make.top.equalTo(self.view.mas_top);
+ make.left.equalTo(self.view.mas_left);
+ make.bottom.equalTo(self.view.mas_bottom);
+ }];
+ }
+ 
+ */
+
+
+
+
+
+
+
+
 #pragma mark -----------------  Set UI --------------
 
 -(void)setUI{
     
-    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
 }
 
 #pragma mark ----------------- Set TableView --------------
@@ -67,36 +122,45 @@ static NSString *nibCellID = @"nibCellID";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
     
-//    [self.lineOrderTableView registerClass:[DLLineOrderViewCell class] forCellReuseIdentifier:cellID];
-//    
+    [self.lineOrderTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.view addSubview:self.lineOrderTableView];
+    
     [self.lineOrderTableView registerNib:[UINib nibWithNibName:@"DLLineOrderXibCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     
-    
-    
-    
+    [self.lineOrderTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
 }
 
 #pragma mark  ------  fetchData  ------------
 
 -(void)fetchData{
     
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @"1",
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"page":@"1",
                             @"sign_token" : [DLUtils getSign_token],
                             };
+    
     @weakify(self);
     
-    [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *contractRecordArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
-            [self.lineOrderList addObjectsFromArray:lineOrderArray];
+            [self.lineOrderList addObjectsFromArray:contractRecordArray];
             [self.lineOrderTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
+
+    
 }
 
 #pragma mark ----------- UITable View Delegate ----------------
@@ -112,13 +176,13 @@ static NSString *nibCellID = @"nibCellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    DLLineOrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderViewCell cellIdentifier]];
-    
-    
-    
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-    
-    
+
+    self.lineOrderPicture = cell.lineOrderPicture;
+    self.lineOrderNameLabel = cell.lineOrderNameLabel;
+    self.lineOrderTimeLabel = cell.lineOrderTimeLabel;
+    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
     [cell configureCell:loModel];

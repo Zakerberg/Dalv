@@ -480,4 +480,15 @@
  */
 + (void)getAgencyPersonalProviderQuery:(NSDictionary *)param
                          completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 52 测试顾订单->线路订单页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyLineOrderList:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 @end

@@ -12,7 +12,6 @@ NSString *const DLUserDefaultsManagerUserLoggedIn = @"userLoggedIn";
 
 @implementation DLManager
 
-
 + (instancetype)shareUserDefaultsManager {
     static DLManager *manager = nil;
     static dispatch_once_t onceToken;
