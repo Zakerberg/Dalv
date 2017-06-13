@@ -205,9 +205,9 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         totalPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         totalPriceLabel.font = [UIFont systemFontOfSize:26];
         [hotTopicHeaderView addSubview:totalPriceLabel];
-//        totalPriceLabel.text = [self.fianceDict objectForKey:@"account_balance"];
-        
-        totalPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"account_balance"] integerValue]/100.00];
+        if (self.fianceDict) {
+            totalPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"account_balance"] integerValue]/100.00];
+        }
         
         UILabel *totalAccountLabel = [[UILabel alloc] init];
         totalAccountLabel.text = @"账户总额";

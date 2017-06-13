@@ -13,7 +13,7 @@
 
 @property (nonatomic,strong) UITextField *priceTextField;
 
-@property (nonatomic,strong) NSMutableDictionary *presentDict;
+@property (nonatomic,strong) DLPresentApplicationModel *presentModel;
 
 @property (nonatomic,strong) UILabel *balancelPriceLabel;
 
@@ -29,7 +29,6 @@
     [self fetchData];
 
     self.view.backgroundColor = [UIColor colorWithHexString:@"efefef"];
-    self.presentDict = [[NSMutableDictionary alloc] init];
 
 }
 
@@ -54,11 +53,10 @@
     [DLHomeViewTask getAgencyFinanceApplyWithdraw:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            self.presentDict = [[NSMutableDictionary alloc] init];
-            self.presentDict = [result objectForKey:@"agencyInfo"];
+            self.presentModel = [[DLPresentApplicationModel alloc] init];
+            self.presentModel = [DLPresentApplicationModel mj_objectWithKeyValues:[result objectForKey:@"agencyInfo"]];
             [self setupSubviews];
-
-        }else {
+        } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
@@ -85,13 +83,13 @@
     bankCradLabel.textColor = [UIColor colorWithHexString:@"#aaaaaa"];
     bankCradLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:bankCradLabel];
-    bankCradLabel.text = [self.presentDict objectForKey:@"bank_account"];
+    bankCradLabel.text = self.presentModel.bank_account;
     NSString *str1;
     if (bankCradLabel.text.length >= 4) {
         str1 = [bankCradLabel.text substringFromIndex:bankCradLabel.text.length- 4];
     }
     NSString *str2 = @"(尾号)";
-    bankCradLabel.text = [NSString stringWithFormat:@"%@ %@ %@",str2,str1,[self.presentDict objectForKey:@"bank_name"]];
+    bankCradLabel.text = [NSString stringWithFormat:@"%@ %@ %@",str2,str1,self.presentModel.bank_name];
 
 
     UIView *line = [[UIView alloc]init];
@@ -110,8 +108,8 @@
     totalPriceLabel.textColor = [UIColor colorWithHexString:@"#ff592b"];
     totalPriceLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:totalPriceLabel];
-    totalPriceLabel.text = [self.presentDict objectForKey:@"account_balance"];
-
+    totalPriceLabel.text = [NSString stringWithFormat:@"%.2f",[self.presentModel.account_balance integerValue]/100.00];
+    
     UIView *line1 = [[UIView alloc]init];
     line1.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     [backview  addSubview:line1];
@@ -130,10 +128,8 @@
     balancelPriceLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:balancelPriceLabel];
     self.balancelPriceLabel = balancelPriceLabel;
-    if (self.presentDict) {
-    self.balancelPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.presentDict objectForKey:@"availableBalance"]integerValue]/100.00];
-    }
-    
+    self.balancelPriceLabel.text = [NSString stringWithFormat:@"%.2f",[self.presentModel.availableBalance integerValue]/100.00];
+
     UIView *line2 = [[UIView alloc]init];
     line2.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     [backview addSubview:line2];
@@ -273,7 +269,7 @@
     if (self.priceTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"请输入转出金额"];
         return;
-    }if (self.priceTextField.text.length  >> self.balancelPriceLabel.text.length) {
+    } if (self.priceTextField.text.floatValue  > self.balancelPriceLabel.text.floatValue) {
         [[DLHUDManager sharedInstance]showTextOnly:@"提现金额不能大于账户余额"];
         return;
     } else {

@@ -43,6 +43,7 @@
 		1C2979071EEEAA7400D3FEEA /* fiance_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */; };
 		1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */; };
 		1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */; };
+		1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */; };
 		1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */; };
 		1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815A1EDFE2C400712524 /* DLOfflineRechargeViewController.m */; };
 		1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29815C1EDFE2C400712524 /* DLOnlineRechargeViewController.m */; };
@@ -380,6 +381,8 @@
 		1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_selected@3x.png"; sourceTree = "<group>"; };
 		1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@2x.png"; sourceTree = "<group>"; };
 		1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@3x.png"; sourceTree = "<group>"; };
+		1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
+		1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
 		1C2981571EDFE2C400712524 /* DLCashRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCashRegisterViewController.h; sourceTree = "<group>"; };
 		1C2981581EDFE2C400712524 /* DLCashRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCashRegisterViewController.m; sourceTree = "<group>"; };
 		1C2981591EDFE2C400712524 /* DLOfflineRechargeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOfflineRechargeViewController.h; sourceTree = "<group>"; };
@@ -1715,6 +1718,8 @@
 				451F39241EEE7120005FE126 /* DLContractApplySection0Cell.h */,
 				451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */,
 				451F39261EEE7120005FE126 /* DLContractApplySection0Cell.xib */,
+				1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */,
+				1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2084,6 +2089,7 @@
 				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
 				1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
+				1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
