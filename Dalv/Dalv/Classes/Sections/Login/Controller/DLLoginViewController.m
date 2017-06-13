@@ -76,8 +76,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self.navigationController popViewControllerAnimated:YES];
         [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
-
-
+        }else {
+        [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
             }
         }
     }];
