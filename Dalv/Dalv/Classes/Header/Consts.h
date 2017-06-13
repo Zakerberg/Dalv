@@ -133,4 +133,10 @@ rac_keywordify     _Pragma("clang diagnostic push")     _Pragma("clang diagnosti
 //// 下一版本 是否显示引导配置
 #define isNeedShowIntroPage NO
 
+
+// NSUserDefaults
+#define UserDefaults(userDefaults) NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+
+
 #endif /* Consts_h */

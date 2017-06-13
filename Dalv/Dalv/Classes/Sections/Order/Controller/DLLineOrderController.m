@@ -7,19 +7,26 @@
 //
 
 #import "DLLineOrderController.h"
+#import "DLLineOrderViewCell.h"
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
+#import "DLLineOrderXibCell.h"
+
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineOrderTableView;
 
-
-
-
-
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
 
 @end
+
+
+static NSString *cellID = @"cellID";
+
+static NSString *nibCellID = @"nibCellID";
+
+
+
 
 @implementation DLLineOrderController
 
@@ -32,11 +39,8 @@
     
 }
 
-- (void)setupSubviews {
-
-
-
-
+- (BOOL)dl_blueNavbar {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,14 +48,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark  --------  setUI  ------------
+#pragma mark -----------------  Set UI --------------
 
 -(void)setUI{
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
-#pragma mark ----------------- Set TableView -----------------
+#pragma mark ----------------- Set TableView --------------
 
 -(void)setTableView {
     
@@ -62,6 +66,14 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
+    
+//    [self.lineOrderTableView registerClass:[DLLineOrderViewCell class] forCellReuseIdentifier:cellID];
+//    
+    [self.lineOrderTableView registerNib:[UINib nibWithNibName:@"DLLineOrderXibCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
+    
+    
+    
+    
 }
 
 #pragma mark  ------  fetchData  ------------
@@ -70,45 +82,48 @@
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"page" : @"1",
-                            @"sign_token" : [DLUtils getSign_token],};
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
     @weakify(self);
     
     [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-//            NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
-//            [self.linOrderList addObjectsFromArray:contractRecordArray];
+            [self.lineOrderList addObjectsFromArray:lineOrderArray];
             [self.lineOrderTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
-    
-    
 }
-
-
 
 #pragma mark ----------- UITable View Delegate ----------------
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return self.contractRecordList.count;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 1;
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    DLContractApplyRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLContractApplyRecordCell cellIdentifier]];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    DLContractRecordModel *crModel = [self.contractRecordList objectAtIndex:indexPath.section];
-//    [cell configureCell:crModel];
-//    return cell;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.lineOrderList.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    DLLineOrderViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderViewCell cellIdentifier]];
+    
+    
+    
+    DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+    
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
+    [cell configureCell:loModel];
+    return cell;
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,14 +142,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-
-
-
-
-
 #pragma mark ------------------ Getter -----------------------
-
 
 -(NSMutableArray *)lineOrderList {
     
@@ -142,34 +150,7 @@
         
         _lineOrderList = [[NSMutableArray alloc] init];
     }
-    
     return _lineOrderList;
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

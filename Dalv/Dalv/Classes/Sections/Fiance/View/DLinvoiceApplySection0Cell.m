@@ -62,7 +62,7 @@
     UIButton *projctButton = [[UIButton alloc] init];
     self.projctButton = projctButton;
     projctButton.titleLabel.font = [UIFont systemFontOfSize: 15];
-    [projctButton setTitle:@"请选择发票项目,团款" forState:UIControlStateNormal];
+//    [projctButton setTitle:@"" forState:UIControlStateNormal];
     [projctButton setTitleColor:[UIColor colorWithHexString:@"#c1c1c1"]forState:UIControlStateNormal];
 
     projctButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

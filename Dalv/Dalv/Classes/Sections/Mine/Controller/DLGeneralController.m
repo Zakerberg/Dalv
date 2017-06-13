@@ -209,7 +209,6 @@ static NSString *cellID  = @"cellID";
 ////                make.bottom.equalTo(self.logOutBtn.mas_top).offset(15);
 //                
 //            }];
-//            
 
             cell.textLabel.text = @"清除缓存";
         }

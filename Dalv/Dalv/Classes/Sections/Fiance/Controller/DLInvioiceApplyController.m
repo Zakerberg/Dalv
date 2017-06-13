@@ -62,7 +62,7 @@
 @property(nonatomic,assign) NSInteger Section4Number;
 
 /***  剩余发票额度Label ***/
-@property(nonatomic,strong)UILabel *moneyLabel;
+@property(nonatomic,strong) UILabel *moneyLabel;
 
 
 //获取方式
@@ -83,6 +83,13 @@
 @property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
 
 
+
+//
+////最后返回给后台的团款label.text
+//@property(nonatomic,strong) UILabel *finallyBtnLabel;
+//
+//
+//
 
 
 /* 公司地址 */
@@ -399,22 +406,10 @@ static NSString *section5CellID = @"section5CellID";
             
                         //写个提示申请成功! ---> 跳转!
             
-
-            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [failureV show];
-            
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
         }];
-        
-        
-        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [failureV show];
-        
-
-        
-        
-        
-        
-    }
+     }
     //
     //快递
     else if ([self.methodBtnNumber isEqualToString:@"2"]){
@@ -465,8 +460,8 @@ static NSString *section5CellID = @"section5CellID";
                 //写个提示申请成功! ---> 跳转!
 
                 
-//                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-//                [failureV show];
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
 
                 
                 
@@ -476,6 +471,12 @@ static NSString *section5CellID = @"section5CellID";
         }else{
             
             // 写个提示!  申请失败 !  联系客服 !
+            
+            
+            
+            
+            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [failureV show];
             
             
             
@@ -576,6 +577,7 @@ static NSString *section5CellID = @"section5CellID";
         
         //剩余金额
         self.moneyLabel = section0Cell.moneyLabel;
+        
         
         self.noteTextView.text = @"请填写备注 如代订机票等";
         self.noteTextView.delegate = self;
@@ -692,7 +694,8 @@ static NSString *section5CellID = @"section5CellID";
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
     
-    self.projctButton.titleLabel.text = selectedTitle;
+//    self.projctButton.titleLabel.text = selectedTitle;
+    [self.projctButton setTitle:selectedTitle forState:UIControlStateNormal];
     
 }
 

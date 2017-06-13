@@ -19,7 +19,6 @@
  "memo": null,					发票审核失败的理由
  "detail_comm": "代订机票"			发票备注
  */
-
 /*** 发票记录id ***/
 @property(nonatomic,copy) NSString *invoiceid;
 /*** 发票公司名称 ***/

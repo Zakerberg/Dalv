@@ -9,5 +9,8 @@
 #import "DLlineOrderModel.h"
 
 @implementation DLlineOrderModel
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"lineId" : @"id",};
+}
 
 @end
