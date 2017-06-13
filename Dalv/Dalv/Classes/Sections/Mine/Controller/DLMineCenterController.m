@@ -8,16 +8,15 @@
 
 #import "DLMineCenterController.h"
 #import "DLMineModel.h"
-#import <Masonry.h>
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
 #import "DLChangePersonDataController.h"
-#import "DLSortController.h"
+//#import "DLSortController.h"
 #import "DLRemmendController.h"
 #import "DLMyCustomerController.h"
-#import "DLLineQueryController.h"
-#import "DLSupplierqueryController.h"
-#import <AVFoundation/AVFoundation.h>
+//#import "DLLineQueryController.h"
+//#import "DLSupplierqueryController.h"
+#import "DLHomeViewTask.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -27,9 +26,19 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong)UIButton * personBtn;
 @property(nonatomic,strong)UILabel *label;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
+
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) UILabel* numLabel;
 @property (strong,nonatomic) UILabel* nameLabel;
+
+
+
+
+@property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
+
+
+
+
 @end
 
 @implementation DLMineCenterController
@@ -145,18 +154,21 @@ static NSString *cellID  = @"cellID";
 
 -(void)fetchData{
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    @weakify(self);
+    [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            self.mineCenterDict = [[NSMutableDictionary alloc] init];
+            self.mineCenterDict = [result objectForKey:@"agencyInfo"];
+            [self.tableView reloadData];
+            
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
 }
 
 - (BOOL)dl_blueNavbar {

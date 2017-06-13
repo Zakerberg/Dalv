@@ -98,13 +98,7 @@ static NSString *section5CellID = @"section5CellID";
     [DLHomeViewTask getAgencyFinanceApplyContract:param completion:^(id result, NSError *error) {
         
     }];
-    
-    
-    
-    
-    
-    
-    
+
 }
 
 
