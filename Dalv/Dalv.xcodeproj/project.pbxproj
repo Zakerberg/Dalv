@@ -1382,6 +1382,7 @@
 		1CB953831ECFC41600BDC2D3 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				452916761EC1741E0033314F /* Supporting Files */,
 				1CB953841ECFC41600BDC2D3 /* Controller */,
 			);
 			path = Shop;
@@ -1707,7 +1708,6 @@
 			children = (
 				45E119FB1ED301C400FDFEBA /* Dalv.entitlements */,
 				1CB952EA1ECFC41600BDC2D3 /* Classes */,
-				452916761EC1741E0033314F /* Supporting Files */,
 			);
 			path = Dalv;
 			sourceTree = "<group>";
@@ -1722,6 +1722,7 @@
 				1CC9F9181EC215B8002D7EFB /* Dalv-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		4550B95B1EDFBEF1002269BF /* UserDefaultManager */ = {
