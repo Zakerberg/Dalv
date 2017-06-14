@@ -193,11 +193,13 @@ static NSString *nibCellID = @"nibCellID";
     
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
     
+    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.row];
+    
+    lineXIBvc.tourID  =  lineOrderModel.lineId;
     
     [self.navigationController pushViewController:lineXIBvc animated:YES];
     
-    
-    
+  
         
 }
 

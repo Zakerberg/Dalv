@@ -62,8 +62,6 @@
 
 
 
-@property(nonatomic,strong) NSString * tourID;
-
 
 
 
@@ -101,7 +99,6 @@
 -(void)setButton{
     
     
-    
 }
 
 
@@ -114,7 +111,7 @@
     
     NSDictionary *param = @{
                             @"uid":[DLUtils getUid],
-                            @"tour_id":@"800",
+                            @"tour_id":@"802",
                             @"sign_token" : [DLUtils getSign_token],
                             };
     @weakify(self);

@@ -10,4 +10,13 @@
 //
 @interface DLLineOrderDetailXibController : UIViewController
 
+
+
+
+
+@property(nonatomic,strong) NSString * tourID;
+
+
+
+
 @end
