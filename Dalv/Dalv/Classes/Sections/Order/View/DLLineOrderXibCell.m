@@ -20,14 +20,12 @@
 }
 
 
-
 #pragma mark  ------  setUI  ------------
 -(void)setUI{
     
-
+    
     
 }
-
 
 #pragma mark - configure
 
@@ -78,13 +76,11 @@
     
     [self.lineOrderPicture sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     
-    
     self.lineOrderNameLabel.text = lineOrderModelData.name;
     
     self.lineOrderTimeLabel.text = lineOrderModelData.start_time;
     
     self.lineOrderPriceLabel.text = lineOrderModelData.price_payable;
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
