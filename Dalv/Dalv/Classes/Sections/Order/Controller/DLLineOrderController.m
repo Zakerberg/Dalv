@@ -125,9 +125,9 @@ static NSString *nibCellID = @"nibCellID";
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            NSArray *contractRecordArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
-            [self.lineOrderList addObjectsFromArray:contractRecordArray];
+            [self.lineOrderList addObjectsFromArray:lineOrderArray];
             [self.lineOrderTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
@@ -184,15 +184,7 @@ static NSString *nibCellID = @"nibCellID";
     DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
     
     
 }

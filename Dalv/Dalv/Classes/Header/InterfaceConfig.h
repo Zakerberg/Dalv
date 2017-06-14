@@ -178,7 +178,10 @@
 #define  DL_CustomerRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
 
 // 52.顾问订单列表界面接口
-
 #define  DL_AgencyLineOrderList DL_HOST@"index.php/api/AgencyOrder/lineOrder"
+
+
+// 53.顾问订单详情界面接口
+#define  DL_AgencyLineOrderListDetails DL_HOST@"index.php/Api/agencyOrder/lineDetails"
 
 #endif /* InterfaceConfig_h */

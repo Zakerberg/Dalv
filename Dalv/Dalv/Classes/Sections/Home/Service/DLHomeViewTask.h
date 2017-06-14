@@ -491,4 +491,26 @@
                             completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+
+/**
+ * 53 测试顾订单->线路订单详情页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyLineOrderListDetails:(NSDictionary *)param
+                    completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

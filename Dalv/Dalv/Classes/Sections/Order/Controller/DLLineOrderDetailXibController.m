@@ -7,6 +7,8 @@
 //
 
 #import "DLLineOrderDetailXibController.h"
+#import "DLLineOrderDetailModel.h"
+#import "DLHomeViewTask.h"
 
 @interface DLLineOrderDetailXibController ()
 
@@ -33,6 +35,17 @@
 /*** 订单特别说明 ***/
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderMemoLabel;
 
+
+@property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
+
+@property (nonatomic, strong) UITableView *lineOrderDetailTableView;
+
+
+@property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
+
+
+
+
 @end
 
 @implementation DLLineOrderDetailXibController
@@ -44,26 +57,35 @@
 }
 
 
-
-
-
 -(void)setUI{
     
     
+    self.lineOrderNameLabel.text = self.lineOrderDetailModel.name;
     
 }
 
 
 -(void)fetchData{
     
-    
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"tour_id":self.lineOrderDetailModel.name,
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    @weakify(self);
+    [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.lineOrderDetailList removeAllObjects];
+            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
+            [self.lineOrderDetailTableView reloadData];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+
 }
-
-
-
-
-
-
 
 
 
