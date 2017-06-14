@@ -149,7 +149,7 @@
     
     
     [_abalancelab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_backview.mas_bottom);
+        make.top.equalTo(self.mas_bottom).offset(-60);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
