@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJx-6l-rmT">
-                    <rect key="frame" x="0.0" y="6" width="375" height="500"/>
+                    <rect key="frame" x="0.0" y="6" width="375" height="510"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大成哥-泰国-曼谷-月光岛-芭提雅10日游 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-JC-cfz">
                             <rect key="frame" x="16" y="16" width="295" height="15"/>
@@ -341,7 +341,7 @@
                 <constraint firstAttribute="trailing" secondItem="JJx-6l-rmT" secondAttribute="trailing" id="B2E-ue-BjT"/>
                 <constraint firstItem="JJx-6l-rmT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="E8Z-k4-I0B"/>
                 <constraint firstItem="JJx-6l-rmT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="6" id="veI-Py-KiC"/>
-                <constraint firstAttribute="bottom" secondItem="JJx-6l-rmT" secondAttribute="bottom" constant="161" id="z8Z-hX-MOX"/>
+                <constraint firstAttribute="bottom" secondItem="JJx-6l-rmT" secondAttribute="bottom" constant="151" id="z8Z-hX-MOX"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
