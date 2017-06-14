@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.frame = CGRectMake(0,40,SCREEN_WIDTH,SCREEN_HEIGHT-104);
+    
 }
 
 
