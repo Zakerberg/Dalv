@@ -97,6 +97,60 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1 && [self.hotTopicViewController contentHeight] > 0) {
+        UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kDLHomeTableViewHeader];
+        
+        UIView *flagView = [[UIView alloc] init];
+        [headerView.contentView addSubview:flagView];
+                
+        UIView *leftline = [[UIView alloc]init];
+        leftline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:leftline];
+        
+        UILabel *headerLabel = [[UILabel alloc] init];
+        headerLabel.text = @"精选路线";
+        headerLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
+        headerLabel.textAlignment = NSTextAlignmentCenter;
+        headerLabel.font = [UIFont systemFontOfSize:14];
+        [flagView addSubview:headerLabel];
+        
+        UIView *rightline = [[UIView alloc]init];
+        rightline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
+        [flagView  addSubview:rightline];
+        
+        [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@100);
+            make.right.equalTo(@-100);
+            make.height.equalTo(@25);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
+        [leftline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(headerLabel.mas_left).with.offset(5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
+        [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@20);
+            make.right.equalTo(@-20);
+            make.height.equalTo(@15);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        
+        [rightline mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(headerLabel.mas_right).with.offset(-5);
+            make.height.equalTo(@1);
+            make.width.equalTo(@35);
+            make.centerY.equalTo(headerView.contentView);
+        }];
+        return headerView;
+    }
+    return nil;
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,7 +164,10 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section == 2 ? 40.0f : 10.0f;
+    if (section == 0) {
+        return CGFLOAT_MIN;
+    }
+    return section == 1 ? 40.0f : 10.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
