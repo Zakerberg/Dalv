@@ -144,7 +144,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
-    
+
 }
 
 

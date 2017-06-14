@@ -11,7 +11,8 @@
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
 #import "DLLineOrderXibCell.h"
-#import "DLLineOrderViewDetailController.h"
+#import "DLLineOrderDetailXibController.h"
+#import "DLLineOrderDetailModel.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineOrderTableView;
@@ -28,6 +29,11 @@
 @property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
 /* 订单状态 */
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
+
+
+@property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
+
+
 
 @end
 
@@ -163,7 +169,7 @@ static NSString *nibCellID = @"nibCellID";
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    return 136;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -181,10 +187,32 @@ static NSString *nibCellID = @"nibCellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
-    DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
+    DLLineOrderDetailXibController *lineOrderDetailVC = [[DLLineOrderDetailXibController alloc] init];
     
     
     [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
+    
+    
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"tour_id":@"802",
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    @weakify(self);
+    
+    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.lineOrderDetailList removeAllObjects];
+            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
+//            [self.lineOrderDetailTableView reloadData];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+
+    
     
     
 }

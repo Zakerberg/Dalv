@@ -38,7 +38,7 @@
 
 @property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
 
-@property (nonatomic, strong) UITableView *lineOrderDetailTableView;
+//@property (nonatomic, strong) UITableView *lineOrderDetailTableView;
 
 
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
@@ -50,43 +50,70 @@
 
 @implementation DLLineOrderDetailXibController
 
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    self.lineOrderNameLabel.text = self.lineOrderDetailModel.name;
+    self.lineOrderStateLabel.text = self.lineOrderDetailModel.state;
+    
+    
+    self.lineOrderCreatTimeLabel.text = self.lineOrderDetailModel.create_time;
+    
+    self.lineOrderAdultCountLabel.text = self.lineOrderDetailModel.client_adult_count;
+    self.lineOrderChildCountLabel.text = self.lineOrderDetailModel.client_child_count;
+    
+    self.lineOrderPriceTotaLabel.text = self.lineOrderDetailModel.price_total;
+    self.lineOrderStartTimeLabel.text = self.lineOrderDetailModel.start_time;
+    
+    self.lineOrderPriceAdjustLabel.text = self.lineOrderDetailModel.price_adjus;
+    
+    self.lineOrderPayableLabel.text = self.lineOrderDetailModel.price_payable;
+    
+    self.lineOrderMemoLabel.text = self.lineOrderDetailModel.memo;
+    
+    
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchData];
     [self setUI];
+    [self fetchData];
 }
 
 
 -(void)setUI{
     
-    
-    self.lineOrderNameLabel.text = self.lineOrderDetailModel.name;
-    
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+
 }
 
 
 -(void)fetchData{
     
-    NSDictionary *param = @{
-                            @"uid":[DLUtils getUid],
-                            @"tour_id":self.lineOrderDetailModel.name,
-                            @"sign_token" : [DLUtils getSign_token],
-                            };
-    @weakify(self);
-    [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
-        @strongify(self);
-        if (result) {
-            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.lineOrderDetailList removeAllObjects];
-            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
-            [self.lineOrderDetailTableView reloadData];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-        }
-    }];
-
+//    NSDictionary *param = @{
+//                            @"uid":[DLUtils getUid],
+//                            @"tour_id":@"802",
+//                            @"sign_token" : [DLUtils getSign_token],
+//                            };
+//    @weakify(self);
+//    
+//    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
+//        @strongify(self);
+//        if (result) {
+//            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+//            [self.lineOrderDetailList removeAllObjects];
+//            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
+//            [self.view reloadInputViews];
+//        } else {
+//            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+//        }
+//    }];
 }
-
 
 
 - (void)didReceiveMemoryWarning {
