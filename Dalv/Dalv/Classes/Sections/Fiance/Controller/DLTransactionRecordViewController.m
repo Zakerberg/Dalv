@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UITableView *TRhomeTableView;
 @property (nonatomic, strong) NSMutableArray *transactionRecordList;
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
 
@@ -23,8 +24,10 @@
     
     [self setupNavbar];
     [self setupSubviews];
-    [self fetchData];
 
+    [self.TRhomeTableView ms_beginRefreshing:self
+                                      headerAction:@selector(fetchNewData)
+                                      footerAction:@selector(fetchMoreData)];
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -72,6 +75,16 @@
 
 #pragma mark - Fetch data
 
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
+
 - (void)fetchData {
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
@@ -80,20 +93,21 @@
     @weakify(self);
     [DLHomeViewTask getAgencyFinanceAccountTransaction:param completion:^(id result, NSError *error) {
         @strongify(self);
-        if (result) {
-            NSArray *transactionRecorArray = [DLTransactionRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.transactionRecordList removeAllObjects];
-            [self.transactionRecordList addObjectsFromArray:transactionRecorArray];
-            [self.TRhomeTableView reloadData];
+        if (error) {
+            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
         } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            if (self.pageIndex == 0) {
+                [self.transactionRecordList removeAllObjects];
+            }
+            NSArray *transactionRecorArray = [DLTransactionRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.transactionRecordList addObjectsFromArray:transactionRecorArray];
+            [self.self.TRhomeTableView reloadData];
+            [self.self.TRhomeTableView ms_endRefreshing:transactionRecorArray.count pageSize:10 error:error];
         }
-        
-    }];
-    
+    }];    
 }
 
-
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.transactionRecordList.count;

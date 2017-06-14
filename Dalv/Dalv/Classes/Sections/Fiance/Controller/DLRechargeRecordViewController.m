@@ -13,6 +13,7 @@
 @interface DLRechargeRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *rechargeRecordTableView;
 @property (nonatomic, strong) NSMutableArray *rechargeRecordList;
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
 
@@ -23,7 +24,9 @@
     
     [self setupNavbar];
     [self setupSubviews];
-    [self fetchData];
+    [self.rechargeRecordTableView ms_beginRefreshing:self
+                                      headerAction:@selector(fetchNewData)
+                                      footerAction:@selector(fetchMoreData)];
     
     self.view.backgroundColor = [UIColor whiteColor];
 }
@@ -70,24 +73,39 @@
 
 #pragma mark - Fetch data
 
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
+
 - (void)fetchData {
 
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @"1",
+                            @"page" : @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],};
     @weakify(self);
     [DLHomeViewTask getAgencyFinanceTopupList:param completion:^(id result, NSError *error) {
         @strongify(self);
-        if (result) {
-            NSArray *rechargeRecordArray = [DLRechargeRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+        if (error) {
+        [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+    } else {
+        if (self.pageIndex == 0) {
             [self.rechargeRecordList removeAllObjects];
-            [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
-            [self.rechargeRecordTableView reloadData];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
-    }];
+        NSArray *rechargeRecordArray = [DLRechargeRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+        [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
+        [self.rechargeRecordTableView reloadData];
+        [self.rechargeRecordTableView ms_endRefreshing:rechargeRecordArray.count pageSize:10 error:error];
+    }
+     }];
 }
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.rechargeRecordList.count;
@@ -108,7 +126,12 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 210;
+    DLRechargeRecordModel *trModel = [self.rechargeRecordList objectAtIndex:indexPath.section];
+    if (trModel.state.integerValue == 3) {
+        return 210;
+    } else {
+        return 190;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

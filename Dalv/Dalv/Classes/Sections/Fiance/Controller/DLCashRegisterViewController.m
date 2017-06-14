@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UITableView *cashRegisterTableView;//
 @property (nonatomic, strong) NSMutableArray *cashRegisterList;
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
 
@@ -24,36 +25,14 @@
     
     [self setupNavbar];
     [self setupSubviews];
-    [self fetchData];
-    
-//    //默认【下拉刷新】
-//    self.cashRegisterTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
-//    //默认【上拉加载】
-//    self.cashRegisterTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMore)];
-    
-    __weak typeof(self) weakSelf = self;
-    //默认block方法：设置下拉刷新
-    self.cashRegisterTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf fetchData];
-    }];
-    
-    //默认block方法：设置上拉加载更多
-    self.cashRegisterTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf fetchData];
-    }];
-
+     
+    [self.cashRegisterTableView ms_beginRefreshing:self
+                                       headerAction:@selector(fetchNewData)
+                                       footerAction:@selector(fetchMoreData)];
     
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-//-(void)refresh
-//{
-//    [self fetchData];
-//}
-//-(void)loadMore
-//{
-//    [self fetchData];
-//}
 
 #pragma mark - Setup navbar
 
@@ -99,25 +78,40 @@
 
 #pragma mark - Fetch data
 
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
+
 - (void)fetchData {
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @"1",
+                            @"page" : @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],};
     @weakify(self);
     [DLHomeViewTask getAgencyFinanceWithdrawList:param completion:^(id result, NSError *error) {
         @strongify(self);
-        if (result) {
+        
+         if (error) {
+            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+        } else {
+            if (self.pageIndex == 0) {
+                [self.cashRegisterList removeAllObjects];
+            }
             NSArray *cashRegisterArray = [DLCashRegisterModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.cashRegisterList removeAllObjects];
             [self.cashRegisterList addObjectsFromArray:cashRegisterArray];
             [self.cashRegisterTableView reloadData];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            [self.cashRegisterTableView ms_endRefreshing:cashRegisterArray.count pageSize:10 error:error];
         }
-        
     }];
 
 }
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.cashRegisterList.count;
@@ -137,7 +131,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    DLCashRegisterModel *trModel = [self.cashRegisterList objectAtIndex:indexPath.section];
+    if (trModel.state.integerValue == 3) {
+        return 150;
+    } else {
+        return 130; 
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

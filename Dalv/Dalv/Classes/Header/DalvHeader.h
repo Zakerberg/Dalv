@@ -44,5 +44,6 @@
 // Other
 #import "DLUtils.h"
 #import "MJRefresh.h"
+#import "UITableView+MSExtension.h"
 
 #endif /* DalvHeader_h */
