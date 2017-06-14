@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DLLineOrderDetailXibController">
             <connections>
+                <outlet property="adultBorderLabel" destination="aGR-up-djG" id="mlG-ip-KIt"/>
+                <outlet property="childBorderLabel" destination="xa5-Hp-uBK" id="yZr-7q-K0I"/>
                 <outlet property="lineOrderAdultCountLabel" destination="EXD-dv-HZp" id="NrR-eC-bIv"/>
                 <outlet property="lineOrderChildCountLabel" destination="anY-MD-bSC" id="tMK-zV-625"/>
                 <outlet property="lineOrderCreatTimeLabel" destination="PQq-Uw-vU1" id="QKp-Eg-0Fd"/>

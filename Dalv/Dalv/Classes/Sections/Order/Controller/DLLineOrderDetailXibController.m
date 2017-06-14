@@ -41,6 +41,22 @@
 //@property (nonatomic, strong) UITableView *lineOrderDetailTableView;
 
 
+
+
+
+//边框成人和儿童的label
+
+@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
+
+
+
+
+
+
+
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
 
 
@@ -68,6 +84,15 @@
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"线路订单详情";
+    
+    self.adultBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.adultBorderLabel.layer.borderWidth = 0.5f;
+    self.adultBorderLabel.layer.masksToBounds = YES;
+    
+    self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.childBorderLabel.layer.borderWidth = 0.5f;
+    self.childBorderLabel.layer.masksToBounds = YES;
+    
     
 }
 
@@ -172,8 +197,11 @@
             
             self.lineOrderCreatTimeLabel.text = create_timeStr;
             
+
             self.lineOrderAdultCountLabel.text = client_adult_countStr;
+        
             self.lineOrderChildCountLabel.text =client_child_countStr;
+            
             
             self.lineOrderPriceTotaLabel.text = price_totalStr;
             self.lineOrderStartTimeLabel.text = start_timeStr;
