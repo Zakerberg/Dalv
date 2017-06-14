@@ -145,12 +145,6 @@
  
  
  
- 
- 
- 
- 
- 
- 
  [numberButton mas_makeConstraints:^(MASConstraintMaker *make) {
  make.centerY.equalTo(adultlab);
  make.right.equalTo(@-15);

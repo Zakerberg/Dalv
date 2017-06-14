@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  -------------------  个人中心   ------------------------
+//  -------------------  个人中心   -------------------
 
 #import "DLMineCenterController.h"
 #import "DLMineModel.h"
@@ -17,21 +17,23 @@
 //#import "DLLineQueryController.h"
 //#import "DLSupplierqueryController.h"
 #import "DLHomeViewTask.h"
+#import "DLManager.h"
 
 static NSString *cellID  = @"cellID";
 
 @interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)UIView *headerView;
-@property(nonatomic,strong)UIImageView * picImg; //背景图
-@property(nonatomic,strong)UIButton * personBtn;
-@property(nonatomic,strong)UILabel *label;
+@property(nonatomic,strong) UIView *headerView;
+@property(nonatomic,strong) UIImageView * picImg; //背景图
+@property(nonatomic,strong) UIButton * personBtn;
+@property(nonatomic,strong) UILabel *label;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) UILabel* numLabel;
 @property (strong,nonatomic) UILabel* nameLabel;
 
-
+//头像图片
+@property (strong,nonatomic) UIImageView *headImageV;
 
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
@@ -82,7 +84,30 @@ static NSString *cellID  = @"cellID";
     [self fetchData];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
+//    [self isLogIn];
 }
+
+
+
+
+
+//- (void)isLogIn{
+//    // 判断是否登录
+//    if([[DLManager shareUserDefaultsManager] isUserLoggedIn]){
+//        // 登录
+//        [_headerView setStatus:YES];
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClick)];
+//        [_mineHeaderView addGestureRecognizer:tapGesture];
+//        _mineHeaderView.userInteractionEnabled = YES;
+//    }else{
+//        [_mineHeaderView setStatus:NO];
+//        // 未登录
+//    }
+//}
+//
+//
+
+
 
 
 -(void)setupHeaderView{
@@ -121,6 +146,17 @@ static NSString *cellID  = @"cellID";
     [personBtn.layer setMasksToBounds:YES];
     
     [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+
+    
+//    UIImageView *headImageV = [[UIImageView alloc] init];
+//    self.headerView = headerView;
+//    
+//    
+    
+    
+    
+    
+    
     
     
 //   UILabel *nameLabel = [[UILabel alloc] init];
@@ -164,6 +200,17 @@ static NSString *cellID  = @"cellID";
             self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = [result objectForKey:@"agencyInfo"];
             [self.tableView reloadData];
+            
+            
+            
+//            sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://img.dkyungou.com/%@",CModel.avatar]] placeholderImage:[UIImage imageNamed:@"logo"]];
+//            
+//        [self.personBtn ]
+            
+            
+            
+            
+
             
         }else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];

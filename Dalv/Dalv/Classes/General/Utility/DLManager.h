@@ -12,6 +12,9 @@ extern NSString *const DLUserDefaultsManagerUserLoggedIn;
 
 @interface DLManager: NSObject
 
++ (instancetype)shareUserDefaultsManager;
+
+
 /**
  判断用户是否登录
  

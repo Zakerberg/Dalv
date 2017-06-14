@@ -174,10 +174,11 @@
 //  供应商查询
 #define DL_providerQuery DL_HOST@"index.php/Api/agencyPersonal/providerQuery"
 
-
 //  顾客注册的接口
 #define  DL_CustomerRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
 
+// 52.顾问订单列表界面接口
 
+#define  DL_AgencyLineOrderList DL_HOST@"index.php/api/AgencyOrder/lineOrder"
 
 #endif /* InterfaceConfig_h */
