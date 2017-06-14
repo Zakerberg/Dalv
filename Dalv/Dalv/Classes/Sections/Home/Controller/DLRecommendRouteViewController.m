@@ -159,21 +159,21 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     } else if (kind == UICollectionElementKindSectionFooter) {
         UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSHotTopicTableViewFooter forIndexPath:indexPath];
         
-        UIButton *footerButton = [footerView viewWithTag:10001];
-        if (footerButton == nil) {
-            footerButton = [[UIButton alloc] init];
-            footerButton.tag = 10001;
-            [footerButton setTitle:@"查看更多>>" forState:UIControlStateNormal];
-            [footerButton setTitleColor:[UIColor ms_blackColor] forState:UIControlStateNormal];
-            footerButton.titleLabel.font = [UIFont systemFontOfSize:14];
-            [footerButton addTarget:self action:@selector(didTapViewMore:) forControlEvents:UIControlEventTouchUpInside];
-            
-            [footerView addSubview:footerButton];
-            [footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(@15);
-                make.center.equalTo(footerView);
-            }];
-        }
+//        UIButton *footerButton = [footerView viewWithTag:10001];
+//        if (footerButton == nil) {
+//            footerButton = [[UIButton alloc] init];
+//            footerButton.tag = 10001;
+//            [footerButton setTitle:@"查看更多>>" forState:UIControlStateNormal];
+//            [footerButton setTitleColor:[UIColor ms_blackColor] forState:UIControlStateNormal];
+//            footerButton.titleLabel.font = [UIFont systemFontOfSize:14];
+//            [footerButton addTarget:self action:@selector(didTapViewMore:) forControlEvents:UIControlEventTouchUpInside];
+//            
+//            [footerView addSubview:footerButton];
+//            [footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.height.equalTo(@15);
+//                make.center.equalTo(footerView);
+//            }];
+//        }
         return footerView;
     }
     return nil;

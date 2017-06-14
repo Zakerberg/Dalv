@@ -26,6 +26,7 @@
 		1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */; };
 		1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */; };
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
+		1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */; };
 		1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */; };
 		1C2978FA1EEEAA7400D3FEEA /* fiance_aipay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */; };
 		1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EB1EEEAA7400D3FEEA /* fiance_aipay@3x.png */; };
@@ -372,6 +373,8 @@
 		1C0B57EB1ED7DA3700592BBB /* DLAddReduceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddReduceButton.m; sourceTree = "<group>"; };
 		1C0B57ED1ED816CE00592BBB /* dl_domestic_tourism@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@2x.png"; sourceTree = "<group>"; };
 		1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_domestic_tourism@3x.png"; sourceTree = "<group>"; };
+		1C1357E91EF0DE270098E778 /* DLLineTourTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineTourTableViewCell.h; sourceTree = "<group>"; };
+		1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourTableViewCell.m; sourceTree = "<group>"; };
 		1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPresentApplicationModel.h; sourceTree = "<group>"; };
 		1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPresentApplicationModel.m; sourceTree = "<group>"; };
 		1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_aipay@2x.png"; sourceTree = "<group>"; };
@@ -1307,6 +1310,8 @@
 				1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */,
 				1C74F6CB1EE923E60012EB10 /* DLRoutePricingTableViewCell.h */,
 				1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */,
+				1C1357E91EF0DE270098E778 /* DLLineTourTableViewCell.h */,
+				1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2151,6 +2156,7 @@
 				1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
+				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,
 				1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,

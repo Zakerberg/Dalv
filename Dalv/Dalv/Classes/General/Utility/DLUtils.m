@@ -199,16 +199,15 @@ static NSString * const kMacAddressUserDefaultsKey = @"DLkeychainMacAddress";
 // 获取uid
 + (NSString *)getUid{
     
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"] ?  : @"";
     
 }
 
 // 获取token
 + (NSString *)getSign_token{
     
-    return  [[NSUserDefaults standardUserDefaults] objectForKey:@"sign_token"];
+    return  [[NSUserDefaults standardUserDefaults] objectForKey:@"sign_token"] ? : @"";
     
 }
-
 
 @end
