@@ -46,71 +46,150 @@
 
 
 
+@property(nonatomic,strong) NSString * tourID;
+
+
+
+
+
 @end
 
 @implementation DLLineOrderDetailXibController
-
-
-
--(void)viewWillAppear:(BOOL)animated {
-    
-    
-    self.lineOrderNameLabel.text = self.lineOrderDetailModel.name;
-    self.lineOrderStateLabel.text = self.lineOrderDetailModel.state;
-    
-    
-    self.lineOrderCreatTimeLabel.text = self.lineOrderDetailModel.create_time;
-    
-    self.lineOrderAdultCountLabel.text = self.lineOrderDetailModel.client_adult_count;
-    self.lineOrderChildCountLabel.text = self.lineOrderDetailModel.client_child_count;
-    
-    self.lineOrderPriceTotaLabel.text = self.lineOrderDetailModel.price_total;
-    self.lineOrderStartTimeLabel.text = self.lineOrderDetailModel.start_time;
-    
-    self.lineOrderPriceAdjustLabel.text = self.lineOrderDetailModel.price_adjus;
-    
-    self.lineOrderPayableLabel.text = self.lineOrderDetailModel.price_payable;
-    
-    self.lineOrderMemoLabel.text = self.lineOrderDetailModel.memo;
-    
-}
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
     [self fetchData];
+    [self setButton];
 }
 
-
+#pragma mark - ------------- setUI ----------------
 -(void)setUI{
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-
+    self.title = @"线路订单详情";
+    
 }
 
 
+#pragma mark - ------------- setButton ----------------
+-(void)setButton{
+    
+    
+    
+}
+
+
+
+
+#pragma mark - ------------- fetchData ----------------
+
 -(void)fetchData{
     
-//    NSDictionary *param = @{
-//                            @"uid":[DLUtils getUid],
-//                            @"tour_id":@"802",
-//                            @"sign_token" : [DLUtils getSign_token],
-//                            };
-//    @weakify(self);
-//    
-//    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
-//        @strongify(self);
-//        if (result) {
-//            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-//            [self.lineOrderDetailList removeAllObjects];
-//            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
-//            [self.view reloadInputViews];
-//        } else {
-//            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-//        }
-//    }];
+    
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"tour_id":@"800",
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    @weakify(self);
+    
+    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            
+            
+            NSDictionary *dict = result[@"list"];
+            
+            NSString *nameStr = dict[@"name"];
+            
+            NSString *stateStr = dict[@"state"];
+            NSString *create_timeStr = dict[@"create_time"];
+            NSString *memoStr = dict[@"memo"];
+            NSString *price_payableStr = dict[@"price_payable"];
+            
+            NSString *client_adult_countStr = dict[@"client_adult_count"];
+            NSString *client_child_countStr = dict[@"client_child_count"];
+            NSString *start_timeStr = dict[@"start_time"];
+            NSString *price_totalStr = dict[@"price_total"];
+            NSString *price_adjustStr = dict[@"price_adjust"];
+            
+            NSString *pictureStr = dict[@"cover_pic"];
+            
+            
+            if ([stateStr isEqualToString:@"1"]) {
+                self.lineOrderStateLabel.text = @"未提交";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            } else if ([stateStr isEqualToString:@"2"]){
+                self.lineOrderStateLabel.text = @"已提交";
+                self.lineOrderStateLabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+            }else if ([stateStr isEqualToString:@"3"]){
+                self.lineOrderStateLabel.text = @"已确认待付款";
+
+            }else if ([stateStr isEqualToString:@"4"]){
+                self.lineOrderStateLabel.text = @"已取消";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"5"]){
+                self.lineOrderStateLabel.text = @"已关闭";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"6"]){
+                self.lineOrderStateLabel.text = @"已付预付款";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"7"]){
+                self.lineOrderStateLabel.text = @"已付全款";
+                self.lineOrderStateLabel.textColor =  [UIColor colorWithHexString:@"#5fc82b"];
+            }else if ([stateStr isEqualToString:@"8"]){
+                self.lineOrderStateLabel.text = @"已退款";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"9"]){
+                self.lineOrderStateLabel.text = @"取消中";
+                _lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"10"]){
+                self.lineOrderStateLabel.text = @"取消中,待退款(供应商确认";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"11"]){
+                self.lineOrderStateLabel.text = @"拒绝取消订单";
+                self.lineOrderStateLabel.textColor= [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"12"]){
+                self.lineOrderStateLabel.text = @"取消中,待退款(代理商管理确认)";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }else if ([stateStr isEqualToString:@"13"]){
+                self.lineOrderStateLabel.text = @"已取消,已退款";
+                self.lineOrderStateLabel.textColor = [UIColor redColor];
+            }
+            
+            
+            if ([memoStr isEqualToString:@""]){
+                self.lineOrderMemoLabel.text = @"无";
+                
+            }
+            
+            NSURL *url = [NSURL URLWithString:pictureStr];
+            
+            [self.lineOrderPicImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            
+            self.lineOrderNameLabel.text = nameStr;
+            
+            self.lineOrderCreatTimeLabel.text = create_timeStr;
+            
+            self.lineOrderAdultCountLabel.text = client_adult_countStr;
+            self.lineOrderChildCountLabel.text =client_child_countStr;
+            
+            self.lineOrderPriceTotaLabel.text = price_totalStr;
+            self.lineOrderStartTimeLabel.text = start_timeStr;
+            
+            self.lineOrderPriceAdjustLabel.text = price_adjustStr;
+            
+            self.lineOrderPayableLabel.text = price_payableStr;
+            
+            NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.lineOrderDetailList removeAllObjects];
+            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
+            
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
 }
 
 

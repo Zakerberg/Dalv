@@ -1,13 +1,13 @@
+////
+////  DLLineOrderViewDetailController.h
+////  Dalv
+////
+////  Created by Michael 柏 on 2017/6/13.
+////  Copyright © 2017年 Michael 柏. All rights reserved.
+////
 //
-//  DLLineOrderViewDetailController.h
-//  Dalv
+//#import <UIKit/UIKit.h>
 //
-//  Created by Michael 柏 on 2017/6/13.
-//  Copyright © 2017年 Michael 柏. All rights reserved.
+//@interface DLLineOrderViewDetailController : UIViewController
 //
-
-#import <UIKit/UIKit.h>
-
-@interface DLLineOrderViewDetailController : UIViewController
-
-@end
+//@end
