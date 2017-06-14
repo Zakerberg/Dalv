@@ -11,17 +11,12 @@
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
 #import "DLLineOrderXibCell.h"
-
+#import "DLLineOrderViewDetailController.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineOrderTableView;
 
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
-
-
-
-
-
 
 /* 订单图片 */
 @property (weak, nonatomic)  UIImageView *lineOrderPicture;
@@ -34,20 +29,12 @@
 /* 订单状态 */
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 
-
-
-
-
-
 @end
 
 
 static NSString *cellID = @"cellID";
 
 static NSString *nibCellID = @"nibCellID";
-
-
-
 
 @implementation DLLineOrderController
 
@@ -56,8 +43,6 @@ static NSString *nibCellID = @"nibCellID";
     [self setUI];
     [self fetchData];
     [self setTableView];
-    
-    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -73,10 +58,7 @@ static NSString *nibCellID = @"nibCellID";
 
 /*
  
- 
  - (void)setupSubviews {
- 
- 
  
  [self.contractRecordTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
  
@@ -93,13 +75,7 @@ static NSString *nibCellID = @"nibCellID";
  make.bottom.equalTo(self.view.mas_bottom);
  }];
  }
- 
  */
-
-
-
-
-
 
 
 
@@ -145,9 +121,7 @@ static NSString *nibCellID = @"nibCellID";
                             @"page":@"1",
                             @"sign_token" : [DLUtils getSign_token],
                             };
-    
     @weakify(self);
-    
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
@@ -159,8 +133,6 @@ static NSString *nibCellID = @"nibCellID";
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
-
-    
 }
 
 #pragma mark ----------- UITable View Delegate ----------------
@@ -191,7 +163,7 @@ static NSString *nibCellID = @"nibCellID";
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190;
+    return 200;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -202,8 +174,27 @@ static NSString *nibCellID = @"nibCellID";
     return CGFLOAT_MIN;
 }
 
+
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 #pragma mark ------------------ Getter -----------------------
