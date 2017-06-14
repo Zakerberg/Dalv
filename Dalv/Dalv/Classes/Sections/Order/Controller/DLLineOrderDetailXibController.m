@@ -73,8 +73,6 @@
     
     self.lineOrderMemoLabel.text = self.lineOrderDetailModel.memo;
     
-    
-    
 }
 
 
