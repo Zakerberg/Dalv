@@ -4,11 +4,13 @@
 //
 //  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ------------------ 我的直客列表 --------------------
 
 #import "DLCustomerListController.h"
 
-@interface DLCustomerListController ()
+@interface DLCustomerListController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,strong) UITableView * customerListTableView;
 
 @end
 
@@ -16,22 +18,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self fetchData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+-(void)setTableView {
+    
+    
+    
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+
+
+
+
+#pragma mark ------------  fetchData --------------
+
+- (void)fetchData {
+    
+    
 }
-*/
+
+
+
+
+
+
+
+#pragma mark ------------  Table view Delegate --------------
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 3;
+    
+}
+
+
+
+
+
+//
+//
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    
+//}
+//
+//
+
+
 
 @end

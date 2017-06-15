@@ -134,8 +134,6 @@ static NSString *nibCellID = @"nibCellID";
             
             NSLog(@"%@",result);
             
-
-            
             
             [self.lineOrderTableView reloadData];
         } else {
@@ -190,7 +188,6 @@ static NSString *nibCellID = @"nibCellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 //    DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
-//    
 //    
 //    [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
 

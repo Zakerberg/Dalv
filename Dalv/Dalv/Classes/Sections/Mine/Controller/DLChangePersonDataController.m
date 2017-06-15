@@ -11,6 +11,8 @@
 #import "DLCityPickerView.h"
 #import "DLChangePasswordController.h"
 #import "ZYInputAlertView.h"
+#import "DLHomeViewTask.h"
+
 static NSString* cellID = @"cellID";
 @interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,JHPickerDelegate,UITextViewDelegate>
 @property (strong,nonatomic) UITableView* tableView ;
@@ -55,13 +57,14 @@ static NSString* cellID = @"cellID";
 
 -(void)fetchData {
     
-    
-    
-    
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    [DLHomeViewTask getAgencyEditPass:param completion:^(id result, NSError *error) {
+        
+    }];
 }
-
-
-
 
 
 -(void)setupTableView {
@@ -104,10 +107,37 @@ static NSString* cellID = @"cellID";
     return YES;
 }
 
-/***  完成  ***/
+/***  保存  ***/
 -(void)completeClick {
+  
     
-    // ---- --------------------- - -- - - -- - - - -
+//    NSDictionary *param = @{
+//                            @"uid":[DLUtils getUid],
+//                            @"sign_token" : [DLUtils getSign_token],
+//                                @"nick_name":
+//                                @"email":
+//                                @"sex":
+//                                @"age":
+//                                @"working_time":
+//                                @"personal_label":
+//                                @"been_where":
+//                                
+//                                };
+    
+    
+    /*
+     uid：用户id
+     sign_token：验证身份token
+     nick_name：用户名
+     email：邮箱
+     sex：性别（0保密，1男，2女）
+     age：年龄（20）
+     working_time：工作时间（10）
+     personal_label：标签（博士，硕士，研究生）用逗号隔开
+     been
+     */
+    
+    
     
 }
 

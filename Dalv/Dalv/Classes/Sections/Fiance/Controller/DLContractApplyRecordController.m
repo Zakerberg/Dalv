@@ -10,7 +10,6 @@
 #import "DLContractApplyRecordCell.h"
 #import "DLHomeViewTask.h"
 
-
 @interface DLContractApplyRecordController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *contractRecordTableView;
@@ -33,9 +32,6 @@
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
-
-
 
 
 - (void)setupSubviews {
@@ -90,9 +86,7 @@
                     [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
                 }
     }];
-    
 }
-
 
 #pragma mark ----------- UITable View Delegate ----------------
 
@@ -113,7 +107,6 @@
     [cell configureCell:crModel];
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 190;
@@ -141,7 +134,5 @@
     return _contractRecordList;
     
 }
-
-
 
 @end

@@ -115,7 +115,7 @@ static NSString* cellID = @"cellID";
     }
 }
 
-#pragma mark -------------- UITable View Delegate ------------------
+#pragma mark -------- UITable View Delegate -------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;

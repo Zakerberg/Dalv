@@ -149,18 +149,17 @@
 //预付款
 -(void)prepaidBtnClick{
     
-    
+    NSLog(@"预付款");
 }
 
 //全款
 -(void)payFullBtnClick{
-    
+    NSLog(@"全款");
 }
 
 //预付款
 - (IBAction)payTailBtnClick:(id)sender {
-    
-    
+      NSLog(@"预付款");
 }
 
 

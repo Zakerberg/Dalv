@@ -18,6 +18,7 @@
 //#import "DLSupplierqueryController.h"
 #import "DLHomeViewTask.h"
 #import "DLManager.h"
+#import "DLMyCustomerXibController.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -152,13 +153,6 @@ static NSString *cellID  = @"cellID";
 //    self.headerView = headerView;
 //    
 //    
-    
-    
-    
-    
-    
-    
-    
 //   UILabel *nameLabel = [[UILabel alloc] init];
 //    self.nameLabel = nameLabel;
 //    nameLabel.text = @"李元芳";
@@ -208,10 +202,6 @@ static NSString *cellID  = @"cellID";
 //        [self.personBtn ]
             
             
-            
-            
-
-            
         }else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
@@ -258,9 +248,13 @@ static NSString *cellID  = @"cellID";
     /***  我的直客   ***/
     if (indexPath.row == 1) {
         
-        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
+//        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
+//        
+//        [self.navigationController pushViewController:CustomerVC animated:YES];
         
-        [self.navigationController pushViewController:CustomerVC animated:YES];
+        DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
+        
+        [self.navigationController pushViewController:myCustomerVC animated:YES];
     }
     
     /***  通用   ***/

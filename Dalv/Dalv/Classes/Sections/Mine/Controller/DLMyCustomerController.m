@@ -12,27 +12,59 @@
 
 @property(nonatomic,strong) UITableView * customerTableView;
 
+
+
+
 @end
 
 static NSString *cellID = @"cellID";
+
 @implementation DLMyCustomerController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setTableView];
-    self.title = @"我的直客";
-    self.view.backgroundColor = [UIColor ms_backgroundColor];;
+    [self setUI];
+    [self setHeadView];
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
+}
+
+
+-(void)setUI{
     
+    self.title = @"我的直客";
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+-(void)setHeadView {
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
 
 
 #pragma mark -----------   Set UITableView ----------------
@@ -49,23 +81,16 @@ static NSString *cellID = @"cellID";
     
     [self.customerTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
-
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -111,28 +136,6 @@ static NSString *cellID = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     return cell;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @end
