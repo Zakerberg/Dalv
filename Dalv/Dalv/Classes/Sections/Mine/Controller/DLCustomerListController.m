@@ -7,10 +7,14 @@
 //  ------------------ 我的直客列表 --------------------
 
 #import "DLCustomerListController.h"
+#import "DLHomeViewTask.h"
 
 @interface DLCustomerListController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) UITableView * customerListTableView;
+
+@property (nonatomic, strong) NSMutableArray *myCustomerList;
+
 
 @end
 
@@ -39,6 +43,15 @@
 #pragma mark ------------  fetchData --------------
 
 - (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    
+    
+//    [DLHomeViewTask ]
+    
+    
+    
     
     
 }

@@ -184,4 +184,13 @@
 // 53.顾问订单详情界面接口
 #define  DL_AgencyLineOrderListDetails DL_HOST@"index.php/Api/agencyOrder/lineDetails"
 
+
+// 54.我的直客列表接口
+#define  DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
+
+
+
+
+
+
 #endif /* InterfaceConfig_h */
