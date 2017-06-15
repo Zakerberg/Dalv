@@ -129,10 +129,14 @@ static NSString *nibCellID = @"nibCellID";
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
 
-    self.lineOrderPicture = cell.lineOrderPicture;
-    self.lineOrderNameLabel = cell.lineOrderNameLabel;
-    self.lineOrderTimeLabel = cell.lineOrderTimeLabel;
-    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+//    self.lineOrderPicture = cell.lineOrderPicture;
+//    self.lineOrderNameLabel = cell.lineOrderNameLabel;
+//    self.lineOrderTimeLabel = cell.lineOrderTimeLabel;
+//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+//    
+    
+    
+    
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
@@ -167,8 +171,7 @@ static NSString *nibCellID = @"nibCellID";
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
     
     
-    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.row];
-
+    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];
     
     
     lineXIBvc.tourID = lineOrderModel.lineId;
