@@ -8,16 +8,26 @@
 
 #import "DLOfflineRechargeViewController.h"
 #import "DLBankTransferTableViewCell.h"
+#import "DLHomeViewTask.h"
 
-static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableViewHeader";
+static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableViewHeader";
+static NSString *DLOfflineRechargeTableViewFooter = @"DLOfflineRechargeTableViewFooter";
 
-@interface DLOfflineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLOfflineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView *offlineRechargeTableView;
 
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
 
 @property (nonatomic, strong) NSMutableArray *bankChargeArray;//银行充值的数组
+
+@property (nonatomic,strong) UITextField *priceTextField;//输入金额
+
+@property (nonatomic,strong) UITextField *remittingPartyTextField;//输入汇款方
+
+@property (nonatomic,strong) UIView *backview;
+
+
 
 @end
 
@@ -30,6 +40,7 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
     
     [self setupNavbar];
     [self setupSubviews];
+    [self fetchData];
     
     self.selctSection = 0;
 
@@ -85,11 +96,15 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 85;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 3) {
+    return 160.0f;
+    }else{
     return CGFLOAT_MIN;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -97,7 +112,7 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:LDLOfflineRechargeTableViewHeader];
+    UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:DLOfflineRechargeTableViewHeader];
     headerView.contentView.backgroundColor = [UIColor whiteColor];
     
     UIImageView *imageView = [[UIImageView alloc]init];
@@ -173,6 +188,130 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
     return headerView;
 
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == 3) {
+        UITableViewHeaderFooterView *footerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:DLOfflineRechargeTableViewFooter];
+        footerView.contentView.backgroundColor = [UIColor ms_backgroundColor];
+        
+        _backview = [[UIView alloc]init];
+        _backview.backgroundColor = [UIColor whiteColor];
+        [footerView addSubview:_backview];
+        
+        UILabel *cashWithdrawalLabel = [[UILabel alloc] init];
+        cashWithdrawalLabel.text = @"汇款方";
+        cashWithdrawalLabel.textAlignment = NSTextAlignmentLeft;
+        cashWithdrawalLabel.textColor = [UIColor colorWithHexString:@"#494949"];
+        cashWithdrawalLabel.font = [UIFont systemFontOfSize:16];
+        [_backview addSubview:cashWithdrawalLabel];
+        
+        self.remittingPartyTextField = [[UITextField alloc] init];
+        self.remittingPartyTextField.font = [UIFont systemFontOfSize:16];
+        self.remittingPartyTextField.keyboardType = UIKeyboardTypeTwitter;
+        self.remittingPartyTextField.placeholder = @"输入汇款方名称";
+        self.remittingPartyTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.remittingPartyTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.remittingPartyTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.remittingPartyTextField.leftViewMode = UITextFieldViewModeAlways;
+        self.remittingPartyTextField.delegate = self;
+        [_backview addSubview:self.remittingPartyTextField];
+
+        
+        UIView *line = [[UIView alloc]init];
+        line.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
+        [footerView  addSubview:line];
+        
+        UIView *backview1 = [[UIView alloc]init];
+        backview1.backgroundColor = [UIColor whiteColor];
+        [footerView addSubview:backview1];
+        
+        UILabel *pricelLabel = [[UILabel alloc] init];
+        pricelLabel.text = @"金   额";
+        pricelLabel.textAlignment = NSTextAlignmentLeft;
+        pricelLabel.textColor = [UIColor colorWithHexString:@"#494949"];
+        pricelLabel.font = [UIFont systemFontOfSize:16];
+        [backview1 addSubview:pricelLabel];
+        
+        self.priceTextField = [[UITextField alloc] init];
+        self.priceTextField.font = [UIFont systemFontOfSize:16];
+        self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+        self.priceTextField.placeholder = @"请输入充值的金额";
+        self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        self.priceTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.priceTextField.leftViewMode = UITextFieldViewModeAlways;
+        self.priceTextField.delegate = self;
+        [backview1 addSubview:self.priceTextField];
+        
+        
+        UIButton *submitBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+        [submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
+        submitBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
+//        [submitBtn  addTarget:self action:@selector(submitAnApplication) forControlEvents:UIControlEventTouchUpInside];
+        submitBtn.layer.cornerRadius = 8.0;
+        [footerView addSubview:submitBtn];
+        
+        [_backview mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@10);
+            make.left.equalTo(@0);
+            make.width.equalTo(footerView.contentView);
+            make.height.equalTo(@50);
+        }];
+        
+        [cashWithdrawalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_backview);
+            make.left.equalTo(@15);
+            make.width.equalTo(@55);
+            make.height.equalTo(@50);
+        }];
+        
+        [self.remittingPartyTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_backview);
+            make.left.equalTo(pricelLabel.mas_right);
+            make.width.equalTo(_backview).with.offset(-100);
+            make.height.equalTo(@50);
+        }];
+        
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_backview.mas_bottom);
+            make.left.equalTo(@0);
+            make.width.equalTo(footerView.contentView);
+            make.height.equalTo(@1);
+        }];
+
+        [backview1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(line.mas_bottom);
+            make.left.equalTo(@0);
+            make.width.equalTo(footerView.contentView);
+            make.height.equalTo(@50);
+        }];
+        
+        [pricelLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(backview1);
+            make.left.equalTo(@15);
+            make.width.equalTo(@55);
+            make.height.equalTo(@50);
+        }];
+        
+        [self.priceTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(backview1);
+            make.left.equalTo(pricelLabel.mas_right);
+            make.width.equalTo(backview1).with.offset(-100);
+            make.height.equalTo(@50);
+        }];
+
+        [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(backview1.mas_bottom).with.offset(10);
+            make.left.equalTo(@20);
+            make.right.equalTo(@-20);
+            make.height.equalTo(@40);
+        }];
+
+        return footerView;
+    }else{
+        return nil;
+    }
+}
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -181,12 +320,19 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
 }
 
 #pragma mark - Fetch data
+- (void)fetchData {
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getAgencyFinanceApplyTopup:param completion:^(id result, NSError *error) {
+    }];
+    
+}
+
 
 #pragma mark - Event Handler
 - (void)selectRechargeType:(UIButton *)btn {
     
     btn.selected = !btn.selected;
-    
     [self.bankChargeArray removeAllObjects];
     if (btn.selected) {
         self.selctSection = btn.tag - 1000;
@@ -198,8 +344,6 @@ static NSString *LDLOfflineRechargeTableViewHeader = @"LDLOfflineRechargeTableVi
 
     }
     
-    
-
 }
 
 #pragma mark - Getter
