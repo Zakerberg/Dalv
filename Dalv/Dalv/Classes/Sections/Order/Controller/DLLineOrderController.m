@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/6.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//   ----------------  线路订单列表 --------------------
 
 #import "DLLineOrderController.h"
 #import "DLLineOrderViewCell.h"
@@ -30,8 +30,6 @@
 @property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
 /* 订单状态 */
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
-
-
 
 @end
 
@@ -111,7 +109,7 @@ static NSString *nibCellID = @"nibCellID";
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-48-49-9);
     }];
 }
 
@@ -133,6 +131,12 @@ static NSString *nibCellID = @"nibCellID";
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
+            
+            NSLog(@"%@",result);
+            
+
+            
+            
             [self.lineOrderTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
@@ -193,14 +197,17 @@ static NSString *nibCellID = @"nibCellID";
     
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
     
-    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.row];
     
-    lineXIBvc.tourID  =  lineOrderModel.lineId;
+    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.row];
+
+    
+    
+    lineXIBvc.tourID = lineOrderModel.lineId;
+    
     
     [self.navigationController pushViewController:lineXIBvc animated:YES];
     
-  
-        
+
 }
 
 #pragma mark ------------------ Getter -----------------------

@@ -53,7 +53,7 @@
     
     [self.view addSubview:self.headScrollView];
     
-    self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 57, MAIN_SCREEN_WIDTH,MAIN_SCREEN_HEIGHT- 64)];
+    self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 57, MAIN_SCREEN_WIDTH,MAIN_SCREEN_HEIGHT- 64- 49 - 48)];
     
     self.mainScrollView.delegate = self;
     self.mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_WIDTH*self.headScrollView.headArray.count, 0);

@@ -39,15 +39,6 @@
 }
 
 -(void)createBtn{
-
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     for (int i = 0; i < [self.headArray count]; i++) {

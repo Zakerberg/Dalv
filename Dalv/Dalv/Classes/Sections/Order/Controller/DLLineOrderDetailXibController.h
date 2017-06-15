@@ -9,14 +9,5 @@
 #import <UIKit/UIKit.h>
 //
 @interface DLLineOrderDetailXibController : UIViewController
-
-
-
-
-
 @property(nonatomic,strong) NSString * tourID;
-
-
-
-
 @end

@@ -35,36 +35,31 @@
 /*** 订单特别说明 ***/
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderMemoLabel;
 
-
 @property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
-
-//@property (nonatomic, strong) UITableView *lineOrderDetailTableView;
-
-
-
 
 
 //边框成人和儿童的label
-
 @property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
 
 
 
+/*预付款button*/
+@property (nonatomic, strong) UIButton *prepaidBtn;
+/*全款button*/
+@property (nonatomic, strong) UIButton *payFullBtn;
+
+/*尾款button*/
+@property (weak, nonatomic) IBOutlet UIButton *payTailButton;
+
+/*尾款金额Label*/
+@property (weak, nonatomic) IBOutlet UILabel *tailMoneyLabel;
 
 
-
+/*尾款View 显示隐藏 */
+@property (weak, nonatomic) IBOutlet UIView *tailView;
 
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
-
-
-
-
-
-
-
 
 @end
 
@@ -75,6 +70,11 @@
     [self setUI];
     [self fetchData];
     [self setButton];
+    
+    self.tailView.hidden = YES;
+    self.payTailButton.hidden = YES;
+    
+    
 }
 
 #pragma mark - ------------- setUI ----------------
@@ -90,18 +90,78 @@
     self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.childBorderLabel.layer.borderWidth = 0.5f;
     self.childBorderLabel.layer.masksToBounds = YES;
-    
-    
 }
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 #pragma mark - ------------- setButton ----------------
 -(void)setButton{
     
     
+    
+    UIButton *prepaidBtn = [[UIButton alloc] init];
+    self.prepaidBtn = prepaidBtn;
+    
+    prepaidBtn.backgroundColor = [UIColor whiteColor];
+    [prepaidBtn setTitle:@"付预付款" forState:UIControlStateNormal];
+    [prepaidBtn setTitleColor:[UIColor colorWithHexString:@"#3e3e3e"] forState:UIControlStateNormal];
+    prepaidBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    prepaidBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    
+    [prepaidBtn addTarget:self action:@selector(prepaidBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:prepaidBtn];
+    
+    [prepaidBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.equalTo(@0);
+        make.height.equalTo(@45);
+        make.width.offset(MAIN_SCREEN_WIDTH/2);
+        
+    }];
+    
+    
+    UIButton *payFullBtn = [[UIButton alloc] init];
+    self.payFullBtn = payFullBtn;
+    
+    payFullBtn.backgroundColor = [UIColor colorWithHexString:@"#fe603b"];
+    [payFullBtn setTitle:@"支付全款" forState:UIControlStateNormal];
+    [payFullBtn setTitleColor:[UIColor colorWithHexString:@"#ffffff"] forState:UIControlStateNormal];
+    
+    payFullBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+    payFullBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    payFullBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    
+    [payFullBtn addTarget:self action:@selector(payFullBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:payFullBtn];
+
+    
+    [payFullBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(prepaidBtn.mas_right);
+        make.right.bottom.equalTo(@0);
+        make.centerY.equalTo(prepaidBtn.mas_centerY);
+    }];
 }
 
+#pragma mark - ------------- BtnClick ----------------
 
+//预付款
+-(void)prepaidBtnClick{
+    
+    
+}
+
+//全款
+-(void)payFullBtnClick{
+    
+}
+
+//预付款
+- (IBAction)payTailBtnClick:(id)sender {
+    
+    
+}
 
 
 #pragma mark - ------------- fetchData ----------------
@@ -111,7 +171,7 @@
     
     NSDictionary *param = @{
                             @"uid":[DLUtils getUid],
-                            @"tour_id":@"802",
+                            @"tour_id":self.tourID,
                             @"sign_token" : [DLUtils getSign_token],
                             };
     @weakify(self);
@@ -157,6 +217,10 @@
             }else if ([stateStr isEqualToString:@"6"]){
                 self.lineOrderStateLabel.text = @"已付预付款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                
+                self.tailView.hidden = NO;
+                self.payTailButton.hidden = NO;
+                
             }else if ([stateStr isEqualToString:@"7"]){
                 self.lineOrderStateLabel.text = @"已付全款";
                 self.lineOrderStateLabel.textColor =  [UIColor colorWithHexString:@"#5fc82b"];
