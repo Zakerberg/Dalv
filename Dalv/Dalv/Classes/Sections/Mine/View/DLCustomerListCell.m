@@ -20,5 +20,23 @@
 
     // Configure the view for the selected state
 }
+//
+//+ (NSString *)cellIdentifier {
+//    return NSStringFromClass([self class]);
+//}
+//
+
+- (void)configureCell:(DLCustomerListModel *)customerListModel{
+    
+    
+    self.customerNumLabel.text = customerListModel.mobile;
+    self.customerNameLabel.text = customerListModel.name;
+    self.customerTimeLabel.text = customerListModel.create_time;
+    
+    NSURL *url = [NSURL URLWithString:customerListModel.head_img];
+    
+    [self.customerAvatarImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+
+}
 
 @end

@@ -44,19 +44,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定时间:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4v-YD-XwT">
-                        <rect key="frame" x="194" y="69" width="36" height="14"/>
+                        <rect key="frame" x="170" y="69" width="36" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="QzU-yu-0my"/>
+                            <constraint firstAttribute="height" constant="14" id="gd2-DK-CG9"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2012-12-12 19:33:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIa-yU-2u3">
-                        <rect key="frame" x="230" y="69" width="84" height="14"/>
+                        <rect key="frame" x="214" y="69" width="83" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="14" id="3Bk-pQ-6y0"/>
-                            <constraint firstAttribute="width" constant="84" id="yWb-Qo-fbg"/>
+                            <constraint firstAttribute="height" constant="14" id="YE3-kl-N4s"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,13 +64,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ST9-io-7UR" firstAttribute="top" secondItem="u9z-KL-ejJ" secondAttribute="bottom" constant="6" id="7WY-NQ-hl6"/>
-                    <constraint firstItem="MIa-yU-2u3" firstAttribute="leading" secondItem="J4v-YD-XwT" secondAttribute="trailing" id="IYz-5F-WDD"/>
+                    <constraint firstItem="MIa-yU-2u3" firstAttribute="top" secondItem="ST9-io-7UR" secondAttribute="bottom" constant="15" id="AKV-ze-Xjj"/>
+                    <constraint firstItem="MIa-yU-2u3" firstAttribute="leading" secondItem="J4v-YD-XwT" secondAttribute="trailing" constant="8" symbolic="YES" id="BGK-ay-6CW"/>
+                    <constraint firstItem="MIa-yU-2u3" firstAttribute="centerY" secondItem="J4v-YD-XwT" secondAttribute="centerY" id="NUG-ed-O96"/>
                     <constraint firstItem="7bD-9K-fbt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="OVm-oV-CHO"/>
                     <constraint firstItem="7bD-9K-fbt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="fuC-Ab-J2z"/>
-                    <constraint firstItem="MIa-yU-2u3" firstAttribute="top" secondItem="ST9-io-7UR" secondAttribute="bottom" constant="15" id="if1-UL-1fp"/>
+                    <constraint firstItem="MIa-yU-2u3" firstAttribute="trailing" secondItem="ST9-io-7UR" secondAttribute="trailing" id="jCe-Jr-eQG"/>
                     <constraint firstItem="u9z-KL-ejJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="mY8-0Y-4Bw"/>
-                    <constraint firstItem="J4v-YD-XwT" firstAttribute="top" secondItem="ST9-io-7UR" secondAttribute="bottom" constant="15" id="nyc-Rh-KSe"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="MIa-yU-2u3" secondAttribute="trailing" constant="-2" id="pMY-S5-3oj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ST9-io-7UR" secondAttribute="trailing" constant="15" id="yLp-fU-7VF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="u9z-KL-ejJ" secondAttribute="trailing" constant="15" id="zaF-3d-51D"/>
                 </constraints>

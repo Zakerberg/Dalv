@@ -35,6 +35,7 @@
 
 
 - (void)setupSubviews {
+    
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     
     self.contractRecordTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];

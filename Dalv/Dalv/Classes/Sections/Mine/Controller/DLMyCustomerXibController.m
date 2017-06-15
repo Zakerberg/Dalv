@@ -30,6 +30,7 @@ static NSString *cellID = @"cellID";
     [self setTableView];
     [self fetchData];
     self.view.backgroundColor =  [UIColor groupTableViewBackgroundColor];
+    self.title = @"我的直客";
 }
 
 - (BOOL)dl_blueNavbar {
@@ -40,7 +41,7 @@ static NSString *cellID = @"cellID";
 #pragma mark --------setTableView ----------
 -(void)setTableView{
     
-    [self.myMoneyLabel sizeToFit];
+//    [self.myMoneyLabel sizeToFit];
     
     UITableView *myCustomerTableView = [[UITableView alloc] init];
     self.myCustomerTableView = myCustomerTableView;
@@ -60,7 +61,6 @@ static NSString *cellID = @"cellID";
         make.height.offset(100);
         
     }];
-    
 }
 
 #pragma mark --------fetchData ----------
@@ -110,20 +110,14 @@ static NSString *cellID = @"cellID";
 }
 
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         
         DLCustomerListController *listVC =[[DLCustomerListController alloc] init];
         [self.navigationController pushViewController:listVC animated:YES];
     }
-    
-    
-
-    
 }
-
 
 
 @end

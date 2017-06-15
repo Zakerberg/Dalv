@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLCustomerListModel.h"
 
 @interface DLCustomerListCell : UITableViewCell
 /* 直客头像 */
@@ -17,4 +18,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *customerNumLabel;
 /* 直客时间 */
 @property (weak, nonatomic) IBOutlet UILabel *customerTimeLabel;
+
+
+/** Cell 重用ID */
+//+(NSString *)cellIdentifier;
+//
+/**
+ *  配置Cell 数据
+ */
+- (void)configureCell:(DLCustomerListModel *)customerListModel;
+
+
+
 @end

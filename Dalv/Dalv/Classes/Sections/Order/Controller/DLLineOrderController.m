@@ -51,34 +51,6 @@ static NSString *nibCellID = @"nibCellID";
     return YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-/*
- 
- - (void)setupSubviews {
- 
- [self.contractRecordTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
- 
- self.contractRecordTableView.showsVerticalScrollIndicator = NO;
- 
- [self.contractRecordTableView registerClass:[DLContractApplyRecordCell class] forCellReuseIdentifier:[DLContractApplyRecordCell cellIdentifier]];
- 
- [self.view addSubview:self.contractRecordTableView];
- 
- [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
- make.width.equalTo(self.view.mas_width);
- make.top.equalTo(self.view.mas_top);
- make.left.equalTo(self.view.mas_left);
- make.bottom.equalTo(self.view.mas_bottom);
- }];
- }
- */
-
-
 
 #pragma mark -----------------  Set UI --------------
 
