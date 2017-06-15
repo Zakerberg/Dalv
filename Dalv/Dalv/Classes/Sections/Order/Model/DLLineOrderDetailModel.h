@@ -54,7 +54,7 @@
 @property(nonatomic,copy) NSString *state;
 
 /** 图片 **/
-@property(nonatomic,copy) NSString *cover_pi;
+@property(nonatomic,copy) NSString *cover_pic;
 
 /** 特别说明 **/
 @property(nonatomic,copy) NSString *memo;

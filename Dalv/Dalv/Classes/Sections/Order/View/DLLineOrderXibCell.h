@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStateLabel;
 
 
-
 #pragma mark - configure
 
 
