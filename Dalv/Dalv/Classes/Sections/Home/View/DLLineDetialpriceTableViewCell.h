@@ -15,6 +15,7 @@
 
 - (void)segmentTapDelegate:(NSUInteger )index;
 - (void)changeThePriceButtonDelegate:(UIButton *)button;
+- (void)titleChangeButtonDelegate:(UIButton *)button;
 - (void)selectDateViewDelegate:(UITapGestureRecognizer *)tapdate;
 @end
 
