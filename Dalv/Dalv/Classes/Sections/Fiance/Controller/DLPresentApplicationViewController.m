@@ -118,7 +118,7 @@
     currentBalanceLabel.text = @"当前余额：";
     currentBalanceLabel.textAlignment = NSTextAlignmentCenter;
     currentBalanceLabel.textColor = [UIColor colorWithHexString:@"#494949"];
-    currentBalanceLabel.font = [UIFont systemFontOfSize:14];
+    currentBalanceLabel.font = [UIFont systemFontOfSize:12];
     [backview addSubview:currentBalanceLabel];
     
     UILabel *balancelPriceLabel = [[UILabel alloc] init];
@@ -195,14 +195,14 @@
     [totalAccountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom);
         make.left.equalTo(@15);
-        make.width.equalTo(@80);
+        make.width.equalTo(@65);
         make.height.equalTo(@60);
     }];
     
     [totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(totalAccountLabel);
         make.left.equalTo(totalAccountLabel.mas_right);
-        make.right.equalTo(line1.mas_left).offset(-15);
+        make.right.equalTo(line1.mas_left).offset(-10);
         make.height.equalTo(@60);
     }];
     
@@ -216,14 +216,14 @@
     [currentBalanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom);
         make.left.equalTo(line1.mas_right).with.offset(15);
-        make.width.equalTo(@80);
+        make.width.equalTo(@65);
         make.height.equalTo(@60);
     }];
     
     [balancelPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(currentBalanceLabel);
         make.left.equalTo(currentBalanceLabel.mas_right);
-        make.right.equalTo(@-15);
+        make.right.equalTo(@-10);
         make.height.equalTo(@60);
     }];
 

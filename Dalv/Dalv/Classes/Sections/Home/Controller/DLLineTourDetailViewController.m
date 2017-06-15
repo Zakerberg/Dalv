@@ -15,6 +15,7 @@
 #import "DLLineDetialTableViewCell.h"
 #import "DLLineModificationViewController.h"
 #import "LGLCalenderViewController.h"
+#import "DLChangeTitleViewController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -327,6 +328,13 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     DLLineModificationViewController *lineModificationVC = [[DLLineModificationViewController alloc]init];
     [self.navigationController pushViewController:lineModificationVC animated:YES];
 }
+
+-(void)titleChangeButtonDelegate:(UIButton *)button {
+    DLChangeTitleViewController *changTitleVC = [[DLChangeTitleViewController alloc]init];
+    changTitleVC.routeModel = _routeModel;
+    [self.navigationController pushViewController:changTitleVC animated:YES];
+}
+
 - (void)selectDateViewDelegate:(UITapGestureRecognizer *)tapdate
 {
     NSLog(@"点击了选择日期");

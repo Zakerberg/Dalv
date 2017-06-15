@@ -54,11 +54,9 @@
     [self.contentView addSubview:_lineDetialNameLab];
     
     _titleChangeBtn = [[UIButton alloc]init];
-    [_titleChangeBtn setTitle:@"修改标题" forState:(UIControlStateNormal)];
-    [_titleChangeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_titleChangeBtn addTarget:self action:@selector(pushLineModification:) forControlEvents:UIControlEventTouchUpInside];
-    _titleChangeBtn.titleLabel.font = [UIFont systemFontOfSize: 13.0];
-    _titleChangeBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+    [_titleChangeBtn setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
+    [_titleChangeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_titleChangeBtn addTarget:self action:@selector(pushtitleChang:) forControlEvents:UIControlEventTouchUpInside];
     _titleChangeBtn.layer.cornerRadius = 2.0;
     [self.contentView addSubview:_titleChangeBtn];
     
@@ -97,10 +95,12 @@
     
     _lineModificationBtn = [[UIButton alloc]init];
     [_lineModificationBtn setTitle:@"改价" forState:(UIControlStateNormal)];
-    [_lineModificationBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_lineModificationBtn setTitleColor:[UIColor colorWithHexString:@"#fE603B"] forState:UIControlStateNormal];
     [_lineModificationBtn addTarget:self action:@selector(pushLineModification:) forControlEvents:UIControlEventTouchUpInside];
-    _lineModificationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
-       _lineModificationBtn.layer.cornerRadius = 2.0;
+    [_lineModificationBtn.layer setMasksToBounds:YES];
+    [_lineModificationBtn.layer setCornerRadius:2.0];
+    [_lineModificationBtn.layer setBorderWidth:1.0];
+    _lineModificationBtn.layer.borderColor=[UIColor colorWithHexString:@"#e3e3e4"].CGColor;
     [self.contentView addSubview:_lineModificationBtn];
     
     _departureScheduleView = [[UIView alloc]init];
@@ -170,13 +170,13 @@
     [_lineDetialNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@10);
         make.left.equalTo(@15);
-        make.right.equalTo(self.contentView).offset(-15);
+        make.right.equalTo(self.contentView).offset(-40);
     }];
     
     [_titleChangeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_lineDetialNameLab);
-        make.right.equalTo(self.contentView).offset(-15);
-        make.width.equalTo(@60);
+        make.right.equalTo(self.contentView).offset(-10);
+        make.width.equalTo(@30);
         make.height.equalTo(@30);
     }];
 
@@ -216,7 +216,7 @@
     
     [_lineModificationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_lineDetialPriceLab);
-        make.right.equalTo(self.contentView).offset(-15);
+        make.right.equalTo(self.contentView).offset(-10);
         make.width.equalTo(@60);
         make.height.equalTo(@30);
     }];
@@ -328,4 +328,10 @@
         [self.delegate changeThePriceButtonDelegate:btn];
     }
  }
+
+-(void)pushtitleChang:(UIButton *)btn {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(titleChangeButtonDelegate:)]) {
+        [self.delegate titleChangeButtonDelegate:btn];
+    }
+}
 @end

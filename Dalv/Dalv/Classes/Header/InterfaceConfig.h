@@ -53,7 +53,7 @@
 #define DL_AgencyDetails DL_HOST@"index.php/Api/agency/details"
 
 // 14.测试顾问线路修改标题接口地址
-#define DL_AgencyPersonalChangeTitle DL_HOST@"index.php/Api/agencyPersonal/changeTitle"
+#define DL_AgencyPersonalChangeTitle DL_HOST@"index.php/Api/agency/changeTitle"
 
 // 15.测试顾问线路修改价格页面接口地址
 #define DL_AgencyChangePrice DL_HOST@"index.php/Api/agency/changePrice"

@@ -112,7 +112,7 @@
         make.height.equalTo(@30);
     }];
     
-    [_accountNumberlab mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_openingBanklab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(banklab);
         make.left.equalTo(banklab.mas_right);
         make.right.equalTo(backview).offset(-15);
