@@ -162,8 +162,8 @@
 
     self.transactionTypelab.text = transactionRmodel.action;
     self.transactionTimelab.text = transactionRmodel.create_time;
-    self.transactionPricelab.text  = [NSString stringWithFormat:@"¥ %@",transactionRmodel.amount];
-    self.accountBalancelab.text = [NSString stringWithFormat:@"¥ %@",transactionRmodel.balance];
+    self.transactionPricelab.text  = [NSString stringWithFormat:@"¥ %.2f",[transactionRmodel.amount integerValue]/100.00];
+    self.accountBalancelab.text = [NSString stringWithFormat:@"¥ %.2f",[transactionRmodel.balance integerValue]/100.00];
     self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",transactionRmodel.sn];
 }
 

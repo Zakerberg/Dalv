@@ -29,7 +29,7 @@
     namelab.textColor = [UIColor colorWithHexString:@"#ff7735"];
     namelab.textAlignment = NSTextAlignmentLeft;
     namelab.font = [UIFont systemFontOfSize:12];
-    namelab.text = @"开户名";
+    namelab.text = @"开户名：";
     [backview addSubview:namelab];
     
     _accountNamelab = [[UILabel alloc]init];
@@ -44,7 +44,7 @@
     numberlab.textColor = [UIColor colorWithHexString:@"#ff7735"];
     numberlab.textAlignment = NSTextAlignmentLeft;
     numberlab.font = [UIFont systemFontOfSize:12];
-    numberlab.text = @"账号";
+    numberlab.text = @"账   号：";
     [backview addSubview:numberlab];
 
     _accountNumberlab = [[UILabel alloc]init];
@@ -58,7 +58,7 @@
     banklab.textColor = [UIColor colorWithHexString:@"#ff7735"];
     banklab.textAlignment = NSTextAlignmentLeft;
     banklab.font = [UIFont systemFontOfSize:12];
-    banklab.text = @"开户行";
+    banklab.text = @"开户行：";
     [backview addSubview:banklab];
 
     _openingBanklab = [[UILabel alloc]init];
@@ -72,50 +72,50 @@
         make.top.equalTo(@5);
         make.left.equalTo(@15);
         make.right.equalTo(self.contentView).offset(-15);
-        make.height.equalTo(@90);
+        make.height.equalTo(@75);
         
     }];
     
     [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
         make.left.equalTo(@10);
-        make.width.equalTo(@60);
-        make.height.equalTo(@30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@25);
     }];
     
     [_accountNamelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(namelab);
         make.left.equalTo(namelab.mas_right);
         make.right.equalTo(backview).offset(-15);
-        make.height.equalTo(@30);
+        make.height.equalTo(@25);
     }];
     
     [numberlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(namelab.mas_bottom);
         make.left.equalTo(@10);
-        make.width.equalTo(@60);
-        make.height.equalTo(@30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@25);
     }];
     
     [_accountNumberlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(numberlab);
         make.left.equalTo(numberlab.mas_right);
         make.right.equalTo(backview).offset(-15);
-        make.height.equalTo(@30);
+        make.height.equalTo(@25);
     }];
     
     [banklab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(numberlab.mas_bottom);
         make.left.equalTo(@10);
-        make.width.equalTo(@60);
-        make.height.equalTo(@30);
+        make.width.equalTo(@50);
+        make.height.equalTo(@25);
     }];
     
     [_openingBanklab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(banklab);
         make.left.equalTo(banklab.mas_right);
         make.right.equalTo(backview).offset(-15);
-        make.height.equalTo(@30);
+        make.height.equalTo(@25);
     }];
     
     
