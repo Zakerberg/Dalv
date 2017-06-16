@@ -50,8 +50,6 @@
 //                         @"ticket_order"
 //                         ];
 //        
-//        
-        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         
 //        UIImageView *imageV = [[UIImageView alloc] init];
