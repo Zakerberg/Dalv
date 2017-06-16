@@ -189,6 +189,9 @@
 #define  DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
 
 
+// 60.测试详情页地址-目的地图册
+#define DL_AgencyMorePics DL_HOST@"index.php/Api/agency/morePics"
+
 
 
 

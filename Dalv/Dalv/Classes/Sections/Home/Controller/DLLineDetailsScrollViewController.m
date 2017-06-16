@@ -7,9 +7,11 @@
 //
 
 #import "DLLineDetailsScrollViewController.h"
-
-@interface DLLineDetailsScrollViewController ()<UIWebViewDelegate>
-
+#import "DLLineDetailsScrollViewTableViewCell.h"
+#import "DLHomeViewTask.h"
+@interface DLLineDetailsScrollViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *homeTableView;
+@property (nonatomic, strong) NSMutableArray *lineDetArray;
 
 @end
 
@@ -22,7 +24,10 @@
     [self fetchData];}
 
 #pragma mark - Setup navbar
-
+- (BOOL)dl_blueNavbar {
+    return YES;
+    
+}
 - (void)setupNavbar {
     self.title = @"目的地图册";
 }
@@ -30,37 +35,76 @@
 #pragma mark - Setup subViews
 
 - (void)setupSubviews {
-    self.view.backgroundColor = [UIColor ms_backgroundColor];
     
-    UIWebView * webview = [[UIWebView alloc]initWithFrame:self.view.bounds];
-    [webview setScalesPageToFit:YES];
-    [webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.dalvu.com"]]];
-    [self.view addSubview:webview];
+    
+    self.homeTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.homeTableView.dataSource = self;
+    self.homeTableView.backgroundColor = [UIColor ms_backgroundColor];
+    self.homeTableView.delegate = self;
+    [self.homeTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.homeTableView.showsVerticalScrollIndicator = NO;
+    [self.homeTableView registerClass:[DLLineDetailsScrollViewTableViewCell class] forCellReuseIdentifier:[DLLineDetailsScrollViewTableViewCell cellIdentifier]];
+    [self.view addSubview:self.homeTableView];
+    
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
+
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView{
-    
-    [[DLHUDManager sharedInstance]showProgressWithText:@"正在加载网页"];
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [[DLHUDManager sharedInstance]hiddenHUD];
-}
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    [[DLHUDManager sharedInstance]hiddenHUD];
-    [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+# pragma mark - Layout
+- (void)setupConstraints {
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
-#pragma mark - Layout
-
-- (void)updateViewConstraints {
-    
-    [super updateViewConstraints];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DLLineDetailsScrollViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetailsScrollViewTableViewCell cellIdentifier]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 200;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 2.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 
 #pragma mark - Fetch data
 
 - (void)fetchData {
-    
+            NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    @weakify(self);
+    [DLHomeViewTask getAgencyMorePics:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            
+            
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+
+    }];
+
 }
 
 #pragma mark - Event Handler

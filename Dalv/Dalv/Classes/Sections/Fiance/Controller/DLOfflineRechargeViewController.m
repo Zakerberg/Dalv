@@ -226,7 +226,7 @@ static NSString *DLOfflineRechargeTableViewFooter = @"DLOfflineRechargeTableView
         [footerView addSubview:backview1];
         
         UILabel *pricelLabel = [[UILabel alloc] init];
-        pricelLabel.text = @"金   额";
+        pricelLabel.text = @"金    额";
         pricelLabel.textAlignment = NSTextAlignmentLeft;
         pricelLabel.textColor = [UIColor colorWithHexString:@"#494949"];
         pricelLabel.font = [UIFont systemFontOfSize:16];
