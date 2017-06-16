@@ -49,7 +49,6 @@ static NSString *cellID = @"cellID";
 -(void)setHeadView {
     
     
-   
     
 }
 

@@ -41,16 +41,21 @@
 
 -(void)fetchData{
     
-    
-    
+//    NSDictionary *param = @{
+//                            
+//                            @"":"",
+//                            @"":"",
+//                            @"":""
+//       
+//                            
+//                            };
+//    
     
 }
 
 #pragma mark ------------- setButton -------------------
 
 -(void)setButton{
-    
-    
     
     
     

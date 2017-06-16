@@ -1,13 +1,13 @@
+////
+////  DLRemmendController.h
+////  Dalv
+////
+////  Created by Michael 柏 on 2017/5/16.
+////  Copyright © 2017年 Michael 柏. All rights reserved.
+////  ------------------   我的推荐 ---------------------
 //
-//  DLRemmendController.h
-//  Dalv
+//#import <UIKit/UIKit.h>
 //
-//  Created by Michael 柏 on 2017/5/16.
-//  Copyright © 2017年 Michael 柏. All rights reserved.
+//@interface DLRemmendController : UIViewController
 //
-
-#import <UIKit/UIKit.h>
-
-@interface DLRemmendController : UIViewController
-
-@end
+//@end

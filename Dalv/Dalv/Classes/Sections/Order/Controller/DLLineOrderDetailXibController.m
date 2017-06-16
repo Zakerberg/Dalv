@@ -7,6 +7,7 @@
 //
 
 #import "DLLineOrderDetailXibController.h"
+#import "DLLineOrderConfirmController.h"
 #import "DLLineOrderDetailModel.h"
 #import "DLHomeViewTask.h"
 
@@ -173,17 +174,26 @@ static NSString *cellID = @"cellID";
 //预付款
 -(void)prepaidBtnClick{
     
+    DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    [self.navigationController pushViewController:confirmVC animated:YES];
+    
     NSLog(@"预付款");
 }
 
 //全款
 -(void)payFullBtnClick{
     
+    DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    [self.navigationController pushViewController:confirmVC animated:YES];
+    
     NSLog(@"全款");
 }
 
 //尾款
 - (IBAction)payTailBtnClick:(id)sender {
+    
+    DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    [self.navigationController pushViewController:confirmVC animated:YES];
     
     NSLog(@"尾款");
 }
@@ -192,7 +202,6 @@ static NSString *cellID = @"cellID";
 #pragma mark - ------------- fetchData ----------------
 
 -(void)fetchData{
-    
     
     NSDictionary *param = @{
                             @"uid":[DLUtils getUid],
@@ -204,7 +213,6 @@ static NSString *cellID = @"cellID";
     [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            
             
             NSDictionary *dict = result[@"list"];
             

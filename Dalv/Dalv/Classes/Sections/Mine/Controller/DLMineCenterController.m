@@ -7,15 +7,11 @@
 //  -------------------  个人中心   -------------------
 
 #import "DLMineCenterController.h"
-//#import "DLMineModel.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
 #import "DLChangePersonDataController.h"
-//#import "DLSortController.h"
 #import "DLRemmendController.h"
 #import "DLMyCustomerController.h"
-//#import "DLLineQueryController.h"
-//#import "DLSupplierqueryController.h"
 #import "DLHomeViewTask.h"
 #import "DLManager.h"
 #import "DLMyCustomerXibController.h"
@@ -60,6 +56,7 @@ static NSString *cellID  = @"cellID";
 
 
 -(void)setTableView
+
 {
     
     self.tableView.tableFooterView = [UIView new];
@@ -74,14 +71,12 @@ static NSString *cellID  = @"cellID";
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
-    
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-    
 }
 
 -(void)setupHeaderView{
@@ -117,9 +112,10 @@ static NSString *cellID  = @"cellID";
     [headerView addSubview:personBtn];
     
     [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.offset(0);
-        make.width.height.offset(66);
-        make.top.offset(13);
+        
+        make.centerY.centerX.offset(0);
+        make.height.with.offset(66);
+        
     }];
     
     [personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
@@ -159,7 +155,6 @@ static NSString *cellID  = @"cellID";
 //        make.centerX.centerY.equalTo(personBtn);
 //    }];
 }
-
 
 -(void)fetchData{
     
