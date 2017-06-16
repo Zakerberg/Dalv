@@ -269,8 +269,6 @@
 		451F393B1EEFD683005FE126 /* DLMineCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F393A1EEFD683005FE126 /* DLMineCenterHeaderView.m */; };
 		451F393D1EEFD69C005FE126 /* DLMineCenterHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F393C1EEFD69C005FE126 /* DLMineCenterHeaderView.xib */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
-		45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A1A1ED668B60023E892 /* DLChoseViewController.m */; };
-		45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1B1ED668B60023E892 /* DLChoseViewController.xib */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
 		45305A251ED6C89B0023E892 /* DLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A241ED6C89B0023E892 /* DLManager.m */; };
@@ -279,6 +277,8 @@
 		45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3A1ED7D9140023E892 /* DLConsultModel.m */; };
 		45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3D1ED832CA0023E892 /* DLFeedBackController.m */; };
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
+		453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */; };
+		453530121EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */; };
 		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
@@ -737,9 +737,6 @@
 		451F393C1EEFD69C005FE126 /* DLMineCenterHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMineCenterHeaderView.xib; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		45305A191ED668B60023E892 /* DLChoseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChoseViewController.h; sourceTree = "<group>"; };
-		45305A1A1ED668B60023E892 /* DLChoseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChoseViewController.m; sourceTree = "<group>"; };
-		45305A1B1ED668B60023E892 /* DLChoseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLChoseViewController.xib; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
 		45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@2x.png"; sourceTree = "<group>"; };
 		45305A231ED6C89B0023E892 /* DLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManager.h; sourceTree = "<group>"; };
@@ -754,6 +751,9 @@
 		45305A3D1ED832CA0023E892 /* DLFeedBackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFeedBackController.m; sourceTree = "<group>"; };
 		45305A3F1ED833730023E892 /* UILabel+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extension.h"; sourceTree = "<group>"; };
 		45305A401ED833730023E892 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
+		4535300E1EF3CC8700CBAC19 /* DLLineOrderConfirmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderConfirmController.h; sourceTree = "<group>"; };
+		4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderConfirmController.m; sourceTree = "<group>"; };
+		453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderConfirmController.xib; sourceTree = "<group>"; };
 		4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDefaultsManager.h; sourceTree = "<group>"; };
 		4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDefaultsManager.m; sourceTree = "<group>"; };
 		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
@@ -1375,9 +1375,6 @@
 			children = (
 				1CB953511ECFC41600BDC2D3 /* DLLoginViewController.h */,
 				1CB953521ECFC41600BDC2D3 /* DLLoginViewController.m */,
-				45305A191ED668B60023E892 /* DLChoseViewController.h */,
-				45305A1A1ED668B60023E892 /* DLChoseViewController.m */,
-				45305A1B1ED668B60023E892 /* DLChoseViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1423,6 +1420,9 @@
 				45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */,
 				45A321C91EF122C100325683 /* DLLineOrderViewDetailController.h */,
 				45A321C21EF11D7500325683 /* DLLineOrderViewDetailController.m */,
+				4535300E1EF3CC8700CBAC19 /* DLLineOrderConfirmController.h */,
+				4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */,
+				453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2032,7 +2032,6 @@
 				1CE2C1A81ED525E000B898BA /* recommended_home@3x.png in Resources */,
 				1CE2C1931ED525E000B898BA /* departure_city@2x.png in Resources */,
 				1CE8D7FD1ED7FEFA00FFEF8B /* navbar_back_gray@3x.png in Resources */,
-				45305A1D1ED668B60023E892 /* DLChoseViewController.xib in Resources */,
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
@@ -2045,6 +2044,7 @@
 				1CE2C1FD1ED52BA100B898BA /* cash_register@2x.png in Resources */,
 				1CE2C19F1ED525E000B898BA /* group_date@2x.png in Resources */,
 				1CE2C2351ED57B1100B898BA /* geographical_position@3x.png in Resources */,
+				453530121EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib in Resources */,
 				1CE2C1971ED525E000B898BA /* destination@2x.png in Resources */,
 				1C2978FC1EEEAA7400D3FEEA /* fiance_bank_transfer@2x.png in Resources */,
 				1CE2C1E01ED528C800B898BA /* special_offer@2x.png in Resources */,
@@ -2193,6 +2193,7 @@
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
 				1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */,
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
+				453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */,
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
 				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
 				1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */,
@@ -2217,7 +2218,6 @@
 				45DB48071EE8577200399A6D /* DLContractApplySection2Cell.m in Sources */,
 				1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */,
 				45305A411ED833730023E892 /* UILabel+Extension.m in Sources */,
-				45305A1C1ED668B60023E892 /* DLChoseViewController.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
 				1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,

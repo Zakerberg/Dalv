@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------  通用   -------------------
+//  ------------------  通用   -----------------------
 
 
 #import "DLGeneralController.h"
@@ -36,13 +36,11 @@ static NSString *cellID  = @"cellID";
     [self setupUI];
     self.title = @"通用设置";
     [self setupLogoutBtn];
-    
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
 
 -(void)setupUI {
     
@@ -53,7 +51,6 @@ static NSString *cellID  = @"cellID";
     tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     self.automaticallyAdjustsScrollViewInsets = NO;
-
 }
 
 
@@ -89,11 +86,10 @@ static NSString *cellID  = @"cellID";
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
     //清空所用注册信息 
-//        DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
+   
+    
         
         self.tabBarController.selectedIndex = 0;
-//        [self.navigationController pushViewController:loginVC animated:YES];
-        
         
     }];
                              

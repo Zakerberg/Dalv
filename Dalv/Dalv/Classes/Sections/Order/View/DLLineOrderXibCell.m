@@ -80,7 +80,9 @@
     
     self.lineOrderTimeLabel.text = lineOrderModelData.start_time;
     
-    self.lineOrderPriceLabel.text = lineOrderModelData.price_payable;
+    self.lineOrderPriceLabel.text = [NSString stringWithFormat:@"%.2f",[lineOrderModelData.price_total integerValue]/100.00];
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

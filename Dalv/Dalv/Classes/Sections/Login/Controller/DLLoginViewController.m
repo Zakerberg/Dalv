@@ -9,7 +9,6 @@
 #import "DLLoginViewController.h"
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
-#import "DLChoseViewController.h"
 #import "DLHomeViewTask.h"
 #import "DLRequestSerVice.h"
 
@@ -28,8 +27,6 @@
  返回数据：
  */
  
-
-
 @implementation DLLoginViewController
 
 #pragma mark - life cycle
@@ -88,10 +85,8 @@
 //注册
 - (void)didRegisterButton
 {
-    DLChoseViewController *choseVC= [[DLChoseViewController alloc] init];
-    [self.navigationController pushViewController:choseVC animated:YES];
-    
-    
+    DLMineViewController *minVC= [[DLMineViewController alloc] init];
+    [self.navigationController pushViewController:minVC animated:YES];
 }
 
 #pragma mark - Fetch data

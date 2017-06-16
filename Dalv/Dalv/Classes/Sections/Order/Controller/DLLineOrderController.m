@@ -128,14 +128,6 @@ static NSString *nibCellID = @"nibCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-
-//    self.lineOrderPicture = cell.lineOrderPicture;
-//    self.lineOrderNameLabel = cell.lineOrderNameLabel;
-//    self.lineOrderTimeLabel = cell.lineOrderTimeLabel;
-//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
-//    
-    
-    
     
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -165,8 +157,12 @@ static NSString *nibCellID = @"nibCellID";
     
 //    DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
 //    
+//    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];
+//    
+//    lineOrderDetailVC.tourID =lineOrderModel.lineId;
+//    
 //    [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
-    
+//    
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
     
     
@@ -175,7 +171,8 @@ static NSString *nibCellID = @"nibCellID";
     lineXIBvc.tourID = lineOrderModel.lineId;
     
     [self.navigationController pushViewController:lineXIBvc animated:YES];
-
+//
+    
 }
 
 #pragma mark ------------------ Getter -----------------------

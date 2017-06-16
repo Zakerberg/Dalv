@@ -151,15 +151,10 @@
 //{
 //        NSDictionary *param = @{
 //                                @"uid":[DLUtils getUid],
-//                                @"tour_id":@"800",
+//                                @"tour_id":self.tourID,
 //                                @"sign_token" : [DLUtils getSign_token],
 //                                };
 //    
-//    
-////    NSDictionary *param = @{
-////                            @"tour_id" : self.lineOrderDetailModel.lineId
-////                            };
-//////    
 //    @weakify(self);
 ////
 //    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
@@ -169,26 +164,15 @@
 //                [self.lineOrderDetailList removeAllObjects];
 //            [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
 //                [self.lineOrderDetailTableView reloadData];
-//            } else {
-////                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
 //            }
 //        }];
-////
-////    
-////    [DLHomeViewTask getAgencyLineOrderListDetails:param completion:^(id result, NSError *error) {
-////        
-////    }];
-////    
-////    
-//    
-//    
 //}
 //
 //#pragma mark ----------- UITable View Delegate ----------------
 //
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{
-//    return self.lineOrderDetailList.count;
+//    return 1;
 //
 //}
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -199,21 +183,18 @@
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    
 //    DLLineOrderDetailViewCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-//
-//    self.lineOrderNameLabel = cell.lineOrderNameLabel;
-//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
-//    self.lineOrderCreatTimeLabel = cell.lineOrderCreatTimeLabel;
-//    self.lineOrderPicImageView = cell.lineOrderPicImageView;
-//    self.lineOrderAdultCountLabel = cell.lineOrderAdultCountLabel;
-//    self.lineOrderChildCountLabel = cell.lineOrderChildCountLabel;
-//    self.lineOrderStartTimeLabel = cell.lineOrderStartTimeLabel;
-//    self.lineOrderPriceTotaLabel = cell.lineOrderPriceTotaLabel;
-//    self.lineOrderPriceAdjustLabel = cell.lineOrderPriceAdjustLabel;
-//   self.lineOrderPayableLabel = cell.lineOrderPayableLabel;
-//    self.lineOrderMemoLabel = cell.lineOrderMemoLabel;
-//    
-////    self.lineId = cell.lineId;
-//    
+////
+////    self.lineOrderNameLabel = cell.lineOrderNameLabel;
+////    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+////    self.lineOrderCreatTimeLabel = cell.lineOrderCreatTimeLabel;
+////    self.lineOrderPicImageView = cell.lineOrderPicImageView;
+////    self.lineOrderAdultCountLabel = cell.lineOrderAdultCountLabel;
+////    self.lineOrderChildCountLabel = cell.lineOrderChildCountLabel;
+////    self.lineOrderStartTimeLabel = cell.lineOrderStartTimeLabel;
+////    self.lineOrderPriceTotaLabel = cell.lineOrderPriceTotaLabel;
+////    self.lineOrderPriceAdjustLabel = cell.lineOrderPriceAdjustLabel;
+////   self.lineOrderPayableLabel = cell.lineOrderPayableLabel;
+////    self.lineOrderMemoLabel = cell.lineOrderMemoLabel;
 //    
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //    DLLineOrderDetailModel *lineOrderDetailModel = [self.lineOrderDetailList objectAtIndex:indexPath.section];
@@ -221,7 +202,6 @@
 //    
 //    return cell;
 //}
-//
 //
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return 500;
@@ -235,12 +215,8 @@
 //    return CGFLOAT_MIN;
 //}
 //
-//
-//
-//
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    
 //    
 //}
 //
@@ -255,158 +231,5 @@
 //    return _lineOrderDetailList;
 //    
 //}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-///*
-//#pragma mark - Navigation
-//
-//// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
-//*/
 //
 //@end
