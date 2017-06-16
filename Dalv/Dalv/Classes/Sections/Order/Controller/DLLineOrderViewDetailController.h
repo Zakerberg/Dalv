@@ -10,4 +10,7 @@
 //
 //@interface DLLineOrderViewDetailController : UIViewController
 //
+//
+//@property(nonatomic,strong) NSString * tourID;
+//
 //@end

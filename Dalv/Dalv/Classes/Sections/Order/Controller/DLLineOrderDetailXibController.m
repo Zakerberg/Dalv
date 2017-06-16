@@ -12,6 +12,7 @@
 
 @interface DLLineOrderDetailXibController ()
 
+
 /*** 订单名称 ***/
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderNameLabel;
 /*** 订单状态 ***/
@@ -37,12 +38,11 @@
 
 @property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
 
+@property (weak, nonatomic) IBOutlet UIView *lineOrderDetailView;
 
 //边框成人和儿童的label
 @property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-
-
 
 /*预付款button*/
 @property (nonatomic, strong) UIButton *prepaidBtn;
@@ -52,16 +52,13 @@
 /*尾款button*/
 @property (weak, nonatomic) IBOutlet UIButton *payTailButton;
 
-/*尾款金额Label*/
-@property (weak, nonatomic) IBOutlet UILabel *tailMoneyLabel;
-
-
-/*尾款View 显示隐藏 */
-@property (weak, nonatomic) IBOutlet UIView *tailView;
-
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
 
+@property(nonatomic,strong) UITableView * mainTableView;
+
 @end
+
+static NSString *cellID = @"cellID";
 
 @implementation DLLineOrderDetailXibController
 
@@ -70,14 +67,41 @@
     [self setUI];
     [self fetchData];
     [self setButton];
-    
-    self.tailView.hidden = YES;
+
     self.payTailButton.hidden = YES;
-    
-    
+
 }
+//#pragma mark - ------------- setTableView ----------------
+//
+//-(void)setTableView
+//{
+//    
+//    UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.mainTableView = mainTableView;
+//    
+//    mainTableView.backgroundColor = [UIColor redColor];
+//    
+//    
+////    self.automaticallyAdjustsScrollViewInsets = NO;
+////    mainTableView.showsVerticalScrollIndicator = NO;
+//    
+//    [mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//    
+//    [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+//
+//    
+//    [self.view addSubview:mainTableView];
+//
+//    
+//    [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.offset(0);
+//        make.height.offset(0);
+//    }];
+//    
+//}
 
 #pragma mark - ------------- setUI ----------------
+
 -(void)setUI{
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -90,6 +114,7 @@
     self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.childBorderLabel.layer.borderWidth = 0.5f;
     self.childBorderLabel.layer.masksToBounds = YES;
+
 }
 
 - (BOOL)dl_blueNavbar {
@@ -120,7 +145,6 @@
         
     }];
     
-    
     UIButton *payFullBtn = [[UIButton alloc] init];
     self.payFullBtn = payFullBtn;
     
@@ -135,13 +159,13 @@
     [payFullBtn addTarget:self action:@selector(payFullBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:payFullBtn];
-
     
     [payFullBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(prepaidBtn.mas_right);
         make.right.bottom.equalTo(@0);
         make.centerY.equalTo(prepaidBtn.mas_centerY);
     }];
+    
 }
 
 #pragma mark - ------------- BtnClick ----------------
@@ -154,12 +178,14 @@
 
 //全款
 -(void)payFullBtnClick{
+    
     NSLog(@"全款");
 }
 
-//预付款
+//尾款
 - (IBAction)payTailBtnClick:(id)sender {
-      NSLog(@"预付款");
+    
+    NSLog(@"尾款");
 }
 
 
@@ -187,13 +213,18 @@
             NSString *stateStr = dict[@"state"];
             NSString *create_timeStr = dict[@"create_time"];
             NSString *memoStr = dict[@"memo"];
-            NSString *price_payableStr = dict[@"price_payable"];
             
             NSString *client_adult_countStr = dict[@"client_adult_count"];
             NSString *client_child_countStr = dict[@"client_child_count"];
             NSString *start_timeStr = dict[@"start_time"];
+            
+            //应付金额
+            NSString *price_payableStr = dict[@"price_payable"];
+            //订单金额
             NSString *price_totalStr = dict[@"price_total"];
+            //调整金额
             NSString *price_adjustStr = dict[@"price_adjust"];
+            
             
             NSString *pictureStr = dict[@"cover_pic"];
             
@@ -217,8 +248,10 @@
                 self.lineOrderStateLabel.text = @"已付预付款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
                 
-                self.tailView.hidden = NO;
+                
                 self.payTailButton.hidden = NO;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
                 
             }else if ([stateStr isEqualToString:@"7"]){
                 self.lineOrderStateLabel.text = @"已付全款";
@@ -243,10 +276,8 @@
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
             }
             
-            
             if ([memoStr isEqualToString:@""]){
                 self.lineOrderMemoLabel.text = @"无";
-                
             }
             
             NSURL *url = [NSURL URLWithString:pictureStr];
@@ -261,14 +292,19 @@
             self.lineOrderAdultCountLabel.text = client_adult_countStr;
         
             self.lineOrderChildCountLabel.text =client_child_countStr;
+
+            self.lineOrderPayableLabel.text = [NSString stringWithFormat:@"%.2f",[price_payableStr integerValue]/100.00];
             
+            self.lineOrderPriceAdjustLabel.text = [NSString stringWithFormat:@"%.2f",[price_adjustStr integerValue]/100.00];
             
-            self.lineOrderPriceTotaLabel.text = price_totalStr;
+            self.lineOrderPriceTotaLabel.text= [NSString stringWithFormat:@"%.2f",[price_totalStr integerValue]/100.00];
+            
             self.lineOrderStartTimeLabel.text = start_timeStr;
             
-            self.lineOrderPriceAdjustLabel.text = price_adjustStr;
             
-            self.lineOrderPayableLabel.text = price_payableStr;
+//          self.tailMoneyLabel.text =
+            
+ 
             
             NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderDetailList removeAllObjects];
@@ -286,5 +322,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark ----------- UITable View Delegate ----------------
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return 1;
+//}
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return MAIN_SCREEN_WIDTH-45;
+//}
+//
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//
+//    
+//    cell.accessoryType = UITableViewCellAccessoryNone;
+
+//    return cell;
+//    
+//}
 
 @end

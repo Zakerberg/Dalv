@@ -184,13 +184,10 @@
 // 53.顾问订单详情界面接口
 #define  DL_AgencyLineOrderListDetails DL_HOST@"index.php/Api/agencyOrder/lineDetails"
 
-
 // 54.我的直客列表接口
 #define  DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
 
-
-
-
-
+// 55.测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
+#define  DL_AgencyLineOrderDetailConfirmPayment DL_HOST@"index.php/Api/agencyPersonal/agencyShowAllPayed"
 
 #endif /* InterfaceConfig_h */

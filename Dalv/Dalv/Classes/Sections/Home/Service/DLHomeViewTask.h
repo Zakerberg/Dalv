@@ -502,13 +502,25 @@
 
 
 /**
- * 53 测试顾问个人中心->我的直客列表接口
+ * 54 测试顾问个人中心->我的直客列表接口
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调
  */
 + (void)getAgencyMyCustomerList:(NSDictionary *)param
                            completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+/**
+ * 55 测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderdetailConfirmPayment:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler;
 
 
 @end
