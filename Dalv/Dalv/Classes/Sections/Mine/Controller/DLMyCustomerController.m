@@ -11,9 +11,8 @@
 @interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView * customerTableView;
-
-
-
+//@property(nonatomic,strong) UITableView * customerTableView;
+//
 
 @end
 
@@ -52,18 +51,7 @@ static NSString *cellID = @"cellID";
     
    
     
-    
-    
-    
-    
-    
-    
 }
-
-
-
-
-
 
 
 
@@ -80,15 +68,6 @@ static NSString *cellID = @"cellID";
     self.customerTableView.showsVerticalScrollIndicator = NO;
     
     [self.customerTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

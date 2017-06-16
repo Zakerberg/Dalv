@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" constant="150" id="zbN-L4-lOC"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大成哥天上人间一日游" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-Ex-2DE">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大成哥天上人间一日游" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-Ex-2DE">
                         <rect key="frame" x="178" y="16" width="118" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="EhC-kN-uBm"/>
@@ -73,7 +73,7 @@
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1000.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-Qd-EiV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1000.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-Qd-EiV">
                                 <rect key="frame" x="8.5" y="0.0" width="41.5" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,7 +105,6 @@
                     <constraint firstItem="4BH-Cj-mor" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="HEC-cQ-nOu"/>
                     <constraint firstItem="Uau-wj-6QK" firstAttribute="leading" secondItem="9BK-Ex-2DE" secondAttribute="leading" id="I3g-Rt-BXc"/>
                     <constraint firstItem="QCE-4a-JKk" firstAttribute="top" secondItem="9BK-Ex-2DE" secondAttribute="bottom" constant="8" symbolic="YES" id="KWO-C0-Br6"/>
-                    <constraint firstItem="S8Q-il-B32" firstAttribute="leading" secondItem="lKA-Co-U3z" secondAttribute="trailing" constant="39" id="MWH-p0-Hmu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="S8Q-il-B32" secondAttribute="trailing" constant="4" id="P7M-hf-66V"/>
                     <constraint firstItem="Bw1-fm-knD" firstAttribute="bottom" secondItem="QCE-4a-JKk" secondAttribute="bottom" id="U0f-ib-jeP"/>
                     <constraint firstItem="Uau-wj-6QK" firstAttribute="top" secondItem="Bw1-fm-knD" secondAttribute="bottom" constant="35" id="VJk-Ij-6Ym"/>

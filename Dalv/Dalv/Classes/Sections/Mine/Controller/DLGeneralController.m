@@ -202,12 +202,13 @@ static NSString *cellID  = @"cellID";
 //            
 //            [cacheLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 //               
-////                make.centerY.offset(0);
+//                make.centerY.offset(0);
 //                make.height.offset(15);
 //                make.top.offset(22*3);
 //                make.right.offset(15);
-////                make.bottom.equalTo(self.logOutBtn.mas_top).offset(15);
-//                
+//
+//        make.bottom.equalTo(self.logOutBtn.mas_top).offset(15);
+//
 //            }];
 
             cell.textLabel.text = @"清除缓存";
