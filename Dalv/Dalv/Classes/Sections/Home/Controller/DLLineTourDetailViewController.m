@@ -20,7 +20,7 @@
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
-@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate,DLLineDetialTableViewCellDelegate>
+@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate,DLLineDetialTableViewCellDelegate,UIAlertViewDelegate>
 @property (nonatomic, weak) UITableView *homeTableView;
 
 @property (nonatomic, strong) DLCycleScrollView *advertCarouselView;
@@ -221,6 +221,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 #pragma mark - DLCycleScrollViewDelegate
 - (void)cycleScrollView:(DLCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     DLLineDetailsScrollViewController *DLLineDetScrVC = [[DLLineDetailsScrollViewController alloc]init];
+    DLLineDetScrVC.routeModel = _routeModel;
     [self.navigationController pushViewController:DLLineDetScrVC animated:YES];
 }
 
@@ -346,8 +347,28 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self.navigationController pushViewController:ctl animated:YES];
 }
 - (void)pushHomePageBtn {
-    NSLog(@"点击了推到首页");
-    
+    UIAlertView *pushHomeAlert = [[UIAlertView alloc]initWithTitle:@"确定推到首页吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    pushHomeAlert.tag = 81;
+    [pushHomeAlert show];
+}
+#pragma mark -UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 81){
+        if (buttonIndex == 1) {
+            
+            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"tour_id" : self.routeModel.routeId,
+                                    @"sign_token" : [DLUtils getSign_token],};
+            [DLHomeViewTask getAgencyRecommend:param completion:^(id result, NSError *error) {
+                if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                    [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                }else {
+                    [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                }
+            }];
+        }
+    }
 }
 
 

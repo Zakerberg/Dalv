@@ -202,9 +202,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 45){
         if (buttonIndex == 1) {
-//            if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"15701189832"]] ){
-//                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
-//            }
+            
+            
         }
     }
 }

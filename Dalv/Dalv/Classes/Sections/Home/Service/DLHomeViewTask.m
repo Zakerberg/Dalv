@@ -549,8 +549,17 @@
 }
 
 
++ (void)getAgencyMorePics:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_AgencyMorePics param:param success:^(id responseData){
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+    
 //测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
-
 + (void)getAgencyLineOrderdetailConfirmPayment:(NSDictionary *)param
                                     completion:(void (^)(id result, NSError *error))completionHandler
 {
@@ -561,7 +570,6 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 
-    
     
 }
 @end

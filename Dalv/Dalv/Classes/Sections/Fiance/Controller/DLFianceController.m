@@ -265,15 +265,15 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         
         [totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@25);
-            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(100);
-            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-100);
+            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(20);
+            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-20);
             make.height.equalTo(@30);
         }];
         
         [totalAccountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(totalPriceLabel.mas_bottom);
-            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(100);
-            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-100);
+            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(20);
+            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-20);
             make.height.equalTo(@20);
         }];
         

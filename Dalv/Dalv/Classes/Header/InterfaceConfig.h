@@ -187,7 +187,14 @@
 // 54.我的直客列表接口
 #define  DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
 
+
+
 // 55.测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
 #define  DL_AgencyLineOrderDetailConfirmPayment DL_HOST@"index.php/Api/agencyPersonal/agencyShowAllPayed"
+
+// 60.测试详情页地址-目的地图册
+#define DL_AgencyMorePics DL_HOST@"index.php/Api/agency/morePics"
+
+
 
 #endif /* InterfaceConfig_h */

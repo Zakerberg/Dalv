@@ -513,7 +513,17 @@
 
 
 /**
- * 55 测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
+ * 55 测试详情页地址-目的地图册
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyMorePics:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 60 测试详情页地址-目的地图册
+
  *
  *  @param param             请求参数
  *  @param completionHandler 请求完成的回调

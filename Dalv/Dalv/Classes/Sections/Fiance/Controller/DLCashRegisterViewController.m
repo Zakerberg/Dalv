@@ -22,10 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupNavbar];
     [self setupSubviews];
-     
     [self.cashRegisterTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];

@@ -8,7 +8,7 @@
 
 #import "DLLoginView.h"
 
-@interface DLLoginView ()<UITextFieldDelegate>
+@interface DLLoginView ()<UITextFieldDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, assign) CGRect defaultViewRect;
 
@@ -150,10 +150,22 @@
 
 //忘记密码
 - (void)performForgotPasswordAction {
-    if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15701189832"]] ){
-                        [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打客服" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
+    phoneAlert.tag = 81;
+    [phoneAlert show];
+}
+#pragma mark -UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 81){
+        if (buttonIndex == 1) {
+        if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15701189832"]] ){
+                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+            }
+        }
     }
 }
+
 
 - (void)updateViewFrame:(CGRect)rect {
     int y = rect.origin.y + rect.size.height + ([[UIScreen mainScreen] bounds].size.height > 480?30:0);

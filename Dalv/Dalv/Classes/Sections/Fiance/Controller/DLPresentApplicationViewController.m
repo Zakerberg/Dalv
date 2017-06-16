@@ -9,6 +9,9 @@
 #import "DLPresentApplicationViewController.h"
 #import "DLHomeViewTask.h"
 #import "DLPresentApplicationModel.h"
+#import "DLCashRegisterViewController.h"
+#import "AppDelegate.h"
+
 @interface DLPresentApplicationViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,strong) UITextField *priceTextField;
@@ -173,7 +176,7 @@
 
     [cashAccountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
-        make.left.equalTo(@15);
+        make.left.equalTo(@5);
         make.width.equalTo(@80);
         make.height.equalTo(@40);
     }];
@@ -194,15 +197,15 @@
     
     [totalAccountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom);
-        make.left.equalTo(@15);
-        make.width.equalTo(@65);
+        make.left.equalTo(@5);
+        make.width.equalTo(@62);
         make.height.equalTo(@60);
     }];
     
     [totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(totalAccountLabel);
         make.left.equalTo(totalAccountLabel.mas_right);
-        make.right.equalTo(line1.mas_left).offset(-10);
+        make.right.equalTo(line1.mas_left);
         make.height.equalTo(@60);
     }];
     
@@ -215,15 +218,15 @@
 
     [currentBalanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom);
-        make.left.equalTo(line1.mas_right).with.offset(15);
-        make.width.equalTo(@65);
+        make.left.equalTo(line1.mas_right).with.offset(5);
+        make.width.equalTo(@62);
         make.height.equalTo(@60);
     }];
     
     [balancelPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(currentBalanceLabel);
         make.left.equalTo(currentBalanceLabel.mas_right);
-        make.right.equalTo(@-10);
+        make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@60);
     }];
 
@@ -280,7 +283,10 @@
         [DLHomeViewTask getAgencyFinanceApplyWithdrawHandle:param completion:^(id result, NSError *error) {
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
                 [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
-                [self.navigationController popViewControllerAnimated:YES];
+                
+                DLCashRegisterViewController *cashRegVC = [[DLCashRegisterViewController alloc]init];
+                [self.navigationController pushViewController:cashRegVC animated:YES];
+//              [self.navigationController popViewControllerAnimated:YES];
             }else {
                 [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
             }
