@@ -522,7 +522,7 @@
              completion:(void (^)(id result, NSError *error))completionHandler;
 
 /**
- * 60 测试详情页地址-目的地图册
+ * 56 测试详情页地址-确认支付界面
 
  *
  *  @param param             请求参数

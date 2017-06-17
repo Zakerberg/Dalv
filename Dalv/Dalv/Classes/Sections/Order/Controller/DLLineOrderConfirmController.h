@@ -10,4 +10,6 @@
 
 @interface DLLineOrderConfirmController : UIViewController
 
+@property(nonatomic,strong) NSString * linePayID;
+
 @end

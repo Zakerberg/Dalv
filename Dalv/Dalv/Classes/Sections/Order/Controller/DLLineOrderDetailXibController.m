@@ -175,6 +175,11 @@ static NSString *cellID = @"cellID";
 -(void)prepaidBtnClick{
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    
+    confirmVC.linePayID = self. tourID;
+    
+    self.BtnType = @"2";
+    
     [self.navigationController pushViewController:confirmVC animated:YES];
     
     NSLog(@"预付款");
@@ -183,7 +188,13 @@ static NSString *cellID = @"cellID";
 //全款
 -(void)payFullBtnClick{
     
+    
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    
+    confirmVC.linePayID = self. tourID;
+    
+    self.BtnType = @"1";
+    
     [self.navigationController pushViewController:confirmVC animated:YES];
     
     NSLog(@"全款");
@@ -193,6 +204,10 @@ static NSString *cellID = @"cellID";
 - (IBAction)payTailBtnClick:(id)sender {
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
+    confirmVC.linePayID = self. tourID;
+    
+    self.BtnType = @"3";
+    
     [self.navigationController pushViewController:confirmVC animated:YES];
     
     NSLog(@"尾款");
@@ -310,9 +325,6 @@ static NSString *cellID = @"cellID";
             self.lineOrderStartTimeLabel.text = start_timeStr;
             
             
-//          self.tailMoneyLabel.text =
-            
- 
             
             NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderDetailList removeAllObjects];

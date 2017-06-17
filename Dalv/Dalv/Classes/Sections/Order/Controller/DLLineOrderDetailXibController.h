@@ -10,4 +10,8 @@
 //
 @interface DLLineOrderDetailXibController : UIViewController
 @property(nonatomic,strong) NSString * tourID;
+
+//ButonType
+@property(nonatomic,strong) NSString * BtnType;
+
 @end
