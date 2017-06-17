@@ -10,6 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DLLineOrderConfirmController">
             <connections>
+                <outlet property="adultCountLabel" destination="ZNe-GH-rgr" id="Ogx-mX-vmF"/>
+                <outlet property="childCountLabel" destination="xzc-gO-qmM" id="ZU2-DF-p0g"/>
+                <outlet property="confirmBtn" destination="myH-eY-Vt4" id="ymM-Ll-TJe"/>
+                <outlet property="lineOrderAdjustPrice" destination="1Ew-7M-MVs" id="SGi-Ku-aBW"/>
+                <outlet property="lineOrderMoney" destination="mQV-E0-NLM" id="CxE-EC-IOb"/>
+                <outlet property="lineOrderPayMoneyLabel" destination="2Oj-4x-uhr" id="5eB-Mf-Ac4"/>
+                <outlet property="lineOrderPayablePrice" destination="kCJ-UH-bSX" id="XS9-Pj-53K"/>
+                <outlet property="lineOrderTipsLabel" destination="tBF-fW-F0t" id="PcE-tr-aX3"/>
+                <outlet property="nameLabel" destination="ak5-0S-IcI" id="cqr-NI-QSg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -320,6 +329,9 @@
                     <state key="normal" title="确认">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="confirmBtnClick:" destination="-1" eventType="touchUpInside" id="1HX-zS-4tQ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
