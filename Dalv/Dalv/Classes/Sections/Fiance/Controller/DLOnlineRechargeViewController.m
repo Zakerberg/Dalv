@@ -8,12 +8,11 @@
 
 #import "DLOnlineRechargeViewController.h"
 static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHeader";
-static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFooter";
+
 @interface DLOnlineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *onlineRechargeTableView;
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
-@property (nonatomic, strong) NSMutableArray *bankChargeArray;//银行充值的数组
-@property (nonatomic,strong) UITextField *priceTextField;
+@property (nonatomic, strong) UITextField *priceTextField;
 @end
 
 @implementation DLOnlineRechargeViewController
@@ -29,6 +28,9 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
 }
 
 #pragma mark - Setup navbar
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 - (void)setupNavbar {
     self.title = @"线上充值";
@@ -43,7 +45,7 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
     self.onlineRechargeTableView.delegate = self;
     self.onlineRechargeTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.onlineRechargeTableView.showsVerticalScrollIndicator = NO;
-    self.onlineRechargeTableView.tableFooterView = [[UIView alloc]init];
+    self.onlineRechargeTableView.tableFooterView = [self creatFootView];
     [self.view addSubview:self.onlineRechargeTableView];
     [self.onlineRechargeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
@@ -69,12 +71,7 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 1) {
-        return 110.0f;
-    }else{
-        return CGFLOAT_MIN;
-    }
-
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -120,19 +117,19 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
         make.width.equalTo(@100);
         make.centerY.equalTo(headerView.contentView);
     }];
-    
+
     [selectBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(headerView.contentView).offset(-15);
+        make.right.equalTo(headerView.contentView.mas_right).offset(-15);
         make.height.equalTo(@24);
         make.width.equalTo(@24);
         make.centerY.equalTo(headerView.contentView);
     }];
-    
+
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);
         make.height.equalTo(@0.5);
-        make.right.equalTo(headerView.contentView);
-        make.bottom.equalTo(headerView.contentView);
+        make.right.equalTo(headerView.mas_right);
+        make.bottom.equalTo(headerView.mas_bottom);
     }];
     switch (section) {
         case 0:
@@ -150,74 +147,70 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
     
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 1) {
-        UITableViewHeaderFooterView *footerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:DLOnlineRechargeTableViewFooter];
-        footerView.contentView.backgroundColor = [UIColor ms_backgroundColor];
-        
-        UIView *backview = [[UIView alloc]init];
-        backview.backgroundColor = [UIColor whiteColor];
-        [footerView addSubview:backview];
-        
-        UILabel *cashWithdrawalLabel = [[UILabel alloc] init];
-        cashWithdrawalLabel.text = @"金额";
-        cashWithdrawalLabel.textAlignment = NSTextAlignmentLeft;
-        cashWithdrawalLabel.textColor = [UIColor colorWithHexString:@"#494949"];
-        cashWithdrawalLabel.font = [UIFont systemFontOfSize:16];
-        [backview addSubview:cashWithdrawalLabel];
-        
-        self.priceTextField = [[UITextField alloc] init];
-        self.priceTextField.font = [UIFont systemFontOfSize:16];
-        self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
-        self.priceTextField.placeholder = @"请输入充值的金额";
-        self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        self.priceTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        self.priceTextField.leftViewMode = UITextFieldViewModeAlways;
-        self.priceTextField.delegate = self;
-        [backview addSubview:self.priceTextField];
-        
-        UIButton *submitBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-        [submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
-        submitBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
-        //        [submitBtn  addTarget:self action:@selector(submitAnApplication) forControlEvents:UIControlEventTouchUpInside];
-        submitBtn.layer.cornerRadius = 8.0;
-        [backview addSubview:submitBtn];
-        
-        [backview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@10);
-            make.left.equalTo(@0);
-            make.width.equalTo(footerView.contentView);
-            make.height.equalTo(@50);
-        }];
-        
-        [cashWithdrawalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(backview);
-            make.left.equalTo(@15);
-            make.width.equalTo(@50);
-            make.height.equalTo(@50);
-        }];
-        
-        [self.priceTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(backview);
-            make.left.equalTo(cashWithdrawalLabel.mas_right);
-            make.width.equalTo(backview).with.offset(-100);
-            make.height.equalTo(@50);
-        }];
-        
-        [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(backview.mas_bottom).with.offset(10);
-            make.left.equalTo(@20);
-            make.right.equalTo(@-20);
-            make.height.equalTo(@40);
-        }];
-        
-        
-        return footerView;
-    }else{
-        return nil;
-    }
+- (UIView *)creatFootView {
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 110)];
+    footerView.backgroundColor = [UIColor ms_backgroundColor];
+    
+    UIView *backview = [[UIView alloc] init];
+    backview.backgroundColor = [UIColor whiteColor];
+    [footerView addSubview:backview];
+    
+    UILabel *cashWithdrawalLabel = [[UILabel alloc] init];
+    cashWithdrawalLabel.text = @"金额";
+    cashWithdrawalLabel.textAlignment = NSTextAlignmentLeft;
+    cashWithdrawalLabel.textColor = [UIColor colorWithHexString:@"#494949"];
+    cashWithdrawalLabel.font = [UIFont systemFontOfSize:16];
+    [backview addSubview:cashWithdrawalLabel];
+    
+    self.priceTextField = [[UITextField alloc] init];
+    self.priceTextField.font = [UIFont systemFontOfSize:16];
+    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.placeholder = @"请输入充值的金额";
+    self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.priceTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    self.priceTextField.leftViewMode = UITextFieldViewModeAlways;
+    self.priceTextField.delegate = self;
+    [backview addSubview:self.priceTextField];
+    
+    UIButton *submitBtn =[UIButton buttonWithType:UIButtonTypeCustom];
+    [submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
+    submitBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
+    //        [submitBtn  addTarget:self action:@selector(submitAnApplication) forControlEvents:UIControlEventTouchUpInside];
+    submitBtn.layer.cornerRadius = 8.0;
+    [footerView addSubview:submitBtn];
+    
+    [backview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@10);
+        make.left.equalTo(footerView);
+        make.right.equalTo(footerView);
+        make.height.equalTo(@50);
+    }];
+    
+    [cashWithdrawalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(backview);
+        make.left.equalTo(@15);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+    }];
+    
+    [self.priceTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(backview);
+        make.left.equalTo(cashWithdrawalLabel.mas_right);
+        make.width.equalTo(@(SCREEN_WIDTH-65));
+        make.height.equalTo(@50);
+    }];
+
+    [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(backview.mas_bottom).offset(10);
+        make.height.equalTo(@40);
+        make.centerX.equalTo(footerView);
+        make.width.equalTo(footerView).multipliedBy(0.9f);
+     }];
+
+    return footerView;
 }
+
 
 #pragma mark - UITableViewDelegate
 
@@ -229,29 +222,17 @@ static NSString *DLOnlineRechargeTableViewFooter = @"DLOnlineRechargeTableViewFo
 #pragma mark - Fetch data
 
 #pragma mark - Event Handler
+
 - (void)selectRechargeType:(UIButton *)btn {
     
     btn.selected = !btn.selected;
-    [self.bankChargeArray removeAllObjects];
     if (btn.selected) {
         self.selctSection = btn.tag - 1000;
-        if (btn.tag == 1003) {
-            [self.bankChargeArray addObject:@"1"];
-            [self.bankChargeArray addObject:@"2"];
-        }
         [self.onlineRechargeTableView reloadData];
         
     }
 
 }
 
-#pragma mark - Getter
-
-- (NSMutableArray *)bankChargeArray {
-    if (_bankChargeArray == nil) {
-        _bankChargeArray = [[NSMutableArray alloc] init];
-    }
-    return _bankChargeArray;
-}
 
 @end

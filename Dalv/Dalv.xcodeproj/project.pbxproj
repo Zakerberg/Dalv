@@ -45,7 +45,6 @@
 		1C2979071EEEAA7400D3FEEA /* fiance_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */; };
 		1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */; };
 		1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */; };
-		1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */; };
 		1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */; };
 		1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2979111EF02CFD00D3FEEA /* UITableView+MSExtension.m */; };
 		1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2979171EF02D6F00D3FEEA /* MSRefreshFooter.m */; };
@@ -65,6 +64,11 @@
 		1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29817C1EE0F40C00712524 /* DLCashRegisterModel.m */; };
 		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
 		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
+		1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66614C1EF5FE660032E1AE /* DLNotification.m */; };
+		1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */; };
+		1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661551EF622C80032E1AE /* DLBankTransferModel.m */; };
+		1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66615B1EF625AC0032E1AE /* NSString+Regex.m */; };
+		1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66615D1EF625AC0032E1AE /* RegExCategories.m */; };
 		1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */; };
 		1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */; };
 		1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */; };
@@ -405,8 +409,6 @@
 		1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_selected@3x.png"; sourceTree = "<group>"; };
 		1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@2x.png"; sourceTree = "<group>"; };
 		1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@3x.png"; sourceTree = "<group>"; };
-		1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
-		1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
 		1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGlobalSearchViewViewController.h; sourceTree = "<group>"; };
 		1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGlobalSearchViewViewController.m; sourceTree = "<group>"; };
 		1C2979101EF02CFD00D3FEEA /* UITableView+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MSExtension.h"; sourceTree = "<group>"; };
@@ -445,6 +447,16 @@
 		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
 		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
 		1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialCollectionViewCell.m; sourceTree = "<group>"; };
+		1C66614B1EF5FE660032E1AE /* DLNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNotification.h; sourceTree = "<group>"; };
+		1C66614C1EF5FE660032E1AE /* DLNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNotification.m; sourceTree = "<group>"; };
+		1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
+		1C6661521EF61D230032E1AE /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
+		1C6661541EF622C80032E1AE /* DLBankTransferModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferModel.h; sourceTree = "<group>"; };
+		1C6661551EF622C80032E1AE /* DLBankTransferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferModel.m; sourceTree = "<group>"; };
+		1C66615A1EF625AC0032E1AE /* NSString+Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
+		1C66615B1EF625AC0032E1AE /* NSString+Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
+		1C66615C1EF625AC0032E1AE /* RegExCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExCategories.h; sourceTree = "<group>"; };
+		1C66615D1EF625AC0032E1AE /* RegExCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExCategories.m; sourceTree = "<group>"; };
 		1C74F6C51EE8FD9F0012EB10 /* DLLineModificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewController.h; sourceTree = "<group>"; };
 		1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationViewController.m; sourceTree = "<group>"; };
 		1C74F6C81EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -935,6 +947,17 @@
 			path = SegmentView;
 			sourceTree = "<group>";
 		};
+		1C6661591EF6257E0032E1AE /* RegularMatch */ = {
+			isa = PBXGroup;
+			children = (
+				1C66615A1EF625AC0032E1AE /* NSString+Regex.h */,
+				1C66615B1EF625AC0032E1AE /* NSString+Regex.m */,
+				1C66615C1EF625AC0032E1AE /* RegExCategories.h */,
+				1C66615D1EF625AC0032E1AE /* RegExCategories.m */,
+			);
+			path = RegularMatch;
+			sourceTree = "<group>";
+		};
 		1CB7707F1ECFE00100F6EFDF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,6 +1109,8 @@
 				1CB952FA1ECFC41600BDC2D3 /* Consts.h */,
 				1CB952FB1ECFC41600BDC2D3 /* DalvHeader.h */,
 				1CB952FC1ECFC41600BDC2D3 /* InterfaceConfig.h */,
+				1C66614B1EF5FE660032E1AE /* DLNotification.h */,
+				1C66614C1EF5FE660032E1AE /* DLNotification.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1487,6 +1512,7 @@
 		1CB953FA1ECFC84000BDC2D3 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				1C6661591EF6257E0032E1AE /* RegularMatch */,
 				1C8438231ECFCBFA006DF42E /* UIViewController+BLMHUD.h */,
 				1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */,
 				1C8438201ECFCBEB006DF42E /* BLMClearCacheTool.h */,
@@ -1835,8 +1861,8 @@
 				451F39241EEE7120005FE126 /* DLContractApplySection0Cell.h */,
 				451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */,
 				451F39261EEE7120005FE126 /* DLContractApplySection0Cell.xib */,
-				1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */,
-				1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */,
+				1C6661521EF61D230032E1AE /* DLBankTransferTableViewCell.h */,
+				1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1856,6 +1882,8 @@
 				45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */,
 				1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */,
 				1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */,
+				1C6661541EF622C80032E1AE /* DLBankTransferModel.h */,
+				1C6661551EF622C80032E1AE /* DLBankTransferModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2207,7 +2235,6 @@
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,
-				1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
@@ -2221,6 +2248,8 @@
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
 				1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
+				1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */,
+				1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
@@ -2228,6 +2257,7 @@
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
+				1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */,
 				45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
@@ -2258,6 +2288,7 @@
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
 				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
+				1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */,
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
@@ -2343,6 +2374,7 @@
 				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
+				1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */,
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,

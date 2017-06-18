@@ -7,7 +7,7 @@
 //
 
 #import "DLLoginView.h"
-
+#import "DLMineViewController.h"
 @interface DLLoginView ()<UITextFieldDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, assign) CGRect defaultViewRect;
@@ -30,7 +30,7 @@
     UIColor *color = [UIColor whiteColor];
     self.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-20, 40, 40, 40)];
+    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-20, 104, 40, 40)];
     loginImage.image = [UIImage imageNamed:@"Loginlogo"];
     [self addSubview:loginImage];
     
@@ -86,12 +86,21 @@
     [self addSubview:footBtn];
     
     UIButton *forgetBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    forgetBtn.frame=CGRectMake(100, footBtn.bottom+25, SCREEN_WIDTH-200, 30);
+    forgetBtn.frame=CGRectMake(footBtn.x, footBtn.bottom+25, footBtn.width/2, 30);
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
     forgetBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [forgetBtn  addTarget:self action:@selector(performForgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:forgetBtn];
+    
+//    UIButton *registerbutton =[UIButton buttonWithType:UIButtonTypeCustom];
+//    registerbutton.frame=CGRectMake(forgetBtn.ms_right, footBtn.bottom+25, footBtn.width/2, 30);
+//    [registerbutton setTitle:@"注     册" forState:UIControlStateNormal];
+//    registerbutton.titleLabel.font=[UIFont systemFontOfSize:14];
+//    [registerbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [registerbutton  addTarget:self action:@selector(didRegisterButton) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:registerbutton];
+
 }
 
 #pragma mark - ButtonAction
@@ -147,6 +156,13 @@
     [self recoverViewFrame];
     
 }
+
+////注册
+//- (void)didRegisterButton {
+//    DLMineViewController *minVC= [[DLMineViewController alloc] init];
+//    [self.navigationController pushViewController:minVC animated:YES];
+//}
+
 
 //忘记密码
 - (void)performForgotPasswordAction {

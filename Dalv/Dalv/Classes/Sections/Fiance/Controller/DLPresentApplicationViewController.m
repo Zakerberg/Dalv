@@ -267,8 +267,7 @@
 
 }
 #pragma mark - ButtonAction
-- (void)submitAnApplication
-{
+- (void)submitAnApplication {
     if (self.priceTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"请输入转出金额"];
         return;
@@ -286,7 +285,6 @@
                 
                 DLCashRegisterViewController *cashRegVC = [[DLCashRegisterViewController alloc]init];
                 [self.navigationController pushViewController:cashRegVC animated:YES];
-//              [self.navigationController popViewControllerAnimated:YES];
             }else {
                 [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
             }

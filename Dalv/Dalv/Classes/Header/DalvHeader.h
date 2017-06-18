@@ -46,4 +46,7 @@
 #import "MJRefresh.h"
 #import "UITableView+MSExtension.h"
 
+//通知
+#import "DLNotification.h"
+
 #endif /* DalvHeader_h */

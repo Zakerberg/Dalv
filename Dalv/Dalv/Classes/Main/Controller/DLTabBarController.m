@@ -7,7 +7,6 @@
 //
 
 #import "DLTabBarController.h"
-#import "DLNavigationController.h"
 
 static NSString * const HomeViewVC = @"DLHomeViewController";
 static NSString * const OrderViewVC = @"DLOrderViewController";
@@ -68,7 +67,11 @@ static NSString * const TabbarItemBadgeValue = @"TabbarItemBadgeValue";
 
 - (NSArray *)vcsOrder {
     
-    return @[HomeViewVC,OrderViewVC,FianceViewVC,MineCenterVC];
+    if ([[DLUtils getUser_type] isEqualToString:@"4"]) {
+        return @[HomeViewVC,OrderViewVC,FianceViewVC,MineCenterVC];
+    } else {
+        return @[HomeViewVC,OrderViewVC,MineCenterVC];
+    }
 }
 
 - (NSDictionary *)vcsInfoDict {

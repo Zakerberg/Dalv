@@ -7,12 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLBankTransferModel.h"
 
 @interface DLBankTransferTableViewCell : UITableViewCell
 @property (nonatomic, strong) UILabel *accountNamelab;//开户名
 @property (nonatomic, strong) UILabel *accountNumberlab;//账号
 @property (nonatomic, strong) UILabel *openingBanklab;//开户行
+@property (nonatomic, strong) DLBankTransferModel *bankTransferModel;
+
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;
+
+/**
+ *  配置Cell 数据
+ */
+- (void)configureCell:(DLBankTransferModel *)bankModel;
 
 @end

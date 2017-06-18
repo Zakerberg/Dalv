@@ -149,6 +149,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Event Handler
+- (void)didTapBack:(UIBarButtonItem *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 #pragma mark - Getter
 
 - (NSMutableArray *)cashRegisterList {
