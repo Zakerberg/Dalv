@@ -27,34 +27,32 @@
 
     
     _searchBar = [[UISearchBar alloc] init];
-    NSMutableString *placeholder = [NSMutableString stringWithString:@"搜索出发城市和目的地"];
-    
-    _searchBar.placeholder = placeholder.copy;
-    _searchBar.backgroundImage = [[UIImage alloc] init];
-    _searchBar.barTintColor = [UIColor ms_blackColor];
-    _searchBar.tintColor = [UIColor ms_orangeColor];
+    [self.contentView addSubview:_searchBar];
+    _searchBar.placeholder = @"支持模糊搜索：路线,景点,代码";
+    self.searchBar.tintColor = [UIColor ms_orangeColor];
+    self.searchBar.backgroundColor = [UIColor whiteColor];
+    [self.searchBar setBackgroundImage: [UIImage imageWithColor:[UIColor whiteColor] ] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    for (UIView *view in self.searchBar.subviews.firstObject.subviews) {
+        if ([view isKindOfClass:[UITextField class]]) {
+            view.backgroundColor = [UIColor ms_backgroundColor];
+        }
+    }
     _searchBar.showsCancelButton = NO;
-    
-    _serchTextField = [_searchBar valueForKey:@"_serchTextField"];
-    _serchTextField.layer.cornerRadius = 14.0f;
-    _serchTextField.layer.masksToBounds = YES;
-    _serchTextField.layer.borderColor = [UIColor colorWithHexString:@"#e8e8e8"].CGColor;
-    _serchTextField.layer.borderWidth = 0.5f;
-    _serchTextField.textColor = [UIColor ms_blackColor];
 
     [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.width.equalTo(self.contentView);
-        make.height.lessThanOrEqualTo(@100);
+        make.height.equalTo(@100);
     }];
     
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headImage.mas_bottom).offset(5);
+        make.top.equalTo(self.headImage.mas_bottom).offset(10);
         make.left.equalTo(@20);
-        make.width.equalTo(self.contentView).offset(-20);
+        make.width.equalTo(self.contentView).offset(-40);
         make.height.equalTo(@40);
     }];
+    
 
 }
 

@@ -83,12 +83,14 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self fetchData];
 }
 - (void)fetchData {
-     //    NSDictionary *param = @{@"login_name" : @"13126997215",
-    //                            @"login_pwd" : @"654321",
-    //                            };
-    [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+     [DLHomeViewTask getHomeAgencyLinelist:param completion:^(id result, NSError *error) {
+         [[DLHUDManager sharedInstance] hiddenHUD];
          if (result) {
-            NSArray *recommendRouteArray =[DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.topicList removeAllObjects];
             [self.topicList addObjectsFromArray:recommendRouteArray];
             [self.hotTopicCollectionView reloadData];
@@ -100,20 +102,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
              [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
          }
     }];
-//    //  模拟请求推荐线路的数据
-//    NSMutableArray *recommendRouteArray = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < random() % 30; i++) {
-//        DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
-//        [recommendRouteArray addObject:topic];
-//    }
-//    [self.topicList removeAllObjects];
-//    [self.topicList addObjectsFromArray:recommendRouteArray];
-//    [self.hotTopicCollectionView reloadData];
-//    
-//    if (self.didCompleteLoad) {
-//        self.didCompleteLoad();
-//    }
-
 }
 
 #pragma mark - UICollectionViewDataSource

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLHomePageMenuModel.h"
 
 @interface DLLineTourViewController : UIViewController
+
+@property (nonatomic, strong) DLHomeMenuItem *homeMenuItem;
 
 @end

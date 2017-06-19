@@ -15,7 +15,7 @@
 #import "DLHomeViewTask.h"
 #import "DLNavigationController.h"
 #import "DLGlobalSearchViewViewController.h"
-
+#import "DLHomePageMenuModel.h"
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -27,8 +27,10 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 @property (nonatomic, strong) DLMenuViewController *appCenterViewController;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
-
-
+@property (nonatomic, strong) DLHomePageMenuModel *homePageModel; //首页模块模型
+@property (nonatomic, strong) UIImageView *headImageView;//头像
+@property (nonatomic, strong) UILabel *namelab;//名字
+@property (nonatomic, strong) UILabel *mobilelab;//手机
 @end
 
 @implementation DLHomeViewController
@@ -78,8 +80,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"line_order" highImageName:nil target:self action:@selector(didTapOperateAction:)];
     self.navigationItem.leftBarButtonItem = operateItem;
     
-    UIBarButtonItem *registerbutton= [UIBarButtonItem itemWithTitle:@"登陆" target:self action:@selector(didLoginButton)];
-    self.navigationItem.rightBarButtonItem = registerbutton;
 }
 
 #pragma mark - Setup subViews
@@ -262,8 +262,8 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     [self.hotTopicViewController beginLoading];
 //        NSDictionary *param = @{@"login_name" : @"13126997215",
 //                                @"login_pwd" : @"654321",};
-        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
-            }];
+//        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
+//            }];
 
 }
 
@@ -282,11 +282,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
      }
     
 }
-- (void)didLoginButton
-{
-    DLLoginViewController *DLloginVC = [[DLLoginViewController alloc]init];
-    [self.navigationController pushViewController:DLloginVC animated:YES];
-}
 
 #pragma mark - Getter
 
@@ -294,9 +289,12 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     if (_appCenterViewController == nil) {
         _appCenterViewController = [[DLMenuViewController alloc] init];
         @weakify(self);
-        [_appCenterViewController setDidCompleteLoad:^{
+        [_appCenterViewController setDidCompleteLoad:^(DLHomePageMenuModel *homePageMenuModel){
             @strongify(self);
+            self.homePageModel = homePageMenuModel;
+            [self refreshPerformanceView];
             [self.homeTableView reloadData];
+
         }];
         [self addChildViewController:_appCenterViewController];
     }
@@ -320,11 +318,57 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     if (_performanceView == nil) {
         _performanceView = [[UIImageView  alloc] init];
         _performanceView.image = [UIImage imageNamed:@"mine_theme"];
-        _performanceView.backgroundColor = [UIColor randomColor];
         
+        UIImageView *headImageView = [[UIImageView alloc] init];
+        [self.performanceView addSubview:headImageView];
+        self.headImageView = headImageView;
+        
+        UILabel  *namelab = [[UILabel alloc]init];
+        namelab.textColor = [UIColor whiteColor];
+        namelab.textAlignment = NSTextAlignmentLeft;
+        namelab.font = [UIFont systemFontOfSize:16];
+        [self.performanceView addSubview:namelab];
+        self.namelab = namelab;
+        
+        UILabel  *mobilelab = [[UILabel alloc]init];
+        mobilelab.textColor = [UIColor whiteColor];
+        mobilelab.textAlignment = NSTextAlignmentLeft;
+        mobilelab.font = [UIFont systemFontOfSize:16];
+        [self.performanceView addSubview:mobilelab];
+        self.mobilelab = mobilelab;
+      
+        [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@20);
+            make.left.equalTo(@15);
+            make.height.equalTo(@60);
+            make.width.equalTo(@60);
+
+        }];
+        
+        [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(@20);
+            make.left.equalTo(headImageView.mas_right).offset(10);
+            make.height.equalTo(@30);
+            make.width.equalTo(@100);
+            
+        }];
+        
+        [mobilelab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_namelab.mas_bottom);
+            make.left.equalTo(headImageView.mas_right).offset(10);
+            make.height.equalTo(@30);
+            make.width.equalTo(@100);
+            
+        }];
+
       }
     return _performanceView;
 }
 
-
+- (void)refreshPerformanceView {
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    self.namelab.text = self.homePageModel.agencyInfo.name;
+    self.mobilelab.text  = self.homePageModel.agencyInfo.mobile;
+    
+}
 @end

@@ -28,9 +28,8 @@
     
     _lineDetailsNamelab = [[UILabel alloc]init];
     _lineDetailsNamelab.textColor = [UIColor blackColor];
-    _lineDetailsNamelab.textAlignment = NSTextAlignmentLeft;
+    _lineDetailsNamelab.textAlignment = NSTextAlignmentCenter;
     _lineDetailsNamelab.font = [UIFont systemFontOfSize:14];
-    _lineDetailsNamelab.text = @"qnlqnanasJAjkas,jnNJA,lnaNAja,JBKaa,A,JnlenJNNJ";
     _lineDetailsNamelab.numberOfLines = 0;
     [self.contentView addSubview:_lineDetailsNamelab];
     
@@ -57,4 +56,13 @@
 + (NSString *)cellIdentifier {
     return NSStringFromClass([self class]);
 }
+
+/** 配置Cell */
+- (void)configureCell:(DLDestinationAtlasModel *)destModel{
+    
+    [self.lineDetailsImage sd_setImageWithURL:[NSURL URLWithString:destModel.img] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    self.lineDetailsNamelab.text = destModel.name;
+
+}
+
 @end

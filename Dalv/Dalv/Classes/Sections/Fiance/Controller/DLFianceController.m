@@ -122,9 +122,9 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DLHomeMenuCollectionViewCell *cell = [DLHomeMenuCollectionViewCell cellWithCollectionView:collectionView IndexPath:indexPath];
     
-    DLHomeMenuItem *menuItem = [self.apps objectAtIndex:indexPath.item];
+    DLFinanceMenuItem *menuItem = [self.apps objectAtIndex:indexPath.item];
     cell.showsSeparator = YES;
-    [cell configureCell:menuItem];
+    [cell configureFinanceCell:menuItem];
     return cell;
     
 }

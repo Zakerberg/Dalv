@@ -210,4 +210,10 @@ static NSString * const kMacAddressUserDefaultsKey = @"DLkeychainMacAddress";
     
 }
 
+// 获取type
++ (NSString *)getUser_type{
+    
+    return  [[NSUserDefaults standardUserDefaults] objectForKey:@"user_type"] ? : @"";
+    
+}
 @end

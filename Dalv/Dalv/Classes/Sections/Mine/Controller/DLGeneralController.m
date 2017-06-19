@@ -85,11 +85,16 @@ static NSString *cellID  = @"cellID";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出登录吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-    //清空所用注册信息 
-   
-    
         
-        self.tabBarController.selectedIndex = 0;
+    //清空所用注册信息
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"sign_token"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"uid"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"user_type"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
+//
+//        self.tabBarController.selectedIndex = 0;
         
     }];
                              

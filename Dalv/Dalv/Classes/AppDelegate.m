@@ -8,16 +8,14 @@
 
 #import "AppDelegate.h"
 #import "DLTabBarController.h"
-#import <SMS_SDK/SMSSDK.h>
+#import "DLLoginViewController.h"
+#import "DLIdentitySelectionLoginViewController.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
-
-//#define MobAppKey @"1db8868702eb6"
-//#define MobApp_Secret @"69d530b2044f3f48bdd339fe7e7e0677"
+#import "DLUtils.h"
 
 #if DEBUG
 #import "FLEX.h"
 #endif
-
 
 @interface AppDelegate ()
 
@@ -29,30 +27,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
-//    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-//        NSLog(@"首次启动");
-//        GuideViewController *gVC = [[GuideViewController alloc] init];
-//        self.window.rootViewController = gVC;
-//    }else {
-//        NSLog(@"非首次启动");
-//        //创建标签控制器
-//        AdvertisingViewController * adVC = [[AdvertisingViewController alloc]init];
-    
-        //给窗口指定根控制器
-    self.window.rootViewController = [[DLTabBarController alloc] init];
-    
-//    }
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-
+    [self setupMainVC];
     
-//    [SMSSDK registerApp:MobAppKey withSecret:MobApp_Secret];
-
-    #if DEBUG
-        [[FLEXManager sharedManager] showExplorer];
-    #endif
-
+    [self registerNotification];
+    
+#if DEBUG
+    [[FLEXManager sharedManager] showExplorer];
+#endif
+    
     return YES;
 }
 
@@ -67,6 +51,38 @@
     
 }
 
+#pragma mark - initialize
+
+- (void)registerNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupLoginVC)
+                                                 name:kUserlogoutNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupTabbarVC)
+                                                 name:kUserlogInNotification
+                                               object:nil];
+}
+
+- (void)setupMainVC {
+    if ([NSString isNotBlank:[DLUtils getUid]]) {
+        [self setupTabbarVC];
+    } else {
+        [self setupLoginVC];
+    }
+}
+// 已登录 跳到主界面
+- (void)setupTabbarVC {
+    DLTabBarController *tabBarController = [[DLTabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
+}
+// 未登录跳到登录界面
+- (void)setupLoginVC {
+    DLIdentitySelectionLoginViewController *loginVC = [[DLIdentitySelectionLoginViewController alloc] init];
+    DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:loginVC];
+    self.window.rootViewController = nav;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

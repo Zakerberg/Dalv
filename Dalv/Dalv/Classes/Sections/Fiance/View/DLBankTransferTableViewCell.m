@@ -128,4 +128,12 @@
     return NSStringFromClass([self class]);
 }
 
+/** 配置Cell */
+- (void)configureCell:(DLBankTransferModel *)bankModel{
+    self.accountNamelab.text = bankModel.account_name;
+    self.accountNumberlab.text  = bankModel.account;
+    self.openingBanklab.text = bankModel.opening_bank;
+
+}
+
 @end

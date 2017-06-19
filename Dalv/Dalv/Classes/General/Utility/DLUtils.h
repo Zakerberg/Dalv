@@ -33,4 +33,8 @@
 
 // 获取token
 + (NSString *)getSign_token;
+
+// 获取type
++ (NSString *)getUser_type;
+
 @end

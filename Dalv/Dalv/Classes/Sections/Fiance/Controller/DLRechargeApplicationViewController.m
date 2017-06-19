@@ -49,10 +49,12 @@
     _offlineVC = [[DLOfflineRechargeViewController alloc] init];
     _offlineVC.view.backgroundColor = [UIColor redColor];
     [self.view addSubview:_offlineVC.view];
+    [self addChildViewController:_offlineVC];
     
     _onlineVC = [[DLOnlineRechargeViewController alloc] init];
     _onlineVC.view.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:_onlineVC.view];
+    [self addChildViewController:_onlineVC];
     _onlineVC.view.hidden = YES;
     
     NSArray *arr = [[NSArray alloc]initWithObjects:@"线下充值",@"在线充值", nil];

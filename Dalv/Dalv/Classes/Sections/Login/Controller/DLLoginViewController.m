@@ -26,7 +26,7 @@
  请求参数：{login_name : 13126997216 ,login_pwd : 123456}
  返回数据：
  */
- 
+
 @implementation DLLoginViewController
 
 #pragma mark - life cycle
@@ -61,30 +61,32 @@
     
     NSDictionary *param = @{@"login_name" : usename,
                             @"login_pwd" : password,};
-       [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
         if (error) {
             [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
         } else {
-            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {//登录成功保存数据
                 
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self.navigationController popViewControllerAnimated:YES];
-        [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
-        }else {
-        [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogInNotification object:nil];//登录成功通知回调
+//                if (self.loginSuccessBlock) {//登录成功块代码回调
+//                    self.loginSuccessBlock();
+//                }
+            } else {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
             }
         }
     }];
-
-
+    
 }
 
 //注册
-- (void)didRegisterButton
-{
+- (void)didRegisterButton {
     DLMineViewController *minVC= [[DLMineViewController alloc] init];
     [self.navigationController pushViewController:minVC animated:YES];
 }

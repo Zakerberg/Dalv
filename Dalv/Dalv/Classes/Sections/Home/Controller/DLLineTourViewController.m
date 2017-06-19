@@ -10,6 +10,7 @@
 #import "DLMenuViewController.h"
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteModel.h"
+#import "DLLineTourTableViewCell.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -35,8 +36,11 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 }
 
 #pragma mark - Setup navbar
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 - (void)setupNavbar {
-    self.title = @"大旅游";
+    self.title = _homeMenuItem.name;
 }
 
 #pragma mark - Setup subViews
@@ -52,6 +56,8 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     homeTableView.tableFooterView = [[UIView alloc] init];
     [homeTableView registerClass:[UITableViewCell class]
           forCellReuseIdentifier:kDLHomeTableViewCell];
+    [homeTableView registerClass:[DLLineTourTableViewCell class] forCellReuseIdentifier:[DLLineTourTableViewCell cellIdentifier]];
+
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
 forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
@@ -78,23 +84,27 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor redColor];
     
     if (indexPath.section == 0) {
-        [cell.contentView addSubview:self.performanceView];
-        [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(cell.contentView);
-        }];
-    } else if (indexPath.section == 1) {
+        DLLineTourTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineTourTableViewCell cellIdentifier]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
+//        [cell.contentView addSubview:self.performanceView];
+//        [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(cell.contentView);
+//        }];
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor redColor];
         [cell.contentView addSubview:self.hotTopicViewController.view];
         [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
-        
+        return cell;
     }
-    return cell;
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -109,7 +119,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [flagView  addSubview:leftline];
         
         UILabel *headerLabel = [[UILabel alloc] init];
-        headerLabel.text = @"精选路线";
+        headerLabel.text = [NSString stringWithFormat:@"%@推荐",_homeMenuItem.name];
         headerLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
         headerLabel.textAlignment = NSTextAlignmentCenter;
         headerLabel.font = [UIFont systemFontOfSize:14];
@@ -155,7 +165,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 100.f;
+        return 160.f;
     } else if (indexPath.section == 1) {
         NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
         return [self.hotTopicViewController contentHeight];

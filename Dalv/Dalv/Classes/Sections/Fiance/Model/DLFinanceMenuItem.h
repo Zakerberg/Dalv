@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DLHomeMenuItem : NSObject
+@interface DLFinanceMenuItem : NSObject
 
 /**  首页菜单图标 */
 @property (nonatomic, copy) UIImage *image;

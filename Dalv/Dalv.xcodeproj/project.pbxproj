@@ -45,7 +45,6 @@
 		1C2979071EEEAA7400D3FEEA /* fiance_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */; };
 		1C2979081EEEAA7400D3FEEA /* fiance_wxpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */; };
 		1C2979091EEEAA7400D3FEEA /* fiance_wxpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */; };
-		1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */; };
 		1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */; };
 		1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2979111EF02CFD00D3FEEA /* UITableView+MSExtension.m */; };
 		1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2979171EF02D6F00D3FEEA /* MSRefreshFooter.m */; };
@@ -65,6 +64,16 @@
 		1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29817C1EE0F40C00712524 /* DLCashRegisterModel.m */; };
 		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
 		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
+		1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66614C1EF5FE660032E1AE /* DLNotification.m */; };
+		1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */; };
+		1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661551EF622C80032E1AE /* DLBankTransferModel.m */; };
+		1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66615B1EF625AC0032E1AE /* NSString+Regex.m */; };
+		1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66615D1EF625AC0032E1AE /* RegExCategories.m */; };
+		1C6661621EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661611EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m */; };
+		1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661641EF66E580032E1AE /* DLHomePageMenuModel.m */; };
+		1C6661681EF672390032E1AE /* DLFinanceMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661671EF672390032E1AE /* DLFinanceMenuItem.m */; };
+		1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661691EF672460032E1AE /* DLRecommendRouteViewController.m */; };
+		1C6661701EF67BAC0032E1AE /* DLDestinationAtlasModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66616F1EF67BAC0032E1AE /* DLDestinationAtlasModel.m */; };
 		1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */; };
 		1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6C91EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m */; };
 		1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74F6CC1EE923E60012EB10 /* DLRoutePricingTableViewCell.m */; };
@@ -92,14 +101,12 @@
 		1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953341ECFC41600BDC2D3 /* DLLineTourDetailViewController.m */; };
 		1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953361ECFC41600BDC2D3 /* DLLineTourViewController.m */; };
 		1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953381ECFC41600BDC2D3 /* DLMenuViewController.m */; };
-		1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9533A1ECFC41600BDC2D3 /* DLRecommendRouteViewController.m */; };
 		1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9533D1ECFC41600BDC2D3 /* DLRecommendRouteModel.m */; };
 		1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953401ECFC41600BDC2D3 /* DLHomeViewTask.m */; };
 		1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953431ECFC41600BDC2D3 /* DLCityPopMenuView.m */; };
 		1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953451ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m */; };
 		1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953471ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m */; };
 		1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953491ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m */; };
-		1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9534C1ECFC41600BDC2D3 /* DLHomeMenuItem.m */; };
 		1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9534E1ECFC41600BDC2D3 /* DLHomePageViewModel.m */; };
 		1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953521ECFC41600BDC2D3 /* DLLoginViewController.m */; };
 		1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953551ECFC41600BDC2D3 /* DLLoginView.m */; };
@@ -405,8 +412,6 @@
 		1C2978F71EEEAA7400D3FEEA /* fiance_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_selected@3x.png"; sourceTree = "<group>"; };
 		1C2978F81EEEAA7400D3FEEA /* fiance_wxpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@2x.png"; sourceTree = "<group>"; };
 		1C2978F91EEEAA7400D3FEEA /* fiance_wxpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_wxpay@3x.png"; sourceTree = "<group>"; };
-		1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
-		1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
 		1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGlobalSearchViewViewController.h; sourceTree = "<group>"; };
 		1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGlobalSearchViewViewController.m; sourceTree = "<group>"; };
 		1C2979101EF02CFD00D3FEEA /* UITableView+MSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MSExtension.h"; sourceTree = "<group>"; };
@@ -445,6 +450,25 @@
 		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
 		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
 		1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialCollectionViewCell.m; sourceTree = "<group>"; };
+		1C66614B1EF5FE660032E1AE /* DLNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNotification.h; sourceTree = "<group>"; };
+		1C66614C1EF5FE660032E1AE /* DLNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNotification.m; sourceTree = "<group>"; };
+		1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
+		1C6661521EF61D230032E1AE /* DLBankTransferTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferTableViewCell.h; sourceTree = "<group>"; };
+		1C6661541EF622C80032E1AE /* DLBankTransferModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBankTransferModel.h; sourceTree = "<group>"; };
+		1C6661551EF622C80032E1AE /* DLBankTransferModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferModel.m; sourceTree = "<group>"; };
+		1C66615A1EF625AC0032E1AE /* NSString+Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
+		1C66615B1EF625AC0032E1AE /* NSString+Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
+		1C66615C1EF625AC0032E1AE /* RegExCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExCategories.h; sourceTree = "<group>"; };
+		1C66615D1EF625AC0032E1AE /* RegExCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExCategories.m; sourceTree = "<group>"; };
+		1C6661601EF660C30032E1AE /* DLIdentitySelectionLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLIdentitySelectionLoginViewController.h; sourceTree = "<group>"; };
+		1C6661611EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLIdentitySelectionLoginViewController.m; sourceTree = "<group>"; };
+		1C6661631EF66E580032E1AE /* DLHomePageMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomePageMenuModel.h; sourceTree = "<group>"; };
+		1C6661641EF66E580032E1AE /* DLHomePageMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomePageMenuModel.m; sourceTree = "<group>"; };
+		1C6661661EF672390032E1AE /* DLFinanceMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFinanceMenuItem.h; sourceTree = "<group>"; };
+		1C6661671EF672390032E1AE /* DLFinanceMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFinanceMenuItem.m; sourceTree = "<group>"; };
+		1C6661691EF672460032E1AE /* DLRecommendRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteViewController.m; sourceTree = "<group>"; };
+		1C66616E1EF67BAC0032E1AE /* DLDestinationAtlasModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDestinationAtlasModel.h; sourceTree = "<group>"; };
+		1C66616F1EF67BAC0032E1AE /* DLDestinationAtlasModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDestinationAtlasModel.m; sourceTree = "<group>"; };
 		1C74F6C51EE8FD9F0012EB10 /* DLLineModificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewController.h; sourceTree = "<group>"; };
 		1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationViewController.m; sourceTree = "<group>"; };
 		1C74F6C81EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationViewDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -501,7 +525,6 @@
 		1CB953371ECFC41600BDC2D3 /* DLMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMenuViewController.h; sourceTree = "<group>"; };
 		1CB953381ECFC41600BDC2D3 /* DLMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMenuViewController.m; sourceTree = "<group>"; };
 		1CB953391ECFC41600BDC2D3 /* DLRecommendRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteViewController.h; sourceTree = "<group>"; };
-		1CB9533A1ECFC41600BDC2D3 /* DLRecommendRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteViewController.m; sourceTree = "<group>"; };
 		1CB9533C1ECFC41600BDC2D3 /* DLRecommendRouteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteModel.h; sourceTree = "<group>"; };
 		1CB9533D1ECFC41600BDC2D3 /* DLRecommendRouteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteModel.m; sourceTree = "<group>"; };
 		1CB9533F1ECFC41600BDC2D3 /* DLHomeViewTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeViewTask.h; sourceTree = "<group>"; };
@@ -514,8 +537,6 @@
 		1CB953471ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialpriceTableViewCell.m; sourceTree = "<group>"; };
 		1CB953481ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRecommendRouteCollectionViewCell.h; sourceTree = "<group>"; };
 		1CB953491ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRecommendRouteCollectionViewCell.m; sourceTree = "<group>"; };
-		1CB9534B1ECFC41600BDC2D3 /* DLHomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeMenuItem.h; sourceTree = "<group>"; };
-		1CB9534C1ECFC41600BDC2D3 /* DLHomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeMenuItem.m; sourceTree = "<group>"; };
 		1CB9534D1ECFC41600BDC2D3 /* DLHomePageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomePageViewModel.h; sourceTree = "<group>"; };
 		1CB9534E1ECFC41600BDC2D3 /* DLHomePageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomePageViewModel.m; sourceTree = "<group>"; };
 		1CB953511ECFC41600BDC2D3 /* DLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLoginViewController.h; sourceTree = "<group>"; };
@@ -935,6 +956,17 @@
 			path = SegmentView;
 			sourceTree = "<group>";
 		};
+		1C6661591EF6257E0032E1AE /* RegularMatch */ = {
+			isa = PBXGroup;
+			children = (
+				1C66615A1EF625AC0032E1AE /* NSString+Regex.h */,
+				1C66615B1EF625AC0032E1AE /* NSString+Regex.m */,
+				1C66615C1EF625AC0032E1AE /* RegExCategories.h */,
+				1C66615D1EF625AC0032E1AE /* RegExCategories.m */,
+			);
+			path = RegularMatch;
+			sourceTree = "<group>";
+		};
 		1CB7707F1ECFE00100F6EFDF /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,6 +1118,8 @@
 				1CB952FA1ECFC41600BDC2D3 /* Consts.h */,
 				1CB952FB1ECFC41600BDC2D3 /* DalvHeader.h */,
 				1CB952FC1ECFC41600BDC2D3 /* InterfaceConfig.h */,
+				1C66614B1EF5FE660032E1AE /* DLNotification.h */,
+				1C66614C1EF5FE660032E1AE /* DLNotification.m */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -1278,7 +1312,7 @@
 				1CB953371ECFC41600BDC2D3 /* DLMenuViewController.h */,
 				1CB953381ECFC41600BDC2D3 /* DLMenuViewController.m */,
 				1CB953391ECFC41600BDC2D3 /* DLRecommendRouteViewController.h */,
-				1CB9533A1ECFC41600BDC2D3 /* DLRecommendRouteViewController.m */,
+				1C6661691EF672460032E1AE /* DLRecommendRouteViewController.m */,
 				1C74F6C51EE8FD9F0012EB10 /* DLLineModificationViewController.h */,
 				1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */,
 				1C1670CB1EF13A5D000DBFF5 /* DLChangeTitleViewController.h */,
@@ -1296,6 +1330,10 @@
 				1CE8D80B1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m */,
 				1CE8D80D1ED8299600FFEF8B /* DLLineTourDetailInforModel.h */,
 				1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */,
+				1C6661631EF66E580032E1AE /* DLHomePageMenuModel.h */,
+				1C6661641EF66E580032E1AE /* DLHomePageMenuModel.m */,
+				1C66616E1EF67BAC0032E1AE /* DLDestinationAtlasModel.h */,
+				1C66616F1EF67BAC0032E1AE /* DLDestinationAtlasModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1353,8 +1391,6 @@
 		1CB9534A1ECFC41600BDC2D3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				1CB9534B1ECFC41600BDC2D3 /* DLHomeMenuItem.h */,
-				1CB9534C1ECFC41600BDC2D3 /* DLHomeMenuItem.m */,
 				1CB9534D1ECFC41600BDC2D3 /* DLHomePageViewModel.h */,
 				1CB9534E1ECFC41600BDC2D3 /* DLHomePageViewModel.m */,
 			);
@@ -1373,6 +1409,8 @@
 		1CB953501ECFC41600BDC2D3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1C6661601EF660C30032E1AE /* DLIdentitySelectionLoginViewController.h */,
+				1C6661611EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m */,
 				1CB953511ECFC41600BDC2D3 /* DLLoginViewController.h */,
 				1CB953521ECFC41600BDC2D3 /* DLLoginViewController.m */,
 			);
@@ -1487,6 +1525,7 @@
 		1CB953FA1ECFC84000BDC2D3 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				1C6661591EF6257E0032E1AE /* RegularMatch */,
 				1C8438231ECFCBFA006DF42E /* UIViewController+BLMHUD.h */,
 				1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */,
 				1C8438201ECFCBEB006DF42E /* BLMClearCacheTool.h */,
@@ -1835,8 +1874,8 @@
 				451F39241EEE7120005FE126 /* DLContractApplySection0Cell.h */,
 				451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */,
 				451F39261EEE7120005FE126 /* DLContractApplySection0Cell.xib */,
-				1C29790A1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.h */,
-				1C29790B1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m */,
+				1C6661521EF61D230032E1AE /* DLBankTransferTableViewCell.h */,
+				1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1844,6 +1883,8 @@
 		4572B1781ED3CA7F007927EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C6661661EF672390032E1AE /* DLFinanceMenuItem.h */,
+				1C6661671EF672390032E1AE /* DLFinanceMenuItem.m */,
 				1C29816C1EDFE30500712524 /* DLTransactionRecordModel.h */,
 				1C29816D1EDFE30500712524 /* DLTransactionRecordModel.m */,
 				1C2981781EE0159200712524 /* DLRechargeRecordModel.h */,
@@ -1856,6 +1897,8 @@
 				45DB47FD1EE7FEAC00399A6D /* DLInvoiceRecordModel.m */,
 				1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */,
 				1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */,
+				1C6661541EF622C80032E1AE /* DLBankTransferModel.h */,
+				1C6661551EF622C80032E1AE /* DLBankTransferModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2196,19 +2239,19 @@
 				453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */,
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
 				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
-				1CB953B31ECFC41600BDC2D3 /* DLRecommendRouteViewController.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
 				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
 				450105E41ED97CF000AA7A17 /* CityModelData.m in Sources */,
+				1C6661681EF672390032E1AE /* DLFinanceMenuItem.m in Sources */,
 				1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,
-				1C29790C1EEF73DE00D3FEEA /* DLBankTransferTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
+				1C6661701EF67BAC0032E1AE /* DLDestinationAtlasModel.m in Sources */,
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
@@ -2221,6 +2264,8 @@
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
 				1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */,
 				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
+				1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */,
+				1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
@@ -2228,6 +2273,7 @@
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
+				1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */,
 				45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
@@ -2237,6 +2283,7 @@
 				45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
+				1C6661621EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m in Sources */,
 				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
@@ -2258,6 +2305,7 @@
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
 				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
+				1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */,
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
@@ -2332,17 +2380,19 @@
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
+				1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
+				1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				45DB47F81EE7DD8300399A6D /* DLContractRecordModel.m in Sources */,
-				1CB953BA1ECFC41600BDC2D3 /* DLHomeMenuItem.m in Sources */,
 				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
 				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
+				1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */,
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,

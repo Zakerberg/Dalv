@@ -155,5 +155,9 @@
     return _rechargeRecordList;
 }
 
+#pragma mark - Event Handler
+- (void)didTapBack:(UIBarButtonItem *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end
