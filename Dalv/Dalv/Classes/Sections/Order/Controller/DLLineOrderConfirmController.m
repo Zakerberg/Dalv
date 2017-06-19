@@ -55,7 +55,7 @@
 
 
 //keyID
-@property (weak, nonatomic) NSString *keyidStr;
+@property (strong, nonatomic) NSString *keyidStr;
 
 @end
 
@@ -91,8 +91,6 @@
 #pragma mark ------------- 确认支付 -------------------
 - (IBAction)confirmBtnClick:(id)sender {
     
-    
-    
     NSDictionary *param = @{
                             
                             @"uid":[DLUtils getUid],
@@ -102,28 +100,37 @@
                             };
     
     if ([self.BtnType isEqualToString:@"1"]) {
-    
-    [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
-        NSLog(@"全款处理");
-    }];
 
+    [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
+        
+        NSLog(@"已经付全款--------");
+            //搭建风火轮
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    //[SVProgressHUD setForegroundColor:[UIColor colorWithRed:0.882 green:0.839 blue:0.729 alpha:1.000]];
+    [SVProgressHUD setForegroundColor:kPinkColor];
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.6588 green:0.5686 blue:0.3686 alpha:0.2]];
+    //[SVProgressHUD setBackgroundColor:kPinkColor];
+    [SVProgressHUD setFont:[UIFont systemFontOfSize:13]];
+        [SVProgressHUD showWithStatus:@"支付成功"];
+    [SVProgressHUD dismissWithDelay:2];
+    self.view.backgroundColor = [UIColor colorWithRed:0.969 green:0.949 blue:0.902 alpha:1.000];
+    
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }];
         
     }else if ([self.BtnType isEqualToString:@"2"]){
-       
+   
         [DLHomeViewTask getAgencyLineOrderPrePayed:param completion:^(id result, NSError *error) {
             NSLog(@"预付款处理");
         }];
-        
-        
         
     }else if ([self.BtnType isEqualToString:@"3"]){
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
             NSLog(@"尾款处理");
         }];
-        
     }
-    
 }
 
 
@@ -175,7 +182,7 @@
         NSString *preForumStr = dict[@"preForum"];
         
         //keyID
-        self.keyidStr = dict[@"keyid"];
+//        self.keyidStr = dict[@"keyid"];
         
         //全款 1
         if ([self.BtnType isEqualToString:@"1"]) {
@@ -183,13 +190,18 @@
             self.payMoneyLabel.text = @"全款金额";
             self.lineOrderTipsLabel.text = @"您确定要支付全款吗?";
             //应付金额
-            self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[payStr integerValue]/100.00];;
+            self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[payStr integerValue]/100.00];
+            //keyID
+            self.keyidStr = dict[@"keyid"];
+
             
             //预付款 2
         }else if ([self.BtnType isEqualToString:@"2"]){
             self.payMoneyLabel.text = @"预付款金额";
             self.lineOrderTipsLabel.text = @"您确定要支付预付款吗?";
-            
+            //keyID
+            self.keyidStr = dict[@"keyid"];
+
             //预付款
             self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[prepayStr integerValue]/100.00];
             
@@ -198,7 +210,9 @@
             
             self.payMoneyLabel.text = @"尾款金额";
             self.lineOrderTipsLabel.text = @"您确定要支付尾款吗?";
-            
+            //keyID
+            self.keyidStr = dict[@"keyid"];
+
             //尾款
             self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[preForumStr integerValue]/100.00];
         }

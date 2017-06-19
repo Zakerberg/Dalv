@@ -149,9 +149,6 @@ static NSString *nibCellID = @"nibCellID";
     return CGFLOAT_MIN;
 }
 
-
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -171,7 +168,6 @@ static NSString *nibCellID = @"nibCellID";
     lineXIBvc.tourID = lineOrderModel.lineId;
     
     [self.navigationController pushViewController:lineXIBvc animated:YES];
-//
     
 }
 
