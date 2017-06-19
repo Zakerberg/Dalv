@@ -567,4 +567,53 @@
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 60 测试首页线路输入搜素接口地址
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getLineSearch:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 61 测试首页出发城市搜素接口地址
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getDepartureSearc:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 62 测试（首页模块）栏目接口地址（如出境游，国内游等）
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getHomeOutbound:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 63 测试顾问修改头像处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyEditHendImgHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
 @end
