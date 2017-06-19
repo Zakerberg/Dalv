@@ -120,7 +120,6 @@ static NSString *section5CellID = @"section5CellID";
     [self fetchData];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"发票申请";
-    self.inviteBtn.selected = YES;
 
     self.Section2Number = 2;
     self.Section3Number = 0;
@@ -267,6 +266,7 @@ static NSString *section5CellID = @"section5CellID";
 /***  快递按钮 ***/
 -(void)courierBtnClick {
     
+
     self.methodBtnNumber = @"2";
     [self.courierBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     [self.inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
@@ -291,8 +291,7 @@ static NSString *section5CellID = @"section5CellID";
 
 /*** 邮寄按钮 ***/
 -(void)mailBtnCLick {
-    
-    
+
     self.express_feeNumber = @"4";
     
     [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
@@ -302,8 +301,7 @@ static NSString *section5CellID = @"section5CellID";
 
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
-    
-    
+
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
         
@@ -466,7 +464,6 @@ static NSString *section5CellID = @"section5CellID";
         [self.projctButton addTarget:self action:@selector(projectBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         return section0Cell;
-        
     }
     
     /**发票金额**/

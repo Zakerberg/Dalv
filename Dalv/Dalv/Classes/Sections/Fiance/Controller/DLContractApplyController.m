@@ -57,9 +57,10 @@
 @property(nonatomic,strong)DLAddReduceButton *button2;
 @property(nonatomic,strong)DLAddReduceButton *button3;
 
-//@property(nonatomic, strong)UITextField *countTextField;
-//@property(nonatomic, strong)UITextField *countTextField1;
-//@property(nonatomic, strong)UITextField *countTextField2;
+/* 公司地址 */
+@property(nonatomic,strong) UILabel * addressLabel1;
+/* 公司电话 */
+@property(nonatomic,strong) UILabel * numberLabel1;
 
 @end
 
@@ -97,10 +98,17 @@ static NSString *section5CellID = @"section5CellID";
     
     [DLHomeViewTask getAgencyFinanceApplyContract:param completion:^(id result, NSError *error) {
         
+        NSDictionary *invoiceDict = result;
+        
+        NSDictionary *operatorInfo = invoiceDict[@"contractFeeInfo"];
+        
+        NSString *companyStr = operatorInfo[@"address"];
+        self.addressLabel1.text = companyStr;
+        NSString *numStr = operatorInfo[@"tel"];
+        self.numberLabel1.text = numStr;
+        
     }];
-
 }
-
 
 #pragma mark ----------------- Set TableView -----------------
 
@@ -115,11 +123,10 @@ static NSString *section5CellID = @"section5CellID";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.contractTableView.showsVerticalScrollIndicator = NO;
     
-    //注册
-//    [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplyViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
-    
-//    
-//    [self.contractTableView registerClass:[DLContractApplySection0Cell class] forCellReuseIdentifier:section0CellID];
+    /*注册
+     [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplyViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
+     [self.contractTableView registerClass:[DLContractApplySection0Cell class] forCellReuseIdentifier:section0CellID];
+     */
     
     [self.contractTableView registerNib:[UINib nibWithNibName:@"DLContractApplySection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:section0CellID];
     
@@ -183,12 +190,12 @@ static NSString *section5CellID = @"section5CellID";
     self.Section2Number = 1;
     self.Section3Number = 1;
     [self.contractTableView reloadData];
-
+    
 }
 
 /*** 到付按钮 ***/
 -(void)payforBtnCLick {
-
+    
     
     self.express_feeNumber = @"3";
     
@@ -198,39 +205,13 @@ static NSString *section5CellID = @"section5CellID";
 
 /*** 邮寄按钮 ***/
 -(void)mailBtnCLick {
-
+    
     
     self.express_feeNumber = @"4";
     [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
 }
 
-/*
- 
- #pragma mark - Fetch data
- - (void)fetchData {
- 
- NSDictionary *param = @{@"uid" : @"1132",
- @"page" : @"1",
- @"sign_token" : @"bc56bde4ae477773abc75b3177a263c7",};
- @weakify(self);
- 
- [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
- @strongify(self);
- if (result) {
- NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
- [self.contractRecordList removeAllObjects];
- [self.contractRecordList addObjectsFromArray:contractRecordArray];
- [self.contractRecordTableView reloadData];
- } else {
- [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
- }
- }];
- 
- }
-          [NSString stringWithFormat: @"%d", NSInteger];
- 
- */
 
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
@@ -238,17 +219,6 @@ static NSString *section5CellID = @"section5CellID";
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
         
-//        NSDictionary *param1 = @{
-//                                 
-//                                 @"uid":[DLUtils getUid],
-//                                 @"sign_token" : [DLUtils getSign_token],
-//                                 @"request_method":self.methodBtnNumber,
-//                                 @"inland":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
-//                                 @"outbound":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
-//                                 @"peritem":[NSString stringWithFormat:@"%ld",(long)self.currentNumber],
-//                                 @"code":@"400",
-//                                 };
-//
         NSDictionary *param1 = @{
                                  
                                  @"uid":[DLUtils getUid],
@@ -257,18 +227,14 @@ static NSString *section5CellID = @"section5CellID";
                                  @"inland":[NSString stringWithFormat:@"%ld",self.button1.currentNumber],
                                  @"outbound":[NSString stringWithFormat:@"%ld",self.button2.currentNumber],
                                  @"peritem":[NSString stringWithFormat:@"%ld",self.button3.currentNumber],
-                               
+                                 
                                  @"code":@"400",
                                  };
-//
+        
         [DLHomeViewTask getAgencyFinanceApplyContractHandle:param1 completion:^(id result, NSError *error) {
             
-            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [failureV show];
-            
-
-        
-        
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
         }];
     }
     
@@ -292,18 +258,15 @@ static NSString *section5CellID = @"section5CellID";
                                     
                                     @"code":@"400",
                                     };
-
-
             [DLHomeViewTask getAgencyFinanceApplyContractHandle:param completion:^(id result, NSError *error) {
                 NSLog(@"%@",result);
                 
-                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [failureV show];
-
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
                 
             }];
         }else{
-        
+            
         }
     }
 }
@@ -324,15 +287,8 @@ static NSString *section5CellID = @"section5CellID";
     return 25;
 }
 
-
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    
-//
-//}
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     
     if (indexPath.section == 0 ) {
         return 52*3;
@@ -349,14 +305,13 @@ static NSString *section5CellID = @"section5CellID";
         
         return 165;
     }
-
-    return 45;
     
+    return 45;
 }
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-   
+    
     return 5;
     
 }
@@ -388,20 +343,6 @@ static NSString *section5CellID = @"section5CellID";
     
     return self.Section3Number;
     
-//    if (section == 1) {
-//        
-//        return self.Section1Number;
-//    }
-//    
-//    if (section == 2) {
-//        return self.Section2Number;
-//    }
-//    if (section == 4) {
-//        return 1;
-//    }
-//    
-//    return self.Section3Number;
-    
 }
 
 
@@ -417,28 +358,9 @@ static NSString *section5CellID = @"section5CellID";
         self.button2 = cell.button2;
         self.button3 = cell.button3;
         
-        
-//        self.countTextField.text =cell.countTextField.text;
-//        self.countTextField1.text =cell.countTextField1.text;
-//        self.countTextField2.text =cell.countTextField2.text;
-//        
-
-//        if (indexPath.row == 0) {
-//            cell.textLabel.text = @"国内合同";
-//            cell.textColor = [UIColor colorWithHexString:@"#494949"];
-//        }
-//        if (indexPath.row == 1) {
-//            cell.textLabel.text = @"境外合同";
-//            cell.textColor = [UIColor colorWithHexString:@"#494949"];
-//        }
-//        if (indexPath.row == 2) {
-//            cell.textLabel.text = @"单项委托";
-//            cell.textColor = [UIColor colorWithHexString:@"#494949"];
-//        }
-        
         return cell;
+        
     }else if (indexPath.section == 1 && indexPath.row == 0){
-        // self.Section1Number = 2;
         
         DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
         self.inviteBtn = cell.inviteBtn;
@@ -453,6 +375,10 @@ static NSString *section5CellID = @"section5CellID";
     else if (indexPath.section == 1 && indexPath.row == 1) {
         
         DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
+        
+        //公司的地址和电话
+        self.addressLabel1 = cell.addressLabel1;
+        self.numberLabel1 = cell.numberLabel1;
         
         return cell;
     }
@@ -496,7 +422,6 @@ static NSString *section5CellID = @"section5CellID";
         
         return cell;
     }
-    
 }
 
 
@@ -509,7 +434,6 @@ static NSString *section5CellID = @"section5CellID";
     }
 }
 
-
 -(void)textViewDidEndEditing:(UITextView *)textView{
     
     if (textView.text == nil) {
@@ -521,7 +445,7 @@ static NSString *section5CellID = @"section5CellID";
 
 
 - (void)pp_numberButton:(__kindof UIView *)numberButton number:(NSInteger)number increaseStatus:(BOOL)increaseStatus{
-
+    
 }
 
 @end

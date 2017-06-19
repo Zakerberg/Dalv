@@ -34,7 +34,8 @@
     
     UIButton *inviteBtn = [[UIButton alloc] init];
     self.inviteBtn = inviteBtn;
-    [inviteBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
+    [inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    [inviteBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateSelected];
     
     [self.contentView addSubview:inviteBtn];
     
@@ -42,6 +43,7 @@
     UIButton *courierBtn = [[UIButton alloc] init];
     self.courierBtn = courierBtn;
     [courierBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
+    [courierBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateSelected];
 
     [self.contentView addSubview:courierBtn];
     
