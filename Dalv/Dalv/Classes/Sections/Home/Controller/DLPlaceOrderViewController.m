@@ -13,6 +13,7 @@
 #import "DLLineOrderSingleRoomTableViewCell.h"
 #import "DLLineOrderContactsTableViewCell.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "DLHomeViewTask.h"
 
 @interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 
@@ -188,6 +189,13 @@
 }
 
 - (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"tour_id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
+            [DLHomeViewTask getAgencyOrderInfo:param completion:^(id result, NSError *error) {
+                }];
+
 }
 
 #pragma mark - Event Handler

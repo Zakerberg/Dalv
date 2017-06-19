@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DLLineTourDetailInforModel.h"
+#import "DLRecommendRouteModel.h"
 @interface DLPlaceOrderViewController : UIViewController
 /// 传入线路模型
 @property (nonatomic, strong) DLLineTourDetailInforModel *detaiInfoModel;
+@property (nonatomic, strong) DLRecommendRouteModel *routeModel;
 
 @end

@@ -321,6 +321,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 - (void)OtherBtn {
     DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
     placeOrderVC.detaiInfoModel = self.detaiInfoModel;
+    placeOrderVC.routeModel = self.routeModel;
     [self.navigationController pushViewController:placeOrderVC animated:YES];
     
 }
