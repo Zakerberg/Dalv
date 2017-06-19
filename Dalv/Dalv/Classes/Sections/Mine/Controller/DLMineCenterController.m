@@ -102,7 +102,7 @@ static NSString *cellID  = @"cellID";
         
         make.centerX.equalTo(self.view);
         make.top.equalTo(@20);
-        make.height.with.offset(66);
+        make.height.width.offset(66);
     }];
     
     [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
@@ -126,14 +126,11 @@ static NSString *cellID  = @"cellID";
             [self.personBtn sd_setButtonImageWithUrl:urlStr];
             
             [self.personBtn.layer setMasksToBounds:YES];
+
+            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
             
-            [self.personBtn.layer setCornerRadius:self.personBtn.frame.size.height/2];//设置矩形四个圆角半径
-            
-            
-            
-//            self.personBtn.borderColor=[UIColorgrayColor].CGColor;
-            
-            
+            self.personBtn.layer.borderWidth = 2.0;
+            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
             
             [self.tableView reloadData];
         }
