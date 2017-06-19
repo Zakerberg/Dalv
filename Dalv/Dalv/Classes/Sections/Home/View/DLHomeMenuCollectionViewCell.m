@@ -106,10 +106,16 @@
 #pragma mark - configure
 
 - (void)configureCell:(DLHomeMenuItem *)data {
-    self.libImageView.image = data.image;
-    self.libNameLabel.text = data.name;
+   
+    [self.libImageView sd_setImageWithURL:[NSURL URLWithString:data.pic_icon] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+     self.libNameLabel.text = data.name;
 }
 
+- (void)configureFinanceCell:(DLFinanceMenuItem *)data {
+    self.libImageView.image = data.image;
+    self.libNameLabel.text = data.name;
+
+}
 #pragma mark - Setter
 
 - (void)setShowsSeparator:(BOOL)showsSeparator {

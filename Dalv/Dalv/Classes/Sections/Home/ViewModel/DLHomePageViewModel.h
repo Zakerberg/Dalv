@@ -11,12 +11,8 @@
 @interface DLHomePageViewModel : NSObject
 
 /**
- *  生成菜单条目
- */
-+ (NSArray *)creatMenuItems;
-
-/**
  *  生成财务菜单条目
  */
 + (NSArray *)creatFianceMenuItems;
+
 @end

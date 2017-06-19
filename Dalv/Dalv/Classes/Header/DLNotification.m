@@ -10,3 +10,4 @@
 
 NSString *const kUserlogoutNotification = @"userlogoutNotification";
 
+NSString *const kUserlogInNotification = @"kUserlogInNotification";

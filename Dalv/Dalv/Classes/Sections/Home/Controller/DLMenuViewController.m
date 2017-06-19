@@ -10,6 +10,8 @@
 #import "DLHomeMenuCollectionViewCell.h"
 #import "DLHomePageViewModel.h"
 #import "DLLineTourViewController.h"
+#import "DLHomeViewTask.h"
+#import "DLHomePageMenuModel.h"
 
 @interface DLMenuViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -73,14 +75,17 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
-   
-    self.apps = [DLHomePageViewModel creatMenuItems];
-    [self.appCollectionView reloadData];
-    
-    if (self.didCompleteLoad) {
-        self.didCompleteLoad();
-    }
-
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getHomeAgencyIndexModl:param completion:^(id result, NSError *error) {
+        DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+        self.apps = homePageMenuModel.columnList;
+        [self.appCollectionView reloadData];
+        
+        if (self.didCompleteLoad) {
+            self.didCompleteLoad(homePageMenuModel);
+        }
+    }];
  }
 
 #pragma mark - UICollectionViewDataSource
@@ -103,8 +108,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    DLLineTourViewController *DLlinetourVC = [[DLLineTourViewController alloc]init];
-    [self.navigationController pushViewController:DLlinetourVC animated:YES];
+    DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
+    linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:linetourVC animated:YES];
 }
 
 

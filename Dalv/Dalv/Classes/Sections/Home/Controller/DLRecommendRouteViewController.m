@@ -83,11 +83,14 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [self fetchData];
 }
 - (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
-     [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
+     [DLHomeViewTask getHomeAgencyLinelist:param completion:^(id result, NSError *error) {
          [[DLHUDManager sharedInstance] hiddenHUD];
          if (result) {
-            NSArray *recommendRouteArray =[DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.topicList removeAllObjects];
             [self.topicList addObjectsFromArray:recommendRouteArray];
             [self.hotTopicCollectionView reloadData];

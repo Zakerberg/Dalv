@@ -86,8 +86,9 @@
     [self addSubview:footBtn];
     
     UIButton *forgetBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    forgetBtn.frame=CGRectMake(footBtn.x, footBtn.bottom+25, footBtn.width/2, 30);
+    forgetBtn.frame=CGRectMake(25, footBtn.bottom+15, 100, 30);
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+    footBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     forgetBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [forgetBtn  addTarget:self action:@selector(performForgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DLHomePageMenuModel.h"
 @interface DLMenuViewController : UIViewController
 
 /**
@@ -18,7 +18,7 @@
 /**
  *  加载完成
  */
-@property (nonatomic, copy) void (^didCompleteLoad)();
+@property (nonatomic, copy) void (^didCompleteLoad)(DLHomePageMenuModel *homePageMenuModel);
 
 
 @end

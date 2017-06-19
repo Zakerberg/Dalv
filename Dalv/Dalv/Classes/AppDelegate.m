@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DLTabBarController.h"
 #import "DLLoginViewController.h"
+#import "DLIdentitySelectionLoginViewController.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLUtils.h"
 
@@ -57,6 +58,11 @@
                                              selector:@selector(setupLoginVC)
                                                  name:kUserlogoutNotification
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupTabbarVC)
+                                                 name:kUserlogInNotification
+                                               object:nil];
 }
 
 - (void)setupMainVC {
@@ -73,12 +79,7 @@
 }
 // 未登录跳到登录界面
 - (void)setupLoginVC {
-    @weakify(self);
-    DLLoginViewController *loginVC = [[DLLoginViewController alloc] init];
-    [loginVC setLoginSuccessBlock:^{
-        @strongify(self);
-        [self setupTabbarVC];
-    }];
+    DLIdentitySelectionLoginViewController *loginVC = [[DLIdentitySelectionLoginViewController alloc] init];
     DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:loginVC];
     self.window.rootViewController = nav;
 }

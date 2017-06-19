@@ -9,8 +9,11 @@
 #ifndef DLNotification_h
 #define DLNotification_h
 
-//用户操作
+//退出登录
 extern NSString *const kUserlogoutNotification;
+
+//登录成功
+extern NSString *const kUserlogInNotification;
 
 #endif /* DLNotification_h */
 

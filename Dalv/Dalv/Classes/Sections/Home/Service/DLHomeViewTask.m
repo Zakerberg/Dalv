@@ -151,7 +151,7 @@
 + (void)getHomeAgencyLinelist:(NSDictionary *)param
                    completion:(void (^)(id result, NSError *error))completionHandler {
     
-    [DLRequestSerVice POST:DL_HomeIndexLineList param:param success:^(id responseData) {
+    [DLRequestSerVice POST:DL_HomeAgencyLinelist param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
@@ -553,6 +553,7 @@
                      completion:(void (^)(id result, NSError *error))completionHandler{
     
     [DLRequestSerVice POST:DL_AgencyMorePics param:param success:^(id responseData){
+        completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
     }];

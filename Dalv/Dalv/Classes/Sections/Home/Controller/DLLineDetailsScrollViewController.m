@@ -52,7 +52,7 @@
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-
+    
 }
 
 # pragma mark - Layout
@@ -63,7 +63,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.lineDetArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -73,15 +73,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DLLineDetailsScrollViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetailsScrollViewTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+    DLDestinationAtlasModel *destModel = [self.lineDetArray objectAtIndex:indexPath.row];
+    [cell configureCell:destModel];
+    
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    DLDestinationAtlasModel *destModel = [self.lineDetArray objectAtIndex:indexPath.row];
+    
+    CGFloat titleHeight = [destModel.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+    return titleHeight + 180;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 2.0;
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,22 +98,32 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
-            NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
     @weakify(self);
     [DLHomeViewTask getAgencyMorePics:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            
-            
-        }else {
+            NSArray *destArray = [DLDestinationAtlasModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"picArr"]];
+            [self.lineDetArray addObjectsFromArray:destArray];
+            [self.homeTableView reloadData];
+        } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
-
+        
     }];
-
+    
 }
 
 #pragma mark - Event Handler
 
 #pragma mark - Getter
+
+- (NSMutableArray *)lineDetArray {
+    if (_lineDetArray == nil) {
+        _lineDetArray = [[NSMutableArray alloc] init];
+    }
+    return _lineDetArray;
+}
+
+
 @end
