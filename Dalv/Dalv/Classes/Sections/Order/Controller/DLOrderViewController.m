@@ -12,6 +12,7 @@
 #import "DLTicketsOrderController.h"
 #import "DLWiFiOrderViewController.h"
 #import "DLHeadScrollView.h"
+#import <SVProgressHUD.h>
 
 @interface DLOrderViewController ()<UIScrollViewDelegate,seletedControllerDelegate>
 
@@ -32,6 +33,17 @@
     [super viewDidLoad];
     [self setUI];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+    //搭建风火轮
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    //[SVProgressHUD setForegroundColor:[UIColor colorWithRed:0.882 green:0.839 blue:0.729 alpha:1.000]];
+    [SVProgressHUD setForegroundColor:kPinkColor];
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.6588 green:0.5686 blue:0.3686 alpha:0.2]];
+    //[SVProgressHUD setBackgroundColor:kPinkColor];
+    [SVProgressHUD setFont:[UIFont systemFontOfSize:13]];
+    [SVProgressHUD showWithStatus:@"加载中~"];
+    [SVProgressHUD dismissWithDelay:2];
+    self.view.backgroundColor = [UIColor colorWithRed:0.969 green:0.949 blue:0.902 alpha:1.000];
+
 
 }
 

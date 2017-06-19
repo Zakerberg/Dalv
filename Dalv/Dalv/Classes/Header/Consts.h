@@ -137,6 +137,6 @@ rac_keywordify     _Pragma("clang diagnostic push")     _Pragma("clang diagnosti
 // NSUserDefaults
 #define UserDefaults(userDefaults) NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-
+#define kPinkColor [UIColor colorWithRed:0.886 green:0.271 blue:0.353 alpha:1.000]
 
 #endif /* Consts_h */

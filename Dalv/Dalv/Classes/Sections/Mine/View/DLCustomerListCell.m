@@ -30,7 +30,7 @@
     
     NSURL *url = [NSURL URLWithString:customerListModel.head_img];
     
-    [self.customerAvatarImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    [self.customerAvatarImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"my_direct_guest"]];
 
 }
 
