@@ -196,5 +196,17 @@
 #define DL_AgencyMorePics DL_HOST@"index.php/Api/agency/morePics"
 
 
+//61.测试顾问线路订单详情页-付全款处理接口
+#define DL_AgencyAllpayed DL_HOST@"index.php/Api/agencyPersonal/agencyAllPayed"
+
+
+//62.测试顾问线路订单详情页-付预付款处理接口
+#define DL_AgencyPrePayed DL_HOST@"index.php/Api/agencyPersonal/agencyPrePayed"
+
+
+//63.测试顾问线路订单详情页-付尾款处理接口
+#define DL_AgencyPreForum DL_HOST@"index.php/Api/agencyPersonal/agencyPreForum"
+
+
 
 #endif /* InterfaceConfig_h */

@@ -533,4 +533,38 @@
                      completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 57 测试顾问线路订单详情页-付全款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderAllPayed:(NSDictionary *)param
+                                    completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 58 测试顾问线路订单详情页-付预付款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderPrePayed:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 59 测试顾问线路订单详情页-付尾款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderPreForum:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 @end
