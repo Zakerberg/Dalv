@@ -15,16 +15,15 @@
 #import "DLHomeViewTask.h"
 #import "DLManager.h"
 #import "DLMyCustomerXibController.h"
+#import "UIButton+WebCache.h"
 
 static NSString *cellID  = @"cellID";
 
 @interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UIView *headerView;
-//@property(nonatomic,strong) UIImageView * picImg; //背景图
 @property(nonatomic,strong) UIButton * personBtn;
 @property(nonatomic,strong) UILabel *label;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
-
 @property (strong,nonatomic) UITableView* tableView ;
 @property (strong,nonatomic) UILabel* numLabel;
 @property (strong,nonatomic) UILabel* nameLabel;
@@ -54,7 +53,9 @@ static NSString *cellID  = @"cellID";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
-
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 -(void)setTableView
 
 {
@@ -82,9 +83,7 @@ static NSString *cellID  = @"cellID";
 -(void)setupHeaderView{
     //头部视图View
     UIView *headerView = [[UIView alloc] init];
-//    headerView.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 145);
     self.tableView.tableHeaderView = headerView;
-    headerView.backgroundColor = [UIColor redColor];
     [self.view addSubview:headerView];
     
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,18 +91,6 @@ static NSString *cellID  = @"cellID";
         make.width.offset(0);
         make.height.offset(145);
     }];
-
-//    //背景图
-//    UIImageView * picImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mine_theme@2x"]];
-//    
-//    self.picImg = picImg;
-//    picImg.userInteractionEnabled = YES;
-//    [headerView addSubview:picImg];
-//    
-//    [picImg mas_makeConstraints:^(MASConstraintMaker *make) {
-//
-//        make.edges.equalTo(self.headerView);
-//    }];
     
     //设置头像按钮
     UIButton* personBtn = [[UIButton alloc]init];
@@ -113,47 +100,12 @@ static NSString *cellID  = @"cellID";
     
     [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.centerY.centerX.offset(0);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(@20);
         make.height.with.offset(66);
-        
     }];
     
-    [personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-    [personBtn.layer setMasksToBounds:YES];
-    
     [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
-
-    
-//    UIImageView *headImageV = [[UIImageView alloc] init];
-//    self.headerView = headerView;
-//    
-//    
-//   UILabel *nameLabel = [[UILabel alloc] init];
-//    self.nameLabel = nameLabel;
-//    nameLabel.text = @"李元芳";
-//    nameLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
-//    nameLabel.font = [UIFont boldSystemFontOfSize:17.0];
-//    nameLabel.textAlignment = NSTextAlignmentCenter;
-//    [self.picImg addSubview:nameLabel];
-//    
-//    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.personBtn.mas_bottom).offset(10);
-//        make.centerX.equalTo(self.personBtn);
-//        make.width.offset(230);
-//    }];
-//    
-//    self.numLabel = [[UILabel alloc] init];
-//    self.numLabel.text = @"13898887888";
-//    self.numLabel.textColor = [UIColor colorWithHexString:@"#6e6e6e"];
-//    self.nameLabel.font = [UIFont systemFontOfSize:13];
-//    [self.picImg addSubview:self.numLabel];
-//    
-//    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//       
-//        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
-//        make.height.offset(12);
-//        make.centerX.centerY.equalTo(personBtn);
-//    }];
 }
 
 -(void)fetchData{
@@ -161,23 +113,31 @@ static NSString *cellID  = @"cellID";
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
+    
     @weakify(self);
-    [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
             self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = [result objectForKey:@"agencyInfo"];
-            [self.tableView reloadData];
-
             
-        }else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            NSString *urlStr = self.mineCenterDict[@"head_pic"];
+            
+            [self.personBtn sd_setButtonImageWithUrl:urlStr];
+            
+            [self.personBtn.layer setMasksToBounds:YES];
+            
+            [self.personBtn.layer setCornerRadius:self.personBtn.frame.size.height/2];//设置矩形四个圆角半径
+            
+            
+            
+//            self.personBtn.borderColor=[UIColorgrayColor].CGColor;
+            
+            
+            
+            [self.tableView reloadData];
         }
     }];
-}
-
-- (BOOL)dl_blueNavbar {
-    return YES;
 }
 
 //头像按钮的点击事件

@@ -309,6 +309,7 @@
 		45A321CE1EF256E000325683 /* DLMyCustomerXibController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */; };
 		45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321D01EF26A2C00325683 /* DLCustomerListModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
+		45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB41981EF799D7003AB961 /* UIButton+WebCache.m */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
 		45DB47B61EE5524200399A6D /* DLCustomerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */; };
 		45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B81EE57A3100399A6D /* DLContractApplyController.m */; };
@@ -815,6 +816,8 @@
 		45A321CF1EF26A2C00325683 /* DLCustomerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListModel.h; sourceTree = "<group>"; };
 		45A321D01EF26A2C00325683 /* DLCustomerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListModel.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45BB41971EF799D7003AB961 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		45BB41981EF799D7003AB961 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		45DB47B21EE5524200399A6D /* DLCustomerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListCell.h; sourceTree = "<group>"; };
 		45DB47B31EE5524200399A6D /* DLCustomerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListCell.m; sourceTree = "<group>"; };
 		45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerListCell.xib; sourceTree = "<group>"; };
@@ -1518,6 +1521,8 @@
 				45305A341ED7CC5B0023E892 /* UIView+Frame.m */,
 				45305A3F1ED833730023E892 /* UILabel+Extension.h */,
 				45305A401ED833730023E892 /* UILabel+Extension.m */,
+				45BB41971EF799D7003AB961 /* UIButton+WebCache.h */,
+				45BB41981EF799D7003AB961 /* UIButton+WebCache.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2302,6 +2307,7 @@
 				45DB47D41EE68BDD00399A6D /* DLTicketsOrderController.m in Sources */,
 				458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */,
 				1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */,
+				45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */,
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,
 				1CB9538C1ECFC41600BDC2D3 /* DLNavigationController.m in Sources */,
 				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
