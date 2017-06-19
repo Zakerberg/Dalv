@@ -608,4 +608,50 @@
     }];
 
 }
+
++ (void)getLineSearch:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_LineSearch param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
+
++ (void)getDepartureSearc:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_DepartureSearch param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
++ (void)getHomeOutbound:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_HomeOutbound param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
++ (void)getAgencyEditHendImgHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_AgencyEditHendImgHandle param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
 @end

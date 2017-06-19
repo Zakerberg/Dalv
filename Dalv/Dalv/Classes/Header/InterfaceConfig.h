@@ -175,26 +175,36 @@
 #define DL_providerQuery DL_HOST@"index.php/Api/agencyPersonal/providerQuery"
 
 //  顾客注册的接口
-#define  DL_CustomerRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
+#define DL_CustomerRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
 
 // 52.顾问订单列表界面接口
-#define  DL_AgencyLineOrderList DL_HOST@"index.php/api/AgencyOrder/lineOrder"
+#define DL_AgencyLineOrderList DL_HOST@"index.php/api/AgencyOrder/lineOrder"
 
 
 // 53.顾问订单详情界面接口
-#define  DL_AgencyLineOrderListDetails DL_HOST@"index.php/Api/agencyOrder/lineDetails"
+#define DL_AgencyLineOrderListDetails DL_HOST@"index.php/Api/agencyOrder/lineDetails"
 
 // 54.我的直客列表接口
-#define  DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
-
+#define DL_AgencyMyCustomerList DL_HOST@"index.php/Api/agencyFlight/visitorList"
 
 
 // 55.测试顾问线路订单详情页-付全款，付预付，付尾款页面接口
-#define  DL_AgencyLineOrderDetailConfirmPayment DL_HOST@"index.php/Api/agencyPersonal/agencyShowAllPayed"
+#define DL_AgencyLineOrderDetailConfirmPayment DL_HOST@"index.php/Api/agencyPersonal/agencyShowAllPayed"
+
+// 56.测试首页线路输入搜素接口地址
+#define DL_LineSearch DL_HOST@"index.php/Api/index/indexLineSearch"
+
+// 57.测试首页出发城市搜素接口地址
+#define DL_DepartureSearch DL_HOST@"index.php/Api/index/indexDepartureSearch"
+
+// 58.测试（首页模块）栏目接口地址（如出境游，国内游等）
+#define DL_HomeOutbound DL_HOST@"index.php/Api/Outbound/index"
+
+// 59.测试顾问修改头像处理接口
+#define DL_AgencyEditHendImgHandle DL_HOST@"index.php/Api/agencyPersonal/agencyEditHendImgHandle"
 
 // 60.测试详情页地址-目的地图册
 #define DL_AgencyMorePics DL_HOST@"index.php/Api/agency/morePics"
-
 
 //61.测试顾问线路订单详情页-付全款处理接口
 #define DL_AgencyAllpayed DL_HOST@"index.php/Api/agencyPersonal/agencyAllPayed"
