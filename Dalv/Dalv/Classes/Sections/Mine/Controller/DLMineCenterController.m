@@ -25,6 +25,7 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong) UILabel *label;
 @property (strong,nonatomic) NSArray* cellTiltleArr ;
 @property (strong,nonatomic) UITableView* tableView ;
+
 @property (strong,nonatomic) UILabel* numLabel;
 @property (strong,nonatomic) UILabel* nameLabel;
 
@@ -106,6 +107,35 @@ static NSString *cellID  = @"cellID";
     }];
     
     [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UILabel *nameLabel = [[UILabel alloc] init];
+    self.nameLabel = nameLabel;
+    [nameLabel sizeToFit];
+    nameLabel.font = [UIFont fontWithName:@ "Arial Rounded MT Bold"  size:(16.0)];
+    
+    [headerView addSubview:nameLabel];
+    
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(personBtn);
+        make.top.equalTo(personBtn.mas_bottom).offset(7);
+        make.height.offset(16);
+        
+    }];
+   
+    UILabel *numLabel = [[UILabel alloc] init];
+    self.numLabel = numLabel;
+    [nameLabel sizeToFit];
+
+    [headerView addSubview:numLabel];
+    
+    [numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(nameLabel.mas_bottom).offset(8);
+        make.centerX.equalTo(personBtn);
+        make.height.offset(12);
+    }];
+    
+
 }
 
 -(void)fetchData{
@@ -131,6 +161,9 @@ static NSString *cellID  = @"cellID";
             
             self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+            
+            self.nameLabel.text = self.mineCenterDict[@"name"];
+            self.numLabel.text = self.mineCenterDict[@"mobile"];
             
             [self.tableView reloadData];
         }
