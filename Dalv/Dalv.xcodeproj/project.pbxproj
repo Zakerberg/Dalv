@@ -123,14 +123,6 @@
 		1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953F01ECFC7E200BDC2D3 /* UIViewController+MSExtension.m */; };
 		1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953FC1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m */; };
 		1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953FF1ECFCA7000BDC2D3 /* AppDelegate.m */; };
-		1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954031ECFCA9100BDC2D3 /* CalendarDayCell.m */; };
-		1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954051ECFCA9100BDC2D3 /* CalendarDayModel.m */; };
-		1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954071ECFCA9100BDC2D3 /* CalendarHomeViewController.m */; };
-		1CB954161ECFCA9100BDC2D3 /* CalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954091ECFCA9100BDC2D3 /* CalendarLogic.m */; };
-		1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9540B1ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m */; };
-		1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9540D1ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m */; };
-		1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9540F1ECFCA9100BDC2D3 /* CalendarViewController.m */; };
-		1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB954121ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m */; };
 		1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9541D1ECFCAB300BDC2D3 /* DLBasePickerView.m */; };
 		1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB9541F1ECFCAB300BDC2D3 /* DLCityPickerView.m */; };
 		1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9031ED2E45100310CCB /* DLCycleScrollView.m */; };
@@ -569,23 +561,6 @@
 		1CB953FC1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLM_UploadUserIcon.m; sourceTree = "<group>"; };
 		1CB953FE1ECFCA7000BDC2D3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CB953FF1ECFCA7000BDC2D3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CB954021ECFCA9100BDC2D3 /* CalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayCell.h; sourceTree = "<group>"; };
-		1CB954031ECFCA9100BDC2D3 /* CalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayCell.m; sourceTree = "<group>"; };
-		1CB954041ECFCA9100BDC2D3 /* CalendarDayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayModel.h; sourceTree = "<group>"; };
-		1CB954051ECFCA9100BDC2D3 /* CalendarDayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayModel.m; sourceTree = "<group>"; };
-		1CB954061ECFCA9100BDC2D3 /* CalendarHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHomeViewController.h; sourceTree = "<group>"; };
-		1CB954071ECFCA9100BDC2D3 /* CalendarHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHomeViewController.m; sourceTree = "<group>"; };
-		1CB954081ECFCA9100BDC2D3 /* CalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarLogic.h; sourceTree = "<group>"; };
-		1CB954091ECFCA9100BDC2D3 /* CalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLogic.m; sourceTree = "<group>"; };
-		1CB9540A1ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthCollectionViewLayout.h; sourceTree = "<group>"; };
-		1CB9540B1ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthCollectionViewLayout.m; sourceTree = "<group>"; };
-		1CB9540C1ECFCA9100BDC2D3 /* CalendarMonthHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMonthHeaderView.h; sourceTree = "<group>"; };
-		1CB9540D1ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMonthHeaderView.m; sourceTree = "<group>"; };
-		1CB9540E1ECFCA9100BDC2D3 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		1CB9540F1ECFCA9100BDC2D3 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
-		1CB954101ECFCA9100BDC2D3 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
-		1CB954111ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WQCalendarLogic.h"; sourceTree = "<group>"; };
-		1CB954121ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WQCalendarLogic.m"; sourceTree = "<group>"; };
 		1CB9541C1ECFCAB300BDC2D3 /* DLBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLBasePickerView.h; sourceTree = "<group>"; };
 		1CB9541D1ECFCAB300BDC2D3 /* DLBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBasePickerView.m; sourceTree = "<group>"; };
 		1CB9541E1ECFCAB300BDC2D3 /* DLCityPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCityPickerView.h; sourceTree = "<group>"; };
@@ -1095,7 +1070,6 @@
 				1C2979151EF02D6F00D3FEEA /* Refresh */,
 				450105DC1ED97CF000AA7A17 /* JHPickView */,
 				1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */,
-				1CB954011ECFCA9100BDC2D3 /* Calendar */,
 				1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */,
 				1CB952F71ECFC41600BDC2D3 /* DLHUDManager.m */,
 				1CD1663C1ECFE4D800E54AB3 /* DLActionSheet.h */,
@@ -1535,30 +1509,6 @@
 				45305A241ED6C89B0023E892 /* DLManager.m */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		1CB954011ECFCA9100BDC2D3 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				1CB954021ECFCA9100BDC2D3 /* CalendarDayCell.h */,
-				1CB954031ECFCA9100BDC2D3 /* CalendarDayCell.m */,
-				1CB954041ECFCA9100BDC2D3 /* CalendarDayModel.h */,
-				1CB954051ECFCA9100BDC2D3 /* CalendarDayModel.m */,
-				1CB954061ECFCA9100BDC2D3 /* CalendarHomeViewController.h */,
-				1CB954071ECFCA9100BDC2D3 /* CalendarHomeViewController.m */,
-				1CB954081ECFCA9100BDC2D3 /* CalendarLogic.h */,
-				1CB954091ECFCA9100BDC2D3 /* CalendarLogic.m */,
-				1CB9540A1ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.h */,
-				1CB9540B1ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m */,
-				1CB9540C1ECFCA9100BDC2D3 /* CalendarMonthHeaderView.h */,
-				1CB9540D1ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m */,
-				1CB9540E1ECFCA9100BDC2D3 /* CalendarViewController.h */,
-				1CB9540F1ECFCA9100BDC2D3 /* CalendarViewController.m */,
-				1CB954101ECFCA9100BDC2D3 /* Color.h */,
-				1CB954111ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.h */,
-				1CB954121ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m */,
-			);
-			path = Calendar;
 			sourceTree = "<group>";
 		};
 		1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */ = {
@@ -2219,7 +2169,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CB954161ECFCA9100BDC2D3 /* CalendarLogic.m in Sources */,
 				1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */,
 				1C0864D01EEA96F5005015DE /* LGLCalenderViewController.m in Sources */,
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
@@ -2236,7 +2185,6 @@
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
 				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
-				1CB954181ECFCA9100BDC2D3 /* CalendarMonthHeaderView.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
@@ -2259,7 +2207,6 @@
 				45305A411ED833730023E892 /* UILabel+Extension.m in Sources */,
 				1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */,
 				1C74F6CA1EE902330012EB10 /* DLLineModificationViewDetailTableViewCell.m in Sources */,
-				1CB954131ECFCA9100BDC2D3 /* CalendarDayCell.m in Sources */,
 				1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */,
 				1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
@@ -2274,7 +2221,6 @@
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
 				45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */,
-				1CB954151ECFCA9100BDC2D3 /* CalendarHomeViewController.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
 				45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
@@ -2307,7 +2253,6 @@
 				1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
-				1CB954191ECFCA9100BDC2D3 /* CalendarViewController.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
 				1C0864D41EEA96F5005015DE /* XLPlainFlowLayout.m in Sources */,
 				1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */,
@@ -2328,12 +2273,10 @@
 				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
-				1CB954141ECFCA9100BDC2D3 /* CalendarDayModel.m in Sources */,
 				45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				45DB48161EE93A7E00399A6D /* DLMyCustomerController.m in Sources */,
 				1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */,
-				1CB954171ECFCA9100BDC2D3 /* CalendarMonthCollectionViewLayout.m in Sources */,
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */,
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
@@ -2358,7 +2301,6 @@
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				1C1670CD1EF13A5D000DBFF5 /* DLChangeTitleViewController.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
-				1CB9541A1ECFCA9100BDC2D3 /* NSDate+WQCalendarLogic.m in Sources */,
 				1CA7E5131EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m in Sources */,
 				45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */,
 				1CB9538B1ECFC41600BDC2D3 /* DLHUDManager.m in Sources */,

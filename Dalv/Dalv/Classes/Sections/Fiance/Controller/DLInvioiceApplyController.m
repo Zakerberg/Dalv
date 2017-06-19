@@ -206,17 +206,9 @@ static NSString *section5CellID = @"section5CellID";
         
         NSString * moneyStr = invoiceDict[@"lastTotal"];
         
-        /*
-         Label.text = [NSString stringWithFormat:@"%@",dic[@"name"]];可以正常展示
-         */
-        
         NSInteger MoneyInter = [moneyStr integerValue];
         
         NSInteger finaInter = MoneyInter/100;
-        
-        
-        // self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneyStr];
-        
         self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)finaInter];
         /*
          NSString *lastTotalStr = invoiceDict[@"lastTotal"];
@@ -435,13 +427,11 @@ static NSString *section5CellID = @"section5CellID";
     }
     
     return self.Section4Number;
-    
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        
         
         DLinvoiceApplySection0Cell *section0Cell = [tableView dequeueReusableCellWithIdentifier:section0CellID];
         
@@ -564,8 +554,6 @@ static NSString *section5CellID = @"section5CellID";
         textView.textColor = [UIColor blackColor];
     }
 }
-
-
 
 #pragma mark  ----------DLCityPickerViewDelegate------------
 
