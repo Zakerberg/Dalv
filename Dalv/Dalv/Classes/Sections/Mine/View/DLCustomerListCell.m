@@ -20,11 +20,6 @@
 
     // Configure the view for the selected state
 }
-//
-//+ (NSString *)cellIdentifier {
-//    return NSStringFromClass([self class]);
-//}
-//
 
 - (void)configureCell:(DLCustomerListModel *)customerListModel{
     

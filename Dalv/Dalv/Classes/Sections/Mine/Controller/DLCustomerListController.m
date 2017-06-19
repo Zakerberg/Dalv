@@ -79,18 +79,16 @@ static NSString *cellID = @"cellID";
     [DLHomeViewTask getAgencyMyCustomerList:param completion:^(id result, NSError *error) {
         
         @weakify(self);
-
         if (result) {
          @strongify(self);
             
             NSArray *customerListArray = [DLCustomerListModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-//            [self.myCustomerList removeAllObjects];
             [self.myCustomerList addObjectsFromArray:customerListArray];
             
-            NSLog(@"%@",result);
-            
             [self.customerListTableView reloadData];
+      
         }else {
+        
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
@@ -114,11 +112,6 @@ static NSString *cellID = @"cellID";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DLCustomerListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-
-    self.customerAvatarImageV = cell.customerAvatarImageV;
-    self.customerTimeLabel= cell.customerTimeLabel;
-    self.customerNameLabel = cell.customerNameLabel;
-    self.customerNumLabel = cell.customerNumLabel;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLCustomerListModel *clModel = [self.myCustomerList objectAtIndex:indexPath.row];

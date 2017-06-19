@@ -85,6 +85,7 @@ static NSString *cellID  = @"cellID";
     //头部视图View
     UIView *headerView = [[UIView alloc] init];
     self.tableView.tableHeaderView = headerView;
+    headerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headerView];
     
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {

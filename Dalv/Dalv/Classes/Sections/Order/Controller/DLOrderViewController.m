@@ -32,6 +32,7 @@
     [super viewDidLoad];
     [self setUI];
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+
 }
 
 - (BOOL)dl_blueNavbar {
