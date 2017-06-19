@@ -13,10 +13,13 @@
 
 @property(nonatomic,strong) NSString * BtnType;
 
+/* 线路名称 */
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+/* 成人数量 */
 @property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;
 
+/* 儿童数量 */
 @property (weak, nonatomic) IBOutlet UILabel *childCountLabel;
 
 /* 订单金额 */
@@ -27,8 +30,12 @@
 /* 应付金额 */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;
 
-/* 预付款金额 */
+/* 付款金额 */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;
+
+
+//左边判断是全款 , 预付款 , 尾款Label
+@property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
 
 
 /* 下面的提示Label */
@@ -36,6 +43,17 @@
 
 /* 确认Button */
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+
+
+//特别说明
+@property (weak, nonatomic) IBOutlet UITextView *memoTextView;
+
+//出发日期
+@property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
+
+
+//keyID
+@property (weak, nonatomic) NSString *keyidStr;
 
 
 @end
@@ -60,15 +78,53 @@
     return YES;
 }
 
-#pragma mark ------------- BtnClick -------------------
+#pragma mark ------------- 确认支付 -------------------
 - (IBAction)confirmBtnClick:(id)sender {
+    
+    
+    
+    NSDictionary *param = @{
+                            
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            @"line_id":self.linePayID,
+                            @"keyid":self.keyidStr
+                            };
+    
+    if ([self.BtnType isEqualToString:@"1"]) {
+    
+    
+        
+        
+        
+        
+        
+        
+    }else if ([self.BtnType isEqualToString:@"2"]){
+        
+        
+    }else if ([self.BtnType isEqualToString:@"3"]){
+        
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
     
     
 }
-
 
 
 #pragma mark ------------- fetchData -------------------
@@ -81,57 +137,86 @@
  }
  */
 
+
 -(void)fetchData{
     
     NSDictionary *param = @{
+                            
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"line_id":self.linePayID,
                             @"click_type":self.BtnType,
+                           
                             };
     
     [DLHomeViewTask getAgencyLineOrderdetailConfirmPayment:param completion:^(id result, NSError *error) {
-       
-        NSLog(@"%@",result);
+        
+        NSDictionary *dict = result[@"orderTourList"];
+        
+        NSString *nameStr = dict[@"name"];
+        NSString *adultCountStr = dict[@"client_adult_count"];
+        NSString *childCountStr = dict[@"client_child_count"];
+        NSString *startTimeStr = dict[@"start_time"];
+        //订单金额
+        NSString *priceStr = dict[@"price_total"];
+        //调整金额
+        NSString *adjustStr = dict[@"price_adjust"];
+        //应付金额
+        NSString *payStr = dict[@"totalMoney"];
+        
+        
+        //预付款金额 (2,3状态有)
+        NSString *prepayStr = dict[@"prepay_amount"];
+        
+        //特别说明
+        NSString *memoStrt = dict[@"memo"];
+        
+        
+        //尾款金额 (3状态有)
+        NSString *preForumStr = dict[@"preForum"];
+        
+        //keyID
+        self.keyidStr = dict[@"keyid"];
+        
+        //全款 1
+        if ([self.BtnType isEqualToString:@"1"]) {
+            
+            self.payMoneyLabel.text = @"全款金额";
+            self.lineOrderTipsLabel.text = @"您确定要支付全款吗?";
+            //应付金额
+            self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[payStr integerValue]/100.00];;
+            
+            //预付款 2
+        }else if ([self.BtnType isEqualToString:@"2"]){
+            self.payMoneyLabel.text = @"预付款金额";
+            self.lineOrderTipsLabel.text = @"您确定要支付预付款吗?";
+            
+            //预付款
+            self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[prepayStr integerValue]/100.00];
+            
+            //尾款 3
+        }else if ([self.BtnType isEqualToString:@"3"]){
+            
+            self.payMoneyLabel.text = @"尾款金额";
+            self.lineOrderTipsLabel.text = @"您确定要支付尾款吗?";
+            
+            //尾款
+            self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[preForumStr integerValue]/100.00];
+        }
+        
+        self.nameLabel.text = nameStr;
+        self.adultCountLabel.text = adultCountStr;
+        self.childCountLabel.text = childCountStr;
+        //订单金额
+        self.lineOrderMoney.text = [NSString stringWithFormat:@"%.2f",[priceStr integerValue]/100.00];;
+        
+        //调整金额
+        self.lineOrderAdjustPrice.text = [NSString stringWithFormat:@"%.2f",[adjustStr integerValue]/100.00];;
+        
+        self.memoTextView.text = memoStrt;
+        
+        self.starTimeLabel.text = startTimeStr;
     }];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end
