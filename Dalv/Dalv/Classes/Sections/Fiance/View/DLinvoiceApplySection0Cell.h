@@ -17,9 +17,12 @@
 @property(nonatomic,strong) UIButton *projctButton;
 
 /***  发票备注TV ***/
-@property(nonatomic,strong) UITextView* noteTextView;
+@property(nonatomic,strong) UITextView *noteTextView;
 
 /***  剩余发票额度Label ***/
-@property(nonatomic,strong)UILabel *moneyLabel;
+@property(nonatomic,strong) UILabel *moneyLabel;
+
+/***  发票纳税人识别号TF ***/
+@property(nonatomic,strong) UITextField *identificationNumTF;
 
 @end

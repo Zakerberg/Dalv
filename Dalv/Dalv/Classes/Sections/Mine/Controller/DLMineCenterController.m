@@ -173,7 +173,8 @@ static NSString *cellID  = @"cellID";
 //头像按钮的点击事件
 -(void)PersonbuttonClick{
     
-    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+//    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+    
 }
 
 

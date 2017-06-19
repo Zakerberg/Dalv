@@ -123,20 +123,11 @@ static NSString *cellID  = @"cellID";
         make.edges.equalTo(@0);
     }];
     
-    
-    
-//    }
-    
-//    return _tableView ;
     }
 }
 -(void)setupHeaderView{
     
     UIView *headerView = [[UIView alloc] init];
-//    headerView.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 34);
-//    self.headerView.backgroundColor = [UIColor colorWithHexString:@"#ffffff"];
-    
-    
     self.headerView.backgroundColor = [UIColor redColor];
     self.tableView.tableHeaderView = headerView;
     self.headerView = headerView;
@@ -263,9 +254,6 @@ static NSString *cellID  = @"cellID";
     
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
         
-        
-//        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//        manager.requestSerializer = [AFJSONRequestSerializer serializer];
         NSString *CityStr = @"1";
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"天津市"]) {
             CityStr = @"3";
@@ -315,19 +303,6 @@ static NSString *cellID  = @"cellID";
         }
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
             
-//
-//            NSDictionary *param2 = @{
-//                                     @"name":self.nameTF.text,
-//                                     @"province":CityStr,
-//                                     @"phone":self.phoneTextFiled.text,
-//                                     @"vercode":self.passCodeTF.text,
-//                                     @"password":self.passwordTF.text,
-//                                     @"vocation":self.positionTF.text,
-//                                     @"thecity":self.firstField.text
-//                                     };
-
-            
-            
             [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                 
                 //NSLog(@"注册成功!");
@@ -344,15 +319,6 @@ static NSString *cellID  = @"cellID";
             
         } else {
             
-//            
-//            NSDictionary *param = @{
-//                                    @"name":self.nameTF.text,
-//                                    @"province":CityStr,
-//                                    @"phone":self.phoneTextFiled.text,
-//                                    @"vercode":self.passCodeTF.text,
-//                                    @"password":self.passwordTF.text,
-//                                    @"vocation":self.positionTF.text
-//                                    };
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
                 
@@ -369,7 +335,6 @@ static NSString *cellID  = @"cellID";
             }];
             
         }
-        
 }
 
     //手机号匹配
@@ -417,14 +382,8 @@ static NSString *cellID  = @"cellID";
 //头部视图的间距
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-//    if (section == 0) {
-//        return 0.1;
-//    }
-//    
     return 32;
 }
-
-
 
 
 #pragma mark ------------  TableView DataSource --------------
@@ -440,33 +399,18 @@ static NSString *cellID  = @"cellID";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    
-//  DLMineXibViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-//    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     cell.backgroundColor = [UIColor whiteColor];
     
     
-//    self.nameTF = cell.nameTF;
-//    self.changeCityBtn = cell.changeCityBtn;
-//    self.determinePasswordTF = cell.determainPasswordTF;
-//    self.authCodeBtn = cell.passCodeBtn;
-//    self.passCodeTF = cell.passCodeTF;
-//    self.passwordTF = cell.passWordTF;
-//    self.positionTF = cell.positionTF;
-//    self.phoneTextFiled = cell.phoneTF;
-
-    
     if (indexPath.row == 0) {
         UITextField *nameTF = [[UITextField alloc] init];
-//    WithFrame:CGRectMake(20, 34, MAIN_SCREEN_WIDTH, 52)];
         self.nameTF = nameTF;
         nameTF.placeholder = @"输入名字";
         [tableView addSubview:nameTF];
         
         [nameTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.headerView.mas_bottom);
             make.top.equalTo(@34);
             
             make.height.offset(52);
@@ -475,24 +419,23 @@ static NSString *cellID  = @"cellID";
         }];
     
     }
-//
+
     if (indexPath.row == 1) {
         self.cell = cell;
         cell.textLabel.text = @" 输入城市";
         cell.textColor = [UIColor colorWithHexString:@"b4b4b4"];
 
         UIButton *changeCityBtn = [[UIButton alloc] init];
-    
-////    Frame:CGRectMake(20, 86, MAIN_SCREEN_WIDTH, 52)];
+
         self.changeCityBtn = changeCityBtn;
         self.changeCityBtn.tintColor = [UIColor blackColor];
     
        self.changeCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         [self.changeCityBtn addTarget:self action:@selector(changeCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//
+
         [tableView addSubview:changeCityBtn];
-//
+
         [changeCityBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.nameTF.mas_bottom);
             make.height.offset(52);
@@ -501,11 +444,10 @@ static NSString *cellID  = @"cellID";
         }];
 
     }
-////
+
     if (indexPath.row == 2) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UITextField *phoneTextFiled = [[UITextField alloc] init];
-        //WithFrame:CGRectMake(20, 138, 245, 52)];
         
         self.phoneTextFiled = phoneTextFiled;
         phoneTextFiled.placeholder = @"输入手机号";
@@ -513,7 +455,7 @@ static NSString *cellID  = @"cellID";
         [tableView addSubview:phoneTextFiled];
         
         UIButton *authCodeBtn = [[UIButton alloc] init];
-        //WithFrame:CGRectMake(570/2-20, 138+10, 175/2+15, 32)];
+        
         
         self.authCodeBtn = authCodeBtn;
         [self.authCodeBtn setBackgroundColor:[UIColor colorWithHexString:@"#4d65f3"]];
@@ -551,7 +493,7 @@ static NSString *cellID  = @"cellID";
         }];
         
     }
-////
+
 //    
     if (indexPath.row == 3) {
         UITextField *passCodeTF = [[UITextField alloc] init];
