@@ -11,8 +11,6 @@
 
 @interface DLLineOrderConfirmController ()
 
-@property(nonatomic,strong) NSString * BtnType;
-
 /* 线路名称 */
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
@@ -38,15 +36,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
 
 
+//边框成人和儿童的label
+@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
+
+
 /* 下面的提示Label */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;
 
 /* 确认Button */
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
-
 //特别说明
-@property (weak, nonatomic) IBOutlet UITextView *memoTextView;
+@property (weak, nonatomic) IBOutlet UILabel *memoLabel;
 
 //出发日期
 @property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
@@ -54,7 +56,6 @@
 
 //keyID
 @property (weak, nonatomic) NSString *keyidStr;
-
 
 @end
 
@@ -72,6 +73,15 @@
     
     self.title = @"确认支付";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    self.adultBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.adultBorderLabel.layer.borderWidth = 0.5f;
+    self.adultBorderLabel.layer.masksToBounds = YES;
+    
+    self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.childBorderLabel.layer.borderWidth = 0.5f;
+    self.childBorderLabel.layer.masksToBounds = YES;
+
 }
 
 - (BOOL)dl_blueNavbar {
@@ -93,36 +103,26 @@
     
     if ([self.BtnType isEqualToString:@"1"]) {
     
-    
-        
-        
-        
-        
-        
+    [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
+        NSLog(@"全款处理");
+    }];
+
         
     }else if ([self.BtnType isEqualToString:@"2"]){
+       
+        [DLHomeViewTask getAgencyLineOrderPrePayed:param completion:^(id result, NSError *error) {
+            NSLog(@"预付款处理");
+        }];
+        
         
         
     }else if ([self.BtnType isEqualToString:@"3"]){
         
-        
+        [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
+            NSLog(@"尾款处理");
+        }];
         
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 
@@ -146,7 +146,6 @@
                             @"sign_token" : [DLUtils getSign_token],
                             @"line_id":self.linePayID,
                             @"click_type":self.BtnType,
-                           
                             };
     
     [DLHomeViewTask getAgencyLineOrderdetailConfirmPayment:param completion:^(id result, NSError *error) {
@@ -213,7 +212,7 @@
         //调整金额
         self.lineOrderAdjustPrice.text = [NSString stringWithFormat:@"%.2f",[adjustStr integerValue]/100.00];;
         
-        self.memoTextView.text = memoStrt;
+        self.memoLabel.text = memoStrt;
         
         self.starTimeLabel.text = startTimeStr;
     }];

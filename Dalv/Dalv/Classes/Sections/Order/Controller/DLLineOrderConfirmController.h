@@ -12,4 +12,6 @@
 
 @property(nonatomic,strong) NSString * linePayID;
 
+@property(nonatomic,strong) NSString * BtnType;
+
 @end

@@ -179,6 +179,7 @@ static NSString *cellID = @"cellID";
     confirmVC.linePayID = self. tourID;
     
     self.BtnType = @"2";
+    confirmVC.BtnType = self.BtnType;
     
     [self.navigationController pushViewController:confirmVC animated:YES];
     
@@ -194,6 +195,8 @@ static NSString *cellID = @"cellID";
     confirmVC.linePayID = self. tourID;
     
     self.BtnType = @"1";
+    confirmVC.BtnType = self.BtnType;
+    
     
     [self.navigationController pushViewController:confirmVC animated:YES];
     
@@ -207,6 +210,7 @@ static NSString *cellID = @"cellID";
     confirmVC.linePayID = self. tourID;
     
     self.BtnType = @"3";
+    confirmVC.BtnType = self.BtnType;
     
     [self.navigationController pushViewController:confirmVC animated:YES];
     
@@ -264,13 +268,21 @@ static NSString *cellID = @"cellID";
             }else if ([stateStr isEqualToString:@"4"]){
                 self.lineOrderStateLabel.text = @"已取消";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"5"]){
                 self.lineOrderStateLabel.text = @"已关闭";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+                
             }else if ([stateStr isEqualToString:@"6"]){
                 self.lineOrderStateLabel.text = @"已付预付款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
-                
                 
                 self.payTailButton.hidden = NO;
                 self.prepaidBtn.hidden = YES;
@@ -279,28 +291,58 @@ static NSString *cellID = @"cellID";
             }else if ([stateStr isEqualToString:@"7"]){
                 self.lineOrderStateLabel.text = @"已付全款";
                 self.lineOrderStateLabel.textColor =  [UIColor colorWithHexString:@"#5fc82b"];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"8"]){
                 self.lineOrderStateLabel.text = @"已退款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"9"]){
                 self.lineOrderStateLabel.text = @"取消中";
                 _lineOrderStateLabel.textColor = [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"10"]){
                 self.lineOrderStateLabel.text = @"取消中,待退款(供应商确认";
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
             }else if ([stateStr isEqualToString:@"11"]){
                 self.lineOrderStateLabel.text = @"拒绝取消订单";
                 self.lineOrderStateLabel.textColor= [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"12"]){
                 self.lineOrderStateLabel.text = @"取消中,待退款(代理商管理确认)";
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
             }else if ([stateStr isEqualToString:@"13"]){
                 self.lineOrderStateLabel.text = @"已取消,已退款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
             }
             
             if ([memoStr isEqualToString:@""]){
                 self.lineOrderMemoLabel.text = @"无";
+            }else{
+                
+                self.lineOrderMemoLabel.text = memoStr;
             }
             
             NSURL *url = [NSURL URLWithString:pictureStr];
@@ -323,7 +365,6 @@ static NSString *cellID = @"cellID";
             self.lineOrderPriceTotaLabel.text= [NSString stringWithFormat:@"%.2f",[price_totalStr integerValue]/100.00];
             
             self.lineOrderStartTimeLabel.text = start_timeStr;
-            
             
             
             NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
