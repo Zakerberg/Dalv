@@ -139,4 +139,13 @@ rac_keywordify     _Pragma("clang diagnostic push")     _Pragma("clang diagnosti
 
 #define kPinkColor [UIColor colorWithRed:0.886 green:0.271 blue:0.353 alpha:1.000]
 
+
+
+
+// 缩放比
+#define kScale ([UIScreen mainScreen].bounds.size.width) / 375
+
+#define hScale ([UIScreen mainScreen].bounds.size.height) / 667
+
+
 #endif /* Consts_h */

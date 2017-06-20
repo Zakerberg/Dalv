@@ -10,8 +10,9 @@
 #import "DLChangePasswordController.h"
 #import "DLPersonalChangeDataCell.h"
 #import "DLHomeViewTask.h"
+#import "JHPickView.h"
 
-@interface DLPersonalChangeDataController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
+@interface DLPersonalChangeDataController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,JHPickerDelegate>
 @property(nonatomic,strong) UITableView * personalDataTableView;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath;
 @property (weak,nonatomic) UITableViewCell* cell;
@@ -31,6 +32,10 @@
 @property (weak, nonatomic) UILabel *nameLabel;
 /**** 手机号  ****/
 @property (weak, nonatomic) UILabel *numLabel;
+
+
+@property (weak, nonatomic) UITextField * userSexText;
+
 
 @end
 
@@ -168,6 +173,12 @@ static NSString *tableViewCellID = @"tableViewCellID";
         }else if (indexPath.row == 2) {//性别
             self.label.text = @"性别:";
             
+            
+            
+            
+            
+            
+            
         }else if (indexPath.row == 3) {//年龄
             self.label.text = @"年龄:";
             
@@ -187,6 +198,36 @@ static NSString *tableViewCellID = @"tableViewCellID";
             }];
          }else if (indexPath.row == 4) {//从业时间
             self.label.text = @"从业时间:";
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
             
         }else if (indexPath.row == 5) {//标签
             
@@ -274,9 +315,16 @@ static NSString *tableViewCellID = @"tableViewCellID";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
-    /*** 修改密码 ***/
-    if (indexPath.section == 1) {
+    if (indexPath.row == 2) {//性别
+        JHPickView *picker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        picker.delegate = self ;
+        picker.arrayType = GenderArray;
+        [self.view addSubview:picker];
+        
+        
+    }else if (indexPath.section == 1) {    /*** 修改密码 ***/
         DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
         [self.navigationController pushViewController:changePwdVC animated:YES];
     }
@@ -296,6 +344,16 @@ static NSString *tableViewCellID = @"tableViewCellID";
     if (textView.text == nil) {
         textView.textColor = [UIColor blackColor];
     }
+}
+
+#pragma mark - -------------- JHPickerDelegate -------------------
+
+-(void)PickerSelectorIndixString:(NSString *)str
+{
+    
+    UITableViewCell* cell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath] ;
+    cell.detailTextLabel.text = str ;
+    
 }
 
 @end

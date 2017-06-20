@@ -18,7 +18,6 @@
 
 typedef NS_ENUM(NSInteger, ARRAYTYPE) {
     GenderArray,
-    HeightArray,
     WorkTimeArray
     
 };
