@@ -32,12 +32,10 @@ static NSString* cellID = @"cellID";
 
 -(void)fetchData {
     
-    
     NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
                             
-                            @"uid":@"1132",
-                            @"sign_token":@"054f9b77205f634d348ef05d98210783"
-    
                             };
     
     [DLHomeViewTask  getAgencyEditPass:param completion:^(id result, NSError *error) {
@@ -89,24 +87,23 @@ static NSString* cellID = @"cellID";
         
         UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [failureV show];
-
+        
     }
     if (self.oldPasswordTF.text != self.changeTwoPasswordTF.text) {
         
         UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [failureV show];
-
+        
     }
     
     if (self.oldPasswordTF.text == self.changePasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
         
         NSDictionary *param = @{
                                 
-                                @"uid":@"1132",
-                                @"sign_token":@"054f9b77205f634d348ef05d98210783",
+                                @"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
                                 @"oldPassword":self.oldPasswordTF.text,
                                 @"newPassword":self.changePasswordTF.text
-
                                 };
         
         [DLHomeViewTask getAgencyEditPassHandle:param completion:^(id result, NSError *error) {

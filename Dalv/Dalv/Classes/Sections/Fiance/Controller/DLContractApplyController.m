@@ -235,6 +235,7 @@ static NSString *section5CellID = @"section5CellID";
             
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     }
     
@@ -263,6 +264,7 @@ static NSString *section5CellID = @"section5CellID";
                 
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
+                [self.navigationController popViewControllerAnimated:YES];
                 
             }];
         }else{

@@ -316,6 +316,7 @@ static NSString *section5CellID = @"section5CellID";
             //写个提示申请成功! ---> 跳转!
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     }
     //快递
@@ -343,6 +344,7 @@ static NSString *section5CellID = @"section5CellID";
                 //写个提示申请成功! ---> 跳转!
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
+                [self.navigationController popViewControllerAnimated:YES];
                 
             }];
             

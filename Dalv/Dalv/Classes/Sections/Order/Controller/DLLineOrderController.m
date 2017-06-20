@@ -45,11 +45,37 @@ static NSString *nibCellID = @"nibCellID";
     [self setUI];
     [self fetchData];
     [self setTableView];
+    [self.lineOrderTableView reloadData];
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    // 马上进入刷新状态
+    [self.lineOrderTableView.mj_header beginRefreshing];
+}
+
+/**
+ * 更新视图.
+ */
+- (void) updateView
+{
+    [self.lineOrderTableView reloadData];
+}
+/**
+ *  停止刷新
+ */
+-(void)endRefresh{
+    
+    [self.lineOrderTableView.mj_header endRefreshing];
+    [self.lineOrderTableView.mj_footer endRefreshing];
+}
+
 
 
 #pragma mark -----------------  Set UI --------------
@@ -90,12 +116,14 @@ static NSString *nibCellID = @"nibCellID";
 -(void)fetchData{
     
     NSDictionary *param = @{
+                            
                             @"uid":[DLUtils getUid],
                             @"page":@"1",
                             @"sign_token" : [DLUtils getSign_token],
                             };
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
+        [self endRefresh];
         @strongify(self);
         if (result) {
             
@@ -104,12 +132,16 @@ static NSString *nibCellID = @"nibCellID";
             [self.lineOrderList removeAllObjects];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
             
-            NSLog(@"%@",result);
+            [self updateView];
             
-            
-            [self.lineOrderTableView reloadData];
         } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            [self endRefresh];
+            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = @"您的网络不给力!";
+            [hud hideAnimated:YES afterDelay:2];
+
         }
     }];
 }

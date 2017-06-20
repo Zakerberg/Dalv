@@ -61,22 +61,26 @@ static NSString* cellID = @"cellID";
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
-    [DLHomeViewTask getAgencyEditPass:param completion:^(id result, NSError *error) {
-        
-    }];
+
+//    [DLHomeViewTask ]
+
+
+
+
+
+
 }
 
 
 -(void)setupTableView {
     
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
-//        _tableView.showsVerticalScrollIndicator = NO ;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.delegate = self ;
-        _tableView.dataSource = self ;
-        self.automaticallyAdjustsScrollViewInsets = NO;
-        _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [self.view addSubview:_tableView];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
+    _tableView.tableFooterView = [UIView new];
+    _tableView.delegate = self ;
+    _tableView.dataSource = self ;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.view addSubview:_tableView];
 }
 
 
@@ -109,20 +113,6 @@ static NSString* cellID = @"cellID";
 
 /***  保存  ***/
 -(void)completeClick {
-  
-    
-//    NSDictionary *param = @{
-//                            @"uid":[DLUtils getUid],
-//                            @"sign_token" : [DLUtils getSign_token],
-//                                @"nick_name":
-//                                @"email":
-//                                @"sex":
-//                                @"age":
-//                                @"working_time":
-//                                @"personal_label":
-//                                @"been_where":
-//                                
-//                                };
     
     
     /*
@@ -134,8 +124,26 @@ static NSString* cellID = @"cellID";
      age：年龄（20）
      working_time：工作时间（10）
      personal_label：标签（博士，硕士，研究生）用逗号隔开
-     been
+     been_where（我去过美国）
+     
      */
+    
+    
+    
+    
+    
+    //    NSDictionary *param = @{
+    //                            @"uid":[DLUtils getUid],
+    //                            @"sign_token" : [DLUtils getSign_token],
+    //                            @"nick_name":
+    //                                @"email":
+    //                                @"sex":
+    //                                @"age":
+    //                                @"working_time":
+    //                                @"personal_label":
+    //                                @"been_where":
+    //
+    //                                };
     
     
     
@@ -200,7 +208,7 @@ static NSString* cellID = @"cellID";
 #pragma mark --------- UITable View Delegate -------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-   
+    
     if (section == 0) {
         return 0.1;
     }
@@ -213,7 +221,7 @@ static NSString* cellID = @"cellID";
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     if (indexPath.row == 8) {
         return 88;
     }
@@ -225,7 +233,7 @@ static NSString* cellID = @"cellID";
 {
     if (section == 0) {
         
-    return self.cellTiltleArr.count;
+        return self.cellTiltleArr.count;
         
     }
     return 1;
@@ -233,7 +241,7 @@ static NSString* cellID = @"cellID";
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     UITableViewCell*  cell =  [tableView dequeueReusableCellWithIdentifier:cellID];
     
     
@@ -243,7 +251,7 @@ static NSString* cellID = @"cellID";
     }
     
     cell.textLabel.text = self.cellTiltleArr[indexPath.row];
-   
+    
     if (indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -278,7 +286,7 @@ static NSString* cellID = @"cellID";
     }
     /* 邮箱 */
     if (indexPath.row == 7) {
-
+        
         UITextField *mailTF = [[UITextField alloc] initWithFrame:CGRectMake(0, 220+88, MAIN_SCREEN_WIDTH-15, 44)];
         self.mailTF = mailTF;
         mailTF.textColor = [UIColor colorWithHexString:@"6b6b6b"];
@@ -294,7 +302,7 @@ static NSString* cellID = @"cellID";
         goCityLabel.text = @"我去过的城市:";
         [goCityLabel sizeToFit];
         [tableView addSubview:goCityLabel];
-    
+        
         
         UITextView *goCityView = [[UITextView alloc] initWithFrame:CGRectMake(40+173/2, 44*8+3, 520/2-15, 176/2-5)];
         
@@ -330,10 +338,10 @@ static NSString* cellID = @"cellID";
         [self.view addSubview:picker];
     }
     
-    /**  年龄 **/
-    if (indexPath.row == 3) {
-        
-    }
+    //    /**  年龄 **/
+    //    if (indexPath.row == 3) {
+    //
+    //    }
     
     /**  从业时间 **/
     if (indexPath.row == 4) {
@@ -342,51 +350,47 @@ static NSString* cellID = @"cellID";
         picker.delegate = self ;
         picker.arrayType = WorkTimeArray;
         [self.view addSubview:picker];
-
-    }
-    
-    /**  标签 **/
-    if (indexPath.row == 5) {
-        
-    
     }
     
     
-    /** 邮箱  **/
-    if (indexPath.row == 7) {
-        
-        //        __weak typeof(self) weakSelf = self;
-        //        ZYInputAlertView *alertView = [ZYInputAlertView alertView];
-        //        alertView.placeholder = @"输入您的邮箱";
-        //        [alertView confirmBtnClickBlock:^(NSString *inputString) {
-        //
-        //            if ([self isValidateEmail:inputString]) {
-        //                weakSelf.cell.detailTextLabel.text = inputString;
-        //            } else {
-        //
-        //                UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
-        //                [alertPhoneNum show];
-        //            }
-        //        }];
-        //        
-        //        [alertView show];
-
-    }
-    /**  我去过的地方  **/
-//    if (indexPath.row == 8) {
-//        
-//    }
-//    
     
-
-
+    /*
+     
+     标签
+     if (indexPath.row == 5) {
+     }
+     邮箱
+     if (indexPath.row == 7) {
+     
+     __weak typeof(self) weakSelf = self;
+     ZYInputAlertView *alertView = [ZYInputAlertView alertView];
+     alertView.placeholder = @"输入您的邮箱";
+     [alertView confirmBtnClickBlock:^(NSString *inputString) {
+     
+     if ([self isValidateEmail:inputString]) {
+     weakSelf.cell.detailTextLabel.text = inputString;
+     } else {
+     
+     UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+     [alertPhoneNum show];
+     }
+     }];
+     
+     [alertView show];
+     
+     }
+     我去过的地方
+     if (indexPath.row == 8) {
+     }
+     */
+    
     /*** 修改密码 ***/
     if (indexPath.section == 1) {
         
         DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
         [self.navigationController pushViewController:changePwdVC animated:YES];
     }
-
+    
 }
 
 
