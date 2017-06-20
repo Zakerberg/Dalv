@@ -265,6 +265,8 @@
 		451F39331EEF8A9D005FE126 /* DLLineOrderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39321EEF8A9D005FE126 /* DLLineOrderViewCell.m */; };
 		451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39351EEF9B55005FE126 /* DLLineOrderXibCell.m */; };
 		451F39381EEF9B55005FE126 /* DLLineOrderXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F39361EEF9B55005FE126 /* DLLineOrderXibCell.xib */; };
+		4520579C1EF903B00033DA69 /* DLPersonalChangeDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */; };
+		4520579F1EF9056D0033DA69 /* DLPersonalChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
@@ -727,6 +729,10 @@
 		451F39341EEF9B55005FE126 /* DLLineOrderXibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderXibCell.h; sourceTree = "<group>"; };
 		451F39351EEF9B55005FE126 /* DLLineOrderXibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderXibCell.m; sourceTree = "<group>"; };
 		451F39361EEF9B55005FE126 /* DLLineOrderXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderXibCell.xib; sourceTree = "<group>"; };
+		4520579A1EF903B00033DA69 /* DLPersonalChangeDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPersonalChangeDataController.h; sourceTree = "<group>"; };
+		4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPersonalChangeDataController.m; sourceTree = "<group>"; };
+		4520579D1EF9056D0033DA69 /* DLPersonalChangeDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPersonalChangeDataCell.h; sourceTree = "<group>"; };
+		4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPersonalChangeDataCell.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
@@ -977,6 +983,8 @@
 				45A321CA1EF256E000325683 /* DLMyCustomerXibController.h */,
 				45A321CB1EF256E000325683 /* DLMyCustomerXibController.m */,
 				45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */,
+				4520579A1EF903B00033DA69 /* DLPersonalChangeDataController.h */,
+				4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1015,6 +1023,8 @@
 				45DB47B21EE5524200399A6D /* DLCustomerListCell.h */,
 				45DB47B31EE5524200399A6D /* DLCustomerListCell.m */,
 				45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */,
+				4520579D1EF9056D0033DA69 /* DLPersonalChangeDataCell.h */,
+				4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2314,6 +2324,7 @@
 				451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */,
 				1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */,
 				1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */,
+				4520579C1EF903B00033DA69 /* DLPersonalChangeDataController.m in Sources */,
 				45305A251ED6C89B0023E892 /* DLManager.m in Sources */,
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
@@ -2333,6 +2344,7 @@
 				1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */,
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
+				4520579F1EF9056D0033DA69 /* DLPersonalChangeDataCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,
 				45DB47FE1EE7FEAC00399A6D /* DLInvoiceRecordModel.m in Sources */,
 				45DB48011EE7FF2200399A6D /* DLInvoiceApplyRecordCell.m in Sources */,

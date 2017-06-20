@@ -109,14 +109,8 @@ static NSString *cellID  = @"cellID";
         tableView.dataSource = self ;
         tableView.backgroundColor = [UIColor whiteColor];
     
-//    [tableView registerClass:[DLMineXibViewCell class] forCellReuseIdentifier:cellID];
-    
-//    [self.tableView registerNib:[UINib nibWithNibName:@"DLMineXibViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellID];
-    
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
-
-
     [self.view addSubview:tableView];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -412,7 +406,6 @@ static NSString *cellID  = @"cellID";
         
         [nameTF mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@34);
-            
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.left.offset(20);
@@ -482,7 +475,7 @@ static NSString *cellID  = @"cellID";
             make.left.equalTo(@20);
             make.width.offset(MAIN_SCREEN_WIDTH/2);
         }];
-//
+
 //        //(570/2-20, 138+10, 175/2+15, 32)
         [authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@32);
@@ -494,7 +487,7 @@ static NSString *cellID  = @"cellID";
         
     }
 
-//    
+    
     if (indexPath.row == 3) {
         UITextField *passCodeTF = [[UITextField alloc] init];
 //    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];

@@ -9,13 +9,13 @@
 #import "DLMineCenterController.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
-#import "DLChangePersonDataController.h"
+//#import "DLChangePersonDataController.h"
 #import "DLRemmendController.h"
 #import "DLMyCustomerController.h"
 #import "DLHomeViewTask.h"
-#import "DLManager.h"
 #import "DLMyCustomerXibController.h"
 #import "UIButton+WebCache.h"
+#import "DLPersonalChangeDataController.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -189,9 +189,14 @@ static NSString *cellID  = @"cellID";
     /****   修改个人资料    ****/
     if (indexPath.row == 0){
         
-        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
+//        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
+//        
+//        [self.navigationController pushViewController:chageDataVC animated:YES];
         
-        [self.navigationController pushViewController:chageDataVC animated:YES];
+        DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
+        [self.navigationController pushViewController:changeDataVC animated:YES];
+
+        
     }
     
     /***  我的直客   ***/
