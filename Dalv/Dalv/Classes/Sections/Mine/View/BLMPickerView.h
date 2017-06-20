@@ -1,14 +1,14 @@
 //
-//  JHPickView.h
-//  SmallCityStory
+//  BLMPickerView.h
+//  Dalv
 //
-//  Created by Jivan on 2017/5/8.
-//  Copyright © 2017年 Jivan. All rights reserved.
+//  Created by Michael 柏 on 2017/6/20.
+//  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@protocol JHPickerDelegate <NSObject>
+@protocol BLMPickerDelegate <NSObject>
 
 @optional
 
@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, ARRAYTYPE) {
     WorkTimeArray
 };
 
-@interface JHPickView : UIView
+@interface BLMPickerView : UIView
 
 @property (nonatomic, assign) ARRAYTYPE arrayType;
 
@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger, ARRAYTYPE) {
 
 @property (nonatomic,strong)UILabel *selectLb;
 
-@property (nonatomic,weak)id <JHPickerDelegate> delegate;
-
+@property (nonatomic,weak)id <BLMPickerDelegate> delegate;
 
 @end

@@ -1,13 +1,14 @@
 //
-//  JHPickView.m
-//  SmallCityStory
+//  BLMPickerView.m
+//  Dalv
 //
-//  Created by Jivan on 2017/5/8.
-//  Copyright © 2017年 Jivan. All rights reserved.
+//  Created by Michael 柏 on 2017/6/20.
+//  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "JHPickView.h"
-@interface JHPickView ()<UIPickerViewDelegate,UIPickerViewDataSource>
+#import "BLMPickerView.h"
+
+@interface BLMPickerView ()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (nonatomic,strong)UIView *bgV;
 
 @property (nonatomic,strong)UIButton *cancelBtn;
@@ -19,11 +20,11 @@
 @property (nonatomic,strong)NSMutableArray *array;
 
 @property (nonatomic,strong) UIView* line ;
-@property (nonatomic, strong) NSDateFormatter *formatter;
 
 @end
 
-@implementation JHPickView
+
+@implementation BLMPickerView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -85,13 +86,13 @@
         UIView *line = [UIView new];
         [self.bgV addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-
+            
             make.left.mas_equalTo(0);
             make.width.mas_equalTo(MAIN_SCREEN_WIDTH);
             make.height.mas_equalTo(0.5);
             
             make.top.mas_equalTo(self.cancelBtn.mas_bottom);
-
+            
         }];
         line.backgroundColor = RGBA(224, 224, 224, 1);
         self.line = line ;
@@ -105,30 +106,30 @@
 {
     _arrayType = arrayType;
     
-  
-        //选择器
-        self.pickerV = [UIPickerView new];
-        [self.bgV addSubview:self.pickerV];
-        [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            
-            
-            make.top.mas_equalTo(self.line);
-            make.bottom.offset(-100);
-            
-        }];
-        self.pickerV.delegate = self;
-        self.pickerV.dataSource = self;
-        
     
-        switch (arrayType) {
+    //选择器
+    self.pickerV = [UIPickerView new];
+    [self.bgV addSubview:self.pickerV];
+    [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        
+        
+        make.top.mas_equalTo(self.line);
+        make.bottom.offset(-100);
+        
+    }];
+    self.pickerV.delegate = self;
+    self.pickerV.dataSource = self;
+    
+    
+    switch (arrayType) {
             
             
         case GenderArray:
         {
             self.selectLb.text = @"选择性别";
-            [self.array addObject:@[@"男",@"女"]];
+            [self.array addObject:@[@"男",@"女",@"保密"]];
         }
             break;
         case WorkTimeArray:
@@ -152,8 +153,8 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
-       return self.array.count;
-    }
+    return self.array.count;
+}
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
@@ -177,15 +178,15 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
     
-        NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
-        return [arr objectAtIndex:row % arr.count];
+    NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
+    return [arr objectAtIndex:row % arr.count];
 }
 
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-        return (MAIN_SCREEN_WIDTH - 30);
-
+    return (MAIN_SCREEN_WIDTH - 30);
+    
 }
 
 #pragma mark-----点击方法
@@ -204,14 +205,14 @@
         
         NSArray *arr = [self.array objectAtIndex:i];
         
-                    NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
-            fullStr = [fullStr stringByAppendingString:str];
+        NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
+        fullStr = [fullStr stringByAppendingString:str];
     }
     if (_delegate && [_delegate respondsToSelector:@selector(PickerSelectorIndixString:)]) {
         
         [self.delegate PickerSelectorIndixString:fullStr];
     }
-   
+    
     
     [self hideAnimation];
     
@@ -251,9 +252,3 @@
 }
 
 @end
-
-
-
-
-
-

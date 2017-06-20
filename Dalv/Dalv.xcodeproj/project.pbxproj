@@ -251,7 +251,6 @@
 		1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */; };
 		1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
-		450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E01ED97CF000AA7A17 /* JHPickView.m */; };
 		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
@@ -265,6 +264,7 @@
 		451F39381EEF9B55005FE126 /* DLLineOrderXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451F39361EEF9B55005FE126 /* DLLineOrderXibCell.xib */; };
 		4520579C1EF903B00033DA69 /* DLPersonalChangeDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */; };
 		4520579F1EF9056D0033DA69 /* DLPersonalChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */; };
+		452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452057A61EF93E4C0033DA69 /* BLMPickerView.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
@@ -701,8 +701,6 @@
 		1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineSchedulingTableViewCell.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
-		450105DF1ED97CF000AA7A17 /* JHPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPickView.h; sourceTree = "<group>"; };
-		450105E01ED97CF000AA7A17 /* JHPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPickView.m; sourceTree = "<group>"; };
 		450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
 		450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
@@ -727,6 +725,8 @@
 		4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPersonalChangeDataController.m; sourceTree = "<group>"; };
 		4520579D1EF9056D0033DA69 /* DLPersonalChangeDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPersonalChangeDataCell.h; sourceTree = "<group>"; };
 		4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPersonalChangeDataCell.m; sourceTree = "<group>"; };
+		452057A51EF93E4C0033DA69 /* BLMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMPickerView.h; sourceTree = "<group>"; };
+		452057A61EF93E4C0033DA69 /* BLMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMPickerView.m; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
@@ -1019,6 +1019,8 @@
 				45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */,
 				4520579D1EF9056D0033DA69 /* DLPersonalChangeDataCell.h */,
 				4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */,
+				452057A51EF93E4C0033DA69 /* BLMPickerView.h */,
+				452057A61EF93E4C0033DA69 /* BLMPickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1072,7 +1074,6 @@
 			isa = PBXGroup;
 			children = (
 				1C2979151EF02D6F00D3FEEA /* Refresh */,
-				450105DC1ED97CF000AA7A17 /* JHPickView */,
 				1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */,
 				1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */,
 				1CB952F71ECFC41600BDC2D3 /* DLHUDManager.m */,
@@ -1677,15 +1678,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		450105DC1ED97CF000AA7A17 /* JHPickView */ = {
-			isa = PBXGroup;
-			children = (
-				450105DF1ED97CF000AA7A17 /* JHPickView.h */,
-				450105E01ED97CF000AA7A17 /* JHPickView.m */,
-			);
-			path = JHPickView;
-			sourceTree = "<group>";
-		};
 		450105F01ED9C34000AA7A17 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -2225,7 +2217,6 @@
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
 				1C6661621EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m in Sources */,
-				450105E51ED97CF000AA7A17 /* JHPickView.m in Sources */,
 				1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */,
@@ -2317,6 +2308,7 @@
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
+				452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */,
 				1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
