@@ -19,7 +19,6 @@
 typedef NS_ENUM(NSInteger, ARRAYTYPE) {
     GenderArray,
     WorkTimeArray
-    
 };
 
 @interface JHPickView : UIView

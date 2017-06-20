@@ -6,24 +6,15 @@
 //  Copyright © 2017年 Jivan. All rights reserved.
 //
 
-//RGB
-#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
-//字体大小
-#define kfont 15
-
 #import "JHPickView.h"
-#import <Masonry.h>
 @interface JHPickView ()<UIPickerViewDelegate,UIPickerViewDataSource>
-
 @property (nonatomic,strong)UIView *bgV;
 
 @property (nonatomic,strong)UIButton *cancelBtn;
 
 @property (nonatomic,strong)UIButton *conpleteBtn;
 
-
 @property (nonatomic,strong)UIPickerView *pickerV;
-
 
 @property (nonatomic,strong)NSMutableArray *array;
 
@@ -52,7 +43,7 @@
         [self.bgV addSubview:self.cancelBtn];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.top.mas_equalTo(120);
+            make.top.mas_equalTo(0);
             make.left.mas_equalTo(15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
@@ -94,12 +85,13 @@
         UIView *line = [UIView new];
         [self.bgV addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.bottom.mas_equalTo(self.cancelBtn.mas_top).offset(0);
+
             make.left.mas_equalTo(0);
             make.width.mas_equalTo(MAIN_SCREEN_WIDTH);
             make.height.mas_equalTo(0.5);
             
+            make.top.mas_equalTo(self.cancelBtn.mas_bottom);
+
         }];
         line.backgroundColor = RGBA(224, 224, 224, 1);
         self.line = line ;
@@ -108,29 +100,6 @@
     return self;
 }
 
-
-- (void)setCustomArr:(NSArray *)customArr{
-    
-    //选择器
-    self.pickerV = [UIPickerView new];
-    [self.bgV addSubview:self.pickerV];
-    [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(_line);
-//        make.top.mas_equalTo(self.bgV);
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        
-    }];
-    self.pickerV.delegate = self;
-    self.pickerV.dataSource = self;
-    
-    
-    _customArr = customArr;
-    [self.array addObject:customArr];
-
-    
-}
 
 - (void)setArrayType:(ARRAYTYPE)arrayType
 {
@@ -141,11 +110,12 @@
         self.pickerV = [UIPickerView new];
         [self.bgV addSubview:self.pickerV];
         [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.bottom.mas_equalTo(_line);
-            make.top.mas_equalTo(self.bgV);
             make.left.mas_equalTo(0);
             make.right.mas_equalTo(0);
+            
+            
+            make.top.mas_equalTo(self.line);
+            make.bottom.offset(-100);
             
         }];
         self.pickerV.delegate = self;
@@ -183,9 +153,6 @@
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
        return self.array.count;
-    
-    
-   
     }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -205,7 +172,6 @@
     
     return label;
     
-    
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
@@ -213,9 +179,6 @@
     
         NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
         return [arr objectAtIndex:row % arr.count];
-
-  
-    
 }
 
 
@@ -243,11 +206,7 @@
         
                     NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
             fullStr = [fullStr stringByAppendingString:str];
-        
-        
     }
-    
-    
     if (_delegate && [_delegate respondsToSelector:@selector(PickerSelectorIndixString:)]) {
         
         [self.delegate PickerSelectorIndixString:fullStr];
@@ -278,9 +237,7 @@
         [self removeFromSuperview];
         
     }];
-    
 }
-
 //显示动画
 - (void)showAnimation{
     
@@ -292,7 +249,6 @@
     }];
     
 }
-
 
 @end
 

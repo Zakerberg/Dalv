@@ -18,7 +18,6 @@
     return self;
 }
 
-
 -(void)setupCellSubviews{
     
     UILabel *label = [[UILabel alloc] init];
