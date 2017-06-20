@@ -135,10 +135,13 @@ static NSString *tableViewCellID = @"tableViewCellID";
                             @"been_where":self.goCityView.text
                             };
     
-//    [DLHomeViewTask ]
-    
-    
-    
+    [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
+        NSLog(@"修改成功!");
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }];
 }
 
 #pragma mark ------------- UITableView Delegate -------------
