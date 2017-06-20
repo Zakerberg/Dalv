@@ -217,6 +217,12 @@
 //63.测试顾问线路订单详情页-付尾款处理接口
 #define DL_AgencyPreForum DL_HOST@"index.php/Api/agencyPersonal/agencyPreForum"
 
+//64.测试顾问个人资料设置页面接口
+#define DL_AgencyPersonalPageSetUp DL_HOST@"index.php/Api/agencyPersonal/agencyPageSetUp"
+
+//65.测试顾问个人资料设置页面接口
+#define DL_AgencyPersonalSetUpHandle DL_HOST@"index.php/Api/agencyPersonal/agencyPageSetUpHandle"
+
 
 
 #endif /* InterfaceConfig_h */

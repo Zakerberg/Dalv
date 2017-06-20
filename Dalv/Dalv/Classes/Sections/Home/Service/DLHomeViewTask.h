@@ -615,15 +615,27 @@
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 64 测试顾问个人资料设置页面接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
 
++ (void)getAgencyPersonalPageSetUp:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
 
+/**
+ * 65 测试顾问个人资料设置处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
 
-
-
-
-
-
-
++ (void)getAgencyPersonaSetUpHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
 
 
 @end

@@ -654,4 +654,35 @@
     
 }
 
+//测试顾问个人资料设置页面接口
++ (void)getAgencyPersonalPageSetUp:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    
+    
+    [DLRequestSerVice POST:DL_AgencyPersonalPageSetUp param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
+//测试顾问个人资料设置处理接口
++ (void)getAgencyPersonaSetUpHandle:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    
+    
+    [DLRequestSerVice POST:DL_AgencyPersonalSetUpHandle param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+
+
+    
+}
+
+
 @end
