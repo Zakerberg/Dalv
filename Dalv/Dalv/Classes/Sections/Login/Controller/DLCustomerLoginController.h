@@ -1,5 +1,5 @@
 //
-//  DLCustomerLoginConntroller.h
+//  DLCustomerLoginController.h
 //  Dalv
 //
 //  Created by Michael 柏 on 2017/6/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DLCustomerLoginConntroller : UIViewController
+@interface DLCustomerLoginController : UIViewController
 
 @end

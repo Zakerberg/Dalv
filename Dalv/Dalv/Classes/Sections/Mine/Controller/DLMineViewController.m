@@ -459,7 +459,6 @@ static NSString *cellID  = @"cellID";
         self.authCodeBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         self.authCodeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [tableView addSubview:authCodeBtn];
-//
         
         /*
          make.top.equalTo(self.nameTF.mas_bottom);
