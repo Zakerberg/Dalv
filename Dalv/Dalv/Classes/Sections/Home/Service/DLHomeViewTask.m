@@ -705,13 +705,7 @@
 
 }
 
-/**
- * 67 测试普通用户-绑定顾问后首页模块接口
- 
- *
- *  @param param             请求参数
- *  @param completionHandler 请求完成的回调
- */
+ //测试普通用户-绑定顾问后首页模块接口
 
 + (void)getTouristAgencyIndexMod:(NSDictionary *)param
                       completion:(void (^)(id result, NSError *error))completionHandler{
@@ -723,14 +717,21 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 
-    
-    
-    
-    
-    
-    
 }
 
+//测试普通用户个人中心地址接口
+
++ (void)getTouristPersonalIndex:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_TouristPersonalIndex param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+
+    
+}
 
 
 

@@ -6,14 +6,14 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //   ----------------  线路订单列表 --------------------
 
+#import "DLLineOrderDetailXibController.h"
+#import "DLCustomerLoginController.h"
+#import "DLLineOrderDetailModel.h"
 #import "DLLineOrderController.h"
 #import "DLLineOrderViewCell.h"
+#import "DLLineOrderXibCell.h"
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
-#import "DLLineOrderXibCell.h"
-#import "DLLineOrderDetailXibController.h"
-#import "DLLineOrderDetailModel.h"
-//#import "DLLineOrderViewDetailController.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineOrderTableView;
@@ -135,13 +135,13 @@ static NSString *nibCellID = @"nibCellID";
             [self updateView];
             
         } else {
-            [self endRefresh];
             
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.mode = MBProgressHUDModeText;
-            hud.label.text = @"您的网络不给力!";
-            [hud hideAnimated:YES afterDelay:2];
-
+//            [self endRefresh];
+//            
+//            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//            hud.mode = MBProgressHUDModeText;
+//            hud.label.text = @"您的网络不给力!";
+//            [hud hideAnimated:YES afterDelay:2];
         }
     }];
 }

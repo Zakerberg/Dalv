@@ -234,4 +234,9 @@
 #define DL_TouristAgencyIndexMod  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexMod"
 
 
+//69 测试普通用户个人中心地址接口
+
+#define DL_TouristPersonalIndex  DL_HOST@"index.php/TouristApi/TouristPersonal/index"
+
+
 #endif /* InterfaceConfig_h */

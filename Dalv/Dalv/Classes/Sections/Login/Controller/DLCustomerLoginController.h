@@ -10,4 +10,10 @@
 
 @interface DLCustomerLoginController : UIViewController
 
+//绑定状态
+@property(nonatomic,strong) NSString* BindingStateStr;
+
+//用户类型
+@property(nonatomic,strong) NSString* userTypeStr;
+
 @end

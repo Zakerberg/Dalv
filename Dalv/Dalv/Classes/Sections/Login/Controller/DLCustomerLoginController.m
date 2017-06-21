@@ -22,9 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *agencyPhoneTF;
 
 
-//绑定状态
-@property(nonatomic,strong) NSString* BindingStateStr;
-
 //验证码错误与否
 @property(nonatomic,strong) NSString* passCodeStatusStr;
 
@@ -85,6 +82,7 @@
         [DLHomeViewTask getTouristLoginRegister:param completion:^(id result, NSError *error) {
             
             self.passCodeStatusStr = result[@"status"];
+            self.userTypeStr = result[@""];
             
             if ([self.passCodeStatusStr isEqualToString:@"00018"]) {
                 

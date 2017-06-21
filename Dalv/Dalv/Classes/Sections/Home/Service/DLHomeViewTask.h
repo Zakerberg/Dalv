@@ -673,4 +673,23 @@
                      completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+
+/**
+ * 69 测试普通用户个人中心地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonalIndex:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+
+
+
+
+
 @end

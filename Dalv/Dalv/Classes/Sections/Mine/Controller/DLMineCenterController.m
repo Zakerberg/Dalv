@@ -6,16 +6,16 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //  -------------------  个人中心   -------------------
 
+#import "DLPersonalChangeDataController.h"
+#import "DLCustomerLoginController.h"
+#import "DLMyCustomerXibController.h"
+#import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
+#import "DLRemmendController.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
-//#import "DLChangePersonDataController.h"
-#import "DLRemmendController.h"
-#import "DLMyCustomerController.h"
-#import "DLHomeViewTask.h"
-#import "DLMyCustomerXibController.h"
 #import "UIButton+WebCache.h"
-#import "DLPersonalChangeDataController.h"
+#import "DLHomeViewTask.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -28,7 +28,8 @@ static NSString *cellID  = @"cellID";
 
 @property (strong,nonatomic) UILabel* numLabel;
 @property (strong,nonatomic) UILabel* nameLabel;
-
+//用户状态
+@property(nonatomic,strong) NSString* userTypeStr;
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 
@@ -38,7 +39,16 @@ static NSString *cellID  = @"cellID";
 
 -(NSArray*)cellTiltleArr
 {
+    
     if (!_cellTiltleArr) {
+        
+        DLCustomerLoginController *CustomerVC = [[DLCustomerLoginController alloc]init];
+        self.userTypeStr = CustomerVC.userTypeStr;
+        
+        if ([self.userTypeStr isEqualToString:@"5"]) {
+            
+            _cellTiltleArr = @[@"修改个人资料",@"我的顾问",@"通用"];
+        }
         _cellTiltleArr = @[@"修改个人资料",@"我的直客",@"通用" ];
     }
     return _cellTiltleArr ;
@@ -141,34 +151,46 @@ static NSString *cellID  = @"cellID";
 
 -(void)fetchData{
     
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],
-                            };
+    if([self.userTypeStr isEqualToString:@"4"])
+    {
+        
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                };
+        
+        @weakify(self);
+        [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
+            @strongify(self);
+            if (result) {
+                self.mineCenterDict = [[NSMutableDictionary alloc] init];
+                self.mineCenterDict = [result objectForKey:@"agencyInfo"];
+                
+                NSString *urlStr = self.mineCenterDict[@"head_pic"];
+                
+                [self.personBtn sd_setButtonImageWithUrl:urlStr];
+                
+                [self.personBtn.layer setMasksToBounds:YES];
+                
+                [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
+                
+                self.personBtn.layer.borderWidth = 2.0;
+                self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+                
+                self.nameLabel.text = self.mineCenterDict[@"name"];
+                self.numLabel.text = self.mineCenterDict[@"mobile"];
+                
+                [self.tableView reloadData];
+            }
+        }];
+    }else{
+        
+        
+        
+        
+        
+    }
     
-    @weakify(self);
-    [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
-        @strongify(self);
-        if (result) {
-            self.mineCenterDict = [[NSMutableDictionary alloc] init];
-            self.mineCenterDict = [result objectForKey:@"agencyInfo"];
-            
-            NSString *urlStr = self.mineCenterDict[@"head_pic"];
-            
-            [self.personBtn sd_setButtonImageWithUrl:urlStr];
-            
-            [self.personBtn.layer setMasksToBounds:YES];
-
-            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-            
-            self.personBtn.layer.borderWidth = 2.0;
-            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-            
-            self.nameLabel.text = self.mineCenterDict[@"name"];
-            self.numLabel.text = self.mineCenterDict[@"mobile"];
-            
-            [self.tableView reloadData];
-        }
-    }];
+    
 }
 
 //头像按钮的点击事件
@@ -189,22 +211,13 @@ static NSString *cellID  = @"cellID";
     /****   修改个人资料    ****/
     if (indexPath.row == 0){
         
-//        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
-//        
-//        [self.navigationController pushViewController:chageDataVC animated:YES];
-        
         DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
         [self.navigationController pushViewController:changeDataVC animated:YES];
 
-        
     }
     
     /***  我的直客   ***/
     if (indexPath.row == 1) {
-        
-//        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
-//        
-//        [self.navigationController pushViewController:CustomerVC animated:YES];
         
         DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
         
