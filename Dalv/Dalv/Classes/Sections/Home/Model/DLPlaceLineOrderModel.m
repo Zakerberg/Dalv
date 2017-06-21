@@ -10,8 +10,10 @@
 
 @implementation DLPlaceLineOrderModel
 
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"tour_date" : [DLPlaceOrderTourDate class]};
+}
 @end
-
 
 @implementation DLPlaceOrderTourDate
 
@@ -20,15 +22,12 @@
 }
 @end
 
-
-
 @implementation PlaceOrderAgencyInfo
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName {
     return @{@"agencyId" : @"id",};
 }
 @end
-
 
 @implementation LineList
 

@@ -7,10 +7,17 @@
 //
 
 #import "DLGlobalSearchViewViewController.h"
+#import "DLRecommendRouteViewController.h"
 
-@interface DLGlobalSearchViewViewController ()<UISearchBarDelegate>
+static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
+@interface DLGlobalSearchViewViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+
 @property (nonatomic, weak) UISearchBar *searchBar;
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, strong) UITableView *globalSearchTableView;
+@property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
+
+
 @end
 
 @implementation DLGlobalSearchViewViewController
@@ -97,7 +104,17 @@
     [cityBtn3  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [cityBtn3 setTitle:@"石家庄" forState:(UIControlStateNormal)];
     [backview addSubview:cityBtn3];
-
+    
+    self.globalSearchTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.globalSearchTableView.delegate = self;
+    self.globalSearchTableView.dataSource = self;
+    self.globalSearchTableView.backgroundColor = [UIColor clearColor];
+    self.globalSearchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.globalSearchTableView.tableFooterView = [[UIView alloc] init];
+    [self.globalSearchTableView registerClass:[UITableViewCell class]
+          forCellReuseIdentifier:kDLGlobalSearchTableViewCell];
+    self.globalSearchTableView.showsVerticalScrollIndicator = NO;
+    [self.view addSubview:self.globalSearchTableView];
 
     [backview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@0);
@@ -139,17 +156,77 @@
         make.width.equalTo(@60);
         make.height.equalTo(@30);
     }];
-
+    
+    [self.globalSearchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(backview.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
 
 }
 
 #pragma mark - Layout
 
 - (void)setupConstraints {
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+    [self.globalSearchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+        make.top.equalTo(@100);
     }];
 }
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLGlobalSearchTableViewCell];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
+    
+    [cell.contentView addSubview:self.hotTopicViewController.view];
+    [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(cell.contentView);
+    }];
+     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.hotTopicViewController contentHeight];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (DLRecommendRouteViewController *)hotTopicViewController {
+    if (_hotTopicViewController == nil) {
+        _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
+        @weakify(self);
+        [_hotTopicViewController setDidCompleteLoad:^{
+            @strongify(self);
+            [self.globalSearchTableView reloadData];
+        }];
+        [self addChildViewController:_hotTopicViewController];
+    }
+    return _hotTopicViewController;
+}
+
 
 #pragma mark - Event Handler
 

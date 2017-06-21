@@ -47,6 +47,13 @@
     childlab.text = @"儿童(常规)";
     [self.contentView addSubview:childlab];
     
+    UILabel *roomDifferencelab = [[UILabel alloc]init];
+    roomDifferencelab.textColor = [UIColor blackColor];
+    roomDifferencelab.textAlignment = NSTextAlignmentLeft;
+    roomDifferencelab.font = [UIFont systemFontOfSize:16];
+    roomDifferencelab.text = @"单房差(常规)";
+    [self.contentView addSubview:roomDifferencelab];
+    
     _perrAdultlab = [[UILabel alloc]init];
     _perrAdultlab.textColor = [UIColor redColor];
     _perrAdultlab.textAlignment = NSTextAlignmentRight;
@@ -60,6 +67,14 @@
     _preeChildlab.font = [UIFont systemFontOfSize:16];
     _preeChildlab.text = @"同行价¥1399";
     [self.contentView addSubview:_preeChildlab];
+    
+    _singleRoomDifferencelab = [[UILabel alloc]init];
+    _singleRoomDifferencelab.textColor = [UIColor redColor];
+    _singleRoomDifferencelab.textAlignment = NSTextAlignmentRight;
+    _singleRoomDifferencelab.font = [UIFont systemFontOfSize:16];
+    _singleRoomDifferencelab.text = @"同行价¥1499";
+    [self.contentView addSubview:_singleRoomDifferencelab];
+
     
     [_lineOederNamelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@10);
@@ -88,6 +103,13 @@
         make.height.equalTo(@30);
     }];
     
+    [roomDifferencelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(childlab.mas_bottom).offset(5);
+        make.left.equalTo(@15);
+        make.width.equalTo(@150);
+        make.height.equalTo(@30);
+    }];
+
     [_perrAdultlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(adultlab);
         make.right.equalTo(@-15);
@@ -97,6 +119,13 @@
     
     [_preeChildlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(childlab);
+        make.right.equalTo(@-15);
+        make.width.equalTo(@250);
+        make.height.equalTo(@25);
+    }];
+    
+    [_singleRoomDifferencelab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(roomDifferencelab);
         make.right.equalTo(@-15);
         make.width.equalTo(@250);
         make.height.equalTo(@25);
@@ -111,9 +140,20 @@
     return NSStringFromClass([self class]);
 }
 
-- (void)configureCell:(NSString *)routeName {
+//- (void)configureCell:(NSString *)routeName {
+//
+//    self.lineOederNamelab.text = routeName;
+//}
 
-    self.lineOederNamelab.text = routeName;
+/** 配置Cell */
+- (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel{
+
+    self.lineOederNamelab.text = placeLineOrderModel.list.name;
+    self.perrAdultlab.text = placeLineOrderModel.list.price_adult_agenc;
+    self.preeChildlab.text = placeLineOrderModel.list.price_child_agenc;
+    self.singleRoomDifferencelab.text = placeLineOrderModel.list.price_hotel_agenc;
+    
 }
+
 
 @end
