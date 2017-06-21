@@ -16,6 +16,7 @@
 #import "DLLineModificationViewController.h"
 #import "LGLCalenderViewController.h"
 #import "DLChangeTitleViewController.h"
+#import "DLCalendarViewController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -283,11 +284,13 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)fetchData {
     
-    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
-    
+//    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
     @weakify(self);
-    [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getAgencyDetails:param completion:^(id result, NSError *error) {
         @strongify(self);
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
@@ -316,6 +319,9 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)telSonsultationBtn {
     NSLog(@"点击了电话咨询");
+    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打电话" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
+    phoneAlert.tag = 100;
+    [phoneAlert show];
 }
 
 - (void)OtherBtn {
@@ -328,6 +334,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 -(void)changeThePriceButtonDelegate:(UIButton *)button {
     DLLineModificationViewController *lineModificationVC = [[DLLineModificationViewController alloc]init];
+    lineModificationVC.routeModel = _routeModel;
     [self.navigationController pushViewController:lineModificationVC animated:YES];
 }
 
@@ -339,13 +346,18 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)selectDateViewDelegate:(UITapGestureRecognizer *)tapdate
 {
-    NSLog(@"点击了选择日期");
-    LGLCalenderViewController * ctl = [[LGLCalenderViewController alloc] init];
-    [ctl seleDateWithBlock:^(NSMutableDictionary *paramas) {
+//    NSLog(@"点击了选择日期");
+//    LGLCalenderViewController * ctl = [[LGLCalenderViewController alloc] init];
+//    [ctl seleDateWithBlock:^(NSMutableDictionary *paramas) {
 //        NSString * date = [NSString stringWithFormat:@"%@-%@-%@", paramas[@"year"], paramas[@"month"], paramas[@"day"]];
 //        NSString * price = paramas[@"price"];
-    }];
-    [self.navigationController pushViewController:ctl animated:YES];
+//    }];
+//    [self.navigationController pushViewController:ctl animated:YES];
+    
+    NSLog(@"点击了选择日期");
+    DLCalendarViewController *calendarViewController = [[DLCalendarViewController alloc] init];
+    [self.navigationController pushViewController:calendarViewController animated:YES];
+
 }
 - (void)pushHomePageBtn {
     UIAlertView *pushHomeAlert = [[UIAlertView alloc]initWithTitle:@"确定推到首页吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
@@ -370,6 +382,15 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
             }];
         }
     }
+    
+    if (alertView.tag == 100){
+        if (buttonIndex == 1) {
+            if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.contact_phone]]] ){
+                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+            }
+        }
+    }
+
 }
 
 

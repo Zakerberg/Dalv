@@ -9,7 +9,7 @@
 #import "DLLineModificationViewController.h"
 #import "DLLineModificationViewDetailTableViewCell.h"
 #import "DLRoutePricingTableViewCell.h"
-
+#import "DLHomeViewTask.h"
 @interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineModificationTableView;//
 
@@ -72,6 +72,12 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getAgencyChangePrice:param completion:^(id result, NSError *error) {
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

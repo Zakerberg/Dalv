@@ -86,6 +86,9 @@
 /** 联系人 */
 @property (nonatomic, copy) NSString *contact_person;
 
+/** 联系人手机号 */
+@property (nonatomic, copy) NSString *contact_phone;
+
 /** 价格 */
 @property (nonatomic, copy) NSString *min_price;
 

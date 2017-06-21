@@ -440,7 +440,9 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
                             @"payer" : (self.selctSection == 0 || self.selctSection == 1) ? @"" :self.remittingPartyTextField.text,
                             @"topup_type" : @(self.selctSection  + 1),
                             @"sign_token" : [DLUtils getSign_token],};
+       [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
         [DLHomeViewTask getAgencyFinanceApplyTopupHandle:param completion:^(id result, NSError *error) {
+        [[DLHUDManager sharedInstance] hiddenHUD];
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
                 [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                 DLRechargeRecordViewController *rechRecVC = [[DLRechargeRecordViewController alloc]init];
