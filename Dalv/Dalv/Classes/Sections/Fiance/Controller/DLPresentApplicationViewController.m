@@ -279,7 +279,9 @@
                                 @"amount" : self.priceTextField.text,
                                 @"code" : @"400",
                                 @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
         [DLHomeViewTask getAgencyFinanceApplyWithdrawHandle:param completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
                 [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                 

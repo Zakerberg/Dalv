@@ -64,6 +64,19 @@
 		1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C29817C1EE0F40C00712524 /* DLCashRegisterModel.m */; };
 		1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3416071ED9494000752071 /* DLRemindSegmentView.m */; };
 		1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */; };
+		1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */; };
+		1C5CD3721EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3701EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png */; };
+		1C5CD3731EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3711EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png */; };
+		1C5CD3761EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3741EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png */; };
+		1C5CD3771EF9FF4E009DBC1B /* dl_calender_selected_bubble@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3751EF9FF4E009DBC1B /* dl_calender_selected_bubble@3x.png */; };
+		1C5CD3891EFA0010009DBC1B /* DLCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD37A1EFA0010009DBC1B /* DLCalendarViewController.m */; };
+		1C5CD38A1EFA0010009DBC1B /* CalenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD37C1EFA0010009DBC1B /* CalenderView.m */; };
+		1C5CD38B1EFA0010009DBC1B /* CalenderDateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD37E1EFA0010009DBC1B /* CalenderDateHeaderView.m */; };
+		1C5CD38C1EFA0010009DBC1B /* CalenderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3801EFA0010009DBC1B /* CalenderCollectionViewCell.m */; };
+		1C5CD38D1EFA0010009DBC1B /* NSDate+Calender.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3821EFA0010009DBC1B /* NSDate+Calender.m */; };
+		1C5CD38E1EFA0010009DBC1B /* CalenderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3841EFA0010009DBC1B /* CalenderModel.m */; };
+		1C5CD38F1EFA0010009DBC1B /* CalenderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3861EFA0010009DBC1B /* CalenderObject.m */; };
+		1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */; };
 		1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66614C1EF5FE660032E1AE /* DLNotification.m */; };
 		1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */; };
 		1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661551EF622C80032E1AE /* DLBankTransferModel.m */; };
@@ -440,6 +453,28 @@
 		1C3416071ED9494000752071 /* DLRemindSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemindSegmentView.m; sourceTree = "<group>"; };
 		1C3416091ED94AA800752071 /* DLLineDetialCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetialCollectionViewCell.h; sourceTree = "<group>"; };
 		1C34160A1ED94AA800752071 /* DLLineDetialCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialCollectionViewCell.m; sourceTree = "<group>"; };
+		1C5828961EF96A32004B4AC1 /* DLPlaceLineOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaceLineOrderModel.h; sourceTree = "<group>"; };
+		1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaceLineOrderModel.m; sourceTree = "<group>"; };
+		1C5CD3701EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dl_calender_selected_bg@2x.png"; path = "Navbar/dl_calender_selected_bg@2x.png"; sourceTree = "<group>"; };
+		1C5CD3711EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dl_calender_selected_bg@3x.png"; path = "Navbar/dl_calender_selected_bg@3x.png"; sourceTree = "<group>"; };
+		1C5CD3741EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_calender_selected_bubble@2x.png"; sourceTree = "<group>"; };
+		1C5CD3751EF9FF4E009DBC1B /* dl_calender_selected_bubble@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_calender_selected_bubble@3x.png"; sourceTree = "<group>"; };
+		1C5CD3791EFA0010009DBC1B /* DLCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCalendarViewController.h; sourceTree = "<group>"; };
+		1C5CD37A1EFA0010009DBC1B /* DLCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCalendarViewController.m; sourceTree = "<group>"; };
+		1C5CD37B1EFA0010009DBC1B /* CalenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderView.h; sourceTree = "<group>"; };
+		1C5CD37C1EFA0010009DBC1B /* CalenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderView.m; sourceTree = "<group>"; };
+		1C5CD37D1EFA0010009DBC1B /* CalenderDateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderDateHeaderView.h; sourceTree = "<group>"; };
+		1C5CD37E1EFA0010009DBC1B /* CalenderDateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderDateHeaderView.m; sourceTree = "<group>"; };
+		1C5CD37F1EFA0010009DBC1B /* CalenderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderCollectionViewCell.h; sourceTree = "<group>"; };
+		1C5CD3801EFA0010009DBC1B /* CalenderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderCollectionViewCell.m; sourceTree = "<group>"; };
+		1C5CD3811EFA0010009DBC1B /* NSDate+Calender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calender.h"; sourceTree = "<group>"; };
+		1C5CD3821EFA0010009DBC1B /* NSDate+Calender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calender.m"; sourceTree = "<group>"; };
+		1C5CD3831EFA0010009DBC1B /* CalenderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderModel.h; sourceTree = "<group>"; };
+		1C5CD3841EFA0010009DBC1B /* CalenderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderModel.m; sourceTree = "<group>"; };
+		1C5CD3851EFA0010009DBC1B /* CalenderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderObject.h; sourceTree = "<group>"; };
+		1C5CD3861EFA0010009DBC1B /* CalenderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderObject.m; sourceTree = "<group>"; };
+		1C5CD3871EFA0010009DBC1B /* CalendarDateSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDateSource.h; sourceTree = "<group>"; };
+		1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateSource.m; sourceTree = "<group>"; };
 		1C66614B1EF5FE660032E1AE /* DLNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNotification.h; sourceTree = "<group>"; };
 		1C66614C1EF5FE660032E1AE /* DLNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNotification.m; sourceTree = "<group>"; };
 		1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
@@ -926,6 +961,29 @@
 			path = SegmentView;
 			sourceTree = "<group>";
 		};
+		1C5CD3781EF9FFE7009DBC1B /* Calender */ = {
+			isa = PBXGroup;
+			children = (
+				1C5CD3791EFA0010009DBC1B /* DLCalendarViewController.h */,
+				1C5CD37A1EFA0010009DBC1B /* DLCalendarViewController.m */,
+				1C5CD37B1EFA0010009DBC1B /* CalenderView.h */,
+				1C5CD37C1EFA0010009DBC1B /* CalenderView.m */,
+				1C5CD37D1EFA0010009DBC1B /* CalenderDateHeaderView.h */,
+				1C5CD37E1EFA0010009DBC1B /* CalenderDateHeaderView.m */,
+				1C5CD37F1EFA0010009DBC1B /* CalenderCollectionViewCell.h */,
+				1C5CD3801EFA0010009DBC1B /* CalenderCollectionViewCell.m */,
+				1C5CD3811EFA0010009DBC1B /* NSDate+Calender.h */,
+				1C5CD3821EFA0010009DBC1B /* NSDate+Calender.m */,
+				1C5CD3831EFA0010009DBC1B /* CalenderModel.h */,
+				1C5CD3841EFA0010009DBC1B /* CalenderModel.m */,
+				1C5CD3851EFA0010009DBC1B /* CalenderObject.h */,
+				1C5CD3861EFA0010009DBC1B /* CalenderObject.m */,
+				1C5CD3871EFA0010009DBC1B /* CalendarDateSource.h */,
+				1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */,
+			);
+			path = Calender;
+			sourceTree = "<group>";
+		};
 		1C6661591EF6257E0032E1AE /* RegularMatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1139,6 +1197,10 @@
 				1CE2C23A1ED57BE400B898BA /* universal_property@3x.png */,
 				1CE2C23B1ED57BE400B898BA /* vendor_inquiries@2x.png */,
 				1CE2C23C1ED57BE400B898BA /* vendor_inquiries@3x.png */,
+				1C5CD3701EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png */,
+				1C5CD3711EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png */,
+				1C5CD3741EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png */,
+				1C5CD3751EF9FF4E009DBC1B /* dl_calender_selected_bubble@3x.png */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1254,6 +1316,7 @@
 		1CB9532F1ECFC41600BDC2D3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1C5CD3781EF9FFE7009DBC1B /* Calender */,
 				1CB953301ECFC41600BDC2D3 /* Controller */,
 				1CB9533B1ECFC41600BDC2D3 /* Model */,
 				1CB9533E1ECFC41600BDC2D3 /* Service */,
@@ -1303,6 +1366,8 @@
 				1C6661641EF66E580032E1AE /* DLHomePageMenuModel.m */,
 				1C66616E1EF67BAC0032E1AE /* DLDestinationAtlasModel.h */,
 				1C66616F1EF67BAC0032E1AE /* DLDestinationAtlasModel.m */,
+				1C5828961EF96A32004B4AC1 /* DLPlaceLineOrderModel.h */,
+				1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1960,6 +2025,7 @@
 				458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */,
 				45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */,
 				1CE2C1AE1ED525E000B898BA /* return_traffic@3x.png in Resources */,
+				1C5CD3771EF9FF4E009DBC1B /* dl_calender_selected_bubble@3x.png in Resources */,
 				1CE2C1911ED525E000B898BA /* brightened_dot@2x.png in Resources */,
 				1CE2C1A51ED525E000B898BA /* phone@2x.png in Resources */,
 				1CE2C1C11ED5270E00B898BA /* financial_highlight@3x.png in Resources */,
@@ -2001,7 +2067,9 @@
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
 				1CE2C2281ED52E8C00B898BA /* visa_order_highlight@3x.png in Resources */,
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
+				1C5CD3761EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png in Resources */,
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
+				1C5CD3721EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png in Resources */,
 				1C2978FE1EEEAA7400D3FEEA /* fiance_cash_recharge@2x.png in Resources */,
 				1CE2C2261ED52E8C00B898BA /* ticket_order@3x.png in Resources */,
 				4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */,
@@ -2010,6 +2078,7 @@
 				1CE2C1931ED525E000B898BA /* departure_city@2x.png in Resources */,
 				1CE8D7FD1ED7FEFA00FFEF8B /* navbar_back_gray@3x.png in Resources */,
 				1CE2C1A71ED525E000B898BA /* recommended_home@2x.png in Resources */,
+				1C5CD3731EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
@@ -2172,6 +2241,7 @@
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
 				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
+				1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
@@ -2196,18 +2266,22 @@
 				1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */,
 				1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
+				1C5CD3891EFA0010009DBC1B /* DLCalendarViewController.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
 				1C0864D11EEA96F5005015DE /* LGLHeaderView.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
+				1C5CD38E1EFA0010009DBC1B /* CalenderModel.m in Sources */,
 				1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */,
 				45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
+				1C5CD38D1EFA0010009DBC1B /* NSDate+Calender.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
 				45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
+				1C5CD38C1EFA0010009DBC1B /* CalenderCollectionViewCell.m in Sources */,
 				45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
@@ -2235,6 +2309,7 @@
 				458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */,
 				1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */,
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
+				1C5CD38B1EFA0010009DBC1B /* CalenderDateHeaderView.m in Sources */,
 				1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
@@ -2253,6 +2328,7 @@
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
+				1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
@@ -2264,6 +2340,8 @@
 				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */,
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
+				1C5CD38A1EFA0010009DBC1B /* CalenderView.m in Sources */,
+				450105E61ED97CF000AA7A17 /* MySingleton.m in Sources */,
 				1C2981651EDFE2C400712524 /* DLCashRegisterViewController.m in Sources */,
 				4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */,
 				1CB953FD1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m in Sources */,
@@ -2306,6 +2384,7 @@
 				1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
+				1C5CD38F1EFA0010009DBC1B /* CalenderObject.m in Sources */,
 				1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,

@@ -54,6 +54,9 @@
 /**  跳转url */
 @property (nonatomic, copy) NSString *url;
 
+/**  跳转type */
+@property (nonatomic, copy) NSString *type;
+
 /**  排序 */
 @property (nonatomic, copy) NSString *sort;
 
