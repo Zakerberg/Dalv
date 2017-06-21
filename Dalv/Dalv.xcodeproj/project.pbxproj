@@ -355,6 +355,7 @@
 		45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */; };
 		45F98C231EFA2BE40012DC26 /* DLCustomerLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */; };
 		45F98C241EFA2BE40012DC26 /* DLCustomerLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */; };
+		45F98C2A1EFA775F0012DC26 /* DLMyAgencyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F98C291EFA775F0012DC26 /* DLMyAgencyController.m */; };
 		54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */; };
 /* End PBXBuildFile section */
 
@@ -891,6 +892,8 @@
 		45F98C201EFA2BE40012DC26 /* DLCustomerLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerLoginController.h; sourceTree = "<group>"; };
 		45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerLoginController.m; sourceTree = "<group>"; };
 		45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerLoginController.xib; sourceTree = "<group>"; };
+		45F98C281EFA775F0012DC26 /* DLMyAgencyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyAgencyController.h; sourceTree = "<group>"; };
+		45F98C291EFA775F0012DC26 /* DLMyAgencyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyAgencyController.m; sourceTree = "<group>"; };
 		D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dalv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1040,6 +1043,8 @@
 				45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */,
 				4520579A1EF903B00033DA69 /* DLPersonalChangeDataController.h */,
 				4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */,
+				45F98C281EFA775F0012DC26 /* DLMyAgencyController.h */,
+				45F98C291EFA775F0012DC26 /* DLMyAgencyController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2335,6 +2340,7 @@
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */,
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,
+				45F98C2A1EFA775F0012DC26 /* DLMyAgencyController.m in Sources */,
 				458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */,
 				45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */,
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,

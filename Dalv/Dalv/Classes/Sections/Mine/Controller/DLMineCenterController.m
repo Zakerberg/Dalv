@@ -11,6 +11,7 @@
 #import "DLMyCustomerXibController.h"
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
+#import "DLMyAgencyController.h"
 #import "DLRemmendController.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
@@ -20,39 +21,19 @@
 static NSString *cellID  = @"cellID";
 
 @interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong) UIView *headerView;
-@property(nonatomic,strong) UIButton * personBtn;
-@property(nonatomic,strong) UILabel *label;
-@property (strong,nonatomic) NSArray* cellTiltleArr ;
-@property (strong,nonatomic) UITableView* tableView ;
-
-@property (strong,nonatomic) UILabel* numLabel;
-@property (strong,nonatomic) UILabel* nameLabel;
-//用户状态
-@property(nonatomic,strong) NSString* userTypeStr;
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
+@property (strong,nonatomic) UITableView* tableView;
+@property(nonatomic,strong) NSString* userTypeStr;//用户状态
+@property(nonatomic,strong) UIButton * personBtn;
+@property (strong,nonatomic) UILabel* nameLabel;
+@property(nonatomic,strong) UIView *headerView;
+@property (strong,nonatomic) UILabel* numLabel;
+@property(nonatomic,strong) UILabel *label;
 
 @end
 
 @implementation DLMineCenterController
-
--(NSArray*)cellTiltleArr
-{
-    
-    if (!_cellTiltleArr) {
-        
-        DLCustomerLoginController *CustomerVC = [[DLCustomerLoginController alloc]init];
-        self.userTypeStr = CustomerVC.userTypeStr;
-        
-        if ([self.userTypeStr isEqualToString:@"5"]) {
-            
-            _cellTiltleArr = @[@"修改个人资料",@"我的顾问",@"通用"];
-        }
-        _cellTiltleArr = @[@"修改个人资料",@"我的直客",@"通用" ];
-    }
-    return _cellTiltleArr ;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +43,11 @@ static NSString *cellID  = @"cellID";
     [self fetchData];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    
+    DLCustomerLoginController *CustomerVC = [[DLCustomerLoginController alloc]init];
+    self.userTypeStr = CustomerVC.userTypeStr;
+    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -145,18 +131,18 @@ static NSString *cellID  = @"cellID";
         make.centerX.equalTo(personBtn);
         make.height.offset(12);
     }];
-    
-
 }
 
 -(void)fetchData{
     
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    
     if([self.userTypeStr isEqualToString:@"4"])
-    {
         
-        NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                                @"sign_token" : [DLUtils getSign_token],
-                                };
+    {
         
         @weakify(self);
         [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
@@ -184,13 +170,31 @@ static NSString *cellID  = @"cellID";
         }];
     }else{
         
-        
-        
-        
-        
+        [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
+            
+            self.mineCenterDict = result[@"touristInfo"];
+            
+            
+            [self.personBtn.layer setMasksToBounds:YES];
+            
+            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
+            self.personBtn.layer.borderWidth = 2.0;
+            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+            
+            self.nameLabel.text = self.mineCenterDict[@"name"];
+            
+            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
+                self.nameLabel.text = @"未设置";
+            }else{
+                self.nameLabel.text = self.mineCenterDict[@"name"];
+            }
+            
+            self.numLabel.text = self.mineCenterDict[@"mobile"];
+            
+            [self.tableView reloadData];
+            
+        }];
     }
-    
-    
 }
 
 //头像按钮的点击事件
@@ -215,14 +219,49 @@ static NSString *cellID  = @"cellID";
         [self.navigationController pushViewController:changeDataVC animated:YES];
 
     }
+
     
-    /***  我的直客   ***/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /***  我的直客  or 我的顾客 ***/
     if (indexPath.row == 1) {
         
-        DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
+        if([self.userTypeStr isEqualToString:@"4"]){
         
-        [self.navigationController pushViewController:myCustomerVC animated:YES];
+            DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
+            
+            [self.navigationController pushViewController:myCustomerVC animated:YES];
+        
+        }else {
+            
+            
+            
+            
+            
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /***  通用   ***/
     if (indexPath.row == 2) {
@@ -259,7 +298,7 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.cellTiltleArr.count;
+    return 3;
 }
 
 
@@ -272,10 +311,26 @@ static NSString *cellID  = @"cellID";
         cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
         cell.textLabel.text = @"修改个人资料";
     }
+    
+    
+    
+    
     if(indexPath.row == 1){
-        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
-        cell.textLabel.text = @"我的直客";
+        
+        if([self.userTypeStr isEqualToString:@"4"]){
+            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.textLabel.text = @"我的直客";
+            
+        }else{
+            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.textLabel.text = @"我的顾客";
+        }
     }
+    
+    
+    
+    
+    
     
     if(indexPath.row == 2){
         cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
