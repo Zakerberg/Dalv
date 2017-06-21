@@ -68,6 +68,18 @@
     
     [self.contentView addSubview:courierLabel];
     
+    UIButton *blankInviteBtn = [[UIButton alloc] init];
+    self.blankInviteBtn = blankInviteBtn;
+    blankInviteBtn.backgroundColor = [UIColor clearColor];
+    
+    [self.contentView addSubview:blankInviteBtn];
+    
+    UIButton *blankCourierBtn = [[UIButton alloc] init];
+    self.blankCourierBtn = blankCourierBtn;
+    blankCourierBtn.backgroundColor = [UIColor clearColor];
+    
+    [self.contentView addSubview:blankCourierBtn];
+    
     [courierBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.offset(0);
         make.height.with.offset(20);
@@ -98,6 +110,19 @@
         make.left.equalTo(self.mas_centerX).offset(15);
         make.height.offset(15);
     }];
+    
+    [blankInviteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(0);
+        make.width.offset(MAIN_SCREEN_WIDTH/2);
+        make.height.offset(44);
+    }];
+    
+    [blankCourierBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(0);
+        make.width.offset(MAIN_SCREEN_WIDTH/2);
+        make.height.offset(44);
+    }];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

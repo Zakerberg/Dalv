@@ -6,18 +6,18 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //    ---------------   发票申请   ------------
 
-#import "DLInvioiceApplyController.h"
-#import "DLHomeViewTask.h"
 #import "DLContractApplySection1Cell.h"
 #import "DLContractApplySection2Cell.h"
 #import "DLContractApplySection3Cell.h"
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
 #import "DLinvoiceApplySection0Cell.h"
+#import "DLInvioiceApplyController.h"
 #import "DLinvoiceSection1Cell.h"
-#import "DLCityPickerView.h"
-#import "DLSalertView.h"
 #import "DLAddReduceButton.h"
+#import "DLCityPickerView.h"
+#import "DLHomeViewTask.h"
+#import "DLSalertView.h"
 
 @interface DLInvioiceApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLCityPickerViewDelegate,DLSalertViewDelegate>
 @property (nonatomic, strong) UITableView *invoiceTableView;
@@ -44,13 +44,11 @@
 //发票类型数据
 @property(nonatomic,strong) NSMutableArray *dataArrM;
 
-
 /*** 邮寄地址TextView  ***/
 @property(nonatomic,strong) UITextView * addressTV;
 
 /*** 提交申请Btn  ***/
 @property(nonatomic,strong) UIButton * submitBtn;
-
 
 /*** 联系人姓名TextFiled  ***/
 @property(nonatomic,strong) UITextField *nameTF;
@@ -64,13 +62,11 @@
 /***  剩余发票额度Label ***/
 @property(nonatomic,strong) UILabel *moneyLabel;
 
-
 //获取方式
 @property(nonatomic,strong) NSString *methodBtnNumber;
 
 //邮寄方式
 @property(nonatomic,strong) NSString *express_feeNumber;
-
 
 /***  发票项目 Btn ***/
 @property(nonatomic,strong) UIButton *projctButton;
@@ -89,18 +85,23 @@
 @property(nonatomic,strong) UILabel * addressLabel1;
 /* 公司电话 */
 @property(nonatomic,strong) UILabel * numberLabel1;
-
 @property(nonatomic,strong) NSString *companyStr;
 @property(nonatomic,strong) NSString *numStr;
-
 
 /***  发票纳税人识别号TF ***/
 @property(nonatomic,strong) UITextField *identificationNumTF;
 
+//空白自取blankInviteBtn
+@property(nonatomic,strong)UIButton *blankInviteBtn;
+//空白快递blankCourierBtn
+@property(nonatomic,strong)UIButton *blankCourierBtn;
+//空白到付blankPayforBtn
+@property(nonatomic,strong)UIButton *blankPayforBtn;
+//空白邮寄blankMailBtn
+@property(nonatomic,strong)UIButton *blankMailBtn;
+
 
 @end
-
-
 //static NSString *CellID = @"CellID";
 
 static NSString *section0CellID = @"section0CellID";
@@ -125,7 +126,6 @@ static NSString *section5CellID = @"section5CellID";
     self.Section3Number = 0;
     self.Section4Number = 1;
 }
-
 
 #pragma mark ----------------- Set TableView -----------------
 
@@ -472,6 +472,15 @@ static NSString *section5CellID = @"section5CellID";
         
         self.inviteBtn = cell.inviteBtn;
         self.courierBtn = cell.courierBtn;
+        
+        
+        self.blankCourierBtn = cell.blankCourierBtn;
+        self.blankInviteBtn = cell.blankInviteBtn;
+        
+        [cell.blankInviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.blankCourierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -496,6 +505,14 @@ static NSString *section5CellID = @"section5CellID";
         
         self.mailBtn = cell.mailBtn;
         self.payforBtn = cell.payforBtn;
+        
+        
+        self.blankMailBtn = cell.blankMailBtn;
+        self.blankPayforBtn = cell.blankPayforBtn;
+        
+        [cell.blankPayforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.blankMailBtn addTarget:self action:@selector(mailBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.payforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         

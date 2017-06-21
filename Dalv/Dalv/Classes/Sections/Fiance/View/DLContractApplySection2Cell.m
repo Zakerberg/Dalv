@@ -10,9 +10,7 @@
 
 @interface DLContractApplySection2Cell ()
 
-
 @end
-
 
 @implementation DLContractApplySection2Cell
 
