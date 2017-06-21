@@ -210,16 +210,6 @@ static NSString *section5CellID = @"section5CellID";
         
         NSInteger finaInter = MoneyInter/100;
         self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)finaInter];
-        /*
-         NSString *lastTotalStr = invoiceDict[@"lastTotal"];
-         NSInteger *monInter = [moneyStr intValue];
-         self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(monInter/100)];
-         self.numberLabel1.text = numStr;
-         NSDictionary *listDict = dict[@"invoiceTypeList"];
-         NSDictionary *dict1 = [result dictionaryWithObject:@"团款" forKey:@"detail"];
-         NSArray *arr = result[@"invoiceTypeList"];
-         NSString* list = arr.
-         */
     }];
 }
 
@@ -294,65 +284,73 @@ static NSString *section5CellID = @"section5CellID";
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
 
-    //自取
-    if ([self.methodBtnNumber isEqualToString:@"1"]) {
+    if ([self.identificationNumTF.text isEqualToString:@""]) {
         
-        NSDictionary *param1 = @{
-                                 
-                                 @"uid":[DLUtils getUid],
-                                 @"sign_token" : [DLUtils getSign_token],
-                                 @"title":self.companyTF.text,
-                                 @"amount":self.invoiceAmountTF.text,
-                                 @"detail":self.projctButton.titleLabel.text,
-                                 @"detail_comm":self.noteTextView.text,
-                                 @"request_method":self.methodBtnNumber,
-                                 @"tax_number":self.identificationNumTF.text,
-                                 @"code":@"400"
-                                 
-                                 };
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入纳税人识别号" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
         
-        [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param1 completion:^(id result, NSError *error) {
+    }else{
+        //自取
+        if ([self.methodBtnNumber isEqualToString:@"1"]) {
             
-            //写个提示申请成功! ---> 跳转!
-            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [successV show];
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-    }
-    //快递
-    else if ([self.methodBtnNumber isEqualToString:@"2"]){
-        
-        if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
+            NSDictionary *param1 = @{
+                                     
+                                     @"uid":[DLUtils getUid],
+                                     @"sign_token" : [DLUtils getSign_token],
+                                     @"title":self.companyTF.text,
+                                     @"amount":self.invoiceAmountTF.text,
+                                     @"detail":self.projctButton.titleLabel.text,
+                                     @"detail_comm":self.noteTextView.text,
+                                     @"request_method":self.methodBtnNumber,
+                                     @"tax_number":self.identificationNumTF.text,
+                                     @"code":@"400"
+                                     
+                                     };
             
-            NSDictionary *param = @{
-                                    
-                                    @"uid":[DLUtils getUid],
-                                    @"sign_token" : [DLUtils getSign_token],
-                                    @"title":self.companyTF.text,
-                                    @"amount":self.invoiceAmountTF.text,
-                                    @"detail":self.projctButton.titleLabel.text,
-                                    @"detail_comm":self.noteTextView.text,
-                                    @"request_method":self.methodBtnNumber,
-                                    @"express_fee":self.express_feeNumber,
-                                    @"addr":self.addressTV.text,
-                                    @"name":self.nameTF.text,
-                                    @"phone":self.numberTF.text,
-                                    @"tax_number":self.identificationNumTF.text,                                    @"code":@"400"
-                                    };
-            [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param completion:^(id result, NSError *error) {
+            [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param1 completion:^(id result, NSError *error) {
                 
                 //写个提示申请成功! ---> 跳转!
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
                 [self.navigationController popViewControllerAnimated:YES];
-                
             }];
+        }
+        //快递
+        else if ([self.methodBtnNumber isEqualToString:@"2"]){
             
-        }else{
-            
-            // 写个提示!  申请失败 !  联系客服 !
-            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [failureV show];
+            if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
+                
+                NSDictionary *param = @{
+                                        
+                                        @"uid":[DLUtils getUid],
+                                        @"sign_token" : [DLUtils getSign_token],
+                                        @"title":self.companyTF.text,
+                                        @"amount":self.invoiceAmountTF.text,
+                                        @"detail":self.projctButton.titleLabel.text,
+                                        @"detail_comm":self.noteTextView.text,
+                                        @"request_method":self.methodBtnNumber,
+                                        @"express_fee":self.express_feeNumber,
+                                        @"addr":self.addressTV.text,
+                                        @"name":self.nameTF.text,
+                                        @"phone":self.numberTF.text,
+                                        @"tax_number":self.identificationNumTF.text,                                    @"code":@"400"
+                                        };
+                [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param completion:^(id result, NSError *error) {
+                    
+                    //写个提示申请成功! ---> 跳转!
+                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [successV show];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }];
+                
+            }else{
+                
+                // 写个提示!  申请失败 !  联系客服 !
+                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [failureV show];
+            }
         }
     }
 }
@@ -490,7 +488,6 @@ static NSString *section5CellID = @"section5CellID";
         self.numberLabel1 = cell.numberLabel1;
         
         return cell;
-        
     }
     
     else if (indexPath.section == 3) {
