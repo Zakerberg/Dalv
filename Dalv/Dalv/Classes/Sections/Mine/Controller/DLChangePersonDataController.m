@@ -7,7 +7,7 @@
 //  -----------------   修改个人资料   -----------------
 
 #import "DLChangePersonDataController.h"
-#import "JHPickView.h"
+#import "BLMPickerView.h"
 #import "DLCityPickerView.h"
 #import "DLChangePasswordController.h"
 #import "ZYInputAlertView.h"
@@ -15,7 +15,7 @@
 
 static NSString* cellID = @"cellID";
 
-@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,JHPickerDelegate,UITextViewDelegate>
+@interface DLChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,DLCityPickerViewDelegate,BLMPickerDelegate,UITextViewDelegate>
 
 @property (strong,nonatomic) UITableView* tableView ;
 //@property (strong,nonatomic) NSArray* cellTiltleArr ;
@@ -302,12 +302,12 @@ static NSString* cellID = @"cellID";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedIndexPath = indexPath ;
-    self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath] ;
+    self.cell = [self.tableView cellForRowAtIndexPath:self.selectedIndexPath];
     
     /**  性别 **/
     if (indexPath.row == 2) {
         
-        JHPickView *picker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
         picker.delegate = self ;
         picker.arrayType = GenderArray;
         [self.view addSubview:picker];
@@ -317,7 +317,7 @@ static NSString* cellID = @"cellID";
     /**  从业时间 **/
     if (indexPath.row == 4) {
         
-        JHPickView *picker = [[JHPickView alloc]initWithFrame:self.view.bounds];
+        BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
         picker.delegate = self ;
         picker.arrayType = WorkTimeArray;
         [self.view addSubview:picker];

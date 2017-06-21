@@ -1,98 +1,30 @@
 //
-//  JHPickView.m
-//  SmallCityStory
+//  BLMPickerView.m
+//  Dalv
 //
-//  Created by Jivan on 2017/5/8.
-//  Copyright © 2017年 Jivan. All rights reserved.
+//  Created by Michael 柏 on 2017/6/20.
+//  Copyright © 2017年 Michael 柏. All rights reserved.
 //
-//屏幕宽和高
-#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 
-//RGB
-#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#import "BLMPickerView.h"
 
-// 缩放比
-#define kScale ([UIScreen mainScreen].bounds.size.width) / 375
-
-#define hScale ([UIScreen mainScreen].bounds.size.height) / 667
-
-//字体大小
-#define kfont 15
-
-#import "JHPickView.h"
-#import "CityModelData.h"
-#import "MySingleton.h"
-#import <Masonry.h>
-@interface JHPickView ()<UIPickerViewDelegate,UIPickerViewDataSource>
-
+@interface BLMPickerView ()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (nonatomic,strong)UIView *bgV;
 
 @property (nonatomic,strong)UIButton *cancelBtn;
 
 @property (nonatomic,strong)UIButton *conpleteBtn;
 
-
 @property (nonatomic,strong)UIPickerView *pickerV;
-
 
 @property (nonatomic,strong)NSMutableArray *array;
 
 @property (nonatomic,strong) UIView* line ;
-/**
- *  所有的省份
- */
-@property (nonatomic,strong)NSMutableArray *allProvince;
-/**
- *  选中的省份对应的下标
- */
-@property (nonatomic,assign)NSInteger      selectRowWithProvince;
-/**
- *  选中的市级对应的下标
- */
-@property (nonatomic,assign)NSInteger      selectRowWithCity;
-/**
- *  选中的县级对应的下标
- */
-@property (nonatomic,assign)NSInteger      selectRowWithTown;
-/**
- *  城市模型数据
- */
-@property (nonatomic,strong)CityModelData  *cityModel;
-//日期选择
-@property (nonatomic, strong) UIDatePicker *datePicker;
-@property (nonatomic, strong) NSDateFormatter *formatter;
 
 @end
 
-@implementation JHPickView
 
--(NSMutableArray *)allProvince{
-    if (_allProvince==nil) {
-        
-        _allProvince= (NSMutableArray *)self.cityModel.province ;
-    }
-    return _allProvince;
-}
-
--(CityModelData *)cityModel{
-    
-    if (_cityModel==nil) {
-        MySingleton *mySing=[MySingleton shareMySingleton];
-        if (mySing.cityModel) {
-            _cityModel=mySing.cityModel;
-        }
-        else{
-            NSString *jsonPath=[[NSBundle mainBundle]pathForResource:@"province_data.json" ofType:nil];
-            NSData *jsonData=[[NSData alloc]initWithContentsOfFile:jsonPath];
-            NSString *stringValue=[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSDictionary *dicValue=[mySing getObjectFromJsonString:stringValue];  // 将本地JSON数据转为对象
-            _cityModel=[CityModelData mj_objectWithKeyValues:dicValue];
-            mySing.cityModel=_cityModel;
-        }
-    }
-    return _cityModel;
-}
+@implementation BLMPickerView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -100,9 +32,9 @@
         
         self.array = [NSMutableArray array];
         
-        self.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        self.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT);
         self.backgroundColor = RGBA(51, 51, 51, 0.8);
-        self.bgV = [[UIView alloc]initWithFrame:CGRectMake(0, ScreenHeight, ScreenWidth, 260*hScale)];
+        self.bgV = [[UIView alloc]initWithFrame:CGRectMake(0, MAIN_SCREEN_HEIGHT, MAIN_SCREEN_WIDTH, 260*hScale)];
         self.bgV.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.bgV];
         
@@ -112,7 +44,7 @@
         [self.bgV addSubview:self.cancelBtn];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.top.mas_equalTo(120);
+            make.top.mas_equalTo(0);
             make.left.mas_equalTo(15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
@@ -155,10 +87,11 @@
         [self.bgV addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.bottom.mas_equalTo(self.cancelBtn.mas_top).offset(0);
             make.left.mas_equalTo(0);
-            make.width.mas_equalTo(ScreenWidth);
+            make.width.mas_equalTo(MAIN_SCREEN_WIDTH);
             make.height.mas_equalTo(0.5);
+            
+            make.top.mas_equalTo(self.cancelBtn.mas_bottom);
             
         }];
         line.backgroundColor = RGBA(224, 224, 224, 1);
@@ -169,56 +102,34 @@
 }
 
 
-- (void)setCustomArr:(NSArray *)customArr{
+- (void)setArrayType:(ARRAYTYPE)arrayType
+{
+    _arrayType = arrayType;
+    
     
     //选择器
     self.pickerV = [UIPickerView new];
     [self.bgV addSubview:self.pickerV];
     [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.mas_equalTo(_line);
-//        make.top.mas_equalTo(self.bgV);
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
+        
+        
+        make.top.mas_equalTo(self.line);
+        make.bottom.offset(-100);
         
     }];
     self.pickerV.delegate = self;
     self.pickerV.dataSource = self;
     
     
-    _customArr = customArr;
-    [self.array addObject:customArr];
-
-    
-}
-
-- (void)setArrayType:(ARRAYTYPE)arrayType
-{
-    _arrayType = arrayType;
-    
-  
-        //选择器
-        self.pickerV = [UIPickerView new];
-        [self.bgV addSubview:self.pickerV];
-        [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.bottom.mas_equalTo(_line);
-            make.top.mas_equalTo(self.bgV);
-            make.left.mas_equalTo(0);
-            make.right.mas_equalTo(0);
-            
-        }];
-        self.pickerV.delegate = self;
-        self.pickerV.dataSource = self;
-        
-    
-        switch (arrayType) {
+    switch (arrayType) {
             
             
         case GenderArray:
         {
             self.selectLb.text = @"选择性别";
-            [self.array addObject:@[@"男",@"女"]];
+            [self.array addObject:@[@"男",@"女",@"保密"]];
         }
             break;
         case WorkTimeArray:
@@ -233,14 +144,7 @@
             [self.array addObject:(NSArray *)arr];
         }
             break;
-            default:
-            break;
     }
-}
-
--(void)getAreaData
-{
-    self.array = self.allProvince ; 
 }
 
 
@@ -249,11 +153,8 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     
-       return self.array.count;
-    
-    
-   
-    }
+    return self.array.count;
+}
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
@@ -272,30 +173,20 @@
     
     return label;
     
-    
-}
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-        self.selectRowWithTown=row;
-    
-    
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
     
-        NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
-        return [arr objectAtIndex:row % arr.count];
-
-  
-    
+    NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
+    return [arr objectAtIndex:row % arr.count];
 }
 
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-        return (ScreenWidth - 30);
-
+    return (MAIN_SCREEN_WIDTH - 30);
+    
 }
 
 #pragma mark-----点击方法
@@ -314,18 +205,14 @@
         
         NSArray *arr = [self.array objectAtIndex:i];
         
-                    NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
-            fullStr = [fullStr stringByAppendingString:str];
-        
-        
+        NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
+        fullStr = [fullStr stringByAppendingString:str];
     }
-    
-    
     if (_delegate && [_delegate respondsToSelector:@selector(PickerSelectorIndixString:)]) {
         
         [self.delegate PickerSelectorIndixString:fullStr];
     }
-   
+    
     
     [self hideAnimation];
     
@@ -336,30 +223,13 @@
     [self hideAnimation];
 }
 
-#pragma mark 拼接最终的值
--(NSString *)finaSureCity{
-    
-    NSString *linkString;
-    if (self.selectRowWithProvince<self.allProvince.count) {
-        Province *provinceValue=self.allProvince[self.selectRowWithProvince];
-        if (self.selectRowWithCity<provinceValue.city.count) {
-            City *cityValue=provinceValue.city[self.selectRowWithCity];
-            if (self.selectRowWithTown<cityValue.district.count) {
-                District *dictrict=cityValue.district[self.selectRowWithTown];
-                linkString=[NSString stringWithFormat:@"%@ %@ %@",provinceValue.name,cityValue.name,dictrict.name];
-             
-            }
-        }
-    }
-    return linkString;
-}
 //隐藏动画
 - (void)hideAnimation{
     
     [UIView animateWithDuration:0.5 animations:^{
         
         CGRect frame = self.bgV.frame;
-        frame.origin.y = ScreenHeight;
+        frame.origin.y = MAIN_SCREEN_HEIGHT;
         self.bgV.frame = frame;
         
     } completion:^(BOOL finished) {
@@ -368,26 +238,17 @@
         [self removeFromSuperview];
         
     }];
-    
 }
-
 //显示动画
 - (void)showAnimation{
     
     [UIView animateWithDuration:0.5 animations:^{
         
         CGRect frame = self.bgV.frame;
-        frame.origin.y = ScreenHeight-260*hScale;
+        frame.origin.y = MAIN_SCREEN_HEIGHT-260*hScale;
         self.bgV.frame = frame;
     }];
     
 }
 
-
 @end
-
-
-
-
-
-
