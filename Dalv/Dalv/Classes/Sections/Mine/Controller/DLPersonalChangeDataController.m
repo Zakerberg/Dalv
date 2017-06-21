@@ -81,8 +81,25 @@ static NSString *tableViewCellID = @"tableViewCellID";
     [self.personalDataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.offset(0);
     }];
-    
 }
+
+//手机号码的正则表达式
+- (BOOL)isValidateMobile:(NSString *)mobile{
+    //手机号以13、15、18开头，八个\d数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:mobile];
+}
+
+
+//邮箱地址的正则表达式
+- (BOOL)isValidateEmail:(NSString *)email{
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
 
 
 #pragma mark  ----------------  fetchData  ------------------
@@ -122,26 +139,38 @@ static NSString *tableViewCellID = @"tableViewCellID";
 /***  保存  ***/
 -(void)completeClick {
     
-    NSDictionary *param = @{
-                            
-                            @"uid":[DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],
-                            @"nick_name":self.nickNameTF.text,
-                            @"email":self.mailTF.text,
-                            @"sex":self.sexLabel.text,
-                            @"age":self.ageTF.text,
-                            @"working_time":self.workTimeTF.text,
-                            @"personal_label":self.noteLabelTF.text,
-                            @"been_where":self.goCityView.text
-                            };
     
-    [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
-        NSLog(@"修改成功!");
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([self isValidateEmail:self.mailTF.text]) {
+            
+            NSDictionary *param = @{
+                                    
+                                    @"uid":[DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],
+                                    @"nick_name":self.nickNameTF.text,
+                                    @"email":self.mailTF.text,
+                                    @"sex":self.sexLabel.text,
+                                    @"age":self.ageTF.text,
+                                    @"working_time":self.workTimeTF.text,
+                                    @"personal_label":self.noteLabelTF.text,
+                                    @"been_where":self.goCityView.text
+                                    };
+            
+            [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
+                NSLog(@"修改成功!");
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }];
+
+        } else {
+            
+            UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertPhoneNum show];
+            self.mailTF.text = nil;
         
-    }];
+        }
+    
 }
 
 #pragma mark ------------- UITableView Delegate -------------
