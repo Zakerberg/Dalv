@@ -251,7 +251,6 @@
 		1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */; };
 		1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
-		450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
 		451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F391F1EEE600E005FE126 /* DLInvioiceApplyController.m */; };
@@ -701,8 +700,6 @@
 		1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineSchedulingTableViewCell.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
-		450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePersonDataController.m; sourceTree = "<group>"; };
-		450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePersonDataController.h; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
 		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		451F39101EEA9445005FE126 /* DLinvoiceSection1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceSection1Cell.h; sourceTree = "<group>"; };
@@ -966,8 +963,6 @@
 				1CB770921ECFE00100F6EFDF /* DLRemmendController.m */,
 				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
-				450105E91ED97D5200AA7A17 /* DLChangePersonDataController.h */,
-				450105E81ED97D5200AA7A17 /* DLChangePersonDataController.m */,
 				458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */,
 				458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */,
 				45DB48141EE93A7E00399A6D /* DLMyCustomerController.h */,
@@ -2260,7 +2255,6 @@
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
-				450105EA1ED97D5200AA7A17 /* DLChangePersonDataController.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
 				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
 				45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */,
