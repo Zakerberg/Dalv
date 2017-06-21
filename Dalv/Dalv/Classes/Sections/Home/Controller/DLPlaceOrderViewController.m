@@ -14,12 +14,15 @@
 #import "DLLineOrderContactsTableViewCell.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLHomeViewTask.h"
+#import "DLCalendarViewController.h"
 
-@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,DLLineOrderChoiceDateTableViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *homeTableView;
 
 @property (nonatomic, strong) UILabel *totalOrderLab;//订单总额
+
+@property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;//提交订单模型
 
 @end
 
@@ -53,7 +56,7 @@
     return YES;
     
 }
-      
+
 #pragma mark - Setup subViews
 
 - (void)setupSubviews {
@@ -114,7 +117,7 @@
         make.height.equalTo(@47.5);
         make.width.equalTo(bottomView).multipliedBy(0.33);
     }];
-
+    
     
     
 }
@@ -128,14 +131,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-    DLLineOrderPriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderPriceTableViewCell cellIdentifier]];
+        DLLineOrderPriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderPriceTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell configureCell:self.detaiInfoModel.list.name];
-       return cell;
+//        [cell configureCell:self.detaiInfoModel.list.name];
+        cell.lineOrderoModel = self.lineOrderoModel;
+        [cell configureCell:self.lineOrderoModel];
+        return cell;
     } else if (indexPath.section == 1) {
         DLLineOrderChoiceDateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderChoiceDateTableViewCell cellIdentifier]];
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         return cell;
+        return cell;
     } else if (indexPath.section == 2){
         DLLineOrderTripNumebrTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderTripNumebrTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -143,21 +149,21 @@
     } else if (indexPath.section == 3){
         DLLineOrderSingleRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderSingleRoomTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         return cell;
+        return cell;
     } else {
         DLLineOrderContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderContactsTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
         {
-             CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
-            return titleHeight + 95;
+            CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+            return titleHeight + 125;
             
         }
             break;
@@ -177,7 +183,7 @@
             return 0;
             break;
     }
-
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -193,12 +199,30 @@
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"tour_id" : self.routeModel.routeId,
                             @"sign_token" : [DLUtils getSign_token],};
-            [DLHomeViewTask getAgencyOrderInfo:param completion:^(id result, NSError *error) {
-                }];
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
+    [DLHomeViewTask getAgencyOrderInfo:param completion:^(id result, NSError *error) {
+    @strongify(self);
+    [[DLHUDManager sharedInstance] hiddenHUD];
+    if (result) {
+        self.lineOrderoModel = [DLPlaceLineOrderModel mj_objectWithKeyValues:result];
+        
+    } else {
+        [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+    }
+    }];
 
 }
 
 #pragma mark - Event Handler
+
+- (void)orderSelectDateViewDelegate:(UITapGestureRecognizer *)tapdate
+{
+    NSLog(@"点击了选择日期");
+    DLCalendarViewController *calendarViewController = [[DLCalendarViewController alloc] init];
+    [self.navigationController pushViewController:calendarViewController animated:YES];
+    
+}
 
 - (void)placeOrderBtn {
     UIAlertView *placeOrderAlert = [[UIAlertView alloc]initWithTitle:@"确定提交订单吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];

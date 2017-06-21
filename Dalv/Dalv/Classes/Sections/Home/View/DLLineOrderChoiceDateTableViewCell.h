@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DLLineOrderChoiceDateTableViewCellDelegate <NSObject>
+
+@optional
+
+- (void)orderSelectDateViewDelegate:(UITapGestureRecognizer *)tapdate;
+
+@end
+
 @interface DLLineOrderChoiceDateTableViewCell : UITableViewCell
+
+@property (nonatomic , weak) id <DLLineOrderChoiceDateTableViewCellDelegate>delegate;
+
+
 @property (nonatomic, strong) UILabel *datelab;
+@property (nonatomic, strong) UIView *lineOrderChoiceBackView;
 
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;

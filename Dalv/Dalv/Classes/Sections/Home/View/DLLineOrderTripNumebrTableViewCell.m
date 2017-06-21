@@ -58,6 +58,7 @@
     numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
     };
+    numberButton.minValue = 1;
     [self.contentView addSubview:numberButton];
     
     DLAddReduceButton *numberButton1 = [[DLAddReduceButton alloc]init];;

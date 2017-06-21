@@ -178,6 +178,8 @@
         [self buttonClickCallBackWithIncreaseStatus:YES];
     } else {
         if (_shakeAnimation) { [self shakeAnimationMethod]; } PPLog(@"已超过最大数量%ld",_maxValue);
+        [[DLHUDManager sharedInstance]showTextOnly:@"已超过最大数量"];
+
     }
 }
 

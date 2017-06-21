@@ -77,6 +77,7 @@
 		1C5CD38E1EFA0010009DBC1B /* CalenderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3841EFA0010009DBC1B /* CalenderModel.m */; };
 		1C5CD38F1EFA0010009DBC1B /* CalenderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3861EFA0010009DBC1B /* CalenderObject.m */; };
 		1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */; };
+		1C5CD3B41EFA4BC0009DBC1B /* DLLineModificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */; };
 		1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66614C1EF5FE660032E1AE /* DLNotification.m */; };
 		1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */; };
 		1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661551EF622C80032E1AE /* DLBankTransferModel.m */; };
@@ -477,6 +478,8 @@
 		1C5CD3861EFA0010009DBC1B /* CalenderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderObject.m; sourceTree = "<group>"; };
 		1C5CD3871EFA0010009DBC1B /* CalendarDateSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDateSource.h; sourceTree = "<group>"; };
 		1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDateSource.m; sourceTree = "<group>"; };
+		1C5CD3B21EFA4BC0009DBC1B /* DLLineModificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationModel.h; sourceTree = "<group>"; };
+		1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationModel.m; sourceTree = "<group>"; };
 		1C66614B1EF5FE660032E1AE /* DLNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNotification.h; sourceTree = "<group>"; };
 		1C66614C1EF5FE660032E1AE /* DLNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNotification.m; sourceTree = "<group>"; };
 		1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
@@ -1373,6 +1376,8 @@
 				1C66616F1EF67BAC0032E1AE /* DLDestinationAtlasModel.m */,
 				1C5828961EF96A32004B4AC1 /* DLPlaceLineOrderModel.h */,
 				1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */,
+				1C5CD3B21EFA4BC0009DBC1B /* DLLineModificationModel.h */,
+				1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2258,6 +2263,7 @@
 				1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
+				1C5CD3B41EFA4BC0009DBC1B /* DLLineModificationModel.m in Sources */,
 				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
 				1C6661701EF67BAC0032E1AE /* DLDestinationAtlasModel.m in Sources */,

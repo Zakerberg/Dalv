@@ -7,15 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLPlaceLineOrderModel.h"
 
 @interface DLLineOrderPriceTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *lineOederNamelab;
 @property (nonatomic, strong) UILabel *perrAdultlab;
 @property (nonatomic, strong) UILabel *preeChildlab;
+@property (nonatomic, strong) UILabel *singleRoomDifferencelab;
+
+@property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;
+
 
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
-- (void)configureCell:(NSString *)routeName;
+//- (void)configureCell:(NSString *)routeName;
+
+/** 配置Cell */
+- (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel;
+
+
 @end
