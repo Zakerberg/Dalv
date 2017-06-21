@@ -11,12 +11,12 @@
 #import "DLContractApplySection3Cell.h"
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
+#import "DLContractApplySection0Cell.h"
 #import "DLContractApplyController.h"
 #import "DLContractApplyViewCell.h"
-#import "DLHomeViewTask.h"
-#import "DLRequestSerVice.h"
 #import "DLAddReduceButton.h"
-#import "DLContractApplySection0Cell.h"
+#import "DLRequestSerVice.h"
+#import "DLHomeViewTask.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
 /*** 自取inviteBtn  ***/

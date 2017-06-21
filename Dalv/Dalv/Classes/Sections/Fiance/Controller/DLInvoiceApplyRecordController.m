@@ -57,8 +57,6 @@
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-
-    
 }
 
 
