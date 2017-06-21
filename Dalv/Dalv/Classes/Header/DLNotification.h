@@ -15,5 +15,10 @@ extern NSString *const kUserlogoutNotification;
 //登录成功
 extern NSString *const kUserlogInNotification;
 
+
+//
+extern NSString *const KCustomerloginNoti;
+
+
 #endif /* DLNotification_h */
 

@@ -107,7 +107,7 @@
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                         
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogInNotification object:nil];//登录成功通知回调
+                        [[NSNotificationCenter defaultCenter] postNotificationName:KCustomerloginNoti object:nil];//登录成功通知回调
                         //                if (self.loginSuccessBlock) {//登录成功块代码回调
                         //                    self.loginSuccessBlock();
                         //                }

@@ -230,5 +230,8 @@
 #define DL_TouristLoginRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
 
 
+//68.测试普通用户-绑定顾问后首页模块接口
+#define DL_TouristAgencyIndexMod  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexMod"
+
 
 #endif /* InterfaceConfig_h */

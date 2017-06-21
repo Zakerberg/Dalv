@@ -63,6 +63,10 @@
                                              selector:@selector(setupTabbarVC)
                                                  name:kUserlogInNotification
                                                object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupTabbarVC) name: KCustomerloginNoti object:nil];
+    
 }
 
 - (void)setupMainVC {
