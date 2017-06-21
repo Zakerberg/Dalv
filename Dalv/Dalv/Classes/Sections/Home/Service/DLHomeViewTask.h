@@ -626,11 +626,6 @@
 + (void)getAgencyPersonalPageSetUp:(NSDictionary *)param
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
-
-
-
-
-
 /**
  * 65 测试顾问个人资料设置处理接口
  
@@ -640,6 +635,29 @@
  */
 
 + (void)getAgencyPersonaSetUpHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 66 测试普通用户绑定前获取验证码地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristVerificationCode:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 67 测试普通用户绑定并直接登陆地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristLoginRegister:(NSDictionary *)param
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
 

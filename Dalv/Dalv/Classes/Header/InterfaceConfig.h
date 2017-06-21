@@ -223,6 +223,12 @@
 //65.测试顾问个人资料设置页面接口
 #define DL_AgencyPersonalSetUpHandle DL_HOST@"index.php/Api/agencyPersonal/agencyPageSetUpHandle"
 
+//66.测试普通用户绑定前获取验证码地址接口
+#define DL_TouristVerificationCode DL_HOST@"index.php/TouristApi/TouristLogin/touristVerificationCode"
+
+//67.测试普通用户绑定并直接登陆地址接口
+#define DL_TouristLoginRegister DL_HOST@"index.php/TouristApi/TouristLogin/touristRegister"
+
 
 
 #endif /* InterfaceConfig_h */

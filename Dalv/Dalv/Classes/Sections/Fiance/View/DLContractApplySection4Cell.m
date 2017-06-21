@@ -9,8 +9,6 @@
 #import "DLContractApplySection4Cell.h"
 @interface DLContractApplySection4Cell()
 
-
-
 @end
 
 @implementation DLContractApplySection4Cell
@@ -152,7 +150,6 @@
         make.width.equalTo(self.mas_width);
     }];
     
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

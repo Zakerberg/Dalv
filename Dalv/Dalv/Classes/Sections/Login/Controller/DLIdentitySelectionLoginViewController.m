@@ -7,6 +7,7 @@
 //
 
 #import "DLIdentitySelectionLoginViewController.h"
+#import "DLCustomerLoginController.h"
 #import "DLLoginViewController.h"
 @interface DLIdentitySelectionLoginViewController ()
 @property (nonatomic,strong) UIButton *consultantBtn;//顾问登陆
@@ -92,7 +93,10 @@
 }
 
 - (void)averageUserSlectBtn{
-    NSLog(@"点击了普通用户登陆");
+
+    DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
+    
+    [self.navigationController pushViewController:cusLoginVC animated:YES];
     
 }
 

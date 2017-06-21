@@ -11,12 +11,12 @@
 #import "DLContractApplySection3Cell.h"
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
+#import "DLContractApplySection0Cell.h"
 #import "DLContractApplyController.h"
 #import "DLContractApplyViewCell.h"
-#import "DLHomeViewTask.h"
-#import "DLRequestSerVice.h"
 #import "DLAddReduceButton.h"
-#import "DLContractApplySection0Cell.h"
+#import "DLRequestSerVice.h"
+#import "DLHomeViewTask.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
 /*** 自取inviteBtn  ***/
@@ -61,6 +61,15 @@
 @property(nonatomic,strong) UILabel * addressLabel1;
 /* 公司电话 */
 @property(nonatomic,strong) UILabel * numberLabel1;
+
+//空白自取blankInviteBtn
+@property(nonatomic,strong)UIButton *blankInviteBtn;
+//空白快递blankCourierBtn
+@property(nonatomic,strong)UIButton *blankCourierBtn;
+//空白到付blankPayforBtn
+@property(nonatomic,strong)UIButton *blankPayforBtn;
+//空白邮寄blankMailBtn
+@property(nonatomic,strong)UIButton *blankMailBtn;
 
 @end
 
@@ -367,6 +376,13 @@ static NSString *section5CellID = @"section5CellID";
         DLContractApplySection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:section1CellID];
         self.inviteBtn = cell.inviteBtn;
         self.courierBtn = cell.courierBtn;
+
+        self.blankCourierBtn = cell.blankCourierBtn;
+        self.blankInviteBtn = cell.blankInviteBtn;
+        
+        [cell.blankInviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [cell.blankCourierBtn  addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -391,6 +407,13 @@ static NSString *section5CellID = @"section5CellID";
         
         self.mailBtn = cell.mailBtn;
         self.payforBtn = cell.payforBtn;
+        
+        self.blankMailBtn = cell.blankMailBtn;
+        self.blankPayforBtn = cell.blankPayforBtn;
+        
+        [cell.blankPayforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.blankMailBtn addTarget:self action:@selector(mailBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.payforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         

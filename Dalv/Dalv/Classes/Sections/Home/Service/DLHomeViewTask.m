@@ -680,8 +680,29 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 
-
+}
+// 测试普通用户绑定前获取验证码地址接口
++ (void)getTouristVerificationCode:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
     
+    [DLRequestSerVice POST:DL_TouristVerificationCode param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
+
+// 测试普通用户绑定并直接登陆地址接口
++ (void)getTouristLoginRegister:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_TouristLoginRegister param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+
 }
 
 

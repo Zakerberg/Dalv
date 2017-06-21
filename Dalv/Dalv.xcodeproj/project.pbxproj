@@ -353,6 +353,8 @@
 		45F4CD1D1EC2E07600F4B6BD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD1C1EC2E07600F4B6BD /* SystemConfiguration.framework */; };
 		45F4CD1F1EC2E08400F4B6BD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */; };
 		45F4CD211EC2E08F00F4B6BD /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */; };
+		45F98C231EFA2BE40012DC26 /* DLCustomerLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */; };
+		45F98C241EFA2BE40012DC26 /* DLCustomerLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */; };
 		54AD7240BD172006657C119F /* libPods-Dalv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */; };
 /* End PBXBuildFile section */
 
@@ -886,6 +888,9 @@
 		45F4CD1C1EC2E07600F4B6BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		45F4CD1E1EC2E08400F4B6BD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		45F4CD201EC2E08F00F4B6BD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		45F98C201EFA2BE40012DC26 /* DLCustomerLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerLoginController.h; sourceTree = "<group>"; };
+		45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerLoginController.m; sourceTree = "<group>"; };
+		45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerLoginController.xib; sourceTree = "<group>"; };
 		D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.debug.xcconfig"; sourceTree = "<group>"; };
 		DCF0A69B18800572BA7AB443 /* libPods-Dalv.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dalv.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1452,6 +1457,9 @@
 				1C6661611EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m */,
 				1CB953511ECFC41600BDC2D3 /* DLLoginViewController.h */,
 				1CB953521ECFC41600BDC2D3 /* DLLoginViewController.m */,
+				45F98C201EFA2BE40012DC26 /* DLCustomerLoginController.h */,
+				45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */,
+				45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2059,6 +2067,7 @@
 				1C2979061EEEAA7400D3FEEA /* fiance_selected@2x.png in Resources */,
 				1C2979051EEEAA7400D3FEEA /* fiance_not_selected@3x.png in Resources */,
 				1C2979001EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png in Resources */,
+				45F98C241EFA2BE40012DC26 /* DLCustomerLoginController.xib in Resources */,
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
 				1C2979011EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
@@ -2365,6 +2374,7 @@
 				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
 				1C0864CF1EEA96F5005015DE /* LGLCalenderSubModel.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
+				45F98C231EFA2BE40012DC26 /* DLCustomerLoginController.m in Sources */,
 				1C1670CD1EF13A5D000DBFF5 /* DLChangeTitleViewController.m in Sources */,
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
 				1CA7E5131EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m in Sources */,

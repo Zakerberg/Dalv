@@ -73,6 +73,20 @@
     [self.contentView addSubview:costLabel];
     
     
+    UIButton *blankPayforBtn = [[UIButton alloc] init];
+    self.blankPayforBtn = blankPayforBtn;
+    blankPayforBtn.backgroundColor = [UIColor clearColor];
+    
+    [self.contentView addSubview:blankPayforBtn];
+
+    
+    UIButton *blankMailBtn = [[UIButton alloc] init];
+    self.blankMailBtn = blankMailBtn;
+    blankMailBtn.backgroundColor = [UIColor clearColor];
+    
+    [self.contentView addSubview:blankMailBtn];
+    
+    
     [payforBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.offset(0);
         make.height.with.offset(20);
@@ -103,6 +117,18 @@
         make.height.offset(13);
     }];
     
+    
+    [blankMailBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(0);
+        make.width.offset(MAIN_SCREEN_WIDTH/2);
+        make.height.offset(44);
+    }];
+    
+    [blankPayforBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(0);
+        make.width.offset(MAIN_SCREEN_WIDTH/2);
+        make.height.offset(44);
+    }];
 
 }
 

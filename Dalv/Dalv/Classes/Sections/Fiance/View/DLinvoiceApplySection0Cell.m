@@ -19,7 +19,6 @@
 //  Initialization code
 }
 
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -192,9 +191,23 @@
     
     [identificationNumTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(taxpayersLabel.mas_right).offset(15);
-        make.height.equalTo(taxpayersLabel);
-        make.right.offset(0);
-        make.centerY.equalTo(taxpayersLabel);
+        make.height.offset(44);
+        make.width.offset(MAIN_SCREEN_WIDTH-50);
+        make.centerY.equalTo(taxpayersLabel.mas_centerY).offset(0);
+        
+        /*
+         make.left.equalTo(taxpayersLabel.mas_right).offset(15);
+         make.height.equalTo(taxpayersLabel);
+         make.right.offset(0);
+         make.centerY.equalTo(taxpayersLabel);
+         
+         
+         make.centerY.equalTo(companyLabel.mas_centerY).offset(0);
+         make.height.offset(44);
+         make.width.offset(MAIN_SCREEN_WIDTH-10);
+         make.left.equalTo(companyLabel.mas_right).offset(15);
+         */
+        
     }];
     
     [line3 mas_makeConstraints:^(MASConstraintMaker *make) {

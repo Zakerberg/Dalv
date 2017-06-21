@@ -7,18 +7,25 @@
 //  ------------------- 修改密码 ----------------------
 
 #import "DLChangePasswordController.h"
-#import "ZYInputAlertView.h"
 #import "DLHomeViewTask.h"
 
 static NSString* cellID = @"cellID";
 @interface DLChangePasswordController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (strong,nonatomic) UITableView* tableView;
 @property (strong,nonatomic) NSArray* cellTiltleArr;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
 @property (weak,nonatomic) UITableViewCell* cell;
+//旧密码
 @property (nonatomic,weak) UITextField *oldPasswordTF;
+//新密码
 @property (nonatomic,strong) UITextField *changePasswordTF;
+//确认新密码
 @property (nonatomic,strong) UITextField *changeTwoPasswordTF;
+
+//密码状态码
+@property(nonatomic,strong) NSString * passwordStatus;
+
 @end
 @implementation DLChangePasswordController
 
@@ -27,7 +34,7 @@ static NSString* cellID = @"cellID";
     self.tableView.hidden = NO;
     self.title = @"修改密码";
     [self setupUI];
-    [self fetchData];
+//  [self fetchData];
 }
 
 -(void)fetchData {
@@ -35,11 +42,9 @@ static NSString* cellID = @"cellID";
     NSDictionary *param = @{
                             @"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token]
-                            
                             };
     
     [DLHomeViewTask  getAgencyEditPass:param completion:^(id result, NSError *error) {
-        
     }];
 }
 
@@ -82,32 +87,53 @@ static NSString* cellID = @"cellID";
 /***  完成  ***/
 -(void)completeClick {
     
-    
     if (self.changeTwoPasswordTF.text == nil) {
+//        
+//        UIAlertController  *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入新密码" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [alertVC actions];
+//        
         
-        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [failureV show];
-        
-    }
-    if (self.oldPasswordTF.text != self.changeTwoPasswordTF.text) {
-        
-        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [failureV show];
-        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+
     }
     
-    if (self.oldPasswordTF.text == self.changePasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
+    if (self.changePasswordTF.text != self.changeTwoPasswordTF.text) {
+        
+//        UIAlertController  *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"两次输入的密码不一致" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [alertVC actions];
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+    }
+    
+    if (self.changePasswordTF.text == self.changeTwoPasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
         
         NSDictionary *param = @{
                                 
                                 @"uid" : [DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token],
                                 @"oldPassword":self.oldPasswordTF.text,
-                                @"newPassword":self.changePasswordTF.text
+                                @"newPassword":self.changeTwoPasswordTF.text
                                 };
         
         [DLHomeViewTask getAgencyEditPassHandle:param completion:^(id result, NSError *error) {
-            
+        
+            self.passwordStatus = result[@"status"];
+            if ([self.passwordStatus isEqualToString:@"00000"]){
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改密码成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            } else{
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"旧密码错误" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+
+            }
         }];
     }
 }
