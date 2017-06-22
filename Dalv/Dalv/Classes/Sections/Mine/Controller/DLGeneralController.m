@@ -212,6 +212,11 @@ static NSString *cellID  = @"cellID";
 //
 //            }];
 
+            
+            
+            
+            
+            
             cell.textLabel.text = @"清除缓存";
         }
     }
