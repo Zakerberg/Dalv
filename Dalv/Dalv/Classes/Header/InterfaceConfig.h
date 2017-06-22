@@ -239,4 +239,8 @@
 #define DL_TouristPersonalIndex  DL_HOST@"index.php/TouristApi/TouristPersonal/index"
 
 
+#define DL_TouristPersonalMyAgency  DL_HOST@"/index.php/TouristApi/TouristPersonal/myAgency"
+
+
+
 #endif /* InterfaceConfig_h */

@@ -7,6 +7,7 @@
 //   ------------------ 我的顾问  ----------------------
 
 #import "DLMyAgencyController.h"
+#import "DLHomeViewTask.h"
 
 @interface DLMyAgencyController ()
 
@@ -101,31 +102,6 @@
         make.height.offset(14);
         make.centerY.equalTo(nick);
     }];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }
