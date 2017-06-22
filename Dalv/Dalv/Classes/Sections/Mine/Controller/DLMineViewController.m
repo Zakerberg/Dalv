@@ -352,10 +352,12 @@ static NSString *cellID  = @"cellID";
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-    hud.label.text = hint;
+//    hud.label.text = hint;
+    hud.labelText = hint;
+    
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:2];
+    [hud hide:YES afterDelay:2];
 }
 
 

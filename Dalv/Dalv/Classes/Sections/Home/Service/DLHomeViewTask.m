@@ -730,7 +730,6 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 
-    
 }
 
 //测试普通用户个人中心-我的顾问（已绑定）详情地址接口：

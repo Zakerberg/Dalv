@@ -111,9 +111,17 @@
 
 -(void)fetchData {
     
+    NSDictionary *param = @{
+                            
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
+                            
+                            };
+
     
-    
-    
+    [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
+        
+    }];
     
     
     
