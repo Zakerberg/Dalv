@@ -304,11 +304,6 @@
 -(void)preservation
 {
     NSLog(@"点击了保存");
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(preservationBtnClickDelegateWithAdultprice:Childpriced:Roomdifference:Date:)]) {
-        [self.delegate preservationBtnClickDelegateWithAdultprice:self.adultPriceTextField.text Childpriced:self.childPriceTextField.text Roomdifference:self.roomDifferenceTextField.text Date:self.datelab.text];
-    }
-
 }
 
 
