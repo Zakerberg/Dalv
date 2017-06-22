@@ -62,21 +62,21 @@
     [self.contentView  addSubview:line1];
 
     _adultPricelab = [[UILabel alloc]init];
-    _adultPricelab.textColor = [UIColor colorWithHexString:@"a4a4a4"];
+    _adultPricelab.textColor = [UIColor colorWithHexString:@"ff6d35"];
     _adultPricelab.textAlignment = NSTextAlignmentLeft;
     _adultPricelab.font = font;
     _adultPricelab.text = @"成人价：¥1288/1588";
     [self.contentView addSubview:_adultPricelab];
     
     _childPricelab = [[UILabel alloc]init];
-    _childPricelab.textColor = [UIColor colorWithHexString:@"a4a4a4"];
+    _childPricelab.textColor = [UIColor colorWithHexString:@"ff6d35"];
     _childPricelab.textAlignment = NSTextAlignmentLeft;
     _childPricelab.font = font;
     _childPricelab.text = @"儿童价：¥1188/1388";
     [self.contentView addSubview:_childPricelab];
     
     _roomDifferencelab = [[UILabel alloc]init];
-    _roomDifferencelab.textColor = [UIColor colorWithHexString:@"a4a4a4"];
+    _roomDifferencelab.textColor = [UIColor colorWithHexString:@"ff6d35"];
     _roomDifferencelab.textAlignment = NSTextAlignmentLeft;
     _roomDifferencelab.font = font;
     _roomDifferencelab.text = @"单房差：¥400";
@@ -282,23 +282,23 @@
 }
 
 /** 配置Cell */
-- (void)configureCell:(DLLineModificationModel *)lineModificationModel{
-    NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_adult_list integerValue]/100.00];
-    NSString *str2 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_adult_agency integerValue]/100.00];
+- (void)configureCell:(LineModificationList *)lineModificationModel{
+    NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
+    NSString *str2 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_agency integerValue]/100.00];
     self.adultPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str2,str1];
 
-    NSString *str3 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_child_list integerValue]/100.00];
-    NSString *str4 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_child_agency integerValue]/100.00];
+    NSString *str3 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_child_list integerValue]/100.00];
+    NSString *str4 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_child_agency integerValue]/100.00];
     self.childPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str4,str3];
     
-    NSString *str5 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_hotel_list integerValue]/100.00];
-    NSString *str6 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_hotel_agency integerValue]/100.00];
+    NSString *str5 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_hotel_list integerValue]/100.00];
+    NSString *str6 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_hotel_agency integerValue]/100.00];
     self.roomDifferencelab.text = [NSString stringWithFormat:@"单房差(每晚):%@/%@",str6,str5];
     
-    self.datelab.text = lineModificationModel.list.lastObject.start_time;
-    self.adultPriceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_adult_list;
-    self.childPriceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_child_list;
-    self.roomDifferenceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_hotel_list;
+    self.datelab.text = lineModificationModel.start_time;
+    self.adultPriceTextField.placeholder = lineModificationModel.user_defined_adult_list;
+    self.childPriceTextField.placeholder = lineModificationModel.user_defined_child_list;
+    self.roomDifferenceTextField.placeholder = lineModificationModel.user_defined_hotel_list;
 }
 
 -(void)preservation

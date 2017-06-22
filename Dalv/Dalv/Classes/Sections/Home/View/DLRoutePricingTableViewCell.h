@@ -24,7 +24,7 @@
 @property (nonatomic, strong) DLLineModificationModel *modificationModel;
 
 /** 配置Cell */
-- (void)configureCell:(DLLineModificationModel *)lineModificationModel;
+- (void)configureCell:(LineModificationList *)lineModificationModel;
 
 
 /** Cell 重用ID */

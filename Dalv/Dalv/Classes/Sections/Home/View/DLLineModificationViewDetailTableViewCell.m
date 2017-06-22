@@ -38,14 +38,14 @@
     [self.contentView  addSubview:line];
 
     _lineDetialTravelLab = [[UILabel alloc]init];
-    _lineDetialTravelLab.textColor = [UIColor redColor];
+    _lineDetialTravelLab.textColor = [UIColor colorWithHexString:@"4d67ee"];
     _lineDetialTravelLab.textAlignment = NSTextAlignmentLeft;
     _lineDetialTravelLab.font = [UIFont systemFontOfSize:14];
     _lineDetialTravelLab.text = @"出境游";
     [self.contentView addSubview:_lineDetialTravelLab];
     
     _lineDetialPriceLab = [[UILabel alloc]init];
-    _lineDetialPriceLab.textColor = [UIColor redColor];
+    _lineDetialPriceLab.textColor = [UIColor colorWithHexString:@"ff6d35"];
     _lineDetialPriceLab.textAlignment = NSTextAlignmentRight;
     _lineDetialPriceLab.font = [UIFont systemFontOfSize:16];
     _lineDetialPriceLab.text = @"¥1999";

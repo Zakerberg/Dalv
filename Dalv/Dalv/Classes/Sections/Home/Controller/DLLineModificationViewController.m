@@ -13,6 +13,7 @@
 @interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineModificationTableView;//
 @property (nonatomic, strong) DLLineModificationModel *modificationModel;//顾问线路改价模型
+@property (nonatomic, strong) NSArray *modificationarry;
 
 @end
 
@@ -84,6 +85,7 @@
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
             self.modificationModel = [DLLineModificationModel mj_objectWithKeyValues:result];
+            self.modificationarry = self.modificationModel.list;
             [self.lineModificationTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
@@ -100,7 +102,7 @@
     if(section == 0){
         return 1;
     }else{
-        return self.modificationModel.list.count;
+        return self.modificationarry.count;
     }
 
 }
@@ -115,8 +117,8 @@
     } else{
     DLRoutePricingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRoutePricingTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.modificationModel = self.modificationModel;
-    [cell configureCell:self.modificationModel];
+    LineModificationList * modificationList = [self.modificationarry objectAtIndex:indexPath.row];
+    [cell configureCell:modificationList];
     return cell;
 
     }
