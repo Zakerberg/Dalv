@@ -7,7 +7,6 @@
 //  -------------------  个人中心   -------------------
 
 #import "DLPersonalChangeDataController.h"
-#import "DLCustomerLoginController.h"
 #import "DLMyCustomerXibController.h"
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
@@ -45,8 +44,7 @@ static NSString *cellID  = @"cellID";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     
-    DLCustomerLoginController *CustomerVC = [[DLCustomerLoginController alloc]init];
-    self.userTypeStr = CustomerVC.userTypeStr;
+    self.userTypeStr = [DLUtils getUser_type];
     
 }
 
@@ -168,6 +166,7 @@ static NSString *cellID  = @"cellID";
                 [self.tableView reloadData];
             }
         }];
+        
     }else{
         
         [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
@@ -241,10 +240,10 @@ static NSString *cellID  = @"cellID";
         
         }else {
             
+            DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
             
             
-            
-            
+            [self.navigationController pushViewController:myAgencyVC animated:YES];
         }
     }
     
@@ -323,7 +322,7 @@ static NSString *cellID  = @"cellID";
             
         }else{
             cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
-            cell.textLabel.text = @"我的顾客";
+            cell.textLabel.text = @"我的顾问";
         }
     }
     

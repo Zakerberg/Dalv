@@ -733,19 +733,17 @@
     
 }
 
+//测试普通用户个人中心-我的顾问（已绑定）详情地址接口：
 
-
-
-
-
-
-
-
-
-
-
-
-
-
++ (void)getTouristPersonalMyAgenct:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST:DL_TouristPersonalMyAgency param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
 
 @end
