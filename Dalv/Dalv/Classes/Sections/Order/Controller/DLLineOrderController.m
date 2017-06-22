@@ -127,7 +127,6 @@ static NSString *nibCellID = @"nibCellID";
         @strongify(self);
         if (result) {
             
-            
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
@@ -193,7 +192,6 @@ static NSString *nibCellID = @"nibCellID";
 //    [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
 //    
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
-    
     
     DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];
     
