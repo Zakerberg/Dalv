@@ -67,7 +67,7 @@
         make.top.equalTo(_modificationImage.mas_bottom);
         make.left.equalTo(@15);
         make.right.equalTo(self.contentView.mas_right).offset(-15);
-        make.height.equalTo(@40);
+//        make.height.equalTo(@40);
     }];
     
     [line mas_makeConstraints:^(MASConstraintMaker *make) {

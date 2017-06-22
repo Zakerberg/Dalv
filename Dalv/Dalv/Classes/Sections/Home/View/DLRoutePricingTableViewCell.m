@@ -48,7 +48,7 @@
     UILabel *colleaguePricelab = [[UILabel alloc]init];
     colleaguePricelab.textAlignment = NSTextAlignmentLeft;
     colleaguePricelab.font = [UIFont systemFontOfSize:14];
-    colleaguePricelab.text = @"同行价/建议零售价";
+    colleaguePricelab.text = @"结算价/建议零售价";
     [self.contentView addSubview:colleaguePricelab];
     
     UILabel *customPricelab = [[UILabel alloc]init];
@@ -274,11 +274,6 @@
     }];
 }
 
--(void)preservation
-{
-    NSLog(@"点击了保存");
-}
-
 - (void)layoutCellSubviews {
 }
 
@@ -288,7 +283,28 @@
 
 /** 配置Cell */
 - (void)configureCell:(DLLineModificationModel *)lineModificationModel{
+    NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_adult_list integerValue]/100.00];
+    NSString *str2 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_adult_agency integerValue]/100.00];
+    self.adultPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str2,str1];
+
+    NSString *str3 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_child_list integerValue]/100.00];
+    NSString *str4 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_child_agency integerValue]/100.00];
+    self.childPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str4,str3];
     
+    NSString *str5 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_hotel_list integerValue]/100.00];
+    NSString *str6 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.list.lastObject.price_hotel_agency integerValue]/100.00];
+    self.roomDifferencelab.text = [NSString stringWithFormat:@"单房差(每晚):%@/%@",str6,str5];
+    
+    self.datelab.text = lineModificationModel.list.lastObject.start_time;
+    self.adultPriceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_adult_list;
+    self.childPriceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_child_list;
+    self.roomDifferenceTextField.placeholder = lineModificationModel.list.lastObject.user_defined_hotel_list;
 }
+
+-(void)preservation
+{
+    NSLog(@"点击了保存");
+}
+
 
 @end

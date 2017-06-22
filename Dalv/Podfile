@@ -22,4 +22,6 @@ pod 'OpenUDID', '~> 1.0.0'
 pod 'IQKeyboardManager',  '~> 4.0.8'     # 键盘遮挡全局监听
 
 pod 'SVProgressHUD'
+pod 'WechatOpenSDK'
+
 end
