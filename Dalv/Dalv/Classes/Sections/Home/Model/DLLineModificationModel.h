@@ -22,7 +22,7 @@
 @interface LineModificationList : NSObject
 
 /** 成人结算价*/
-@property (nonatomic, copy) NSString *price_adult_agenc;
+@property (nonatomic, copy) NSString *price_adult_agency;
 
 /** 这个参数不用管 */
 @property (nonatomic, copy) NSString *cruise;
