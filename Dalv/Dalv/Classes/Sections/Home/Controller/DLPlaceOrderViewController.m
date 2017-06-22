@@ -133,7 +133,6 @@
     if (indexPath.section == 0) {
         DLLineOrderPriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderPriceTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        [cell configureCell:self.detaiInfoModel.list.name];
         cell.lineOrderoModel = self.lineOrderoModel;
         [cell configureCell:self.lineOrderoModel];
         return cell;
@@ -206,7 +205,7 @@
     [[DLHUDManager sharedInstance] hiddenHUD];
     if (result) {
         self.lineOrderoModel = [DLPlaceLineOrderModel mj_objectWithKeyValues:result];
-        
+        [self.homeTableView reloadData];
     } else {
         [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
     }

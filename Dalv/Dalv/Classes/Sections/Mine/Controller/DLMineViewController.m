@@ -176,8 +176,7 @@ static NSString *cellID  = @"cellID";
     }
     
     if (self.phoneTextFiled.text == nil) {
-        
-        [self showHint:@"手机号码不能为空"];
+        [[DLHUDManager sharedInstance]showTextOnly:@"手机号码不能为空"];
     }
     
     if(isMatchPhoneNum){
@@ -343,19 +342,6 @@ static NSString *cellID  = @"cellID";
         [alertSecretNil show];
         
     }
-}
-
-
--(void)showHint:(NSString *)hint{
-    //显示提示信息
-    UIView *view = [[UIApplication sharedApplication].delegate window];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.userInteractionEnabled = NO;
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = hint;
-    hud.margin = 10.f;
-    hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:YES afterDelay:2];
 }
 
 

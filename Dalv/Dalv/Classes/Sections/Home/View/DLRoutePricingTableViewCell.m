@@ -286,4 +286,9 @@
     return NSStringFromClass([self class]);
 }
 
+/** 配置Cell */
+- (void)configureCell:(DLLineModificationModel *)lineModificationModel{
+    
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLLineModificationModel.h"
 
 @interface DLRoutePricingTableViewCell : UITableViewCell
 @property (nonatomic, strong) UIImageView *dateImageView;//团期图片
@@ -20,6 +21,10 @@
 @property (strong,nonatomic) UITextField *childPriceTextField;//修改儿童价
 @property (strong,nonatomic) UITextField *roomDifferenceTextField;//修改单房差
 @property (strong,nonatomic) UIButton *preservationBtn;//保存
+@property (nonatomic, strong) DLLineModificationModel *modificationModel;
+
+/** 配置Cell */
+- (void)configureCell:(DLLineModificationModel *)lineModificationModel;
 
 
 /** Cell 重用ID */

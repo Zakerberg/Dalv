@@ -12,6 +12,7 @@
 #import "DLHomeViewTask.h"
 @interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineModificationTableView;//
+@property (nonatomic, strong) DLLineModificationModel *modificationModel;//顾问线路改价模型
 
 @end
 
@@ -76,8 +77,19 @@
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"id" : self.routeModel.routeId,
                             @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
     [DLHomeViewTask getAgencyChangePrice:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            self.modificationModel = [DLLineModificationModel mj_objectWithKeyValues:result];
+            [self.lineModificationTableView reloadData];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
     }];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -88,7 +100,7 @@
     if(section == 0){
         return 1;
     }else{
-        return 3;
+        return self.modificationModel.list.count;
     }
 
 }
@@ -97,10 +109,14 @@
     if (indexPath.section == 0) {
     DLLineModificationViewDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineModificationViewDetailTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.modificationModel = self.modificationModel;
+    [cell configureCell:self.modificationModel];
     return cell;
     } else{
     DLRoutePricingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRoutePricingTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.modificationModel = self.modificationModel;
+    [cell configureCell:self.modificationModel];
     return cell;
 
     }
@@ -108,14 +124,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0){
-        return 160;
+        CGFloat titleHeight = [self.modificationModel.tour_list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+        return titleHeight + 150;
+
     }else{
         return 230;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
