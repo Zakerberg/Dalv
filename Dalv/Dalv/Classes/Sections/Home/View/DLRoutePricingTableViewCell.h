@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "DLLineModificationModel.h"
+@protocol  LineModificationDelegate <NSObject>
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference Date:(NSString*)date;
+@end
+
 
 @interface DLRoutePricingTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id <LineModificationDelegate>delegate;
+
 @property (nonatomic, strong) UIImageView *dateImageView;//团期图片
 @property (nonatomic, strong) UILabel *groupDatelab;//团期
 @property (nonatomic, strong) UILabel *datelab;//日期
