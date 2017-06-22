@@ -22,7 +22,7 @@
 - (void)setupCellSubviews {
     
     UIFont *font = [UIFont systemFontOfSize:12];
-
+    
     _dateImageView = [[UIImageView alloc]init];
     _dateImageView.image = [UIImage imageNamed:@"group_date_select"];
     [self.contentView addSubview:_dateImageView];
@@ -56,11 +56,11 @@
     customPricelab.font = [UIFont systemFontOfSize:14];
     customPricelab.text = @"自定义价";
     [self.contentView addSubview:customPricelab];
-
+    
     UIView *line1 = [[UIView alloc]init];
     line1.backgroundColor = [UIColor colorWithHexString:@"dcdcdc"];
     [self.contentView  addSubview:line1];
-
+    
     _adultPricelab = [[UILabel alloc]init];
     _adultPricelab.textColor = [UIColor colorWithHexString:@"ff6d35"];
     _adultPricelab.textAlignment = NSTextAlignmentLeft;
@@ -85,11 +85,11 @@
     UIView *line2 = [[UIView alloc]init];
     line2.backgroundColor = [UIColor colorWithHexString:@"dcdcdc"];
     [self.contentView  addSubview:line2];
-
+    
     UIView *line3 = [[UIView alloc]init];
     line3.backgroundColor = [UIColor colorWithHexString:@"dcdcdc"];
     [self.contentView  addSubview:line3];
-
+    
     self.adultPriceTextField = [[UITextField alloc] init];
     self.adultPriceTextField.placeholder = @"请输入修改后价格";
     self.adultPriceTextField.font = font;
@@ -103,7 +103,7 @@
     UIView *line4 = [[UIView alloc]init];
     line4.backgroundColor = [UIColor colorWithHexString:@"dcdcdc"];
     [self.contentView  addSubview:line4];
-
+    
     self.childPriceTextField = [[UITextField alloc] init];
     self.childPriceTextField.placeholder = @"请输入修改后价格";
     self.childPriceTextField.font = font;
@@ -167,21 +167,21 @@
         make.width.equalTo(self.contentView);
         make.height.equalTo(@0.5);
     }];
-
+    
     [colleaguePricelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom).offset(5);
         make.left.equalTo(@15);
         make.width.equalTo(@200);
         make.height.equalTo(@30);
     }];
-
+    
     [customPricelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(colleaguePricelab);
         make.left.equalTo(line3.mas_right).offset(15);
         make.right.equalTo(self.contentView.mas_right);
         make.height.equalTo(@30);
     }];
-
+    
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(colleaguePricelab.mas_bottom).offset(5);
         make.left.equalTo(@0);
@@ -195,7 +195,7 @@
         make.right.equalTo(line3.mas_left);
         make.height.equalTo(@30);
     }];
-
+    
     [_childPricelab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_adultPricelab.mas_bottom);
         make.left.equalTo(@15);
@@ -209,21 +209,21 @@
         make.right.equalTo(line3.mas_left);
         make.height.equalTo(@30);
     }];
-
+    
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_roomDifferencelab.mas_bottom);
         make.left.equalTo(@0);
         make.width.equalTo(self.contentView);
         make.height.equalTo(@0.5);
     }];
-
+    
     [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line1.mas_bottom);
         make.left.equalTo(self.contentView.mas_centerX);
         make.width.equalTo(@1);
         make.height.equalTo(@90);
     }];
-
+    
     [_adultPriceTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_adultPricelab);
         make.left.equalTo(line3.mas_right).offset(15);
@@ -244,7 +244,7 @@
         make.right.equalTo(self.contentView.mas_right);
         make.height.equalTo(@30);
     }];
-
+    
     [line5 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_childPriceTextField.mas_bottom);
         make.left.equalTo(self.contentView.mas_centerX);
@@ -286,30 +286,31 @@
     NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
     NSString *str2 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_agency integerValue]/100.00];
     self.adultPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str2,str1];
-
+    
     NSString *str3 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_child_list integerValue]/100.00];
     NSString *str4 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_child_agency integerValue]/100.00];
-    self.childPricelab.text = [NSString stringWithFormat:@"成人价:%@/%@",str4,str3];
+    self.childPricelab.text = [NSString stringWithFormat:@"儿童价:%@/%@",str4,str3];
     
     NSString *str5 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_hotel_list integerValue]/100.00];
     NSString *str6 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_hotel_agency integerValue]/100.00];
     self.roomDifferencelab.text = [NSString stringWithFormat:@"单房差(每晚):%@/%@",str6,str5];
     
     self.datelab.text = lineModificationModel.start_time;
-    self.adultPriceTextField.placeholder = lineModificationModel.user_defined_adult_list;
-    self.childPriceTextField.placeholder = lineModificationModel.user_defined_child_list;
-    self.roomDifferenceTextField.placeholder = lineModificationModel.user_defined_hotel_list;
+    //    if ([NSString isNotBlank:lineModificationModel.user_defined_adult_list]) {
+    //    self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
+    //    } else {
+    self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_adult_list integerValue]/100.00];
+    //    }
+    
+    self.childPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_child_list integerValue]/100.00];
+    self.roomDifferenceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_hotel_list integerValue]/100.00];
 }
 
 -(void)preservation
 {
-    NSLog(@"点击了保存");
-    
-    if (self.delegate && [self.delegate respondsToSelector:@selector(preservationBtnClickDelegateWithAdultprice:Childpriced:Roomdifference:Date:)]) {
-        [self.delegate preservationBtnClickDelegateWithAdultprice:self.adultPriceTextField.text Childpriced:self.childPriceTextField.text Roomdifference:self.roomDifferenceTextField.text Date:self.datelab.text];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(preservationBtnClickDelegateWithAdultprice:Childpriced:Roomdifference:)]) {
+        [self.delegate preservationBtnClickDelegateWithAdultprice:self.adultPriceTextField.text Childpriced:self.childPriceTextField.text Roomdifference:self.roomDifferenceTextField.text];
     }
-
 }
-
 
 @end

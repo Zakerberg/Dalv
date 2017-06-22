@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DLLineModificationModel.h"
 @protocol  LineModificationDelegate <NSObject>
-- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference Date:(NSString*)date;
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference;
 @end
 
 
