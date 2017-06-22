@@ -10,7 +10,7 @@
 #import "DLLineModificationViewDetailTableViewCell.h"
 #import "DLRoutePricingTableViewCell.h"
 #import "DLHomeViewTask.h"
-@interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource,LineModificationDelegate>
 @property (nonatomic, strong) UITableView *lineModificationTableView;//
 @property (nonatomic, strong) DLLineModificationModel *modificationModel;//顾问线路改价模型
 @property (nonatomic, strong) NSArray *modificationarry;
@@ -117,6 +117,7 @@
     } else{
     DLRoutePricingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRoutePricingTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     LineModificationList * modificationList = [self.modificationarry objectAtIndex:indexPath.row];
     [cell configureCell:modificationList];
     return cell;
@@ -145,6 +146,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+#pragma mark - Event Handler
 
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference Date:(NSString*)date{
+    
+    
+}
 
 @end
