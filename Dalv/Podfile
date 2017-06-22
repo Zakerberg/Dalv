@@ -25,4 +25,6 @@ pod 'MOBFoundation_IDFA'
 pod 'SMSSDK'
 pod 'SVProgressHUD'
 
+pod 'WechatOpenSDK'
+
 end
