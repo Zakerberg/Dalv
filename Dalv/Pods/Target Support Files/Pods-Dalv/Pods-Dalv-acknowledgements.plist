@@ -227,16 +227,6 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright © 2012-2015 mob</string>
-			<key>License</key>
-			<string>Copyright © 2012-2016 mob.com</string>
-			<key>Title</key>
-			<string>MOBFoundation_IDFA</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Copyright (c) 2011-2012 Masonry Team - https://github.com/Masonry
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -355,16 +345,6 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright © 2012-2015 mob.com</string>
-			<key>License</key>
-			<string>Copyright © 2012-2015 mob.com</string>
-			<key>Title</key>
-			<string>SMSSDK</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Copyright (c) 2011-2016 Sam Vermette, Tobias Tiemerding and contributors.
 
 Permission is hereby granted, free of charge, to any person
@@ -396,17 +376,6 @@ respective headers for the terms of their individual licenses.
 			<string>MIT</string>
 			<key>Title</key>
 			<string>SVProgressHUD</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>Copyright 2017 tencent.com. All rights reserved.
-</string>
-			<key>License</key>
-			<string>Copyright</string>
-			<key>Title</key>
-			<string>WechatOpenSDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -305,7 +305,6 @@
 		45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */; };
 		45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */; };
 		45A321C11EF1199700325683 /* DLLineOrderDetailXibController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */; };
-		45A321C31EF11D7500325683 /* DLLineOrderViewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321C21EF11D7500325683 /* DLLineOrderViewDetailController.m */; };
 		45A321C71EF120EE00325683 /* DLLineOrderDetailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321C51EF120EE00325683 /* DLLineOrderDetailViewCell.m */; };
 		45A321C81EF120EE00325683 /* DLLineOrderDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321C61EF120EE00325683 /* DLLineOrderDetailViewCell.xib */; };
 		45A321CD1EF256E000325683 /* DLMyCustomerXibController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321CB1EF256E000325683 /* DLMyCustomerXibController.m */; };
@@ -813,11 +812,9 @@
 		45A321BD1EF1199700325683 /* DLLineOrderDetailXibController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailXibController.h; sourceTree = "<group>"; };
 		45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderDetailXibController.m; sourceTree = "<group>"; };
 		45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderDetailXibController.xib; sourceTree = "<group>"; };
-		45A321C21EF11D7500325683 /* DLLineOrderViewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderViewDetailController.m; sourceTree = "<group>"; };
 		45A321C41EF120EE00325683 /* DLLineOrderDetailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailViewCell.h; sourceTree = "<group>"; };
 		45A321C51EF120EE00325683 /* DLLineOrderDetailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderDetailViewCell.m; sourceTree = "<group>"; };
 		45A321C61EF120EE00325683 /* DLLineOrderDetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderDetailViewCell.xib; sourceTree = "<group>"; };
-		45A321C91EF122C100325683 /* DLLineOrderViewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderViewDetailController.h; sourceTree = "<group>"; };
 		45A321CA1EF256E000325683 /* DLMyCustomerXibController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerXibController.h; sourceTree = "<group>"; };
 		45A321CB1EF256E000325683 /* DLMyCustomerXibController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerXibController.m; sourceTree = "<group>"; };
 		45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMyCustomerXibController.xib; sourceTree = "<group>"; };
@@ -1508,8 +1505,6 @@
 				45A321BD1EF1199700325683 /* DLLineOrderDetailXibController.h */,
 				45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */,
 				45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */,
-				45A321C91EF122C100325683 /* DLLineOrderViewDetailController.h */,
-				45A321C21EF11D7500325683 /* DLLineOrderViewDetailController.m */,
 				4535300E1EF3CC8700CBAC19 /* DLLineOrderConfirmController.h */,
 				4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */,
 				453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */,
@@ -2391,7 +2386,6 @@
 				45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */,
 				1C29791B1EF02D6F00D3FEEA /* MSRefreshHeader.m in Sources */,
 				451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */,
-				45A321C31EF11D7500325683 /* DLLineOrderViewDetailController.m in Sources */,
 				1C29816A1EDFE2C400712524 /* DLRechargeRecordViewController.m in Sources */,
 				451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */,
 				1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */,
