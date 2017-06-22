@@ -52,16 +52,16 @@
 @interface LineList : NSObject
 
 /** 儿童常规价格 */
-@property (nonatomic, copy) NSString *price_child_agenc;
+@property (nonatomic, copy) NSString *price_child_agency;
 
 /**线路Id */
 @property (nonatomic, copy) NSString *lineTourId;
 
 /** 成人常规价格 */
-@property (nonatomic, copy) NSString *price_adult_agenc;
+@property (nonatomic, copy) NSString *price_adult_agency;
 
 /** 单房差 */
-@property (nonatomic, copy) NSString *price_hotel_agenc;
+@property (nonatomic, copy) NSString *price_hotel_agency;
 
 /** 线路名称 */
 @property (nonatomic, copy) NSString *name;

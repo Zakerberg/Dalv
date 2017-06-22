@@ -140,18 +140,13 @@
     return NSStringFromClass([self class]);
 }
 
-//- (void)configureCell:(NSString *)routeName {
-//
-//    self.lineOederNamelab.text = routeName;
-//}
-
 /** 配置Cell */
 - (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel{
 
     self.lineOederNamelab.text = placeLineOrderModel.list.name;
-    self.perrAdultlab.text = placeLineOrderModel.list.price_adult_agenc;
-    self.preeChildlab.text = placeLineOrderModel.list.price_child_agenc;
-    self.singleRoomDifferencelab.text = placeLineOrderModel.list.price_hotel_agenc;
+    self.perrAdultlab.text = [NSString stringWithFormat:@"同行价 ¥%.2f",[placeLineOrderModel.list.price_adult_agency integerValue]/100.00];
+    self.preeChildlab.text = [NSString stringWithFormat:@"同行价 ¥%.2f",[placeLineOrderModel.list.price_child_agency integerValue]/100.00];
+    self.singleRoomDifferencelab.text = [NSString stringWithFormat:@"同行价 ¥%.2f",[placeLineOrderModel.list.price_hotel_agency integerValue]/100.00];
     
 }
 

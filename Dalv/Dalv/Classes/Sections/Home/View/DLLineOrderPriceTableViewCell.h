@@ -22,8 +22,6 @@
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
-//- (void)configureCell:(NSString *)routeName;
-
 /** 配置Cell */
 - (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel;
 
