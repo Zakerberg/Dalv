@@ -124,7 +124,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190;
+    
+    DLInvoiceRecordModel *crModel = [self.invoiceRecordList objectAtIndex:indexPath.section];
+    if (crModel.state.integerValue == 3) {
+        return 210;
+    } else {
+        return 190;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

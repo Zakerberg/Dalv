@@ -28,8 +28,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.contractRecordTableView ms_beginRefreshing:self
-                                      headerAction:@selector(fetchNewData)
-                                      footerAction:@selector(fetchMoreData)];
+                                        headerAction:@selector(fetchNewData)
+                                        footerAction:@selector(fetchMoreData)];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -85,7 +85,7 @@
     self.contractRecordTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.contractRecordTableView.dataSource = self;
     self.contractRecordTableView.backgroundColor = [UIColor ms_backgroundColor];
- 
+    
     self.contractRecordTableView.delegate = self;
     [self.contractRecordTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
@@ -94,7 +94,7 @@
     [self.contractRecordTableView registerClass:[DLContractApplyRecordCell class] forCellReuseIdentifier:[DLContractApplyRecordCell cellIdentifier]];
     
     [self.view addSubview:self.contractRecordTableView];
-
+    
     [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
@@ -132,7 +132,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190;
+    
+    DLContractRecordModel *crModel = [self.contractRecordList objectAtIndex:indexPath.section];
+    if (crModel.state.integerValue == 3) {
+        return 210;
+    } else {
+        return 190;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

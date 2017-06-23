@@ -46,6 +46,30 @@
     InvoiceType.text = @"状态:";
     [self.contentView addSubview:InvoiceType];
     
+    
+    _backview = [[UIView alloc]init];
+    _backview.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+    [self.contentView addSubview:_backview];
+    
+    
+    UILabel *fail = [[UILabel  alloc] init];
+    fail.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    fail.textAlignment = NSTextAlignmentLeft;
+    fail.font = [UIFont systemFontOfSize:12];
+    fail.text = @"失败原因：";
+    
+    [_backview addSubview:fail];
+    
+    
+    UILabel *failMemoLabel = [[UILabel alloc] init];
+    self.failMemoLabel = failMemoLabel;
+    failMemoLabel.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
+    failMemoLabel.textAlignment = NSTextAlignmentLeft;
+    failMemoLabel.font = [UIFont systemFontOfSize:12];
+    failMemoLabel.text = @"提现失败";
+    [_backview addSubview:failMemoLabel];
+    
+    
     UILabel *InvoiceCompany = [[UILabel alloc]init];
     InvoiceCompany.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     InvoiceCompany.textAlignment = NSTextAlignmentLeft;
@@ -73,8 +97,7 @@
     _invoiceTypeLabel.font = [UIFont systemFontOfSize:12];
     _invoiceTypeLabel.text = @"审核通过";
     [self.contentView addSubview:_invoiceTypeLabel];
-    
-    
+
     
     _invoiceCompanyLabel = [[UILabel alloc]init];
     _invoiceCompanyLabel.textColor = [UIColor colorWithHexString:@"#ff7735"];
@@ -140,8 +163,32 @@
         make.height.equalTo(@30);
     }];
     
-    [InvoiceCompany mas_makeConstraints:^(MASConstraintMaker *make) {
+
+    [_backview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(InvoiceType.mas_bottom);
+        make.left.equalTo(@15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+    [fail mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@10);
+        make.width.equalTo(@65);
+        make.height.equalTo(@20);
+    }];
+    
+    
+    [failMemoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(fail);
+        make.left.equalTo(fail.mas_right);
+        make.right.equalTo(_backview).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+    
+    [InvoiceCompany mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_bottom).offset(-120);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
@@ -212,8 +259,8 @@
 /** 配置Cell */
 -(void)configureCell:(DLInvoiceRecordModel *)invoiceRecordModel{
     
-    
-//    self.invoiceNameLabel.text = invoiceRecordModel.invoiceid;
+    _backview.hidden = YES;
+
     self.invoiceTimeLabel.text = invoiceRecordModel.create_time;
     
     if ([invoiceRecordModel.state isEqualToString:@"1"]) {
@@ -224,6 +271,9 @@
         _invoiceTypeLabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }else if ([invoiceRecordModel.state isEqualToString:@"3"]){
         self.invoiceTypeLabel.text = @"审核失败";
+            _backview.hidden = NO;
+            _failMemoLabel.text = invoiceRecordModel.memo;
+
         _invoiceTypeLabel.textColor = [UIColor redColor];
     }
     self.invoiceCompanyLabel.text = [NSString stringWithFormat:@"%@",invoiceRecordModel.title];
