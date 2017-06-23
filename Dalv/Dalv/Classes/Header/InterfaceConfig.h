@@ -235,12 +235,16 @@
 
 
 //69 测试普通用户个人中心地址接口
-
 #define DL_TouristPersonalIndex  DL_HOST@"index.php/TouristApi/TouristPersonal/index"
 
 
-#define DL_TouristPersonalMyAgency  DL_HOST@"/index.php/TouristApi/TouristPersonal/myAgency"
+// 70 测试普通用户个人中心-我的顾问（已经绑定）列表地址接口：
+#define DL_TouristPersonalMyAgency  DL_HOST@"index.php/TouristApi/TouristPersonal/myAgency"
 
+
+
+// 71 测试普通用户个人中心-我的顾问（已经绑定）列表地址接口：
+#define DL_TouristPersonalMyAgencyUnBinding  DL_HOST@"index.php/TouristApi/TouristPersonal/agencyList"
 
 
 #endif /* InterfaceConfig_h */
