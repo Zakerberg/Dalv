@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DLLineModificationModel.h"
 @protocol  LineModificationDelegate <NSObject>
-- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference;
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference modificationModel:(LineModificationList *)modificationModel;
 @end
 
 
@@ -28,7 +28,7 @@
 @property (strong,nonatomic) UITextField *childPriceTextField;//修改儿童价
 @property (strong,nonatomic) UITextField *roomDifferenceTextField;//修改单房差
 @property (strong,nonatomic) UIButton *preservationBtn;//保存
-@property (nonatomic, strong) DLLineModificationModel *modificationModel;
+@property (nonatomic, strong) LineModificationList *modificationModel;
 
 /** 配置Cell */
 - (void)configureCell:(LineModificationList *)lineModificationModel;

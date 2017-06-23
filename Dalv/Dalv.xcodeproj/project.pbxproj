@@ -96,6 +96,7 @@
 		1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */; };
 		1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438271ECFCC1E006DF42E /* DLUtils.m */; };
 		1CA7E5131EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */; };
+		1CB635141EFD0A83001C188F /* DLLineDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB635131EFD0A83001C188F /* DLLineDestinationViewController.m */; };
 		1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770871ECFE00100F6EFDF /* DLGeneralController.m */; };
 		1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */; };
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
@@ -512,6 +513,8 @@
 		1C8438271ECFCC1E006DF42E /* DLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUtils.m; sourceTree = "<group>"; };
 		1CA7E5111EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetailsScrollViewTableViewCell.h; sourceTree = "<group>"; };
 		1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetailsScrollViewTableViewCell.m; sourceTree = "<group>"; };
+		1CB635121EFD0A83001C188F /* DLLineDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDestinationViewController.h; sourceTree = "<group>"; };
+		1CB635131EFD0A83001C188F /* DLLineDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDestinationViewController.m; sourceTree = "<group>"; };
 		1CB770861ECFE00100F6EFDF /* DLGeneralController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGeneralController.h; sourceTree = "<group>"; };
 		1CB770871ECFE00100F6EFDF /* DLGeneralController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGeneralController.m; sourceTree = "<group>"; };
 		1CB770881ECFE00100F6EFDF /* DLLineQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryController.h; sourceTree = "<group>"; };
@@ -1353,6 +1356,8 @@
 				1CBCF9091ED2FD7400310CCB /* DLLineDetailsScrollViewController.m */,
 				1CB953351ECFC41600BDC2D3 /* DLLineTourViewController.h */,
 				1CB953361ECFC41600BDC2D3 /* DLLineTourViewController.m */,
+				1CB635121EFD0A83001C188F /* DLLineDestinationViewController.h */,
+				1CB635131EFD0A83001C188F /* DLLineDestinationViewController.m */,
 				1CB953371ECFC41600BDC2D3 /* DLMenuViewController.h */,
 				1CB953381ECFC41600BDC2D3 /* DLMenuViewController.m */,
 				1CB953391ECFC41600BDC2D3 /* DLRecommendRouteViewController.h */,
@@ -2231,6 +2236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB635141EFD0A83001C188F /* DLLineDestinationViewController.m in Sources */,
 				1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */,
 				1C0864D01EEA96F5005015DE /* LGLCalenderViewController.m in Sources */,
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,

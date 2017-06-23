@@ -114,11 +114,12 @@
     cell.modificationModel = self.modificationModel;
     [cell configureCell:self.modificationModel];
     return cell;
-    } else{
+    } else {
     DLRoutePricingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRoutePricingTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;
     LineModificationList * modificationList = [self.modificationarry objectAtIndex:indexPath.row];
+    cell.modificationModel = modificationList;
     [cell configureCell:modificationList];
     return cell;
 
@@ -130,7 +131,7 @@
         CGFloat titleHeight = [self.modificationModel.tour_list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
         return titleHeight + 150;
 
-    }else{
+    } else {
         return 230;
     }
 }
@@ -148,12 +149,11 @@
 }
 #pragma mark - Event Handler
 
-- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference {
-    
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference modificationModel:(LineModificationList *)modificationModel{
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"tour_id" : self.routeModel.routeId,
-                            @"sku_id" : @"",
+                            @"sku_id" : modificationModel.tourDateId,
                             @"adult" : adultprice,
                             @"child" : childprice,
                             @"hotel" : roomdifference,
