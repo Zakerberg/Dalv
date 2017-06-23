@@ -38,8 +38,7 @@
 /*** 联系人电话TextFiled  ***/
 @property(nonatomic,strong) UITextField *numberTF;
 
-/** 输入框中的内容 */
-@property (nonatomic, assign ) NSInteger currentNumber;
+
 
 @property (nonatomic, strong) UITableView *contractTableView;
 
@@ -225,6 +224,9 @@ static NSString *section5CellID = @"section5CellID";
 /*** 提交申请按钮 ***/
 -(void)submitBtnClick {
     
+    if(self.button1.currentNumber != 0 || self.button2.currentNumber
+       != 0 || self.button3.currentNumber != 0){
+    
     //自取
     if ([self.methodBtnNumber isEqualToString:@"1"]) {
         
@@ -280,8 +282,13 @@ static NSString *section5CellID = @"section5CellID";
             
         }
     }
+        
+    }else{
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"至少申请一份合同" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+    }
 }
-
 #pragma mark  ----------UITable View Delegate------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

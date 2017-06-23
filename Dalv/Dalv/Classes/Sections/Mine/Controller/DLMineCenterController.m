@@ -42,10 +42,7 @@ static NSString *cellID  = @"cellID";
     [self fetchData];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-    
-    self.userTypeStr = [DLUtils getUser_type];
-    
+        self.userTypeStr = [DLUtils getUser_type];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -54,7 +51,6 @@ static NSString *cellID  = @"cellID";
 -(void)setTableView
 
 {
-    
     self.tableView.tableFooterView = [UIView new];
     UITableView*tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView = tableView;
@@ -117,11 +113,11 @@ static NSString *cellID  = @"cellID";
         make.height.offset(16);
         
     }];
-   
+    
     UILabel *numLabel = [[UILabel alloc] init];
     self.numLabel = numLabel;
     [nameLabel sizeToFit];
-
+    
     [headerView addSubview:numLabel];
     
     [numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,69 +133,69 @@ static NSString *cellID  = @"cellID";
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
-//    
-//    if([self.userTypeStr isEqualToString:@"4"])
-//        
-//    {
+    //
+    //    if([self.userTypeStr isEqualToString:@"4"])
+    //
+    //    {
     
-        @weakify(self);
-        [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
-            @strongify(self);
-            if (result) {
-                self.mineCenterDict = [[NSMutableDictionary alloc] init];
-                self.mineCenterDict = [result objectForKey:@"agencyInfo"];
-                
-                NSString *urlStr = self.mineCenterDict[@"head_pic"];
-                
-                [self.personBtn sd_setButtonImageWithUrl:urlStr];
-                
-                [self.personBtn.layer setMasksToBounds:YES];
-                
-                [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-                
-                self.personBtn.layer.borderWidth = 2.0;
-                self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-                
-                self.nameLabel.text = self.mineCenterDict[@"name"];
-                self.numLabel.text = self.mineCenterDict[@"mobile"];
-                
-                [self.tableView reloadData];
-            }
-        }];
-//    }
-//    }else{
-//        
-//        [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
-//            
-//            self.mineCenterDict = result[@"touristInfo"];
-//            
-//            
-//            [self.personBtn.layer setMasksToBounds:YES];
-//            
-//            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-//            self.personBtn.layer.borderWidth = 2.0;
-//            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-//            
-//            self.nameLabel.text = self.mineCenterDict[@"name"];
-//            
-//            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
-//                self.nameLabel.text = @"未设置";
-//            }else{
-//                self.nameLabel.text = self.mineCenterDict[@"name"];
-//            }
-//            
-//            self.numLabel.text = self.mineCenterDict[@"mobile"];
-//            
-//            [self.tableView reloadData];
-//            
-//        }];
-//    }
+    @weakify(self);
+    [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            self.mineCenterDict = [[NSMutableDictionary alloc] init];
+            self.mineCenterDict = [result objectForKey:@"agencyInfo"];
+            
+            NSString *urlStr = self.mineCenterDict[@"head_pic"];
+            
+            [self.personBtn sd_setButtonImageWithUrl:urlStr];
+            
+            [self.personBtn.layer setMasksToBounds:YES];
+            
+            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
+            
+            self.personBtn.layer.borderWidth = 2.0;
+            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+            
+            self.nameLabel.text = self.mineCenterDict[@"name"];
+            self.numLabel.text = self.mineCenterDict[@"mobile"];
+            
+            [self.tableView reloadData];
+        }
+    }];
+    //    }
+    //    }else{
+    //
+    //        [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
+    //
+    //            self.mineCenterDict = result[@"touristInfo"];
+    //
+    //
+    //            [self.personBtn.layer setMasksToBounds:YES];
+    //
+    //            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
+    //            self.personBtn.layer.borderWidth = 2.0;
+    //            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+    //
+    //            self.nameLabel.text = self.mineCenterDict[@"name"];
+    //
+    //            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
+    //                self.nameLabel.text = @"未设置";
+    //            }else{
+    //                self.nameLabel.text = self.mineCenterDict[@"name"];
+    //            }
+    //
+    //            self.numLabel.text = self.mineCenterDict[@"mobile"];
+    //
+    //            [self.tableView reloadData];
+    //
+    //        }];
+    //    }
 }
 
 //头像按钮的点击事件
 -(void)PersonbuttonClick{
     
-//    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
     
 }
 
@@ -216,28 +212,18 @@ static NSString *cellID  = @"cellID";
         
         DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
         [self.navigationController pushViewController:changeDataVC animated:YES];
-
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     /***  我的直客  or 我的顾客 ***/
     if (indexPath.row == 1) {
         
         if([self.userTypeStr isEqualToString:@"4"]){
-        
+            
             DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
             
             [self.navigationController pushViewController:myCustomerVC animated:YES];
-        
+            
         }else {
             
             DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
@@ -246,12 +232,6 @@ static NSString *cellID  = @"cellID";
             [self.navigationController pushViewController:myAgencyVC animated:YES];
         }
     }
-    
-    
-    
-    
-    
-    
     
     
     

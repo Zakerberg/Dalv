@@ -7,21 +7,23 @@
 //  ------------------  通用   -----------------------
 
 
-#import "DLGeneralController.h"
 #import <SDWebImage/SDImageCache.h>
-#import <MBProgressHUD.h>
-#import <SVProgressHUD.h>
-#import "BLMClearCacheTool.h"
 #import "DLLoginViewController.h"
 #import "DLFeedBackController.h"
+#import "DLGeneralController.h"
+#import "BLMClearCacheTool.h"
+#import <MBProgressHUD.h>
+#import <SVProgressHUD.h>
 
-static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong) UIButton *logOutBtn;
+
 @property (nonatomic,strong) UITableView *tableview;
+@property (nonatomic,strong) UIButton *logOutBtn;
+
 @end
 
 
+static NSString *cellID  = @"cellID";
 @implementation DLGeneralController
 
 
@@ -32,10 +34,10 @@ static NSString *cellID  = @"cellID";
 
 - (void)viewDidLoad {
     
-    [super viewDidLoad];
-    [self setupUI];
     self.title = @"通用设置";
     [self setupLogoutBtn];
+    [super viewDidLoad];
+    [self setupUI];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -58,13 +60,11 @@ static NSString *cellID  = @"cellID";
 
     UIButton *logOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.logOutBtn = logOutBtn;
-//    logOutBtn.frame = CGRectMake(13+10, 44*3+9+20, 670/2, 44);
     [logOutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     logOutBtn.backgroundColor = [UIColor redColor];
     [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     logOutBtn.layer.cornerRadius = 8.0;
     [self.tableView addSubview:logOutBtn];
-    
     
     [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(15);
@@ -93,8 +93,8 @@ static NSString *cellID  = @"cellID";
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
-//
-//        self.tabBarController.selectedIndex = 0;
+        
+//      self.tabBarController.selectedIndex = 0;
         
     }];
                              
@@ -103,7 +103,6 @@ static NSString *cellID  = @"cellID";
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
     
-    //显示弹框控制器
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -163,10 +162,6 @@ static NSString *cellID  = @"cellID";
 
 
 #pragma mark ------------ Tableview data source -----------
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    
-//    return 1;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -212,11 +207,6 @@ static NSString *cellID  = @"cellID";
 //
 //            }];
 
-            
-            
-            
-            
-            
             cell.textLabel.text = @"清除缓存";
         }
     }
