@@ -22,14 +22,8 @@
 /* 订单状态 */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStateLabel;
 
-
 #pragma mark - configure
 
-
-
 - (void)configureCell:(DLlineOrderModel *)lineOrderModelData ;
-
-
-
 
 @end

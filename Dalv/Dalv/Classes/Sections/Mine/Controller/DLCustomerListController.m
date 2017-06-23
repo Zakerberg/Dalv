@@ -14,7 +14,6 @@
 @interface DLCustomerListController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) UITableView * customerListTableView;
-
 @property (nonatomic, strong) NSMutableArray *myCustomerList;
 /* 直客头像 */
 @property (weak, nonatomic)  UIImageView *customerAvatarImageV;
@@ -26,7 +25,6 @@
 @property (weak, nonatomic)  UILabel *customerTimeLabel;
 
 @property(nonatomic,weak) NSDictionary * myListDict;
-
 
 @end
 

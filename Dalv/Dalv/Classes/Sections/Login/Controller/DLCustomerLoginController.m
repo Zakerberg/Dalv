@@ -152,11 +152,12 @@
                                 };
         
         [DLHomeViewTask getTouristVerificationCode:param completion:^(id result, NSError *error) {
-//            
-//            if ([result[@"Binding_state"] isEqualToString:@"0"]) {
-//                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有绑定顾问,建议您绑定顾问" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-//                [alertV show];
-//            }
+            
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
+                
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有绑定顾问,建议您绑定顾问" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
+            }
         }];
     }
 }
