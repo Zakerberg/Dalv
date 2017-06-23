@@ -712,4 +712,16 @@
                         completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 72 测试（首页模块）栏目二级列表接口地址（如出境游，国内游等
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getOutboundLists:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 @end

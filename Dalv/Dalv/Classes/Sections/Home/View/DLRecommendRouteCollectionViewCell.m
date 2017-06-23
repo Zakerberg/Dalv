@@ -13,7 +13,7 @@
 @property (nonatomic, weak) UIImageView *topicCoverImageView;
 @property (nonatomic, weak) UILabel *topicTitleLabel;
 @property (nonatomic, weak) UIView *containerView;
-@property (nonatomic, weak) UIButton *pageviewsButton;
+@property (nonatomic, weak) UILabel *pageviewsLabel;
 @property (nonatomic, weak) UILabel *minPriceLabel;
 
 @end
@@ -70,13 +70,11 @@
     containerView.backgroundColor = [UIColor colorWithHexString:@"#f6f6f6"];
     self.containerView = containerView;
     
-    UIButton *pageviewsButton = [[UIButton alloc] init];
-    pageviewsButton.titleLabel.font = [UIFont systemFontOfSize:12];
-    [pageviewsButton setTitle:@"0" forState:UIControlStateNormal];
-    [pageviewsButton setTitleColor:[UIColor colorWithHexString:@"#535353"] forState:UIControlStateNormal];
-    [pageviewsButton setImage:[UIImage imageNamed:@"topic_pageviews"] forState:UIControlStateNormal];
-    pageviewsButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-    self.pageviewsButton = pageviewsButton;
+    UILabel *pageviewsLabel = [[UILabel alloc] init];
+    pageviewsLabel.font = [UIFont systemFontOfSize:12];
+    pageviewsLabel.textColor = [UIColor colorWithHexString:@"#535353"];
+    pageviewsLabel.textAlignment = NSTextAlignmentCenter;
+    self.pageviewsLabel = pageviewsLabel;
     
     UILabel *minPriceLabel = [[UILabel alloc] init];
     minPriceLabel.font = [UIFont systemFontOfSize:12];
@@ -84,9 +82,9 @@
     minPriceLabel.textAlignment = NSTextAlignmentCenter;
     self.minPriceLabel = minPriceLabel;
     
-    [containerView addSubview:pageviewsButton];
+    [containerView addSubview:pageviewsLabel];
     [containerView addSubview:minPriceLabel];
-    NSArray *operationButtons = @[pageviewsButton, minPriceLabel];
+    NSArray *operationButtons = @[pageviewsLabel, minPriceLabel];
     [operationButtons mas_distributeViewsAlongAxis:MASAxisTypeHorizontal
                                   withFixedSpacing:0.0f leadSpacing:0.0f tailSpacing:0.0f];
     [operationButtons mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,8 +139,19 @@
     NSURL *URL = [NSURL URLWithString:model.cover_pic];
     [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     self.topicTitleLabel.text = model.name;
-    [self.pageviewsButton setTitle:model.departure forState:UIControlStateNormal];
+    self.pageviewsLabel.text = model.departure;
     self.minPriceLabel.text = [NSString stringWithFormat:@"¥%.f起",[model.min_price integerValue]/100.00];
+    
+}
+
+- (void)configureLineTourCell:(DLRecommendRouteModel *)model{
+    
+    NSURL *URL = [NSURL URLWithString:model.cover_pic];
+    [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    self.topicTitleLabel.text = model.destination;
+    self.pageviewsLabel.text = [NSString stringWithFormat:@"%@ 条",model.total];
+    self.minPriceLabel.text = [NSString stringWithFormat:@"¥%.f起",[model.min_price integerValue]/100.00];
+
     
 }
 

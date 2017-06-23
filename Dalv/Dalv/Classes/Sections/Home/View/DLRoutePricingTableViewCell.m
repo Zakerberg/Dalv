@@ -131,7 +131,7 @@
     _preservationBtn = [[UIButton alloc]init];
     [_preservationBtn setTitle:@"保存" forState:(UIControlStateNormal)];
     [_preservationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_preservationBtn addTarget:self action:@selector(preservation) forControlEvents:UIControlEventTouchUpInside];
+    [_preservationBtn addTarget:self action:@selector(preservationTap) forControlEvents:UIControlEventTouchUpInside];
     _preservationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     _preservationBtn.layer.cornerRadius = 2.0;
     [self.contentView addSubview:_preservationBtn];
@@ -296,20 +296,50 @@
     self.roomDifferencelab.text = [NSString stringWithFormat:@"单房差(每晚):%@/%@",str6,str5];
     
     self.datelab.text = lineModificationModel.start_time;
-    //    if ([NSString isNotBlank:lineModificationModel.user_defined_adult_list]) {
-    //    self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
-    //    } else {
-    self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_adult_list integerValue]/100.00];
-    //    }
+    if ([NSString isBlank:lineModificationModel.user_defined_adult_list]) {
+        self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
+    } else {
+        self.adultPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_adult_list integerValue]/100.00];
+    }
     
-    self.childPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_child_list integerValue]/100.00];
-    self.roomDifferenceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_hotel_list integerValue]/100.00];
+    if ([NSString isBlank:lineModificationModel.user_defined_child_list]) {
+        self.childPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.price_child_list integerValue]/100.00];
+    } else {
+        self.childPriceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_child_list integerValue]/100.00];
+    }
+    
+    if ([NSString isBlank:lineModificationModel.user_defined_hotel_list]) {
+        self.roomDifferenceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.price_hotel_list integerValue]/100.00];
+    } else {
+        self.roomDifferenceTextField.placeholder = [NSString stringWithFormat:@"%.f",[lineModificationModel.user_defined_hotel_list integerValue]/100.00];
+    }
+    
 }
 
--(void)preservation
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(preservationBtnClickDelegateWithAdultprice:Childpriced:Roomdifference:)]) {
-        [self.delegate preservationBtnClickDelegateWithAdultprice:self.adultPriceTextField.text Childpriced:self.childPriceTextField.text Roomdifference:self.roomDifferenceTextField.text];
+-(void)preservationTap {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(preservationBtnClickDelegateWithAdultprice:Childpriced:Roomdifference:modificationModel:)]) {
+        NSString *adultPrice;
+        if ([NSString isBlank:self.adultPriceTextField.text]) {
+            adultPrice = self.adultPriceTextField.placeholder;
+        } else {
+            adultPrice = self.adultPriceTextField.text;
+        }
+        
+        NSString *childPrice;
+        if ([NSString isBlank:self.childPriceTextField.text]) {
+            childPrice = self.childPriceTextField.placeholder;
+        } else {
+            childPrice = self.childPriceTextField.text;
+        }
+        
+        NSString *roomDifference;
+        if ([NSString isBlank:self.roomDifferenceTextField.text]) {
+            roomDifference = self.roomDifferenceTextField.placeholder;
+        } else {
+            roomDifference = self.roomDifferenceTextField.text;
+        }
+        
+        [self.delegate preservationBtnClickDelegateWithAdultprice:adultPrice Childpriced:childPrice Roomdifference:roomDifference modificationModel:self.modificationModel];
     }
 }
 

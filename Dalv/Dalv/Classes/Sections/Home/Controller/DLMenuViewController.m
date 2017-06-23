@@ -19,6 +19,9 @@
 
 @property (nonatomic, strong) NSArray *apps;
 
+@property (nonatomic, strong) DLHomeMenuItem *linetype;
+
+
 @end
 
 @implementation DLMenuViewController

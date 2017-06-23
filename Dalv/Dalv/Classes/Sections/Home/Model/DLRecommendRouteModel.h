@@ -21,5 +21,10 @@
 @property (nonatomic, copy) NSString *name;
 /** 地址*/
 @property (nonatomic, copy) NSString *departure;
+/** 条数*/
+@property (nonatomic, copy) NSString *total;
+/** 目的地*/
+@property (nonatomic, copy) NSString *destination;
+
 
 @end

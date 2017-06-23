@@ -173,8 +173,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 
     DLRecommendRouteModel *routeModel = [self.topicList objectAtIndex:indexPath.item];
-
-//    DLRecommendRouteCollectionViewCell *cell = (DLRecommendRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     DLLineTourDetailViewController *linetourDetailVC = [[DLLineTourDetailViewController alloc]init];
     linetourDetailVC.routeModel = routeModel;
