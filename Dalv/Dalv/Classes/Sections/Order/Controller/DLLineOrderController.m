@@ -46,18 +46,14 @@ static NSString *nibCellID = @"nibCellID";
     [self fetchData];
     [self setTableView];
     [self.lineOrderTableView reloadData];
+    //进入刷新状态
+    [self.lineOrderTableView.mj_header beginRefreshing];
+    self.title = @"线路订单";
+
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear: animated];
-    
-    // 马上进入刷新状态
-    [self.lineOrderTableView.mj_header beginRefreshing];
 }
 
 /**
@@ -66,6 +62,7 @@ static NSString *nibCellID = @"nibCellID";
 - (void) updateView
 {
     [self.lineOrderTableView reloadData];
+    [self endRefresh];
 }
 /**
  *  停止刷新
@@ -73,7 +70,6 @@ static NSString *nibCellID = @"nibCellID";
 -(void)endRefresh{
     
     [self.lineOrderTableView.mj_header endRefreshing];
-    [self.lineOrderTableView.mj_footer endRefreshing];
 }
 
 
@@ -94,6 +90,13 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.lineOrderTableView.delegate = self;
     
+    //下拉刷新
+    self.lineOrderTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(updateView)];
+    
+    //自动更改透明度
+    self.lineOrderTableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
     
@@ -107,7 +110,7 @@ static NSString *nibCellID = @"nibCellID";
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-48-49-9);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-48);
     }];
 }
 
@@ -130,17 +133,9 @@ static NSString *nibCellID = @"nibCellID";
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList removeAllObjects];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
-            
+            [self endRefresh];
             [self updateView];
             
-        } else {
-            
-//            [self endRefresh];
-//            
-//            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//            hud.mode = MBProgressHUDModeText;
-//            hud.label.text = @"您的网络不给力!";
-//            [hud hideAnimated:YES afterDelay:2];
         }
     }];
 }
@@ -164,6 +159,7 @@ static NSString *nibCellID = @"nibCellID";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
     [cell configureCell:loModel];
+    
     return cell;
 }
 
@@ -183,14 +179,6 @@ static NSString *nibCellID = @"nibCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    DLLineOrderViewDetailController *lineOrderDetailVC = [[DLLineOrderViewDetailController alloc] init];
-//    
-//    DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];
-//    
-//    lineOrderDetailVC.tourID =lineOrderModel.lineId;
-//    
-//    [self.navigationController pushViewController:lineOrderDetailVC animated:YES];
-//    
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
     
     DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];

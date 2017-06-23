@@ -25,6 +25,9 @@
 /* 直客时间 */
 @property (weak, nonatomic)  UILabel *customerTimeLabel;
 
+@property(nonatomic,weak) NSDictionary * myListDict;
+
+
 @end
 
 static NSString *cellID = @"cellID";
@@ -81,10 +84,8 @@ static NSString *cellID = @"cellID";
         @weakify(self);
         if (result) {
          @strongify(self);
-            
             NSArray *customerListArray = [DLCustomerListModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.myCustomerList addObjectsFromArray:customerListArray];
-            
             [self.customerListTableView reloadData];
       
         }else {
@@ -114,10 +115,12 @@ static NSString *cellID = @"cellID";
     DLCustomerListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    DLCustomerListModel *clModel = [self.myCustomerList objectAtIndex:indexPath.row];
+    DLCustomerListModel *clModel = [self.myCustomerList objectAtIndex:indexPath.section];
     [cell configureCell:clModel];
     
     return cell;
+    
+
     
 }
 
