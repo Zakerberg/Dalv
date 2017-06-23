@@ -148,8 +148,27 @@
 }
 #pragma mark - Event Handler
 
-- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference Date:(NSString*)date{
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference {
     
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            @"tour_id" : self.routeModel.routeId,
+                            @"sku_id" : @"",
+                            @"adult" : adultprice,
+                            @"child" : childprice,
+                            @"hotel" : roomdifference,
+                            };
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    [DLHomeViewTask getAgencyChangePriceHandle:param completion:^(id result, NSError *error) {
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+            [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+
     
 }
 

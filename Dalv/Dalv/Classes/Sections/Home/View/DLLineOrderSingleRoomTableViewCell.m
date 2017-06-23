@@ -46,7 +46,7 @@
     
     DLAddReduceButton *numberButton = [[DLAddReduceButton alloc]init];;
     numberButton.shakeAnimation = YES;
-    numberButton.maxValue = 10;
+//    numberButton.maxValue = 10;
     numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
     };
