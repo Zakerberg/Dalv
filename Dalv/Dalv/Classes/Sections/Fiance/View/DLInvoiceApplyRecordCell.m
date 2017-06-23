@@ -48,7 +48,7 @@
     
     
     _backview = [[UIView alloc]init];
-    _backview.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
+    _backview.backgroundColor = [UIColor colorWithHexString:@"#eeeeee"];
     [self.contentView addSubview:_backview];
     
     
@@ -66,7 +66,7 @@
     failMemoLabel.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
     failMemoLabel.textAlignment = NSTextAlignmentLeft;
     failMemoLabel.font = [UIFont systemFontOfSize:12];
-    failMemoLabel.text = @"提现失败";
+    failMemoLabel.text = @"发票申请失败";
     [_backview addSubview:failMemoLabel];
     
     

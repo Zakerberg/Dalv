@@ -30,6 +30,12 @@
 
 @property (nonatomic, strong) DLContractRecordModel *contractRecordModel;
 
+/*** 失败原因 ***/
+@property(nonatomic,strong) UILabel *failMemoLabel;
+
+@property(nonatomic,strong) UIView * backview;
+
+
 /** Cell 重用ID */
 +(NSString *)cellIdentifier;
 

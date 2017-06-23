@@ -315,8 +315,6 @@
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
 		45DB47B61EE5524200399A6D /* DLCustomerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */; };
 		45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B81EE57A3100399A6D /* DLContractApplyController.m */; };
-		45DB47C01EE6478200399A6D /* DLContractApplyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */; };
-		45DB47C11EE6478200399A6D /* DLContractApplyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */; };
 		45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47C41EE68ABC00399A6D /* DLLineOrderController.m */; };
 		45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47CD1EE68B7C00399A6D /* DLVisaOrderController.m */; };
 		45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */; };
@@ -828,9 +826,6 @@
 		45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerListCell.xib; sourceTree = "<group>"; };
 		45DB47B71EE57A3100399A6D /* DLContractApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyController.h; sourceTree = "<group>"; };
 		45DB47B81EE57A3100399A6D /* DLContractApplyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyController.m; sourceTree = "<group>"; };
-		45DB47BD1EE6478200399A6D /* DLContractApplyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyViewCell.h; sourceTree = "<group>"; };
-		45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyViewCell.m; sourceTree = "<group>"; };
-		45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLContractApplyViewCell.xib; sourceTree = "<group>"; };
 		45DB47C31EE68ABC00399A6D /* DLLineOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderController.h; sourceTree = "<group>"; };
 		45DB47C41EE68ABC00399A6D /* DLLineOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderController.m; sourceTree = "<group>"; };
 		45DB47CC1EE68B7C00399A6D /* DLVisaOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLVisaOrderController.h; sourceTree = "<group>"; };
@@ -1860,9 +1855,6 @@
 				1C2981721EDFE33900712524 /* DLRechargeRecordTableViewCell.m */,
 				1C2981731EDFE33900712524 /* DLTransactionRecordTableViewCell.h */,
 				1C2981741EDFE33900712524 /* DLTransactionRecordTableViewCell.m */,
-				45DB47BD1EE6478200399A6D /* DLContractApplyViewCell.h */,
-				45DB47BE1EE6478200399A6D /* DLContractApplyViewCell.m */,
-				45DB47BF1EE6478200399A6D /* DLContractApplyViewCell.xib */,
 				45DB47D51EE6A63500399A6D /* DLContractApplyStyleCell.h */,
 				45DB47D61EE6A63500399A6D /* DLContractApplyStyleCell.m */,
 				45DB47F31EE7DA4500399A6D /* DLContractApplyRecordCell.h */,
@@ -2125,7 +2117,6 @@
 				1CE2C2431ED57BE400B898BA /* vendor_inquiries@3x.png in Resources */,
 				1CE2C2201ED52E8C00B898BA /* line_order_highlight@3x.png in Resources */,
 				1CE2C22B1ED52E8C00B898BA /* wifi_order_highlight@2x.png in Resources */,
-				45DB47C11EE6478200399A6D /* DLContractApplyViewCell.xib in Resources */,
 				1CE2C1CC1ED5270E00B898BA /* order_heighlight@2x.png in Resources */,
 				1CE2C18D1ED525E000B898BA /* add@2x.png in Resources */,
 				1CE2C18F1ED525E000B898BA /* arrowhead_up@2x.png in Resources */,
@@ -2242,7 +2233,6 @@
 				1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */,
 				1C0864D01EEA96F5005015DE /* LGLCalenderViewController.m in Sources */,
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
-				45DB47C01EE6478200399A6D /* DLContractApplyViewCell.m in Sources */,
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */,
 				1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */,
