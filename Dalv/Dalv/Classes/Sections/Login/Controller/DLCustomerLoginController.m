@@ -81,10 +81,9 @@
                                 };
         [DLHomeViewTask getTouristLoginRegister:param completion:^(id result, NSError *error) {
             
-            self.passCodeStatusStr = result[@"status"];
-            self.userTypeStr = result[@""];
+//            self.userTypeStr = result[@"user_type"];
             
-            if ([self.passCodeStatusStr isEqualToString:@"00018"]) {
+            if ([result[@"status"] isEqualToString:@"00018"]) {
                 
                 //手机号码不匹配
                 UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的验证码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
@@ -92,10 +91,10 @@
                 self.passwordTF.text = nil;
                 
             }else {//登录成功 -->
-                if (error) {
-                    [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
-                } else {
-                    
+//                if (error) {
+//                    [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+//                } else {
+                
                     
                     if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {//登录成功保存数据
                         
@@ -106,14 +105,12 @@
                         [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                         
                         [[NSNotificationCenter defaultCenter] postNotificationName:KCustomerloginNoti object:nil];//登录成功通知回调
-                        //                if (self.loginSuccessBlock) {//登录成功块代码回调
-                        //                    self.loginSuccessBlock();
-                        //                }
-                    } else {
+
+                         } else {
                         [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
                     }
                 }
-            }
+//            }
         }];
     }
 
@@ -151,14 +148,11 @@
                                 };
         
         [DLHomeViewTask getTouristVerificationCode:param completion:^(id result, NSError *error) {
-            
-            self.BindingStateStr = result[@"Binding_state"];
-            
-            if ([self.BindingStateStr isEqualToString:@"0"]) {
-                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有绑定顾问,建议您绑定顾问" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [alertV show];
-            }
-            
+//            
+//            if ([result[@"Binding_state"] isEqualToString:@"0"]) {
+//                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有绑定顾问,建议您绑定顾问" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//                [alertV show];
+//            }
         }];
     }
 }

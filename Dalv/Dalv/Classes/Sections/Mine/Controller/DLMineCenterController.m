@@ -176,16 +176,16 @@ static NSString *cellID  = @"cellID";
             self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
             
-            self.nameLabel.text = self.mineCenterDict[@"name"];
             
-            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
-                self.nameLabel.text = @"未设置";
-            }else{
-                self.nameLabel.text = self.mineCenterDict[@"name"];
-            }
-            
-            self.numLabel.text = self.mineCenterDict[@"mobile"];
-            
+//            
+//            if (self.mineCenterDict[@"name"] == nil) {
+//                self.nameLabel.text = @"未设置";
+//            }else{
+//                self.nameLabel.text = self.mineCenterDict[@"name"];
+//            }
+//            
+//            self.numLabel.text = self.mineCenterDict[@"mobile"];
+//            
             [self.tableView reloadData];
             
         }];
