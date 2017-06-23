@@ -7,6 +7,7 @@
 //  -------------------  个人中心   -------------------
 
 #import "DLPersonalChangeDataController.h"
+#import "DLMyAgencyUnBindingController.h"
 #import "DLMyCustomerXibController.h"
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
@@ -16,6 +17,7 @@
 #import "BLM_UploadUserIcon.h"
 #import "UIButton+WebCache.h"
 #import "DLHomeViewTask.h"
+#import "DLUtils.h"
 
 static NSString *cellID  = @"cellID";
 
@@ -172,10 +174,6 @@ static NSString *cellID  = @"cellID";
             self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = result[@"touristInfo"];
             
-            
-            self.bindingStr = [NSUserDefaults standardUserDefaults]
-            
-            
             [self.personBtn.layer setMasksToBounds:YES];
             
             [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
@@ -230,19 +228,19 @@ static NSString *cellID  = @"cellID";
             
         }else {
             
-            if () {
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0" ]) {
                 
+                DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
+                
+                [self.navigationController pushViewController:unBindingVC animated:YES];
+            }else{
+                
+                DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
+                
+                [self.navigationController pushViewController:myAgencyVC animated:YES];
             }
-            
-            
-            
-            DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
-            
-            [self.navigationController pushViewController:myAgencyVC animated:YES];
         }
     }
-    
-    
     
     /***  通用   ***/
     if (indexPath.row == 2) {

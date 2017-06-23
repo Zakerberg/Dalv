@@ -33,13 +33,16 @@
     [super viewDidLoad];
     [self setUI];
     [self fetchData];
-    
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 -(void)setUI{
     
@@ -376,22 +379,12 @@
         make.width.offset(MAIN_SCREEN_WIDTH/2);
     }];
     
-    
 }
-
 
 #pragma mark ------------------ fetchData ------------------
 
 -(void)fetchData {
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     NSDictionary *param = @{
                             
                             @"uid":[DLUtils getUid],
@@ -437,11 +430,6 @@
 
 -(void)unBindingBtnClick {
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
