@@ -28,6 +28,8 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong) UIView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
+/* 绑定状态 */
+@property(nonatomic,strong) NSString  *bindingStr;
 
 @end
 
@@ -167,7 +169,11 @@ static NSString *cellID  = @"cellID";
         
         [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
             
+            self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = result[@"touristInfo"];
+            
+            
+            self.bindingStr = [NSUserDefaults standardUserDefaults]
             
             
             [self.personBtn.layer setMasksToBounds:YES];
@@ -176,16 +182,14 @@ static NSString *cellID  = @"cellID";
             self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
             
+            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
+                self.nameLabel.text = @"未设置";
+            }else{
+                self.nameLabel.text = self.mineCenterDict[@"name"];
+            }
             
-//            
-//            if (self.mineCenterDict[@"name"] == nil) {
-//                self.nameLabel.text = @"未设置";
-//            }else{
-//                self.nameLabel.text = self.mineCenterDict[@"name"];
-//            }
-//            
-//            self.numLabel.text = self.mineCenterDict[@"mobile"];
-//            
+            self.numLabel.text = self.mineCenterDict[@"mobile"];
+            
             [self.tableView reloadData];
             
         }];
@@ -226,8 +230,13 @@ static NSString *cellID  = @"cellID";
             
         }else {
             
-            DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
+            if () {
+                
+            }
             
+            
+            
+            DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
             
             [self.navigationController pushViewController:myAgencyVC animated:YES];
         }

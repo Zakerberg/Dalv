@@ -37,4 +37,7 @@
 // 获取type
 + (NSString *)getUser_type;
 
+//获取绑定状态
++(NSString *)getUser_bingdingState;
+
 @end
