@@ -16,10 +16,10 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic, strong) UITableView *lineOrderTableView;
 
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
-
 /* 订单图片 */
 @property (weak, nonatomic)  UIImageView *lineOrderPicture;
 /* 订单名称 */
@@ -31,6 +31,8 @@
 /* 订单状态 */
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 
+@property (nonatomic, assign) NSInteger pageIndex;
+
 @end
 
 
@@ -41,15 +43,13 @@ static NSString *nibCellID = @"nibCellID";
 @implementation DLLineOrderController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setUI];
-    [self fetchData];
-    [self setTableView];
-    [self.lineOrderTableView reloadData];
-    //进入刷新状态
-    [self.lineOrderTableView.mj_header beginRefreshing];
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
-
+    [self setTableView];
+    [super viewDidLoad];
+    [self.lineOrderTableView ms_beginRefreshing:self
+                                       headerAction:@selector(fetchNewData)
+                                       footerAction:@selector(fetchMoreData)];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -62,23 +62,6 @@ static NSString *nibCellID = @"nibCellID";
 - (void) updateView
 {
     [self.lineOrderTableView reloadData];
-    [self endRefresh];
-}
-/**
- *  停止刷新
- */
--(void)endRefresh{
-    
-    [self.lineOrderTableView.mj_header endRefreshing];
-}
-
-
-
-#pragma mark -----------------  Set UI --------------
-
--(void)setUI{
-    
-    self.view.backgroundColor = [UIColor ms_backgroundColor];
 }
 
 #pragma mark ----------------- Set TableView --------------
@@ -90,12 +73,8 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.lineOrderTableView.delegate = self;
     
-    //下拉刷新
-    self.lineOrderTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(updateView)];
-    
     //自动更改透明度
     self.lineOrderTableView.mj_header.automaticallyChangeAlpha = YES;
-    
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
@@ -114,28 +93,35 @@ static NSString *nibCellID = @"nibCellID";
     }];
 }
 
-#pragma mark  ------  fetchData  ------------
+#pragma mark ------------------ fetchData --------------
+
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
 
 -(void)fetchData{
     
     NSDictionary *param = @{
                             
                             @"uid":[DLUtils getUid],
-                            @"page":@"1",
+                            @"page": @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],
                             };
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
-        [self endRefresh];
         @strongify(self);
         if (result) {
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.lineOrderList removeAllObjects];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
-            [self endRefresh];
             [self updateView];
-            
+            [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
         }
     }];
 }
@@ -150,19 +136,16 @@ static NSString *nibCellID = @"nibCellID";
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
     
-
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
     [cell configureCell:loModel];
     
     return cell;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 136;
@@ -180,13 +163,9 @@ static NSString *nibCellID = @"nibCellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     DLLineOrderDetailXibController *lineXIBvc = [[DLLineOrderDetailXibController alloc]init];
-    
     DLlineOrderModel *lineOrderModel = _lineOrderList[indexPath.section];
-    
     lineXIBvc.tourID = lineOrderModel.lineId;
-    
     [self.navigationController pushViewController:lineXIBvc animated:YES];
-    
 }
 
 #pragma mark ------------------ Getter -----------------------
