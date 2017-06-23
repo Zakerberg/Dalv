@@ -402,7 +402,6 @@
         self.nameLabel.text = self.myAgencyList[@"name"];
         self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
         
-        
         if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
             self.sexLabel.text = @"男";
         } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){

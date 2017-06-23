@@ -100,10 +100,14 @@
                         
                         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
                         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
+                        
                         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
+                        
+                        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"binding_state"] forKey:@"binding_state"];
+
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
-                        
+ 
                         [[NSNotificationCenter defaultCenter] postNotificationName:KCustomerloginNoti object:nil];//登录成功通知回调
 
                          } else {

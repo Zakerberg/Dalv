@@ -228,7 +228,7 @@ static NSString *cellID  = @"cellID";
             
         }else {
             
-            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0" ]) {
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
                 
                 DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
                 
