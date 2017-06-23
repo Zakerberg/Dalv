@@ -6,6 +6,7 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //    ------------     合同申请记录   ------------------
 
+
 #import "DLContractApplyRecordController.h"
 #import "DLContractApplyRecordCell.h"
 #import "DLHomeViewTask.h"
@@ -15,24 +16,36 @@
 @property (nonatomic, strong) UITableView *contractRecordTableView;
 @property (nonatomic, strong) NSMutableArray *contractRecordList;
 
+@property (nonatomic, assign) NSInteger pageIndex;
+
 @end
 
 @implementation DLContractApplyRecordController
 
 - (void)viewDidLoad {
+    self.title = @"合同申请记录";
     [super viewDidLoad];
     [self setupSubviews];
-    [self fetchData];
-    self.title = @"合同申请记录";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.contractRecordTableView ms_beginRefreshing:self
+                                      headerAction:@selector(fetchNewData)
+                                      footerAction:@selector(fetchMoreData)];
 }
-
-#pragma mark - Setup navbar
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
 
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
 
 - (void)setupSubviews {
     
@@ -72,20 +85,23 @@
 - (void)fetchData {
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @"1",
+                            @"page" : @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],};
     @weakify(self);
     
     [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
         @strongify(self);
-                if (result) {
-                    NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-                    [self.contractRecordList removeAllObjects];
-                    [self.contractRecordList addObjectsFromArray:contractRecordArray];
-                    [self.contractRecordTableView reloadData];
-                } else {
-                    [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-                }
+        if (error) {
+            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+        } else {
+            if (self.pageIndex == 0) {
+                [self.contractRecordList removeAllObjects];
+            }
+            NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.contractRecordList addObjectsFromArray:contractRecordArray];
+            [self.contractRecordTableView reloadData];
+            [self.contractRecordTableView ms_endRefreshing:contractRecordArray.count pageSize:10 error:error];
+        }
     }];
 }
 
