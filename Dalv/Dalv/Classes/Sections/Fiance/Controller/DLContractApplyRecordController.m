@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) UITableView *contractRecordTableView;
 @property (nonatomic, strong) NSMutableArray *contractRecordList;
-
 @property (nonatomic, assign) NSInteger pageIndex;
 
 @end
@@ -37,6 +36,13 @@
     return YES;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -------------- Fetch data -----------------
+
 - (void)fetchNewData {
     self.pageIndex = 1;
     [self fetchData];
@@ -46,6 +52,31 @@
     self.pageIndex++;
     [self fetchData];
 }
+
+- (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"page" : @(self.pageIndex),
+                            @"sign_token" : [DLUtils getSign_token],};
+    @weakify(self);
+    
+    [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (error) {
+            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+        } else {
+            if (self.pageIndex == 0) {
+                [self.contractRecordList removeAllObjects];
+            }
+            NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.contractRecordList addObjectsFromArray:contractRecordArray];
+            [self.contractRecordTableView reloadData];
+            [self.contractRecordTableView ms_endRefreshing:contractRecordArray.count pageSize:10 error:error];
+        }
+    }];
+}
+
+#pragma mark ------------------ setupSubviews -----------------
 
 - (void)setupSubviews {
     
@@ -72,36 +103,11 @@
     }];
 }
 
-#pragma mark - Layout
+#pragma mark ------------------ Layout -------------------
 
 - (void)setupConstraints {
     [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
-    }];
-}
-
-
-#pragma mark - Fetch data
-- (void)fetchData {
-    
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @(self.pageIndex),
-                            @"sign_token" : [DLUtils getSign_token],};
-    @weakify(self);
-    
-    [DLHomeViewTask getAgencyFinanceContractList:param completion:^(id result, NSError *error) {
-        @strongify(self);
-        if (error) {
-            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
-        } else {
-            if (self.pageIndex == 0) {
-                [self.contractRecordList removeAllObjects];
-            }
-            NSArray *contractRecordArray = [DLContractRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.contractRecordList addObjectsFromArray:contractRecordArray];
-            [self.contractRecordTableView reloadData];
-            [self.contractRecordTableView ms_endRefreshing:contractRecordArray.count pageSize:10 error:error];
-        }
     }];
 }
 
