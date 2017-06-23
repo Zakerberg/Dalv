@@ -252,13 +252,6 @@ static NSString *cellID  = @"cellID";
     
     
     
-//    电饭锅合家快乐巨化股份大概好久看来你
-    
-    
-    
-    
-    
-    
     
     
     

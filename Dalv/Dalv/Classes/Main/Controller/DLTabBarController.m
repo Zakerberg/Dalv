@@ -9,7 +9,7 @@
 #import "DLTabBarController.h"
 
 static NSString * const HomeViewVC = @"DLHomeViewController";
-static NSString * const OrderViewVC = @"DLOrderViewController";
+static NSString * const OrderViewVC = @"DLLineOrderController";
 static NSString * const FianceViewVC = @"DLFianceController";
 static NSString * const MineCenterVC = @"DLMineCenterController";
 
