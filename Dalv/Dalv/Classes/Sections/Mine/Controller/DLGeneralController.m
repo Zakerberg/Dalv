@@ -7,23 +7,22 @@
 //  ------------------  通用   -----------------------
 
 
+#import "DLGeneralController.h"
 #import <SDWebImage/SDImageCache.h>
 #import "DLLoginViewController.h"
 #import "DLFeedBackController.h"
-#import "DLGeneralController.h"
 #import "BLMClearCacheTool.h"
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
 
+static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,strong) UIButton *logOutBtn;
+@property (nonatomic,strong) UITableView *tableview;
 
 @end
 
-
-static NSString *cellID  = @"cellID";
 @implementation DLGeneralController
 
 
@@ -34,10 +33,9 @@ static NSString *cellID  = @"cellID";
 
 - (void)viewDidLoad {
     
-    self.title = @"通用设置";
-    [self setupLogoutBtn];
     [super viewDidLoad];
     [self setupUI];
+    [self setupLogoutBtn];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -46,6 +44,7 @@ static NSString *cellID  = @"cellID";
 
 -(void)setupUI {
     
+    self.title = @"通用设置";
      UITableView *tableView = [[UITableView alloc]  initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     self.tableView = tableView;
     
@@ -65,6 +64,7 @@ static NSString *cellID  = @"cellID";
     [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     logOutBtn.layer.cornerRadius = 8.0;
     [self.tableView addSubview:logOutBtn];
+    
     
     [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(15);
@@ -93,8 +93,7 @@ static NSString *cellID  = @"cellID";
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
-        
-//      self.tabBarController.selectedIndex = 0;
+//        self.tabBarController.selectedIndex = 0;
         
     }];
                              
@@ -103,6 +102,7 @@ static NSString *cellID  = @"cellID";
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
     
+    //显示弹框控制器
     [self presentViewController:alert animated:YES completion:nil];
 }
 
