@@ -58,7 +58,7 @@ static NSString *CellID = @"CellID";
     self.agencyListTableView.dataSource = self;
     
     
-    [self.agencyListTableView registerClass:[DLMyAgencyUnBindingController class] forCellReuseIdentifier:CellID];
+    [self.agencyListTableView registerClass:[DLMyAgencyUnBindingCell class] forCellReuseIdentifier:CellID];
     
     [self.view addSubview:self.agencyListTableView];
     

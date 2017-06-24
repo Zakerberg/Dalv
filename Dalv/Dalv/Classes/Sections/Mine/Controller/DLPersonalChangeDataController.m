@@ -424,14 +424,13 @@ static NSString *tableViewCellID = @"tableViewCellID";
 
 -(void)PickerSelectorIndixString:(NSString *)str
 {
+    
 /*
         DLPersonalChangeDataCell* personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
     personalCell.detailTextLabel.text = str ;
 */
-    
     self.sexLabel.text = str;
-
-
+    
 }
 
 @end
