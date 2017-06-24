@@ -35,7 +35,6 @@
 
 @property(nonatomic,strong) UIView * backview;
 
-
 /** Cell 重用ID */
 +(NSString *)cellIdentifier;
 

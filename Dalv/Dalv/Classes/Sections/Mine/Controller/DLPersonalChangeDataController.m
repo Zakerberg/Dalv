@@ -430,7 +430,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     personalCell.detailTextLabel.text = str ;
 */
     self.sexLabel.text = str;
-    
+
 }
 
 @end

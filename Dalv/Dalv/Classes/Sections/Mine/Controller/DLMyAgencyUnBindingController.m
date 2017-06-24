@@ -116,7 +116,7 @@ static NSString *CellID = @"CellID";
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLMyAgencyUnBindingModel *myModel = [self.agencyList objectAtIndex:indexPath.section];
-//    [cell configureCell:myModel];
+    [cell configureCell:myModel];
     
     return cell;
     
@@ -125,7 +125,7 @@ static NSString *CellID = @"CellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 89;
+    return 75;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
