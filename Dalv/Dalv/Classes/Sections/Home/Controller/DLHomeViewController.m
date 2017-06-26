@@ -16,9 +16,11 @@
 #import "DLNavigationController.h"
 #import "DLGlobalSearchViewViewController.h"
 #import "DLHomePageMenuModel.h"
+#import "PYSearch.h"
+
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
-@interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface DLHomeViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource,PYSearchViewControllerDelegate>
 
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UIImageView *performanceView;
@@ -234,10 +236,36 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
-    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
-    [self presentViewController:navbar animated:NO completion:nil];
-    return NO;
+//    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
+//    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
+//    [self presentViewController:navbar animated:NO completion:nil];
+//    return NO;
+    
+    // 1. 创建热门搜索数组
+    NSArray *hotSeaches = @[@"北京", @"天津", @"石家庄", @"唐山"];
+    // 2. 创建搜索控制器
+    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"搜索出发城市和目的地" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+    
+        // 开始(点击)搜索时执行以下代码
+        // 如：跳转到指定控制器
+        [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
+    }];
+    // 3. 跳转到搜索控制器
+    
+    DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:searchViewController];
+    [self presentViewController:nav  animated:NO completion:nil];
+    
+    // 设置搜索历史为带边框标签风格
+    searchViewController.searchHistoryStyle = PYSearchHistoryStyleColorfulTag;
+    
+    // 设置热门搜索为彩色标签风格
+    searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
+    
+    // 隐藏搜索建议
+    searchViewController.searchSuggestionHidden = YES;
+
+        return NO;
+
 }
 
 //- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {

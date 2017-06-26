@@ -15,6 +15,8 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLHomeViewTask.h"
 #import "DLCalendarViewController.h"
+#import "DLLineOrderController.h"
+#import "AppDelegate.h"
 
 @interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,DLLineOrderChoiceDateTableViewCellDelegate>
 
@@ -234,7 +236,31 @@
     if (alertView.tag == 45){
         if (buttonIndex == 1) {
             
-            
+            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"tour_id" : self.routeModel.routeId,
+                                    @"sign_token" : [DLUtils getSign_token],
+                                    @"client_adult_count" : @"1",
+                                    @"client_child_count" : @"1",
+                                    @"contact_phone" : @"13126997216",
+                                    @"contact" : @"杨小毛",
+                                    @"hotel_count" : @"1",
+                                    @"memo" : @"没备注",
+                                    @"start_time" : @"2017-06-26",
+                                    };
+            [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+            @weakify(self);
+            [DLHomeViewTask getAgencyOrderInfoHandle:param completion:^(id result, NSError *error) {
+                @strongify(self);
+                [[DLHUDManager sharedInstance] hiddenHUD];
+                if (result) {
+                    DLLineOrderController *lineOrderVC = [[DLLineOrderController alloc] init];
+                    [self.navigationController pushViewController:lineOrderVC animated:YES];
+                    
+                } else {
+                    [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+                }
+            }];
+
         }
     }
 }
