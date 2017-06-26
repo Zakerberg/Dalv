@@ -136,20 +136,18 @@
     self.headImageView.layer.masksToBounds = YES;
     self.headImageView.layer.cornerRadius = 27.5;
     
-    if ([myAgencyUnBindingModelData.sex isEqual:[NSNull null]]) {
-        [self.sexImageView setImage:[UIImage imageNamed:@""]];
+    if ([myAgencyUnBindingModelData.sex isEqualToString:@"0"]) {
+        [self.sexImageView setImage:[UIImage imageNamed:@"性别男"]];
         
-    }else if ([myAgencyUnBindingModelData.sex isEqualToString:@"0"]) {
-     [self.sexImageView setImage:[UIImage imageNamed:@"性别男"]];
-   
-    } else {
-        
+    } else if ([myAgencyUnBindingModelData.sex isEqualToString:@"1"]){
         [self.sexImageView setImage:[UIImage imageNamed:@"性别女"]];
+    }else{
+        [self.sexImageView setImage:[UIImage imageNamed:@""]];
     }
     
     self.nameLabel.text = myAgencyUnBindingModelData.name;
     self.integralLabel.text = myAgencyUnBindingModelData.integral;
-   
+    
     if([myAgencyUnBindingModelData.working_time isEqualToString:@""]){
         self.workingTimeLabel.text = @"未设置";
     }else{

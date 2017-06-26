@@ -1096,6 +1096,7 @@
 		1CB952EA1ECFC41600BDC2D3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45CF21941F00BD1C00F054A1 /* WeChatSDK */,
 				1CB953FE1ECFCA7000BDC2D3 /* AppDelegate.h */,
 				1CB953FF1ECFCA7000BDC2D3 /* AppDelegate.m */,
 				1CB953D61ECFC6CA00BDC2D3 /* Vendors */,
@@ -1932,6 +1933,13 @@
 				458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */,
 			);
 			path = UITextView;
+			sourceTree = "<group>";
+		};
+		45CF21941F00BD1C00F054A1 /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
