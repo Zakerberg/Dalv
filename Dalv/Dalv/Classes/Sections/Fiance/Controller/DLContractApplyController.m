@@ -37,8 +37,6 @@
 /*** 联系人电话TextFiled  ***/
 @property(nonatomic,strong) UITextField *numberTF;
 
-
-
 @property (nonatomic, strong) UITableView *contractTableView;
 
 @property(nonatomic,assign) NSInteger Section1Number;

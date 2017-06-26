@@ -28,7 +28,7 @@
 @property(nonatomic,weak) NSDictionary * myListDict;
 
 @end
-static NSString *CellID = @"CellID";
+//static NSString *CellID = @"CellID";
 @implementation DLMyAgencyUnBindingController
 
 - (void)viewDidLoad {
@@ -56,11 +56,14 @@ static NSString *CellID = @"CellID";
     
     self.agencyListTableView.delegate = self;
     self.agencyListTableView.dataSource = self;
+    [self.agencyListTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    self.agencyListTableView.showsVerticalScrollIndicator = NO;
     
-    [self.agencyListTableView registerClass:[DLMyAgencyUnBindingCell class] forCellReuseIdentifier:CellID];
+    [self.agencyListTableView registerClass:[DLMyAgencyUnBindingCell class] forCellReuseIdentifier:[DLMyAgencyUnBindingCell cellIdentifier]];
     
     [self.view addSubview:self.agencyListTableView];
+
     
     [self.agencyListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
@@ -69,32 +72,22 @@ static NSString *CellID = @"CellID";
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 
-    
-    
-    
 }
 #pragma mark ------------  fetchData --------------
 
-//getTouristPersonalMyAgenctUnBinding
 - (void)fetchData {
     
     NSDictionary *param = @{
                             @"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
+                            
                             };
-    [DLHomeViewTask getAgencyMyCustomerList:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getTouristPersonalMyAgenctUnBinding:param completion:^(id result, NSError *error) {
         
-        @weakify(self);
-        if (result) {
-            @strongify(self);
-            NSArray *customerListArray = [DLMyAgencyUnBindingModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"agencyList"]];
-            [self.agencyList addObjectsFromArray:customerListArray];
-            [self.agencyListTableView reloadData];
-            
-        }else {
-            
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-        }
+        NSArray *contractRecordArray = [DLMyAgencyUnBindingModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"agencyList"]];
+        [self.agencyList addObjectsFromArray:contractRecordArray];
+        [self.agencyListTableView reloadData];
+        
     }];
 }
 #pragma mark ------------  Table view Delegate --------------
@@ -112,15 +105,13 @@ static NSString *CellID = @"CellID";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    DLMyAgencyUnBindingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+    DLMyAgencyUnBindingCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLMyAgencyUnBindingCell cellIdentifier]];
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLMyAgencyUnBindingModel *myModel = [self.agencyList objectAtIndex:indexPath.section];
     [cell configureCell:myModel];
     
     return cell;
-    
-    
     
 }
 
@@ -129,7 +120,7 @@ static NSString *CellID = @"CellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0;
+    return 5.0;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

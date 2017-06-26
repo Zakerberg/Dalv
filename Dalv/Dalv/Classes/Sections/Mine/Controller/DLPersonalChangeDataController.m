@@ -117,7 +117,24 @@ static NSString *tableViewCellID = @"tableViewCellID";
         
         self.nameLabel.text = dict[@"name"];
         self.numLabel.text = dict[@"mobile"];
-        self.nickNameTF.text = dict[@"nick_name"];
+        
+        
+        if([dict[@"nick_name"] isEqualToString:@""]){
+            self.nickNameTF.text = @"未设置";
+        }else {
+            
+            self.nickNameTF.text = dict[@"nick_name"];
+        }
+        
+        if([dict[@"nick_name"] isEqualToString:@""]){
+            self.nickNameTF.text = @"未设置";
+        }else {
+            
+            self.nickNameTF.text = dict[@"nick_name"];
+        }
+
+        
+#pragma mark ----------- 今天根据后台做处理 ---------!!!! -------        
         self.goCityView.text = dict[@"been_where"];
         self.ageTF.text = dict[@"age"];
         self.noteLabelTF.text = dict[@"personal_label"];
