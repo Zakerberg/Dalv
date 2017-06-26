@@ -103,23 +103,45 @@
 
     [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
         
-        NSLog(@"已经付全款--------");
+        if([result[@"status"] isEqualToString: @"00033"]){
 
-    
-        [self.navigationController popViewControllerAnimated:YES];
-        
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的可用余额不足,请先充值!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [alertV show];
+       
+        }else{
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }];
         
     }else if ([self.BtnType isEqualToString:@"2"]){
    
         [DLHomeViewTask getAgencyLineOrderPrePayed:param completion:^(id result, NSError *error) {
-            NSLog(@"预付款处理");
+
+            if([result[@"status"] isEqualToString: @"00033"]){
+                
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的可用余额不足,请先充值!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
+                
+            }else{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }];
         
     }else if ([self.BtnType isEqualToString:@"3"]){
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
-            NSLog(@"尾款处理");
+            
+            if([result[@"status"] isEqualToString: @"00033"]){
+    
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的可用余额不足,请先充值!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
+                
+            }else{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }];
     }
 }
