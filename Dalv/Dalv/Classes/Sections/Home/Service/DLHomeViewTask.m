@@ -765,6 +765,17 @@
     }];
     
 }
+//测试普通用户修改个人资料页面地址接口
++ (void)getTouristPersonPageData:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    
+    [DLRequestSerVice POST:DL_TouristPersonalPageData param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
 
+}
 
 @end

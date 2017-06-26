@@ -22,8 +22,6 @@
     
     UIImageView *headImageView = [[UIImageView alloc] init];
     self.headImageView = headImageView;
-//    headImageView.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor colorWithHexString:@"#7286fc"]);
-//    headImageView.layer.borderWidth = 2.0;
     
     [self.contentView addSubview:headImageView];
     
@@ -118,8 +116,7 @@
         make.height.offset(15);
     }];
 
- }
-
+}
 
 +(NSString *)cellIdentifier{
     

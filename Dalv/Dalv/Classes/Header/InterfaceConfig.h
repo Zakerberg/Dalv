@@ -243,4 +243,9 @@
 // 72 测试（首页模块）栏目二级列表接口地址（如出境游，国内游等）
 #define DL_OutboundLists  DL_HOST@"index.php/Api/Outbound/lists"
 
+
+// 73 测试普通用户修改个人资料页面地址接口
+#define DL_TouristPersonalPageData  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPage"
+
+
 #endif /* InterfaceConfig_h */
