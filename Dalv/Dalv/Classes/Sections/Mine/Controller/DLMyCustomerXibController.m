@@ -116,7 +116,10 @@ static NSString *cellID = @"cellID";
         
         DLCustomerListController *listVC =[[DLCustomerListController alloc] init];
         [self.navigationController pushViewController:listVC animated:YES];
+    }else {
+         [[DLHUDManager sharedInstance] showTextOnly:@"程序猿正在拼命开发中...."];
     }
+    
 }
 
 

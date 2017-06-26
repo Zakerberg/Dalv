@@ -95,9 +95,14 @@
 
 - (void)averageUserSlectBtn{
 
-    DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
+//    DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
+//    
+//    [self.navigationController pushViewController:cusLoginVC animated:YES];
+//     [[DLHUDManager sharedInstance] showTextOnly:@"程序猿正在拼命开发中...."];
     
-    [self.navigationController pushViewController:cusLoginVC animated:YES];
+    UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"程序猿正在拼命开发中...." delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+    [failureV show];
+
     
 }
 

@@ -27,11 +27,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+//隐藏状态栏
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)setUI{
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:scrollView];
-    NSArray *imageNames = @[@"welcome1", @"welcome2",@"welcome3",@"welcome4",];
+    NSArray *imageNames = @[@"WechatIMG149", @"WechatIMG150",@"WechatIMG151",@"WechatIMG152",];
     for (int i = 0; i < imageNames.count; i ++) {
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageNames[i]]];
         iv.frame = CGRectMake(i * scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height);
@@ -40,29 +45,29 @@
     //设置内容的大小
     //因为不需要竖向滚动，所以高度只要小于scrollview的高度就可以
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * imageNames.count, 0);
-    //以翻页形式进行滚动
+    
     scrollView.pagingEnabled = YES;
     
     //  添加页数控制视图 new = alloc + init
-    UIPageControl *pageControl = [UIPageControl new
-                                  ];
+//    UIPageControl *pageControl = [UIPageControl new
+//                                  ];
     //不要加到滚动视图中， 会随着滚动消失掉
-    [self.view addSubview:pageControl];
+//    [self.view addSubview:pageControl];
     //    设置常用属性,距离屏幕下方60像素。
-    pageControl.frame = CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 30);
+//    pageControl.frame = CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 30);
     //    设置圆点的个数
-    pageControl.numberOfPages = imageNames.count;
+//    pageControl.numberOfPages = imageNames.count;
     //    设置没有被选中时圆点的颜色
-    pageControl.pageIndicatorTintColor = [UIColor blackColor];
-    //    设置选中时圆点的颜色
-    pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+//    pageControl.pageIndicatorTintColor = [UIColor blackColor];
+//        设置选中时圆点的颜色
+//    pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     //    关闭分页控件的用户交互功能
-    pageControl.userInteractionEnabled = NO;
+//    pageControl.userInteractionEnabled = NO;
     
     // 为了检测滚动视图的偏移量，引入代理
     scrollView.delegate = self;
     
-    pageControl.tag = 1000;
+//    pageControl.tag = 1000;
 //    为最后一页添加按钮
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:@"点击进入" forState:UIControlStateNormal];
@@ -77,8 +82,8 @@
 
 - (void)click{
 
-    DLIdentitySelectionLoginViewController *tabVC = [[DLIdentitySelectionLoginViewController alloc]init];
-    [self presentViewController:tabVC animated:YES completion:nil];
+    DLIdentitySelectionLoginViewController *idenVC = [[DLIdentitySelectionLoginViewController alloc]init];
+    [self presentViewController:idenVC animated:YES completion:nil];
     
 }
 

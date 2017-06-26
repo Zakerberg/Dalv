@@ -63,16 +63,14 @@
     NSDictionary *param = @{@"login_name" : usename,
                             @"login_pwd" : password,};
     [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
-        if (error) {
-            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
-        } else {
-            
+//        if (error) {
+//            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
+//        } else {
+        
             
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {//登录成功保存数据
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
-                
-                DLTabBarController *tabVC = [[DLTabBarController alloc] init];
 
                 [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
                 [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
@@ -81,15 +79,18 @@
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                 
+                DLTabBarController *tabVC = [[DLTabBarController alloc] init];
+                [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogInNotification object:nil];//登录成功通知回调
 //                if (self.loginSuccessBlock) {//登录成功块代码回调
 //                    self.loginSuccessBlock();
-                [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
 //                }
-            } else {
-                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
             }
-        }
+//                else {
+//                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+//            }
+//        }
     }];
 }
 
