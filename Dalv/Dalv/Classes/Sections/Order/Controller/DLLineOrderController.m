@@ -47,9 +47,12 @@ static NSString *nibCellID = @"nibCellID";
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
     [self setTableView];
+    
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
+    
+    [self.lineOrderTableView ms_beginHeaderRefreshing];
 }
 
 - (BOOL)dl_blueNavbar {

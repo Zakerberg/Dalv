@@ -259,9 +259,17 @@ static NSString *cellID = @"cellID";
             if ([stateStr isEqualToString:@"1"]) {
                 self.lineOrderStateLabel.text = @"未提交";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             } else if ([stateStr isEqualToString:@"2"]){
                 self.lineOrderStateLabel.text = @"已提交";
                 self.lineOrderStateLabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
+                self.payTailButton.hidden = YES;
+                self.prepaidBtn.hidden = YES;
+                self.payFullBtn.hidden = YES;
+
             }else if ([stateStr isEqualToString:@"3"]){
                 self.lineOrderStateLabel.text = @"已确认待付款";
 

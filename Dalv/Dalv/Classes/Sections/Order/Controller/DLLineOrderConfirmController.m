@@ -183,7 +183,6 @@
         //应付金额
         NSString *payStr = dict[@"totalMoney"];
         
-        
         //预付款金额 (2,3状态有)
         NSString *prepayStr = dict[@"prepay_amount"];
         
