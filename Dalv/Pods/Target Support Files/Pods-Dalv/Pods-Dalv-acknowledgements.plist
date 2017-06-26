@@ -255,6 +255,36 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>NullSafe
+
+Version 1.2.2, May 23rd, 2016
+
+Copyright (C) 2012 Charcoal Design
+
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.</string>
+			<key>License</key>
+			<string>zlib</string>
+			<key>Title</key>
+			<string>NullSafe</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>initiated by Yann Lechelle (cofounder @Appsfire) on 8/28/11.
 Copyright 2011, 2012 OpenUDID.org
 
@@ -376,17 +406,6 @@ respective headers for the terms of their individual licenses.
 			<string>MIT</string>
 			<key>Title</key>
 			<string>SVProgressHUD</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>Copyright 2017 tencent.com. All rights reserved.
-</string>
-			<key>License</key>
-			<string>Copyright</string>
-			<key>Title</key>
-			<string>WechatOpenSDK</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
