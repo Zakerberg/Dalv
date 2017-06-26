@@ -19,6 +19,12 @@
 //  Initialization code
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -61,7 +67,6 @@
     UIButton *projctButton = [[UIButton alloc] init];
     self.projctButton = projctButton;
     projctButton.titleLabel.font = [UIFont systemFontOfSize: 15];
-//  [projctButton setTitle:@"" forState:UIControlStateNormal];
     [projctButton setTitleColor:[UIColor colorWithHexString:@"#c1c1c1"]forState:UIControlStateNormal];
 
     projctButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -92,7 +97,6 @@
     self.identificationNumTF = identificationNumTF;
     identificationNumTF.placeholder = @"请输入纳税人识别号";
     identificationNumTF.borderStyle = UITextBorderStyleNone;
-//    identificationNumTF.keyboardType = UIKeyboardTypeNumberPad;
     
     [self.contentView addSubview:identificationNumTF];
     
@@ -114,7 +118,6 @@
     
     noteTextView.font = [UIFont systemFontOfSize:15];
     noteTextView.textColor = [UIColor colorWithHexString:@"#c1c1c1"];
-//  noteTextView.text = @"请填写备注 如代订机票等";
     
     [self.contentView addSubview:noteTextView];
     
@@ -194,20 +197,6 @@
         make.height.offset(44);
         make.width.offset(MAIN_SCREEN_WIDTH-50);
         make.centerY.equalTo(taxpayersLabel.mas_centerY).offset(0);
-        
-        /*
-         make.left.equalTo(taxpayersLabel.mas_right).offset(15);
-         make.height.equalTo(taxpayersLabel);
-         make.right.offset(0);
-         make.centerY.equalTo(taxpayersLabel);
-         
-         
-         make.centerY.equalTo(companyLabel.mas_centerY).offset(0);
-         make.height.offset(44);
-         make.width.offset(MAIN_SCREEN_WIDTH-10);
-         make.left.equalTo(companyLabel.mas_right).offset(15);
-         */
-        
     }];
     
     [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -245,12 +234,6 @@
         make.height.offset(32);
         make.left.equalTo(amountLabel.mas_right).offset(15);
     }];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

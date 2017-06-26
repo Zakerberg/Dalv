@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DLinvoiceSection1Cell : UITableViewCell
-
 /***  发票金额TF ***/
 @property(nonatomic,strong) UITextField *invoiceAmountTF;
-
 @end

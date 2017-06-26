@@ -42,10 +42,11 @@ static NSString *nibCellID = @"nibCellID";
 @implementation DLLineOrderController
 
 - (void)viewDidLoad {
+    
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
     [self setTableView];
-    [super viewDidLoad];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
@@ -73,7 +74,7 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderTableView.delegate = self;
     
     //自动更改透明度
-    self.lineOrderTableView.mj_header.automaticallyChangeAlpha = YES;
+//    self.lineOrderTableView.mj_header.automaticallyChangeAlpha = YES;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
@@ -107,7 +108,6 @@ static NSString *nibCellID = @"nibCellID";
 -(void)fetchData{
     
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"page": @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],

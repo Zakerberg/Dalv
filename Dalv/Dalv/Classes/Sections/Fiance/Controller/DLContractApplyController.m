@@ -18,6 +18,7 @@
 #import "DLHomeViewTask.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
+
 /*** 自取inviteBtn  ***/
 @property(nonatomic,strong)UIButton *inviteBtn;
 /*** 快递CourierBtn ***/

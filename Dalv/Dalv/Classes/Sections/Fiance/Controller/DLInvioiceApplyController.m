@@ -74,12 +74,8 @@
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
 
-
 @property(nonatomic,strong) DLAddReduceButton * currentBtn;
 @property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
-
-////最后返回给后台的团款label.text
-//@property(nonatomic,strong) UILabel *finallyBtnLabel;
 
 /* 公司地址 */
 @property(nonatomic,strong) UILabel * addressLabel1;
@@ -100,9 +96,7 @@
 //空白邮寄blankMailBtn
 @property(nonatomic,strong)UIButton *blankMailBtn;
 
-
 @end
-//static NSString *CellID = @"CellID";
 
 static NSString *section0CellID = @"section0CellID";
 static NSString *invoiceSection1cellID = @"invoiceSection1cellID";
@@ -449,8 +443,8 @@ static NSString *section5CellID = @"section5CellID";
         /***  发票纳税人识别号TF ***/
         self.identificationNumTF = section0Cell.identificationNumTF;
         
-        self.noteTextView.text = @"请填写备注 如代订机票等";
-        self.noteTextView.delegate = self;
+//        self.noteTextView.text = @"请填写备注 如代订机票等";
+//        self.noteTextView.delegate = self;
         [self.projctButton addTarget:self action:@selector(projectBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         return section0Cell;
@@ -553,10 +547,10 @@ static NSString *section5CellID = @"section5CellID";
 #pragma mark ---------  UITextViewDelegate  -------------
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-    if ([textView.text isEqualToString:@"请填写备注 如代订机票等"]) {
-        textView.text = @"";
-        textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
-    }
+//    if ([textView.text isEqualToString:@"请填写备注 如代订机票等"]) {
+//        textView.text = @"";
+//        textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
+//    }
     
     if ([textView.text isEqualToString:@"请填写您的收货地址"]) {
         textView.text = @"";

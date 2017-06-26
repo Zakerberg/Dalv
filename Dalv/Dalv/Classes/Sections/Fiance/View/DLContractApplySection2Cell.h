@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DLContractApplySection2Cell : UITableViewCell
-
 @property(nonatomic,strong) UILabel * addressLabel1;
 @property(nonatomic,strong) UILabel * numberLabel1;
-
 @end
