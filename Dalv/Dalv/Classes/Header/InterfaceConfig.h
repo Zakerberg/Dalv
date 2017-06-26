@@ -248,4 +248,9 @@
 #define DL_TouristPersonalPageData  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPage"
 
 
+// 74 测试普通用户修改个人资料页面地址接口
+#define DL_TouristPersonalPageDataHandle  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPageHandle"
+
+
+
 #endif /* InterfaceConfig_h */

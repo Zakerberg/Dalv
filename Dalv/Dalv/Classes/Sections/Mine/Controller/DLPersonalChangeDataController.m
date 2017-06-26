@@ -106,11 +106,61 @@ static NSString *tableViewCellID = @"tableViewCellID";
 
 -(void)fetchData{
     
+    if ([[DLUtils getUser_type] isEqualToString:@"5"]) {//C
+        
+        NSDictionary *param = @{
+                                
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                };
+        
+        
+        [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
+            NSDictionary *dict = result[@"touristInfo"];
+            
+            self.nameLabel.text = @"大旅游用户";
+            self.numLabel.text = dict[@"mobile"];
+            
+            if([dict[@"nick_name"] isKindOfClass:[NSNull class]]){
+                
+                self.nickNameTF.text = @"未设置";
+            }else{
+                
+                self.nickNameTF.text = dict[@"nick_name"];
+            }
+            
+            if([dict[@"email"] isKindOfClass:[NSNull class]]){
+                
+                self.mailTF.text = @"未设置";
+            }else{
+                
+                self.mailTF.text = dict[@"email"];
+                
+            }
+            self.goCityView.text = dict[@"been_where"];
+            self.ageTF.text = dict[@"age"];
+            self.noteLabelTF.text = dict[@"personal_label"];
+            self.workTimeTF.text = dict[@"working_time"];
+            self.sexLabel.text = dict[@"sex"];
+            if ([dict[@"sex"] isEqualToString:@"1"]) {
+                self.sexLabel.text = @"男";
+            }else if([dict[@"sex"] isEqualToString:@"2"]) {
+                self.sexLabel.text = @"女";
+                
+            }else {
+                self.sexLabel.text = @"保密";
+            }
+        }];
+        
+    }else {//顾问
+    
     NSDictionary *param = @{
                             
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
+                            
                             };
+    
     [DLHomeViewTask getAgencyPersonalPageSetUp:param completion:^(id result, NSError *error) {
        
         NSDictionary *dict = result[@"agencyInfo"];
@@ -118,27 +168,25 @@ static NSString *tableViewCellID = @"tableViewCellID";
         self.nameLabel.text = dict[@"name"];
         self.numLabel.text = dict[@"mobile"];
         
-        
-        if([dict[@"nick_name"] isEqualToString:@""]){
+        if([dict[@"nick_name"] isKindOfClass:[NSNull class]]){
+            
             self.nickNameTF.text = @"未设置";
-        }else {
+        }else{
             
             self.nickNameTF.text = dict[@"nick_name"];
         }
         
-        if([dict[@"nick_name"] isEqualToString:@""]){
-            self.nickNameTF.text = @"未设置";
-        }else {
+        if([dict[@"email"] isKindOfClass:[NSNull class]]){
             
-            self.nickNameTF.text = dict[@"nick_name"];
-        }
-
+            self.mailTF.text = @"未设置";
+        }else{
         
-#pragma mark ----------- 今天根据后台做处理 ---------!!!! -------        
+        self.mailTF.text = dict[@"email"];
+        
+        }
         self.goCityView.text = dict[@"been_where"];
         self.ageTF.text = dict[@"age"];
         self.noteLabelTF.text = dict[@"personal_label"];
-        self.mailTF.text = dict[@"email"];
         self.workTimeTF.text = dict[@"working_time"];
         self.sexLabel.text = dict[@"sex"];
         if ([dict[@"sex"] isEqualToString:@"1"]) {
@@ -150,6 +198,8 @@ static NSString *tableViewCellID = @"tableViewCellID";
             self.sexLabel.text = @"保密";
         }
     }];
+        
+  }
 }
 
 
