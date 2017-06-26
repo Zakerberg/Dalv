@@ -73,7 +73,7 @@
     [scrollView addSubview:btn];
     
     btn.frame = CGRectMake(0, 0, 100, 44);
-    btn.center = CGPointMake((imageNames.count - 0.5) * scrollView.frame.size.width - 100, scrollView.frame.size.height - 100);
+    btn.center = CGPointMake((imageNames.count - 0.5) * scrollView.frame.size.width - 105, scrollView.frame.size.height - 100);
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
 }
 
