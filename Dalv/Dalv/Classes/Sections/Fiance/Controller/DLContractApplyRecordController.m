@@ -103,13 +103,12 @@
     }];
 }
 
-#pragma mark ------------------ Layout -------------------
 
-- (void)setupConstraints {
-    [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-}
+//- (void)setupConstraints {
+//    [self.contractRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
+//}
 
 #pragma mark ----------- UITable View Delegate ----------------
 
@@ -157,12 +156,12 @@
 #pragma mark ------------------ Getter -----------------------
 
 -(NSMutableArray *)contractRecordList {
+    
     if(_contractRecordList == nil) {
         
         _contractRecordList = [[NSMutableArray alloc] init];
     }
     return _contractRecordList;
-    
 }
 
 @end

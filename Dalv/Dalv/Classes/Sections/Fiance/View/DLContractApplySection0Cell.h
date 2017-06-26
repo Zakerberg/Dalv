@@ -12,5 +12,4 @@
 @property(nonatomic,strong) DLAddReduceButton * button1;
 @property(nonatomic,strong) DLAddReduceButton * button2;
 @property(nonatomic,strong) DLAddReduceButton * button3;
-
 @end

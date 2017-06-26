@@ -320,6 +320,8 @@
 		45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321D01EF26A2C00325683 /* DLCustomerListModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB41981EF799D7003AB961 /* UIButton+WebCache.m */; };
+		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
+		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
 		45DB47B61EE5524200399A6D /* DLCustomerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */; };
 		45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B81EE57A3100399A6D /* DLContractApplyController.m */; };
@@ -846,6 +848,9 @@
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45BB41971EF799D7003AB961 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
 		45BB41981EF799D7003AB961 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
+		45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAdvertisingController.m; sourceTree = "<group>"; };
+		45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLAdvertisingController.xib; sourceTree = "<group>"; };
 		45DB47B21EE5524200399A6D /* DLCustomerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListCell.h; sourceTree = "<group>"; };
 		45DB47B31EE5524200399A6D /* DLCustomerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListCell.m; sourceTree = "<group>"; };
 		45DB47B41EE5524200399A6D /* DLCustomerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLCustomerListCell.xib; sourceTree = "<group>"; };
@@ -1138,6 +1143,8 @@
 		1CB952EA1ECFC41600BDC2D3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				45CF21951F00F20600F054A1 /* Guide */,
+				45CF21941F00BD1C00F054A1 /* WeChatSDK */,
 				1CB953FE1ECFCA7000BDC2D3 /* AppDelegate.h */,
 				1CB953FF1ECFCA7000BDC2D3 /* AppDelegate.m */,
 				1CB953D61ECFC6CA00BDC2D3 /* Vendors */,
@@ -1977,6 +1984,23 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
+		45CF21941F00BD1C00F054A1 /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		45CF21951F00F20600F054A1 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */,
+				45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */,
+				45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
 		74F1D56D433B910FF4899372 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2104,6 +2128,7 @@
 				1C0B57EF1ED816CE00592BBB /* dl_domestic_tourism@2x.png in Resources */,
 				1C422BD51F00FC5C004EB57F /* phone@3x.png in Resources */,
 				1CE2C19A1ED525E000B898BA /* edit@3x.png in Resources */,
+				45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */,
 				1C2978FF1EEEAA7400D3FEEA /* fiance_cash_recharge@3x.png in Resources */,
 				1CE2C1E21ED528C800B898BA /* surrounding_tourism@3x.png in Resources */,
 				1CE2C1C61ED5270E00B898BA /* home@2x.png in Resources */,
@@ -2329,6 +2354,7 @@
 				1C66615E1EF625AC0032E1AE /* NSString+Regex.m in Sources */,
 				1CB953B61ECFC41600BDC2D3 /* DLCityPopMenuView.m in Sources */,
 				1C5CD3891EFA0010009DBC1B /* DLCalendarViewController.m in Sources */,
+				45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
 				1C0864D11EEA96F5005015DE /* LGLHeaderView.m in Sources */,

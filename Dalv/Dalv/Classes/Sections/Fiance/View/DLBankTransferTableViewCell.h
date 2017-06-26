@@ -14,7 +14,6 @@
 @property (nonatomic, strong) UILabel *accountNumberlab;//账号
 @property (nonatomic, strong) UILabel *openingBanklab;//开户行
 @property (nonatomic, strong) DLBankTransferModel *bankTransferModel;
-
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;
 

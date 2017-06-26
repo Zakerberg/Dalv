@@ -7,10 +7,10 @@
 //  ------------------  通用   -----------------------
 
 
-#import "DLGeneralController.h"
 #import <SDWebImage/SDImageCache.h>
 #import "DLLoginViewController.h"
 #import "DLFeedBackController.h"
+#import "DLGeneralController.h"
 #import "BLMClearCacheTool.h"
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
@@ -102,7 +102,6 @@ static NSString *cellID  = @"cellID";
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
     
-    //显示弹框控制器
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -118,8 +117,6 @@ static NSString *cellID  = @"cellID";
         return 0.1;
 }
 
-
-//选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -128,10 +125,11 @@ static NSString *cellID  = @"cellID";
             DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
             [self.navigationController pushViewController:feedbackVC animated:YES];
         }
+//        if (indexPath.row == 1) {
+//            //关于大旅游
+//
+//        }
         if (indexPath.row == 1) {
-            //关于大旅游
-        }
-        if (indexPath.row == 2) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             
             UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -154,7 +152,6 @@ static NSString *cellID  = @"cellID";
             [alert addAction:actionOk];
             [alert addAction:actionCancle];
             
-            //显示弹框控制器
             [self presentViewController:alert animated:YES completion:nil];
         }
     
@@ -165,7 +162,7 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 2;
 }
 
 
@@ -181,10 +178,10 @@ static NSString *cellID  = @"cellID";
         if (indexPath.row == 0) {
             cell.textLabel.text = @"意见反馈";
         }
+//        if (indexPath.row == 1) {
+//            cell.textLabel.text = @"关于大旅";
+//        }
         if (indexPath.row == 1) {
-            cell.textLabel.text = @"关于大旅";
-        }
-        if (indexPath.row == 2) {
             
 //            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
 //            

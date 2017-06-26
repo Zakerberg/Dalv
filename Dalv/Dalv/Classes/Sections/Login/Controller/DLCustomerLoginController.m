@@ -210,6 +210,7 @@
     dispatch_resume(_timer);
 }
 
+
 #pragma mark ----------  showHint ---------------
 
 -(void)showHint:(NSString *)hint{
@@ -218,7 +219,6 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-//    hud.label.text = hint;
     hud.labelText = hint;
     
     hud.margin = 10.f;

@@ -77,14 +77,14 @@ static NSString *cellID  = @"cellID";
     regsterNow.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
     regsterNow.tintColor = [UIColor whiteColor];
     [regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
-//
+
     regsterNow.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     regsterNow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     regsterNow.layer.cornerRadius = 8.0;
     [regsterNow addTarget:self action:@selector(registerNowBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView addSubview:regsterNow];
-//
-//    
+
+
     [regsterNow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@419);
         make.left.equalTo(@20);
@@ -99,9 +99,7 @@ static NSString *cellID  = @"cellID";
 
 -(void)setTableView{
 {
-//    if (!_tableView) {
     UITableView *tableView = [[UITableView alloc]init];
-    //Frame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
         self.tableView = tableView;
         tableView.showsVerticalScrollIndicator = NO;
         tableView.tableFooterView = [UIView new];
@@ -206,9 +204,6 @@ static NSString *cellID  = @"cellID";
     dispatch_source_set_event_handler(_timer, ^{
         
         if(time <= 0){ //倒计时结束，关闭
-            //倒计时回归
-            
-            //停止倒计时
 
             //按钮可以点击
            self.authCodeBtn.enabled = YES;

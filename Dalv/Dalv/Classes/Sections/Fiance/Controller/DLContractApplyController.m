@@ -18,6 +18,7 @@
 #import "DLHomeViewTask.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
+
 /*** 自取inviteBtn  ***/
 @property(nonatomic,strong)UIButton *inviteBtn;
 /*** 快递CourierBtn ***/
@@ -36,8 +37,6 @@
 @property(nonatomic,strong) UITextField *nameTF;
 /*** 联系人电话TextFiled  ***/
 @property(nonatomic,strong) UITextField *numberTF;
-
-
 
 @property (nonatomic, strong) UITableView *contractTableView;
 

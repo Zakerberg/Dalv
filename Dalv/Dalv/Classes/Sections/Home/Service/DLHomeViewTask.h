@@ -724,4 +724,32 @@
                                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 73 测试普通用户修改个人资料页面地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonPageData:(NSDictionary *)param
+              completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+/**
+ * 74 测试普通用户修改个人资料处理地址接口：
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonPageDataHandle:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+
+
 @end

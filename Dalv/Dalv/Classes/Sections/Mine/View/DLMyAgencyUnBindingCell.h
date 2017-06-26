@@ -19,6 +19,12 @@
 @property(nonatomic,strong) UIImageView *headImageView;
 /** 工作时间 **/
 @property(nonatomic,strong) UILabel *workingTimeLabel;
+/* 顾问性别 */
+@property(nonatomic,strong) UIImageView *sexImageView;
+
+
+@property (nonatomic, strong) DLMyAgencyUnBindingModel *myAgencyUnBindingModel;
+
 
 /** Cell 重用ID */
 +(NSString *)cellIdentifier;

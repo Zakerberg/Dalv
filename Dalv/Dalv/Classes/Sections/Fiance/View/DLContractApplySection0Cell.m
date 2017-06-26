@@ -18,9 +18,6 @@
 
 @end
 
-
-
-
 @implementation DLContractApplySection0Cell
 
 - (void)awakeFromNib {
@@ -80,25 +77,8 @@
         make.height.equalTo(@25);
         make.width.equalTo(@80);
     }];
-    
-    
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

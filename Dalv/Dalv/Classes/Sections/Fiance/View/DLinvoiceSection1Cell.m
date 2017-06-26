@@ -57,21 +57,7 @@
         make.left.equalTo(invoiceAmountLabel.mas_right).offset(15);
         make.centerY.equalTo(invoiceAmountLabel.mas_centerY);
         make.width.offset(MAIN_SCREEN_WIDTH-10);
-        
-        /*
-         make.height.equalTo(@15);
-         make.left.equalTo(invoiceAmountLabel.mas_right).offset(15);
-         make.top.equalTo(@15);
-         
-         
-         make.centerY.equalTo(companyLabel.mas_centerY).offset(0);
-         make.height.offset(44);
-         make.width.offset(MAIN_SCREEN_WIDTH-10);
-         make.left.equalTo(companyLabel.mas_right).offset(15);
-         */
-        
     }];
-    
 }
 
 

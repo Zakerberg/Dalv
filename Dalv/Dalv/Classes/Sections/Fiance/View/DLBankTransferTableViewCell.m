@@ -117,8 +117,6 @@
         make.right.equalTo(backview).offset(-15);
         make.height.equalTo(@25);
     }];
-    
-    
 }
 
 - (void)layoutCellSubviews {

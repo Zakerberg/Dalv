@@ -12,6 +12,7 @@
 #import "DLIdentitySelectionLoginViewController.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLUtils.h"
+#import "DLAdvertisingController.h"
 
 #if DEBUG
 #import "FLEX.h"
@@ -26,17 +27,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+     NSLog(@"首次启动");
+     DLAdvertisingController *gVC = [[DLAdvertisingController alloc] init];
+     self.window.rootViewController = gVC;
+    
+     }else {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     [self setupMainVC];
+    
     
     [self registerNotification];
     
 #if DEBUG
     [[FLEXManager sharedManager] showExplorer];
 #endif
-    
+    }
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
