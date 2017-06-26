@@ -7,6 +7,7 @@
 //
 
 #import "DLAdvertisingController.h"
+#import "DLIdentitySelectionLoginViewController.h"
 
 @interface DLAdvertisingController ()<UIScrollViewDelegate>
 
@@ -62,7 +63,7 @@
     scrollView.delegate = self;
     
     pageControl.tag = 1000;
-    //为最后一页添加按钮
+//    为最后一页添加按钮
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:@"点击进入" forState:UIControlStateNormal];
     //因为是滚动视图最后一页，所以要添加到滚动视图中
@@ -76,10 +77,8 @@
 
 - (void)click{
 
-    
-    
-    
-    
+    DLIdentitySelectionLoginViewController *tabVC = [[DLIdentitySelectionLoginViewController alloc]init];
+    [self presentViewController:tabVC animated:YES completion:nil];
     
 }
 

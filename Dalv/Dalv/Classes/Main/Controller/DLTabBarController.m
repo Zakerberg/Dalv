@@ -67,11 +67,11 @@ static NSString * const TabbarItemBadgeValue = @"TabbarItemBadgeValue";
 
 - (NSArray *)vcsOrder {
     
-    if ([DLUtils.getUser_type  isEqual: @"4"]) {
+//    if ([DLUtils.getUser_type  isEqual: @"4"]) {
         return @[HomeViewVC,OrderViewVC,FianceViewVC,MineCenterVC];
-    } else {
-        return @[HomeViewVC,OrderViewVC,MineCenterVC];
-    }
+//    } else {
+//        return @[HomeViewVC,OrderViewVC,MineCenterVC];
+//    }
 }
 
 - (NSDictionary *)vcsInfoDict {

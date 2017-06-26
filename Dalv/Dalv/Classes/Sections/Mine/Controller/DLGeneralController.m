@@ -14,6 +14,7 @@
 #import "BLMClearCacheTool.h"
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
+#import "DLIdentitySelectionLoginViewController.h"
 
 static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
@@ -94,6 +95,8 @@ static NSString *cellID  = @"cellID";
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
 //        self.tabBarController.selectedIndex = 0;
+        DLIdentitySelectionLoginViewController *VC = [[DLIdentitySelectionLoginViewController alloc] init];
+        [self presentViewController:VC animated:YES completion:nil];
         
     }];
                              

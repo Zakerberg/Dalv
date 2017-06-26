@@ -88,7 +88,8 @@
 - (void)consultantSlectBtn{
     
     DLLoginViewController *loginVC= [[DLLoginViewController alloc] init];
-    [self.navigationController pushViewController:loginVC animated:YES];
+//    [self.navigationController pushViewController:loginVC animated:YES];
+    [self presentViewController:loginVC animated:YES completion:nil];
     
 }
 
