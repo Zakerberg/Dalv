@@ -88,7 +88,7 @@ static NSString *cellID  = @"cellID";
         make.height.offset(145);
     }];
     
-    //设置头像按钮
+    //头像按钮
     UIButton* personBtn = [[UIButton alloc]init];
     self.personBtn = personBtn;
     [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
@@ -139,7 +139,7 @@ static NSString *cellID  = @"cellID";
                             @"sign_token" : [DLUtils getSign_token],
                             };
     
-    if([[DLUtils getUser_type] isEqualToString:@"4"])
+    if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
         
     {
         @weakify(self);
@@ -155,8 +155,7 @@ static NSString *cellID  = @"cellID";
                 
                 [self.personBtn.layer setMasksToBounds:YES];
                 
-                [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-                
+                [self.personBtn.layer setCornerRadius:33];
                 self.personBtn.layer.borderWidth = 2.0;
                 self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
                 
@@ -167,7 +166,7 @@ static NSString *cellID  = @"cellID";
             }
         }];
         
-    }else{
+    }else{// C
         
         [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
             
@@ -176,8 +175,7 @@ static NSString *cellID  = @"cellID";
             
             [self.personBtn.layer setMasksToBounds:YES];
             
-            [self.personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-            self.personBtn.layer.borderWidth = 2.0;
+            [self.personBtn.layer setCornerRadius:33];            self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
             
             if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
@@ -204,7 +202,6 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark ------------  Table view Delegate --------------
 
-//选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

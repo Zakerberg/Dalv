@@ -132,6 +132,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
             if([dict[@"email"] isKindOfClass:[NSNull class]]){
                 
                 self.mailTF.text = @"未设置";
+                
             }else{
                 
                 self.mailTF.text = dict[@"email"];
@@ -209,26 +210,27 @@ static NSString *tableViewCellID = @"tableViewCellID";
     
         if ([self isValidateEmail:self.mailTF.text]) {
             
-            NSDictionary *param = @{
-                                    
-                                    @"uid":[DLUtils getUid],
-                                    @"sign_token" : [DLUtils getSign_token],
-                                    @"nick_name":self.nickNameTF.text,
-                                    @"email":self.mailTF.text,
-                                    @"sex":self.sexLabel.text,
-                                    @"age":self.ageTF.text,
-                                    @"working_time":self.workTimeTF.text,
-                                    @"personal_label":self.noteLabelTF.text,
-                                    @"been_where":self.goCityView.text
-                                    };
             
-            [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
-                NSLog(@"修改成功!");
-                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [successV show];
-                [self.navigationController popViewControllerAnimated:YES];
+                NSDictionary *param = @{
+                                        
+                                        @"uid":[DLUtils getUid],
+                                        @"sign_token" : [DLUtils getSign_token],
+                                        @"nick_name":self.nickNameTF.text,
+                                        @"email":self.mailTF.text,
+                                        @"sex":self.sexLabel.text,
+                                        @"age":self.ageTF.text,
+                                        @"working_time":self.workTimeTF.text,
+                                        @"personal_label":self.noteLabelTF.text,
+                                        @"been_where":self.goCityView.text
+                                        };
                 
-            }];
+                [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
+                    NSLog(@"修改成功!");
+                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [successV show];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }];
 
         } else {
             

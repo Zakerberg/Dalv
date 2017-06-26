@@ -7,10 +7,10 @@
 //  ------------------  通用   -----------------------
 
 
-#import "DLGeneralController.h"
 #import <SDWebImage/SDImageCache.h>
 #import "DLLoginViewController.h"
 #import "DLFeedBackController.h"
+#import "DLGeneralController.h"
 #import "BLMClearCacheTool.h"
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
@@ -102,7 +102,6 @@ static NSString *cellID  = @"cellID";
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
     
-    //显示弹框控制器
     [self presentViewController:alert animated:YES completion:nil];
 }
 
@@ -118,8 +117,6 @@ static NSString *cellID  = @"cellID";
         return 0.1;
 }
 
-
-//选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -130,6 +127,7 @@ static NSString *cellID  = @"cellID";
         }
         if (indexPath.row == 1) {
             //关于大旅游
+
         }
         if (indexPath.row == 2) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -154,7 +152,6 @@ static NSString *cellID  = @"cellID";
             [alert addAction:actionOk];
             [alert addAction:actionCancle];
             
-            //显示弹框控制器
             [self presentViewController:alert animated:YES completion:nil];
         }
     
