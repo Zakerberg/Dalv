@@ -53,20 +53,22 @@
     [self.contentView addSubview:childlab];
     
     
-    DLAddReduceButton *numberButton = [[DLAddReduceButton alloc]init];;
-    numberButton.shakeAnimation = YES;
-    numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+    DLAddReduceButton *adultButton = [[DLAddReduceButton alloc]init];;
+    adultButton.shakeAnimation = YES;
+    self.adultButton = adultButton;
+    adultButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
     };
-    numberButton.minValue = 1;
-    [self.contentView addSubview:numberButton];
+    adultButton.minValue = 1;
+    [self.contentView addSubview:adultButton];
     
-    DLAddReduceButton *numberButton1 = [[DLAddReduceButton alloc]init];;
-    numberButton1.shakeAnimation = YES;
-    numberButton1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+    DLAddReduceButton *childButton = [[DLAddReduceButton alloc]init];;
+    childButton.shakeAnimation = YES;
+    self.childButton = childButton;
+    childButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
     };
-    [self.contentView addSubview:numberButton1];
+    [self.contentView addSubview:childButton];
     
 //    self.addBtn = [[UIButton alloc]init];
 //    self.addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -147,14 +149,14 @@
         make.height.equalTo(@40);
     }];
     
-    [numberButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [adultButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(adultlab);
         make.right.equalTo(@-15);
         make.width.equalTo(@80);
         make.height.equalTo(@25);
     }];
 
-    [numberButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [childButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(childlab);
         make.right.equalTo(@-15);
         make.width.equalTo(@80);

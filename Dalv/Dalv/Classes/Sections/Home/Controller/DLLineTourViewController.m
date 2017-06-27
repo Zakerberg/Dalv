@@ -126,53 +126,53 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
-
-        UICollectionReusableView *hotTopicHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewHeader forIndexPath:indexPath];
-        hotTopicHeaderView.backgroundColor = [UIColor whiteColor];
-    
-        UIView *flagView = [[UIView alloc] init];
-        [hotTopicHeaderView addSubview:flagView];
-    
-        self.headImage = [[UIImageView alloc]init];
-        self.headImage.image = [UIImage imageNamed:@"mine_theme"];
-        [flagView addSubview:self.headImage];
-        
-        _searchBar = [[UISearchBar alloc] init];
-        [flagView addSubview:_searchBar];
-        _searchBar.placeholder = @"支持模糊搜索：路线,景点,代码";
-        self.searchBar.tintColor = [UIColor ms_orangeColor];
-        self.searchBar.backgroundColor = [UIColor whiteColor];
-        [self.searchBar setBackgroundImage: [UIImage imageWithColor:[UIColor whiteColor] ] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-        for (UIView *view in self.searchBar.subviews.firstObject.subviews) {
-            if ([view isKindOfClass:[UITextField class]]) {
-                view.backgroundColor = [UIColor ms_backgroundColor];
-            }
-        }
-        _searchBar.showsCancelButton = NO;
-    
-    [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-        make.width.equalTo(hotTopicHeaderView);
-        make.height.equalTo(@140);
-    }];
-    
-    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-        make.width.equalTo(flagView);
-        make.height.equalTo(@100);
-    }];
-        
-    [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headImage.mas_bottom).offset(10);
-        make.left.equalTo(@20);
-        make.width.equalTo(flagView).offset(-40);
-        make.height.equalTo(@40);
-    }];
-        return hotTopicHeaderView;
-    }else if (kind == UICollectionElementKindSectionFooter) {
+//    if (kind == UICollectionElementKindSectionHeader) {
+//
+//        UICollectionReusableView *hotTopicHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewHeader forIndexPath:indexPath];
+//        hotTopicHeaderView.backgroundColor = [UIColor whiteColor];
+//    
+//        UIView *flagView = [[UIView alloc] init];
+//        [hotTopicHeaderView addSubview:flagView];
+//    
+//        self.headImage = [[UIImageView alloc]init];
+//        self.headImage.image = [UIImage imageNamed:@"mine_theme"];
+//        [flagView addSubview:self.headImage];
+//        
+//        _searchBar = [[UISearchBar alloc] init];
+//        [flagView addSubview:_searchBar];
+//        _searchBar.placeholder = @"支持模糊搜索：路线,景点,代码";
+//        self.searchBar.tintColor = [UIColor ms_orangeColor];
+//        self.searchBar.backgroundColor = [UIColor whiteColor];
+//        [self.searchBar setBackgroundImage: [UIImage imageWithColor:[UIColor whiteColor] ] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//        for (UIView *view in self.searchBar.subviews.firstObject.subviews) {
+//            if ([view isKindOfClass:[UITextField class]]) {
+//                view.backgroundColor = [UIColor ms_backgroundColor];
+//            }
+//        }
+//        _searchBar.showsCancelButton = NO;
+//    
+//    [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(@0);
+//        make.left.equalTo(@0);
+//        make.width.equalTo(hotTopicHeaderView);
+//        make.height.equalTo(@140);
+//    }];
+//    
+//    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(@0);
+//        make.left.equalTo(@0);
+//        make.width.equalTo(flagView);
+//        make.height.equalTo(@100);
+//    }];
+//        
+//    [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.headImage.mas_bottom).offset(10);
+//        make.left.equalTo(@20);
+//        make.width.equalTo(flagView).offset(-40);
+//        make.height.equalTo(@40);
+//    }];
+//        return hotTopicHeaderView;
+//    }else if (kind == UICollectionElementKindSectionFooter) {
         UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewFooter forIndexPath:indexPath];
         
                 UIButton *footerButton = [footerView viewWithTag:10001];
@@ -199,8 +199,8 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
                     }];
                 }
         return footerView;
-    }
-    return nil;
+//    }
+//    return nil;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -217,10 +217,10 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 }
 
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(self.view.ms_width, 160.0f);
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView
+//                  layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+//    return CGSizeMake(self.view.ms_width, 160.0f);
+//}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
