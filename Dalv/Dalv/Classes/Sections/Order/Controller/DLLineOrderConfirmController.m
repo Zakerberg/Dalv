@@ -53,12 +53,10 @@
 //出发日期
 @property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
 
-
 //keyID
 @property (strong, nonatomic) NSString *keyidStr;
 
 @property(nonatomic,strong) DLLineOrderController * orderVC;
-
 
 @end
 
@@ -113,9 +111,16 @@
             [alertV show];
        
         }else{
+        
+            //发送通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"payFullMoney" object:sender];
             
             [self.navigationController popViewControllerAnimated:YES];
             
+            [self.navigationController popViewControllerAnimated:YES];
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"付款成功!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+
         }
     }];
         
@@ -131,8 +136,15 @@
                 
             }else{
                 
+                
+                //发送通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"payPreMoney" object:sender];
+                
                 [self.navigationController popViewControllerAnimated:YES];
-
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"付款成功!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
             }
         }];
         //尾款
@@ -147,8 +159,12 @@
                 
             }else{
                 
-                [self.navigationController popViewControllerAnimated:YES];
+                //发送通知
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"payTailMoney" object:sender];
                 
+                [self.navigationController popViewControllerAnimated:YES];
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"付款成功!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
             }
         }];
     }

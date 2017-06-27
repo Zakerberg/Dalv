@@ -7,6 +7,7 @@
 //   ----------------  线路订单列表 --------------------
 
 #import "DLLineOrderDetailXibController.h"
+#import "DLLineOrderConfirmController.h"
 #import "DLCustomerLoginController.h"
 #import "DLLineOrderDetailModel.h"
 #import "DLLineOrderController.h"
@@ -47,22 +48,53 @@ static NSString *nibCellID = @"nibCellID";
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
     [self setTableView];
-    
+    [self updateView];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
+    
+
+    
 }
+-(void)payFullMoeyNoti:(NSNotification *)notification
+
+{
+    self.lineOrderStateLabel.text = @"已付全款";
+}
+
+
+-(void)payTailMoeyNoti:(NSNotification *)notification
+
+{
+    self.lineOrderStateLabel.text = @"已付全款";
+    
+}
+
+-(void)payPreMoeyNoti:(NSNotification *)notification
+
+{
+    self.lineOrderStateLabel.text = @"已付预付款";
+    
+}
+
+//移除通知
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (BOOL)dl_blueNavbar {
     return YES;
-}
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    self.navigationController.delegate = self;
-    
 }
 
 /**
@@ -102,7 +134,7 @@ static NSString *nibCellID = @"nibCellID";
     }];
 }
 
-#pragma mark ------------------ fetchData --------------
+#pragma mark ------------- fetchData --------------
 
 - (void)fetchNewData {
     self.pageIndex = 1;
@@ -130,6 +162,7 @@ static NSString *nibCellID = @"nibCellID";
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
+            
             [self updateView];
             [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
         }
@@ -149,6 +182,8 @@ static NSString *nibCellID = @"nibCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+    
+//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
@@ -182,16 +217,16 @@ static NSString *nibCellID = @"nibCellID";
 
 - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
     
-    if([[viewController class]isSubclassOfClass:[DLLineOrderController class]]) {
+    if([[viewController class] isSubclassOfClass:[DLLineOrderController class]]) {
         
         ///执行刷新操作
         [self updateView];
     }
     
     ///删除代理，防止该controller销毁后引起navigationController.delegate指向野指针造成崩溃
-    if(![[viewController class]isSubclassOfClass:[self class]]) {
+    if(![[viewController class] isSubclassOfClass:[self class]]) {
         
-        self.navigationController.delegate=nil;
+        self.navigationController.delegate = nil;
         
     }
     

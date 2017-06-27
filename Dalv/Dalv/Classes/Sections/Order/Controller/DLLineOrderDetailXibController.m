@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/14.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//   ----------------  订单详情界面  ------------------ 
+//   ----------------  订单详情界面  ------------------
 
 #import "DLLineOrderDetailXibController.h"
 #import "DLLineOrderConfirmController.h"
@@ -56,6 +56,11 @@
 
 @property(nonatomic,strong) UITableView * mainTableView;
 
+
+//付款成功
+@property(nonatomic,strong) NSString * PayedStatus;
+
+
 @end
 
 static NSString *cellID = @"cellID";
@@ -67,52 +72,102 @@ static NSString *cellID = @"cellID";
     [self setUI];
     [self fetchData];
     [self setButton];
-
+    
     self.payTailButton.hidden = YES;
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
+    
+}
+
+
+-(void)payFullMoeyNoti:(NSNotification *)notification
+
+{
+    
+    self.payTailButton.hidden = YES;
+    self.payFullBtn.hidden = YES;
+    self.prepaidBtn.hidden = YES;
+    
+    self.lineOrderStateLabel.text = @"已付全款";
+}
+
+
+-(void)payTailMoeyNoti:(NSNotification *)notification
+
+{
+    self.payTailButton.hidden = YES;
+    self.payFullBtn.hidden = YES;
+    self.prepaidBtn.hidden = YES;
+    
+    self.lineOrderStateLabel.text = @"已付全款";
+    
+}
+
+-(void)payPreMoeyNoti:(NSNotification *)notification
+
+{
+    
+    self.payTailButton.hidden = NO;
+    self.payFullBtn.hidden = YES;
+    self.prepaidBtn.hidden = YES;
+    
+    self.lineOrderStateLabel.text = @"已付预付款";
+    
+}
+
+//移除通知
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
 
 //- (void)viewWillAppear:(BOOL)animated{
-//    
+//
 //    [super viewWillAppear:animated];
-//    
+//
 //    self.navigationController.delegate = self;
-//    
+//
 //}
 //
 //
-
-
 
 //#pragma mark - ------------- setTableView ----------------
 //
 //-(void)setTableView
 //{
-//    
+//
 //    UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
 //    self.mainTableView = mainTableView;
-//    
+//
 //    mainTableView.backgroundColor = [UIColor redColor];
-//    
-//    
+//
+//
 ////    self.automaticallyAdjustsScrollViewInsets = NO;
 ////    mainTableView.showsVerticalScrollIndicator = NO;
-//    
+//
 //    [mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//    
+//
 //    [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
 //
-//    
+//
 //    [self.view addSubview:mainTableView];
 //
-//    
+//
 //    [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.left.right.offset(0);
 //        make.height.offset(0);
 //    }];
-//    
+//
 //}
 
 #pragma mark - ------------- setUI ----------------
@@ -129,7 +184,7 @@ static NSString *cellID = @"cellID";
     self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.childBorderLabel.layer.borderWidth = 0.5f;
     self.childBorderLabel.layer.masksToBounds = YES;
-
+    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -266,7 +321,6 @@ static NSString *cellID = @"cellID";
             //调整金额
             NSString *price_adjustStr = dict[@"price_adjust"];
             
-            
             NSString *pictureStr = dict[@"cover_pic"];
             
             
@@ -276,24 +330,33 @@ static NSString *cellID = @"cellID";
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             } else if ([stateStr isEqualToString:@"2"]){
                 self.lineOrderStateLabel.text = @"已提交";
                 self.lineOrderStateLabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"3"]){
                 self.lineOrderStateLabel.text = @"已确认待付款";
-
+                
+                if ([price_adjustStr  isEqualToString:@"0"]) {
+                    self.prepaidBtn.hidden = YES;
+                    self.payTailButton.hidden = YES;
+                    [self.payFullBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.bottom.left.right.offset(0);
+                        make.height.offset(44);
+                    }];
+                }
+                
             }else if ([stateStr isEqualToString:@"4"]){
                 self.lineOrderStateLabel.text = @"已取消";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"5"]){
                 self.lineOrderStateLabel.text = @"已关闭";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
@@ -316,27 +379,27 @@ static NSString *cellID = @"cellID";
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"8"]){
                 self.lineOrderStateLabel.text = @"已退款";
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"9"]){
                 self.lineOrderStateLabel.text = @"取消中";
                 _lineOrderStateLabel.textColor = [UIColor redColor];
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"10"]){
                 self.lineOrderStateLabel.text = @"取消中,待退款(供应商确认";
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
             }else if ([stateStr isEqualToString:@"11"]){
                 self.lineOrderStateLabel.text = @"拒绝取消订单";
@@ -344,13 +407,13 @@ static NSString *cellID = @"cellID";
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
             }else if ([stateStr isEqualToString:@"12"]){
                 self.lineOrderStateLabel.text = @"取消中,待退款(代理商管理确认)";
                 self.payTailButton.hidden = YES;
                 self.prepaidBtn.hidden = YES;
                 self.payFullBtn.hidden = YES;
-
+                
                 self.lineOrderStateLabel.textColor = [UIColor redColor];
             }else if ([stateStr isEqualToString:@"13"]){
                 self.lineOrderStateLabel.text = @"已取消,已退款";
@@ -375,11 +438,11 @@ static NSString *cellID = @"cellID";
             
             self.lineOrderCreatTimeLabel.text = create_timeStr;
             
-
+            
             self.lineOrderAdultCountLabel.text = client_adult_countStr;
-        
+            
             self.lineOrderChildCountLabel.text =client_child_countStr;
-
+            
             self.lineOrderPayableLabel.text = [NSString stringWithFormat:@"%.2f",[price_payableStr integerValue]/100.00];
             
             self.lineOrderPriceAdjustLabel.text = [NSString stringWithFormat:@"%.2f",[price_adjustStr integerValue]/100.00];
@@ -421,13 +484,13 @@ static NSString *cellID = @"cellID";
 //}
 //
 //- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
+//
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
 //
 //    cell.accessoryType = UITableViewCellAccessoryNone;
 
 //    return cell;
-//    
+//
 //}
 
 //- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{

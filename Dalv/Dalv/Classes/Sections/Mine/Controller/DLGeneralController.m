@@ -128,11 +128,11 @@ static NSString *cellID  = @"cellID";
             DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
             [self.navigationController pushViewController:feedbackVC animated:YES];
         }
-//        if (indexPath.row == 1) {
-//            //关于大旅游
-//
-//        }
         if (indexPath.row == 1) {
+            //联系我们
+
+        }
+        if (indexPath.row == 2) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
             
             UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -157,7 +157,6 @@ static NSString *cellID  = @"cellID";
             
             [self presentViewController:alert animated:YES completion:nil];
         }
-    
 }
 
 
@@ -165,7 +164,7 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 2;
+    return 3;
 }
 
 
@@ -181,10 +180,10 @@ static NSString *cellID  = @"cellID";
         if (indexPath.row == 0) {
             cell.textLabel.text = @"意见反馈";
         }
-//        if (indexPath.row == 1) {
-//            cell.textLabel.text = @"关于大旅";
-//        }
         if (indexPath.row == 1) {
+            cell.textLabel.text = @"联系我们010-85625636";
+        }
+        if (indexPath.row == 2) {
             
 //            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
 //            

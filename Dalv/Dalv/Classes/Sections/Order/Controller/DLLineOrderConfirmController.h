@@ -14,4 +14,7 @@
 
 @property(nonatomic,strong) NSString * BtnType;
 
+//付款成功
+@property(nonatomic,strong) NSString * PayedStatus;
+
 @end
