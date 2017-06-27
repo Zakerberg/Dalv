@@ -195,10 +195,9 @@ static NSString *cellID  = @"cellID";
 //头像按钮的点击事件
 -(void)PersonbuttonClick{
     
-    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+//    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
     
 }
-
 
 #pragma mark ------------  Table view Delegate --------------
 
@@ -300,14 +299,11 @@ static NSString *cellID  = @"cellID";
             cell.textLabel.text = @"我的顾问";
         }
     }
-    
     if(indexPath.row == 2){
         cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
         cell.textLabel.text = @"通用";
     }
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
 

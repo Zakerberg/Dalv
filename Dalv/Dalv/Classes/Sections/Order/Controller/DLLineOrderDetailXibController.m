@@ -130,7 +130,6 @@ static NSString *cellID = @"cellID";
 }
 
 
-
 //- (void)viewWillAppear:(BOOL)animated{
 //
 //    [super viewWillAppear:animated];
@@ -176,7 +175,7 @@ static NSString *cellID = @"cellID";
     
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"线路订单详情";
-    
+    [self.lineOrderStateLabel sizeToFit];
     self.adultBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.adultBorderLabel.layer.borderWidth = 0.5f;
     self.adultBorderLabel.layer.masksToBounds = YES;
