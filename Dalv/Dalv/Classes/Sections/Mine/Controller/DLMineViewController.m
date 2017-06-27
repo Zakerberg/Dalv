@@ -11,9 +11,10 @@
 #import "DLCityPickerView.h"
 #import "DLSalertView.h"
 #import "DLConsultModel.h"
-//#import "DLMineViewCell.h"
-//#import "DLMineXibViewCell.h"
-
+/*
+#import "DLMineViewCell.h"
+#import "DLMineXibViewCell.h"
+*/
 @interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 //***  姓名  ***
@@ -42,14 +43,12 @@
 
 //@property(nonatomic,weak) DLMineXibViewCell *xibCell;
 
-
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
 static NSString *cellID  = @"cellID";
-
 
 @implementation DLMineViewController
 
@@ -77,14 +76,14 @@ static NSString *cellID  = @"cellID";
     regsterNow.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
     regsterNow.tintColor = [UIColor whiteColor];
     [regsterNow setTitle:@"立即注册" forState:UIControlStateNormal];
-
+    
     regsterNow.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     regsterNow.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     regsterNow.layer.cornerRadius = 8.0;
     [regsterNow addTarget:self action:@selector(registerNowBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView addSubview:regsterNow];
-
-
+    
+    
     [regsterNow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@419);
         make.left.equalTo(@20);
@@ -98,23 +97,23 @@ static NSString *cellID  = @"cellID";
 
 
 -(void)setTableView{
-{
-    UITableView *tableView = [[UITableView alloc]init];
+    {
+        UITableView *tableView = [[UITableView alloc]init];
         self.tableView = tableView;
         tableView.showsVerticalScrollIndicator = NO;
         tableView.tableFooterView = [UIView new];
         tableView.delegate = self ;
         tableView.dataSource = self ;
         tableView.backgroundColor = [UIColor whiteColor];
-    
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
-    [self.view addSubview:tableView];
-    
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(@0);
-    }];
-    
+        
+        [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+        
+        [self.view addSubview:tableView];
+        
+        [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(@0);
+        }];
+        
     }
 }
 -(void)setupHeaderView{
@@ -146,7 +145,7 @@ static NSString *cellID  = @"cellID";
     [pickerSingle setDelegate:self];
     [pickerSingle show];
     [self.view endEditing:YES];
-
+    
 }
 
 /*****  获取验证码  *****/
@@ -185,7 +184,7 @@ static NSString *cellID  = @"cellID";
         
         [alert show];
     }
-
+    
 }
 
 #pragma mark ----------  开启倒计时效果 ---------------
@@ -204,10 +203,10 @@ static NSString *cellID  = @"cellID";
     dispatch_source_set_event_handler(_timer, ^{
         
         if(time <= 0){ //倒计时结束，关闭
-
+            
             //按钮可以点击
-           self.authCodeBtn.enabled = YES;
-           self.authCodeBtn.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
+            self.authCodeBtn.enabled = YES;
+            self.authCodeBtn.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
             
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -227,7 +226,7 @@ static NSString *cellID  = @"cellID";
                 
                 //设置按钮显示读秒效果
                 [self.authCodeBtn setTitle:[NSString stringWithFormat:@"重发(%.2d)", seconds] forState:UIControlStateNormal];
-
+                
                 self.authCodeBtn.userInteractionEnabled = NO;
             });
             time--;
@@ -239,7 +238,7 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark  ------------------ 立即注册 ----------------------
 -(void)registerNowBtn:(id)sender {
-  
+    
     
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
         
@@ -262,26 +261,30 @@ static NSString *cellID  = @"cellID";
          vocation ：职务（员工，导游）
          */
         
-//        NSDictionary *param = @{
-//                                @"name":self.nameTF.text,
-//                                @"province":CityStr,
-//                                @"phone":self.phoneTextFiled.text,
-//                                @"vercode":self.passCodeTF.text,
-//                                @"password":self.passwordTF.text,
-//                                @"vocation":self.positionTF.text
-//                                };
+        /*
+         
+         NSDictionary *param = @{
+         @"name":self.nameTF.text,
+         @"province":CityStr,
+         @"phone":self.phoneTextFiled.text,
+         @"vercode":self.passCodeTF.text,
+         @"password":self.passwordTF.text,
+         @"vocation":self.positionTF.text
+         };
+         
+         
+         NSDictionary *param2 = @{
+         @"name":self.nameTF.text,
+         @"province":CityStr,
+         @"phone":self.phoneTextFiled.text,
+         @"vercode":self.passCodeTF.text,
+         @"password":self.passwordTF.text,
+         @"vocation":self.positionTF.text,
+         @"thecity":self.firstField.text
+         };
+         
+         */
         
-//        
-//        NSDictionary *param2 = @{
-//                                 @"name":self.nameTF.text,
-//                                 @"province":CityStr,
-//                                 @"phone":self.phoneTextFiled.text,
-//                                 @"vercode":self.passCodeTF.text,
-//                                 @"password":self.passwordTF.text,
-//                                 @"vocation":self.positionTF.text,
-//                                 @"thecity":self.firstField.text
-//                                 };
-    
         if (self.nameTF.text && self.passCodeTF.text && self.passwordTF.text == nil) {
             
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入手机号" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
@@ -299,7 +302,6 @@ static NSString *cellID  = @"cellID";
                                      @"vocation":self.positionTF.text,
                                      @"thecity":self.firstField.text
                                      };
-            
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                 
@@ -341,8 +343,8 @@ static NSString *cellID  = @"cellID";
             }];
             
         }
-}
-
+    }
+    
     //手机号匹配
     /*
      判断密码是否为空
@@ -364,7 +366,7 @@ static NSString *cellID  = @"cellID";
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-//    hud.label.text = hint;
+    //    hud.label.text = hint;
     hud.labelText = hint;
     
     hud.margin = 10.f;
@@ -384,7 +386,7 @@ static NSString *cellID  = @"cellID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 52;
-
+    
 }
 
 //头部视图的间距
@@ -424,34 +426,34 @@ static NSString *cellID  = @"cellID";
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.left.offset(20);
         }];
-    
+        
     }
-
+    
     if (indexPath.row == 1) {
         self.cell = cell;
         cell.textLabel.text = @" 输入城市";
         cell.textColor = [UIColor colorWithHexString:@"b4b4b4"];
-
+        
         UIButton *changeCityBtn = [[UIButton alloc] init];
-
+        
         self.changeCityBtn = changeCityBtn;
         self.changeCityBtn.tintColor = [UIColor blackColor];
-    
-       self.changeCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        
+        self.changeCityBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         
         [self.changeCityBtn addTarget:self action:@selector(changeCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-
+        
         [tableView addSubview:changeCityBtn];
-
+        
         [changeCityBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.nameTF.mas_bottom);
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.left.equalTo(@20);
         }];
-
+        
     }
-
+    
     if (indexPath.row == 2) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UITextField *phoneTextFiled = [[UITextField alloc] init];
@@ -479,7 +481,7 @@ static NSString *cellID  = @"cellID";
          make.height.offset(52);
          make.width.offset(MAIN_SCREEN_WIDTH);
          make.left.equalTo(@20);
-
+         
          */
         
         [phoneTextFiled mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -488,8 +490,8 @@ static NSString *cellID  = @"cellID";
             make.left.equalTo(@20);
             make.width.offset(MAIN_SCREEN_WIDTH/2);
         }];
-
-//        //(570/2-20, 138+10, 175/2+15, 32)
+        
+        //        //(570/2-20, 138+10, 175/2+15, 32)
         [authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@32);
             make.right.equalTo(@20);
@@ -499,11 +501,11 @@ static NSString *cellID  = @"cellID";
         }];
         
     }
-
+    
     
     if (indexPath.row == 3) {
         UITextField *passCodeTF = [[UITextField alloc] init];
-//    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
+        //    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
         self.passCodeTF = passCodeTF;
         passCodeTF.placeholder = @"输入手机验证码";
         passCodeTF.keyboardType = UIKeyboardTypeNumberPad;
@@ -515,15 +517,15 @@ static NSString *cellID  = @"cellID";
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.height.offset(52);
             make.left.equalTo(@20);
-
+            
         }];
-
+        
     }
-////
+    ////
     if (indexPath.row == 4) {
         UITextField *passwordTF = [[UITextField alloc] init];
         //WithFrame:CGRectMake(20, 242, MAIN_SCREEN_WIDTH, 52)];
-      
+        
         self.passwordTF = passwordTF;
         passwordTF.placeholder = @"输入密码";
         [tableView addSubview:passwordTF];
@@ -535,14 +537,14 @@ static NSString *cellID  = @"cellID";
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.height.offset(52);
         }];
-
+        
     }
     
-//
+    //
     if (indexPath.row == 5) {
         UITextField *determinePasswordTF = [[UITextField alloc] init];
-   //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
-
+        //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
+        
         self.determinePasswordTF = determinePasswordTF;
         determinePasswordTF.placeholder = @"确认密码";
         [tableView addSubview:determinePasswordTF];
@@ -553,13 +555,13 @@ static NSString *cellID  = @"cellID";
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
         }];
-
+        
     }
-//
+    //
     if (indexPath.row == 6) {
         UITextField *positionTF = [[UITextField alloc] init];
-                                   
-    //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
+        
+        //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
         self.positionTF = positionTF;
         positionTF.placeholder = @"职务 如: 领导、导游、职员等";
         [tableView addSubview:positionTF];
@@ -570,7 +572,7 @@ static NSString *cellID  = @"cellID";
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
         }];
-
+        
     }
     
     if (indexPath.row == 1) {
@@ -590,11 +592,11 @@ static NSString *cellID  = @"cellID";
     if ([selectedTitle isEqualToString:@"其他"])  {
         
         [self.alertView showView];
-
+        
     }
     
     self.cell.textLabel.text = selectedTitle;
-//    self.changeCityBtn.titleLabel.text = selectedTitle;
+    //    self.changeCityBtn.titleLabel.text = selectedTitle;
     self.cell.textLabel.textColor = [UIColor blackColor];
     
 }
@@ -603,7 +605,7 @@ static NSString *cellID  = @"cellID";
     
     [self.alertView closeView];
 }
- 
+
 #pragma mark  ----------DLSalertViewDelegate------------
 
 - (DLSalertView *)alertView{

@@ -83,7 +83,7 @@
         }
         
     }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*2){
-        if (self.wifiVC ==nil) {
+        if (self.wifiVC == nil) {
             self.wifiVC = [[DLWiFiOrderViewController alloc]init];
             [self addChildViewController:self.wifiVC];
             self.wifiVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*2, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
@@ -92,7 +92,7 @@
         
         
     }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*3){
-        if (self.ticketVC ==nil) {
+        if (self.ticketVC == nil) {
             self.ticketVC = [[DLTicketsOrderController alloc]init];
             [self addChildViewController:self.ticketVC];
             self.ticketVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*3, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
@@ -101,7 +101,6 @@
     }
     
 //    NSLog(@"%f",scrollView.contentOffset.x);
-    
     [self.headScrollView changeBtnTitleColorWith:scrollView.contentOffset.x/MAIN_SCREEN_WIDTH+100];
 }
 

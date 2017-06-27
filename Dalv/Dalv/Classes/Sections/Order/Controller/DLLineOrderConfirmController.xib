@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -29,14 +29,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0A-WE-D8s">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="433"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="泰国-曼谷-芭提雅- 5晚7日游" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ak5-0S-IcI">
-                            <rect key="frame" x="8" y="8" width="304" height="28"/>
+                            <rect key="frame" x="8" y="8" width="359" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="CgP-p7-B1y"/>
                             </constraints>
@@ -45,14 +45,14 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gl-sY-zJS">
-                            <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="36" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="8o6-UC-24C"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBt-3k-dXv">
-                            <rect key="frame" x="0.0" y="100" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="100" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="DBK-oq-gYo"/>
@@ -103,7 +103,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GoD-gx-PRW">
-                            <rect key="frame" x="132" y="115" width="57" height="31"/>
+                            <rect key="frame" x="159.5" y="115" width="57" height="31"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="调整金额:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBr-Tq-bmy">
                                     <rect key="frame" x="0.0" y="0.0" width="57" height="16"/>
@@ -141,11 +141,11 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lty-0r-55V">
-                            <rect key="frame" x="0.0" y="152" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="152" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lob-Pu-eRc">
-                            <rect key="frame" x="0.0" y="191" width="320" height="1"/>
+                            <rect key="frame" x="0.0" y="191" width="375" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="90q-Lw-7Wk"/>
@@ -186,7 +186,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D2b-yH-HeL">
-                            <rect key="frame" x="239" y="115" width="57" height="30"/>
+                            <rect key="frame" x="294" y="115" width="57" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应付金额:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssO-Ff-Fao">
                                     <rect key="frame" x="0.0" y="0.0" width="57" height="15"/>
@@ -217,7 +217,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ia4-8F-bdS">
-                            <rect key="frame" x="203" y="115" width="1" height="30"/>
+                            <rect key="frame" x="258" y="115" width="1" height="30"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="1" id="qfU-hm-a4K"/>
@@ -233,7 +233,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8L-sY-ssv">
-                            <rect key="frame" x="239.5" y="162" width="66.5" height="20"/>
+                            <rect key="frame" x="294.5" y="162" width="66.5" height="20"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjd-Kd-szv">
                                     <rect key="frame" x="0.0" y="0.0" width="11" height="20"/>
@@ -262,7 +262,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="这个订单是泰国曼谷芭提雅5晚7日游++" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbW-hn-7bU">
-                            <rect key="frame" x="72" y="197" width="248" height="40"/>
+                            <rect key="frame" x="72" y="197" width="303" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="2M5-v3-pp3"/>
                             </constraints>
@@ -329,10 +329,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-iv-IfR">
-                    <rect key="frame" x="0.0" y="518" width="183" height="50"/>
+                    <rect key="frame" x="0.0" y="617" width="238" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您确定要支付预付款吗?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBF-fW-F0t">
-                            <rect key="frame" x="0.0" y="0.0" width="183" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="238" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="xat-KN-9f5"/>
                             </constraints>
@@ -351,7 +351,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myH-eY-Vt4">
-                    <rect key="frame" x="183" y="518" width="137" height="50"/>
+                    <rect key="frame" x="238" y="617" width="137" height="50"/>
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <state key="normal" title="确认">

@@ -15,20 +15,20 @@
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
 
-@interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
+@interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *lineOrderTableView;
 
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
-/* 订单图片 */
-@property (weak, nonatomic)  UIImageView *lineOrderPicture;
-/* 订单名称 */
-@property (weak, nonatomic)  UILabel *lineOrderNameLabel;
-/* 团期时间 */
-@property (weak, nonatomic)  UILabel *lineOrderTimeLabel;
-/* 订单价格(应付金额) */
-@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
-/* 订单状态 */
+///* 订单图片 */
+//@property (weak, nonatomic)  UIImageView *lineOrderPicture;
+///* 订单名称 */
+//@property (weak, nonatomic)  UILabel *lineOrderNameLabel;
+///* 团期时间 */
+//@property (weak, nonatomic)  UILabel *lineOrderTimeLabel;
+///* 订单价格(应付金额) */
+//@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
+///* 订单状态 */
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 
 @property (nonatomic, assign) NSInteger pageIndex;
@@ -48,27 +48,24 @@ static NSString *nibCellID = @"nibCellID";
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
     [self setTableView];
-    [self updateView];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
     
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
     
+    [self updateView];
 
-    
 }
+
 -(void)payFullMoeyNoti:(NSNotification *)notification
 
 {
     self.lineOrderStateLabel.text = @"已付全款";
+    
 }
 
 
@@ -91,7 +88,6 @@ static NSString *nibCellID = @"nibCellID";
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 - (BOOL)dl_blueNavbar {
     return YES;
@@ -137,15 +133,16 @@ static NSString *nibCellID = @"nibCellID";
 #pragma mark ------------- fetchData --------------
 
 - (void)fetchNewData {
-    self.pageIndex = 1;
+    self.pageIndex ++;
     [self fetchData];
-    [self updateView];
+    
+    
 }
 
 - (void)fetchMoreData {
-    self.pageIndex++;
+    self.pageIndex= 1;
     [self fetchData];
-    [self updateView];
+    
 }
 
 -(void)fetchData{
@@ -162,7 +159,6 @@ static NSString *nibCellID = @"nibCellID";
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
-            
             [self updateView];
             [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
         }
@@ -183,7 +179,7 @@ static NSString *nibCellID = @"nibCellID";
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
     
-//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+    self.lineOrderStateLabel = cell.lineOrderStateLabel;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
@@ -215,22 +211,21 @@ static NSString *nibCellID = @"nibCellID";
 
 #pragma mark -------- UINavigationControllerDelegate --------
 
-- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
-    
-    if([[viewController class] isSubclassOfClass:[DLLineOrderController class]]) {
-        
-        ///执行刷新操作
-        [self updateView];
-    }
-    
-    ///删除代理，防止该controller销毁后引起navigationController.delegate指向野指针造成崩溃
-    if(![[viewController class] isSubclassOfClass:[self class]]) {
-        
-        self.navigationController.delegate = nil;
-        
-    }
-    
-}
+//- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
+//    
+//    if([[viewController class] isSubclassOfClass:[DLLineOrderController class]]) {
+//        
+//        ///执行刷新操作
+//        [self updateView];
+//    }
+//    
+//    ///删除代理，防止该controller销毁后引起navigationController.delegate指向野指针造成崩溃
+//    if(![[viewController class] isSubclassOfClass:[self class]]) {
+//        
+//        self.navigationController.delegate = nil;
+//        
+//    }
+//}
 
 
 #pragma mark ------------------ Getter -----------------------
