@@ -34,9 +34,11 @@
 
 -(void)setUI{
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT)];
+    
+    
     [self.view addSubview:scrollView];
-    NSArray *imageNames = @[@"WechatIMG149", @"WechatIMG150",@"WechatIMG151",@"WechatIMG152",];
+    NSArray *imageNames = @[@"引导图1", @"引导图2",@"引导图3",@"引导图4",];
     for (int i = 0; i < imageNames.count; i ++) {
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageNames[i]]];
         iv.frame = CGRectMake(i * scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height);
@@ -73,7 +75,7 @@
     [scrollView addSubview:btn];
     
     btn.frame = CGRectMake(0, 0, 100, 44);
-    btn.center = CGPointMake((imageNames.count - 0.5) * scrollView.frame.size.width - 105, scrollView.frame.size.height - 100);
+    btn.center = CGPointMake((imageNames.count - 0.5) * scrollView.frame.size.width , scrollView.frame.size.height - 100);
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
 }
 
