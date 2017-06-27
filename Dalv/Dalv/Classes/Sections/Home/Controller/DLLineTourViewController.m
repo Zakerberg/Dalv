@@ -99,9 +99,9 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
     [DLHomeViewTask getHomeOutbound:param completion:^(id result, NSError *error) {
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
-            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *lineTourViewArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineTourViewList removeAllObjects];
-            [_lineTourViewList addObjectsFromArray:recommendRouteArray];
+            [_lineTourViewList addObjectsFromArray:lineTourViewArray];
             [self.lineTourViewCollectionView reloadData];
             
         } else {
@@ -208,10 +208,9 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    DLRecommendRouteModel *routeModel = [self.lineTourViewList objectAtIndex:indexPath.item];
-    
-    DLLineTourDetailViewController *linetourDetailVC = [[DLLineTourDetailViewController alloc]init];
-    linetourDetailVC.routeModel = routeModel;
+    DLLineDestinationViewController *linetourDetailVC = [[DLLineDestinationViewController alloc]init];
+    linetourDetailVC.homeMenuItem = [self.lineTourViewList objectAtIndex:indexPath.row];
+
     [self.navigationController pushViewController:linetourDetailVC animated:YES];
     
 }

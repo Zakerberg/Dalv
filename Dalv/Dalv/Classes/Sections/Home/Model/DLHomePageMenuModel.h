@@ -60,5 +60,9 @@
 /**  排序 */
 @property (nonatomic, copy) NSString *sort;
 
+/**  目的地Id */
+@property (nonatomic, copy) NSString *lineDestinationId;
+
+
 @end
 

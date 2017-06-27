@@ -39,7 +39,7 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
     return YES;
 }
 - (void)setupNavbar {
-    self.title = @"出境游";
+    self.title = @"目的地";
 }
 
 #pragma mark - Setup subViews
@@ -83,15 +83,17 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"page" : @(self.pageIndex),
-                            @"type" : self.homeMenuItem.type,
+                            @"type" : @"1",
+                            @"id" : @"4462",
+
                             };
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
     [DLHomeViewTask getOutboundLists:param completion:^(id result, NSError *error) {
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
-            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *lineDestinationViewArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineDestinationViewList removeAllObjects];
-            [_lineDestinationViewList addObjectsFromArray:recommendRouteArray];
+            [_lineDestinationViewList addObjectsFromArray:lineDestinationViewArray];
             [self.lineDestinationCollectionView reloadData];
             
         } else {
@@ -110,7 +112,7 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
     DLRecommendRouteCollectionViewCell *cell = [DLRecommendRouteCollectionViewCell cellWithCollectionView:collectionView indexPath:indexPath];
     DLRecommendRouteModel *routeModel = [self.lineDestinationViewList objectAtIndex:indexPath.item];
     cell.routeModel = routeModel;
-    [cell configureLineTourCell:routeModel];
+    [cell configureLineDestinationCell:routeModel];
     return cell;
 }
 

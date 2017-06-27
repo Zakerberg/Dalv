@@ -155,4 +155,16 @@
     
 }
 
+- (void)configureLineDestinationCell:(DLRecommendRouteModel *)model{
+    
+    NSURL *URL = [NSURL URLWithString:model.cover_pic];
+    [self.topicCoverImageView sd_setImageWithURL:URL placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    self.topicTitleLabel.text = model.name;
+    self.pageviewsLabel.text = model.departure;
+    self.minPriceLabel.text = [NSString stringWithFormat:@"¥%.f起",[model.min_price integerValue]/100.00];
+    
+    
+}
+
+
 @end
