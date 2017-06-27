@@ -85,10 +85,7 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已付全款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8Q-il-B32">
-                        <rect key="frame" x="244" y="105" width="64" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="64" id="4YF-Cx-Hoc"/>
-                        </constraints>
+                        <rect key="frame" x="267" y="106" width="41" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -98,20 +95,20 @@
                     <constraint firstItem="Bw1-fm-knD" firstAttribute="top" secondItem="QCE-4a-JKk" secondAttribute="top" id="6Rj-l2-whI"/>
                     <constraint firstAttribute="bottom" secondItem="4BH-Cj-mor" secondAttribute="bottom" constant="16" id="8AG-bT-tQD"/>
                     <constraint firstItem="QCE-4a-JKk" firstAttribute="leading" secondItem="9BK-Ex-2DE" secondAttribute="leading" id="9WJ-vx-xas"/>
-                    <constraint firstItem="S8Q-il-B32" firstAttribute="centerY" secondItem="lKA-Co-U3z" secondAttribute="centerY" id="AnK-6O-C2G"/>
                     <constraint firstItem="Bw1-fm-knD" firstAttribute="leading" secondItem="QCE-4a-JKk" secondAttribute="trailing" constant="6" id="BSb-N3-EQk"/>
                     <constraint firstItem="Bw1-fm-knD" firstAttribute="centerY" secondItem="QCE-4a-JKk" secondAttribute="centerY" id="CvV-iI-oJD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9BK-Ex-2DE" secondAttribute="trailing" constant="16" id="Fam-Vw-D7k"/>
                     <constraint firstItem="4BH-Cj-mor" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="HEC-cQ-nOu"/>
                     <constraint firstItem="Uau-wj-6QK" firstAttribute="leading" secondItem="9BK-Ex-2DE" secondAttribute="leading" id="I3g-Rt-BXc"/>
                     <constraint firstItem="QCE-4a-JKk" firstAttribute="top" secondItem="9BK-Ex-2DE" secondAttribute="bottom" constant="8" symbolic="YES" id="KWO-C0-Br6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="S8Q-il-B32" secondAttribute="trailing" constant="4" id="P7M-hf-66V"/>
                     <constraint firstItem="Bw1-fm-knD" firstAttribute="bottom" secondItem="QCE-4a-JKk" secondAttribute="bottom" id="U0f-ib-jeP"/>
                     <constraint firstItem="Uau-wj-6QK" firstAttribute="top" secondItem="Bw1-fm-knD" secondAttribute="bottom" constant="35" id="VJk-Ij-6Ym"/>
                     <constraint firstItem="lKA-Co-U3z" firstAttribute="leading" secondItem="Uau-wj-6QK" secondAttribute="leading" id="ZZp-bX-me7"/>
                     <constraint firstItem="9BK-Ex-2DE" firstAttribute="leading" secondItem="4BH-Cj-mor" secondAttribute="trailing" constant="12" id="bfA-GM-RRA"/>
                     <constraint firstItem="4BH-Cj-mor" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ii4-qw-soV"/>
                     <constraint firstItem="9BK-Ex-2DE" firstAttribute="top" secondItem="4BH-Cj-mor" secondAttribute="top" id="mdJ-rV-NWY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="S8Q-il-B32" secondAttribute="trailing" constant="4" id="srX-0Z-F0g"/>
+                    <constraint firstItem="S8Q-il-B32" firstAttribute="baseline" secondItem="lKA-Co-U3z" secondAttribute="baseline" id="v2S-P9-cU2"/>
                     <constraint firstItem="lKA-Co-U3z" firstAttribute="top" secondItem="Uau-wj-6QK" secondAttribute="bottom" constant="2" id="xpC-5b-vqC"/>
                 </constraints>
             </tableViewCellContentView>

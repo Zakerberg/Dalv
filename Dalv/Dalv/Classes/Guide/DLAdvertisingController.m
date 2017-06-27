@@ -8,6 +8,7 @@
 
 #import "DLAdvertisingController.h"
 #import "DLIdentitySelectionLoginViewController.h"
+#import "DLTabBarController.h"
 
 @interface DLAdvertisingController ()<UIScrollViewDelegate>
 
@@ -81,11 +82,63 @@
 
 - (void)click{
 
-    DLIdentitySelectionLoginViewController *idenVC = [[DLIdentitySelectionLoginViewController alloc]init];
-    [self presentViewController:idenVC animated:YES completion:nil];
+//    DLIdentitySelectionLoginViewController *idenVC = [[DLIdentitySelectionLoginViewController alloc]init];
+//    [self presentViewController:idenVC animated:YES completion:nil];
+////    [self.navigationController pushViewController:idenVC animated:YES];
+    
+    if ([NSString isNotBlank:[DLUtils getUid]]) {
+        [self setupTabbarVC];
+    } else {
+        [self setupLoginVC];
+
+    }
+    
+    
+    
+    
+    
+    /*
+     
+     - (void)setupMainVC {
+     if ([NSString isNotBlank:[DLUtils getUid]]) {
+     [self setupTabbarVC];
+     } else {
+     [self setupLoginVC];
+     }
+     }
+     // 已登录 跳到主界面
+     - (void)setupTabbarVC {
+     DLTabBarController *tabBarController = [[DLTabBarController alloc] init];
+     self.window.rootViewController = tabBarController;
+     }
+     // 未登录跳到登录界面
+     - (void)setupLoginVC {
+     DLIdentitySelectionLoginViewController *loginVC = [[DLIdentitySelectionLoginViewController alloc] init];
+     DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:loginVC];
+     self.window.rootViewController = nav;
+     }
+
+     
+     */
     
 }
 
+    
+    
+    // 已登录 跳到主界面
+- (void)setupTabbarVC {
+        DLTabBarController *tabBarController = [[DLTabBarController alloc] init];
+        [UIApplication sharedApplication].keyWindow.rootViewController = tabBarController;
+    }
+    // 未登录跳到登录界面
+- (void)setupLoginVC {
+    
+        DLIdentitySelectionLoginViewController *loginVC = [[DLIdentitySelectionLoginViewController alloc] init];
+        DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:loginVC];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+}
+    
+    
 #pragma mark - - UIScrollViewDelegate --
 
 

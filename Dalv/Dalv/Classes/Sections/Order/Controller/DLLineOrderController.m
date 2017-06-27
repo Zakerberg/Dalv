@@ -29,8 +29,8 @@
 ///* 订单价格(应付金额) */
 //@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
 ///* 订单状态 */
-@property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 
+@property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 @property (nonatomic, assign) NSInteger pageIndex;
 
 @end
@@ -45,27 +45,39 @@ static NSString *nibCellID = @"nibCellID";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+//
+//    if (self.lineOrderTableView) {
+//        
+//        [self.lineOrderTableView removeFromSuperview];
+//
+//    }
+    
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.title = @"线路订单";
     [self setTableView];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
-    
+//  self.navigationController.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
     
-    [self updateView];
-
 }
+
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
+
+//-(void)viewWillAppear:(BOOL)animated{
+//    [self viewDidLoad];
+//}
 
 -(void)payFullMoeyNoti:(NSNotification *)notification
 
 {
     self.lineOrderStateLabel.text = @"已付全款";
-    
 }
 
 
@@ -73,24 +85,18 @@ static NSString *nibCellID = @"nibCellID";
 
 {
     self.lineOrderStateLabel.text = @"已付全款";
-    
 }
 
 -(void)payPreMoeyNoti:(NSNotification *)notification
 
 {
     self.lineOrderStateLabel.text = @"已付预付款";
-    
 }
 
 //移除通知
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (BOOL)dl_blueNavbar {
-    return YES;
 }
 
 /**
@@ -133,14 +139,13 @@ static NSString *nibCellID = @"nibCellID";
 #pragma mark ------------- fetchData --------------
 
 - (void)fetchNewData {
-    self.pageIndex ++;
+    self.pageIndex=1;
     [self fetchData];
-    
     
 }
 
 - (void)fetchMoreData {
-    self.pageIndex= 1;
+    self.pageIndex++;
     [self fetchData];
     
 }
@@ -159,8 +164,8 @@ static NSString *nibCellID = @"nibCellID";
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
+            [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:self.lineOrderList.count error:error];
             [self updateView];
-            [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
         }
     }];
 }
@@ -179,7 +184,7 @@ static NSString *nibCellID = @"nibCellID";
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
     
-    self.lineOrderStateLabel = cell.lineOrderStateLabel;
+//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
