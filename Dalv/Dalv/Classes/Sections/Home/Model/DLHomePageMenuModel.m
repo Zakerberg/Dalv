@@ -26,4 +26,8 @@
 
 @implementation DLHomeMenuItem
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"lineDestinationId" : @"id",};
+}
+
 @end

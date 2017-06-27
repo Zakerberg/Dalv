@@ -113,11 +113,10 @@ static NSString *cellID = @"cellID";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        
         DLCustomerListController *listVC =[[DLCustomerListController alloc] init];
         [self.navigationController pushViewController:listVC animated:YES];
-    }else {
-         [[DLHUDManager sharedInstance] showTextOnly:@"程序猿正在拼命开发中...."];
+    } else {
+        [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
     }
     
 }

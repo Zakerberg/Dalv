@@ -360,6 +360,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     
     NSLog(@"点击了选择日期");
     DLCalendarViewController *calendarViewController = [[DLCalendarViewController alloc] init];
+    calendarViewController.tourSkuDate = self.detaiInfoModel.tourSkuDate;
     [self.navigationController pushViewController:calendarViewController animated:YES];
 
 }

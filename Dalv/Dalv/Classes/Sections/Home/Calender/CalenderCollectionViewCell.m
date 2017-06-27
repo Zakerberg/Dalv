@@ -27,11 +27,11 @@
     float originY = (CGRectGetHeight(self.frame) - width) / 2.0;
     
     self.numButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.numButton.backgroundColor = [UIColor colorWithHexString:@"#16dcd1"];
+    self.numButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
     self.numButton.frame = CGRectMake(1, 10, 40, 17);
     self.numButton.layer.masksToBounds = YES;
     [self.numButton setTitle:@"18" forState:UIControlStateNormal];
-    self.numButton.titleLabel.font = [UIFont systemFontOfSize:14.f];
+    self.numButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
     [self.numButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.numButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.numButton];
@@ -79,7 +79,7 @@
     }
     
     if (remindNum > 0) {
-        [self.numButton setTitle:[NSString stringWithFormat:@"%ld", (long) remindNum] forState:UIControlStateNormal];
+        [self.numButton setTitle:[NSString stringWithFormat:@"¥%ld",remindNum/100] forState:UIControlStateNormal];
         self.numButton.tag = 1;
         self.numButton.layer.cornerRadius = CGRectGetHeight(self.numButton.frame) / 2.0;
         self.numButton.hidden = NO;

@@ -22,7 +22,6 @@
 @property (nonatomic, strong) DLHomeMenuItem *columnList;
 
 
-
 @end
 
 @implementation DLMenuViewController
@@ -101,6 +100,7 @@
     DLHomeMenuCollectionViewCell *cell = [DLHomeMenuCollectionViewCell cellWithCollectionView:collectionView IndexPath:indexPath];
     
     DLHomeMenuItem *menuItem = [self.apps objectAtIndex:indexPath.row];
+    cell.homeMenuItem = menuItem;
     cell.showsSeparator = NO;
     [cell configureCell:menuItem];
     return cell;
@@ -110,14 +110,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    if ([self.columnList.type isEqualToString:@"5"] || [self.columnList.type isEqualToString:@"6"] ||[self.columnList.type isEqualToString:@"7"]) {
-        [[DLHUDManager sharedInstance]showTextOnly:@"攻城狮正在拼命开发中 敬请期待"];
-        } else {
-
-    DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
-    linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:linetourVC animated:YES];
-   }
+    
+    DLHomeMenuCollectionViewCell *cell = (DLHomeMenuCollectionViewCell*) [self.appCollectionView cellForItemAtIndexPath:indexPath];
+    if (cell.homeMenuItem.type.integerValue == 5 ||
+        cell.homeMenuItem.type.integerValue == 6 ||
+        cell.homeMenuItem.type.integerValue == 7) {
+        [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+    } else {
+        DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
+        linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:linetourVC animated:YES];
+    }
 }
 
 

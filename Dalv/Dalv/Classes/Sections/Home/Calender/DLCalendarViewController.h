@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLLineTourDetailInforModel.h"
 
 @interface DLCalendarViewController : UIViewController
+
+@property (nonatomic, strong) NSArray <DLLineTourSkuDate *> *tourSkuDate;//线路团期
 
 @end
