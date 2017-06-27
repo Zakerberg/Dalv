@@ -227,7 +227,14 @@
     } else {
         NSLog(@"单房差%ld",number);
     }
-    self.totalOrderLab.text = @"    总额有变化";
+    
+    NSString *str = [NSString stringWithFormat:@"%.f",[self.lineOrderoModel.list.price_adult_agency integerValue]/100.00];
+    NSString *str1 = [NSString stringWithFormat:@"%.f",[self.lineOrderoModel.list.price_child_agency integerValue]/100.00];
+    NSString *str2 = [NSString stringWithFormat:@"%.f",[self.lineOrderoModel.list.price_hotel_agency integerValue]/100.00];
+    
+    NSInteger count = [str integerValue] * [[NSString stringWithFormat:@"%ld",self.adultButton.currentNumber] integerValue] + [str1 integerValue] * [[NSString stringWithFormat:@"%ld",self.childButton.currentNumber] integerValue] + [str2 integerValue] * [[NSString stringWithFormat:@"%ld",self.singleRoomButton.currentNumber] integerValue];
+
+    self.totalOrderLab.text = [NSString stringWithFormat:@"    订单总额：¥%ld",count];
 }
 
 
@@ -244,7 +251,7 @@
         if (result) {
             self.lineOrderoModel = [DLPlaceLineOrderModel mj_objectWithKeyValues:result];
             [self.homeTableView reloadData];
-            self.totalOrderLab.text = [NSString stringWithFormat:@"    订单总额：¥%@",self.lineOrderoModel.list.price_adult_agency];
+            self.totalOrderLab.text = [NSString stringWithFormat:@"    订单总额：¥%.f",[self.lineOrderoModel.list.price_adult_agency integerValue]/100.00];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
