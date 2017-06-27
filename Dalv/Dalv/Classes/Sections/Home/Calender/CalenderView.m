@@ -139,46 +139,40 @@
     CalenderRemindParam *param = [[CalenderRemindParam alloc] init];
     param.date = date;
     param.monthScope = @"3";
-//    [CSCSalesTask getMonthReminds:param completion:^(id result, NSError *error) {
-//        if (error) {
-//            [MSHUDManager showToast:error.localizedDescription];
-//        } else {
-//            NSMutableArray *array = [NSMutableArray arrayWithArray:result[kMSData]];
-//            for (int i = 0; i<array.count; i++) {
-//                NSInteger temindex = 0;
-//                NSDictionary *dic = array[i];
-//                NSString *string = [NSString stringWithFormat:@"%@",dic[@"key"]];
-//                NSArray *temp = [string componentsSeparatedByString:@"-"];
-//                NSLog(@"%lu",(unsigned long)temp.count);
-//                if (temp.count == 3) {
-//                    NSUInteger Mmonth = [temp[1] integerValue];
-//                    for (int j = 0; j<_allDate.count; j++) {
-//                        CalenderObject *object = _allDate[j];
-//                        if (object.month == Mmonth) {
-//                            temindex = j;
-//                            CalenderObject *object = _allDate[temindex];
-//                            
-//                            NSMutableArray *array1 = [NSMutableArray arrayWithArray:object.allDate];
-//                            NSString *str = [NSString stringWithFormat:@"%@",dic[@"key"]];
-//                            if ([str.class isSubclassOfClass:[NSString class]]) {
-//                                if (str.length == 10) {
-//                                    str  = [str substringFromIndex:8];
-//                                }
-//                                NSUInteger integer = [str integerValue] +object.weekDay-2;
-//                                CalendarDateSource *source = array1[integer];
-//                                source.subTitle = [NSString stringWithFormat:@"%@",dic[@"value"]];
-//                                [array1 replaceObjectAtIndex:integer withObject:source];
-//                            }
-//                            object.allDate = array1;
-//                            [_allDate replaceObjectAtIndex:temindex withObject:object];
-//                        }
-//                    }
-//                }
-//            }
-//            [self.collectionView reloadData];
     
-//        }
-//    }];
+        NSMutableArray *array = [NSMutableArray arrayWithArray:self.tourSkuDate];
+        for (int i = 0; i<array.count; i++) {
+            NSInteger temindex = 0;
+            DLLineTourSkuDate *tourSkuDate = array[i];
+            NSString *string = [NSString stringWithFormat:@"%@",tourSkuDate.start_time];
+            NSArray *temp = [string componentsSeparatedByString:@"-"];
+            NSLog(@"%lu",(unsigned long)temp.count);
+            if (temp.count == 3) {
+                NSUInteger Mmonth = [temp[1] integerValue];
+                for (int j = 0; j<_allDate.count; j++) {
+                    CalenderObject *object = _allDate[j];
+                    if (object.month == Mmonth) {
+                        temindex = j;
+                        CalenderObject *object = _allDate[temindex];
+    
+                        NSMutableArray *array1 = [NSMutableArray arrayWithArray:object.allDate];
+                        NSString *str = [NSString stringWithFormat:@"%@",tourSkuDate.start_time];
+                        if ([str.class isSubclassOfClass:[NSString class]]) {
+                            if (str.length == 10) {
+                                str  = [str substringFromIndex:8];
+                            }
+                            NSUInteger integer = [str integerValue] +object.weekDay-2;
+                            CalendarDateSource *source = array1[integer];
+                            source.subTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_agency];
+                            [array1 replaceObjectAtIndex:integer withObject:source];
+                        }
+                        object.allDate = array1;
+                        [_allDate replaceObjectAtIndex:temindex withObject:object];
+                    }
+                }
+            }
+        }
+        [self.collectionView reloadData];
 }
 
 - (void)performScrollToIndexPath {
@@ -309,7 +303,7 @@
         rect.origin.x = cell.frame.origin.x - 2;
         rect.origin.y = cell.frame.origin.y - 40;
         _imageViewSelect.frame = rect;
-        _numLable.text = source.subTitle;
+        _numLable.text = [NSString stringWithFormat:@"¥%.2f",[source.subTitle integerValue]/100.00];   ;
     } else {
         [_imageViewSelect removeFromSuperview];
     }

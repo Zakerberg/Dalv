@@ -9,9 +9,9 @@
 #import "DLCalendarViewController.h"
 #import "CalenderView.h"
 
-@interface DLCalendarViewController ()<CalenderViewDelegate> {
-    CalenderView *_calentView;
-}
+@interface DLCalendarViewController ()<CalenderViewDelegate>
+
+@property (nonatomic, strong) CalenderView *calentView;
 
 @end
 
@@ -26,8 +26,9 @@
     _calentView.frame = rect;
     _calentView.delegate = self;
     _calentView.clipsToBounds = YES;
+    _calentView.tourSkuDate = self.tourSkuDate;
     [self.view addSubview:_calentView];
-    
+        
 //    [[NSNotificationCenter defaultCenter] addObserver:self
 //                                             selector:@selector(refreshCalendarRemindTime)
 //                                                 name:CSCUPDATETCALENDAR_REMIND_MESSAGE object:nil];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLLineTourDetailInforModel.h"
 
 @protocol CalenderViewDelegate;
 
@@ -24,6 +25,8 @@
  */
 - (void)getCalenderData;
 
+@property (nonatomic, strong) NSArray <DLLineTourSkuDate *> *tourSkuDate;//线路团期
+
 @end
 
 @protocol CalenderViewDelegate <NSObject>
@@ -34,5 +37,6 @@
  *  @param time 当前的时间
  */
 - (void)calendarDidSelectObj:(NSString *)time;
+
 
 @end
