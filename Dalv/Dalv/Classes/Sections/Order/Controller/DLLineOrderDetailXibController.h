@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/14.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//   ----------------  订单详情界面  -------------------
 
 #import <UIKit/UIKit.h>
 @interface DLLineOrderDetailXibController : UIViewController

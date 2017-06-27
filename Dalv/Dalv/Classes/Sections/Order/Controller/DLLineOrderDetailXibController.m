@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/14.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//   ----------------  订单详情界面  ------------------ 
 
 #import "DLLineOrderDetailXibController.h"
 #import "DLLineOrderConfirmController.h"
@@ -12,7 +12,6 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderDetailXibController ()
-
 
 /*** 订单名称 ***/
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderNameLabel;
@@ -72,6 +71,21 @@ static NSString *cellID = @"cellID";
     self.payTailButton.hidden = YES;
     
 }
+
+
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    
+//    [super viewWillAppear:animated];
+//    
+//    self.navigationController.delegate = self;
+//    
+//}
+//
+//
+
+
+
 //#pragma mark - ------------- setTableView ----------------
 //
 //-(void)setTableView
@@ -392,7 +406,7 @@ static NSString *cellID = @"cellID";
 }
 
 
-#pragma mark ----------- UITable View Delegate ----------------
+//#pragma mark ------- UINavigationControllerDelegate -------
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    return 1;
@@ -414,6 +428,14 @@ static NSString *cellID = @"cellID";
 
 //    return cell;
 //    
+//}
+
+//- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
+//    
+//    if([[viewController class] isSubclassOfClass:[DLLineOrderDetailXibController class]]) {
+//        
+//        
+//    }
 //}
 
 @end

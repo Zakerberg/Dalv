@@ -14,7 +14,7 @@
 #import "DLlineOrderModel.h"
 #import "DLHomeViewTask.h"
 
-@interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UITableView *lineOrderTableView;
 
@@ -51,12 +51,18 @@ static NSString *nibCellID = @"nibCellID";
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
-    
-    [self.lineOrderTableView ms_beginHeaderRefreshing];
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.delegate = self;
+    
 }
 
 /**
@@ -101,11 +107,13 @@ static NSString *nibCellID = @"nibCellID";
 - (void)fetchNewData {
     self.pageIndex = 1;
     [self fetchData];
+    [self updateView];
 }
 
 - (void)fetchMoreData {
     self.pageIndex++;
     [self fetchData];
+    [self updateView];
 }
 
 -(void)fetchData{
@@ -169,6 +177,26 @@ static NSString *nibCellID = @"nibCellID";
     lineXIBvc.tourID = lineOrderModel.lineId;
     [self.navigationController pushViewController:lineXIBvc animated:YES];
 }
+
+#pragma mark -------- UINavigationControllerDelegate --------
+
+- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
+    
+    if([[viewController class]isSubclassOfClass:[DLLineOrderController class]]) {
+        
+        ///执行刷新操作
+        [self updateView];
+    }
+    
+    ///删除代理，防止该controller销毁后引起navigationController.delegate指向野指针造成崩溃
+    if(![[viewController class]isSubclassOfClass:[self class]]) {
+        
+        self.navigationController.delegate=nil;
+        
+    }
+    
+}
+
 
 #pragma mark ------------------ Getter -----------------------
 

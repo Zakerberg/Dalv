@@ -7,6 +7,7 @@
 //   ----------------  线路订单确认支付 -----------------
 
 #import "DLLineOrderConfirmController.h"
+#import "DLLineOrderController.h"
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderConfirmController ()
@@ -30,7 +31,6 @@
 
 /* 付款金额 */
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;
-
 
 //左边判断是全款 , 预付款 , 尾款Label
 @property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
@@ -56,6 +56,9 @@
 
 //keyID
 @property (strong, nonatomic) NSString *keyidStr;
+
+@property(nonatomic,strong) DLLineOrderController * orderVC;
+
 
 @end
 
@@ -89,6 +92,7 @@
 }
 
 #pragma mark ------------- 确认支付 -------------------
+
 - (IBAction)confirmBtnClick:(id)sender {
     
     NSDictionary *param = @{
@@ -98,7 +102,7 @@
                             @"line_id":self.linePayID,
                             @"keyid":self.keyidStr
                             };
-    
+    //全款
     if ([self.BtnType isEqualToString:@"1"]) {
 
     [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
@@ -111,9 +115,11 @@
         }else{
             
             [self.navigationController popViewControllerAnimated:YES];
+            
         }
     }];
         
+        //预付款
     }else if ([self.BtnType isEqualToString:@"2"]){
    
         [DLHomeViewTask getAgencyLineOrderPrePayed:param completion:^(id result, NSError *error) {
@@ -126,9 +132,10 @@
             }else{
                 
                 [self.navigationController popViewControllerAnimated:YES];
+
             }
         }];
-        
+        //尾款
     }else if ([self.BtnType isEqualToString:@"3"]){
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
@@ -141,6 +148,7 @@
             }else{
                 
                 [self.navigationController popViewControllerAnimated:YES];
+                
             }
         }];
     }
