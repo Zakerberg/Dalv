@@ -17,6 +17,8 @@
 #import "DLCalendarViewController.h"
 #import "DLLineOrderController.h"
 #import "AppDelegate.h"
+#import "DLAddReduceButton.h"
+
 
 @interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,DLLineOrderChoiceDateTableViewCellDelegate>
 
@@ -25,6 +27,13 @@
 @property (nonatomic, strong) UILabel *totalOrderLab;//订单总额
 
 @property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;//提交订单模型
+
+@property(nonatomic,strong)DLAddReduceButton *singleRoomButton;
+@property(nonatomic,strong)DLAddReduceButton *adultButton;
+@property(nonatomic,strong)DLAddReduceButton *childButton;
+@property (strong,nonatomic) UITextField *contacsTextField;
+@property (strong,nonatomic) UITextField *tellTextField;
+@property (strong,nonatomic) UITextField *remarksTextField;
 
 @end
 
@@ -146,14 +155,20 @@
     } else if (indexPath.section == 2){
         DLLineOrderTripNumebrTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderTripNumebrTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.adultButton = self.adultButton;
+        cell.childButton = self.childButton;
         return cell;
     } else if (indexPath.section == 3){
         DLLineOrderSingleRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderSingleRoomTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.singleRoomButton = self.singleRoomButton;
         return cell;
     } else {
         DLLineOrderContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderContactsTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.tellTextField = self.tellTextField;
+        cell.contacsTextField = self.contacsTextField;
+        cell.remarksTextField = self.remarksTextField;
         return cell;
     }
     
@@ -237,14 +252,14 @@
         if (buttonIndex == 1) {
             
             NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                                    @"tour_id" : self.routeModel.routeId,
+                                    @"id" : self.routeModel.routeId,
                                     @"sign_token" : [DLUtils getSign_token],
-                                    @"client_adult_count" : @"1",
-                                    @"client_child_count" : @"1",
-                                    @"contact_phone" : @"13126997216",
-                                    @"contact" : @"杨小毛",
-                                    @"hotel_count" : @"1",
-                                    @"memo" : @"没备注",
+                                    @"client_adult_count" : [NSString stringWithFormat:@"%ld",self.adultButton.currentNumber],
+                                    @"client_child_count" : [NSString stringWithFormat:@"%ld",self.childButton.currentNumber],
+                                    @"contact_phone" : self.tellTextField.text,
+                                    @"contact" : self.contacsTextField.text,
+                                    @"hotel_count" : [NSString stringWithFormat:@"%ld",self.singleRoomButton.currentNumber],
+                                    @"memo" : self.remarksTextField.text,
                                     @"start_time" : @"2017-06-26",
                                     };
             [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];

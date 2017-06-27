@@ -121,7 +121,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     pushHomePageBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     pushHomePageBtn.backgroundColor = [UIColor whiteColor];
     [pushHomePageBtn  setTitleColor:[UIColor colorWithHexString:@"#fE603B"] forState:UIControlStateNormal];
-    pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
+    pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,5);
     [self.view addSubview:pushHomePageBtn];
 
     UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(pushHomePageBtn.right+1, SCREEN_HEIGHT-104, SCREEN_WIDTH/4, 40)];
@@ -131,7 +131,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
     [telSonsultationBtn  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     telSonsultationBtn.backgroundColor = [UIColor whiteColor];
-    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
+    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,5);
     [self.view addSubview:telSonsultationBtn];
     
     UIButton *OtherBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2, telSonsultationBtn.y,SCREEN_WIDTH/2, telSonsultationBtn.height)];

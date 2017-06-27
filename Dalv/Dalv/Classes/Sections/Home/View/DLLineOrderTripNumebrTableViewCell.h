@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DLAddReduceButton.h"
 @interface DLLineOrderTripNumebrTableViewCell : UITableViewCell
 
 @property(nonatomic, strong)UIButton *reduceBtn;
@@ -16,7 +16,8 @@
 @property(nonatomic, strong)UIButton *reduceBtn1;
 @property(nonatomic, strong)UITextField *countTextField1;
 @property(nonatomic, strong)UIButton *addBtn1;
-
+@property(nonatomic,strong) DLAddReduceButton * adultButton;
+@property(nonatomic,strong) DLAddReduceButton * childButton;
 /** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
