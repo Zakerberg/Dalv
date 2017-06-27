@@ -20,7 +20,7 @@
 #import "DLAddReduceButton.h"
 
 
-@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,DLLineOrderChoiceDateTableViewCellDelegate>
+@interface DLPlaceOrderViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,DLLineOrderChoiceDateTableViewCellDelegate,DLAddReduceButtonDelegate>
 
 @property (nonatomic, strong) UITableView *homeTableView;
 
@@ -28,13 +28,12 @@
 
 @property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;//提交订单模型
 
-@property(nonatomic,strong)DLAddReduceButton *singleRoomButton;
-@property(nonatomic,strong)DLAddReduceButton *adultButton;
-@property(nonatomic,strong)DLAddReduceButton *childButton;
-@property (strong,nonatomic) UITextField *contacsTextField;
-@property (strong,nonatomic) UITextField *tellTextField;
-@property (strong,nonatomic) UITextField *remarksTextField;
-
+@property (nonatomic, strong) DLAddReduceButton *singleRoomButton;
+@property (nonatomic, strong) DLAddReduceButton *adultButton;
+@property (nonatomic, strong) DLAddReduceButton *childButton;
+@property (nonatomic, strong) UITextField *contacsTextField;
+@property (nonatomic, strong) UITextField *tellTextField;
+@property (nonatomic, strong) UITextField *remarksTextField;
 @end
 
 @implementation DLPlaceOrderViewController
@@ -108,6 +107,7 @@
     totalOrderLab.text = @"    订单总额：¥4999";
     totalOrderLab.backgroundColor = [UIColor whiteColor];
     [bottomView addSubview:totalOrderLab];
+    self.totalOrderLab = totalOrderLab;
     
     [totalOrderLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bottomView);
@@ -132,6 +132,9 @@
     
     
 }
+
+#pragma mark - UITableViewDelegate,UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
@@ -155,20 +158,23 @@
     } else if (indexPath.section == 2){
         DLLineOrderTripNumebrTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderTripNumebrTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.adultButton = self.adultButton;
-        cell.childButton = self.childButton;
+        self.adultButton = cell.adultButton;
+        self.childButton = cell.childButton;
+        self.adultButton.delegate = self;
+        self.childButton.delegate = self;
         return cell;
     } else if (indexPath.section == 3){
         DLLineOrderSingleRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderSingleRoomTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.singleRoomButton = self.singleRoomButton;
+        self.singleRoomButton = cell.singleRoomButton;
+        self.singleRoomButton.delegate = self;
         return cell;
     } else {
         DLLineOrderContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineOrderContactsTableViewCell cellIdentifier]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.tellTextField = self.tellTextField;
-        cell.contacsTextField = self.contacsTextField;
-        cell.remarksTextField = self.remarksTextField;
+        self.tellTextField = cell.tellTextField;
+        self.contacsTextField = cell.contacsTextField;
+        self.remarksTextField = cell.remarksTextField;
         return cell;
     }
     
@@ -210,6 +216,21 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - DLAddReduceButtonDelegate
+
+- (void)pp_numberButton:(__kindof UIView *)numberButton number:(NSInteger)number increaseStatus:(BOOL)increaseStatus {
+    
+    if (numberButton == self.adultButton) {
+        NSLog(@"成人%ld",number);
+    } else if (numberButton == self.childButton){
+        NSLog(@"儿童%ld",number);
+    } else {
+        NSLog(@"单房差%ld",number);
+    }
+    self.totalOrderLab.text = @"    总额有变化";
+}
+
+
 - (void)fetchData {
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
@@ -218,22 +239,22 @@
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
     @weakify(self);
     [DLHomeViewTask getAgencyOrderInfo:param completion:^(id result, NSError *error) {
-    @strongify(self);
-    [[DLHUDManager sharedInstance] hiddenHUD];
-    if (result) {
-        self.lineOrderoModel = [DLPlaceLineOrderModel mj_objectWithKeyValues:result];
-        [self.homeTableView reloadData];
-    } else {
-        [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-    }
+        @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            self.lineOrderoModel = [DLPlaceLineOrderModel mj_objectWithKeyValues:result];
+            [self.homeTableView reloadData];
+            self.totalOrderLab.text = [NSString stringWithFormat:@"    订单总额：¥%@",self.lineOrderoModel.list.price_adult_agency];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
     }];
-
+    
 }
 
 #pragma mark - Event Handler
 
-- (void)orderSelectDateViewDelegate:(UITapGestureRecognizer *)tapdate
-{
+- (void)orderSelectDateViewDelegate:(UITapGestureRecognizer *)tapdate{
     NSLog(@"点击了选择日期");
     DLCalendarViewController *calendarViewController = [[DLCalendarViewController alloc] init];
     [self.navigationController pushViewController:calendarViewController animated:YES];
@@ -246,10 +267,23 @@
     [placeOrderAlert show];
 }
 
-#pragma mark -UIAlertViewDelegate
+#pragma mark - UIAlertViewDelegate
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 45){
         if (buttonIndex == 1) {
+            if (self.adultButton.currentNumber == 0 && self.childButton.currentNumber == 0) {
+                [[DLHUDManager sharedInstance]showTextOnly:@"至少选择一个出行人哦"];
+                return;
+            }
+            if ([NSString isBlank: self.contacsTextField.text]) {
+                [[DLHUDManager sharedInstance]showTextOnly:@"请填写联系人"];
+                return;
+            }
+            if ([NSString isBlank: self.tellTextField.text]) {
+                [[DLHUDManager sharedInstance]showTextOnly:@"请填写联系人手机号"];
+                return;
+            }
             
             NSDictionary *param = @{@"uid" : [DLUtils getUid],
                                     @"id" : self.routeModel.routeId,
@@ -259,7 +293,7 @@
                                     @"contact_phone" : self.tellTextField.text,
                                     @"contact" : self.contacsTextField.text,
                                     @"hotel_count" : [NSString stringWithFormat:@"%ld",self.singleRoomButton.currentNumber],
-                                    @"memo" : self.remarksTextField.text,
+                                    @"memo" : self.remarksTextField.text ? : @"",
                                     @"start_time" : @"2017-06-26",
                                     };
             [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
@@ -275,7 +309,7 @@
                     [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
                 }
             }];
-
+            
         }
     }
 }
