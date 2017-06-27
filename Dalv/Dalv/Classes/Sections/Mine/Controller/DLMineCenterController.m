@@ -300,7 +300,7 @@ static NSString *cellID  = @"cellID";
         }
     }
     if(indexPath.row == 2){
-        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+        cell.imageView.image = [UIImage imageNamed:@"universal_property"];
         cell.textLabel.text = @"通用";
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

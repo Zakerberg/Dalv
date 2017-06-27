@@ -345,7 +345,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 - (UIView *)performanceView {
     if (_performanceView == nil) {
         _performanceView = [[UIImageView  alloc] init];
-        _performanceView.image = [UIImage imageNamed:@"mine_theme"];
+        _performanceView.image = [UIImage imageNamed:@"backImage"];
         
         UIImageView *headImageView = [[UIImageView alloc] init];
         [self.performanceView addSubview:headImageView];
