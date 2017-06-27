@@ -25,4 +25,6 @@
 
 /** 配置Cell 数据 */
 - (void)configureFinanceCell:(DLFinanceMenuItem *)data;
+
+@property (nonatomic, strong) DLHomeMenuItem *homeMenuItem;
 @end
