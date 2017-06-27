@@ -42,6 +42,8 @@ static NSString *nibCellID = @"nibCellID";
 
 @implementation DLLineOrderController
 
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -70,9 +72,14 @@ static NSString *nibCellID = @"nibCellID";
     return YES;
 }
 
-//-(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
 //    [self viewDidLoad];
-//}
+    [super viewWillAppear:animated];
+    self.lineOrderList = [NSMutableArray array];
+    self.pageIndex=1;
+    [self fetchData];
+//    [self updateView];
+}
 
 -(void)payFullMoeyNoti:(NSNotification *)notification
 
@@ -139,6 +146,7 @@ static NSString *nibCellID = @"nibCellID";
 #pragma mark ------------- fetchData --------------
 
 - (void)fetchNewData {
+    self.lineOrderList = [NSMutableArray array];
     self.pageIndex=1;
     [self fetchData];
     
@@ -164,7 +172,8 @@ static NSString *nibCellID = @"nibCellID";
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
-            [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:self.lineOrderList.count error:error];
+            [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
+            [self.lineOrderTableView reloadData];
             [self updateView];
         }
     }];
@@ -235,13 +244,13 @@ static NSString *nibCellID = @"nibCellID";
 
 #pragma mark ------------------ Getter -----------------------
 
--(NSMutableArray *)lineOrderList {
-    
-    if (_lineOrderList == nil) {
-        
-        _lineOrderList = [[NSMutableArray alloc] init];
-    }
-    return _lineOrderList;
-}
+//-(NSMutableArray *)lineOrderList {
+//    
+//    if (_lineOrderList == nil) {
+//        
+//        _lineOrderList = [[NSMutableArray alloc] init];
+//    }
+//    return _lineOrderList;
+//}
 
 @end
