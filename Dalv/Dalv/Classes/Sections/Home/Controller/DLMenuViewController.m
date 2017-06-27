@@ -19,7 +19,8 @@
 
 @property (nonatomic, strong) NSArray *apps;
 
-@property (nonatomic, strong) DLHomeMenuItem *linetype;
+@property (nonatomic, strong) DLHomeMenuItem *columnList;
+
 
 
 @end
@@ -84,7 +85,6 @@
         DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
         self.apps = homePageMenuModel.columnList;
         [self.appCollectionView reloadData];
-        
         if (self.didCompleteLoad) {
             self.didCompleteLoad(homePageMenuModel);
         }
@@ -110,10 +110,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
+    if ([self.columnList.type isEqualToString:@"5"] || [self.columnList.type isEqualToString:@"6"] ||[self.columnList.type isEqualToString:@"7"]) {
+        [[DLHUDManager sharedInstance]showTextOnly:@"攻城狮正在拼命开发中 敬请期待"];
+        } else {
+
     DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
     linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:linetourVC animated:YES];
+   }
 }
 
 
