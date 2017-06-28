@@ -43,6 +43,7 @@
 
 //@property(nonatomic,weak) DLMineXibViewCell *xibCell;
 
+
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
 @property (nonatomic,strong) UITableView *tableView;
@@ -154,6 +155,15 @@ static NSString *cellID  = @"cellID";
     NSMutableDictionary *parement = [NSMutableDictionary dictionary];
     [parement setValue:self.phoneTextFiled.text forKey:@"phone"];
     [DLRequestSerVice POST:DL_consultGetCode param:parement success:^(id responseData) {
+        
+        if ([responseData[@"status"] isEqualToString:@"00020"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+
+         [self.navigationController popViewControllerAnimated:YES];
+        }
+        
     } failure:^(NSError *error) {
     }];
     
@@ -325,12 +335,29 @@ static NSString *cellID  = @"cellID";
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                 
+                if ([responseData[@"status"] isEqualToString:@"00018"]) {
+                    
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        
+                  [alert show];
+ 
+                }else if ([responseData[@"status"] isEqualToString: @"00020"]){
+                    
+                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+         
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }else{
+                
                     //NSLog(@"注册成功!");
                     [self.navigationController popViewControllerAnimated:YES];
                     UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                     [successV show];
-                    
+                }
                 
+               
             } failure:^(NSError *error) {
                 // 在此写提示框
                 UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -351,11 +378,29 @@ static NSString *cellID  = @"cellID";
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
                 
+                if ([responseData[@"status"] isEqualToString:@"00018"]) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+                    
+                }else if ([responseData[@"status"] isEqualToString: @"00020"]){
+                    
+                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    
+                    [alert show];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }else{
+
                 //NSLog(@"注册成功!");
                 [self.navigationController popViewControllerAnimated:YES];
                 
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
+              
+                }
                 
             } failure:^(NSError *error) {
                 
