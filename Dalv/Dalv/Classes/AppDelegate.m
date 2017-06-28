@@ -45,7 +45,7 @@
          
     
 #if DEBUG
-    [[FLEXManager sharedManager] showExplorer];
+//    [[FLEXManager sharedManager] showExplorer];
 #endif
     }
     
