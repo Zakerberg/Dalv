@@ -318,8 +318,21 @@ static NSString *cellID  = @"cellID";
             
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入验证码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
+        }else if ([self.determinePasswordTF.text isEqualToString:@""]){
             
-        }else {
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入确认密码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
+        }
+        
+//        else if ([self.passwordTF.text isEqualToString:self.determinePasswordTF.text] == NO){
+//            
+//            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+//            [alertV show];
+//            
+//        }
+        
+        else {
         
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
             
@@ -410,7 +423,6 @@ static NSString *cellID  = @"cellID";
 
                 
                 /*
-                 
                  if (self.nameTF.text == nil) {
                  // 在此写提示框
                  UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写名字" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -440,7 +452,6 @@ static NSString *cellID  = @"cellID";
         }
     }
     
-
     /*
      手机号匹配
      判断密码是否为空
