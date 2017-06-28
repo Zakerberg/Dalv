@@ -108,3 +108,118 @@
 // */
 //
 //@end
+
+
+
+
+
+/*
+ 
+ 
+ 
+ if(self.nameTF == nil){
+ 
+ 
+ }else if (self.phoneTF.text == nil){
+ 
+ 
+ }else if (self.passCode.text == nil){
+ 
+ }else if(self.passWord.text == nil){
+ 
+ 
+ }else {
+ 
+ 
+ if(self.changeCityBtn isEqualToString @""){
+ 
+ 
+ param2
+ 
+ }else  if (self.changeCityBtn isEqualToString @""){
+ 
+ param
+ 
+   }else{
+ 
+    注册失败,联系客服!
+ 
+ 
+ }
+
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
