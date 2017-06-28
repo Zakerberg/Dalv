@@ -12,5 +12,6 @@
 @property (nonatomic, copy) NSString *day;                ///当前天
 @property (nonatomic, assign, getter=isSelect) BOOL Select; ///是否选中
 @property (nonatomic, copy) NSString *subTitle;           ///当前存放任务
+@property (nonatomic, copy) NSString *adultTitle;           ///当前存放任务
 
 @end

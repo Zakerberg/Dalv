@@ -176,7 +176,7 @@
 {
     if (alertView.tag == 81){
         if (buttonIndex == 1) {
-        if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15701189832"]] ){
+        if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://010-85625636"]] ){
                 [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
             }
         }

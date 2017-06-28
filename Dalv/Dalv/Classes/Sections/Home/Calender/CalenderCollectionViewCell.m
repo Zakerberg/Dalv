@@ -23,25 +23,36 @@
 #pragma mark - 创建cell视图
 
 - (void)setupSubviews {
-    float width = CGRectGetWidth(self.frame) - 15;
-    float originY = (CGRectGetHeight(self.frame) - width) / 2.0;
+//    float width = CGRectGetWidth(self.frame) - 15;
+//    float originY = (CGRectGetHeight(self.frame) - width) / 2.0;
     
-    self.numButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.numButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
-    self.numButton.frame = CGRectMake(1, 10, 40, 17);
-    self.numButton.layer.masksToBounds = YES;
-    [self.numButton setTitle:@"18" forState:UIControlStateNormal];
-    self.numButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
-    [self.numButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.numButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:self.numButton];
+    self.priceAdultButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.priceAdultButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
+    self.priceAdultButton.frame = CGRectMake(1, 18, 40, 17);
+    self.priceAdultButton.layer.masksToBounds = YES;
+    [self.priceAdultButton setTitle:@"18" forState:UIControlStateNormal];
+    self.priceAdultButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
+    [self.priceAdultButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.priceAdultButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.priceAdultButton];
+    
+    self.priceChildButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.priceChildButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
+    self.priceChildButton.frame = CGRectMake(1, 37, 40, 17);
+    self.priceChildButton.layer.masksToBounds = YES;
+    [self.priceChildButton setTitle:@"18" forState:UIControlStateNormal];
+    self.priceChildButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
+    [self.priceChildButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.priceChildButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.priceChildButton];
+
     
     self.calenderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.calenderBtn setBackgroundImage:[UIImage imageNamed:@"dl_calender_selected_bg"] forState:UIControlStateSelected];
     [self.calenderBtn setBackgroundImage:[UIImage imageNamed:@"dl_calender_selected_bg"] forState:UIControlStateHighlighted];
     [self.calenderBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.calenderBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    self.calenderBtn.frame = CGRectMake(1, originY, 40, 40);
+    self.calenderBtn.frame = CGRectMake(1, -10, 40, 40);
     [self.calenderBtn addTarget:self action:@selector(selectNumCalender:) forControlEvents:UIControlEventTouchDown];
     [self.calenderBtn addTarget:self action:@selector(selectNumCalenderTouchCancel:) forControlEvents:UIControlEventTouchUpInside];
     [self.calenderBtn addTarget:self action:@selector(selectNumCalenderDragExit:) forControlEvents:UIControlEventTouchDragExit | UIControlEventTouchDragOutside | UIControlEventTouchCancel];
@@ -57,12 +68,17 @@
     CalenderModel *model = [[CalenderModel alloc] init];
     NSInteger interger = [source.day integerValue];
     NSInteger remindNum = [source.subTitle integerValue];
+    NSInteger adultremindNum = [source.adultTitle integerValue];
+
+
     if (interger <= 0) {
         self.calenderBtn.hidden = YES;
-        self.numButton.hidden = YES;
+        self.priceAdultButton.hidden = YES;
+        self.priceChildButton.hidden = YES;
     } else {
         self.calenderBtn.hidden = NO;
-        self.numButton.hidden = NO;
+        self.priceAdultButton.hidden = NO;
+        self.priceChildButton.hidden = YES;
     }
     if (obj.year == [[model getCurrentYear] integerValue] && obj.month == [[model getCurrentMonth] integerValue] && interger == [[model getCurrentDay] integerValue]) {
         [self.calenderBtn setTitle:[NSString stringWithFormat:@"今日"] forState:UIControlStateNormal];
@@ -79,13 +95,22 @@
     }
     
     if (remindNum > 0) {
-        [self.numButton setTitle:[NSString stringWithFormat:@"¥%ld",remindNum/100] forState:UIControlStateNormal];
-        self.numButton.tag = 1;
-        self.numButton.layer.cornerRadius = CGRectGetHeight(self.numButton.frame) / 2.0;
-        self.numButton.hidden = NO;
+        [self.priceAdultButton setTitle:[NSString stringWithFormat:@"¥%ld",remindNum/100] forState:UIControlStateNormal];
+        self.priceAdultButton.tag = 1;
+        self.priceAdultButton.layer.cornerRadius = CGRectGetHeight(self.priceAdultButton.frame) / 2.0;
+        self.priceAdultButton.hidden = NO;
+        
+        [self.priceChildButton setTitle:[NSString stringWithFormat:@"¥%ld",adultremindNum/100] forState:UIControlStateNormal];
+        self.priceChildButton.tag = 1;
+        self.priceChildButton.layer.cornerRadius = CGRectGetHeight(self.priceChildButton.frame) / 2.0;
+        self.priceChildButton.hidden = NO;
+
     } else {
-        self.numButton.tag = 10;
-        self.numButton.hidden = YES;
+        self.priceAdultButton.tag = 10;
+        self.priceAdultButton.hidden = YES;
+        
+        self.priceChildButton.tag = 20;
+        self.priceChildButton.hidden = YES;
     }
 }
 
@@ -97,17 +122,21 @@
     if ([self.delegate respondsToSelector:@selector(clickDayIndex:)]) {
         [self.delegate clickDayIndex:_temIndex];
     }
-    [self.numButton setHidden:YES];
+    [self.priceAdultButton setHidden:YES];
+    [self.priceChildButton setHidden:YES];
+
 }
 
 - (void)selectNumCalenderTouchCancel:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(clickTouchCancelIndex:)]) {
         [self.delegate clickTouchCancelIndex:_temIndex];
     }
-    if (self.numButton.tag == 10) {
-        [self.numButton setHidden:YES];
+    if (self.priceAdultButton.tag == 10  && self.priceChildButton.tag == 20)  {
+        [self.priceAdultButton setHidden:YES];
+        [self.priceChildButton setHidden:YES];
     } else {
-        [self.numButton setHidden:NO];
+        [self.priceAdultButton setHidden:NO];
+        [self.priceChildButton setHidden:NO];
     }
     
     [self.calenderBtn setSelected:NO];
@@ -117,10 +146,12 @@
     if ([self.delegate respondsToSelector:@selector(clickTouchCancelDragExit:)]) {
         [self.delegate clickTouchCancelDragExit:_temIndex];
     }
-    if (self.numButton.tag == 10) {
-        [self.numButton setHidden:YES];
+    if (self.priceAdultButton.tag == 10  && self.priceChildButton.tag == 20) {
+        [self.priceAdultButton setHidden:YES];
+        [self.priceChildButton setHidden:YES];
     } else {
-        [self.numButton setHidden:NO];
+        [self.priceAdultButton setHidden:NO];
+        [self.priceChildButton setHidden:NO];
     }
     
     [self.calenderBtn setSelected:NO];

@@ -15,6 +15,9 @@ extern NSString *const kUserlogoutNotification;
 //登录成功
 extern NSString *const kUserlogInNotification;
 
+//提现成功发送通知
+extern NSString *const kFianceNotification;
+
 
 //
 extern NSString *const KCustomerloginNoti;

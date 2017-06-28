@@ -50,21 +50,21 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.translucent = NO;
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
-
+    //    self.navigationController.navigationBar.translucent = NO;
+    //    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    //    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 #pragma mark - Setup navbar
 
 
 - (void)setupNavbar {
- 
+    
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.ms_width, 44)];
     self.searchBar.placeholder = @"请输入商品名称";
     self.searchBar.delegate = self;
@@ -138,7 +138,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.appCenterViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
-     } else if (indexPath.section == 2) {
+    } else if (indexPath.section == 2) {
         [cell.contentView addSubview:self.hotTopicViewController.view];
         [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
@@ -154,7 +154,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         
         UIView *flagView = [[UIView alloc] init];
         [headerView.contentView addSubview:flagView];
-
+        
         UIView *leftline = [[UIView alloc]init];
         leftline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
         [flagView  addSubview:leftline];
@@ -236,16 +236,16 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-//    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
-//    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
-//    [self presentViewController:navbar animated:NO completion:nil];
-//    return NO;
+    //    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
+    //    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
+    //    [self presentViewController:navbar animated:NO completion:nil];
+    //    return NO;
     
     // 1. 创建热门搜索数组
     NSArray *hotSeaches = @[@"北京", @"天津", @"石家庄", @"唐山"];
     // 2. 创建搜索控制器
     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"搜索出发城市和目的地" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-    
+        
         // 开始(点击)搜索时执行以下代码
         // 如：跳转到指定控制器
         [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
@@ -263,9 +263,9 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     // 隐藏搜索建议
     searchViewController.searchSuggestionHidden = YES;
-
-        return NO;
-
+    
+    return NO;
+    
 }
 
 //- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
@@ -288,26 +288,26 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
-//        NSDictionary *param = @{@"login_name" : @"13126997215",
-//                                @"login_pwd" : @"654321",};
-//        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
-//            }];
-
+    //        NSDictionary *param = @{@"login_name" : @"13126997215",
+    //                                @"login_pwd" : @"654321",};
+    //        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
+    //            }];
+    
 }
 
 #pragma mark - Event Handler
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
-    if (!self.popMenuView) {
-        NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
-        self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
-        self.popMenuView.clickedBlock = ^(NSInteger index){
-            NSLog(@"选中了++++++ %@",cityArray[index]);
-        };
-        [self.view addSubview:self.popMenuView];
-     } else {
-        self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
-     }
+//    if (!self.popMenuView) {
+//        NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
+//        self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
+//        self.popMenuView.clickedBlock = ^(NSInteger index){
+//            NSLog(@"选中了++++++ %@",cityArray[index]);
+//        };
+//        [self.view addSubview:self.popMenuView];
+//    } else {
+//        self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
+//    }
     
 }
 
@@ -322,7 +322,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             self.homePageModel = homePageMenuModel;
             [self refreshPerformanceView];
             [self.homeTableView reloadData];
-
+            
         }];
         [self addChildViewController:_appCenterViewController];
     }
@@ -364,20 +364,20 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         mobilelab.font = [UIFont systemFontOfSize:16];
         [self.performanceView addSubview:mobilelab];
         self.mobilelab = mobilelab;
-      
+        
         [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@20);
             make.left.equalTo(@15);
             make.height.equalTo(@60);
             make.width.equalTo(@60);
-
+            
         }];
         
         [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@20);
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);
-            make.width.equalTo(@100);
+            make.width.equalTo(@150);
             
         }];
         
@@ -385,11 +385,11 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.top.equalTo(_namelab.mas_bottom);
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);
-            make.width.equalTo(@100);
+            make.width.equalTo(@150);
             
         }];
-
-      }
+        
+    }
     return _performanceView;
 }
 

@@ -287,7 +287,9 @@
                 
                 DLCashRegisterViewController *cashRegVC = [[DLCashRegisterViewController alloc]init];
                 [self.navigationController pushViewController:cashRegVC animated:YES];
-            }else {
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kFianceNotification object:nil];
+             }else {
                 [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
             }
         }];

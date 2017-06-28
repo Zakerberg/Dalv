@@ -107,6 +107,7 @@
                 source.day = day;
                 source.Select = NO;
                 source.subTitle = @"0";
+                source.adultTitle = @"0";
                 [object.allDate addObject:source];
             }
             [_allDate addObject:object];
@@ -164,6 +165,7 @@
                             NSUInteger integer = [str integerValue] +object.weekDay-2;
                             CalendarDateSource *source = array1[integer];
                             source.subTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_agency];
+                            source.adultTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_list];
                             [array1 replaceObjectAtIndex:integer withObject:source];
                         }
                         object.allDate = array1;
@@ -313,22 +315,22 @@
  *  创建选择点击事件的视图（弹出框）
  */
 - (void)buildSelectCalendarView {
-    _imageViewSelect = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dl_calender_selected_bubble"]];
-    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(_imageViewSelect.frame), 13)];
-    lable.text = @"条消息";
-    lable.textAlignment = NSTextAlignmentCenter;
-    lable.font = [UIFont systemFontOfSize:12];
-    lable.textColor = [UIColor whiteColor];
-    [_imageViewSelect addSubview:lable];
-    
-    _numLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 2, CGRectGetWidth(_imageViewSelect.frame), 17)];
-    _numLable.text = @"22";
-    _numLable.textAlignment = NSTextAlignmentCenter;
-    _numLable.font = [UIFont systemFontOfSize:16];
-    _numLable.textColor = [UIColor whiteColor];
-    
-    [_imageViewSelect addSubview:_numLable];
-    [_collectionView addSubview:_imageViewSelect];
+//    _imageViewSelect = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dl_calender_selected_bubble"]];
+//    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(_imageViewSelect.frame), 13)];
+//    lable.text = @"条消息";
+//    lable.textAlignment = NSTextAlignmentCenter;
+//    lable.font = [UIFont systemFontOfSize:12];
+//    lable.textColor = [UIColor whiteColor];
+//    [_imageViewSelect addSubview:lable];
+//    
+//    _numLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 2, CGRectGetWidth(_imageViewSelect.frame), 17)];
+//    _numLable.text = @"22";
+//    _numLable.textAlignment = NSTextAlignmentCenter;
+//    _numLable.font = [UIFont systemFontOfSize:16];
+//    _numLable.textColor = [UIColor whiteColor];
+//    
+//    [_imageViewSelect addSubview:_numLable];
+//    [_collectionView addSubview:_imageViewSelect];
 }
 
 @end

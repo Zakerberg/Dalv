@@ -57,7 +57,7 @@
     datelab.textColor = [UIColor colorWithHexString:@"a4a4a4"];
     datelab.textAlignment = NSTextAlignmentRight;
     datelab.font = [UIFont systemFontOfSize:16];
-    datelab.text = @"2017-05-23";
+    datelab.text = @"选择出团日期";
     self.datelab = datelab;
     [_lineOrderChoiceBackView addSubview:datelab];
     

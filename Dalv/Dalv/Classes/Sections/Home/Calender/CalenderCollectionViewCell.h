@@ -17,9 +17,15 @@
 @property (nonatomic, strong) UIButton *calenderBtn;
 
 /**
- *  日历上有多少拜访的用户
+ *  日历上的建议价
  */
-@property (nonatomic, strong) UIButton *numButton;
+@property (nonatomic, strong) UIButton *priceAdultButton;
+
+/**
+ *  日历上的销售价
+ */
+@property (nonatomic, strong) UIButton *priceChildButton;
+
 
 /**
  *  临时的index

@@ -27,6 +27,9 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 @property (nonatomic, strong) NSArray *apps;
 
 @property (nonatomic,strong) NSMutableDictionary *fianceDict;
+@property (nonatomic,strong) UILabel *totalPriceLabel;
+@property (nonatomic,strong) UILabel *blockedPriceLabel;
+@property (nonatomic,strong) UILabel *availablePriceLabel;
 
 @end
 
@@ -41,6 +44,12 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refershfiance)
+                                                 name:kFianceNotification
+                                               object:nil];
+
 }
 
 #pragma mark - Setup navbar
@@ -205,6 +214,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         totalPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         totalPriceLabel.font = [UIFont systemFontOfSize:26];
         [hotTopicHeaderView addSubview:totalPriceLabel];
+        self.totalPriceLabel = totalPriceLabel;
         if (self.fianceDict) {
             totalPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"account_balance"] integerValue]/100.00];
         }
@@ -225,6 +235,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         blockedPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         blockedPriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:blockedPriceLabel];
+        self.blockedPriceLabel = blockedPriceLabel;
         if (self.fianceDict) {
             blockedPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"freezeMoney"]integerValue]/100.00];
         }
@@ -247,6 +258,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         availablePriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         availablePriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:availablePriceLabel];
+        self.availablePriceLabel = availablePriceLabel;
         if (self.fianceDict) {
             availablePriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"availableBalance"]integerValue]/100.00];
         }
@@ -335,5 +347,11 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 
 #pragma mark - Getter
 
+- (void)refershfiance {
+    self.totalPriceLabel.text = @"";
+    self.blockedPriceLabel.text = @"";
+    self.availablePriceLabel.text = @"";
+    [self fetchData];
+}
 
 @end

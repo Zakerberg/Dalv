@@ -79,12 +79,11 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
     [self fetchData];
 }
 - (void)fetchData {
-    
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+      NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"page" : @(self.pageIndex),
-                            @"type" : @"1",
-                            @"id" : @"4462",
+                            @"type" : self.type,
+                            @"id" : self.routeModel.routeId ,
 
                             };
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
@@ -92,7 +91,9 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
             NSArray *lineDestinationViewArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.lineDestinationViewList removeAllObjects];
+            if (self.pageIndex == 1) {
+                [self.lineDestinationViewList removeAllObjects];
+            }
             [_lineDestinationViewList addObjectsFromArray:lineDestinationViewArray];
             [self.lineDestinationCollectionView reloadData];
             
@@ -162,6 +163,9 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (self.lineDestinationViewList.count == 0 ) {
+        return CGSizeMake(0, 0);
+    }
     return CGSizeMake(self.view.ms_width, 50.0f);
 }
 
