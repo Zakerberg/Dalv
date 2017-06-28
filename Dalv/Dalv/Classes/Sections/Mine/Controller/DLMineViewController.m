@@ -15,7 +15,7 @@
 #import "DLMineViewCell.h"
 #import "DLMineXibViewCell.h"
 */
-@interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 //***  姓名  ***
 @property (weak,nonatomic) UITextField *nameTF;
@@ -58,6 +58,7 @@ static NSString *cellID  = @"cellID";
     [self setTableView];
     [self setupHeaderView];
     [self setupRegisterBtn];
+    
 }
 
 -(void)setupUI {
@@ -129,8 +130,7 @@ static NSString *cellID  = @"cellID";
         make.top.left.width.offset(0);
         make.width.offset(34);
     }];
-    
-    
+
 }
 
 #pragma mark ----- 此处后期要处理 -----
@@ -374,6 +374,17 @@ static NSString *cellID  = @"cellID";
     [hud hide:YES afterDelay:2];
 }
 
+-(BOOL)isNumberOrLetter:(NSString *)num {
+    
+    NSString *numberOrLetter = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:numberOrLetter] invertedSet];
+    NSString *filtered = [[num componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    BOOL basic = [num isEqualToString:filtered];
+   
+    return basic;
+
+}
+
 
 #pragma mark  ----------UITable View Delegate---------------
 
@@ -528,6 +539,8 @@ static NSString *cellID  = @"cellID";
         
         self.passwordTF = passwordTF;
         passwordTF.placeholder = @"输入密码";
+        passwordTF.delegate = self;
+        passwordTF.secureTextEntry = YES;
         [tableView addSubview:passwordTF];
         
         
@@ -547,6 +560,7 @@ static NSString *cellID  = @"cellID";
         
         self.determinePasswordTF = determinePasswordTF;
         determinePasswordTF.placeholder = @"确认密码";
+        determinePasswordTF.secureTextEntry = YES;
         [tableView addSubview:determinePasswordTF];
         
         [determinePasswordTF mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -596,7 +610,7 @@ static NSString *cellID  = @"cellID";
     }
     
     self.cell.textLabel.text = selectedTitle;
-    //    self.changeCityBtn.titleLabel.text = selectedTitle;
+    //self.changeCityBtn.titleLabel.text = selectedTitle;
     self.cell.textLabel.textColor = [UIColor blackColor];
     
 }
@@ -618,4 +632,27 @@ static NSString *cellID  = @"cellID";
     return _alertView;
 }
 
+#pragma mark  ----------UITextViewDelegate------------
+
+//UITextField代理方法，是否允许输入
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string
+{
+
+    NSInteger existedLength = textField.text.length;
+    NSInteger selectedLength = range.length;
+    NSInteger replaceLength = string.length;
+
+    if (textField == self.passwordTF){
+        if (![self isNumberOrLetter:string]){
+            [SVProgressHUD showInfoWithStatus:@"密码只能为数字或字母"];
+            return NO;
+        }
+    }
+    
+    if (existedLength - selectedLength + replaceLength > 6) {
+        [textField.undoManager removeAllActions];
+    }
+    
+    return YES;
+}
 @end

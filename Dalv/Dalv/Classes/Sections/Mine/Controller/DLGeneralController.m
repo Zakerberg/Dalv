@@ -94,7 +94,7 @@ static NSString *cellID  = @"cellID";
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
-        //        self.tabBarController.selectedIndex = 0;
+        //self.tabBarController.selectedIndex = 0;
         DLIdentitySelectionLoginViewController *VC = [[DLIdentitySelectionLoginViewController alloc] init];
         [self presentViewController:VC animated:YES completion:nil];
         

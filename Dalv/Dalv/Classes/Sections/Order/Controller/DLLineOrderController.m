@@ -29,10 +29,8 @@
 ///* 订单价格(应付金额) */
 //@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
 ///* 订单状态 */
-
 @property (weak, nonatomic)  UILabel *lineOrderStateLabel;
 @property (nonatomic, assign) NSInteger pageIndex;
-
 @end
 
 
@@ -42,25 +40,17 @@ static NSString *nibCellID = @"nibCellID";
 
 @implementation DLLineOrderController
 
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-//
-//    if (self.lineOrderTableView) {
-//        
-//        [self.lineOrderTableView removeFromSuperview];
-//
-//    }
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
-    self.title = @"线路订单";
+    self.title = @"订单";
     [self setTableView];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
-//  self.navigationController.delegate = self;
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
@@ -73,7 +63,6 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-//    [self viewDidLoad];
     [super viewWillAppear:animated];
     self.lineOrderList = [NSMutableArray array];
     self.pageIndex=1;
@@ -149,21 +138,21 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderList = [NSMutableArray array];
     self.pageIndex=1;
     [self fetchData];
-    
 }
 
 - (void)fetchMoreData {
     self.pageIndex++;
     [self fetchData];
-    
 }
 
 -(void)fetchData{
     
     NSDictionary *param = @{
+                            
                             @"uid":[DLUtils getUid],
                             @"page": @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],
+                            
                             };
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
@@ -171,6 +160,7 @@ static NSString *nibCellID = @"nibCellID";
         if (result) {
             
             NSArray *lineOrderArray = [DLlineOrderModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            
             [self.lineOrderList addObjectsFromArray:lineOrderArray];
             [self.lineOrderTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
             [self.lineOrderTableView reloadData];
@@ -192,8 +182,6 @@ static NSString *nibCellID = @"nibCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-    
-//    self.lineOrderStateLabel = cell.lineOrderStateLabel;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
@@ -223,34 +211,5 @@ static NSString *nibCellID = @"nibCellID";
     [self.navigationController pushViewController:lineXIBvc animated:YES];
 }
 
-#pragma mark -------- UINavigationControllerDelegate --------
-
-//- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
-//    
-//    if([[viewController class] isSubclassOfClass:[DLLineOrderController class]]) {
-//        
-//        ///执行刷新操作
-//        [self updateView];
-//    }
-//    
-//    ///删除代理，防止该controller销毁后引起navigationController.delegate指向野指针造成崩溃
-//    if(![[viewController class] isSubclassOfClass:[self class]]) {
-//        
-//        self.navigationController.delegate = nil;
-//        
-//    }
-//}
-
-
-#pragma mark ------------------ Getter -----------------------
-
-//-(NSMutableArray *)lineOrderList {
-//    
-//    if (_lineOrderList == nil) {
-//        
-//        _lineOrderList = [[NSMutableArray alloc] init];
-//    }
-//    return _lineOrderList;
-//}
 
 @end

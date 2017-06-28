@@ -41,7 +41,7 @@
 
 -(void)setUI {
 
-    self.title = @"订单";
+    self.title = @"线路订单";
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
     
