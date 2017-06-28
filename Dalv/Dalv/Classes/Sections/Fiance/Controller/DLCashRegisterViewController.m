@@ -97,7 +97,7 @@
          if (error) {
             [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
         } else {
-            if (self.pageIndex == 0) {
+            if (self.pageIndex == 1) {
                 [self.cashRegisterList removeAllObjects];
             }
             NSArray *cashRegisterArray = [DLCashRegisterModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
