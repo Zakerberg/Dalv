@@ -13,3 +13,5 @@ NSString *const kUserlogoutNotification = @"userlogoutNotification";
 NSString *const kUserlogInNotification = @"kUserlogInNotification";
 
 NSString *const KCustomerloginNoti = @"KCustomerloginNoti";
+
+NSString *const kFianceNotification = @"kFianceNotification";

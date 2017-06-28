@@ -37,7 +37,7 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
-    }
+}
 
 #pragma mark - Setup navbar
 - (BOOL)dl_blueNavbar {
@@ -100,7 +100,9 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
             NSArray *lineTourViewArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.lineTourViewList removeAllObjects];
+            if (self.pageIndex == 1) {
+                [self.lineTourViewList removeAllObjects];
+            }
             [_lineTourViewList addObjectsFromArray:lineTourViewArray];
             [self.lineTourViewCollectionView reloadData];
             
@@ -209,8 +211,8 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     DLLineDestinationViewController *linetourDetailVC = [[DLLineDestinationViewController alloc]init];
-    linetourDetailVC.homeMenuItem = [self.lineTourViewList objectAtIndex:indexPath.row];
-
+    linetourDetailVC.type = self.homeMenuItem.type;
+    linetourDetailVC.routeModel = [self.lineTourViewList objectAtIndex:indexPath.item];
     [self.navigationController pushViewController:linetourDetailVC animated:YES];
     
 }
@@ -223,6 +225,9 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (self.lineTourViewList.count == 0 ) {
+        return CGSizeMake(0, 0);
+    }
     return CGSizeMake(self.view.ms_width, 50.0f);
 }
 
@@ -230,8 +235,8 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 
 - (void)didTapViewMore:(UIButton *)sender {
     NSLog(@"点击了查看更多");
-    self.pageIndex++;
-    [self fetchData];
+        self.pageIndex++;
+        [self fetchData];
 
 }
 

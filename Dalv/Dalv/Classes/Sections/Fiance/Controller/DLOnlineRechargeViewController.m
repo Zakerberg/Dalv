@@ -176,7 +176,7 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
     UIButton *submitBtn =[UIButton buttonWithType:UIButtonTypeCustom];
     [submitBtn setTitle:@"提交申请" forState:UIControlStateNormal];
     submitBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
-    //        [submitBtn  addTarget:self action:@selector(submitAnApplication) forControlEvents:UIControlEventTouchUpInside];
+    [submitBtn  addTarget:self action:@selector(submitAnApplication) forControlEvents:UIControlEventTouchUpInside];
     submitBtn.layer.cornerRadius = 8.0;
     [footerView addSubview:submitBtn];
     
@@ -234,5 +234,9 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
 
 }
 
+// 提交
+- (void)submitAnApplication {
+    [[DLHUDManager sharedInstance]showTextOnly:@"在线充值暂未开通 敬请期待...."];
 
+}
 @end

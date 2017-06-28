@@ -28,6 +28,9 @@
 		1C0B57F01ED816CE00592BBB /* dl_domestic_tourism@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C0B57EE1ED816CE00592BBB /* dl_domestic_tourism@3x.png */; };
 		1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */; };
 		1C1670CD1EF13A5D000DBFF5 /* DLChangeTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1670CC1EF13A5D000DBFF5 /* DLChangeTitleViewController.m */; };
+		1C2865B51F0296F20077E076 /* MSPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2865B41F0296F20077E076 /* MSPickerView.m */; };
+		1C2865B71F0297E40077E076 /* common_pickView_complete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2865B61F0297E40077E076 /* common_pickView_complete@2x.png */; };
+		1C2865B91F0298010077E076 /* common_pickView_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2865B81F0298010077E076 /* common_pickView_close@2x.png */; };
 		1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */; };
 		1C2978FA1EEEAA7400D3FEEA /* fiance_aipay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */; };
 		1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2978EB1EEEAA7400D3FEEA /* fiance_aipay@3x.png */; };
@@ -408,6 +411,10 @@
 		1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineTourTableViewCell.m; sourceTree = "<group>"; };
 		1C1670CB1EF13A5D000DBFF5 /* DLChangeTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangeTitleViewController.h; sourceTree = "<group>"; };
 		1C1670CC1EF13A5D000DBFF5 /* DLChangeTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangeTitleViewController.m; sourceTree = "<group>"; };
+		1C2865B31F0296F20077E076 /* MSPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPickerView.h; sourceTree = "<group>"; };
+		1C2865B41F0296F20077E076 /* MSPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPickerView.m; sourceTree = "<group>"; };
+		1C2865B61F0297E40077E076 /* common_pickView_complete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_pickView_complete@2x.png"; sourceTree = "<group>"; };
+		1C2865B81F0298010077E076 /* common_pickView_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_pickView_close@2x.png"; sourceTree = "<group>"; };
 		1C2978E71EEE2CF300D3FEEA /* DLPresentApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPresentApplicationModel.h; sourceTree = "<group>"; };
 		1C2978E81EEE2CF300D3FEEA /* DLPresentApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPresentApplicationModel.m; sourceTree = "<group>"; };
 		1C2978EA1EEEAA7400D3FEEA /* fiance_aipay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fiance_aipay@2x.png"; sourceTree = "<group>"; };
@@ -974,6 +981,15 @@
 			path = LineDate;
 			sourceTree = "<group>";
 		};
+		1C2865B21F02965A0077E076 /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				1C2865B31F0296F20077E076 /* MSPickerView.h */,
+				1C2865B41F0296F20077E076 /* MSPickerView.m */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
 		1C2979151EF02D6F00D3FEEA /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1190,6 +1206,7 @@
 		1CB952F31ECFC41600BDC2D3 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				1C2865B21F02965A0077E076 /* PickerView */,
 				1C2979151EF02D6F00D3FEEA /* Refresh */,
 				1CB9541B1ECFCAB300BDC2D3 /* CityPickerView */,
 				1CB952F61ECFC41600BDC2D3 /* DLHUDManager.h */,
@@ -1252,6 +1269,8 @@
 		1CB953071ECFC41600BDC2D3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1C2865B81F0298010077E076 /* common_pickView_close@2x.png */,
+				1C2865B61F0297E40077E076 /* common_pickView_complete@2x.png */,
 				1CE8D7F11ED7FEFA00FFEF8B /* Navbar */,
 				1CE2C2361ED57BE400B898BA /* arrowhead_left@2x.png */,
 				1CE2C2371ED57BE400B898BA /* arrowhead_left@3x.png */,
@@ -2164,6 +2183,7 @@
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
+				1C2865B91F0298010077E076 /* common_pickView_close@2x.png in Resources */,
 				1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */,
 				1CE2C1C31ED5270E00B898BA /* financial@3x.png in Resources */,
 				1CB953AD1ECFC41600BDC2D3 /* home-10-04.png in Resources */,
@@ -2182,6 +2202,7 @@
 				1CE2C20D1ED52BA100B898BA /* transaction_record@2x.png in Resources */,
 				1CE2C2071ED52BA100B898BA /* present_application@2x.png in Resources */,
 				1CE2C2091ED52BA100B898BA /* recharge_application@2x.png in Resources */,
+				1C2865B71F0297E40077E076 /* common_pickView_complete@2x.png in Resources */,
 				451F39381EEF9B55005FE126 /* DLLineOrderXibCell.xib in Resources */,
 				1CE2C1DC1ED528C800B898BA /* outbound_tourism@3x.png in Resources */,
 				1CE2C1DA1ED528C800B898BA /* free_walker@3x.png in Resources */,
@@ -2417,6 +2438,7 @@
 				45DB480D1EE8E47D00399A6D /* DLContractApplySection4Cell.m in Sources */,
 				45A321CD1EF256E000325683 /* DLMyCustomerXibController.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
+				1C2865B51F0296F20077E076 /* MSPickerView.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
 				1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */,

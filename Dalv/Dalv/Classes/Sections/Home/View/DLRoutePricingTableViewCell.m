@@ -281,6 +281,27 @@
     return NSStringFromClass([self class]);
 }
 
+- (void)updateViewFrame:(CGRect)rect {
+    int y = rect.origin.y + rect.size.height + ([[UIScreen mainScreen] bounds].size.height > 480?30:0);
+    int h = self.height - 260;
+    int yh = y - h;
+    if (yh > 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.y = self.y-yh;
+        } completion:^(BOOL completion){
+            
+        }];
+    }
+    
+}
+- (void)recoverViewFrame {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.y = 64;
+    } completion:^(BOOL completion){
+        
+    }];
+}
+
 /** 配置Cell */
 - (void)configureCell:(LineModificationList *)lineModificationModel{
     NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_list integerValue]/100.00];

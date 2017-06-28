@@ -87,9 +87,9 @@
 //                    self.loginSuccessBlock();
 //                }
             }
-//                else {
-//                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
-//            }
+                else {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+            }
 //        }
     }];
 }
