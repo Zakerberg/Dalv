@@ -162,38 +162,41 @@ static NSString *cellID  = @"cellID";
             [alert show];
 
          [self.navigationController popViewControllerAnimated:YES];
+        
+        } else {
+        
+            //判断手机号的正则表达式
+            NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
+            
+            NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
+            
+            BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
+            
+            if (!isMatchPhoneNum){
+                
+                //手机号码不匹配
+                UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+                
+                [alertPhoneNum show];
+            }
+            
+            if (self.phoneTextFiled.text == nil) {
+                
+                [self showHint:@"手机号码不能为空"];
+            }
+            
+            if(isMatchPhoneNum){
+                
+                [self openCountdown];
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                [alert show];
+            }
         }
         
     } failure:^(NSError *error) {
+   
     }];
-    
-    //判断手机号的正则表达式
-    NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
-    
-    NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
-    
-    BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
-    
-    if (!isMatchPhoneNum){
-        
-        //手机号码不匹配
-        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
-        
-        [alertPhoneNum show];
-    }
-    
-    if (self.phoneTextFiled.text == nil) {
-        
-        [self showHint:@"手机号码不能为空"];
-    }
-    
-    if(isMatchPhoneNum){
-        
-        [self openCountdown];
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        
-        [alert show];
-    }
     
 }
 
