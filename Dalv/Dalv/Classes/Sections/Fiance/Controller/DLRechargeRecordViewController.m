@@ -94,9 +94,10 @@
         if (error) {
         [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
     } else {
-        if (self.pageIndex == 0) {
+        if (self.pageIndex == 1) {
             [self.rechargeRecordList removeAllObjects];
         }
+        
         NSArray *rechargeRecordArray = [DLRechargeRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
         [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
         [self.rechargeRecordTableView reloadData];
