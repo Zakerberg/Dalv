@@ -321,6 +321,7 @@ static NSString *cellID = @"cellID";
             NSString *price_adjustStr = dict[@"price_adjust"];
             
             NSString *pictureStr = dict[@"cover_pic"];
+            NSString *prepayAmount = dict[@"prepay_amount"];
             
             
             if ([stateStr isEqualToString:@"1"]) {
@@ -340,7 +341,7 @@ static NSString *cellID = @"cellID";
             }else if ([stateStr isEqualToString:@"3"]){
                 self.lineOrderStateLabel.text = @"已确认待付款";
                 
-                if ([price_adjustStr  isEqualToString:@"0"]) {
+                if ([prepayAmount  isEqualToString:@"0"]) {
                     self.prepaidBtn.hidden = YES;
                     self.payTailButton.hidden = YES;
                     [self.payFullBtn mas_makeConstraints:^(MASConstraintMaker *make) {

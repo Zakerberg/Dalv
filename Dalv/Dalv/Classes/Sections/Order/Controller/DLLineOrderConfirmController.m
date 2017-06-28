@@ -212,6 +212,7 @@
         
         //特别说明
         NSString *memoStrt = dict[@"memo"];
+//        NSString *prepayAmount = dict[@"prepay_amount"];
         
         
         //尾款金额 (3状态有)
@@ -229,7 +230,9 @@
             self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[payStr integerValue]/100.00];
             //keyID
             self.keyidStr = dict[@"keyid"];
-
+            
+            //总额
+          self.lineOrderPayMoneyLabel.text = [NSString stringWithFormat:@"%.2f",[payStr integerValue]/100.00];
             
             //预付款 2
         }else if ([self.BtnType isEqualToString:@"2"]){
@@ -241,6 +244,9 @@
             //预付款
             self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[prepayStr integerValue]/100.00];
             
+              self.lineOrderPayMoneyLabel.text = [NSString stringWithFormat:@"%.2f",[prepayStr integerValue]/100.00];
+            
+            
             //尾款 3
         }else if ([self.BtnType isEqualToString:@"3"]){
             
@@ -251,6 +257,11 @@
 
             //尾款
             self.lineOrderPayablePrice.text = [NSString stringWithFormat:@"%.2f",[preForumStr integerValue]/100.00];
+            
+            
+           self.lineOrderPayMoneyLabel.text = [NSString stringWithFormat:@"%.2f",[preForumStr integerValue]/100.00];
+            
+            
         }
         
         self.nameLabel.text = nameStr;
