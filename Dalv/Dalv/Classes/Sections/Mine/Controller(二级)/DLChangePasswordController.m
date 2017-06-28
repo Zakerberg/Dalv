@@ -92,7 +92,6 @@ static NSString* cellID = @"cellID";
 //        UIAlertController  *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入新密码" preferredStyle:UIAlertControllerStyleAlert];
 //        
 //        [alertVC actions];
-//        
         
         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [successV show];

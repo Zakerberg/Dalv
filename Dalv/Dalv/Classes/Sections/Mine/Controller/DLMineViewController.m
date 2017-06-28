@@ -309,8 +309,7 @@ static NSString *cellID  = @"cellID";
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入验证码" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
             
-        } else {
-
+        }else {
         
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
             
@@ -326,10 +325,11 @@ static NSString *cellID  = @"cellID";
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                 
-                //NSLog(@"注册成功!");
-                [self.navigationController popViewControllerAnimated:YES];
-                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [successV show];
+                    //NSLog(@"注册成功!");
+                    [self.navigationController popViewControllerAnimated:YES];
+                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [successV show];
+                    
                 
             } failure:^(NSError *error) {
                 // 在此写提示框
@@ -358,7 +358,11 @@ static NSString *cellID  = @"cellID";
                 [successV show];
                 
             } failure:^(NSError *error) {
-           
+                
+                // 在此写提示框
+                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [failureV show];
+
                 
                 /*
                  
