@@ -25,9 +25,30 @@
 }
 
 -(void)setUI{
-    
     self.title = @"选择身份登陆";
-    self.view.backgroundColor = [UIColor colorWithHexString:@"efefef"];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    UIImageView *logoImageView = [[UIImageView alloc] init];
+    [logoImageView setImage:[UIImage imageNamed:@"Loginlogo"]];
+    
+    [self.view addSubview:logoImageView];
+    
+    
+    [logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        
+        
+        
+    }];
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 

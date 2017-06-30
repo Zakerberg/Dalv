@@ -21,7 +21,6 @@
 //顾问手机号
 @property (weak, nonatomic) IBOutlet UITextField *agencyPhoneTF;
 
-
 //验证码错误与否
 @property(nonatomic,strong) NSString* passCodeStatusStr;
 
