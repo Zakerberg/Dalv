@@ -195,7 +195,6 @@ static NSString *cellID  = @"cellID";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = @"清除缓存";
             
-            
              NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
              
              UILabel *cacheLabel = [[UILabel alloc] init];

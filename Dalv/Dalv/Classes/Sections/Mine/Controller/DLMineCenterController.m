@@ -20,12 +20,8 @@
 
 static NSString *cellID  = @"cellID";
 
-@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>{
+@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>
     
-    
-    
-}
-
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
 @property(nonatomic,strong) UIButton * personBtn;
@@ -52,7 +48,6 @@ static NSString *cellID  = @"cellID";
     [self fetchData];
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
     
 }
 

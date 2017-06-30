@@ -328,14 +328,11 @@ static NSString *cellID  = @"cellID";
             
         }
         
-//        else if ([self.passwordTF.text isEqualToString:self.determinePasswordTF.text] == NO){
-//            
-//            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
-//            [alertV show];
-//            
-//        }
-        
-        else {
+        else if (![self.passwordTF.text isEqualToString:self.determinePasswordTF.text]){
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+        }else {
         
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
             
