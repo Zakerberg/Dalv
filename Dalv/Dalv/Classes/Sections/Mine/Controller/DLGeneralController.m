@@ -124,18 +124,21 @@ static NSString *cellID  = @"cellID";
 {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    /*
+    
      if (indexPath.row == 0) {
+         
      DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
      [self.navigationController pushViewController:feedbackVC animated:YES];
      }
-     */
-    if (indexPath.row == 0) {
+     
+    if (indexPath.row == 1) {
         //联系我们
-        
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
+        //            NSLog(@"str======%@",str);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         
     }
-    if (indexPath.row == 1) {
+    if (indexPath.row == 2) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
         UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -164,7 +167,7 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 2;
+    return 3;
 }
 
 
@@ -176,22 +179,23 @@ static NSString *cellID  = @"cellID";
     
     if (indexPath.section == 0) {
         
-        /*
+        
          if (indexPath.row == 0) {
          cell.textLabel.text = @"意见反馈";
          }
-         */
         
-        if (indexPath.row == 0) {
-            cell.textLabel.text = @"联系我们010-85625636";
+        
+        if (indexPath.row == 1) {
+            cell.textLabel.text = @"联系我们";
+            
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-        if (indexPath.row == 1) {
+        if (indexPath.row == 2) {
             
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = @"清除缓存";
             
-            /*
+            
              NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
              
              UILabel *cacheLabel = [[UILabel alloc] init];
@@ -199,21 +203,14 @@ static NSString *cellID  = @"cellID";
              cacheLabel.font = [UIFont systemFontOfSize:15];
              cacheLabel.text = [NSString stringWithFormat:@"%@",fileSize];
              [cacheLabel sizeToFit];
-             [self.tableView addSubview:cacheLabel];
-             
+             [cell.contentView addSubview:cacheLabel];
              
              [cacheLabel mas_makeConstraints:^(MASConstraintMaker *make) {
              
-             make.centerY.offset(0);
-             make.height.offset(15);
-             make.top.offset(22*3);
-             make.right.offset(15);
-             
-             make.bottom.equalTo(self.logOutBtn.mas_top).offset(15);
-             
+                 make.centerY.offset(0);
+                 make.height.offset(15);
+                 make.right.offset(-20);
              }];
-             
-             */
         }
     }
     

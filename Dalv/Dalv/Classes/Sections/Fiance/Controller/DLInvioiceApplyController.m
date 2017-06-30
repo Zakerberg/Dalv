@@ -312,7 +312,7 @@ static NSString *section5CellID = @"section5CellID";
         //快递
         else if ([self.methodBtnNumber isEqualToString:@"2"]){
             
-            if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
+            if (![self.addressTV.text  isEqual: @""] && ![self.nameTF.text  isEqual: @""] && ![self.numberTF.text  isEqual: @""]) {
                 
                 NSDictionary *param = @{
                                         
@@ -336,14 +336,12 @@ static NSString *section5CellID = @"section5CellID";
                     [successV show];
                     
                     [self.navigationController popViewControllerAnimated:YES];
-                    
                 }];
                 
             }else{
                 
-                // 写个提示!  申请失败 !  联系客服 !
-                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [failureV show];
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请补全收货信息" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
             }
         }
     }

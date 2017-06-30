@@ -198,7 +198,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
         }else {
             self.sexLabel.text = @"保密";
         }
-    }];
+     }];
         
   }
 }
@@ -207,9 +207,15 @@ static NSString *tableViewCellID = @"tableViewCellID";
 /***  保存  ***/
 -(void)completeClick {
     
-    
         if ([self isValidateEmail:self.mailTF.text]) {
             
+            if ([self.sexLabel.text isEqualToString:@"男"]) {
+                self.sexLabel.text = @"1";
+            }else if ([self.sexLabel.text isEqualToString:@"女"]){
+                self.sexLabel.text = @"2";
+            }else if ([self.sexLabel.text isEqualToString:@"保密"]){
+                self.sexLabel.text = @"0";
+            }
             
                 NSDictionary *param = @{
                                         
@@ -223,8 +229,8 @@ static NSString *tableViewCellID = @"tableViewCellID";
                                         @"personal_label":self.noteLabelTF.text,
                                         @"been_where":self.goCityView.text
                                         };
-                
-                [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
+
+            [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
                     NSLog(@"修改成功!");
                     UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                     [successV show];
@@ -236,6 +242,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
             
             UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertPhoneNum show];
+            
             self.mailTF.text = nil;
         
         }

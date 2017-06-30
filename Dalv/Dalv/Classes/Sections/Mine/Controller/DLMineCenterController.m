@@ -17,11 +17,14 @@
 #import "BLM_UploadUserIcon.h"
 #import "UIButton+WebCache.h"
 #import "DLHomeViewTask.h"
-#import "DLUtils.h"
 
 static NSString *cellID  = @"cellID";
 
-@interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>{
+    
+    
+    
+}
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
@@ -31,7 +34,11 @@ static NSString *cellID  = @"cellID";
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
 /* 绑定状态 */
-@property(nonatomic,strong) NSString  *bindingStr;
+@property(nonatomic,strong) NSString *bindingStr;
+
+
+@property(nonatomic,strong) UIImageView *personImageView;
+
 
 @end
 
@@ -88,10 +95,38 @@ static NSString *cellID  = @"cellID";
         make.height.offset(145);
     }];
     
-    //头像按钮
+    //头像
+    UIImageView *personImageView = [[UIImageView alloc] init];
+    self.personImageView = personImageView;
+    
+    [personImageView setImage:[UIImage imageNamed:@"v2_my_avatar"]];
+    
+    personImageView.userInteractionEnabled = YES;
+    
+    //手势
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
+    
+    //添加手势
+    [personImageView addGestureRecognizer:singleTap];
+    
+    [headerView addSubview:personImageView];
+    
+    [personImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+      
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(@20);
+        make.height.width.offset(66);
+    }];
+    
+
+    /*
+    
     UIButton* personBtn = [[UIButton alloc]init];
     self.personBtn = personBtn;
     [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
+    
+    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
+
     [headerView addSubview:personBtn];
     
     [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -100,10 +135,11 @@ static NSString *cellID  = @"cellID";
         make.top.equalTo(@20);
         make.height.width.offset(66);
     }];
-    
-    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+
+     */
+     
+     
+     
     UILabel *nameLabel = [[UILabel alloc] init];
     self.nameLabel = nameLabel;
     [nameLabel sizeToFit];
@@ -112,8 +148,16 @@ static NSString *cellID  = @"cellID";
     [headerView addSubview:nameLabel];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        /*
         make.centerX.equalTo(personBtn);
         make.top.equalTo(personBtn.mas_bottom).offset(7);
+        */
+        
+        make.centerX.equalTo(personImageView);
+        make.top.equalTo(personImageView.mas_bottom).offset(7);
+
+        
         make.height.offset(16);
         
     }];
@@ -126,7 +170,15 @@ static NSString *cellID  = @"cellID";
     
     [numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(nameLabel.mas_bottom).offset(8);
+        
+        /*
         make.centerX.equalTo(personBtn);
+        */
+        
+        make.centerX.equalTo(personImageView);
+         
+         
+         
         make.height.offset(12);
     }];
 }
@@ -148,7 +200,9 @@ static NSString *cellID  = @"cellID";
             if (result) {
                 self.mineCenterDict = [[NSMutableDictionary alloc] init];
                 self.mineCenterDict = [result objectForKey:@"agencyInfo"];
+
                 
+                /*
                 NSString *urlStr = self.mineCenterDict[@"head_pic"];
                 
                 [self.personBtn sd_setButtonImageWithUrl:urlStr];
@@ -158,6 +212,18 @@ static NSString *cellID  = @"cellID";
                 [self.personBtn.layer setCornerRadius:33];
                 self.personBtn.layer.borderWidth = 2.0;
                 self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+                */
+                
+                
+                NSString *urlStr = self.mineCenterDict[@"head_pic"];
+                
+                NSURL *url = [NSURL URLWithString:urlStr];
+                
+                [self.personImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+                self.personImageView.layer.cornerRadius = 33;
+                self.personImageView.clipsToBounds = YES;
+                self.personImageView.layer.borderWidth = 2.0;
+                self.personImageView.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
                 
                 self.nameLabel.text = self.mineCenterDict[@"name"];
                 self.numLabel.text = self.mineCenterDict[@"mobile"];
@@ -192,14 +258,52 @@ static NSString *cellID  = @"cellID";
     }
 }
 
-//头像按钮的点击事件
--(void)PersonbuttonClick{
+//头像的点击事件
+-(void)alterHeadPortrait:(UITapGestureRecognizer *)gesture{
     
-//    [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
     
+     [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
+    
+    
+//    /**
+//     *  弹出提示框
+//     */
+//    //初始化提示框
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    //按钮：从相册选择，类型：UIAlertActionStyleDefault
+//    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        //初始化UIImagePickerController
+//        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+//        //获取方式1：通过相册（呈现全部相册），UIImagePickerControllerSourceTypePhotoLibrary
+//        //获取方式2，通过相机，UIImagePickerControllerSourceTypeCamera
+//        //获取方法3，通过相册（呈现全部图片），UIImagePickerControllerSourceTypeSavedPhotosAlbum
+//        PickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        //允许编辑，即放大裁剪
+//        PickerImage.allowsEditing = YES;
+//        //自代理
+//        PickerImage.delegate = self;
+//        //页面跳转
+//        [self presentViewController:PickerImage animated:YES completion:nil];
+//    }]];
+//    //按钮：拍照，类型：UIAlertActionStyleDefault
+//    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+//        /**
+//         其实和从相册选择一样，只是获取方式不同，前面是通过相册，而现在，我们要通过相机的方式
+//         */
+//        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+//        //获取方式:通过相机
+//        PickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        PickerImage.allowsEditing = YES;
+//        PickerImage.delegate = self;
+//        [self presentViewController:PickerImage animated:YES completion:nil];
+//    }]];
+//    //按钮：取消，类型：UIAlertActionStyleCancel
+//    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//    [self presentViewController:alert animated:YES completion:nil];
+//    
 }
 
-#pragma mark ------------  Table view Delegate --------------
+#pragma mark ---TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -256,16 +360,73 @@ static NSString *cellID  = @"cellID";
     return 9;
 }
 
-
-#pragma mark    --------  BLM_UploadUserIconDelegate ------------
-
+ #pragma mark   -  BLM_UploadUserIconDelegate
+ 
 - (void)uploadImageToServerWithImage:(UIImage *)image {
     
-    [self.personBtn setImage:image forState:UIControlStateNormal];
+    
+    
+    NSData *data = UIImageJPEGRepresentation(image,1);
+    NSString *str = [[NSString alloc]init];
+    
+    UIImage *img = [UIImage imageNamed:[str stringByAppendingString:@"%@.png"]];
+//    
+//         NSFileManager *fileManager = [NSFileManager defaultManager];
+//
+//    UIImage *img = []
+//         [fileManager createFileAtPath:[filePath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
+//    
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            
+                            @"sign_token" : [DLUtils getSign_token],
+                            @"head_img":image
+                          
+                            };
+
+    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
+        
+        [self.personImageView setImage:image];
+        
+    }];
 }
 
 
-#pragma mark ------------  Table view data source --------------
+//保存照片到沙盒路径
+- (void)saveImage:(UIImage *)image name:(NSString *)iconName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    //写入文件
+    NSString *icomImage = iconName;
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", icomImage]];
+    // 保存文件的名称
+    //    [[self getDataByImage:image] writeToFile:filePath atomically:YES];
+    [UIImagePNGRepresentation(image)writeToFile: filePath  atomically:YES];
+}
+
+
+//缩放图片
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
+{
+    UIGraphicsBeginImageContext(CGSizeMake(image.size.width*scaleSize,image.size.height*scaleSize));
+    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height *scaleSize)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSLog(@"%@",NSStringFromCGSize(scaledImage.size));
+    return scaledImage;
+    
+}
+
+
+
+
+
+
+
+
+
+#pragma mark ----  TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

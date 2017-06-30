@@ -251,7 +251,7 @@ static NSString *section5CellID = @"section5CellID";
     //快递
     else if ([self.methodBtnNumber isEqualToString:@"2"]){
         
-        if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
+        if (![self.addressTV.text  isEqual: @""] && ![self.nameTF.text  isEqual: @""] && ![self.numberTF.text  isEqual: @""]) {
             
             NSDictionary *param = @{
                                     
@@ -278,10 +278,12 @@ static NSString *section5CellID = @"section5CellID";
             }];
         }else{
             
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请补全收货信息" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [alertV show];
+
         }
     }
-        
-    }else{
+} else{
         
         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"至少申请一份合同" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [successV show];

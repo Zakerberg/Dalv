@@ -87,29 +87,7 @@ static NSString* cellID = @"cellID";
 /***  完成  ***/
 -(void)completeClick {
     
-    if (self.changeTwoPasswordTF.text == nil) {
-//        
-//        UIAlertController  *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"请输入新密码" preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        [alertVC actions];
-        
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-
-    }
-    
-    if (self.changePasswordTF.text != self.changeTwoPasswordTF.text) {
-        
-//        UIAlertController  *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"两次输入的密码不一致" preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        [alertVC actions];
-        
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-    }
-    
-    if (self.changePasswordTF.text == self.changeTwoPasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
-        
+    if ([self.changePasswordTF.text isEqualToString:self.changeTwoPasswordTF.text] && ![self.changePasswordTF.text isEqual:@""]) {
         NSDictionary *param = @{
                                 
                                 @"uid" : [DLUtils getUid],
@@ -127,13 +105,27 @@ static NSString* cellID = @"cellID";
                 [successV show];
                 
                 [self.navigationController popViewControllerAnimated:YES];
-            } else{
+                
+            } else {
                 
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"旧密码错误" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
-
             }
         }];
+        
+    }else{
+       
+        if ([self.changePasswordTF.text isEqualToString:@""]) {
+           
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+
+        }else{
+        
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请确认新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+
+        }
     }
 }
 
