@@ -37,6 +37,7 @@
     _accountNamelab.textAlignment = NSTextAlignmentLeft;
     _accountNamelab.font = [UIFont systemFontOfSize:12];
     _accountNamelab.text = @"北京大旅科技有限公司";
+    _accountNamelab.numberOfLines = 0;
     [backview addSubview:_accountNamelab];
     
     
