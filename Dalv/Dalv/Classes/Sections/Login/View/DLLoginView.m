@@ -30,8 +30,8 @@
     UIColor *color = [UIColor whiteColor];
     self.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-20, 104, 40, 40)];
-    loginImage.image = [UIImage imageNamed:@"Loginlogo"];
+    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50, 104, 100, 40)];
+    loginImage.image = [UIImage imageNamed:@"dl_logo"];
     [self addSubview:loginImage];
     
     UILabel *loginLab = [[UILabel alloc]initWithFrame:CGRectMake(100, loginImage.bottom, SCREEN_WIDTH-200, 40)];

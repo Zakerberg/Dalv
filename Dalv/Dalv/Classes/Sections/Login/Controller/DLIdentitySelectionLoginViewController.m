@@ -43,7 +43,7 @@
 - (void)setupSubviews {
     
     UIImageView *loginImage = [[UIImageView alloc] init];
-    loginImage.image = [UIImage imageNamed:@"Loginlogo"];
+    loginImage.image = [UIImage imageNamed:@"dl_slectlogo"];
     [self.view addSubview:loginImage];
     
     _consultantBtn =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -63,7 +63,7 @@
     
     
     [loginImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@50);
+        make.top.equalTo(@80);
         make.left.equalTo(@100);
         make.right.equalTo(@-100);
         make.height.equalTo(@60);

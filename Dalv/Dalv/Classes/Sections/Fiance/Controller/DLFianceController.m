@@ -49,7 +49,6 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
                                              selector:@selector(refershfiance)
                                                  name:kFianceNotification
                                                object:nil];
-
 }
 
 #pragma mark - Setup navbar

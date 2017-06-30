@@ -109,7 +109,7 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat titleHeight = [self.bankTransModel.account_name autolableHeightWithFont:[UIFont systemFontOfSize:12] Width:(self.view.width - 60)];
+    CGFloat titleHeight = [self.bankTransModel.account_name autolableHeightWithFont:[UIFont systemFontOfSize:10] Width:(self.view.width - 60)];
     return titleHeight + 85;
 
 //    return 85;

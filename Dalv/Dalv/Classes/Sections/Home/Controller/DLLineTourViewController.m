@@ -106,6 +106,10 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
             [_lineTourViewList addObjectsFromArray:lineTourViewArray];
             [self.lineTourViewCollectionView reloadData];
             
+            if (lineTourViewArray.count == 0) {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+            }
+            
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }

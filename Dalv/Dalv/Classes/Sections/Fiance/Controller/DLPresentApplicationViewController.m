@@ -21,6 +21,7 @@
 @property (nonatomic,strong) UILabel *balancelPriceLabel;
 
 
+
 @end
 
 @implementation DLPresentApplicationViewController
@@ -34,6 +35,7 @@
     self.view.backgroundColor = [UIColor colorWithHexString:@"efefef"];
 
 }
+
 
 #pragma mark - Setup navbar
 
@@ -87,14 +89,17 @@
     bankCradLabel.font = [UIFont systemFontOfSize:14];
     [backview addSubview:bankCradLabel];
     bankCradLabel.text = self.presentModel.bank_account;
+    if (self.presentModel.bank_account == 0) {
+        bankCradLabel.text = @"你还没有绑定银行卡，请联系客服绑定";
+    } else {
     NSString *str1;
     if (bankCradLabel.text.length >= 4) {
         str1 = [bankCradLabel.text substringFromIndex:bankCradLabel.text.length- 4];
     }
     NSString *str2 = @"(尾号)";
     bankCradLabel.text = [NSString stringWithFormat:@"%@ %@ %@",str2,str1,self.presentModel.bank_name];
-
-
+    }
+    
     UIView *line = [[UIView alloc]init];
     line.backgroundColor = [UIColor colorWithHexString:@"efefef"];
     [backview   addSubview:line];
@@ -184,7 +189,7 @@
     [bankCradLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(cashAccountLabel);
         make.left.equalTo(cashAccountLabel.mas_right);
-        make.width.equalTo(@180);
+        make.width.equalTo(self.view).offset(-15);
         make.height.equalTo(@40);
     }];
     
@@ -268,10 +273,15 @@
 }
 #pragma mark - ButtonAction
 - (void)submitAnApplication {
+    if (self.presentModel.bank_account == 0) {
+        [[DLHUDManager sharedInstance]showTextOnly:@"你还没有绑定银行卡，请联系客服绑定"];
+        return;
+    }
     if (self.priceTextField.text.length == 0) {
         [[DLHUDManager sharedInstance]showTextOnly:@"请输入转出金额"];
         return;
-    } if (self.priceTextField.text.floatValue  > self.balancelPriceLabel.text.floatValue) {
+    }
+    if (self.priceTextField.text.floatValue  > self.balancelPriceLabel.text.floatValue) {
         [[DLHUDManager sharedInstance]showTextOnly:@"提现金额不能大于账户余额"];
         return;
     } else {

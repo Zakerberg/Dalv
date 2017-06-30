@@ -97,6 +97,9 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
             [_lineDestinationViewList addObjectsFromArray:lineDestinationViewArray];
             [self.lineDestinationCollectionView reloadData];
             
+            if (lineDestinationViewArray.count == 0) {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+            }
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }

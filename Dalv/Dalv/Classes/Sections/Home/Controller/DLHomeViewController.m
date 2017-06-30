@@ -45,11 +45,12 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-    [self fetchData];
+//    [self fetchData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self fetchData];
     //    self.navigationController.navigationBar.translucent = NO;
     //    [self.navigationController setNavigationBarHidden:YES animated:animated];
     

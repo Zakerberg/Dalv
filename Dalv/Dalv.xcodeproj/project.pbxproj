@@ -109,6 +109,10 @@
 		1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438211ECFCBEB006DF42E /* BLMClearCacheTool.m */; };
 		1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */; };
 		1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8438271ECFCC1E006DF42E /* DLUtils.m */; };
+		1CA15E451F0648F000817687 /* dl_slectlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA15E411F0648F000817687 /* dl_slectlogo@2x.png */; };
+		1CA15E461F0648F000817687 /* dl_slectlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA15E421F0648F000817687 /* dl_slectlogo@3x.png */; };
+		1CA15E471F0648F000817687 /* dl_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA15E431F0648F000817687 /* dl_logo@2x.png */; };
+		1CA15E481F0648F000817687 /* dl_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA15E441F0648F000817687 /* dl_logo@3x.png */; };
 		1CA7E5131EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */; };
 		1CB635141EFD0A83001C188F /* DLLineDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB635131EFD0A83001C188F /* DLLineDestinationViewController.m */; };
 		1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770871ECFE00100F6EFDF /* DLGeneralController.m */; };
@@ -546,6 +550,10 @@
 		1C8438241ECFCBFA006DF42E /* UIViewController+BLMHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BLMHUD.m"; sourceTree = "<group>"; };
 		1C8438261ECFCC1E006DF42E /* DLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUtils.h; sourceTree = "<group>"; };
 		1C8438271ECFCC1E006DF42E /* DLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUtils.m; sourceTree = "<group>"; };
+		1CA15E411F0648F000817687 /* dl_slectlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_slectlogo@2x.png"; sourceTree = "<group>"; };
+		1CA15E421F0648F000817687 /* dl_slectlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_slectlogo@3x.png"; sourceTree = "<group>"; };
+		1CA15E431F0648F000817687 /* dl_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_logo@2x.png"; sourceTree = "<group>"; };
+		1CA15E441F0648F000817687 /* dl_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dl_logo@3x.png"; sourceTree = "<group>"; };
 		1CA7E5111EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDetailsScrollViewTableViewCell.h; sourceTree = "<group>"; };
 		1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetailsScrollViewTableViewCell.m; sourceTree = "<group>"; };
 		1CB635121EFD0A83001C188F /* DLLineDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineDestinationViewController.h; sourceTree = "<group>"; };
@@ -1315,6 +1323,10 @@
 		1CB953141ECFC41600BDC2D3 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1CA15E411F0648F000817687 /* dl_slectlogo@2x.png */,
+				1CA15E421F0648F000817687 /* dl_slectlogo@3x.png */,
+				1CA15E431F0648F000817687 /* dl_logo@2x.png */,
+				1CA15E441F0648F000817687 /* dl_logo@3x.png */,
 				45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */,
 				45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */,
 			);
@@ -2161,6 +2173,7 @@
 				1C2979051EEEAA7400D3FEEA /* fiance_not_selected@3x.png in Resources */,
 				1C2979001EEEAA7400D3FEEA /* fiance_cheque_recharge@2x.png in Resources */,
 				45F98C241EFA2BE40012DC26 /* DLCustomerLoginController.xib in Resources */,
+				1CA15E471F0648F000817687 /* dl_logo@2x.png in Resources */,
 				1CE2C2211ED52E8C00B898BA /* line_order@2x.png in Resources */,
 				1C2979011EEEAA7400D3FEEA /* fiance_cheque_recharge@3x.png in Resources */,
 				1CE2C2401ED57BE400B898BA /* universal_property@2x.png in Resources */,
@@ -2173,6 +2186,7 @@
 				1CE8D8051ED7FEFA00FFEF8B /* navbar_more@3x.png in Resources */,
 				1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */,
 				1CE2C2281ED52E8C00B898BA /* visa_order_highlight@3x.png in Resources */,
+				1CA15E461F0648F000817687 /* dl_slectlogo@3x.png in Resources */,
 				1CE2C19D1ED525E000B898BA /* group_date_select@2x.png in Resources */,
 				1C5CD3761EF9FF4E009DBC1B /* dl_calender_selected_bubble@2x.png in Resources */,
 				1CE8D8011ED7FEFA00FFEF8B /* navbar_close_gray@3x.png in Resources */,
@@ -2187,6 +2201,7 @@
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
+				1CA15E451F0648F000817687 /* dl_slectlogo@2x.png in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
 				1C2865B91F0298010077E076 /* common_pickView_close@2x.png in Resources */,
 				1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */,
@@ -2273,6 +2288,7 @@
 				1CE2C1951ED525E000B898BA /* departure_traffic@2x.png in Resources */,
 				1CE2C1DD1ED528C800B898BA /* passenger_ticket@2x.png in Resources */,
 				1CE2C2081ED52BA100B898BA /* present_application@3x.png in Resources */,
+				1CA15E481F0648F000817687 /* dl_logo@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
