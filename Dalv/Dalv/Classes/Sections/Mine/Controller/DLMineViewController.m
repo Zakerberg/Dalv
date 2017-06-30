@@ -256,15 +256,21 @@ static NSString *cellID  = @"cellID";
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text] && self.nameTF != nil && self.phoneTextFiled.text != nil && self.passCodeTF != nil){
         
         NSString *CityStr = @"1";
+        
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"天津市"]) {
             CityStr = @"3";
+            
         } else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"石家庄市"]){
             
             CityStr = @"4";
         }else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"唐山市"]){
             
             CityStr = @"5";
+        }else {
+            
         }
+
+        
         /*
          name：姓名
          province ： 城市 选择，1北京市，3天津市，4石家庄市，5唐山市，1其他（并附加输入框，附件一个参数 thecity）
@@ -837,7 +843,7 @@ static NSString *cellID  = @"cellID";
     }
     
     self.cell.textLabel.text = selectedTitle;
-    //self.changeCityBtn.titleLabel.text = selectedTitle;
+    self.changeCityBtn.titleLabel.text = selectedTitle;
     self.cell.textLabel.textColor = [UIColor blackColor];
     
 }
