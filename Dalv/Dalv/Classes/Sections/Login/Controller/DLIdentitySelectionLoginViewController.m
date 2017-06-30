@@ -94,11 +94,11 @@
 
 - (void)averageUserSlectBtn{
 
-    DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
+//    DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
+//    
+//    [self.navigationController pushViewController:cusLoginVC animated:YES];
     
-    [self.navigationController pushViewController:cusLoginVC animated:YES];
-    
-//    [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+    [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
    
 }
 
