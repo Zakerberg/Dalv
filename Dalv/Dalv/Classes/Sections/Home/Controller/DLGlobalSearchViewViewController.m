@@ -69,7 +69,7 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
 
 - (void)setupConstraints {
     [self.globalSearchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self.view);
+        make.edges.equalTo(self.view);
     }];
 }
 

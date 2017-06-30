@@ -9,8 +9,20 @@
 #ifndef InterfaceConfig_h
 #define InterfaceConfig_h
 
+// DEBUG 运行为测试环境，RELEASE运行为正式环境
+//#ifdef __OPTIMIZE__
+//#ifndef __OPTIMIZE__
+         // 注释DL_DEVELOP_SERVICE宏为测试环境，打开为开发环境
+//       #define DL_DEVELOP_SERVICE
+//        #ifndef DL_DEVELOP_SERVICE
+          // 大旅接口测试服务器
+//           #define DL_HOST @"http://demoapi.dalvu.com/"
+//        #else
+         // 大旅接口开发服务器
+//           #define DL_HOST @"http://dalvuapi.dalvu.com/"
+//       #endif
 
-// 接口服务器
+ //接口服务器
 #define DL_HOST @"http://dalvuapi.dalvu.com/"
 
 // 1.测试默认首页模块地址

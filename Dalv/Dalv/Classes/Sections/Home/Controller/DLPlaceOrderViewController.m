@@ -181,7 +181,7 @@
         self.tellTextField = cell.tellTextField;
         self.contacsTextField = cell.contacsTextField;
         self.remarksTextField = cell.remarksTextField;
-
+        
         return cell;
     }
     
@@ -240,7 +240,7 @@
     NSString *str2 = [NSString stringWithFormat:@"%.f",[self.lineOrderoModel.list.price_hotel_agency integerValue]/100.00];
     
     NSInteger count = [str integerValue] * [[NSString stringWithFormat:@"%ld",self.adultButton.currentNumber] integerValue] + [str1 integerValue] * [[NSString stringWithFormat:@"%ld",self.childButton.currentNumber] integerValue] + [str2 integerValue] * [[NSString stringWithFormat:@"%ld",self.singleRoomButton.currentNumber] integerValue];
-
+    
     self.totalOrderLab.text = [NSString stringWithFormat:@"    订单总额：¥%ld",count];
 }
 
@@ -280,7 +280,7 @@
     }
     
     NSMutableArray *dateArray = [[NSMutableArray alloc]init];
-     for (DLPlaceOrderTourDate *field in self.lineOrderoModel.tour_date) {
+    for (DLPlaceOrderTourDate *field in self.lineOrderoModel.tour_date) {
         [dateArray addObject:[MSPickerItem itemWithTitle:field.start_time value:field.tourDateId]];
     }
     self.pickerView.pickerItems = dateArray;
@@ -306,7 +306,7 @@
         [[DLHUDManager sharedInstance]showTextOnly:@"请填写联系人手机号"];
         return;
     }
-
+    
     UIAlertView *placeOrderAlert = [[UIAlertView alloc]initWithTitle:@"确定提交订单吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     placeOrderAlert.tag = 45;
     [placeOrderAlert show];
@@ -334,8 +334,8 @@
                 @strongify(self);
                 [[DLHUDManager sharedInstance] hiddenHUD];
                 if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
-                   [self.navigationController popViewControllerAnimated:YES];
-                [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                    [self.navigationController popViewControllerAnimated:YES];
+                    [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
                 } else {
                     [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
                 }

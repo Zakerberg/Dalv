@@ -31,6 +31,9 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
 
 @property (nonatomic,strong) UIView *backview;
 
+@property (nonatomic, strong) DLBankTransferModel *bankTransModel;
+
+
 @end
 
 @implementation DLOfflineRechargeViewController
@@ -97,6 +100,7 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
     
     DLBankTransferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLBankTransferTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.bankTransModel = cell.bankTransferModel;
     DLBankTransferModel *btModel = [self.bankChargeArray objectAtIndex:indexPath.row];
     [cell configureCell:btModel];
     
@@ -104,7 +108,11 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 85;
+    
+    CGFloat titleHeight = [self.bankTransModel.account_name autolableHeightWithFont:[UIFont systemFontOfSize:12] Width:(self.view.width - 60)];
+    return titleHeight + 85;
+
+//    return 85;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

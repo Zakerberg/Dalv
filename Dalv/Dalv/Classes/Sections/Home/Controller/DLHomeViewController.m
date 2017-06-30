@@ -298,16 +298,16 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 #pragma mark - Event Handler
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
-//    if (!self.popMenuView) {
-//        NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
-//        self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
-//        self.popMenuView.clickedBlock = ^(NSInteger index){
-//            NSLog(@"选中了++++++ %@",cityArray[index]);
-//        };
-//        [self.view addSubview:self.popMenuView];
-//    } else {
-//        self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
-//    }
+    //    if (!self.popMenuView) {
+    //        NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
+    //        self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
+    //        self.popMenuView.clickedBlock = ^(NSInteger index){
+    //            NSLog(@"选中了++++++ %@",cityArray[index]);
+    //        };
+    //        [self.view addSubview:self.popMenuView];
+    //    } else {
+    //        self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
+    //    }
     
 }
 
