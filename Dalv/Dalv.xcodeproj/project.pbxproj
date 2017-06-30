@@ -309,6 +309,7 @@
 		4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B97A1EE1ADAA002269BF /* DLRegisterView.m */; };
 		4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550B9801EE1B6C3002269BF /* Assets.xcassets */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
+		4582FAEA1F06393C00BB0035 /* DLIdentityChoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4582FAE91F06393C00BB0035 /* DLIdentityChoiceController.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
@@ -831,6 +832,8 @@
 		4550B9801EE1B6C3002269BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
+		4582FAE81F06393C00BB0035 /* DLIdentityChoiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLIdentityChoiceController.h; sourceTree = "<group>"; };
+		4582FAE91F06393C00BB0035 /* DLIdentityChoiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLIdentityChoiceController.m; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		458CB5941EDE5FE70001084D /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
@@ -1538,6 +1541,8 @@
 				45F98C201EFA2BE40012DC26 /* DLCustomerLoginController.h */,
 				45F98C211EFA2BE40012DC26 /* DLCustomerLoginController.m */,
 				45F98C221EFA2BE40012DC26 /* DLCustomerLoginController.xib */,
+				4582FAE81F06393C00BB0035 /* DLIdentityChoiceController.h */,
+				4582FAE91F06393C00BB0035 /* DLIdentityChoiceController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2402,6 +2407,7 @@
 				45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */,
 				45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */,
 				458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */,
+				4582FAEA1F06393C00BB0035 /* DLIdentityChoiceController.m in Sources */,
 				1CB954211ECFCAB300BDC2D3 /* DLCityPickerView.m in Sources */,
 				1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */,
 				1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */,

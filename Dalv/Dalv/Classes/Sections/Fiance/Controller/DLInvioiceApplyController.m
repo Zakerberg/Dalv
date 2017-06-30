@@ -6,101 +6,84 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //    ---------------   发票申请   ------------
 
+#import "DLInvioiceApplyController.h"
 #import "DLContractApplySection1Cell.h"
-#import "DLContractApplySection2Cell.h"
-#import "DLContractApplySection3Cell.h"
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
-#import "DLinvoiceApplySection0Cell.h"
-#import "DLInvioiceApplyController.h"
 #import "DLinvoiceSection1Cell.h"
-#import "DLAddReduceButton.h"
-#import "DLCityPickerView.h"
 #import "DLHomeViewTask.h"
 #import "DLSalertView.h"
+#import "DLCityPickerView.h"
+#import "DLAddReduceButton.h"
+#import "DLinvoiceApplySection0Cell.h"
+#import "DLContractApplySection3Cell.h"
+#import "DLContractApplySection2Cell.h"
 
 @interface DLInvioiceApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLCityPickerViewDelegate,DLSalertViewDelegate>
+
 @property (nonatomic, strong) UITableView *invoiceTableView;
-
-/*** 发票抬头TF  ***/
-@property(nonatomic,strong) UITextField * companyTF;
-/*** 发票项目TF  ***/
-@property(nonatomic,strong) UITextField *projectTF;
-/*** 发票备注TF  ***/
-@property(nonatomic,strong) UITextView *noteTextView;
-/*** 发票金额TF  ***/
+///发票金额TF
 @property(nonatomic,strong) UITextField *invoiceAmountTF;
-
-/*** 自取inviteBtn  ***/
-@property(nonatomic,strong)UIButton *inviteBtn;
-/*** 快递CourierBtn ***/
-@property(nonatomic,strong)UIButton *courierBtn;
-
-/*** 到付Btn  ***/
-@property(nonatomic,strong)UIButton *payforBtn;
-/*** 邮寄Btn  ***/
-@property(nonatomic,strong)UIButton *mailBtn;
-
-//发票类型数据
+///发票备注TF
+@property(nonatomic,strong) UITextView *noteTextView;
+///发票类型数据
 @property(nonatomic,strong) NSMutableArray *dataArrM;
-
-/*** 邮寄地址TextView  ***/
-@property(nonatomic,strong) UITextView * addressTV;
-
-/*** 提交申请Btn  ***/
-@property(nonatomic,strong) UIButton * submitBtn;
-
-/*** 联系人姓名TextFiled  ***/
-@property(nonatomic,strong) UITextField *nameTF;
-/*** 联系人电话TextFiled  ***/
-@property(nonatomic,strong) UITextField *numberTF;
-
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,assign) NSInteger Section3Number;
 @property(nonatomic,assign) NSInteger Section4Number;
-
-/***  剩余发票额度Label ***/
+///发票抬头TF
+@property(nonatomic,strong) UITextField *companyTF;
+///发票项目TF
+@property(nonatomic,strong) UITextField *projectTF;
+/// 邮寄地址TextView
+@property(nonatomic,strong) UITextView *addressTV;
+/// 提交申请Btn
+@property(nonatomic,strong) UIButton *submitBtn;
+///快递CourierBtn
+@property(nonatomic,strong) UIButton *courierBtn;
+/// 联系人姓名TextFiled
+@property(nonatomic,strong) UITextField *nameTF;
+///自取inviteBtn
+@property(nonatomic,strong) UIButton *inviteBtn;
+///到付Btn
+@property(nonatomic,strong) UIButton *payforBtn;
+/// 邮寄Btn
+@property(nonatomic,strong) UIButton *mailBtn;
+///联系人电话TextFiled
+@property(nonatomic,strong) UITextField *numberTF;
+///剩余发票额度Label
 @property(nonatomic,strong) UILabel *moneyLabel;
-
 //获取方式
 @property(nonatomic,strong) NSString *methodBtnNumber;
-
 //邮寄方式
 @property(nonatomic,strong) NSString *express_feeNumber;
-
-/***  发票项目 Btn ***/
+///发票项目 Btn
 @property(nonatomic,strong) UIButton *projctButton;
-
 @property (nonatomic,strong) DLSalertView *alertView;
-@property(nonatomic,strong)UITextField *firstField;
-
-@property(nonatomic,strong) DLAddReduceButton * currentBtn;
-@property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
-
-/* 公司地址 */
-@property(nonatomic,strong) UILabel * addressLabel1;
-/* 公司电话 */
-@property(nonatomic,strong) UILabel * numberLabel1;
+@property(nonatomic,strong) UITextField *firstField;
+@property(nonatomic,strong) DLAddReduceButton *currentBtn;
+///公司地址
+@property(nonatomic,strong) UILabel *addressLabel1;
+/// 公司电话
+@property(nonatomic,strong) UILabel *numberLabel1;
 @property(nonatomic,strong) NSString *companyStr;
 @property(nonatomic,strong) NSString *numStr;
-
-/***  发票纳税人识别号TF ***/
+///发票纳税人识别号TF
 @property(nonatomic,strong) UITextField *identificationNumTF;
-
-//空白自取blankInviteBtn
-@property(nonatomic,strong)UIButton *blankInviteBtn;
-//空白快递blankCourierBtn
-@property(nonatomic,strong)UIButton *blankCourierBtn;
-//空白到付blankPayforBtn
-@property(nonatomic,strong)UIButton *blankPayforBtn;
-//空白邮寄blankMailBtn
-@property(nonatomic,strong)UIButton *blankMailBtn;
+///空白自取blankInviteBtn
+@property(nonatomic,strong) UIButton *blankInviteBtn;
+///空白快递blankCourierBtn
+@property(nonatomic,strong) UIButton *blankCourierBtn;
+///空白到付blankPayforBtn
+@property(nonatomic,strong) UIButton *blankPayforBtn;
+///空白邮寄blankMailBtn
+@property(nonatomic,strong) UIButton *blankMailBtn;
+@property(nonatomic,weak) DLinvoiceApplySection0Cell *section0Cell;
 
 @end
 
-static NSString *section0CellID = @"section0CellID";
 static NSString *invoiceSection1cellID = @"invoiceSection1cellID";
-
+static NSString *section0CellID = @"section0CellID";
 static NSString *section1CellID = @"section1CellID";
 static NSString *section2CellID = @"section2CellID";
 static NSString *section3CellID = @"section3CellID";
@@ -189,15 +172,24 @@ static NSString *section5CellID = @"section5CellID";
             [self.dataArrM addObject:str];
            
         }
-
-       
         
         NSDictionary *operatorInfo = invoiceDict[@"operatorInfo"];
         
         NSString *companyStr = operatorInfo[@"address"];
-        self.addressLabel1.text = companyStr;
+        
+        if ([companyStr isEqualToString:@""]) {
+            self.addressLabel1.text = @"哎呦喂,居然没有地址 ^ 0 ^ ";
+        }else{
+         self.addressLabel1.text = companyStr;
+        }
+        
         NSString *numStr = operatorInfo[@"tel"];
-        self.numberLabel1.text = numStr;
+        
+        if ([numStr isEqualToString:@""]) {
+            self.numberLabel1.text = @"哎呦喂,居然没有电话 ^ 0 ^ ";
+        }else{
+            self.numberLabel1.text = numStr;
+        }
         
         NSString * moneyStr = invoiceDict[@"lastTotal"];
         
