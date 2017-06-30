@@ -63,6 +63,7 @@
     NSDictionary *param = @{@"login_name" : usename,
                             @"login_pwd" : password,};
     [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
+        
 //        if (error) {
 //            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
 //        } else {
@@ -96,6 +97,7 @@
 
 //注册
 - (void)didRegisterButton {
+    
     DLMineViewController *minVC= [[DLMineViewController alloc] init];
     [self.navigationController pushViewController:minVC animated:YES];
 }
