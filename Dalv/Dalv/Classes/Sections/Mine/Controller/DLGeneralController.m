@@ -134,7 +134,7 @@ static NSString *cellID  = @"cellID";
     if (indexPath.row == 1) {
         //联系我们
         NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
-        //            NSLog(@"str======%@",str);
+        //NSLog(@"str======%@",str);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         
     }
@@ -176,14 +176,12 @@ static NSString *cellID  = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
     
-    
     if (indexPath.section == 0) {
         
         
          if (indexPath.row == 0) {
          cell.textLabel.text = @"意见反馈";
          }
-        
         
         if (indexPath.row == 1) {
             cell.textLabel.text = @"联系我们";

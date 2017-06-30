@@ -362,20 +362,20 @@ static NSString *cellID  = @"cellID";
     
     
     NSData *data = UIImageJPEGRepresentation(image,1);
-    NSString *str = [[NSString alloc]init];
+    if (UIImagePNGRepresentation(image) == nil) {
+        data = UIImageJPEGRepresentation(image, 1);
+    } else {
+        data = UIImagePNGRepresentation(image);
+    }
     
-    UIImage *img = [UIImage imageNamed:[str stringByAppendingString:@"%@.png"]];
-//    
-//         NSFileManager *fileManager = [NSFileManager defaultManager];
-//
-//    UIImage *img = []
-//         [fileManager createFileAtPath:[filePath stringByAppendingString:@"/image.png"] contents:data attributes:nil];
-//    
+    
+    
+    
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             
                             @"sign_token" : [DLUtils getSign_token],
-                            @"head_img":image
+                            @"head_img":data
                           
                             };
 

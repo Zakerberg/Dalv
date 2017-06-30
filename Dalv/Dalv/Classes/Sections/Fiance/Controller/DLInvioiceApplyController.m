@@ -178,18 +178,19 @@ static NSString *section5CellID = @"section5CellID";
     
     [DLHomeViewTask getAgencyFinanceApplyInvoicet:param completion:^(id result, NSError *error) {
         
+        NSDictionary *invoiceDict = result;
         
-        NSLog(@"%@",result[@"invoiceTypeList"]);
-        
-        NSDictionary *dict = result;
-        NSArray *arr = dict[@"invoiceTypeList"];
-        NSMutableArray *arrM = [NSMutableArray array];
+        NSArray *arr = invoiceDict[@"invoiceTypeList"];
+        self.dataArrM = [NSMutableArray array];
+      
         for (NSDictionary *dic in arr) {
             NSString *str = dic[@"detail"];
-            [arrM addObject:str];
+//            [arrM addObject:str];
+            [self.dataArrM addObject:str];
+           
         }
 
-        NSDictionary *invoiceDict = result;
+       
         
         NSDictionary *operatorInfo = invoiceDict[@"operatorInfo"];
         
@@ -212,7 +213,8 @@ static NSString *section5CellID = @"section5CellID";
 /***  发票项目 Btn ***/
 -(void)projectBtnClick {
     
-    NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"团款",@"旅游费",nil];
+    NSMutableArray *arrayData = [NSMutableArray arrayWithArray:self.dataArrM];
+    
     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
     
     [pickerSingle setDataArray:arrayData];
@@ -283,6 +285,19 @@ static NSString *section5CellID = @"section5CellID";
         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入纳税人识别号" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [successV show];
         
+    }else if([self.companyTF.text isEqualToString:@""]){
+      
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入发票抬头" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        
+    }else if([self.invoiceAmountTF.text isEqualToString:@""]){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入金额" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+    }else if([self.projctButton.titleLabel.text isEqualToString:@" "]){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入发票项目" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
     }else{
         //自取
         if ([self.methodBtnNumber isEqualToString:@"1"]) {
@@ -432,6 +447,7 @@ static NSString *section5CellID = @"section5CellID";
         self.companyTF = section0Cell.companyTF;
         //项目
         self.projctButton = section0Cell.projctButton;
+        
         //备注
         self.noteTextView = section0Cell.noteTextView;
         

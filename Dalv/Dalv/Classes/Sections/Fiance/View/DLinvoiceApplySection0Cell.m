@@ -66,6 +66,7 @@
 
     UIButton *projctButton = [[UIButton alloc] init];
     self.projctButton = projctButton;
+    [projctButton setTitle:@" " forState:UIControlStateNormal];
     projctButton.titleLabel.font = [UIFont systemFontOfSize: 15];
     [projctButton setTitleColor:[UIColor colorWithHexString:@"#c1c1c1"]forState:UIControlStateNormal];
 
