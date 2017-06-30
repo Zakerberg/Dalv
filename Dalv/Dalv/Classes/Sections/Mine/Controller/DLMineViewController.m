@@ -340,6 +340,13 @@ static NSString *cellID  = @"cellID";
             
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次密码不一致" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
+            
+        }else if(self.passwordTF.text.length < 6){
+            
+            
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码要大于6位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+            [alertV show];
+            
         }else {
         
         if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
@@ -677,6 +684,7 @@ static NSString *cellID  = @"cellID";
     }
     
     if (indexPath.row == 1) {
+        
         self.cell = cell;
         cell.textLabel.text = @" 输入城市";
         cell.textColor = [UIColor colorWithHexString:@"b4b4b4"];
@@ -712,7 +720,6 @@ static NSString *cellID  = @"cellID";
         
         UIButton *authCodeBtn = [[UIButton alloc] init];
         
-        
         self.authCodeBtn = authCodeBtn;
         [self.authCodeBtn setBackgroundColor:[UIColor colorWithHexString:@"#4d65f3"]];
         self.authCodeBtn.layer.cornerRadius = 8.0;
@@ -728,7 +735,6 @@ static NSString *cellID  = @"cellID";
          make.height.offset(52);
          make.width.offset(MAIN_SCREEN_WIDTH);
          make.left.equalTo(@20);
-         
          */
         
         [phoneTextFiled mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -738,7 +744,7 @@ static NSString *cellID  = @"cellID";
             make.width.offset(MAIN_SCREEN_WIDTH/2);
         }];
         
-        //        //(570/2-20, 138+10, 175/2+15, 32)
+        //(570/2-20, 138+10, 175/2+15, 32)
         [authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@32);
             make.right.equalTo(@20);
@@ -752,7 +758,7 @@ static NSString *cellID  = @"cellID";
     
     if (indexPath.row == 3) {
         UITextField *passCodeTF = [[UITextField alloc] init];
-        //    WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
+        // WithFrame:CGRectMake(20, 190, MAIN_SCREEN_WIDTH, 52)];
         self.passCodeTF = passCodeTF;
         passCodeTF.placeholder = @"输入手机验证码";
         passCodeTF.keyboardType = UIKeyboardTypeNumberPad;
@@ -768,7 +774,7 @@ static NSString *cellID  = @"cellID";
         }];
         
     }
-    ////
+    
     if (indexPath.row == 4) {
         UITextField *passwordTF = [[UITextField alloc] init];
         //WithFrame:CGRectMake(20, 242, MAIN_SCREEN_WIDTH, 52)];
@@ -786,10 +792,9 @@ static NSString *cellID  = @"cellID";
             make.width.offset(MAIN_SCREEN_WIDTH);
             make.height.offset(52);
         }];
-        
     }
     
-    //
+    
     if (indexPath.row == 5) {
         UITextField *determinePasswordTF = [[UITextField alloc] init];
         //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
@@ -813,7 +818,7 @@ static NSString *cellID  = @"cellID";
         
         //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
         self.positionTF = positionTF;
-        positionTF.placeholder = @"职务 如: 领导、导游、职员等";
+        positionTF.placeholder = @"职务 如: 领导、导游等(选填)";
         [tableView addSubview:positionTF];
         
         [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -889,6 +894,8 @@ static NSString *cellID  = @"cellID";
     
     if (existedLength - selectedLength + replaceLength > 6) {
         [textField.undoManager removeAllActions];
+        
+        [SVProgressHUD showInfoWithStatus:@"密码要大于6位"];
     }
     
     return YES;
