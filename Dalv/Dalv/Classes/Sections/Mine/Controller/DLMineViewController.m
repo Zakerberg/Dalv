@@ -45,7 +45,9 @@
 
 
 @property (nonatomic,strong) DLSalertView *alertView;
+
 @property(nonatomic,strong)UITextField *firstField;
+
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
@@ -351,6 +353,7 @@ static NSString *cellID  = @"cellID";
                                      @"vocation":self.positionTF.text,
                                      @"thecity":self.firstField.text
                                      };
+        
             
             [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                 
@@ -804,7 +807,7 @@ static NSString *cellID  = @"cellID";
         }];
         
     }
-    //
+    
     if (indexPath.row == 6) {
         UITextField *positionTF = [[UITextField alloc] init];
         
@@ -819,7 +822,7 @@ static NSString *cellID  = @"cellID";
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
         }];
-        
+    
     }
     
     if (indexPath.row == 1) {
@@ -846,6 +849,7 @@ static NSString *cellID  = @"cellID";
     self.changeCityBtn.titleLabel.text = selectedTitle;
     self.cell.textLabel.textColor = [UIColor blackColor];
     
+    
 }
 
 -(void)requestEventAction:(UIButton *)button{
@@ -861,6 +865,7 @@ static NSString *cellID  = @"cellID";
         self.firstField = self.alertView.firstField;
         self.alertView.backgroundColor = [UIColor whiteColor];
         self.alertView.delegate = self;
+        self.firstField.text = self.alertView.firstField.text;
     }
     return _alertView;
 }
