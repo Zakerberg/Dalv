@@ -749,7 +749,16 @@
                       completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 75 测试普通用户个人中心-我的顾问（已绑定）解绑接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
 
++ (void)getTouristPersonPageUnbundingAgency:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler;
 
 
 @end

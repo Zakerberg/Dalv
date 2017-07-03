@@ -8,15 +8,14 @@
 
 #import "DLMyCustomerXibController.h"
 #import "DLCustomerListController.h"
+#import "DLMyTicketListController.h"
 #import "DLHomeViewTask.h"
 
 @interface DLMyCustomerXibController ()<UITableViewDelegate,UITableViewDataSource>
 
-
 @property(nonatomic,strong) UITableView * myCustomerTableView;
 
 @property (weak, nonatomic) IBOutlet UIView *myCustomerView;
-
 @property (weak, nonatomic) IBOutlet UILabel *myMoneyLabel;
 
 @end
@@ -117,14 +116,11 @@ static NSString *cellID = @"cellID";
         [self.navigationController pushViewController:listVC animated:YES];
     } else {
         
-//        [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+        //[[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+        DLMyTicketListController *VC = [[DLMyTicketListController alloc]init];
         
-        
-        
-        
-        
+        [self.navigationController pushViewController:VC animated:YES];
     }
-    
 }
 
 
