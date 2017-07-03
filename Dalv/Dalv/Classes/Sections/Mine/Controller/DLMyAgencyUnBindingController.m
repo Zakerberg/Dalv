@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/23.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 顾问列表页(未绑定) ---------------
+//  ------------------- 顾问列表页(未绑定) --------------
 
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyAgencyUnBindingModel.h"
@@ -48,7 +48,7 @@
 
 -(void)setUI{
   
-    self.title = @"我的顾问";
+    self.title = @"查找顾问";
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.agencyListTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];

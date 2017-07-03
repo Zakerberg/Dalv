@@ -362,6 +362,7 @@
 		45E119FA1ED3017F00FDFEBA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F91ED3017F00FDFEBA /* libresolv.tbd */; };
 		45EF39AA1F09DE6B00A5010A /* DLCustomerChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */; };
 		45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */; };
+		45EF39B31F0A286F00A5010A /* DLMyTicketListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */; };
 		45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD121EC2E01400F4B6BD /* libz.tbd */; };
 		45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */; };
 		45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD161EC2E03900F4B6BD /* MessageUI.framework */; };
@@ -927,6 +928,8 @@
 		45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerChangePersonDataController.m; sourceTree = "<group>"; };
 		45EF39AB1F09E3A700A5010A /* DLCustomerChangeDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerChangeDataCell.h; sourceTree = "<group>"; };
 		45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerChangeDataCell.m; sourceTree = "<group>"; };
+		45EF39B11F0A286F00A5010A /* DLMyTicketListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyTicketListController.h; sourceTree = "<group>"; };
+		45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyTicketListController.m; sourceTree = "<group>"; };
 		45F4CD121EC2E01400F4B6BD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		45F4CD161EC2E03900F4B6BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1138,6 +1141,8 @@
 				45F98C291EFA775F0012DC26 /* DLMyAgencyController.m */,
 				450F842D1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.h */,
 				450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */,
+				45EF39B11F0A286F00A5010A /* DLMyTicketListController.h */,
+				45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */,
 			);
 			path = "Controller(二级)";
 			sourceTree = "<group>";
@@ -2535,6 +2540,7 @@
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				45DB47F81EE7DD8300399A6D /* DLContractRecordModel.m in Sources */,
+				45EF39B31F0A286F00A5010A /* DLMyTicketListController.m in Sources */,
 				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
 				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,

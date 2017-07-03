@@ -422,12 +422,18 @@
 
 #pragma mark ------------------ BtnClick ------------------
 
+///联系顾问
 -(void)contractBtnClick {
+ 
+    NSLog(@"联系顾问");
     
 }
 
-
+///解除绑定
 -(void)unBindingBtnClick {
+    
+    NSLog(@"解除绑定");
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

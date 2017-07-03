@@ -154,6 +154,11 @@ static NSString *nibCellID = @"nibCellID";
                             @"sign_token" : [DLUtils getSign_token],
                             
                             };
+    
+    if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
+        
+    {
+    
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);
@@ -167,6 +172,15 @@ static NSString *nibCellID = @"nibCellID";
             [self updateView];
         }
     }];
+
+    }else{ // C
+        
+        
+        
+        
+        
+    }
+
 }
 
 #pragma mark ----------- UITable View Delegate ----------------

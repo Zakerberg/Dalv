@@ -7,9 +7,10 @@
 //   ------------------  顾客登录   -------------------
 
 #import "DLCustomerLoginController.h"
+#import "DLTabBarController.h"
 #import "DLHomeViewTask.h"
 
-@interface DLCustomerLoginController ()
+@interface DLCustomerLoginController ()<UITextFieldDelegate>
 //手机号
 @property (weak, nonatomic) IBOutlet UITextField *numberTF;
 //验证码
@@ -96,6 +97,8 @@
                 
                     
                     if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {//登录成功保存数据
+                       
+                    [self dismissViewControllerAnimated:YES completion:nil];
                         
                         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
                         [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
@@ -107,6 +110,10 @@
                         [[NSUserDefaults standardUserDefaults] synchronize];
                         [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
  
+                        
+                        DLTabBarController *tabVC = [[DLTabBarController alloc] init];
+                        [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
+                        
                         [[NSNotificationCenter defaultCenter] postNotificationName:KCustomerloginNoti object:nil];//登录成功通知回调
 
                          } else {
@@ -153,14 +160,17 @@
         [DLHomeViewTask getTouristVerificationCode:param completion:^(id result, NSError *error) {
             
             if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
+                NSLog(@"没有绑定顾问");
                 
-                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您还没有绑定顾问,建议您绑定顾问" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [alertV show];
+            }else{
+                /// 已经绑定顾问
+                NSLog(@"已经绑定顾问");
+                self.agencyPhoneTF.placeholder = @"您已经绑定了顾问";
+                self.agencyPhoneTF.userInteractionEnabled = NO;
             }
         }];
     }
 }
-
 
 #pragma mark ----------  开启倒计时效果 ---------------
 -(void)openCountdown{

@@ -444,7 +444,6 @@ static NSString *cellID  = @"cellID";
         cell.textLabel.text = @"修改个人资料";
     }
     
-    
     if(indexPath.row == 1){
         
         if([[DLUtils getUser_type] isEqualToString:@"4"]){
