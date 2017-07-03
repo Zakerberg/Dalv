@@ -196,8 +196,6 @@ static NSString *cellID  = @"cellID";
             if (result) {
                 self.mineCenterDict = [[NSMutableDictionary alloc] init];
                 self.mineCenterDict = [result objectForKey:@"agencyInfo"];
-
-                
                 /*
                 NSString *urlStr = self.mineCenterDict[@"head_pic"];
                 
@@ -209,8 +207,6 @@ static NSString *cellID  = @"cellID";
                 self.personBtn.layer.borderWidth = 2.0;
                 self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
                 */
-                
-                
                 NSString *urlStr = self.mineCenterDict[@"head_pic"];
                 
                 NSURL *url = [NSURL URLWithString:urlStr];
@@ -234,10 +230,9 @@ static NSString *cellID  = @"cellID";
             
             self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = result[@"touristInfo"];
-            
             [self.personBtn.layer setMasksToBounds:YES];
-            
-            [self.personBtn.layer setCornerRadius:33];            self.personBtn.layer.borderWidth = 2.0;
+            [self.personBtn.layer setCornerRadius:33];
+            self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
             
             if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
@@ -245,11 +240,8 @@ static NSString *cellID  = @"cellID";
             }else{
                 self.nameLabel.text = self.mineCenterDict[@"name"];
             }
-            
             self.numLabel.text = self.mineCenterDict[@"mobile"];
-            
             [self.tableView reloadData];
-            
         }];
     }
 }

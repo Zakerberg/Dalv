@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DLCustomerChangeDataCell : UITableViewCell
-
+@property(nonatomic,strong) UILabel *label;
+@property(nonatomic,strong) UITextField *TF;
 @end

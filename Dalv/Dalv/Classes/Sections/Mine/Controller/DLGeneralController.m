@@ -83,9 +83,10 @@ static NSString *cellID  = @"cellID";
 
 /* 退出登录 */
 -(void)LogoutBtnClick {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出登录吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出后您需要重新登录,是否确定?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定退出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
         //清空所用注册信息
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"sign_token"];
@@ -100,7 +101,7 @@ static NSString *cellID  = @"cellID";
         
     }];
     
-    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"点错了" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
@@ -139,7 +140,7 @@ static NSString *cellID  = @"cellID";
         
     }
     if (indexPath.row == 2) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
         UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             

@@ -51,9 +51,10 @@ static NSString *tableViewCellID = @"tableViewCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUI];
     [self setTableView];
     [self fetchData];
-    [self setUI];
+    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -61,6 +62,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
 }
 
 -(void)setUI{
+    
     self.title = @"修改个人资料";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(completeClick)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"4d65f3"];
@@ -85,7 +87,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     }];
 }
 
-//手机号码的正则表达式
+///手机号码的正则表达式
 - (BOOL)isValidateMobile:(NSString *)mobile{
     //手机号以13、15、18开头，八个\d数字字符
     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
@@ -94,7 +96,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
 }
 
 
-//邮箱地址的正则表达式
+///邮箱地址的正则表达式
 - (BOOL)isValidateEmail:(NSString *)email{
     
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -107,55 +109,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
 #pragma mark  ----------------  fetchData  ------------------
 
 -(void)fetchData{
-    
-    if ([[DLUtils getUser_type] isEqualToString:@"5"]) {//C
-        
-        NSDictionary *param = @{
-                                
-                                @"uid":[DLUtils getUid],
-                                @"sign_token" : [DLUtils getSign_token],
-                                };
-        
-        
-        [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
-            NSDictionary *dict = result[@"touristInfo"];
-            
-            self.nameLabel.text = @"大旅游用户";
-            self.numLabel.text = dict[@"mobile"];
-            
-            if([dict[@"nick_name"] isKindOfClass:[NSNull class]]){
-                
-                self.nickNameTF.text = @"未设置";
-            }else{
-                
-                self.nickNameTF.text = dict[@"nick_name"];
-            }
-            
-            if([dict[@"email"] isKindOfClass:[NSNull class]]){
-                
-                self.mailTF.text = @"未设置";
-                
-            }else{
-                
-                self.mailTF.text = dict[@"email"];
-                
-            }
-            self.goCityView.text = dict[@"been_where"];
-            self.ageTF.text = dict[@"age"];
-            self.noteLabelTF.text = dict[@"personal_label"];
-            self.workTimeTF.text = dict[@"working_time"];
-            self.sexLabel.text = dict[@"sex"];
-            if ([dict[@"sex"] isEqualToString:@"1"]) {
-                self.sexLabel.text = @"男";
-            }else if([dict[@"sex"] isEqualToString:@"2"]) {
-                self.sexLabel.text = @"女";
-                
-            }else {
-                self.sexLabel.text = @"保密";
-            }
-        }];
-        
-    }else {//顾问
     
     NSDictionary *param = @{
                             
@@ -201,12 +154,10 @@ static NSString *tableViewCellID = @"tableViewCellID";
             self.sexLabel.text = @"保密";
         }
      }];
-        
-  }
 }
 
 
-/***  保存  ***/
+///  保存
 -(void)completeClick {
     
         if ([self isValidateEmail:self.mailTF.text]) {
