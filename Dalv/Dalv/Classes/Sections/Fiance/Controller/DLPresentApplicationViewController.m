@@ -90,7 +90,7 @@
     [backview addSubview:bankCradLabel];
     bankCradLabel.text = self.presentModel.bank_account;
     if (self.presentModel.bank_account == 0) {
-        bankCradLabel.text = @"你还没有绑定银行卡，请联系客服绑定";
+        bankCradLabel.text = @"你还没有绑定银行卡，请联系运营商";
     } else {
     NSString *str1;
     if (bankCradLabel.text.length >= 4) {
@@ -274,7 +274,7 @@
 #pragma mark - ButtonAction
 - (void)submitAnApplication {
     if (self.presentModel.bank_account == 0) {
-        [[DLHUDManager sharedInstance]showTextOnly:@"你还没有绑定银行卡，请联系客服绑定"];
+        [[DLHUDManager sharedInstance]showTextOnly:@"你还没有绑定银行卡，请联系运营商"];
         return;
     }
     if (self.priceTextField.text.length == 0) {
