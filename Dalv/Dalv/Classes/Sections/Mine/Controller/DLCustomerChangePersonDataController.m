@@ -12,7 +12,6 @@
 #import "BLMPickerView.h"
 
 @interface DLCustomerChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,BLMPickerDelegate>
-
 @property(nonatomic,strong) UITableView * personalDataTableView;
 @property(nonatomic,strong) UILabel * label;
 @property(nonatomic,strong) UITextField * nameTF;
@@ -127,9 +126,6 @@ static NSString *cell1ID = @"cell1ID";
 }
 
 
-
-
-
 #pragma mark ----- UITableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -148,7 +144,6 @@ static NSString *cell1ID = @"cell1ID";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return 6;
-
 }
 
 
@@ -228,8 +223,6 @@ static NSString *cell1ID = @"cell1ID";
     
     return cell;
 }
-
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    

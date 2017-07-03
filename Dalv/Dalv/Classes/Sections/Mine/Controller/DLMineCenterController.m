@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //  -------------------  个人中心   -------------------
 
-#import "DLPersonalChangeDataController.h"
 #import "DLCustomerChangePersonDataController.h"
+#import "DLPersonalChangeDataController.h"
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyCustomerXibController.h"
 #import "DLMyCustomerController.h"
@@ -116,7 +116,6 @@ static NSString *cellID  = @"cellID";
     
 
     /*
-    
     UIButton* personBtn = [[UIButton alloc]init];
     self.personBtn = personBtn;
     [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
@@ -131,11 +130,7 @@ static NSString *cellID  = @"cellID";
         make.top.equalTo(@20);
         make.height.width.offset(66);
     }];
-
      */
-     
-     
-     
     UILabel *nameLabel = [[UILabel alloc] init];
     self.nameLabel = nameLabel;
     [nameLabel sizeToFit];
@@ -413,14 +408,6 @@ static NSString *cellID  = @"cellID";
     return scaledImage;
     
 }
-
-
-
-
-
-
-
-
 
 #pragma mark ----  TableView DataSource
 

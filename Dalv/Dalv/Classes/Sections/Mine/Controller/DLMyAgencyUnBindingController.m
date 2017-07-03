@@ -14,21 +14,16 @@
 @interface DLMyAgencyUnBindingController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView * agencyListTableView;
-
 @property (nonatomic, strong) NSMutableArray *agencyList;
-/* 顾问头像 */
-@property (weak, nonatomic)  UIImageView *AgencyImageV;
-/* 顾问名字 */
-@property (weak, nonatomic)  UILabel *agencyNameLabel;
-/* 顾问积分 */
-@property (weak, nonatomic)  UILabel *agencyIntegralLabel;
-/* 顾问从业时间 */
-@property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;
-
+@property (weak, nonatomic)  UIImageView *AgencyImageV;/// 顾问头像
+@property (weak, nonatomic)  UILabel *agencyNameLabel;/// 顾问名字
+@property (weak, nonatomic)  UILabel *agencyIntegralLabel;/// 顾问积分
+@property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;///顾问从业时间
 @property(nonatomic,weak) NSDictionary * myListDict;
-
 @end
+
 //static NSString *CellID = @"CellID";
+
 @implementation DLMyAgencyUnBindingController
 
 - (void)viewDidLoad {

@@ -101,7 +101,7 @@ static NSString *cellID  = @"cellID";
         
     }];
     
-    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"点错了" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:actionOk];
     [alert addAction:actionCancle];

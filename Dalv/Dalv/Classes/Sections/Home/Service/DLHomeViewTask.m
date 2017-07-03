@@ -788,7 +788,7 @@
     }];
 
 }
-
+            
 ///测试普通用户个人中心-我的顾问（已绑定）解绑接口：
 + (void)getTouristPersonPageUnbundingAgency:(NSDictionary *)param
                                  completion:(void (^)(id result, NSError *error))completionHandler{

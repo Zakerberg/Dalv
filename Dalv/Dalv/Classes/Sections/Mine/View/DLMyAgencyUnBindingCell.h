@@ -10,21 +10,12 @@
 #import "DLMyAgencyUnBindingModel.h"
 
 @interface DLMyAgencyUnBindingCell : UITableViewCell
-
-/** 顾问姓名 **/
-@property(nonatomic,strong) UILabel *nameLabel;
-/** 顾问积分 **/
-@property(nonatomic,strong) UILabel *integralLabel;
-/** 头像 **/
-@property(nonatomic,strong) UIImageView *headImageView;
-/** 工作时间 **/
-@property(nonatomic,strong) UILabel *workingTimeLabel;
-/* 顾问性别 */
-@property(nonatomic,strong) UIImageView *sexImageView;
-
-
+@property(nonatomic,strong) UILabel *nameLabel;/// 顾问姓名
+@property(nonatomic,strong) UILabel *integralLabel;/// 顾问积分
+@property(nonatomic,strong) UIImageView *headImageView;/// 头像
+@property(nonatomic,strong) UILabel *workingTimeLabel;/// 工作时间
+@property(nonatomic,strong) UIImageView *sexImageView;/// 顾问性别
 @property (nonatomic, strong) DLMyAgencyUnBindingModel *myAgencyUnBindingModel;
-
 
 /** Cell 重用ID */
 +(NSString *)cellIdentifier;

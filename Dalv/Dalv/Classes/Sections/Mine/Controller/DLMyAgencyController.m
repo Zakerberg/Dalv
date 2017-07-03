@@ -10,21 +10,18 @@
 #import "DLHomeViewTask.h"
 
 @interface DLMyAgencyController ()
-
-@property (nonatomic, strong) NSDictionary *myAgencyList;//data
-@property(nonatomic,strong) UIImageView *imageView;//头像
-@property(nonatomic,strong) UILabel  * nameLabel;//名字
-@property(nonatomic,strong) UILabel * nickNameLabel;//昵称
-@property(nonatomic,strong) UILabel * sexLabel;//性别
-@property(nonatomic,strong) UILabel * ageLabel;//年龄
-@property(nonatomic,strong) UILabel * workTimeLabel;//从业时间
-@property(nonatomic,strong) UILabel * numberLabel;//手机号
-@property(nonatomic,strong) UILabel * mailLabel;//邮箱
-@property(nonatomic,strong) UITextView * noteTV;//介绍
-
-@property(nonatomic,strong) UIButton * unBindingBtn;//解除绑定
-@property(nonatomic,strong) UIButton * contractBtn;//联系
-
+@property (nonatomic, strong) NSDictionary *myAgencyList;///data
+@property(nonatomic,strong) UIImageView *imageView;///头像
+@property(nonatomic,strong) UILabel  * nameLabel;///名字
+@property(nonatomic,strong) UILabel * nickNameLabel;///昵称
+@property(nonatomic,strong) UILabel * sexLabel;///性别
+@property(nonatomic,strong) UILabel * ageLabel;///年龄
+@property(nonatomic,strong) UILabel * workTimeLabel;///从业时间
+@property(nonatomic,strong) UILabel * numberLabel;///手机号
+@property(nonatomic,strong) UILabel * mailLabel;///邮箱
+@property(nonatomic,strong) UITextView * noteTV;///介绍
+@property(nonatomic,strong) UIButton * unBindingBtn;///解除绑定
+@property(nonatomic,strong) UIButton * contractBtn;///联系
 @end
 
 @implementation DLMyAgencyController
@@ -432,9 +429,27 @@
 ///解除绑定
 -(void)unBindingBtnClick {
     
-    NSLog(@"解除绑定");
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"解绑后后您需要重新绑定新的顾问,是否解绑?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"解绑" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token]
+                                };
+        
+        [DLHomeViewTask getTouristPersonPageUnbundingAgency:param completion:^(id result, NSError *error) {
+        }];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:actionOk];
+    [alert addAction:actionCancle];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 @end

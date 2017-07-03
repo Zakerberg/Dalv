@@ -272,7 +272,6 @@ static NSString *cellID  = @"cellID";
         }else {
             
         }
-
         
         /*
          name：姓名
@@ -282,9 +281,7 @@ static NSString *cellID  = @"cellID";
          password：密码
          vocation ：职务（员工，导游）
          */
-        
         /*
-         
          NSDictionary *param = @{
          @"name":self.nameTF.text,
          @"province":CityStr,
