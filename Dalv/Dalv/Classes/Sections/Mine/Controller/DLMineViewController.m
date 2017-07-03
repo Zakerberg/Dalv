@@ -59,7 +59,7 @@ static NSString *cellID  = @"cellID";
     [super viewDidLoad];
     [self setupUI];
     [self setTableView];
-    [self setupHeaderView];
+//    [self setupHeaderView];
     [self setupRegisterBtn];
     
 }
@@ -73,6 +73,7 @@ static NSString *cellID  = @"cellID";
 }
 
 #pragma mark ------------  setupRegisterBtn ---------------
+
 -(void)setupRegisterBtn {
     
     UIButton *regsterNow = [[UIButton alloc] init];//WithFrame:CGRectMake(20, 419, 670/2, 52)];
@@ -658,7 +659,7 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 7;
+    return 6;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -813,22 +814,22 @@ static NSString *cellID  = @"cellID";
         
     }
     
-    if (indexPath.row == 6) {
-        UITextField *positionTF = [[UITextField alloc] init];
-        
-        //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
-        self.positionTF = positionTF;
-        positionTF.placeholder = @"职务 如: 领导、导游等(选填)";
-        [tableView addSubview:positionTF];
-        
-        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
-            make.left.equalTo(@20);
-            make.height.offset(52);
-            make.width.offset(MAIN_SCREEN_WIDTH);
-        }];
+//    if (indexPath.row == 6) {
+//        UITextField *positionTF = [[UITextField alloc] init];
+//        
+//        //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
+//        self.positionTF = positionTF;
+//        positionTF.placeholder = @"职务 如: 领导、导游等(选填)";
+//        [tableView addSubview:positionTF];
+//        
+//        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
+//            make.left.equalTo(@20);
+//            make.height.offset(52);
+//            make.width.offset(MAIN_SCREEN_WIDTH);
+//        }];
     
-    }
+//    }
     
     if (indexPath.row == 1) {
         

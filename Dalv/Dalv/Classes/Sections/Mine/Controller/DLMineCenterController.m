@@ -7,6 +7,7 @@
 //  -------------------  个人中心   -------------------
 
 #import "DLPersonalChangeDataController.h"
+#import "DLCustomerChangePersonDataController.h"
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyCustomerXibController.h"
 #import "DLMyCustomerController.h"
@@ -304,11 +305,19 @@ static NSString *cellID  = @"cellID";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    /****   修改个人资料    ****/
+    /****  修改个人资料 (顾问 or C端 ) ****/
     if (indexPath.row == 0){
         
-        DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
-        [self.navigationController pushViewController:changeDataVC animated:YES];
+        if([[DLUtils getUser_type] isEqualToString:@"4"]){
+            
+            DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
+            [self.navigationController pushViewController:changeDataVC animated:YES];
+            
+        }else {
+            
+            DLCustomerChangePersonDataController *VC = [[DLCustomerChangePersonDataController alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }
     }
     
     

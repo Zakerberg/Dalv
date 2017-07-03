@@ -19,24 +19,25 @@
 @property (weak,nonatomic) UITableViewCell* cell;
 @property (weak,nonatomic) DLPersonalChangeDataCell* personalCell;
 @property(nonatomic,strong) UILabel *label;
-/**** 昵称  ****/
+/// 昵称
 @property (weak, nonatomic) UITextField *nickNameTF;
-/**** 标签  ****/
+/// 标签
 @property (weak, nonatomic) UITextField *noteLabelTF;
-/**** 邮箱  ****/
+/// 邮箱
 @property (weak, nonatomic) UITextField *mailTF;
-/**** 年龄  ****/
+/// 年龄
 @property (weak, nonatomic) UITextField *ageTF;
-/**** 去过的城市textView  *****/
+/// 去过的城市textView
 @property (weak, nonatomic) UITextView *goCityView;
-/**** 名字  ****/
+/// 名字
 @property (weak, nonatomic) UILabel *nameLabel;
-/**** 手机号  ****/
+/// 手机号
 @property (weak, nonatomic) UILabel *numLabel;
-/*** sex ***/
+/// sex
 @property(nonatomic,strong) UILabel * sexLabel;
-/*** workTime ***/
-/**** 年龄  ****/
+/// workTime
+
+/// 年龄
 @property (weak, nonatomic) UITextField *workTimeTF;
 
 
@@ -74,6 +75,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     self.personalDataTableView.delegate = self;
     
     [self.personalDataTableView registerClass:[DLPersonalChangeDataCell class] forCellReuseIdentifier:cellID];
+    
     [self.personalDataTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewCellID];
 
     [self.view addSubview:self.personalDataTableView];
@@ -249,7 +251,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     
 }
 
-#pragma mark ------------- UITableView Delegate -------------
+#pragma mark ----- UITableView Delegate 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -284,7 +286,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     
     if (indexPath.section == 0) {
         
-        DLPersonalChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        DLPersonalChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
         self.label = cell.label;
         
         if (indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4){
