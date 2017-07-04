@@ -164,8 +164,12 @@
                             }
                             NSUInteger integer = [str integerValue] +object.weekDay-2;
                             CalendarDateSource *source = array1[integer];
+                            if([[DLUtils getUser_type]  isEqualToString: @"4"]){
                             source.subTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_agency];
                             source.adultTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_list];
+                            } else {
+                            source.subTitle = [NSString stringWithFormat:@"%@",tourSkuDate.price_adult_list];
+                            }
                             [array1 replaceObjectAtIndex:integer withObject:source];
                         }
                         object.allDate = array1;

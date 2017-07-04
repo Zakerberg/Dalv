@@ -800,4 +800,25 @@
 
 }
 
+
++ (void)getTouristAgencyIndexLinelist:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_TouristAgencyIndexLinelist param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
++ (void)getTouristIndexDetails:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST:DL_TouristIndexDetails param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
+
 @end

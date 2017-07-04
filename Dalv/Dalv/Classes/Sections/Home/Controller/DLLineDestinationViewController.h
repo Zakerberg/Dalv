@@ -15,4 +15,7 @@
 /**  跳转type */
 @property (nonatomic, copy) NSString *type;
 
+/**  跳转标题 */
+@property (nonatomic, copy) NSString *name;
+
 @end

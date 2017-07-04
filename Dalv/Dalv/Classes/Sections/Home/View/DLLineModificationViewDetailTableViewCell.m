@@ -60,7 +60,7 @@
         make.top.equalTo(@0);
         make.left.equalTo(@0);
         make.width.equalTo(self.contentView);
-        make.height.equalTo(@100);
+        make.height.equalTo(@200);
     }];
 
     [_lineDetialNameLab mas_makeConstraints:^(MASConstraintMaker *make) {

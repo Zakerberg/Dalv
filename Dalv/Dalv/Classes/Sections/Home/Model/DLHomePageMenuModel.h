@@ -9,12 +9,37 @@
 #import <Foundation/Foundation.h>
 @class DLHomeMenuItem;
 @class AgencyInfo;
+@class TouristInfo;
+
 
 @interface DLHomePageMenuModel : NSObject
 
 @property (nonatomic, strong) NSArray <DLHomeMenuItem *> *columnList;//菜单信息
 
 @property (nonatomic, strong) AgencyInfo *agencyInfo;//顾问详情
+
+@property (nonatomic, strong) TouristInfo *touristInfo;//用户详情
+
+
+@end
+
+// 用户详情
+@interface TouristInfo : NSObject
+
+/** 顾问id */
+@property (nonatomic, copy) NSString *the_agency_id;
+
+/**用户id */
+@property (nonatomic, copy) NSString *ordinaryId;
+
+/** 用户手机号 */
+@property (nonatomic, copy) NSString *mobile;
+
+/** 用户名称 */
+@property (nonatomic, copy) NSString *name;
+
+/** 用户头像 */
+@property (nonatomic, copy) NSString *head_img;
 
 @end
 

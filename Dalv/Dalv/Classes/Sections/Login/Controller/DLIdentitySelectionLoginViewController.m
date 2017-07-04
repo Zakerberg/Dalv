@@ -48,9 +48,12 @@
     
     _consultantBtn =[UIButton buttonWithType:UIButtonTypeCustom];
     [_consultantBtn setTitle:@"顾问登陆" forState:UIControlStateNormal];
-    _consultantBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
+    [_consultantBtn  setTitleColor:[UIColor colorWithHexString:@"#536bf8"] forState:UIControlStateNormal];
+    _consultantBtn.backgroundColor = [UIColor whiteColor];
     [_consultantBtn  addTarget:self action:@selector(consultantSlectBtn) forControlEvents:UIControlEventTouchUpInside];
-    _consultantBtn.layer.cornerRadius = 8.0;
+    _consultantBtn.layer.cornerRadius = 20.0;
+    [_consultantBtn.layer setBorderWidth:1.0];
+    _consultantBtn.layer.borderColor=[UIColor colorWithHexString:@"#536bf8"].CGColor;
     [self.view addSubview:_consultantBtn];
     
     
@@ -58,7 +61,7 @@
     [_averageUserBtn setTitle:@"普通登陆" forState:UIControlStateNormal];
     _averageUserBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
     [_averageUserBtn  addTarget:self action:@selector(averageUserSlectBtn) forControlEvents:UIControlEventTouchUpInside];
-    _averageUserBtn.layer.cornerRadius = 8.0;
+    _averageUserBtn.layer.cornerRadius = 20.0;
     [self.view addSubview:_averageUserBtn];
     
     
@@ -70,17 +73,19 @@
     }];
 
     [_consultantBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(loginImage.mas_bottom).with.offset(50);;
+//        make.top.equalTo(loginImage.mas_bottom).with.offset(50);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-150);
         make.left.equalTo(@60);
         make.right.equalTo(@-60);
-        make.height.equalTo(@80);
+        make.height.equalTo(@40);
     }];
     
     [_averageUserBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_consultantBtn.mas_bottom).with.offset(50);
+//        make.top.equalTo(_consultantBtn.mas_bottom).with.offset(50);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-80);
         make.left.equalTo(@60);
         make.right.equalTo(@-60);
-        make.height.equalTo(@80);
+        make.height.equalTo(@40);
     }];
 }
 

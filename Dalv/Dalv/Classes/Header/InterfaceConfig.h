@@ -264,6 +264,15 @@
 ///75 测试普通用户个人中心-我的顾问（已绑定）解绑接口
 #define DL_TouristPersonalUnbundlingAgency  DL_HOST@index.php/TouristApi/TouristPersonal/unbundlingAgency
 
+//// 76 测试普通用户-绑定顾问后首页模块接口
+//#define DL_TouristAgencyIndexMod  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexMod"
+
+
+// 77 测试普通用户-绑定顾问后首页线路列表接口
+#define DL_TouristAgencyIndexLinelist  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexLinelist"
+
+// 78 测试普通用户-绑定顾问后线路详情接口
+#define DL_TouristIndexDetails  DL_HOST@"index.php/Api/index/details"
 
 
 

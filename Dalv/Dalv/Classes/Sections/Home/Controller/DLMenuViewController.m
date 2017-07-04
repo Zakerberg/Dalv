@@ -35,7 +35,11 @@
     [self setupSubviews];
     [self setupConstraints];
     
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self fetchData];
+    } else{
+    [self ordinaryFetchData];
+    }
     
 }
 
@@ -77,7 +81,21 @@
 
 #pragma mark - Fetch data
 
+- (void)ordinaryFetchData {
+            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getTouristAgencyIndexMod:param completion:^(id result, NSError *error) {
+        DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+        self.apps = homePageMenuModel.columnList;
+        [self.appCollectionView reloadData];
+        if (self.didCompleteLoad) {
+            self.didCompleteLoad(homePageMenuModel);
+        }
+    }];
+
+}
 - (void)fetchData {
+    
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],};
     [DLHomeViewTask getHomeAgencyIndexModl:param completion:^(id result, NSError *error) {

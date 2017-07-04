@@ -14,7 +14,6 @@
 #import "DLHomeViewTask.h"
 #import "DLLineDetialTableViewCell.h"
 #import "DLLineModificationViewController.h"
-#import "LGLCalenderViewController.h"
 #import "DLChangeTitleViewController.h"
 #import "DLCalendarViewController.h"
 
@@ -38,7 +37,13 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-    [self fetchData];
+//    [self fetchData];
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+        [self fetchData];
+    } else{
+        [self ordinaryFetchData];
+    }
+
     
 }
 
@@ -88,9 +93,34 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
+    }];
     
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self cofigureBottomView];
+    }else{
+    [self cofigureTellView];
+    }
     
+}
+
+- (void)cofigureTellView {
+    
+    UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-104, SCREEN_WIDTH, 40)];
+    [telSonsultationBtn setTitle:@"电话咨询" forState:(UIControlStateNormal)];
+    [telSonsultationBtn setImage:[UIImage imageNamed:@"phone.png"] forState:UIControlStateNormal];
+    telSonsultationBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
+    telSonsultationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+    [telSonsultationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    telSonsultationBtn.backgroundColor = [UIColor whiteColor];
+    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
+    telSonsultationBtn.layer.cornerRadius = 2.0;
+    [self.view addSubview:telSonsultationBtn];
 }
 
 - (void)cofigureBottomView {
@@ -172,12 +202,24 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         }];
         return cell;
     } else if (indexPath.section == 1) {
+        
+         if([[DLUtils getUser_type]  isEqualToString: @"4"]){
         DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
         cell.detaiInfoModel = self.detaiInfoModel;
         cell.delegate = self;
         [cell configureCell:self.detaiInfoModel];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+             return cell;
+         }else{
+             DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
+             cell.detaiInfoModel = self.detaiInfoModel;
+             cell.delegate = self;
+             cell.titleChangeBtn.hidden = YES;
+             cell.lineModificationBtn.hidden = YES;
+             [cell configureCell:self.detaiInfoModel];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+             return cell;
+         }
     } else if (indexPath.section == 2) {
         DLLineDetialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
         cell.schedulingArray = self.schedulingArray;
@@ -191,7 +233,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 100.f;
+        return 200.f;
     } else if (indexPath.section == 1) {
         CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
         return (titleHeight > 20) ? (titleHeight + 240 + 42) : (265 + 42);
@@ -286,6 +328,39 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 #pragma mark - Fetch data
 
+- (void)ordinaryFetchData {
+    
+    //    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
+    [DLHomeViewTask getTouristIndexDetails:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+            self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+    
+    [DLHomeViewTask getLineDetialsScheduling:param completion:^(id result, NSError *error) {
+        NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
+        [self.schedulingArray removeAllObjects];
+        [self.schedulingArray addObjectsFromArray:schedulingArray];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+        [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        
+    }];
+    
+
+    
+}
 - (void)fetchData {
     
     //    NSDictionary *param = @{@"id" : self.routeModel.routeId,};

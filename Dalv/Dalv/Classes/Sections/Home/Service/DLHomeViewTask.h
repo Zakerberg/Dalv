@@ -760,5 +760,40 @@
 + (void)getTouristPersonPageUnbundingAgency:(NSDictionary *)param
                             completion:(void (^)(id result, NSError *error))completionHandler;
 
+/**
+ * 76 测试普通用户-绑定顾问后首页模块接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
+//+ (void)getTouristAgencyIndexMod:(NSDictionary *)param
+//                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 77 测试普通用户-绑定顾问后首页线路列表接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristAgencyIndexLinelist:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 78 测试普通用户-绑定顾问后线路详情接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristIndexDetails:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
 
 @end

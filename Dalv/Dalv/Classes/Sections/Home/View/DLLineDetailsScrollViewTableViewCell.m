@@ -37,7 +37,7 @@
         make.top.equalTo(@10);
         make.left.equalTo(@15);
         make.right.equalTo(self.contentView.mas_right).offset(-15);
-        make.height.equalTo(@150);
+        make.height.equalTo(@180);
 
     }];
     

@@ -86,6 +86,10 @@
         if (result) {
             self.modificationModel = [DLLineModificationModel mj_objectWithKeyValues:result];
             self.modificationarry = self.modificationModel.list;
+            if (self.modificationModel.list.count == 0) {
+                [[DLHUDManager sharedInstance] showTextOnly:@"没有线路团期"];
+                return;
+            }
             [self.lineModificationTableView reloadData];
         } else {
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
@@ -129,7 +133,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0){
         CGFloat titleHeight = [self.modificationModel.tour_list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
-        return titleHeight + 150;
+        return titleHeight + 250;
 
     } else {
         return 230;
