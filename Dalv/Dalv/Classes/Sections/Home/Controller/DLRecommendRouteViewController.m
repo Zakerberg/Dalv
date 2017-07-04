@@ -91,7 +91,9 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 }
 
 - (void)ordinaryFetchData {
-            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
                                     @"sign_token" : [DLUtils getSign_token],};
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
     [DLHomeViewTask getTouristAgencyIndexLinelist:param completion:^(id result, NSError *error) {
@@ -109,6 +111,28 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
+    }else{
+        
+//        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+//                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+        [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if (result) {
+                NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+                [self.topicList removeAllObjects];
+                [self.topicList addObjectsFromArray:recommendRouteArray];
+                [self.hotTopicCollectionView reloadData];
+                
+                if (self.didCompleteLoad) {
+                    self.didCompleteLoad();
+                }
+            } else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+        }];
+
+    }
 }
 
 - (void)fetchData {

@@ -82,7 +82,10 @@
 #pragma mark - Fetch data
 
 - (void)ordinaryFetchData {
-            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+    
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
                                     @"sign_token" : [DLUtils getSign_token],};
     [DLHomeViewTask getTouristAgencyIndexMod:param completion:^(id result, NSError *error) {
         DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
@@ -92,7 +95,21 @@
             self.didCompleteLoad(homePageMenuModel);
         }
     }];
+    } else {
+        
+//        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+//                                @"sign_token" : [DLUtils getSign_token],};
+        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
+            DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+            self.apps = homePageMenuModel.columnList;
+            [self.appCollectionView reloadData];
+            
+            if (self.didCompleteLoad) {
+                self.didCompleteLoad(homePageMenuModel);
+            }
+        }];
 
+    }
 }
 - (void)fetchData {
     

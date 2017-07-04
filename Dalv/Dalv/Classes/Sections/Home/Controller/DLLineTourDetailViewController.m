@@ -16,6 +16,7 @@
 #import "DLLineModificationViewController.h"
 #import "DLChangeTitleViewController.h"
 #import "DLCalendarViewController.h"
+#import "DLMyAgencyUnBindingController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -329,7 +330,8 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 #pragma mark - Fetch data
 
 - (void)ordinaryFetchData {
-    
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+
     //    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"id" : self.routeModel.routeId,
@@ -357,8 +359,37 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
         
     }];
-    
+    } else {
+            NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+//        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+//                                @"id" : self.routeModel.routeId,
+//                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+        @weakify(self);
+        [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
+            @strongify(self);
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if (result) {
+                self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+                self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
+                NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
+                [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            } else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+        }];
+        
+        [DLHomeViewTask getLineDetialsScheduling:param completion:^(id result, NSError *error) {
+            NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
+            [self.schedulingArray removeAllObjects];
+            [self.schedulingArray addObjectsFromArray:schedulingArray];
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            
+        }];
 
+        
+    }
     
 }
 - (void)fetchData {
@@ -398,9 +429,16 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)telSonsultationBtn {
     NSLog(@"点击了电话咨询");
+    if ([NSString isBlank:self.detaiInfoModel.list.mobile]) {
+//        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
+    DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
+        
+    [self.navigationController pushViewController:unBindingVC animated:YES];
+    } else {
     UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打电话" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
     phoneAlert.tag = 100;
     [phoneAlert show];
+    }
 }
 
 - (void)OtherBtn {
@@ -462,11 +500,21 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             }];
         }
     }
-    
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     if (alertView.tag == 100){
-        if (buttonIndex == 1) {
-            if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.contact_phone]]] ){
+            if (buttonIndex == 1) {
+               if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.contact_phone]]] ){
                 [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+            }
+        }
+    }
+    } else {
+        
+        if (alertView.tag == 100){
+            if (buttonIndex == 1) {
+                if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.mobile]]] ){
+                    [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+                }
             }
         }
     }
