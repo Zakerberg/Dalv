@@ -8,15 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C051C8F1ED3C4510039A79C /* DLAlertView.m */; };
-		1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864BB1EEA96F5005015DE /* LGLCalendarDate.m */; };
-		1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864BD1EEA96F5005015DE /* LGLCalenderCell.m */; };
-		1C0864CE1EEA96F5005015DE /* LGLCalenderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864BF1EEA96F5005015DE /* LGLCalenderModel.m */; };
-		1C0864CF1EEA96F5005015DE /* LGLCalenderSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864C11EEA96F5005015DE /* LGLCalenderSubModel.m */; };
-		1C0864D01EEA96F5005015DE /* LGLCalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864C31EEA96F5005015DE /* LGLCalenderViewController.m */; };
-		1C0864D11EEA96F5005015DE /* LGLHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864C51EEA96F5005015DE /* LGLHeaderView.m */; };
-		1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864C71EEA96F5005015DE /* LGLWeekView.m */; };
-		1C0864D31EEA96F5005015DE /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864C91EEA96F5005015DE /* UIView+Frame.m */; };
-		1C0864D41EEA96F5005015DE /* XLPlainFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0864CB1EEA96F5005015DE /* XLPlainFlowLayout.m */; };
 		1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57D31ED7B99F00592BBB /* DLPlaceOrderViewController.m */; };
 		1C0B57DF1ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57D61ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m */; };
 		1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57D81ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m */; };
@@ -382,24 +373,6 @@
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
 		1C051C8E1ED3C4510039A79C /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
 		1C051C8F1ED3C4510039A79C /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
-		1C0864BA1EEA96F5005015DE /* LGLCalendarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLCalendarDate.h; sourceTree = "<group>"; };
-		1C0864BB1EEA96F5005015DE /* LGLCalendarDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLCalendarDate.m; sourceTree = "<group>"; };
-		1C0864BC1EEA96F5005015DE /* LGLCalenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLCalenderCell.h; sourceTree = "<group>"; };
-		1C0864BD1EEA96F5005015DE /* LGLCalenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLCalenderCell.m; sourceTree = "<group>"; };
-		1C0864BE1EEA96F5005015DE /* LGLCalenderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLCalenderModel.h; sourceTree = "<group>"; };
-		1C0864BF1EEA96F5005015DE /* LGLCalenderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLCalenderModel.m; sourceTree = "<group>"; };
-		1C0864C01EEA96F5005015DE /* LGLCalenderSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLCalenderSubModel.h; sourceTree = "<group>"; };
-		1C0864C11EEA96F5005015DE /* LGLCalenderSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLCalenderSubModel.m; sourceTree = "<group>"; };
-		1C0864C21EEA96F5005015DE /* LGLCalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLCalenderViewController.h; sourceTree = "<group>"; };
-		1C0864C31EEA96F5005015DE /* LGLCalenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLCalenderViewController.m; sourceTree = "<group>"; };
-		1C0864C41EEA96F5005015DE /* LGLHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLHeaderView.h; sourceTree = "<group>"; };
-		1C0864C51EEA96F5005015DE /* LGLHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLHeaderView.m; sourceTree = "<group>"; };
-		1C0864C61EEA96F5005015DE /* LGLWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGLWeekView.h; sourceTree = "<group>"; };
-		1C0864C71EEA96F5005015DE /* LGLWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGLWeekView.m; sourceTree = "<group>"; };
-		1C0864C81EEA96F5005015DE /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		1C0864C91EEA96F5005015DE /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		1C0864CA1EEA96F5005015DE /* XLPlainFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPlainFlowLayout.h; sourceTree = "<group>"; };
-		1C0864CB1EEA96F5005015DE /* XLPlainFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPlainFlowLayout.m; sourceTree = "<group>"; };
 		1C0B57D21ED7B99F00592BBB /* DLPlaceOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaceOrderViewController.h; sourceTree = "<group>"; };
 		1C0B57D31ED7B99F00592BBB /* DLPlaceOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaceOrderViewController.m; sourceTree = "<group>"; };
 		1C0B57D51ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderChoiceDateTableViewCell.h; sourceTree = "<group>"; };
@@ -979,31 +952,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C0864B91EEA96F5005015DE /* LineDate */ = {
-			isa = PBXGroup;
-			children = (
-				1C0864BA1EEA96F5005015DE /* LGLCalendarDate.h */,
-				1C0864BB1EEA96F5005015DE /* LGLCalendarDate.m */,
-				1C0864BC1EEA96F5005015DE /* LGLCalenderCell.h */,
-				1C0864BD1EEA96F5005015DE /* LGLCalenderCell.m */,
-				1C0864BE1EEA96F5005015DE /* LGLCalenderModel.h */,
-				1C0864BF1EEA96F5005015DE /* LGLCalenderModel.m */,
-				1C0864C01EEA96F5005015DE /* LGLCalenderSubModel.h */,
-				1C0864C11EEA96F5005015DE /* LGLCalenderSubModel.m */,
-				1C0864C21EEA96F5005015DE /* LGLCalenderViewController.h */,
-				1C0864C31EEA96F5005015DE /* LGLCalenderViewController.m */,
-				1C0864C41EEA96F5005015DE /* LGLHeaderView.h */,
-				1C0864C51EEA96F5005015DE /* LGLHeaderView.m */,
-				1C0864C61EEA96F5005015DE /* LGLWeekView.h */,
-				1C0864C71EEA96F5005015DE /* LGLWeekView.m */,
-				1C0864C81EEA96F5005015DE /* UIView+Frame.h */,
-				1C0864C91EEA96F5005015DE /* UIView+Frame.m */,
-				1C0864CA1EEA96F5005015DE /* XLPlainFlowLayout.h */,
-				1C0864CB1EEA96F5005015DE /* XLPlainFlowLayout.m */,
-			);
-			path = LineDate;
-			sourceTree = "<group>";
-		};
 		1C2865B21F02965A0077E076 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1207,7 +1155,6 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				1C0864B91EEA96F5005015DE /* LineDate */,
 				4550B95B1EDFBEF1002269BF /* UserDefaultManager */,
 				458CB5901EDE5FE70001084D /* InputAlert */,
 				450105F01ED9C34000AA7A17 /* common */,
@@ -2370,7 +2317,6 @@
 				1CB635141EFD0A83001C188F /* DLLineDestinationViewController.m in Sources */,
 				1C422BC11F00AFD0004EB57F /* NSBundle+PYSearchExtension.m in Sources */,
 				1C0B57E01ED7B9D400592BBB /* DLLineOrderContactsTableViewCell.m in Sources */,
-				1C0864D01EEA96F5005015DE /* LGLCalenderViewController.m in Sources */,
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				45EF39AA1F09DE6B00A5010A /* DLCustomerChangePersonDataController.m in Sources */,
@@ -2384,14 +2330,12 @@
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
 				453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */,
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
-				1C0864CC1EEA96F5005015DE /* LGLCalendarDate.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
 				1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
 				1C6661681EF672390032E1AE /* DLFinanceMenuItem.m in Sources */,
-				1C0864D21EEA96F5005015DE /* LGLWeekView.m in Sources */,
 				45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */,
 				450F84351EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
@@ -2404,7 +2348,6 @@
 				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
-				1C0864D31EEA96F5005015DE /* UIView+Frame.m in Sources */,
 				1CB953F41ECFC7E200BDC2D3 /* UIBarButtonItem+MSExtension.m in Sources */,
 				1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */,
 				45DB48071EE8577200399A6D /* DLContractApplySection2Cell.m in Sources */,
@@ -2421,7 +2364,6 @@
 				45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */,
 				1C0B57E21ED7B9D400592BBB /* DLLineOrderSingleRoomTableViewCell.m in Sources */,
 				1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */,
-				1C0864D11EEA96F5005015DE /* LGLHeaderView.m in Sources */,
 				450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */,
 				1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */,
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
@@ -2467,11 +2409,9 @@
 				1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */,
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1C5CD38B1EFA0010009DBC1B /* CalenderDateHeaderView.m in Sources */,
-				1C0864CD1EEA96F5005015DE /* LGLCalenderCell.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
-				1C0864D41EEA96F5005015DE /* XLPlainFlowLayout.m in Sources */,
 				1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */,
 				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
@@ -2505,7 +2445,6 @@
 				451F39271EEE7120005FE126 /* DLContractApplySection0Cell.m in Sources */,
 				45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */,
 				45DB48191EE93AB400399A6D /* DLCustomerListController.m in Sources */,
-				1C0864CE1EEA96F5005015DE /* LGLCalenderModel.m in Sources */,
 				1C2978E91EEE2CF300D3FEEA /* DLPresentApplicationModel.m in Sources */,
 				1CB770B11ECFE00100F6EFDF /* DLGeneralController.m in Sources */,
 				1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */,
@@ -2513,7 +2452,6 @@
 				1C2981691EDFE2C400712524 /* DLRechargeApplicationViewController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
 				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
-				1C0864CF1EEA96F5005015DE /* LGLCalenderSubModel.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				45F98C231EFA2BE40012DC26 /* DLCustomerLoginController.m in Sources */,
 				1C1670CD1EF13A5D000DBFF5 /* DLChangeTitleViewController.m in Sources */,

@@ -39,7 +39,7 @@ static NSString *kMSLineDestinationTableViewFooter = @"MSLineDestinationTableVie
     return YES;
 }
 - (void)setupNavbar {
-    self.title = @"目的地";
+    self.title = self.name;
 }
 
 #pragma mark - Setup subViews

@@ -395,9 +395,17 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (void)refreshPerformanceView {
+    
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     self.namelab.text = self.homePageModel.agencyInfo.name;
     self.mobilelab.text  = self.homePageModel.agencyInfo.mobile;
+        
+    } else {
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.touristInfo.head_img] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    self.namelab.text = self.homePageModel.touristInfo.name;
+    self.mobilelab.text  = self.homePageModel.touristInfo.mobile;
+    }
     
 }
 @end

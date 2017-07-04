@@ -216,6 +216,7 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
     
     DLLineDestinationViewController *linetourDetailVC = [[DLLineDestinationViewController alloc]init];
     linetourDetailVC.type = self.homeMenuItem.type;
+    linetourDetailVC.name =  self.homeMenuItem.name;
     linetourDetailVC.routeModel = [self.lineTourViewList objectAtIndex:indexPath.item];
     [self.navigationController pushViewController:linetourDetailVC animated:YES];
     

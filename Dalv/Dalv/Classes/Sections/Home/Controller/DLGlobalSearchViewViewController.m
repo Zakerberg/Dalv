@@ -8,6 +8,7 @@
 
 #import "DLGlobalSearchViewViewController.h"
 #import "DLRecommendRouteViewController.h"
+#import "DLHomeViewTask.h"
 
 static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
 @interface DLGlobalSearchViewViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -27,6 +28,7 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
+    [self fetchData];
     
 }
 
@@ -37,6 +39,16 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
 }
 - (BOOL)dl_blueNavbar {
     return YES;
+    
+}
+
+
+- (void)fetchData {
+    [self.hotTopicViewController beginLoading];
+            NSDictionary *param = @{@"names" : @"北京市",
+                                    @"page" : @"1",};
+            [DLHomeViewTask getLineSearch:param completion:^(id result, NSError *error) {
+                }];
     
 }
 

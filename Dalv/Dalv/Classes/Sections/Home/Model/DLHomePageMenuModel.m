@@ -23,6 +23,12 @@
 }
 @end
 
+@implementation TouristInfo
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"ordinaryId" : @"id",};
+}
+@end
 
 @implementation DLHomeMenuItem
 

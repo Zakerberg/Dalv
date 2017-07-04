@@ -26,6 +26,8 @@
 //    float width = CGRectGetWidth(self.frame) - 15;
 //    float originY = (CGRectGetHeight(self.frame) - width) / 2.0;
     
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+
     self.priceAdultButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.priceAdultButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
     self.priceAdultButton.frame = CGRectMake(1, 18, 40, 17);
@@ -45,7 +47,24 @@
     [self.priceChildButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.priceChildButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:self.priceChildButton];
+        
+    } else {
+        
+        self.priceAdultButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.priceAdultButton.backgroundColor = [UIColor colorWithHexString:@"#fe6643"];
+        self.priceAdultButton.frame = CGRectMake(1, 24, 40, 17);
+        self.priceAdultButton.layer.masksToBounds = YES;
+        [self.priceAdultButton setTitle:@"18" forState:UIControlStateNormal];
+        self.priceAdultButton.titleLabel.font = [UIFont systemFontOfSize:10.f];
+        [self.priceAdultButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        self.priceAdultButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:self.priceAdultButton];
+        
+        self.priceAdultButton.hidden = YES;
+        
+        
 
+    }
     
     self.calenderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.calenderBtn setBackgroundImage:[UIImage imageNamed:@"dl_calender_selected_bg"] forState:UIControlStateSelected];

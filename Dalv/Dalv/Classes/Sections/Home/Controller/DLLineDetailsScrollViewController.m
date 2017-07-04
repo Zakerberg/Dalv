@@ -83,7 +83,7 @@
     DLDestinationAtlasModel *destModel = [self.lineDetArray objectAtIndex:indexPath.row];
     
     CGFloat titleHeight = [destModel.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
-    return titleHeight + 180;
+    return titleHeight + 210;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
