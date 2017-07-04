@@ -36,11 +36,8 @@
 /// sex
 @property(nonatomic,strong) UILabel * sexLabel;
 /// workTime
-
 /// 年龄
 @property (weak, nonatomic) UITextField *workTimeTF;
-
-
 @property(nonatomic,strong) NSString * sexStr;
 
 @end
@@ -417,23 +414,23 @@ static NSString *tableViewCellID = @"tableViewCellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.selectedIndexPath = indexPath ;
-    self.personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath] ;
+    self.personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
     
     
-    if (indexPath.row == 2) {//性别
+    if (indexPath.row == 2) { ///性别
         
         BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
         picker.delegate = self ;
         picker.arrayType = GenderArray;
         [self.view addSubview:picker];
         
-    }else if (indexPath.section == 1) {    /*** 修改密码 ***/
+    }else if (indexPath.section == 1) { /// 修改密码
         DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
         [self.navigationController pushViewController:changePwdVC animated:YES];
     }
 }
 
-#pragma mark ---------  UITextViewDelegate  -------------
+#pragma mark ---- UITextViewDelegate
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
     if ([textView.text isEqualToString:@"描述你去过的地方"]) {
@@ -449,7 +446,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     }
 }
 
-#pragma mark - -------------- BLMPickerDelegate -------------------
+#pragma mark ------- BLMPickerDelegate
 
 -(void)PickerSelectorIndixString:(NSString *)str
 {

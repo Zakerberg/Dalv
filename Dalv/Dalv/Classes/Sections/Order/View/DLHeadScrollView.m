@@ -8,7 +8,10 @@
 
 #import "DLHeadScrollView.h"
 
-#define BTNWIDTH 107.0
+#warning 下次添加签证和wifi把下面注释打开
+//#define BTNWIDTH 107.0
+#define BTNWIDTH MAIN_SCREEN_WIDTH/2
+
 #define ImageHEIGHT 18.0
 @interface DLHeadScrollView ()
 {
@@ -22,7 +25,10 @@
 {
     self = [super init];
     if (self) {
-        self.headArray = @[@"线路订单",@"签证订单",@"wifi订单",@"门票订单"];
+        
+#warning 下次添加签证和wifi把下面注释打开
+//      self.headArray = @[@"线路订单",@"机票订单",@"wifi订单",@"签证订单"];
+        self.headArray = @[@"线路订单",@"机票订单"];
         self.showsHorizontalScrollIndicator = NO;
         [self createUI];
     }
@@ -44,7 +50,6 @@
     for (int i = 0; i < [self.headArray count]; i++) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        
         
         button.frame = CGRectMake(0 + BTNWIDTH*i, 0, BTNWIDTH, 48);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -89,6 +94,7 @@
                     }];
                 }
             }else{
+                
                 [obj setTitleColor:[UIColor colorWithHexString:@"#9b9b9b"] forState:UIControlStateNormal];
                 obj.titleLabel.font = [UIFont systemFontOfSize:14];
             }

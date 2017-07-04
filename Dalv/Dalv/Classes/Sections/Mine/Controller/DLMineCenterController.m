@@ -113,8 +113,6 @@ static NSString *cellID  = @"cellID";
         make.top.equalTo(@20);
         make.height.width.offset(66);
     }];
-    
-
     /*
     UIButton* personBtn = [[UIButton alloc]init];
     self.personBtn = personBtn;
@@ -161,15 +159,10 @@ static NSString *cellID  = @"cellID";
     
     [numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(nameLabel.mas_bottom).offset(8);
-        
         /*
         make.centerX.equalTo(personBtn);
         */
-        
         make.centerX.equalTo(personImageView);
-         
-         
-         
         make.height.offset(12);
     }];
 }
@@ -308,22 +301,23 @@ static NSString *cellID  = @"cellID";
     }
     
     
-    /***  我的直客  or 我的顾客 ***/
+    /***  我的直客  or 我的顾问 ***/
     if (indexPath.row == 1) {
         
-        if([[DLUtils getUser_type] isEqualToString:@"4"]){
+        if([[DLUtils getUser_type] isEqualToString:@"4"]){//顾问
             
             DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
             
             [self.navigationController pushViewController:myCustomerVC animated:YES];
             
-        }else {
+        }else { // C
             
             if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
                 
                 DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
                 
                 [self.navigationController pushViewController:unBindingVC animated:YES];
+          
             }else{
                 
                 DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
@@ -356,30 +350,23 @@ static NSString *cellID  = @"cellID";
 - (void)uploadImageToServerWithImage:(UIImage *)image {
     
     
+//    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+//                            
+//                            @"sign_token" : [DLUtils getSign_token],
+//                            @"head_img":image
+//                          
+//                            };
+//
+//    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
+//
+//    
+//    }];
     
-    NSData *data = UIImageJPEGRepresentation(image,1);
-    if (UIImagePNGRepresentation(image) == nil) {
-        data = UIImageJPEGRepresentation(image, 1);
-    } else {
-        data = UIImagePNGRepresentation(image);
-    }
+    
+#warning  C 和顾问都没处理 ----- !!!!!!!
     
     
     
-    
-    
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            
-                            @"sign_token" : [DLUtils getSign_token],
-                            @"head_img":data
-                          
-                            };
-
-    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
-        
-        [self.personImageView setImage:image];
-        
-    }];
 }
 
 
@@ -417,7 +404,11 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    if([[DLUtils getUser_type] isEqualToString:@"4"]){//顾问
+        return 3;
+    }
+    
+    return 2;
 }
 
 
@@ -427,25 +418,30 @@ static NSString *cellID  = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
     if(indexPath.row == 0){
+        
         cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
         cell.textLabel.text = @"修改个人资料";
-    }
-    
-    if(indexPath.row == 1){
+        
+    }else if(indexPath.row == 1){
         
         if([[DLUtils getUser_type] isEqualToString:@"4"]){
+           
             cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
             cell.textLabel.text = @"我的直客";
             
         }else{
+            
             cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
             cell.textLabel.text = @"我的顾问";
         }
-    }
-    if(indexPath.row == 2){
+          
+    }else if(indexPath.row == 2){
+     
         cell.imageView.image = [UIImage imageNamed:@"universal_property"];
+      
         cell.textLabel.text = @"通用";
     }
+    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

@@ -378,7 +378,7 @@ static NSString *cellID  = @"cellID";
                     
                 }else{
                 
-                    //NSLog(@"注册成功!");
+                    NSLog(@"注册成功!");
                     [self.navigationController popViewControllerAnimated:YES];
                     UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                     [successV show];
@@ -627,7 +627,7 @@ static NSString *cellID  = @"cellID";
 }
 
 
-#pragma mark  ----------UITable View Delegate---------------
+#pragma mark  ---- UITable View Delegate
 
 //选中某一行cell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -648,8 +648,9 @@ static NSString *cellID  = @"cellID";
 }
 
 
-#pragma mark ------------  TableView DataSource --------------
-#pragma mark ------------  代码没封装,后期再处理   -----------------
+#pragma mark ----- TableView DataSource 
+#warning ---- 后期再处理
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -811,22 +812,22 @@ static NSString *cellID  = @"cellID";
         
     }
     
-//    if (indexPath.row == 6) {
-//        UITextField *positionTF = [[UITextField alloc] init];
-//        
-//        //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
-//        self.positionTF = positionTF;
-//        positionTF.placeholder = @"职务 如: 领导、导游等(选填)";
-//        [tableView addSubview:positionTF];
-//        
-//        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
-//            make.left.equalTo(@20);
-//            make.height.offset(52);
-//            make.width.offset(MAIN_SCREEN_WIDTH);
-//        }];
+    if (indexPath.row == 6) {
+        UITextField *positionTF = [[UITextField alloc] init];
+        
+        //WithFrame:CGRectMake(20, 346, MAIN_SCREEN_WIDTH, 52)];
+        self.positionTF = positionTF;
+        positionTF.placeholder = @"职务 如: 领导、导游等(选填)";
+        [tableView addSubview:positionTF];
+        
+        [positionTF mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.determinePasswordTF.mas_bottom).offset(0);
+            make.left.equalTo(@20);
+            make.height.offset(52);
+            make.width.offset(MAIN_SCREEN_WIDTH);
+        }];
     
-//    }
+    }
     
     if (indexPath.row == 1) {
         

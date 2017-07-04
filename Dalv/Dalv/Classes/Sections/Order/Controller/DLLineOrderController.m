@@ -16,23 +16,11 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic, strong) UITableView *lineOrderTableView;
-
 @property (nonatomic, strong) NSMutableArray *lineOrderList;
-///* 订单图片 */
-//@property (weak, nonatomic)  UIImageView *lineOrderPicture;
-///* 订单名称 */
-//@property (weak, nonatomic)  UILabel *lineOrderNameLabel;
-///* 团期时间 */
-//@property (weak, nonatomic)  UILabel *lineOrderTimeLabel;
-///* 订单价格(应付金额) */
-//@property (weak, nonatomic)  UILabel *lineOrderPriceLabel;
-///* 订单状态 */
-@property (weak, nonatomic)  UILabel *lineOrderStateLabel;
+@property (weak, nonatomic)  UILabel *lineOrderStateLabel;/// 订单状态
 @property (nonatomic, assign) NSInteger pageIndex;
 @end
-
 
 static NSString *cellID = @"cellID";
 
@@ -43,9 +31,7 @@ static NSString *nibCellID = @"nibCellID";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor ms_backgroundColor];
-    self.title = @"订单";
     [self setTableView];
     [self.lineOrderTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
@@ -67,7 +53,6 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderList = [NSMutableArray array];
     self.pageIndex=1;
     [self fetchData];
-//    [self updateView];
 }
 
 -(void)payFullMoeyNoti:(NSNotification *)notification
@@ -103,7 +88,7 @@ static NSString *nibCellID = @"nibCellID";
     [self.lineOrderTableView reloadData];
 }
 
-#pragma mark ----------------- Set TableView --------------
+#pragma mark ----- Set TableView
 
 -(void)setTableView {
     
@@ -111,9 +96,6 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderTableView.dataSource = self;
     self.lineOrderTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.lineOrderTableView.delegate = self;
-    
-    //自动更改透明度
-//    self.lineOrderTableView.mj_header.automaticallyChangeAlpha = YES;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
@@ -132,7 +114,7 @@ static NSString *nibCellID = @"nibCellID";
     }];
 }
 
-#pragma mark ------------- fetchData --------------
+#pragma mark ----- fetchData
 
 - (void)fetchNewData {
     self.lineOrderList = [NSMutableArray array];
@@ -183,7 +165,7 @@ static NSString *nibCellID = @"nibCellID";
 
 }
 
-#pragma mark ----------- UITable View Delegate ----------------
+#pragma mark ------ UITable View Delegate 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.lineOrderList.count;

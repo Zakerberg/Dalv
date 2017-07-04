@@ -258,7 +258,7 @@
 // 73 测试普通用户修改个人资料页面地址接口
 #define DL_TouristPersonalPageData  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPage"
 
-// 74 测试普通用户修改个人资料页面地址接口
+// 74 测试普通用户修改个人资料处理地址接口
 #define DL_TouristPersonalPageDataHandle  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPageHandle"
 
 ///75 测试普通用户个人中心-我的顾问（已绑定）解绑接口

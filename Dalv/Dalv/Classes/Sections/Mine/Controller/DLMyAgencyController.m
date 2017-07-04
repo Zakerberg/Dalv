@@ -23,9 +23,6 @@
 @property(nonatomic,strong) UITextView * noteTV;///介绍
 @property(nonatomic,strong) UIButton * unBindingBtn;///解除绑定
 @property(nonatomic,strong) UIButton * contractBtn;///联系
-
-@property(nonatomic,strong) NSString * bundingState;///绑定状态
-
 @end
 
 @implementation DLMyAgencyController
@@ -34,7 +31,6 @@
     [super viewDidLoad];
     [self setUI];
     [self fetchData];
-    self.bundingState = [DLUtils getUser_bingdingState];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -233,7 +229,7 @@
     self.unBindingBtn = unBindingBtn;
     unBindingBtn.backgroundColor = [UIColor redColor];
     
-    if ([self.bundingState isEqualToString:@"1"]) {
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
         
         [unBindingBtn addTarget:self action:@selector(unBindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [unBindingBtn setTitle:@"解绑顾问" forState:UIControlStateNormal];
@@ -242,6 +238,7 @@
         
         [unBindingBtn addTarget:self action:@selector(bindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [unBindingBtn setTitle:@"绑定顾问" forState:UIControlStateNormal];
+  
     }
     
     
@@ -403,6 +400,7 @@
                             @"sign_token" : [DLUtils getSign_token]
                            
                             };
+    
     [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
         
         self.myAgencyList = result[@"agencyInfo"];
@@ -456,7 +454,14 @@
                                 };
         [DLHomeViewTask getTouristPersonPageUnbundingAgency:param completion:^(id result, NSError *error) {
         }];
+        
+        
         [self.navigationController popViewControllerAnimated:YES];
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+//        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"binding_state"];
+
     }];
     
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -479,23 +484,16 @@
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token]
-      
-                                
-                                
                                 };
-        
-        
-        
-        
-        
-        
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
 
+        [DLHomeViewTask getTouristPersonlBindingAgency:param completion:^(id result, NSError *error) {
+           
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+
+        }];
     }];
     
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil];

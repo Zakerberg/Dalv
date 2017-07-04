@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/7/3.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 顾客修改个人资料 ---------------
+//  ------------------- C 修改个人资料 ---------------
 
 #import "DLCustomerChangePersonDataController.h"
 #import "DLCustomerChangeDataCell.h"
@@ -13,6 +13,9 @@
 
 @interface DLCustomerChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,BLMPickerDelegate>
 @property(nonatomic,strong) UITableView * personalDataTableView;
+@property (weak,nonatomic) DLCustomerChangeDataCell* personalCell;
+@property (weak,nonatomic) UITableViewCell* personCell;
+@property (assign,nonatomic) NSIndexPath* selectedIndexPath;
 @property(nonatomic,strong) UILabel * label;
 @property(nonatomic,strong) UITextField * nameTF;
 @property(nonatomic,strong) UITextField * nickNameTF;
@@ -84,19 +87,25 @@ static NSString *cell1ID = @"cell1ID";
     
     [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
         
-        NSDictionary *dict = result[@"agencyInfo"];
-        self.nameTF.text = dict[@"name"];
+        NSDictionary *dict = result[@"touristInfo"];
         self.phoneLabel.text = dict[@"mobile"];
-        
+        self.nameTF.text = dict[@"name"];
+            
     }];
 }
 
 ///保存
 -(void)completeClick {
     
-    
     if ([self isValidateEmail:self.mailTF.text]) {
         
+        if ([self.sexLabel.text isEqualToString:@"男"]) {
+            self.sexLabel.text = @"1";
+        }else if ([self.sexLabel.text isEqualToString:@"女"]){
+            self.sexLabel.text = @"2";
+        }else if ([self.sexLabel.text isEqualToString:@"保密"]){
+            self.sexLabel.text = @"0";
+        }
         
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
@@ -108,7 +117,7 @@ static NSString *cell1ID = @"cell1ID";
                                 @"qq":self.QQTF.text
                                 };
         
-        [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
+        [DLHomeViewTask getTouristPersonPageDataHandle:param completion:^(id result, NSError *error) {
             NSLog(@"修改成功!");
             
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -118,16 +127,15 @@ static NSString *cell1ID = @"cell1ID";
         
     }else{
         
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-        [self.navigationController popViewControllerAnimated:YES];
-        
+        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+        [alertPhoneNum show];
+
     }
 }
 
 
 #pragma mark ----- UITableView Delegate
-
+#warning ---- 后期再处理
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 44;
@@ -155,12 +163,12 @@ static NSString *cell1ID = @"cell1ID";
         cell.textLabel.text = @"手机号:";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-        self.phoneLabel.text = cell.textLabel.text;
         
         UILabel *phoneLabel = [[UILabel alloc] init];
         self.phoneLabel = phoneLabel;
         phoneLabel.font = [UIFont systemFontOfSize:15];
         phoneLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
+        cell.detailTextLabel.text = self.phoneLabel.text;
         
         [cell.contentView addSubview:phoneLabel];
         
@@ -171,6 +179,35 @@ static NSString *cell1ID = @"cell1ID";
         }];
         return cell;
     }
+    
+    
+    if(indexPath.row == 3) {
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell1ID];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        cell.textLabel.text = @"性别:";
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+        
+        UILabel *sexLabel = [[UILabel alloc] init];
+        self.sexLabel = sexLabel;
+        [sexLabel sizeToFit];
+        
+        sexLabel.font = [UIFont systemFontOfSize:17];
+        sexLabel.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+        
+        [cell.contentView addSubview:sexLabel];
+        
+        [sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.offset(-10);
+            make.height.offset(44);
+            make.top.offset(0);
+        }];
+        
+        return cell;
+    }
+
     
     DLCustomerChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     self.label = cell.label;
@@ -188,25 +225,6 @@ static NSString *cell1ID = @"cell1ID";
         self.nickNameTF = cell.TF;
         self.nickNameTF.placeholder = @"请输入您的昵称";
         
-    }else if(indexPath.row == 3) {
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        self.label.text = @"性别:";
-        UILabel *sexLabel = [[UILabel alloc] init];
-        self.sexLabel = sexLabel;
-        [sexLabel sizeToFit];
-        
-        sexLabel.font = [UIFont systemFontOfSize:17];
-        sexLabel.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-        
-        [cell.contentView addSubview:sexLabel];
-        
-        [sexLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.offset(-10);
-            make.height.offset(44);
-            make.top.offset(0);
-        }];
         
     }else if(indexPath.row == 4) {
         
@@ -222,11 +240,16 @@ static NSString *cell1ID = @"cell1ID";
     }
     
     return cell;
+    
 }
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    self.selectedIndexPath = indexPath ;
+    self.personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
     
     if (indexPath.row == 3) {
         
@@ -234,16 +257,14 @@ static NSString *cell1ID = @"cell1ID";
         picker.delegate = self ;
         picker.arrayType = GenderArray;
         [self.view addSubview:picker];
-        
     }
 }
 
-#pragma mark - -------------- BLMPickerDelegate -------------------
+#pragma mark ------- BLMPickerDelegate
 
 -(void)PickerSelectorIndixString:(NSString *)str
 {
     self.sexLabel.text = str;
-    
 }
 
 @end

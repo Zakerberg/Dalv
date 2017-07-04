@@ -119,7 +119,6 @@
 		1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */; };
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
 		1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */; };
-		1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770921ECFE00100F6EFDF /* DLRemmendController.m */; };
 		1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770941ECFE00100F6EFDF /* DLSortController.m */; };
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
@@ -363,6 +362,8 @@
 		45EF39AA1F09DE6B00A5010A /* DLCustomerChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */; };
 		45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */; };
 		45EF39B31F0A286F00A5010A /* DLMyTicketListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */; };
+		45EF39B61F0B7DAD00A5010A /* DLRemmendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39B51F0B7DAD00A5010A /* DLRemmendController.m */; };
+		45EF39B91F0B80F900A5010A /* DLMyRemmendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39B81F0B80F900A5010A /* DLMyRemmendModel.m */; };
 		45F4CD131EC2E01400F4B6BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD121EC2E01400F4B6BD /* libz.tbd */; };
 		45F4CD151EC2E02C00F4B6BD /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */; };
 		45F4CD171EC2E03900F4B6BD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F4CD161EC2E03900F4B6BD /* MessageUI.framework */; };
@@ -569,8 +570,6 @@
 		1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewController.h; sourceTree = "<group>"; };
 		1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewController.m; sourceTree = "<group>"; };
-		1CB770911ECFE00100F6EFDF /* DLRemmendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemmendController.h; sourceTree = "<group>"; };
-		1CB770921ECFE00100F6EFDF /* DLRemmendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemmendController.m; sourceTree = "<group>"; };
 		1CB770931ECFE00100F6EFDF /* DLSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSortController.h; sourceTree = "<group>"; };
 		1CB770941ECFE00100F6EFDF /* DLSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSortController.m; sourceTree = "<group>"; };
 		1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
@@ -930,6 +929,10 @@
 		45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerChangeDataCell.m; sourceTree = "<group>"; };
 		45EF39B11F0A286F00A5010A /* DLMyTicketListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyTicketListController.h; sourceTree = "<group>"; };
 		45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyTicketListController.m; sourceTree = "<group>"; };
+		45EF39B41F0B7DAD00A5010A /* DLRemmendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRemmendController.h; sourceTree = "<group>"; };
+		45EF39B51F0B7DAD00A5010A /* DLRemmendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRemmendController.m; sourceTree = "<group>"; };
+		45EF39B71F0B80F900A5010A /* DLMyRemmendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyRemmendModel.h; sourceTree = "<group>"; };
+		45EF39B81F0B80F900A5010A /* DLMyRemmendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyRemmendModel.m; sourceTree = "<group>"; };
 		45F4CD121EC2E01400F4B6BD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		45F4CD141EC2E02C00F4B6BD /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		45F4CD161EC2E03900F4B6BD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -1107,8 +1110,6 @@
 				1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */,
 				1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */,
 				1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */,
-				1CB770911ECFE00100F6EFDF /* DLRemmendController.h */,
-				1CB770921ECFE00100F6EFDF /* DLRemmendController.m */,
 				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
 				458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */,
@@ -1122,6 +1123,8 @@
 				4520579B1EF903B00033DA69 /* DLPersonalChangeDataController.m */,
 				45EF39A81F09DE6B00A5010A /* DLCustomerChangePersonDataController.h */,
 				45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */,
+				45EF39B41F0B7DAD00A5010A /* DLRemmendController.h */,
+				45EF39B51F0B7DAD00A5010A /* DLRemmendController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1160,6 +1163,8 @@
 				45A321D01EF26A2C00325683 /* DLCustomerListModel.m */,
 				450F84331EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.h */,
 				450F84341EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m */,
+				45EF39B71F0B80F900A5010A /* DLMyRemmendModel.h */,
+				45EF39B81F0B80F900A5010A /* DLMyRemmendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1604,12 +1609,12 @@
 				1CB953821ECFC41600BDC2D3 /* DLOrderViewController.m */,
 				45DB47C31EE68ABC00399A6D /* DLLineOrderController.h */,
 				45DB47C41EE68ABC00399A6D /* DLLineOrderController.m */,
-				45DB47CC1EE68B7C00399A6D /* DLVisaOrderController.h */,
-				45DB47CD1EE68B7C00399A6D /* DLVisaOrderController.m */,
-				45DB47CF1EE68B8A00399A6D /* DLWiFiOrderViewController.h */,
-				45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */,
 				45DB47D21EE68BDD00399A6D /* DLTicketsOrderController.h */,
 				45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */,
+				45DB47CF1EE68B8A00399A6D /* DLWiFiOrderViewController.h */,
+				45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */,
+				45DB47CC1EE68B7C00399A6D /* DLVisaOrderController.h */,
+				45DB47CD1EE68B7C00399A6D /* DLVisaOrderController.m */,
 				45A321BD1EF1199700325683 /* DLLineOrderDetailXibController.h */,
 				45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */,
 				45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */,
@@ -2422,11 +2427,13 @@
 				1CB953B01ECFC41600BDC2D3 /* DLLineTourDetailViewController.m in Sources */,
 				1C2981751EDFE33900712524 /* DLCashRegisterViewTableViewCell.m in Sources */,
 				1C5CD38E1EFA0010009DBC1B /* CalenderModel.m in Sources */,
+				45EF39B91F0B80F900A5010A /* DLMyRemmendModel.m in Sources */,
 				1C66615F1EF625AC0032E1AE /* RegExCategories.m in Sources */,
 				45DB47B91EE57A3100399A6D /* DLContractApplyController.m in Sources */,
 				1C0B57E31ED7B9D400592BBB /* DLLineOrderTripNumebrTableViewCell.m in Sources */,
 				1C5CD38D1EFA0010009DBC1B /* NSDate+Calender.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
+				45EF39B61F0B7DAD00A5010A /* DLRemmendController.m in Sources */,
 				45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
 				1C5CD38C1EFA0010009DBC1B /* CalenderCollectionViewCell.m in Sources */,
@@ -2489,7 +2496,6 @@
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				45DB48161EE93A7E00399A6D /* DLMyCustomerController.m in Sources */,
 				1C29790F1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m in Sources */,
-				1CB770B71ECFE00100F6EFDF /* DLRemmendController.m in Sources */,
 				451F39371EEF9B55005FE126 /* DLLineOrderXibCell.m in Sources */,
 				1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */,
 				1C5CD38A1EFA0010009DBC1B /* CalenderView.m in Sources */,

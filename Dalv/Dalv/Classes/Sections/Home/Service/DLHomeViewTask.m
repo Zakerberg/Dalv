@@ -643,6 +643,7 @@
     
 }
 
+///测试顾问修改头像处理接口
 + (void)getAgencyEditHendImgHandle:(NSDictionary *)param
                         completion:(void (^)(id result, NSError *error))completionHandler{
     
@@ -705,8 +706,7 @@
 
 }
 
- //测试普通用户-绑定顾问后首页模块接口
-
+//测试普通用户-绑定顾问后首页模块接口
 + (void)getTouristAgencyIndexMod:(NSDictionary *)param
                       completion:(void (^)(id result, NSError *error))completionHandler{
     
@@ -792,12 +792,11 @@
 ///测试普通用户个人中心-我的顾问（已绑定）解绑接口：
 + (void)getTouristPersonPageUnbundingAgency:(NSDictionary *)param
                                  completion:(void (^)(id result, NSError *error))completionHandler{
-    [DLRequestSerVice POST:DL_TouristPersonalPageDataHandle param:param success:^(id responseData) {
+    [DLRequestSerVice POST:DL_TouristPersonalUnbundlingAgency param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
     }];
-
 }
 
 ///测试普通用户个人中心-我的顾问（未绑定）绑定接口
@@ -809,7 +808,6 @@
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
     }];
-
 }
 
 @end
