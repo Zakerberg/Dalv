@@ -15,21 +15,14 @@
 
 @property(nonatomic,strong) UITableView * customerListTableView;
 @property (nonatomic, strong) NSMutableArray *myCustomerList;
-/* 直客头像 */
-@property (weak, nonatomic)  UIImageView *customerAvatarImageV;
-/* 直客名称 */
-@property (weak, nonatomic)  UILabel *customerNameLabel;
-/* 直客电话 */
-@property (weak, nonatomic)  UILabel *customerNumLabel;
-/* 直客时间 */
-@property (weak, nonatomic)  UILabel *customerTimeLabel;
-
+@property (weak, nonatomic)  UIImageView *customerAvatarImageV;/// 直客头像
+@property (weak, nonatomic)  UILabel *customerNameLabel;/// 直客名称
+@property (weak, nonatomic)  UILabel *customerNumLabel;///直客电话
+@property (weak, nonatomic)  UILabel *customerTimeLabel;/// 直客时间
 @property(nonatomic,weak) NSDictionary * myListDict;
-
 @end
 
 static NSString *cellID = @"cellID";
-
 
 @implementation DLCustomerListController
 
@@ -44,7 +37,6 @@ static NSString *cellID = @"cellID";
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
 
 -(void)setTableView {
     
@@ -69,7 +61,7 @@ static NSString *cellID = @"cellID";
 
 }
 
-#pragma mark ------------  fetchData --------------
+#pragma mark ---- fetchData
 
 - (void)fetchData {
     
@@ -93,7 +85,7 @@ static NSString *cellID = @"cellID";
     }];
 }
 
-#pragma mark ------------  Table view Delegate --------------
+#pragma mark ----- tableView Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -140,7 +132,7 @@ static NSString *cellID = @"cellID";
     
 }
 
-#pragma mark ------------------ Getter -----------------------
+#pragma mark ----------
 
 -(NSMutableArray *)myCustomerList {
     

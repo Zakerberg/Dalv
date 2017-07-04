@@ -799,6 +799,17 @@
     }];
 
 }
+///测试普通用户个人中心-我的顾问（未绑定）绑定接口
++ (void)getTouristPersonlBindingAgency:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST: DL_TouristPersonalbundingAgency param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+    
+}
 
 
 + (void)getTouristAgencyIndexLinelist:(NSDictionary *)param

@@ -9,6 +9,7 @@
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyAgencyUnBindingModel.h"
 #import "DLMyAgencyUnBindingCell.h"
+#import "DLMyAgencyController.h"
 #import "DLHomeViewTask.h"
 
 @interface DLMyAgencyUnBindingController ()<UITableViewDelegate,UITableViewDataSource>
@@ -124,7 +125,12 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    DLMyAgencyController *VC = [[DLMyAgencyController alloc] init];
+    
+    [self.navigationController pushViewController:VC animated:YES];
     
 }
 

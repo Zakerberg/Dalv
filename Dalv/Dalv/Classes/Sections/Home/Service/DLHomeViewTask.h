@@ -796,4 +796,16 @@
                       completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 76 测试普通用户个人中心-我的顾问（未绑定）绑定接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonlBindingAgency:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 @end

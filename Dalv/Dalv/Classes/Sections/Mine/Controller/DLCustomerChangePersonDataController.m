@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/7/3.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ------------------- 顾客修改个人资料 ---------------
 
 #import "DLCustomerChangePersonDataController.h"
 #import "DLCustomerChangeDataCell.h"
@@ -77,18 +77,18 @@ static NSString *cell1ID = @"cell1ID";
 #pragma mark ------ fetchData
 -(void)fetchData{
     
-        NSDictionary *param = @{
-                                @"uid":[DLUtils getUid],
-                                @"sign_token" : [DLUtils getSign_token]
-                                };
+    NSDictionary *param = @{
+                            @"uid":[DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
+                            };
     
-        [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
-           
-            NSDictionary *dict = result[@"agencyInfo"];
-            self.nameTF.text = dict[@"name"];
-            self.phoneLabel.text = dict[@"mobile"];
-
-        }];
+    [DLHomeViewTask getTouristPersonPageData:param completion:^(id result, NSError *error) {
+        
+        NSDictionary *dict = result[@"agencyInfo"];
+        self.nameTF.text = dict[@"name"];
+        self.phoneLabel.text = dict[@"mobile"];
+        
+    }];
 }
 
 ///保存
@@ -117,11 +117,11 @@ static NSString *cell1ID = @"cell1ID";
         }];
         
     }else{
-    
+        
         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [successV show];
         [self.navigationController popViewControllerAnimated:YES];
-
+        
     }
 }
 
@@ -142,7 +142,7 @@ static NSString *cell1ID = @"cell1ID";
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 6;
 }
 
@@ -181,7 +181,7 @@ static NSString *cell1ID = @"cell1ID";
         self.label.text = @"姓名:";
         self.nameTF = cell.TF;
         self.nameTF.placeholder = @"请输入您的姓名";
-   
+        
     }else if(indexPath.row == 1) {
         
         self.label.text = @"昵称:";
@@ -189,14 +189,14 @@ static NSString *cell1ID = @"cell1ID";
         self.nickNameTF.placeholder = @"请输入您的昵称";
         
     }else if(indexPath.row == 3) {
-       
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         self.label.text = @"性别:";
-        
         UILabel *sexLabel = [[UILabel alloc] init];
         self.sexLabel = sexLabel;
         [sexLabel sizeToFit];
+        
         sexLabel.font = [UIFont systemFontOfSize:17];
         sexLabel.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
@@ -207,7 +207,7 @@ static NSString *cell1ID = @"cell1ID";
             make.height.offset(44);
             make.top.offset(0);
         }];
-
+        
     }else if(indexPath.row == 4) {
         
         self.label.text = @"QQ号:";
@@ -225,7 +225,7 @@ static NSString *cell1ID = @"cell1ID";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 3) {
@@ -234,7 +234,7 @@ static NSString *cell1ID = @"cell1ID";
         picker.delegate = self ;
         picker.arrayType = GenderArray;
         [self.view addSubview:picker];
-
+        
     }
 }
 
@@ -243,7 +243,7 @@ static NSString *cell1ID = @"cell1ID";
 -(void)PickerSelectorIndixString:(NSString *)str
 {
     self.sexLabel.text = str;
-
+    
 }
 
 @end

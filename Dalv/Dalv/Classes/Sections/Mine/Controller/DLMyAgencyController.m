@@ -8,9 +8,10 @@
 
 #import "DLMyAgencyController.h"
 #import "DLHomeViewTask.h"
+#import "DLUtils.h"
 
 @interface DLMyAgencyController ()
-@property (nonatomic, strong) NSDictionary *myAgencyList;///data
+@property (nonatomic, strong) NSDictionary *myAgencyList;
 @property(nonatomic,strong) UIImageView *imageView;///头像
 @property(nonatomic,strong) UILabel  * nameLabel;///名字
 @property(nonatomic,strong) UILabel * nickNameLabel;///昵称
@@ -22,6 +23,9 @@
 @property(nonatomic,strong) UITextView * noteTV;///介绍
 @property(nonatomic,strong) UIButton * unBindingBtn;///解除绑定
 @property(nonatomic,strong) UIButton * contractBtn;///联系
+
+@property(nonatomic,strong) NSString * bundingState;///绑定状态
+
 @end
 
 @implementation DLMyAgencyController
@@ -30,6 +34,7 @@
     [super viewDidLoad];
     [self setUI];
     [self fetchData];
+    self.bundingState = [DLUtils getUser_bingdingState];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -227,9 +232,19 @@
     UIButton *unBindingBtn = [[UIButton alloc] init];
     self.unBindingBtn = unBindingBtn;
     unBindingBtn.backgroundColor = [UIColor redColor];
-    [unBindingBtn addTarget:self action:@selector(unBindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [unBindingBtn setTitle:@"解绑顾问" forState:UIControlStateNormal];
+    if ([self.bundingState isEqualToString:@"1"]) {
+        
+        [unBindingBtn addTarget:self action:@selector(unBindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [unBindingBtn setTitle:@"解绑顾问" forState:UIControlStateNormal];
+   
+    }else{
+        
+        [unBindingBtn addTarget:self action:@selector(bindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [unBindingBtn setTitle:@"绑定顾问" forState:UIControlStateNormal];
+    }
+    
+    
     [unBindingBtn setTintColor:[UIColor colorWithHexString:@"#979797"]];
     
     [self.view addSubview:unBindingBtn];
@@ -378,7 +393,7 @@
     
 }
 
-#pragma mark ------------------ fetchData ------------------
+#pragma mark ----- fetchData
 
 -(void)fetchData {
 
@@ -417,13 +432,15 @@
 
 }
 
-#pragma mark ------------------ BtnClick ------------------
+#pragma mark ----- BtnClick
 
 ///联系顾问
 -(void)contractBtnClick {
  
-    NSLog(@"联系顾问");
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",self.numberLabel.text];
     
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
 }
 
 ///解除绑定
@@ -437,7 +454,6 @@
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token]
                                 };
-        
         [DLHomeViewTask getTouristPersonPageUnbundingAgency:param completion:^(id result, NSError *error) {
         }];
         [self.navigationController popViewControllerAnimated:YES];
@@ -449,7 +465,46 @@
     [alert addAction:actionCancle];
     
     [self presentViewController:alert animated:YES completion:nil];
-
 }
+
+
+//绑定顾问
+-(void)bindingBtnClick {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定绑定此顾问?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token]
+      
+                                
+                                
+                                };
+        
+        
+        
+        
+        
+        
+        
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+
+    }];
+    
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:actionOk];
+    [alert addAction:actionCancle];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end

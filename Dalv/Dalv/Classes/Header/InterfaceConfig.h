@@ -262,7 +262,7 @@
 #define DL_TouristPersonalPageDataHandle  DL_HOST@"index.php/TouristApi/TouristPersonal/dataPageHandle"
 
 ///75 测试普通用户个人中心-我的顾问（已绑定）解绑接口
-#define DL_TouristPersonalUnbundlingAgency  DL_HOST@index.php/TouristApi/TouristPersonal/unbundlingAgency
+#define DL_TouristPersonalUnbundlingAgency  DL_HOST@"index.php/TouristApi/TouristPersonal/unbundlingAgency"
 
 //// 76 测试普通用户-绑定顾问后首页模块接口
 //#define DL_TouristAgencyIndexMod  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexMod"
@@ -274,6 +274,9 @@
 // 78 测试普通用户-绑定顾问后线路详情接口
 #define DL_TouristIndexDetails  DL_HOST@"index.php/Api/index/details"
 
+///76 测试普通用户个人中心-我的顾问（未绑定）绑定接口
+
+#define DL_TouristPersonalbundingAgency  DL_HOST@"index.php/TouristApi/TouristPersonal/bindingAgency"
 
 
 #endif /* InterfaceConfig_h */

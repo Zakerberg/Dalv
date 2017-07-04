@@ -79,7 +79,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     [self.personalDataTableView registerClass:[DLPersonalChangeDataCell class] forCellReuseIdentifier:cellID];
     
     [self.personalDataTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewCellID];
-
+    
     [self.view addSubview:self.personalDataTableView];
     
     [self.personalDataTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,7 +118,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                             };
     
     [DLHomeViewTask getAgencyPersonalPageSetUp:param completion:^(id result, NSError *error) {
-       
+        
         NSDictionary *dict = result[@"agencyInfo"];
         
         self.nameLabel.text = dict[@"name"];
@@ -136,9 +136,9 @@ static NSString *tableViewCellID = @"tableViewCellID";
             
             self.mailTF.text = @"未设置";
         }else{
-        
-        self.mailTF.text = dict[@"email"];
-        
+            
+            self.mailTF.text = dict[@"email"];
+            
         }
         self.goCityView.text = dict[@"been_where"];
         self.ageTF.text = dict[@"age"];
@@ -148,61 +148,61 @@ static NSString *tableViewCellID = @"tableViewCellID";
         if ([dict[@"sex"] isEqualToString:@"1"]) {
             self.sexLabel.text = @"男";
         }else if([dict[@"sex"] isEqualToString:@"2"]) {
-        self.sexLabel.text = @"女";
-        
+            self.sexLabel.text = @"女";
+            
         }else {
             self.sexLabel.text = @"保密";
         }
-     }];
+    }];
 }
 
 
 ///  保存
 -(void)completeClick {
     
-        if ([self isValidateEmail:self.mailTF.text]) {
-            
-            if ([self.sexLabel.text isEqualToString:@"男"]) {
-                self.sexLabel.text = @"1";
-            }else if ([self.sexLabel.text isEqualToString:@"女"]){
-                self.sexLabel.text = @"2";
-            }else if ([self.sexLabel.text isEqualToString:@"保密"]){
-                self.sexLabel.text = @"0";
-            }
-            
-                NSDictionary *param = @{
-                                        
-                                        @"uid":[DLUtils getUid],
-                                        @"sign_token" : [DLUtils getSign_token],
-                                        @"nick_name":self.nickNameTF.text,
-                                        @"email":self.mailTF.text,
-                                        @"sex":self.sexLabel.text,
-                                        @"age":self.ageTF.text,
-                                        @"working_time":self.workTimeTF.text,
-                                        @"personal_label":self.noteLabelTF.text,
-                                        @"been_where":self.goCityView.text
-                                        };
-
-            [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
-                    NSLog(@"修改成功!");
-                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                    [successV show];
-                    [self.navigationController popViewControllerAnimated:YES];
-                    
-                }];
-
-        } else {
-            
-            UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
-            [alertPhoneNum show];
-            
-            self.mailTF.text = nil;
+    if ([self isValidateEmail:self.mailTF.text]) {
         
+        if ([self.sexLabel.text isEqualToString:@"男"]) {
+            self.sexLabel.text = @"1";
+        }else if ([self.sexLabel.text isEqualToString:@"女"]){
+            self.sexLabel.text = @"2";
+        }else if ([self.sexLabel.text isEqualToString:@"保密"]){
+            self.sexLabel.text = @"0";
         }
+        
+        NSDictionary *param = @{
+                                
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"nick_name":self.nickNameTF.text,
+                                @"email":self.mailTF.text,
+                                @"sex":self.sexLabel.text,
+                                @"age":self.ageTF.text,
+                                @"working_time":self.workTimeTF.text,
+                                @"personal_label":self.noteLabelTF.text,
+                                @"been_where":self.goCityView.text
+                                };
+        
+        [DLHomeViewTask getAgencyPersonaSetUpHandle:param completion:^(id result, NSError *error) {
+            NSLog(@"修改成功!");
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }];
+        
+    } else {
+        
+        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+        [alertPhoneNum show];
+        
+        self.mailTF.text = nil;
+        
+    }
     
 }
 
-#pragma mark ----- UITableView Delegate 
+#pragma mark ----- UITableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -253,11 +253,11 @@ static NSString *tableViewCellID = @"tableViewCellID";
             
             [cell.contentView addSubview:nameLabel];
             
-           [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-               make.right.offset(-15);
-               make.height.offset(44);
-               make.top.offset(0);
-           }];
+            [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.offset(-15);
+                make.height.offset(44);
+                make.top.offset(0);
+            }];
         }else if (indexPath.row == 1) {//昵称
             
             self.label.text = @"昵称:";
@@ -291,7 +291,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.height.offset(44);
                 make.top.offset(0);
             }];
-
+            
         }else if (indexPath.row == 3) {//年龄
             self.label.text = @"年龄:";
             
@@ -309,26 +309,26 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.top.offset(0);
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
-         }
-            else if (indexPath.row == 4) { //从业时间
+        }
+        else if (indexPath.row == 4) { //从业时间
             self.label.text = @"从业时间:";
-
-                UITextField *workTimeTF = [[UITextField alloc] init];
-                self.workTimeTF = workTimeTF;
-                workTimeTF.placeholder = @"请输入您的从业时间";
-                workTimeTF.textAlignment = NSTextAlignmentRight;
-                workTimeTF.keyboardType = UIKeyboardTypeNumberPad;
-                workTimeTF.font = [UIFont systemFontOfSize:17];
-                
-                [cell.contentView addSubview:workTimeTF];
-                
-                [workTimeTF mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.right.offset(-10);
-                    make.height.offset(44);
-                    make.top.offset(0);
-                    make.left.equalTo(self.label.mas_right).offset(0);
-                }];
-         }
+            
+            UITextField *workTimeTF = [[UITextField alloc] init];
+            self.workTimeTF = workTimeTF;
+            workTimeTF.placeholder = @"请输入您的从业时间";
+            workTimeTF.textAlignment = NSTextAlignmentRight;
+            workTimeTF.keyboardType = UIKeyboardTypeNumberPad;
+            workTimeTF.font = [UIFont systemFontOfSize:17];
+            
+            [cell.contentView addSubview:workTimeTF];
+            
+            [workTimeTF mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.offset(-10);
+                make.height.offset(44);
+                make.top.offset(0);
+                make.left.equalTo(self.label.mas_right).offset(0);
+            }];
+        }
         else if (indexPath.row == 5) {//标签
             
             self.label.text = @"标签:";
@@ -363,7 +363,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.height.offset(44);
                 make.top.offset(0);
             }];
-
+            
         }else if (indexPath.row == 7) {//邮箱
             
             self.label.text = @"邮箱:";
@@ -454,12 +454,12 @@ static NSString *tableViewCellID = @"tableViewCellID";
 -(void)PickerSelectorIndixString:(NSString *)str
 {
     
-/*
-        DLPersonalChangeDataCell* personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
-    personalCell.detailTextLabel.text = str ;
-*/
+    /*
+     DLPersonalChangeDataCell* personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
+     personalCell.detailTextLabel.text = str ;
+     */
     self.sexLabel.text = str;
-
+    
 }
 
 @end
