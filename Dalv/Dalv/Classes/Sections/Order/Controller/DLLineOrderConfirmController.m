@@ -151,10 +151,19 @@
     }else if ([self.BtnType isEqualToString:@"3"]){
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
+           
+            
+            
             
             if([result[@"status"] isEqualToString: @"00033"]){
     
                 UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的可用余额不足,请先充值!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
+                
+            }else if ([result[@"status"] isEqualToString: @"00031"]){
+              
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"运营商账户余额不足，详情请咨询010-85626326!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                
                 [alertV show];
                 
             }else{
