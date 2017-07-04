@@ -911,8 +911,8 @@
 		45DB480F1EE8E49A00399A6D /* DLContractApplySection5Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplySection5Cell.m; sourceTree = "<group>"; };
 		45DB48141EE93A7E00399A6D /* DLMyCustomerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyCustomerController.h; sourceTree = "<group>"; };
 		45DB48151EE93A7E00399A6D /* DLMyCustomerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyCustomerController.m; sourceTree = "<group>"; };
-		45DB48171EE93AB400399A6D /* DLCustomerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListController.h; sourceTree = "<group>"; };
-		45DB48181EE93AB400399A6D /* DLCustomerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListController.m; sourceTree = "<group>"; };
+		45DB48171EE93AB400399A6D /* DLCustomerListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLCustomerListController.h; path = ../Controller/DLCustomerListController.h; sourceTree = "<group>"; };
+		45DB48181EE93AB400399A6D /* DLCustomerListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLCustomerListController.m; path = ../Controller/DLCustomerListController.m; sourceTree = "<group>"; };
 		45DB481A1EEA5AB000399A6D /* DLinvoiceApplySection0Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceApplySection0Cell.h; sourceTree = "<group>"; };
 		45DB481B1EEA5AB000399A6D /* DLinvoiceApplySection0Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceApplySection0Cell.m; sourceTree = "<group>"; };
 		45E119EB1ED2FF4300FDFEBA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1115,8 +1115,6 @@
 				458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */,
 				45DB48141EE93A7E00399A6D /* DLMyCustomerController.h */,
 				45DB48151EE93A7E00399A6D /* DLMyCustomerController.m */,
-				45DB48171EE93AB400399A6D /* DLCustomerListController.h */,
-				45DB48181EE93AB400399A6D /* DLCustomerListController.m */,
 				45A321CA1EF256E000325683 /* DLMyCustomerXibController.h */,
 				45A321CB1EF256E000325683 /* DLMyCustomerXibController.m */,
 				45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */,
@@ -1143,6 +1141,8 @@
 				450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */,
 				45EF39B11F0A286F00A5010A /* DLMyTicketListController.h */,
 				45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */,
+				45DB48171EE93AB400399A6D /* DLCustomerListController.h */,
+				45DB48181EE93AB400399A6D /* DLCustomerListController.m */,
 			);
 			path = "Controller(二级)";
 			sourceTree = "<group>";

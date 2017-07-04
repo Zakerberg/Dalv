@@ -10,7 +10,7 @@
 #import "DLHomeViewTask.h"
 
 @interface DLMyAgencyController ()
-@property (nonatomic, strong) NSDictionary *myAgencyList;///data
+@property (nonatomic, strong) NSDictionary *myAgencyList;
 @property(nonatomic,strong) UIImageView *imageView;///头像
 @property(nonatomic,strong) UILabel  * nameLabel;///名字
 @property(nonatomic,strong) UILabel * nickNameLabel;///昵称
@@ -422,8 +422,10 @@
 ///联系顾问
 -(void)contractBtnClick {
  
-    NSLog(@"联系顾问");
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",self.numberLabel.text];
     
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+
 }
 
 ///解除绑定
