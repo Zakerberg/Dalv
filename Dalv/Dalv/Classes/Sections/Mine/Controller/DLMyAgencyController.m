@@ -397,19 +397,39 @@
     
     if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){//重新绑定
         
+       
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"agency_id": self.agencyID
+                                };
+ 
+          [DLHomeViewTask getTouristPersonlAgencyDetails:param completion:^(id result, NSError *error) {
+              
+              self.myAgencyList = result[@"agencyInfo"];
+              
+              NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
+              
+              [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+              
+              self.nameLabel.text = self.myAgencyList[@"name"];
+              self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
+              
+              if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
+                  self.sexLabel.text = @"男";
+              } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
+                  self.sexLabel.text = @"女";
+              } else {
+                  self.sexLabel.text = @"保密";
+              }
+              
+              self.ageLabel.text = self.myAgencyList[@"age"];
+              self.workTimeLabel.text = self.myAgencyList[@"working_time"];
+              self.numberLabel.text = self.myAgencyList[@"mobile"];
+              self.mailLabel.text = self.myAgencyList[@"email"];
+              self.noteTV.text = self.myAgencyList[@"been_where"];
 
-        for (NSString *str in self.dataArrM) {
-            
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          }];
         
     }else{
 

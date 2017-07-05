@@ -135,13 +135,17 @@
     return CGFLOAT_MIN;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     DLMyAgencyController *VC = [[DLMyAgencyController alloc] init];
     VC.dataArrM = self.dataArrM;
+    
+    NSInteger inte = indexPath.section;
+
+    VC.agencyID = self.dataArrM[inte];
+    
 
     [self.navigationController pushViewController:VC animated:YES];
     
