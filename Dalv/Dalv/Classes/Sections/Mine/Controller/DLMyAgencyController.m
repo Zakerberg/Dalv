@@ -518,7 +518,7 @@
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token],
                                 @"agency_id": self.agencyID
-                                };
+                                }; 
         
         [DLHomeViewTask getTouristPersonlBindingAgency:param completion:^(id result, NSError *error) {
             
