@@ -82,6 +82,20 @@
         
         NSArray *contractRecordArray = [DLMyAgencyUnBindingModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"agencyList"]];
         [self.agencyList addObjectsFromArray:contractRecordArray];
+
+        NSArray *array = result[@"agencyList"];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
         [self.agencyListTableView reloadData];
         
     }];

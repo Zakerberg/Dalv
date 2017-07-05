@@ -312,13 +312,13 @@ static NSString *cellID  = @"cellID";
             
         }else { // C
             
-            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {//未绑定
                 
                 DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
                 
                 [self.navigationController pushViewController:unBindingVC animated:YES];
           
-            }else{
+            }else{ ///绑定
                 
                 DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
                 
@@ -403,12 +403,7 @@ static NSString *cellID  = @"cellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if([[DLUtils getUser_type] isEqualToString:@"4"]){//顾问
         return 3;
-    }
-    
-    return 2;
 }
 
 

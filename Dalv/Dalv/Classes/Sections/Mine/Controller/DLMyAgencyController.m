@@ -393,54 +393,55 @@
 #pragma mark ----- fetchData
 
 -(void)fetchData {
-
-#warning 今天处理这个问题 ! ! !
     
-    //C重新绑定顾问
+    
     if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }else{
+
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token]
                                 };
-//        [DLHomeViewTask]
         
-        
+        [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
+            
+            self.myAgencyList = result[@"agencyInfo"];
+            
+            NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
+            
+            [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            
+            self.nameLabel.text = self.myAgencyList[@"name"];
+            self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
+            
+            if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
+                self.sexLabel.text = @"男";
+            } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
+                self.sexLabel.text = @"女";
+            } else {
+                self.sexLabel.text = @"保密";
+            }
+            
+            self.ageLabel.text = self.myAgencyList[@"age"];
+            self.workTimeLabel.text = self.myAgencyList[@"working_time"];
+            self.numberLabel.text = self.myAgencyList[@"mobile"];
+            self.mailLabel.text = self.myAgencyList[@"email"];
+            self.noteTV.text = self.myAgencyList[@"been_where"];
+            
+        }];
     }
-
-    
-    
-    NSDictionary *param = @{
-                            @"uid":[DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token]
-                            };
-    
-    [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
-        
-        self.myAgencyList = result[@"agencyInfo"];
-        
-        NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
-        
-        [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-        
-        self.nameLabel.text = self.myAgencyList[@"name"];
-        self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
-        
-        if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
-            self.sexLabel.text = @"男";
-        } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
-             self.sexLabel.text = @"女";
-        } else {
-            self.sexLabel.text = @"保密";
-        }
-        
-        self.ageLabel.text = self.myAgencyList[@"age"];
-        self.workTimeLabel.text = self.myAgencyList[@"working_time"];
-        self.numberLabel.text = self.myAgencyList[@"mobile"];
-        self.mailLabel.text = self.myAgencyList[@"email"];
-        self.noteTV.text = self.myAgencyList[@"been_where"];
-
-    }];
 
 }
 
@@ -461,21 +462,28 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"解绑后后您需要重新绑定新的顾问,是否解绑?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"解绑" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
+
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token]
                                 };
         [DLHomeViewTask getTouristPersonPageUnbundingAgency:param completion:^(id result, NSError *error) {
-        }];
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-//        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"binding_state"];
+            
+            if ([result[@"status"] isEqualToString:@"00000"]) {
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
 
+            }else{
+                
+                if ([result[@"status"] isEqualToString:@"00025"]) {
+                  
+                    UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑失败,联系客服!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [alertV show];
+                }
+            }
+        }];
     }];
     
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];

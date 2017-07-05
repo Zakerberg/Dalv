@@ -92,6 +92,7 @@ static NSString *cellID  = @"cellID";
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"sign_token"];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"uid"];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"user_type"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"binding_state"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
