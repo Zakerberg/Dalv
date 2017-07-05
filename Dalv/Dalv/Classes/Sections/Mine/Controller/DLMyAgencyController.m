@@ -7,6 +7,7 @@
 //   ------------------ 我的顾问(绑定)  ---------------
 
 #import "DLMyAgencyController.h"
+#import "DLMyAgencyUnBindingController.h"
 #import "DLHomeViewTask.h"
 #import "DLUtils.h"
 
@@ -394,10 +395,12 @@
 
 -(void)fetchData {
     
-    
-    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){
+    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){//重新绑定
         
-        
+
+        for (NSString *str in self.dataArrM) {
+            
+        }
         
         
         

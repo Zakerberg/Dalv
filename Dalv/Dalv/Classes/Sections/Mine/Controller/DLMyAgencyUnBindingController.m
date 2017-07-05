@@ -21,6 +21,7 @@
 @property (weak, nonatomic)  UILabel *agencyIntegralLabel;/// 顾问积分
 @property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;///顾问从业时间
 @property(nonatomic,weak) NSDictionary * myListDict;
+
 @end
 
 //static NSString *CellID = @"CellID";
@@ -83,18 +84,15 @@
         NSArray *contractRecordArray = [DLMyAgencyUnBindingModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"agencyList"]];
         [self.agencyList addObjectsFromArray:contractRecordArray];
 
-        NSArray *array = result[@"agencyList"];
+        NSDictionary *dict = result;
+        NSArray *arr = dict[@"agencyList"];
         
+        self.dataArrM = [NSMutableArray array];
         
+        for (NSDictionary *dic in arr) {
         
-        
-        
-        
-        
-        
-        
-        
-        
+            [self.dataArrM addObject:dic[@"id"]];
+        }
 
         [self.agencyListTableView reloadData];
         
@@ -143,7 +141,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     DLMyAgencyController *VC = [[DLMyAgencyController alloc] init];
-    
+    VC.dataArrM = self.dataArrM;
+
     [self.navigationController pushViewController:VC animated:YES];
     
 }

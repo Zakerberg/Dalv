@@ -104,8 +104,7 @@ static NSString *section5CellID = @"section5CellID";
     self.Section4Number = 1;
 }
 
-#pragma mark ----------------- Set TableView -----------------
-
+#pragma mark ------ Set TableView
 -(void)setTableView {
     
     self.invoiceTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];

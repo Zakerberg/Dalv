@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DLMyAgencyUnBindingController : UIViewController
-@property(nonatomic,strong) NSString * agencyID;
+@property(nonatomic,strong) NSMutableArray * dataArrM;
 @end
