@@ -275,8 +275,10 @@
 #define DL_TouristIndexDetails  DL_HOST@"index.php/Api/index/details"
 
 ///76 测试普通用户个人中心-我的顾问（未绑定）绑定接口
-
 #define DL_TouristPersonalbundingAgency  DL_HOST@"index.php/TouristApi/TouristPersonal/bindingAgency"
+
+///79 测试普通用户个人中心-我的顾问（未绑定）详情页地址接口
+#define DL_TouristPersonalAgencyDetails  DL_HOST@"index.php/TouristApi/TouristPersonal/agencyDetails"
 
 
 #endif /* InterfaceConfig_h */

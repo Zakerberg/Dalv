@@ -808,4 +808,16 @@
                                  completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+
+
+/**
+ * 77 测试普通用户个人中心-我的顾问（未绑定）详情页地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonlAgencyDetails:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler;
 @end
