@@ -8,13 +8,17 @@
 
 #import "DLRemmendController.h"
 #import "DLMyRemmendModel.h"
+#import "DLMyRemmendCell.h"
 #import "DLHomeViewTask.h"
 
 @interface DLRemmendController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myRemmendTableView;
 @property (nonatomic, strong) NSMutableArray *myRemmendList;
 @property (nonatomic, assign) NSInteger pageIndex;
+
 @end
+
+static NSString *cellID = @"cellID";
 
 @implementation DLRemmendController
 
@@ -47,8 +51,6 @@
                                    footerAction:@selector(fetchMoreData)];
     
 
-    
-    
 }
 
 
@@ -71,6 +73,11 @@
     self.myRemmendTableView.showsVerticalScrollIndicator = NO;
     
     [self.myRemmendTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.myRemmendTableView registerClass:[DLMyRemmendCell class] forCellReuseIdentifier:cellID];
+    
+
+    
     
     [self.view addSubview:self.myRemmendTableView];
     
@@ -133,17 +140,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    DLLineOrderXibCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-//    
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    DLlineOrderModel *loModel = [self.lineOrderList objectAtIndex:indexPath.section];
-//    [cell configureCell:loModel];
-//    
-//    return cell;
+    DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+
+
+    return cell;
     
-    
-    
-    return nil; 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

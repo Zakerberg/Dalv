@@ -394,11 +394,25 @@
 
 -(void)fetchData {
 
+#warning 今天处理这个问题 ! ! !
+    
+    //C重新绑定顾问
+    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){
+        
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token]
+                                };
+//        [DLHomeViewTask]
+        
+        
+    }
+
+    
+    
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token]
-                           
                             };
     
     [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
