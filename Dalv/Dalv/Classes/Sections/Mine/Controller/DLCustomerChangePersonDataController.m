@@ -78,6 +78,7 @@ static NSString *cell1ID = @"cell1ID";
 
 
 #pragma mark ------ fetchData
+
 -(void)fetchData{
     
     NSDictionary *param = @{
@@ -90,7 +91,9 @@ static NSString *cell1ID = @"cell1ID";
         NSDictionary *dict = result[@"touristInfo"];
         self.phoneLabel.text = dict[@"mobile"];
         self.nameTF.text = dict[@"name"];
-            
+        self.QQTF.text = dict[@"qq"];
+        self.sexLabel.text = dict[@"sex"];
+        self.mailTF.text = dict[@"mail"];
     }];
 }
 

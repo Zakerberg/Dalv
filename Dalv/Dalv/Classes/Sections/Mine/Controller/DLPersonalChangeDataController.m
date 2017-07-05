@@ -39,7 +39,6 @@
 /// 年龄
 @property (weak, nonatomic) UITextField *workTimeTF;
 @property(nonatomic,strong) NSString * sexStr;
-
 @end
 
 static NSString *cellID = @"cellID";
@@ -92,7 +91,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
     return [phoneTest evaluateWithObject:mobile];
 }
 
-
 ///邮箱地址的正则表达式
 - (BOOL)isValidateEmail:(NSString *)email{
     
@@ -101,9 +99,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     return [emailTest evaluateWithObject:email];
 }
 
-
-
-#pragma mark  ----------------  fetchData  ------------------
+#pragma mark  -------  fetchData
 
 -(void)fetchData{
     
@@ -121,22 +117,9 @@ static NSString *tableViewCellID = @"tableViewCellID";
         self.nameLabel.text = dict[@"name"];
         self.numLabel.text = dict[@"mobile"];
         
-        if([dict[@"nick_name"] isKindOfClass:[NSNull class]]){
-            
-            self.nickNameTF.text = @"未设置";
-        }else{
-            
-            self.nickNameTF.text = dict[@"nick_name"];
-        }
+        self.nickNameTF.text = dict[@"nick_name"] ? dict[@"nick_name"] : @"未设置";
+        self.mailTF.text = dict[@"email"] ? dict[@"email"] : @"未设置";
         
-        if([dict[@"email"] isKindOfClass:[NSNull class]]){
-            
-            self.mailTF.text = @"未设置";
-        }else{
-            
-            self.mailTF.text = dict[@"email"];
-            
-        }
         self.goCityView.text = dict[@"been_where"];
         self.ageTF.text = dict[@"age"];
         self.noteLabelTF.text = dict[@"personal_label"];
@@ -455,6 +438,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
      DLPersonalChangeDataCell* personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
      personalCell.detailTextLabel.text = str ;
      */
+    
     self.sexLabel.text = str;
     
 }

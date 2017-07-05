@@ -222,12 +222,7 @@ static NSString *cellID  = @"cellID";
             [self.personBtn.layer setCornerRadius:33];
             self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-            
-            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
-                self.nameLabel.text = @"未设置";
-            }else{
-                self.nameLabel.text = self.mineCenterDict[@"name"];
-            }
+            self.nameLabel.text = self.mineCenterDict[@"name"] ? self.mineCenterDict[@"name"] : @"未设置";
             self.numLabel.text = self.mineCenterDict[@"mobile"];
             [self.tableView reloadData];
         }];
@@ -312,13 +307,13 @@ static NSString *cellID  = @"cellID";
             
         }else { // C
             
-            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {//未绑定
                 
                 DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
                 
                 [self.navigationController pushViewController:unBindingVC animated:YES];
           
-            }else{
+            }else{ ///绑定
                 
                 DLMyAgencyController *myAgencyVC = [[DLMyAgencyController alloc] init];
                 
@@ -333,7 +328,7 @@ static NSString *cellID  = @"cellID";
         
         [self.navigationController pushViewController:genralVC animated:YES];
     }
-    
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -403,12 +398,7 @@ static NSString *cellID  = @"cellID";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if([[DLUtils getUser_type] isEqualToString:@"4"]){//顾问
         return 3;
-    }
-    
-    return 2;
 }
 
 

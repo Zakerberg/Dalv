@@ -32,7 +32,7 @@
     self.button1 = button1;
     button1.shakeAnimation = NO;
     button1.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-        NSLog(@"%ld",num);
+       // NSLog(@"%ld",num);
     };
     
     DLAddReduceButton *button2 = [[DLAddReduceButton alloc] init];
@@ -40,7 +40,7 @@
         button2.shakeAnimation = NO;
     
         button2.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-            NSLog(@"%ld",num);
+           // NSLog(@"%ld",num);
         };
 
     DLAddReduceButton *button3 = [[DLAddReduceButton alloc] init];
@@ -48,7 +48,7 @@
     button3.shakeAnimation = NO;
     
     button3.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-        NSLog(@"%ld",num);
+       // NSLog(@"%ld",num);
     };
     
     

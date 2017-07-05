@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DLMyAgencyController : UIViewController
-
+@property(nonatomic,strong) NSString * agencyID;
+@property(nonatomic,strong) NSMutableArray * dataArrM;/// agencyIDs
 @end

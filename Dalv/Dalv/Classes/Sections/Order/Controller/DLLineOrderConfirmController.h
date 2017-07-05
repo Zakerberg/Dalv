@@ -9,12 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DLLineOrderConfirmController : UIViewController
-
 @property(nonatomic,strong) NSString * linePayID;
-
 @property(nonatomic,strong) NSString * BtnType;
-
-//付款成功
+///付款成功
 @property(nonatomic,strong) NSString * PayedStatus;
-
 @end

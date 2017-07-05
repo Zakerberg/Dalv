@@ -7,22 +7,23 @@
 //   ------------------ 我的顾问(绑定)  ---------------
 
 #import "DLMyAgencyController.h"
+#import "DLMyAgencyUnBindingController.h"
 #import "DLHomeViewTask.h"
 #import "DLUtils.h"
 
 @interface DLMyAgencyController ()
 @property (nonatomic, strong) NSDictionary *myAgencyList;
-@property(nonatomic,strong) UIImageView *imageView;///头像
-@property(nonatomic,strong) UILabel  * nameLabel;///名字
-@property(nonatomic,strong) UILabel * nickNameLabel;///昵称
-@property(nonatomic,strong) UILabel * sexLabel;///性别
-@property(nonatomic,strong) UILabel * ageLabel;///年龄
-@property(nonatomic,strong) UILabel * workTimeLabel;///从业时间
-@property(nonatomic,strong) UILabel * numberLabel;///手机号
-@property(nonatomic,strong) UILabel * mailLabel;///邮箱
-@property(nonatomic,strong) UITextView * noteTV;///介绍
-@property(nonatomic,strong) UIButton * unBindingBtn;///解除绑定
-@property(nonatomic,strong) UIButton * contractBtn;///联系
+@property(nonatomic,strong) UIImageView *imageView;/// 头像
+@property(nonatomic,strong) UILabel  * nameLabel;/// 名字
+@property(nonatomic,strong) UILabel * nickNameLabel;/// 昵称
+@property(nonatomic,strong) UILabel * sexLabel;/// 性别
+@property(nonatomic,strong) UILabel * ageLabel;/// 年龄
+@property(nonatomic,strong) UILabel * workTimeLabel;/// 从业时间
+@property(nonatomic,strong) UILabel * numberLabel;/// 手机号
+@property(nonatomic,strong) UILabel * mailLabel;/// 邮箱
+@property(nonatomic,strong) UITextView * noteTV;/// 介绍
+@property(nonatomic,strong) UIButton * unBindingBtn;/// 解除绑定
+@property(nonatomic,strong) UIButton * contractBtn;/// 联系
 @end
 
 @implementation DLMyAgencyController
@@ -75,7 +76,7 @@
     
     [self.view addSubview:nick];
     
-
+    
     UILabel *nickNameLabel = [[UILabel alloc] init];
     self.nickNameLabel = nickNameLabel;
     nickNameLabel.textColor = [UIColor colorWithHexString:@"#a6a6a6"];
@@ -87,7 +88,7 @@
     
     UIView *line = [[UIView alloc] init];
     line.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
-
+    
     [self.view addSubview:line];
     
     UILabel *sex = [[UILabel alloc] init];
@@ -153,7 +154,7 @@
     title.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     
     [self.view addSubview:title];
-
+    
     UIView *line2 = [[UIView alloc] init];
     line2.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     
@@ -166,7 +167,7 @@
     number.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
     
     [self.view addSubview:number];
-
+    
     
     UILabel *numberLabel = [[UILabel alloc] init];
     self.numberLabel = numberLabel;
@@ -180,8 +181,8 @@
     line3.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     
     [self.view addSubview:line3];
-
- 
+    
+    
     UILabel *mail = [[UILabel alloc] init];
     mail.text = @"邮箱:";
     mail.font = [UIFont systemFontOfSize:15];
@@ -190,7 +191,7 @@
     
     [self.view addSubview:mail];
     
-
+    
     UILabel *mailLabel = [[UILabel alloc] init];
     self.mailLabel = mailLabel;
     mailLabel.font = [UIFont systemFontOfSize:15];
@@ -199,12 +200,12 @@
     
     [self.view addSubview:mailLabel];
     
-
+    
     UIView *line4 = [[UIView alloc] init];
     line4.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     
     [self.view addSubview:line4];
-
+    
     
     UITextView *noteTV = [[UITextView alloc] init];
     self.noteTV = noteTV;
@@ -233,19 +234,18 @@
         
         [unBindingBtn addTarget:self action:@selector(unBindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [unBindingBtn setTitle:@"解绑顾问" forState:UIControlStateNormal];
-   
+        
     }else{
         
         [unBindingBtn addTarget:self action:@selector(bindingBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [unBindingBtn setTitle:@"绑定顾问" forState:UIControlStateNormal];
-  
+        
     }
-    
     
     [unBindingBtn setTintColor:[UIColor colorWithHexString:@"#979797"]];
     
     [self.view addSubview:unBindingBtn];
-
+    
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(@20);
         make.height.width.equalTo(@60);
@@ -263,7 +263,6 @@
         make.height.offset(14);
     }];
     
-    
     [nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(nick.mas_right);
         make.height.offset(14);
@@ -272,11 +271,11 @@
     
     
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.top.equalTo(self.imageView.mas_bottom).with.offset(15);
-    make.width.equalTo(self.view);
-    make.height.equalTo(@0.5);
+        make.top.equalTo(self.imageView.mas_bottom).with.offset(15);
+        make.width.equalTo(self.view);
+        make.height.equalTo(@0.5);
     }];
-
+    
     [sex mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line.mas_bottom).offset(15);
         make.height.left.offset(15);
@@ -319,13 +318,13 @@
         make.width.equalTo(self.view);
         make.height.equalTo(@0.5);
     }];
-
+    
     
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line1.mas_bottom).offset(15);
         make.height.left.offset(15);
     }];
-
+    
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line1.mas_bottom).offset(80);
         make.height.equalTo(@0.5);
@@ -387,61 +386,90 @@
         make.height.offset(45);
         make.width.offset(MAIN_SCREEN_WIDTH/2);
     }];
-    
 }
 
 #pragma mark ----- fetchData
 
 -(void)fetchData {
-
-    NSDictionary *param = @{
-                            
-                            @"uid":[DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token]
-                           
-                            };
     
-    [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
+    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){ //重新绑定
         
-        self.myAgencyList = result[@"agencyInfo"];
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"agency_id": self.agencyID
+                                };
         
-        NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
+        [DLHomeViewTask getTouristPersonlAgencyDetails:param completion:^(id result, NSError *error) {
+            
+            self.myAgencyList = result[@"agencyInfo"];
+            
+            NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
+            
+            [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            
+            self.nameLabel.text = self.myAgencyList[@"name"];
+            self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
+            
+            if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
+                self.sexLabel.text = @"男";
+            } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
+                self.sexLabel.text = @"女";
+            } else {
+                self.sexLabel.text = @"保密";
+            }
+            self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+            self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
+            self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
+            self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+            self.numberLabel.text = self.myAgencyList[@"mobile"];
+        }];
         
-        [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+    }else{
         
-        self.nameLabel.text = self.myAgencyList[@"name"];
-        self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token]
+                                };
         
-        if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
-            self.sexLabel.text = @"男";
-        } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
-             self.sexLabel.text = @"女";
-        } else {
-            self.sexLabel.text = @"保密";
-        }
-        
-        self.ageLabel.text = self.myAgencyList[@"age"];
-        self.workTimeLabel.text = self.myAgencyList[@"working_time"];
-        self.numberLabel.text = self.myAgencyList[@"mobile"];
-        self.mailLabel.text = self.myAgencyList[@"email"];
-        self.noteTV.text = self.myAgencyList[@"been_where"];
-
-    }];
-
+        [DLHomeViewTask getTouristPersonalMyAgenct:param completion:^(id result, NSError *error) {
+            
+            self.myAgencyList = result[@"agencyInfo"];
+            
+            NSURL *url = [NSURL URLWithString:self.myAgencyList[@"head_pic"]];
+            
+            [self.imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            
+            self.nameLabel.text = self.myAgencyList[@"name"];
+            self.nickNameLabel.text = self.myAgencyList[@"nick_name"];
+            
+            if ([_myAgencyList[@"sex"] isEqualToString:@"1"]) {
+                self.sexLabel.text = @"男";
+            } else if ([_myAgencyList[@"sex"] isEqualToString:@"2"]){
+                self.sexLabel.text = @"女";
+            } else {
+                self.sexLabel.text = @"保密";
+            }
+            self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+            self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
+            self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
+            self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+            self.numberLabel.text = self.myAgencyList[@"mobile"];
+        }];
+    }
 }
 
 #pragma mark ----- BtnClick
 
-///联系顾问
+/// 联系顾问
 -(void)contractBtnClick {
- 
+    
     NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",self.numberLabel.text];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-
 }
 
-///解除绑定
+/// 解除绑定
 -(void)unBindingBtnClick {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"解绑后后您需要重新绑定新的顾问,是否解绑?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -453,15 +481,22 @@
                                 @"sign_token" : [DLUtils getSign_token]
                                 };
         [DLHomeViewTask getTouristPersonPageUnbundingAgency:param completion:^(id result, NSError *error) {
+            
+            if ([result[@"status"] isEqualToString:@"00000"]) {
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+            }else{
+                
+                if ([result[@"status"] isEqualToString:@"00025"]) {
+                    
+                    UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑失败,联系客服!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [alertV show];
+                }
+            }
         }];
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [successV show];
-//        [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"binding_state"];
-
     }];
     
     UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -472,27 +507,27 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
-//绑定顾问
+/// 绑定顾问
 -(void)bindingBtnClick {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定绑定此顾问?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         
-        
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
-                                @"sign_token" : [DLUtils getSign_token]
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"agency_id": self.agencyID
                                 };
-
+        
         [DLHomeViewTask getTouristPersonlBindingAgency:param completion:^(id result, NSError *error) {
-           
+            
+            [self.navigationController popViewControllerAnimated:YES];
             [self.navigationController popViewControllerAnimated:YES];
             
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
-
+            
         }];
     }];
     
@@ -503,6 +538,4 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
-
-
 @end

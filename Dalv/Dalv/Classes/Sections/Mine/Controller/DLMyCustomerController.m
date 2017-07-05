@@ -12,7 +12,6 @@
 
 @property(nonatomic,strong) UITableView * customerTableView;
 //@property(nonatomic,strong) UITableView * customerTableView;
-//
 
 @end
 

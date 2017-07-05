@@ -31,10 +31,7 @@
     textLabel.numberOfLines = 0;
     textLabel.frame = CGRectMake(18, 18, self.view.bounds.size.width - 36, 55);
     [self.view addSubview:textLabel];
-    //    [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.top.right.offset(18);
-    //    }];
-    
+
     UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(18, 65, self.view.bounds.size.width - 36, 200)];
     //设置是否可以滚动
     textView.scrollEnabled = NO;

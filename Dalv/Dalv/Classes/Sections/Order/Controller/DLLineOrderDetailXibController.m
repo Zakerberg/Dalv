@@ -12,54 +12,43 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderDetailXibController ()
-
-/*** 订单名称 ***/
+/// 订单名称
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderNameLabel;
-/*** 订单状态 ***/
+/// 订单状态
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStateLabel;
-/*** 订单创建时间 ***/
+/// 订单创建时间
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderCreatTimeLabel;
-/*** 订单图片 ***/
+/// 订单图片
 @property (weak, nonatomic) IBOutlet UIImageView *lineOrderPicImageView;
-/*** 订单成人数量 ***/
+/// 订单成人数量
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderAdultCountLabel;
-/*** 订单儿童数量 ***/
+/// 订单儿童数量
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderChildCountLabel;
-/*** 订单团期时间 ***/
+/// 订单团期时间
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStartTimeLabel;
-/*** 订单金额 ***/
+/// 订单金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPriceTotaLabel;
-/*** 订单调整金额 ***/
+/// 订单调整金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPriceAdjustLabel;
-/*** 订单应付金额 ***/
+/// 订单应付金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayableLabel;
-/*** 订单特别说明 ***/
+/// 订单特别说明
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderMemoLabel;
-
 @property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
-
 @property (weak, nonatomic) IBOutlet UIView *lineOrderDetailView;
-
-//边框成人和儿童的label
+///边框成人和儿童的label
 @property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-
-/*预付款button*/
+///预付款button
 @property (nonatomic, strong) UIButton *prepaidBtn;
-/*全款button*/
+///全款button
 @property (nonatomic, strong) UIButton *payFullBtn;
-
-/*尾款button*/
+///尾款button*/
 @property (weak, nonatomic) IBOutlet UIButton *payTailButton;
-
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
-
 @property(nonatomic,strong) UITableView * mainTableView;
-
-
-//付款成功
+///付款成功
 @property(nonatomic,strong) NSString * PayedStatus;
-
 
 @end
 
@@ -74,7 +63,6 @@ static NSString *cellID = @"cellID";
     [self setButton];
     
     self.payTailButton.hidden = YES;
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
     
@@ -130,44 +118,43 @@ static NSString *cellID = @"cellID";
 }
 
 
-//- (void)viewWillAppear:(BOOL)animated{
-//
-//    [super viewWillAppear:animated];
-//
-//    self.navigationController.delegate = self;
-//
-//}
-//
-//
-
-//#pragma mark - ------------- setTableView ----------------
-//
-//-(void)setTableView
-//{
-//
-//    UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-//    self.mainTableView = mainTableView;
-//
-//    mainTableView.backgroundColor = [UIColor redColor];
-//
-//
-////    self.automaticallyAdjustsScrollViewInsets = NO;
-////    mainTableView.showsVerticalScrollIndicator = NO;
-//
-//    [mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-//
-//    [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-//
-//
-//    [self.view addSubview:mainTableView];
-//
-//
-//    [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.offset(0);
-//        make.height.offset(0);
-//    }];
-//
-//}
+/*
+ - (void)viewWillAppear:(BOOL)animated{
+ 
+ [super viewWillAppear:animated];
+ 
+ self.navigationController.delegate = self;
+ 
+ }
+ #pragma mark - ------------- setTableView ----------------
+ 
+ -(void)setTableView
+ {
+ 
+ UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+ self.mainTableView = mainTableView;
+ 
+ mainTableView.backgroundColor = [UIColor redColor];
+ 
+ 
+ //    self.automaticallyAdjustsScrollViewInsets = NO;
+ //    mainTableView.showsVerticalScrollIndicator = NO;
+ 
+ [mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+ 
+ [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+ 
+ 
+ [self.view addSubview:mainTableView];
+ 
+ 
+ [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+ make.top.left.right.offset(0);
+ make.height.offset(0);
+ }];
+ 
+ }
+ */
 
 #pragma mark - ------------- setUI ----------------
 
@@ -188,6 +175,11 @@ static NSString *cellID = @"cellID";
 
 - (BOOL)dl_blueNavbar {
     return YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - ------------- setButton ----------------
@@ -237,9 +229,8 @@ static NSString *cellID = @"cellID";
     
 }
 
-#pragma mark - ------------- BtnClick ----------------
-
-//预付款
+#pragma mark ---- BtnClick
+///预付款
 -(void)prepaidBtnClick{
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
@@ -254,7 +245,7 @@ static NSString *cellID = @"cellID";
     NSLog(@"预付款");
 }
 
-//全款
+///全款
 -(void)payFullBtnClick{
     
     
@@ -271,7 +262,7 @@ static NSString *cellID = @"cellID";
     NSLog(@"全款");
 }
 
-//尾款
+///尾款
 - (IBAction)payTailBtnClick:(id)sender {
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
@@ -463,42 +454,37 @@ static NSString *cellID = @"cellID";
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-//#pragma mark ------- UINavigationControllerDelegate -------
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 1;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return MAIN_SCREEN_WIDTH-45;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//
-//    cell.accessoryType = UITableViewCellAccessoryNone;
-
-//    return cell;
-//
-//}
-
-//- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
-//    
-//    if([[viewController class] isSubclassOfClass:[DLLineOrderDetailXibController class]]) {
-//        
-//        
-//    }
-//}
-
+/*
+ #pragma mark ------- UINavigationControllerDelegate -------
+ 
+ - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+ return 1;
+ }
+ 
+ - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+ return 1;
+ }
+ 
+ - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+ return MAIN_SCREEN_WIDTH-45;
+ }
+ 
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+ 
+ cell.accessoryType = UITableViewCellAccessoryNone;
+ 
+ return cell;
+ 
+ }
+ 
+ - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
+ 
+ if([[viewController class] isSubclassOfClass:[DLLineOrderDetailXibController class]]) {
+ 
+ 
+ }
+ }
+ */
 @end

@@ -159,9 +159,9 @@
         
         [DLHomeViewTask getTouristVerificationCode:param completion:^(id result, NSError *error) {
             
-            if ([[DLUtils getUser_bingdingState] isEqualToString:@"0"]) {
-                NSLog(@"没有绑定顾问");
-                
+            if ([result[@"binding_state"] isEqualToString:@"0"]) {
+                 NSLog(@"没有绑定顾问");
+
             }else{
                 /// 已经绑定顾问
                 NSLog(@"已经绑定顾问");

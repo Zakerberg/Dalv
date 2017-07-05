@@ -8,6 +8,7 @@
 
 #import "DLMyTicketListController.h"
 #import "DLHomeViewTask.h"
+#import "DLMyTicketCell.h"
 
 @interface DLMyTicketListController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -15,6 +16,8 @@
 @property (nonatomic, strong) NSMutableArray *tickeList;
 @property (nonatomic, assign) NSInteger pageIndex;
 @end
+
+static NSString *cellID = @"cellID";
 
 @implementation DLMyTicketListController
 
@@ -47,6 +50,32 @@
 
 -(void)setTableView{
     
+    self.ticketsTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.ticketsTableView.dataSource = self;
+    self.ticketsTableView.backgroundColor = [UIColor ms_backgroundColor];
+    self.ticketsTableView.delegate = self;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.ticketsTableView.showsVerticalScrollIndicator = NO;
+    
+    [self.ticketsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.ticketsTableView registerClass:[DLMyTicketCell class] forCellReuseIdentifier:cellID];
+
+    
+    
+    [self.view addSubview:self.ticketsTableView];
+
+    
+    [self.ticketsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
+    
+    
+
 }
 
 #pragma mark ------------- fetchData --------------
@@ -94,11 +123,17 @@
    
     
     
-#warning ---------- 今天处理此处  !!!!  
+    DLMyTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     
-    return nil;
+    
+    
+    
+#warning 今天处理!!!! 
 
+    
+    return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

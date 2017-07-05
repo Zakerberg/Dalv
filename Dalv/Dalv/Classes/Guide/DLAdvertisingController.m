@@ -11,9 +11,7 @@
 #import "DLTabBarController.h"
 
 @interface DLAdvertisingController ()<UIScrollViewDelegate>
-
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
-
 @end
 
 @implementation DLAdvertisingController
@@ -36,7 +34,6 @@
 -(void)setUI{
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT)];
-    
     
     [self.view addSubview:scrollView];
     NSArray *imageNames = @[@"引导图1", @"引导图2",@"引导图3",@"引导图4",];
@@ -72,10 +69,15 @@
 //    pageControl.tag = 1000;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setTitle:@"点击进入" forState:UIControlStateNormal];
+    
+    btn.layer.cornerRadius = 20.0;
+    [btn.layer setBorderWidth:1.0];
+    btn.layer.borderColor=[UIColor colorWithHexString:@"#536bf8"].CGColor;
+
     //因为是滚动视图最后一页，所以要添加到滚动视图中
     [scrollView addSubview:btn];
     
-    btn.frame = CGRectMake(0, 0, 100, 44);
+    btn.frame = CGRectMake(0, 0, 150, 44);
     btn.center = CGPointMake((imageNames.count - 0.5) * scrollView.frame.size.width , scrollView.frame.size.height - 100);
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -84,7 +86,7 @@
 
 //    DLIdentitySelectionLoginViewController *idenVC = [[DLIdentitySelectionLoginViewController alloc]init];
 //    [self presentViewController:idenVC animated:YES completion:nil];
-////    [self.navigationController pushViewController:idenVC animated:YES];
+//    [self.navigationController pushViewController:idenVC animated:YES];
     
     if ([NSString isNotBlank:[DLUtils getUid]]) {
         [self setupTabbarVC];
@@ -93,12 +95,7 @@
 
     }
     
-    
-    
-    
-    
     /*
-     
      - (void)setupMainVC {
      if ([NSString isNotBlank:[DLUtils getUid]]) {
      [self setupTabbarVC];
@@ -117,14 +114,10 @@
      DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:loginVC];
      self.window.rootViewController = nav;
      }
-
-     
      */
     
 }
 
-    
-    
     // 已登录 跳到主界面
 - (void)setupTabbarVC {
         DLTabBarController *tabBarController = [[DLTabBarController alloc] init];
@@ -149,7 +142,6 @@
     //根据滚动的位置来决定当前是第几页
     //可以用 round()  C语言方法进行 四舍五入操作
     NSInteger index = round(point.x/scrollView.frame.size.width);
-
     pageControl.currentPage = index;
 }
 
