@@ -11,53 +11,36 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderConfirmController ()
-
-/* 线路名称 */
+/// 线路名称
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-
-/* 成人数量 */
+/// 成人数量
 @property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;
-
-/* 儿童数量 */
+/// 儿童数量
 @property (weak, nonatomic) IBOutlet UILabel *childCountLabel;
-
-/* 订单金额 */
+/// 订单金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderMoney;
-
-/* 调整金额 */
+/// 调整金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderAdjustPrice;
-/* 应付金额 */
+/// 应付金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;
-
-/* 付款金额 */
+/// 付款金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;
-
-//左边判断是全款 , 预付款 , 尾款Label
+///左边判断是全款 , 预付款 , 尾款Label
 @property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
-
-
-//边框成人和儿童的label
+///边框成人和儿童的label
 @property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-
-
-/* 下面的提示Label */
+/// 下面的提示Label
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;
-
-/* 确认Button */
+/// 确认Button
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
-
-//特别说明
+///特别说明
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
-
-//出发日期
+///出发日期
 @property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
-
-//keyID
+///keyID
 @property (strong, nonatomic) NSString *keyidStr;
-
 @property(nonatomic,strong) DLLineOrderController * orderVC;
-
 @end
 
 @implementation DLLineOrderConfirmController
@@ -67,8 +50,6 @@
     [self setUI];
     [self fetchData];
 }
-
-#pragma mark ------------- setUI -------------------
 
 -(void)setUI{
     
@@ -89,12 +70,11 @@
     return YES;
 }
 
-#pragma mark ------------- 确认支付 -------------------
+#pragma mark ---- 确认支付
 
 - (IBAction)confirmBtnClick:(id)sender {
     
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"line_id":self.linePayID,
@@ -151,10 +131,7 @@
     }else if ([self.BtnType isEqualToString:@"3"]){
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
-           
-            
-            
-            
+
             if([result[@"status"] isEqualToString: @"00033"]){
     
                 UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的可用余额不足,请先充值!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -180,7 +157,7 @@
 }
 
 
-#pragma mark ------------- fetchData -------------------
+#pragma mark --- fetchData
 
 /*
  {uid，sign_token ，line_id: (线路订单id)，
@@ -190,11 +167,9 @@
  }
  */
 
-
 -(void)fetchData{
     
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             @"line_id":self.linePayID,
@@ -222,7 +197,6 @@
         //特别说明
         NSString *memoStrt = dict[@"memo"];
 //        NSString *prepayAmount = dict[@"prepay_amount"];
-        
         
         //尾款金额 (3状态有)
         NSString *preForumStr = dict[@"preForum"];
@@ -255,7 +229,6 @@
             
               self.lineOrderPayMoneyLabel.text = [NSString stringWithFormat:@"%.2f",[prepayStr integerValue]/100.00];
             
-            
             //尾款 3
         }else if ([self.BtnType isEqualToString:@"3"]){
             
@@ -269,8 +242,6 @@
             
             
            self.lineOrderPayMoneyLabel.text = [NSString stringWithFormat:@"%.2f",[preForumStr integerValue]/100.00];
-            
-            
         }
         
         self.nameLabel.text = nameStr;

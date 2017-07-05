@@ -168,7 +168,6 @@
                 self.agencyPhoneTF.placeholder = @"您已经绑定了顾问";
                 self.agencyPhoneTF.userInteractionEnabled = NO;
             }
-  
         }];
     }
 }
