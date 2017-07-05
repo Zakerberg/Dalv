@@ -28,7 +28,7 @@ static NSString* cellID = @"cellID";
     self.tableView.hidden = NO;
     self.title = @"修改密码";
     [self setupUI];
-//  [self fetchData];
+    //  [self fetchData];
 }
 
 -(void)fetchData {
@@ -70,7 +70,6 @@ static NSString* cellID = @"cellID";
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(completeClick)];
-    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -91,7 +90,7 @@ static NSString* cellID = @"cellID";
                                 };
         
         [DLHomeViewTask getAgencyEditPassHandle:param completion:^(id result, NSError *error) {
-        
+            
             self.passwordStatus = result[@"status"];
             if ([self.passwordStatus isEqualToString:@"00000"]){
                 
@@ -108,17 +107,17 @@ static NSString* cellID = @"cellID";
         }];
         
     }else{
-       
+        
         if ([self.changePasswordTF.text isEqualToString:@""]) {
-           
+            
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
-
+            
         }else{
-        
+            
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请确认新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
-
+            
         }
     }
 }

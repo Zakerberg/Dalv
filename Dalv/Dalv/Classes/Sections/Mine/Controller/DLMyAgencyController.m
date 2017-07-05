@@ -392,7 +392,7 @@
 
 -(void)fetchData {
     
-    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){//重新绑定
+    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){ //重新绑定
         
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
@@ -516,11 +516,13 @@
         
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
-                                @"sign_token" : [DLUtils getSign_token]
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"agency_id": self.agencyID
                                 };
         
         [DLHomeViewTask getTouristPersonlBindingAgency:param completion:^(id result, NSError *error) {
             
+            [self.navigationController popViewControllerAnimated:YES];
             [self.navigationController popViewControllerAnimated:YES];
             
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];

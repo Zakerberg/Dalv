@@ -100,7 +100,6 @@
             [self.navigationController popViewControllerAnimated:YES];
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"付款成功!" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
-
         }
     }];
         
