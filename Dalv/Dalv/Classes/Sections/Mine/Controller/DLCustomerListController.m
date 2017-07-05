@@ -109,9 +109,6 @@ static NSString *cellID = @"cellID";
     [cell configureCell:clModel];
     
     return cell;
-    
-
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,8 +128,6 @@ static NSString *cellID = @"cellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
-
-#pragma mark ----------
 
 -(NSMutableArray *)myCustomerList {
     

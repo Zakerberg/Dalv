@@ -222,12 +222,7 @@ static NSString *cellID  = @"cellID";
             [self.personBtn.layer setCornerRadius:33];
             self.personBtn.layer.borderWidth = 2.0;
             self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-            
-            if ([self.mineCenterDict[@"name"] isEqualToString:@"0"]) {
-                self.nameLabel.text = @"未设置";
-            }else{
-                self.nameLabel.text = self.mineCenterDict[@"name"];
-            }
+            self.nameLabel.text = self.mineCenterDict[@"name"] ? self.mineCenterDict[@"name"] : @"未设置";
             self.numLabel.text = self.mineCenterDict[@"mobile"];
             [self.tableView reloadData];
         }];
@@ -333,6 +328,7 @@ static NSString *cellID  = @"cellID";
         
         [self.navigationController pushViewController:genralVC animated:YES];
     }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

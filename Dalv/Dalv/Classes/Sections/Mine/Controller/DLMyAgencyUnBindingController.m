@@ -120,7 +120,6 @@
     [cell configureCell:myModel];
     
     return cell;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,7 +145,6 @@
 
     VC.agencyID = self.dataArrM[inte];
     
-
     [self.navigationController pushViewController:VC animated:YES];
     
 }
