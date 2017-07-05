@@ -823,7 +823,7 @@
 + (void)getTouristIndexDetails:(NSDictionary *)param
                             completion:(void (^)(id result, NSError *error))completionHandler{
     
-    [DLRequestSerVice POST: DL_TouristPersonalbundingAgency param:param success:^(id responseData) {
+    [DLRequestSerVice POST: DL_TouristIndexDetails param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;

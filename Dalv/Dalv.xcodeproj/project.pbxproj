@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0162421F0C7CCA0089CE09 /* DLPlaneTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0162411F0C7CCA0089CE09 /* DLPlaneTicketViewController.m */; };
+		1C0162631F0C85230089CE09 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C0162571F0C85230089CE09 /* CityData.plist */; };
+		1C0162641F0C85230089CE09 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0162591F0C85230089CE09 /* TLCity.m */; };
+		1C0162651F0C85230089CE09 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C01625B1F0C85230089CE09 /* TLCityGroupCell.m */; };
+		1C0162661F0C85230089CE09 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C01625D1F0C85230089CE09 /* TLCityHeaderView.m */; };
+		1C0162671F0C85230089CE09 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C01625F1F0C85230089CE09 /* TLCityPickerController.m */; };
+		1C0162681F0C85230089CE09 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0162621F0C85230089CE09 /* TLCityPickerSearchResultController.m */; };
 		1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C051C8F1ED3C4510039A79C /* DLAlertView.m */; };
 		1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57D31ED7B99F00592BBB /* DLPlaceOrderViewController.m */; };
 		1C0B57DF1ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B57D61ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m */; };
@@ -372,6 +379,20 @@
 
 /* Begin PBXFileReference section */
 		10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dalv.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dalv/Pods-Dalv.release.xcconfig"; sourceTree = "<group>"; };
+		1C0162401F0C7CCA0089CE09 /* DLPlaneTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaneTicketViewController.h; sourceTree = "<group>"; };
+		1C0162411F0C7CCA0089CE09 /* DLPlaneTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneTicketViewController.m; sourceTree = "<group>"; };
+		1C0162571F0C85230089CE09 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		1C0162581F0C85230089CE09 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
+		1C0162591F0C85230089CE09 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
+		1C01625A1F0C85230089CE09 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
+		1C01625B1F0C85230089CE09 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
+		1C01625C1F0C85230089CE09 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
+		1C01625D1F0C85230089CE09 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
+		1C01625E1F0C85230089CE09 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
+		1C01625F1F0C85230089CE09 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
+		1C0162601F0C85230089CE09 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
+		1C0162611F0C85230089CE09 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
+		1C0162621F0C85230089CE09 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
 		1C051C8E1ED3C4510039A79C /* DLAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAlertView.h; sourceTree = "<group>"; };
 		1C051C8F1ED3C4510039A79C /* DLAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAlertView.m; sourceTree = "<group>"; };
 		1C0B57D21ED7B99F00592BBB /* DLPlaceOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaceOrderViewController.h; sourceTree = "<group>"; };
@@ -955,6 +976,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0162561F0C85230089CE09 /* TLCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1C0162571F0C85230089CE09 /* CityData.plist */,
+				1C0162581F0C85230089CE09 /* TLCity.h */,
+				1C0162591F0C85230089CE09 /* TLCity.m */,
+				1C01625A1F0C85230089CE09 /* TLCityGroupCell.h */,
+				1C01625B1F0C85230089CE09 /* TLCityGroupCell.m */,
+				1C01625C1F0C85230089CE09 /* TLCityHeaderView.h */,
+				1C01625D1F0C85230089CE09 /* TLCityHeaderView.m */,
+				1C01625E1F0C85230089CE09 /* TLCityPickerController.h */,
+				1C01625F1F0C85230089CE09 /* TLCityPickerController.m */,
+				1C0162601F0C85230089CE09 /* TLCityPickerDelegate.h */,
+				1C0162611F0C85230089CE09 /* TLCityPickerSearchResultController.h */,
+				1C0162621F0C85230089CE09 /* TLCityPickerSearchResultController.m */,
+			);
+			path = TLCityPicker;
+			sourceTree = "<group>";
+		};
 		1C2865B21F02965A0077E076 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1203,7 @@
 		1CB952EB1ECFC41600BDC2D3 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				1C0162561F0C85230089CE09 /* TLCityPicker */,
 				4550B95B1EDFBEF1002269BF /* UserDefaultManager */,
 				458CB5901EDE5FE70001084D /* InputAlert */,
 				450105F01ED9C34000AA7A17 /* common */,
@@ -1405,6 +1446,8 @@
 			children = (
 				1CB953311ECFC41600BDC2D3 /* DLHomeViewController.h */,
 				1CB953321ECFC41600BDC2D3 /* DLHomeViewController.m */,
+				1C0162401F0C7CCA0089CE09 /* DLPlaneTicketViewController.h */,
+				1C0162411F0C7CCA0089CE09 /* DLPlaneTicketViewController.m */,
 				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
 				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
@@ -2129,6 +2172,7 @@
 				1CE2C1FE1ED52BA100B898BA /* cash_register@3x.png in Resources */,
 				1CE2C1AA1ED525E000B898BA /* reduce@3x.png in Resources */,
 				1CE2C2031ED52BA100B898BA /* invoice_application@2x.png in Resources */,
+				1C0162631F0C85230089CE09 /* CityData.plist in Resources */,
 				1CE2C1D91ED528C800B898BA /* free_walker@2x.png in Resources */,
 				1CE2C1901ED525E000B898BA /* arrowhead_up@3x.png in Resources */,
 				1CE2C1CB1ED5270E00B898BA /* my@3x.png in Resources */,
@@ -2344,6 +2388,7 @@
 				45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */,
 				450F84351EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
+				1C0162651F0C85230089CE09 /* TLCityGroupCell.m in Sources */,
 				1C422BC61F00AFD0004EB57F /* UIColor+PYSearchExtension.m in Sources */,
 				453009861F0C807900D014D1 /* DLMyRemmendCell.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
@@ -2457,6 +2502,7 @@
 				1C0B57E11ED7B9D400592BBB /* DLLineOrderPriceTableViewCell.m in Sources */,
 				1C2981691EDFE2C400712524 /* DLRechargeApplicationViewController.m in Sources */,
 				1CB953BB1ECFC41600BDC2D3 /* DLHomePageViewModel.m in Sources */,
+				1C0162671F0C85230089CE09 /* TLCityPickerController.m in Sources */,
 				1C2981681EDFE2C400712524 /* DLPresentApplicationViewController.m in Sources */,
 				1CB953F71ECFC7E200BDC2D3 /* UIView+LayoutMethods.m in Sources */,
 				45F98C231EFA2BE40012DC26 /* DLCustomerLoginController.m in Sources */,
@@ -2466,6 +2512,7 @@
 				45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */,
 				450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */,
 				1C0B57DF1ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m in Sources */,
+				1C0162661F0C85230089CE09 /* TLCityHeaderView.m in Sources */,
 				1C422BC51F00AFD0004EB57F /* PYSearchViewController.m in Sources */,
 				1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */,
 				45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */,
@@ -2481,6 +2528,7 @@
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
 				452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */,
+				1C0162421F0C7CCA0089CE09 /* DLPlaneTicketViewController.m in Sources */,
 				1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
@@ -2488,10 +2536,12 @@
 				1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
+				1C0162681F0C85230089CE09 /* TLCityPickerSearchResultController.m in Sources */,
 				1CB953B51ECFC41600BDC2D3 /* DLHomeViewTask.m in Sources */,
 				45DB47F81EE7DD8300399A6D /* DLContractRecordModel.m in Sources */,
 				45EF39B31F0A286F00A5010A /* DLMyTicketListController.m in Sources */,
 				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
+				1C0162641F0C85230089CE09 /* TLCity.m in Sources */,
 				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
 				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,

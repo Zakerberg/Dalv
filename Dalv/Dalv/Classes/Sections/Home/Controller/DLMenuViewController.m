@@ -12,7 +12,7 @@
 #import "DLLineTourViewController.h"
 #import "DLHomeViewTask.h"
 #import "DLHomePageMenuModel.h"
-
+#import "DLPlaneTicketViewController.h"
 @interface DLMenuViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) UICollectionView *appCollectionView;
@@ -148,9 +148,11 @@
     
     DLHomeMenuCollectionViewCell *cell = (DLHomeMenuCollectionViewCell*) [self.appCollectionView cellForItemAtIndexPath:indexPath];
     if (cell.homeMenuItem.type.integerValue == 5 ||
-        cell.homeMenuItem.type.integerValue == 6 ||
         cell.homeMenuItem.type.integerValue == 7) {
         [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+    } else if (cell.homeMenuItem.type.integerValue == 6) {
+        DLPlaneTicketViewController *planeticketVC = [[DLPlaneTicketViewController alloc]init];
+        [self.navigationController pushViewController:planeticketVC animated:YES];
     } else {
         DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
         linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];

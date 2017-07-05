@@ -118,21 +118,12 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
     telSonsultationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     [telSonsultationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    telSonsultationBtn.backgroundColor = [UIColor whiteColor];
     telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
     telSonsultationBtn.layer.cornerRadius = 2.0;
     [self.view addSubview:telSonsultationBtn];
 }
 
 - (void)cofigureBottomView {
-    
-    
-    //    [pushHomePageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.height.equalTo(@40);
-    //        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
-    //        make.right.equalTo(self.view.mas_right).offset(-10);
-    //        make.width.equalTo(@150);
-    //    }];
     
     UIView *bottomView = [[UIView alloc]init];
     bottomView.backgroundColor = [UIColor ms_separatorColor];
@@ -430,10 +421,10 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 - (void)telSonsultationBtn {
     NSLog(@"点击了电话咨询");
     if ([NSString isBlank:self.detaiInfoModel.list.mobile]) {
-//        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
-    DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
-        
-    [self.navigationController pushViewController:unBindingVC animated:YES];
+    //        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
+    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"你还没有绑定顾问，去绑定顾问?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        phoneAlert.tag = 45;
+        [phoneAlert show];
     } else {
     UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打电话" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
     phoneAlert.tag = 100;
@@ -518,6 +509,14 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             }
         }
     }
+    
+    if (alertView.tag == 45){
+        if (buttonIndex == 1) {
+        DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
+        [self.navigationController pushViewController:unBindingVC animated:YES];
+        }
+    }
+
     
 }
 
