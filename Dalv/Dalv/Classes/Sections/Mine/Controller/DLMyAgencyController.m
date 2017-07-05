@@ -388,7 +388,6 @@
         make.height.offset(45);
         make.width.offset(MAIN_SCREEN_WIDTH/2);
     }];
-    
 }
 
 #pragma mark ----- fetchData
@@ -396,7 +395,6 @@
 -(void)fetchData {
     
     if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){//重新绑定
-        
        
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
@@ -422,13 +420,12 @@
               } else {
                   self.sexLabel.text = @"保密";
               }
-              
-              self.ageLabel.text = self.myAgencyList[@"age"];
-              self.workTimeLabel.text = self.myAgencyList[@"working_time"];
               self.numberLabel.text = self.myAgencyList[@"mobile"];
-              self.mailLabel.text = self.myAgencyList[@"email"];
-              self.noteTV.text = self.myAgencyList[@"been_where"];
-
+              self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+              self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+              self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+              self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
+              self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
           }];
         
     }else{
@@ -456,16 +453,16 @@
             } else {
                 self.sexLabel.text = @"保密";
             }
-            
-            self.ageLabel.text = self.myAgencyList[@"age"];
-            self.workTimeLabel.text = self.myAgencyList[@"working_time"];
             self.numberLabel.text = self.myAgencyList[@"mobile"];
-            self.mailLabel.text = self.myAgencyList[@"email"];
-            self.noteTV.text = self.myAgencyList[@"been_where"];
             
+            self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+            self.workTimeLabel.text = self.myAgencyList[@"working_time"] ? self.myAgencyList[@"working_time"] : @"暂未设置";
+            self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+            self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
+            self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
+
         }];
     }
-
 }
 
 #pragma mark ----- BtnClick

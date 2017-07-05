@@ -333,7 +333,6 @@ static NSString *cellID  = @"cellID";
         
         [self.navigationController pushViewController:genralVC animated:YES];
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

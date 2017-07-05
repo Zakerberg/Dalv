@@ -143,21 +143,9 @@
     }
     
     self.nameLabel.text = myAgencyUnBindingModelData.name;
-    
-    if([myAgencyUnBindingModelData.integral isEqualToString:@""]){
-        self.integralLabel.text = @"暂无积分";
-   
-    }else{
-        
-        self.integralLabel.text = myAgencyUnBindingModelData.integral;
-    }
-    
-    if([myAgencyUnBindingModelData.working_time isEqualToString:@""]){
-        self.workingTimeLabel.text = @"未设置";
-    }else{
-        
-        self.workingTimeLabel.text = myAgencyUnBindingModelData.working_time;
-    }
+    self.integralLabel.text = myAgencyUnBindingModelData.integral ? myAgencyUnBindingModelData.integral : @"暂无积分";
+    self.workingTimeLabel.text = myAgencyUnBindingModelData.working_time ? myAgencyUnBindingModelData.working_time : @"未设置";
+
 }
 
 @end

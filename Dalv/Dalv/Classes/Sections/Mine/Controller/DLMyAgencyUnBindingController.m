@@ -70,7 +70,7 @@
     }];
 
 }
-#pragma mark ------------  fetchData --------------
+#pragma mark ------ fetchData
 
 - (void)fetchData {
     
@@ -86,7 +86,7 @@
 
         NSDictionary *dict = result;
         NSArray *arr = dict[@"agencyList"];
-        
+
         self.dataArrM = [NSMutableArray array];
         
         for (NSDictionary *dic in arr) {
@@ -98,7 +98,7 @@
         
     }];
 }
-#pragma mark ------------  Table view Delegate --------------
+#pragma mark ------  Table view Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -151,7 +151,6 @@
     
 }
 
-#pragma mark ------------------ Getter -----------------------
 
 -(NSMutableArray *)agencyList {
     
