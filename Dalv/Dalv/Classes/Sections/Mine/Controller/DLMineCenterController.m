@@ -97,7 +97,7 @@ static NSString *cellID  = @"cellID";
 @property (strong,nonatomic) UITableView* tableView;
 @property(nonatomic,strong) UIButton * personBtn;
 @property (strong,nonatomic) UILabel* nameLabel;
-@property(nonatomic,strong) UIView *headerView;
+@property(nonatomic,strong) UIImageView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
 @property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
@@ -149,7 +149,6 @@ static NSString *cellID  = @"cellID";
     
     
     //正经的项目代码 !
-    self.tableView.tableFooterView = [UIView new];
     UITableView*tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView = tableView;
     tableView.showsVerticalScrollIndicator = NO;
@@ -246,10 +245,10 @@ static NSString *cellID  = @"cellID";
 
 -(void)setupHeaderView{
     
-    UIView *headerView = [[UIView alloc] init];
+    UIImageView *headerView = [[UIImageView alloc] init];
     self.tableView.tableHeaderView = headerView;
-    headerView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:headerView];
+    [headerView setImage:[UIImage imageNamed:@"backImage"]];
+    [self.tableView addSubview:headerView];
     
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.offset(0);
@@ -270,7 +269,7 @@ static NSString *cellID  = @"cellID";
     //添加手势
     [personImageView addGestureRecognizer:singleTap];
     
-    [headerView addSubview:personImageView];
+    [self.tableView addSubview:personImageView];
     
     [personImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -481,14 +480,14 @@ static NSString *cellID  = @"cellID";
 
 - (void)uploadImageToServerWithImage:(UIImage *)image {
     
-    /*
+    
      NSDictionary *param = @{@"uid" : [DLUtils getUid],
      @"sign_token" : [DLUtils getSign_token],
      @"head_img":image
      };
      [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
      }];
-     */
+    
     
     
     NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
