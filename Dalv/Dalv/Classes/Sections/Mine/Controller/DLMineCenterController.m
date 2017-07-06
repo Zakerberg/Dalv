@@ -30,13 +30,8 @@ static NSString *cellID  = @"cellID";
 @property(nonatomic,strong) UIView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
-/* 绑定状态 */
-@property(nonatomic,strong) NSString *bindingStr;
-
-
+@property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
 @property(nonatomic,strong) UIImageView *personImageView;
-
-
 @end
 
 @implementation DLMineCenterController
@@ -169,14 +164,10 @@ static NSString *cellID  = @"cellID";
 
 -(void)fetchData{
     
-    
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            
                             @"sign_token" : [DLUtils getSign_token],
                             };
-    
     if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
-        
     {
         @weakify(self);
         [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
@@ -234,8 +225,7 @@ static NSString *cellID  = @"cellID";
     
     
      [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
-    
-    
+
 //    /**
 //     *  弹出提示框
 //     */
@@ -343,26 +333,76 @@ static NSString *cellID  = @"cellID";
  #pragma mark   -  BLM_UploadUserIconDelegate
  
 - (void)uploadImageToServerWithImage:(UIImage *)image {
+
+    /*
+     
+     NSDictionary *param = @{@"uid" : [DLUtils getUid],
+     
+     @"sign_token" : [DLUtils getSign_token],
+     @"head_img":image
+     
+     };
+     
+     [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
+     
+     
+     }];
+     
+     */
     
     
-//    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-//                            
-//                            @"sign_token" : [DLUtils getSign_token],
-//                            @"head_img":image
-//                          
-//                            };
-//
-//    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
-//
-//    
-//    }];
+    NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
+
+    [self contentTypeForImageData:dataImage];
     
     
-#warning  C 和顾问都没处理 ----- !!!!!!!
+
     
-    
+  
     
 }
+
+- (NSString *)contentTypeForImageData:(NSData *)data
+{
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c)
+    {
+        case 0xFF:
+            return @"jpeg";
+            NSLog(@"jpeg");
+            
+        case 0x89:
+            return @"png";
+            NSLog(@"png");
+            
+        case 0x47:
+            return @"gif";
+            NSLog(@"gif");
+            
+        case 0x49:
+        case 0x4D:
+            return @"tiff";
+            NSLog(@"tiff");
+            
+        case 0x52:
+            if ([data length] < 12) {
+                return nil;
+            }
+        NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"]
+                && [testString hasSuffix:@"WEBP"])
+            {
+                return @"webp";
+                NSLog(@"webp");
+            }
+            
+            return nil;
+    }
+    
+    return nil;
+}
+
 
 
 //保存照片到沙盒路径

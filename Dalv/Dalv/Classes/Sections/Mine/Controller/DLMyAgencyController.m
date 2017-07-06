@@ -19,10 +19,11 @@
 @property(nonatomic,strong) UILabel * sexLabel;/// 性别
 @property(nonatomic,strong) UILabel * ageLabel;/// 年龄
 @property(nonatomic,strong) UILabel * workTimeLabel;/// 从业时间
+@property(nonatomic,strong) UITextView * personTV;/// 标签
 @property(nonatomic,strong) UILabel * numberLabel;/// 手机号
 @property(nonatomic,strong) UILabel * mailLabel;/// 邮箱
 @property(nonatomic,strong) UITextView * noteTV;/// 介绍
-@property(nonatomic,strong) UIButton * unBindingBtn;/// 解除绑定
+@property() UIButton * unBindingBtn;/// 解除绑定
 @property(nonatomic,strong) UIButton * contractBtn;/// 联系
 @end
 
@@ -155,6 +156,14 @@
     
     [self.view addSubview:title];
     
+    UITextView *personTV = [[UITextView alloc] init];
+    self.personTV = personTV;
+
+    personTV.font = [UIFont systemFontOfSize:15];
+    personTV.textColor = [UIColor colorWithHexString:@"#6b6b6b"];
+ 
+    [self.view addSubview:personTV];
+
     UIView *line2 = [[UIView alloc] init];
     line2.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     
@@ -324,7 +333,14 @@
         make.top.equalTo(line1.mas_bottom).offset(15);
         make.height.left.offset(15);
     }];
-    
+
+    [personTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.offset(-15);
+        make.height.offset(75);
+        make.top.equalTo(line1.mas_bottom).offset(5);
+        make.left.equalTo(title.mas_right).offset(5);
+    }];
+
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line1.mas_bottom).offset(80);
         make.height.equalTo(@0.5);
@@ -392,7 +408,7 @@
 
 -(void)fetchData {
     
-    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){ //重新绑定
+    if([[DLUtils getUser_bingdingState] isEqualToString:@"0"]){ /// 重新绑定
         
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
@@ -422,10 +438,11 @@
             self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
             self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
             self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+            self.personTV.text = self.myAgencyList[@"personal_label"] ?  : @"暂未设置";
             self.numberLabel.text = self.myAgencyList[@"mobile"];
         }];
         
-    }else{
+    }else{/// 已经绑定
         
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
@@ -454,6 +471,7 @@
             self.noteTV.text = self.myAgencyList[@"been_where"] ? self.myAgencyList[@"been_where"] : @"暂未设置";
             self.mailLabel.text = self.myAgencyList[@"email"] ? self.myAgencyList[@"email"] : @"暂未设置";
             self.ageLabel.text = self.myAgencyList[@"age"] ? self.myAgencyList[@"age"] : @"暂未设置";
+            self.personTV.text = self.myAgencyList[@"personal_label"] ?  : @"暂未设置";
             self.numberLabel.text = self.myAgencyList[@"mobile"];
         }];
     }
@@ -487,6 +505,7 @@
                 
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"解绑成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
+                [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:@"binding_state"];
                 
             }else{
                 
@@ -499,7 +518,7 @@
         }];
     }];
     
-    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"在想想" style:UIAlertActionStyleCancel handler:nil];
     
     [alert addAction:actionOk];
     [alert addAction:actionCancle];
@@ -518,7 +537,7 @@
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token],
                                 @"agency_id": self.agencyID
-                                }; 
+                                };
         
         [DLHomeViewTask getTouristPersonlBindingAgency:param completion:^(id result, NSError *error) {
             
@@ -527,6 +546,7 @@
             
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"绑定成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"binding_state"];
             
         }];
     }];
