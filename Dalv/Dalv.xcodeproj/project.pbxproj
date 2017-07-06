@@ -281,6 +281,7 @@
 		450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */; };
 		450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */; };
 		450F84351EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84341EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m */; };
+		451308B61F0E233F00587E3B /* DLSupplierQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451308B51F0E233F00587E3B /* DLSupplierQueryController.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
 		451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F391F1EEE600E005FE126 /* DLInvioiceApplyController.m */; };
 		451F39271EEE7120005FE126 /* DLContractApplySection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */; };
@@ -316,7 +317,6 @@
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
 		458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */; };
-		458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */; };
 		458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */; };
 		45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */; };
 		45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */; };
@@ -785,6 +785,8 @@
 		450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyAgencyUnBindingCell.m; sourceTree = "<group>"; };
 		450F84331EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyAgencyUnBindingModel.h; sourceTree = "<group>"; };
 		450F84341EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyAgencyUnBindingModel.m; sourceTree = "<group>"; };
+		451308B41F0E233F00587E3B /* DLSupplierQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierQueryController.h; sourceTree = "<group>"; };
+		451308B51F0E233F00587E3B /* DLSupplierQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierQueryController.m; sourceTree = "<group>"; };
 		451F39101EEA9445005FE126 /* DLinvoiceSection1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceSection1Cell.h; sourceTree = "<group>"; };
 		451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceSection1Cell.m; sourceTree = "<group>"; };
 		451F391E1EEE600E005FE126 /* DLInvioiceApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvioiceApplyController.h; sourceTree = "<group>"; };
@@ -848,8 +850,6 @@
 		458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYInputAlertView.xib; sourceTree = "<group>"; };
 		458CB59A1EDE8EB60001084D /* DLChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLChangePasswordController.h; sourceTree = "<group>"; };
 		458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
-		458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierqueryController.h; sourceTree = "<group>"; };
-		458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierqueryController.m; sourceTree = "<group>"; };
 		458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLsupplierQueryModel.h; sourceTree = "<group>"; };
 		458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLsupplierQueryModel.m; sourceTree = "<group>"; };
 		45A321BA1EF1195000325683 /* DLLineOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailModel.h; sourceTree = "<group>"; };
@@ -1103,8 +1103,6 @@
 				1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */,
 				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
 				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
-				458CB5AD1EDFA5DF0001084D /* DLSupplierqueryController.h */,
-				458CB5AE1EDFA5DF0001084D /* DLSupplierqueryController.m */,
 				45DB48141EE93A7E00399A6D /* DLMyCustomerController.h */,
 				45DB48151EE93A7E00399A6D /* DLMyCustomerController.m */,
 				45A321CA1EF256E000325683 /* DLMyCustomerXibController.h */,
@@ -1116,6 +1114,8 @@
 				45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */,
 				45EF39B41F0B7DAD00A5010A /* DLRemmendController.h */,
 				45EF39B51F0B7DAD00A5010A /* DLRemmendController.m */,
+				451308B41F0E233F00587E3B /* DLSupplierQueryController.h */,
+				451308B51F0E233F00587E3B /* DLSupplierQueryController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2427,6 +2427,7 @@
 				1C5CD38D1EFA0010009DBC1B /* NSDate+Calender.m in Sources */,
 				453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
+				451308B61F0E233F00587E3B /* DLSupplierQueryController.m in Sources */,
 				45EF39B61F0B7DAD00A5010A /* DLRemmendController.m in Sources */,
 				45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,
@@ -2451,7 +2452,6 @@
 				4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */,
 				45DB47F21EE7D36700399A6D /* DLContractApplyRecordController.m in Sources */,
 				45DB47D41EE68BDD00399A6D /* DLTicketsOrderController.m in Sources */,
-				458CB5B01EDFA5DF0001084D /* DLSupplierqueryController.m in Sources */,
 				1CB953B41ECFC41600BDC2D3 /* DLRecommendRouteModel.m in Sources */,
 				45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */,
 				1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */,

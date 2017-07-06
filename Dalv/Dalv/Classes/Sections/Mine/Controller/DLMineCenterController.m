@@ -10,6 +10,7 @@
 #import "DLPersonalChangeDataController.h"
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyCustomerXibController.h"
+#import "DLSupplierQueryController.h"
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
 #import "DLMyAgencyController.h"
@@ -208,7 +209,7 @@ static NSString *cellID  = @"cellID";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if([[DLUtils getUser_type] isEqualToString:@"4"]){
-        return 4;
+        return 5;
     }
     
     return 3;
@@ -236,6 +237,11 @@ static NSString *cellID  = @"cellID";
             cell.textLabel.text = @"我的推荐";
             
         }else if (indexPath.row == 3){
+            
+            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.textLabel.text = @"供应商查询";
+            
+        }else if (indexPath.row == 4){
             
             cell.imageView.image = [UIImage imageNamed:@"universal_property"];
             cell.textLabel.text = @"通用";
@@ -280,8 +286,13 @@ static NSString *cellID  = @"cellID";
             
         }else if (indexPath.row == 2){ /// 我的推荐
             
-            DLRemmendController*remmendVC = [[DLRemmendController alloc] init];
+            DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
             [self.navigationController pushViewController:remmendVC animated:YES];
+            
+        }else if (indexPath.row == 3){ /// 供应商查询
+            
+            DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
+            [self.navigationController pushViewController:supplierVC animated:YES];
             
         }else if (indexPath.row == 3){ /// 通用
             
