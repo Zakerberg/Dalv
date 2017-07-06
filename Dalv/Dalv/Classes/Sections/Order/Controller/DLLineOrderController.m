@@ -140,7 +140,6 @@ static NSString *nibCellID = @"nibCellID";
     if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
         
     {
-    
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);

@@ -39,9 +39,6 @@ static NSString *cellID = @"cellID";
     return YES;
 }
 
-
-
-
 -(void)setUI{
  
     self.title = @"我的推荐";
@@ -141,7 +138,6 @@ static NSString *cellID = @"cellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-
 
     return cell;
     

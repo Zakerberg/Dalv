@@ -102,13 +102,3 @@
     self.mainScrollView.contentOffset = CGPointMake(MAIN_SCREEN_WIDTH*(btn.tag - 100), 0);
 }
 @end
-
-
-
-
-
-
-
-
-
-

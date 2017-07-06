@@ -12,42 +12,25 @@
 #import "DLSalertView.h"
 #import "DLConsultModel.h"
 /*
-#import "DLMineViewCell.h"
-#import "DLMineXibViewCell.h"
-*/
+ #import "DLMineViewCell.h"
+ #import "DLMineXibViewCell.h"
+ */
 @interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
-//***  姓名  ***
-@property (weak,nonatomic) UITextField *nameTF;
-/****  选择城市  ****/
-@property (weak,nonatomic) UIButton *changeCityBtn;
-/****  电话号码  ****/
-@property (weak, nonatomic) UITextField *phoneTextFiled;
-/****  验证码  ****/
-@property (weak, nonatomic) UITextField *passCodeTF;
-/****  获取验证码  ****/
-@property (weak, nonatomic) UIButton *authCodeBtn;
-/****  密码  ****/
-@property (weak, nonatomic) UITextField *passwordTF;
-/****  确认密码  ****/
-@property (weak, nonatomic) UITextField *determinePasswordTF;
-//****  输入的职位  ****/
-@property (weak, nonatomic) UITextField *positionTF;
-//****  立即注册  ****/
-@property (strong, nonatomic)  UIButton *regsterNow;
-
+@property (weak,nonatomic) UITextField *nameTF;/// 姓名
+@property (weak,nonatomic) UIButton *changeCityBtn;/// 选择城市
+@property (weak, nonatomic) UITextField *phoneTextFiled;/// 电话号码
+@property (weak, nonatomic) UITextField *passCodeTF;/// 验证码
+@property (weak, nonatomic) UIButton *authCodeBtn;/// 获取验证码
+@property (weak, nonatomic) UITextField *passwordTF;/// 密码
+@property (weak, nonatomic) UITextField *determinePasswordTF;/// 确认密码
+@property (weak, nonatomic) UITextField *positionTF;/// 输入的职位
+@property (strong, nonatomic)  UIButton *regsterNow;/// 立即注册
 @property(nonatomic,weak) UIView *headerView;
-
-/*** cell  ***/
-@property(nonatomic,weak) UITableViewCell *cell;
-
+@property(nonatomic,weak) UITableViewCell *cell;/// cell
 //@property(nonatomic,weak) DLMineXibViewCell *xibCell;
-
-
 @property (nonatomic,strong) DLSalertView *alertView;
-
 @property(nonatomic,strong)UITextField *firstField;
-
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
@@ -59,7 +42,7 @@ static NSString *cellID  = @"cellID";
     [super viewDidLoad];
     [self setupUI];
     [self setTableView];
-//    [self setupHeaderView];
+    //    [self setupHeaderView];
     [self setupRegisterBtn];
     
 }
@@ -69,7 +52,6 @@ static NSString *cellID  = @"cellID";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"旅游顾问注册";
     self.tableView.tableFooterView = [UIView new];
-    
 }
 
 #pragma mark ------------  setupRegisterBtn ---------------
@@ -88,7 +70,6 @@ static NSString *cellID  = @"cellID";
     [regsterNow addTarget:self action:@selector(registerNowBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.tableView addSubview:regsterNow];
     
-    
     [regsterNow mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@419);
         make.left.equalTo(@20);
@@ -97,10 +78,7 @@ static NSString *cellID  = @"cellID";
     }];
 }
 
-
-#pragma mark ------------  setTableView ---------------
-
-
+#pragma mark ------  setTableView
 -(void)setTableView{
     {
         UITableView *tableView = [[UITableView alloc]init];
@@ -118,7 +96,6 @@ static NSString *cellID  = @"cellID";
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(@0);
         }];
-        
     }
 }
 -(void)setupHeaderView{
@@ -134,11 +111,10 @@ static NSString *cellID  = @"cellID";
         make.top.left.width.offset(0);
         make.width.offset(34);
     }];
-
 }
 
 #pragma mark ----- 此处后期要处理 -----
-/*****  选择城市   ****/
+/// 选择城市
 -(void)changeCityBtnClick:(UIButton *)sender {
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
     
@@ -152,7 +128,7 @@ static NSString *cellID  = @"cellID";
     
 }
 
-/*****  获取验证码  *****/
+/// 获取验证码
 -(void)BtnClick:(id)sender {
     
     NSMutableDictionary *parement = [NSMutableDictionary dictionary];
@@ -163,12 +139,12 @@ static NSString *cellID  = @"cellID";
             
             UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-
-         [self.navigationController popViewControllerAnimated:YES];
-        
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
         } else {
-        
-            //判断手机号的正则表达式
+            
+            /// 判断手机号的正则表达式
             NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
             
             NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
@@ -177,28 +153,25 @@ static NSString *cellID  = @"cellID";
             
             if (!isMatchPhoneNum){
                 
-                //手机号码不匹配
+                /// 手机号码不匹配
                 UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
                 
                 [alertPhoneNum show];
             }
-            
             if (self.phoneTextFiled.text == nil) {
                 
                 [self showHint:@"手机号码不能为空"];
             }
-            
             if(isMatchPhoneNum){
                 
                 [self openCountdown];
                 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码已发送，请注意查收" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                
                 [alert show];
             }
         }
         
     } failure:^(NSError *error) {
-   
+        
     }];
     
 }
@@ -208,8 +181,7 @@ static NSString *cellID  = @"cellID";
     
     __block NSInteger time = 59; //倒计时时间
     self.authCodeBtn.enabled = NO;
-    //背景变灰色
-    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
+    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);/// 背景变灰色
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
@@ -250,7 +222,6 @@ static NSString *cellID  = @"cellID";
     });
     dispatch_resume(_timer);
 }
-
 
 #pragma mark  ------------------ 立即注册 ----------------------
 -(void)registerNowBtn:(id)sender {
@@ -307,7 +278,7 @@ static NSString *cellID  = @"cellID";
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入名字" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
             [alertV show];
             
-        
+            
         }else if ([self.changeCityBtn.titleLabel.text isEqualToString:@""]){
             
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入城市" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
@@ -346,123 +317,122 @@ static NSString *cellID  = @"cellID";
             [alertV show];
             
         }else {
-        
-        if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
             
-            NSDictionary *param2 = @{
-                                     @"name":self.nameTF.text,
-                                     @"province":CityStr,
-                                     @"phone":self.phoneTextFiled.text,
-                                     @"vercode":self.passCodeTF.text,
-                                     @"password":self.passwordTF.text,
-                                     @"vocation":self.positionTF.text,
-                                     @"thecity":self.firstField.text
-                                     };
-        
-            
-            [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
+            if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
                 
-                if ([responseData[@"status"] isEqualToString:@"00018"]) {
-                    
-                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        
-                  [alert show];
- 
-                }else if ([responseData[@"status"] isEqualToString: @"00020"]){
-                    
-                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    
-                    [alert show];
-         
-                    [self.navigationController popViewControllerAnimated:YES];
-                    
-                }else{
+                NSDictionary *param2 = @{
+                                         @"name":self.nameTF.text,
+                                         @"province":CityStr,
+                                         @"phone":self.phoneTextFiled.text,
+                                         @"vercode":self.passCodeTF.text,
+                                         @"password":self.passwordTF.text,
+                                         @"vocation":self.positionTF.text,
+                                         @"thecity":self.firstField.text
+                                         };
                 
-                    NSLog(@"注册成功!");
-                    [self.navigationController popViewControllerAnimated:YES];
-                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                    [successV show];
-                }
                 
-               
-            } failure:^(NSError *error) {
-                // 在此写提示框
-                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [failureV show];
-                
-            }];
-            
-        } else {
-            
-            NSDictionary *param = @{
-                                    @"name":self.nameTF.text,
-                                    @"province":CityStr,
-                                    @"phone":self.phoneTextFiled.text,
-                                    @"vercode":self.passCodeTF.text,
-                                    @"password":self.passwordTF.text,
-                                    @"vocation":self.positionTF.text
-                                    };
-            
-            [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
-                
-                if ([responseData[@"status"] isEqualToString:@"00018"]) {
+                [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
                     
-                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    if ([responseData[@"status"] isEqualToString:@"00018"]) {
+                        
+                        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        
+                        [alert show];
+                        
+                    }else if ([responseData[@"status"] isEqualToString: @"00020"]){
+                        
+                        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        
+                        [alert show];
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                        
+                    }else{
+                        
+                        NSLog(@"注册成功!");
+                        [self.navigationController popViewControllerAnimated:YES];
+                        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                        [successV show];
+                    }
                     
-                    [alert show];
                     
-                }else if ([responseData[@"status"] isEqualToString: @"00020"]){
+                } failure:^(NSError *error) {
+                    // 在此写提示框
+                    UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [failureV show];
                     
-                    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    
-                    [alert show];
-                    
-                    [self.navigationController popViewControllerAnimated:YES];
-                    
-                }else{
-
-                //NSLog(@"注册成功!");
-                [self.navigationController popViewControllerAnimated:YES];
+                }];
                 
-                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [successV show];
-              
-                }
+            } else {
                 
-            } failure:^(NSError *error) {
+                NSDictionary *param = @{
+                                        @"name":self.nameTF.text,
+                                        @"province":CityStr,
+                                        @"phone":self.phoneTextFiled.text,
+                                        @"vercode":self.passCodeTF.text,
+                                        @"password":self.passwordTF.text,
+                                        @"vocation":self.positionTF.text
+                                        };
                 
-                // 在此写提示框
-                UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                [failureV show];
-
+                [DLRequestSerVice POST:DL_ConsultRegister param: param success:^(id responseData) {
+                    
+                    if ([responseData[@"status"] isEqualToString:@"00018"]) {
+                        
+                        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"验证码错误" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        
+                        [alert show];
+                        
+                    }else if ([responseData[@"status"] isEqualToString: @"00020"]){
+                        
+                        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"用户已经存在,快去登录吧!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        
+                        [alert show];
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                        
+                    }else{
+                        
+                        //NSLog(@"注册成功!");
+                        [self.navigationController popViewControllerAnimated:YES];
+                        
+                        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                        [successV show];
+                        
+                    }
+                    
+                } failure:^(NSError *error) {
+                    
+                    // 在此写提示框
+                    UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [failureV show];
+                    
+                    
+                    /*
+                     if (self.nameTF.text == nil) {
+                     // 在此写提示框
+                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写名字" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                     [failureV show];
+                     }else if (self.phoneTextFiled.text == nil){
+                     // 在此写提示框
+                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写电话" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                     [failureV show];
+                     
+                     }else if (self.passCodeTF.text == nil){
+                     // 在此写提示框
+                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写验证码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                     [failureV show];
+                     
+                     }else if (self.passwordTF.text == nil){
+                     
+                     // 在此写提示框
+                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                     [failureV show];
+                     }
+                     */
+                    
+                }];
                 
-                /*
-                 if (self.nameTF.text == nil) {
-                 // 在此写提示框
-                 UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写名字" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                 [failureV show];
-                 }else if (self.phoneTextFiled.text == nil){
-                 // 在此写提示框
-                 UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写电话" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                 [failureV show];
-                 
-                 }else if (self.passCodeTF.text == nil){
-                 // 在此写提示框
-                 UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写验证码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                 [failureV show];
-                 
-                 }else if (self.passwordTF.text == nil){
-                 
-                 // 在此写提示框
-                 UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-                 [failureV show];
-                 }
-                 
-                 */
-                
-            }];
-         
-           }
+            }
         }
     }
     
@@ -470,23 +440,23 @@ static NSString *cellID  = @"cellID";
      手机号匹配
      判断密码是否为空
      
-    if (_passCodeTF.text == nil) {
-        
-        //密码或者确认密码为空
-        UIAlertView *alertSecretNil=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"密码不能为空" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-        
-        [alertSecretNil show];
-        
-    }
+     if (_passCodeTF.text == nil) {
+     
+     //密码或者确认密码为空
+     UIAlertView *alertSecretNil=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"密码不能为空" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+     
+     [alertSecretNil show];
+     
+     }
      */
     
     /*
      
      NSString *CityStr = @"1";
-    
+     
      if ([self.changeCityBtn.titleLabel.text isEqualToString:@"天津市"]) {
      CityStr = @"3";
-         
+     
      } else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"石家庄市"]){
      
      CityStr = @"4";
@@ -494,24 +464,24 @@ static NSString *cellID  = @"cellID";
      
      CityStr = @"5";
      }
-
+     
      
      if (self.nameTF.text == nil){
      
      // 在此写提示框
      UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写名称" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
      [failureV show];
-
-         
-         self.regsterNow.enabled = NO;
-         
+     
+     
+     self.regsterNow.enabled = NO;
+     
      }else if (self.phoneTextFiled.text == nil){
      
      // 在此写提示框
      UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写手机号" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
      [failureV show];
-
-         self.regsterNow.enabled = NO;
+     
+     self.regsterNow.enabled = NO;
      
      }else if (self.passCodeTF.text == nil){
      
@@ -519,7 +489,7 @@ static NSString *cellID  = @"cellID";
      UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写验证码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
      [failureV show];
      
-         self.regsterNow.enabled = NO;
+     self.regsterNow.enabled = NO;
      
      }else if (self.passwordTF.text == nil){
      
@@ -527,22 +497,22 @@ static NSString *cellID  = @"cellID";
      UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
      [failureV show];
      
-         self.regsterNow.enabled = NO;
+     self.regsterNow.enabled = NO;
      
      }else if ([self.passwordTF.text isEqualToString:self.determinePasswordTF.text]) {
      
      // 在此写提示框
      UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
      [failureV show];
-         self.regsterNow.enabled = NO;
+     self.regsterNow.enabled = NO;
      
      } else {
      
-
+     
      if ([self.changeCityBtn.titleLabel.text isEqualToString:@"其他"]){
      
      NSDictionary *param2 = @{
-                              
+     
      @"name":self.nameTF.text,
      @"province":CityStr,
      @"phone":self.phoneTextFiled.text,
@@ -550,7 +520,7 @@ static NSString *cellID  = @"cellID";
      @"password":self.passwordTF.text,
      @"vocation":self.positionTF.text,
      @"thecity":self.firstField.text
-   
+     
      };
      
      [DLRequestSerVice POST:DL_ConsultRegister param: param2 success:^(id responseData) {
@@ -569,8 +539,8 @@ static NSString *cellID  = @"cellID";
      
      } else {
      
-       NSDictionary *param = @{
-                               
+     NSDictionary *param = @{
+     
      @"name":self.nameTF.text,
      @"province":CityStr,
      @"phone":self.phoneTextFiled.text,
@@ -595,9 +565,9 @@ static NSString *cellID  = @"cellID";
      
      }];
      
-    }
-}
-    */
+     }
+     }
+     */
 }
 
 
@@ -621,24 +591,22 @@ static NSString *cellID  = @"cellID";
     NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:numberOrLetter] invertedSet];
     NSString *filtered = [[num componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     BOOL basic = [num isEqualToString:filtered];
-   
+    
     return basic;
-
 }
 
 
 #pragma mark  ---- UITable View Delegate
 
 //选中某一行cell
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 52;
-    
 }
 
 //头部视图的间距
@@ -648,8 +616,7 @@ static NSString *cellID  = @"cellID";
 }
 
 
-#pragma mark ----- TableView DataSource 
-#warning ---- 后期再处理
+#pragma mark ----- TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -751,9 +718,7 @@ static NSString *cellID  = @"cellID";
             make.centerY.equalTo(phoneTextFiled.mas_centerY).offset(0);
             make.width.offset(100);
         }];
-        
     }
-    
     
     if (indexPath.row == 3) {
         UITextField *passCodeTF = [[UITextField alloc] init];
@@ -771,7 +736,6 @@ static NSString *cellID  = @"cellID";
             make.left.equalTo(@20);
             
         }];
-        
     }
     
     if (indexPath.row == 4) {
@@ -793,7 +757,6 @@ static NSString *cellID  = @"cellID";
         }];
     }
     
-    
     if (indexPath.row == 5) {
         UITextField *determinePasswordTF = [[UITextField alloc] init];
         //WithFrame:CGRectMake(20, 294, MAIN_SCREEN_WIDTH, 52)];
@@ -809,7 +772,6 @@ static NSString *cellID  = @"cellID";
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
         }];
-        
     }
     
     if (indexPath.row == 6) {
@@ -826,7 +788,6 @@ static NSString *cellID  = @"cellID";
             make.height.offset(52);
             make.width.offset(MAIN_SCREEN_WIDTH);
         }];
-    
     }
     
     if (indexPath.row == 1) {
@@ -846,14 +807,11 @@ static NSString *cellID  = @"cellID";
     if ([selectedTitle isEqualToString:@"其他"])  {
         
         [self.alertView showView];
-        
     }
     
     self.cell.textLabel.text = selectedTitle;
     self.changeCityBtn.titleLabel.text = selectedTitle;
     self.cell.textLabel.textColor = [UIColor blackColor];
-    
-    
 }
 
 -(void)requestEventAction:(UIButton *)button{
@@ -861,7 +819,7 @@ static NSString *cellID  = @"cellID";
     [self.alertView closeView];
 }
 
-#pragma mark  ----------DLSalertViewDelegate------------
+#pragma mark  ----------DLSalertViewDelegate
 
 - (DLSalertView *)alertView{
     if (!_alertView) {
@@ -874,16 +832,15 @@ static NSString *cellID  = @"cellID";
     return _alertView;
 }
 
-#pragma mark  ----------UITextViewDelegate------------
-
+#pragma mark  ----------UITextViewDelegate
 //UITextField代理方法，是否允许输入
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string
 {
-
+    
     NSInteger existedLength = textField.text.length;
     NSInteger selectedLength = range.length;
     NSInteger replaceLength = string.length;
-
+    
     if (textField == self.passwordTF){
         if (![self isNumberOrLetter:string]){
             [SVProgressHUD showInfoWithStatus:@"密码只能为数字或字母"];
@@ -896,7 +853,6 @@ static NSString *cellID  = @"cellID";
         
         [SVProgressHUD showInfoWithStatus:@"密码要大于6位"];
     }
-    
     return YES;
 }
 

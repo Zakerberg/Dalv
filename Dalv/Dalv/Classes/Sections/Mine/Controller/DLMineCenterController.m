@@ -21,7 +21,7 @@
 #import "DLHomeViewTask.h"
 
 static NSString *cellID  = @"cellID";
-@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate,UIScrollViewDelegate>
+@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
@@ -55,7 +55,6 @@ static NSString *cellID  = @"cellID";
 -(void)setTableView
 
 {
-    
     UITableView*tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView = tableView;
     tableView.showsVerticalScrollIndicator = NO;
@@ -101,9 +100,7 @@ static NSString *cellID  = @"cellID";
     
     //添加手势
     [personImageView addGestureRecognizer:singleTap];
-    
     [self.tableView addSubview:personImageView];
-    
     [personImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.centerX.equalTo(self.view);
@@ -188,7 +185,6 @@ static NSString *cellID  = @"cellID";
 -(void)alterHeadPortrait:(UITapGestureRecognizer *)gesture{
     
     [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
-    
 }
 
 #pragma mark ---TableView Delegate
@@ -211,10 +207,8 @@ static NSString *cellID  = @"cellID";
     if([[DLUtils getUser_type] isEqualToString:@"4"]){
         return 5;
     }
-    
     return 3;
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -263,7 +257,6 @@ static NSString *cellID  = @"cellID";
             cell.textLabel.text = @"通用";
         }
     }
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -318,14 +311,11 @@ static NSString *cellID  = @"cellID";
             [self.navigationController pushViewController:genralVC animated:YES];
         }
     }
-    
 }
-
 
 #pragma mark   -  BLM_UploadUserIconDelegate
 
 - (void)uploadImageToServerWithImage:(UIImage *)image {
-    
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
@@ -334,13 +324,8 @@ static NSString *cellID  = @"cellID";
     [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
     }];
     
-    
-    
     NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
-    
     [self contentTypeForImageData:dataImage];
-    
-    
 }
 
 - (NSString *)contentTypeForImageData:(NSData *)data
@@ -380,11 +365,8 @@ static NSString *cellID  = @"cellID";
             
             return nil;
     }
-    
     return nil;
 }
-
-
 
 //保存照片到沙盒路径
 - (void)saveImage:(UIImage *)image name:(NSString *)iconName
@@ -398,7 +380,6 @@ static NSString *cellID  = @"cellID";
     [UIImagePNGRepresentation(image)writeToFile: filePath  atomically:YES];
 }
 
-
 //缩放图片
 - (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
 {
@@ -409,9 +390,7 @@ static NSString *cellID  = @"cellID";
     
     NSLog(@"%@",NSStringFromCGSize(scaledImage.size));
     return scaledImage;
-    
 }
-
 
 @end
 
