@@ -15,10 +15,11 @@
 @property (nonatomic, strong) UITableView *myRemmendTableView;
 @property (nonatomic, strong) NSMutableArray *myRemmendList;
 @property (nonatomic, assign) NSInteger pageIndex;
+@property(nonatomic,strong) UIButton * deleBtn;
 
 @end
 
-static NSString *cellID = @"cellID";
+static NSString *nibCellID = @"cellID";
 
 @implementation DLRemmendController
 
@@ -69,11 +70,8 @@ static NSString *cellID = @"cellID";
     
     [self.myRemmendTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    [self.myRemmendTableView registerClass:[DLMyRemmendCell class] forCellReuseIdentifier:cellID];
-    
+    [self.myRemmendTableView registerNib:[UINib nibWithNibName:@"DLMyRemmendCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
 
-    
-    
     [self.view addSubview:self.myRemmendTableView];
     
     
@@ -135,8 +133,13 @@ static NSString *cellID = @"cellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-
+    DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+    self.deleBtn = cell.deleBtn;
+    
+    
+    
+    
+    
     return cell;
     
 }

@@ -295,7 +295,6 @@
 		452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452057A61EF93E4C0033DA69 /* BLMPickerView.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453009821F0C7BF200D014D1 /* DLMyTicketCell.m */; };
-		453009861F0C807900D014D1 /* DLMyRemmendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453009851F0C807900D014D1 /* DLMyRemmendCell.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
 		45305A251ED6C89B0023E892 /* DLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A241ED6C89B0023E892 /* DLManager.m */; };
@@ -314,6 +313,8 @@
 		4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550B9801EE1B6C3002269BF /* Assets.xcassets */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
 		457307BB1F0F2FEC000F39CF /* UIImage+ZipAndLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */; };
+		457307C41F0F737A000F39CF /* DLMyRemmendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 457307C21F0F737A000F39CF /* DLMyRemmendCell.m */; };
+		457307C51F0F737A000F39CF /* DLMyRemmendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 457307C31F0F737A000F39CF /* DLMyRemmendCell.xib */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
@@ -812,8 +813,6 @@
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		453009811F0C7BF200D014D1 /* DLMyTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyTicketCell.h; sourceTree = "<group>"; };
 		453009821F0C7BF200D014D1 /* DLMyTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyTicketCell.m; sourceTree = "<group>"; };
-		453009841F0C807900D014D1 /* DLMyRemmendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyRemmendCell.h; sourceTree = "<group>"; };
-		453009851F0C807900D014D1 /* DLMyRemmendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyRemmendCell.m; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
 		45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@2x.png"; sourceTree = "<group>"; };
 		45305A231ED6C89B0023E892 /* DLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManager.h; sourceTree = "<group>"; };
@@ -846,6 +845,9 @@
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
 		457307B91F0F2FEC000F39CF /* UIImage+ZipAndLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZipAndLength.h"; sourceTree = "<group>"; };
 		457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZipAndLength.m"; sourceTree = "<group>"; };
+		457307C11F0F737A000F39CF /* DLMyRemmendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyRemmendCell.h; sourceTree = "<group>"; };
+		457307C21F0F737A000F39CF /* DLMyRemmendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyRemmendCell.m; sourceTree = "<group>"; };
+		457307C31F0F737A000F39CF /* DLMyRemmendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLMyRemmendCell.xib; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		458CB5941EDE5FE70001084D /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
@@ -1180,8 +1182,9 @@
 				45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */,
 				453009811F0C7BF200D014D1 /* DLMyTicketCell.h */,
 				453009821F0C7BF200D014D1 /* DLMyTicketCell.m */,
-				453009841F0C807900D014D1 /* DLMyRemmendCell.h */,
-				453009851F0C807900D014D1 /* DLMyRemmendCell.m */,
+				457307C11F0F737A000F39CF /* DLMyRemmendCell.h */,
+				457307C21F0F737A000F39CF /* DLMyRemmendCell.m */,
+				457307C31F0F737A000F39CF /* DLMyRemmendCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2154,6 +2157,7 @@
 				1C422BD41F00FC5C004EB57F /* phone@2x.png in Resources */,
 				1CE2C1A01ED525E000B898BA /* group_date@3x.png in Resources */,
 				1CE2C1961ED525E000B898BA /* departure_traffic@3x.png in Resources */,
+				457307C51F0F737A000F39CF /* DLMyRemmendCell.xib in Resources */,
 				1CE2C2021ED52BA100B898BA /* contract_record@3x.png in Resources */,
 				1CE2C2411ED57BE400B898BA /* universal_property@3x.png in Resources */,
 				45DB47B61EE5524200399A6D /* DLCustomerListCell.xib in Resources */,
@@ -2386,6 +2390,7 @@
 				45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */,
 				1CB953F91ECFC7E200BDC2D3 /* UIViewController+MSExtension.m in Sources */,
 				1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */,
+				457307C41F0F737A000F39CF /* DLMyRemmendCell.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
@@ -2395,7 +2400,6 @@
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1C0162651F0C85230089CE09 /* TLCityGroupCell.m in Sources */,
 				1C422BC61F00AFD0004EB57F /* UIColor+PYSearchExtension.m in Sources */,
-				453009861F0C807900D014D1 /* DLMyRemmendCell.m in Sources */,
 				1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */,
 				1C5CD3B41EFA4BC0009DBC1B /* DLLineModificationModel.m in Sources */,
 				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,

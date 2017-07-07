@@ -22,5 +22,4 @@
 @property(nonatomic,copy) NSString *name;/// 推荐线路名称
 @property(nonatomic,copy) NSString *min_price; ///线路价格
 @property(nonatomic,copy) NSString *cover_pic;///图片
-
 @end

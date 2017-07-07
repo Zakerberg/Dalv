@@ -75,13 +75,9 @@
     }
     
     NSURL *url = [NSURL URLWithString:lineOrderModelData.cover_pic];
-    
     [self.lineOrderPicture sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-    
     self.lineOrderNameLabel.text = lineOrderModelData.name;
-    
     self.lineOrderTimeLabel.text = lineOrderModelData.start_time;
-    
     self.lineOrderPriceLabel.text = [NSString stringWithFormat:@"%.2f",[lineOrderModelData.price_total integerValue]/100.00];
 }
 

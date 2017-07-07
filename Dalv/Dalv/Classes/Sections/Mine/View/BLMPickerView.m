@@ -156,8 +156,7 @@
     return (MAIN_SCREEN_WIDTH - 30);
 }
 
-#pragma mark-----点击方法
-
+#pragma mark----- 点击方法
 - (void)cancelBtnClick{
     [self hideAnimation];
 }
