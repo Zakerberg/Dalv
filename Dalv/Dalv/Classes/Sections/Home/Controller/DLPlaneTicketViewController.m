@@ -8,10 +8,11 @@
 
 #import "DLPlaneTicketViewController.h"
 #import "TLCityPickerController.h"
-
+#import "DLPlaneTicketListViewController.h"
 @interface DLPlaneTicketViewController () <TLCityPickerDelegate>
-@property (strong, nonatomic)  UIButton *choiceComeCitynBtn;//出发城市
-@property (strong, nonatomic)  UIButton *choiceBackCitynBtn;//目的地城市
+@property (strong, nonatomic) UIButton *choiceComeCitynBtn;//出发城市
+@property (strong, nonatomic) UIButton *choiceBackCitynBtn;//目的地城市
+@property (strong, nonatomic) UIButton *searchBtn;//搜索
 
 @end
 
@@ -57,8 +58,26 @@
     [choiceBackCitynBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     choiceBackCitynBtn.layer.cornerRadius = 2.0;
     [self.view addSubview:choiceBackCitynBtn];
+    
+    
+    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 244, SCREEN_WIDTH, 40)];
+    self.searchBtn = searchBtn;
+    [searchBtn setTitle:@"搜索" forState:(UIControlStateNormal)];
+    searchBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    [searchBtn addTarget:self action:@selector(planeticket) forControlEvents:UIControlEventTouchUpInside];
+    searchBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+    [searchBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    searchBtn.layer.cornerRadius = 2.0;
+    [self.view addSubview:searchBtn];
+
 }
 
+- (void)planeticket {
+    DLPlaneTicketListViewController * planeTicketListVC = [[DLPlaneTicketListViewController alloc]init];
+    [self.navigationController pushViewController:planeTicketListVC animated:YES];
+}
+- (void)choiceCitynBtn1 {
+}
 - (void)choiceCitynBtn {
     
     TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
