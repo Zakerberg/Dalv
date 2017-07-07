@@ -97,9 +97,9 @@
     }];
     } else {
         
-//        NSDictionary *param = @{@"uid" : [DLUtils getUid],
-//                                @"sign_token" : [DLUtils getSign_token],};
-        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],};
+        [DLHomeViewTask getHomeIndexMod:param completion:^(id result, NSError *error) {
             DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
             self.apps = homePageMenuModel.columnList;
             [self.appCollectionView reloadData];

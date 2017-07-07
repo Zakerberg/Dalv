@@ -351,7 +351,11 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         UIImageView *headImageView = [[UIImageView alloc] init];
         [self.performanceView addSubview:headImageView];
         self.headImageView = headImageView;
-        
+        self.headImageView.layer.cornerRadius = 30;
+        self.headImageView.clipsToBounds = YES;
+        self.headImageView.layer.borderWidth = 0.5;
+        self.headImageView.layer.borderColor = [UIColor colorWithHexString:@"#536bf8"].CGColor;
+
         UILabel  *namelab = [[UILabel alloc]init];
         namelab.textColor = [UIColor whiteColor];
         namelab.textAlignment = NSTextAlignmentLeft;
@@ -371,7 +375,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.left.equalTo(@15);
             make.height.equalTo(@60);
             make.width.equalTo(@60);
-            
         }];
         
         [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -379,7 +382,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);
             make.width.equalTo(@150);
-            
         }];
         
         [mobilelab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -387,7 +389,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);
             make.width.equalTo(@150);
-            
         }];
         
     }
@@ -395,7 +396,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (void)refreshPerformanceView {
-    
     if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     self.namelab.text = self.homePageModel.agencyInfo.name;

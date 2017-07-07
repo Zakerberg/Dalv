@@ -76,6 +76,7 @@
 		1C422BD51F00FC5C004EB57F /* phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C422BD11F00FC5C004EB57F /* phone@3x.png */; };
 		1C422BD61F00FC5C004EB57F /* recommended_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C422BD21F00FC5C004EB57F /* recommended_home@2x.png */; };
 		1C422BD71F00FC5C004EB57F /* recommended_home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C422BD31F00FC5C004EB57F /* recommended_home@3x.png */; };
+		1C4C9BBA1F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4C9BB91F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m */; };
 		1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */; };
 		1C5CD3721EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3701EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png */; };
 		1C5CD3731EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5CD3711EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png */; };
@@ -276,6 +277,7 @@
 		1CE8D80F1ED8299600FFEF8B /* DLLineTourDetailInforModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D80E1ED8299600FFEF8B /* DLLineTourDetailInforModel.m */; };
 		1CE8D8121EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */; };
 		1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */; };
+		1CF3BB241F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */; };
@@ -493,6 +495,8 @@
 		1C422BD11F00FC5C004EB57F /* phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@3x.png"; sourceTree = "<group>"; };
 		1C422BD21F00FC5C004EB57F /* recommended_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_home@2x.png"; sourceTree = "<group>"; };
 		1C422BD31F00FC5C004EB57F /* recommended_home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recommended_home@3x.png"; sourceTree = "<group>"; };
+		1C4C9BB81F0E2F7600B3BDDC /* DLPlaneTicketListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaneTicketListViewController.h; sourceTree = "<group>"; };
+		1C4C9BB91F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneTicketListViewController.m; sourceTree = "<group>"; };
 		1C5828961EF96A32004B4AC1 /* DLPlaceLineOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaceLineOrderModel.h; sourceTree = "<group>"; };
 		1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaceLineOrderModel.m; sourceTree = "<group>"; };
 		1C5CD3701EF9FEE7009DBC1B /* dl_calender_selected_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dl_calender_selected_bg@2x.png"; path = "Navbar/dl_calender_selected_bg@2x.png"; sourceTree = "<group>"; };
@@ -775,6 +779,8 @@
 		1CE8D8111EDE5EA600FFEF8B /* DLLineDetialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineDetialTableViewCell.m; sourceTree = "<group>"; };
 		1CE8D8131EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineSchedulingTableViewCell.h; sourceTree = "<group>"; };
 		1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineSchedulingTableViewCell.m; sourceTree = "<group>"; };
+		1CF3BB221F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaneTicketListTableViewCell.h; sourceTree = "<group>"; };
+		1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneTicketListTableViewCell.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
@@ -1448,6 +1454,8 @@
 				1CB953321ECFC41600BDC2D3 /* DLHomeViewController.m */,
 				1C0162401F0C7CCA0089CE09 /* DLPlaneTicketViewController.h */,
 				1C0162411F0C7CCA0089CE09 /* DLPlaneTicketViewController.m */,
+				1C4C9BB81F0E2F7600B3BDDC /* DLPlaneTicketListViewController.h */,
+				1C4C9BB91F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m */,
 				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
 				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
@@ -1539,6 +1547,8 @@
 				1C1357EA1EF0DE270098E778 /* DLLineTourTableViewCell.m */,
 				1CA7E5111EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.h */,
 				1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */,
+				1CF3BB221F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.h */,
+				1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2510,6 +2520,7 @@
 				1C0B57D41ED7B99F00592BBB /* DLPlaceOrderViewController.m in Sources */,
 				1CA7E5131EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m in Sources */,
 				45DB47CE1EE68B7C00399A6D /* DLVisaOrderController.m in Sources */,
+				1C4C9BBA1F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m in Sources */,
 				450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */,
 				1C0B57DF1ED7B9D400592BBB /* DLLineOrderChoiceDateTableViewCell.m in Sources */,
 				1C0162661F0C85230089CE09 /* TLCityHeaderView.m in Sources */,
@@ -2550,6 +2561,7 @@
 				1CB953B91ECFC41600BDC2D3 /* DLRecommendRouteCollectionViewCell.m in Sources */,
 				4520579F1EF9056D0033DA69 /* DLPersonalChangeDataCell.m in Sources */,
 				1C051C901ED3C4510039A79C /* DLAlertView.m in Sources */,
+				1CF3BB241F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m in Sources */,
 				45DB47FE1EE7FEAC00399A6D /* DLInvoiceRecordModel.m in Sources */,
 				45DB48011EE7FF2200399A6D /* DLInvoiceApplyRecordCell.m in Sources */,
 				1C3416081ED9494000752071 /* DLRemindSegmentView.m in Sources */,
