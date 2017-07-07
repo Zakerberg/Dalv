@@ -10,19 +10,12 @@
 
 @interface BLMPickerView ()<UIPickerViewDelegate,UIPickerViewDataSource>
 @property (nonatomic,strong)UIView *bgV;
-
 @property (nonatomic,strong)UIButton *cancelBtn;
-
 @property (nonatomic,strong)UIButton *conpleteBtn;
-
 @property (nonatomic,strong)UIPickerView *pickerV;
-
 @property (nonatomic,strong)NSMutableArray *array;
-
 @property (nonatomic,strong) UIView* line ;
-
 @end
-
 
 @implementation BLMPickerView
 
@@ -31,7 +24,6 @@
     if (self = [super initWithFrame:frame]) {
         
         self.array = [NSMutableArray array];
-        
         self.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT);
         self.backgroundColor = RGBA(51, 51, 51, 0.8);
         self.bgV = [[UIView alloc]initWithFrame:CGRectMake(0, MAIN_SCREEN_HEIGHT, MAIN_SCREEN_WIDTH, 260*hScale)];
@@ -43,13 +35,12 @@
         self.cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.bgV addSubview:self.cancelBtn];
         [self.cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
             make.top.mas_equalTo(0);
             make.left.mas_equalTo(15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
-            
         }];
+        
         self.cancelBtn.titleLabel.font = [UIFont systemFontOfSize:kfont];
         [self.cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
         [self.cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -58,12 +49,10 @@
         self.conpleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.bgV addSubview:self.conpleteBtn];
         [self.conpleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
             make.top.mas_equalTo(self.cancelBtn);
             make.right.mas_equalTo(-15);
             make.width.mas_equalTo(40);
             make.height.mas_equalTo(44);
-            
         }];
         self.conpleteBtn.titleLabel.font = [UIFont systemFontOfSize:kfont];
         [self.conpleteBtn setTitle:@"完成" forState:UIControlStateNormal];
@@ -74,10 +63,8 @@
         self.selectLb = [UILabel new];
         [self.bgV addSubview:self.selectLb];
         [self.selectLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            
             make.centerX.mas_equalTo(self.bgV.mas_centerX).offset(0);
             make.centerY.mas_equalTo(self.conpleteBtn.mas_centerY).offset(0);
-            
         }];
         self.selectLb.font = [UIFont systemFontOfSize:kfont];
         self.selectLb.textAlignment = NSTextAlignmentCenter;
@@ -86,26 +73,21 @@
         UIView *line = [UIView new];
         [self.bgV addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            
             make.left.mas_equalTo(0);
             make.width.mas_equalTo(MAIN_SCREEN_WIDTH);
             make.height.mas_equalTo(0.5);
-            
             make.top.mas_equalTo(self.cancelBtn.mas_bottom);
-            
         }];
+        
         line.backgroundColor = RGBA(224, 224, 224, 1);
         self.line = line ;
-        
     }
     return self;
 }
 
-
 - (void)setArrayType:(ARRAYTYPE)arrayType
 {
     _arrayType = arrayType;
-    
     
     //选择器
     self.pickerV = [UIPickerView new];
@@ -113,19 +95,14 @@
     [self.pickerV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.right.mas_equalTo(0);
-        
-        
         make.top.mas_equalTo(self.line);
         make.bottom.offset(-100);
-        
     }];
+    
     self.pickerV.delegate = self;
     self.pickerV.dataSource = self;
     
-    
     switch (arrayType) {
-            
-            
         case GenderArray:
         {
             self.selectLb.text = @"选择性别";
@@ -147,22 +124,16 @@
     }
 }
 
-
-
 #pragma mark-----UIPickerViewDataSource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    
     return self.array.count;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     NSArray * arr = (NSArray *)[self.array objectAtIndex:component];
-    
     return arr.count;
-    
-    
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
@@ -172,39 +143,30 @@
     label.text=[self pickerView:pickerView titleForRow:row forComponent:component];
     
     return label;
-    
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
     
     NSArray *arr = (NSArray *)[self.array objectAtIndex:component];
     return [arr objectAtIndex:row % arr.count];
 }
 
-
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
     return (MAIN_SCREEN_WIDTH - 30);
-    
 }
 
 #pragma mark-----点击方法
 
 - (void)cancelBtnClick{
-    
     [self hideAnimation];
-    
 }
 
 - (void)completeBtnClick{
     
     NSString *fullStr = [NSString string];
-    
     for (int i = 0; i < self.array.count; i++) {
-        
         NSArray *arr = [self.array objectAtIndex:i];
-        
         NSString *str = [arr objectAtIndex:[self.pickerV selectedRowInComponent:i]];
         fullStr = [fullStr stringByAppendingString:str];
     }
@@ -213,9 +175,7 @@
         [self.delegate PickerSelectorIndixString:fullStr];
     }
     
-    
     [self hideAnimation];
-    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -227,28 +187,23 @@
 - (void)hideAnimation{
     
     [UIView animateWithDuration:0.5 animations:^{
-        
         CGRect frame = self.bgV.frame;
         frame.origin.y = MAIN_SCREEN_HEIGHT;
         self.bgV.frame = frame;
-        
     } completion:^(BOOL finished) {
         
         [self.bgV removeFromSuperview];
         [self removeFromSuperview];
-        
     }];
 }
 //显示动画
 - (void)showAnimation{
     
     [UIView animateWithDuration:0.5 animations:^{
-        
         CGRect frame = self.bgV.frame;
         frame.origin.y = MAIN_SCREEN_HEIGHT-260*hScale;
         self.bgV.frame = frame;
     }];
-    
 }
 
 @end

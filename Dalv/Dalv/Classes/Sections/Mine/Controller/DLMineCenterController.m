@@ -14,6 +14,7 @@
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
 #import "DLMyAgencyController.h"
+#import "UIImage+ZipAndLength.h"
 #import "DLRemmendController.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
@@ -72,7 +73,6 @@ static NSString *cellID  = @"cellID";
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-    
 }
 
 -(void)setupHeaderView{
@@ -316,16 +316,38 @@ static NSString *cellID  = @"cellID";
 #pragma mark   -  BLM_UploadUserIconDelegate
 
 - (void)uploadImageToServerWithImage:(UIImage *)image {
+
+    [image zip];
     
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+    NSData *data = UIImagePNGRepresentation(image);
+//    NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
+//    [self contentTypeForImageData:dataImage];
+    [self intFromData:data useBig:YES];
+    
+    NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
-                            @"head_img":image
+                            @"head_img":data
                             };
-    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
-    }];
     
-    NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
-    [self contentTypeForImageData:dataImage];
+    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
+
+        NSLog(@"%@",result);
+        [self.personImageView setImage:image];
+    }];
+}
+
+- (uint32_t)intFromData:(NSData *)data useBig:(BOOL)useBig
+{
+    uint32_t result = -1;
+    if (data == nil) return result;
+    Byte *bytes = (Byte *)[data bytes];
+    if (useBig) {//大端模式
+        result = CFSwapInt32BigToHost(*(int *)bytes);
+    } else {//小端模式
+        result = CFSwapInt32LittleToHost(*(int *)bytes);
+    }
+    return result;
 }
 
 - (NSString *)contentTypeForImageData:(NSData *)data
@@ -376,7 +398,7 @@ static NSString *cellID  = @"cellID";
     NSString *icomImage = iconName;
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", icomImage]];
     // 保存文件的名称
-    //    [[self getDataByImage:image] writeToFile:filePath atomically:YES];
+    // [[self getDataByImage:image] writeToFile:filePath atomically:YES];
     [UIImagePNGRepresentation(image)writeToFile: filePath  atomically:YES];
 }
 
@@ -395,7 +417,6 @@ static NSString *cellID  = @"cellID";
 @end
 
 /*
- 
  #pragma mark - tableview dataSource & delegate
  - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
  return 1;

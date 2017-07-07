@@ -19,13 +19,18 @@
     [self setUI];
 }
 
-#pragma mark  ------  setUI  ------------
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
+
+#pragma mark  ------ setUI
 -(void)setUI{
     
 }
 
 #pragma mark - configure
-
 - (void)configureCell:(DLlineOrderModel *)lineOrderModelData {
     
     if ([lineOrderModelData.state isEqualToString:@"1"]) {
@@ -78,12 +83,6 @@
     self.lineOrderTimeLabel.text = lineOrderModelData.start_time;
     
     self.lineOrderPriceLabel.text = [NSString stringWithFormat:@"%.2f",[lineOrderModelData.price_total integerValue]/100.00];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end
