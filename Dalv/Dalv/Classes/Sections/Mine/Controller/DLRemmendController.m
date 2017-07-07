@@ -46,8 +46,6 @@ static NSString *cellID = @"cellID";
     [self.myRemmendTableView ms_beginRefreshing:self
                                    headerAction:@selector(fetchNewData)
                                    footerAction:@selector(fetchMoreData)];
-    
-
 }
 
 

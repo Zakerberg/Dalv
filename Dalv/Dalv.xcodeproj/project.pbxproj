@@ -315,6 +315,7 @@
 		4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B97A1EE1ADAA002269BF /* DLRegisterView.m */; };
 		4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550B9801EE1B6C3002269BF /* Assets.xcassets */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
+		457307BB1F0F2FEC000F39CF /* UIImage+ZipAndLength.m in Sources */ = {isa = PBXBuildFile; fileRef = 457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */; };
 		458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */; };
 		458CB5981EDE5FE70001084D /* ZYInputAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5951EDE5FE70001084D /* ZYInputAlertView.m */; };
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
@@ -849,6 +850,8 @@
 		4550B9801EE1B6C3002269BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45646B1E1ED55F8F003CC22E /* DLFianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFianceController.h; sourceTree = "<group>"; };
 		45646B1F1ED55F8F003CC22E /* DLFianceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLFianceController.m; sourceTree = "<group>"; };
+		457307B91F0F2FEC000F39CF /* UIImage+ZipAndLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZipAndLength.h"; sourceTree = "<group>"; };
+		457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZipAndLength.m"; sourceTree = "<group>"; };
 		458CB5921EDE5FE70001084D /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		458CB5931EDE5FE70001084D /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		458CB5941EDE5FE70001084D /* ZYInputAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYInputAlertView.h; sourceTree = "<group>"; };
@@ -1685,6 +1688,8 @@
 				45305A401ED833730023E892 /* UILabel+Extension.m */,
 				45BB41971EF799D7003AB961 /* UIButton+WebCache.h */,
 				45BB41981EF799D7003AB961 /* UIButton+WebCache.m */,
+				457307B91F0F2FEC000F39CF /* UIImage+ZipAndLength.h */,
+				457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2545,6 +2550,7 @@
 				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
 				1C5CD38F1EFA0010009DBC1B /* CalenderObject.m in Sources */,
 				1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */,
+				457307BB1F0F2FEC000F39CF /* UIImage+ZipAndLength.m in Sources */,
 				1CB953B11ECFC41600BDC2D3 /* DLLineTourViewController.m in Sources */,
 				1CB953F61ECFC7E200BDC2D3 /* UIImage+MSExtension.m in Sources */,
 				1C0162681F0C85230089CE09 /* TLCityPickerSearchResultController.m in Sources */,
