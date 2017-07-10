@@ -27,7 +27,6 @@
     [self.picV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     
     self.textLabel.text = myRemmendModelData.name;
-    //self.startLabel.text = myRemmendModelData.s
     self.priceLabel.text = myRemmendModelData.min_price;
 }
 

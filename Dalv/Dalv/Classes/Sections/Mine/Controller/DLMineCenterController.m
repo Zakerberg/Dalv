@@ -317,24 +317,8 @@ static NSString *cellID  = @"cellID";
 
 - (void)uploadImageToServerWithImage:(UIImage *)image {
 
-    [image zip];
-    
-    NSData *data = UIImagePNGRepresentation(image);
-//    NSData *dataImage = UIImageJPEGRepresentation(image, 0.1);
-//    [self contentTypeForImageData:dataImage];
-    [self intFromData:data useBig:YES];
-    
-    NSDictionary *param = @{
-                            @"uid" : [DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],
-                            @"head_img":data
-                            };
-    
-    [DLHomeViewTask getAgencyEditHendImgHandle:param completion:^(id result, NSError *error) {
 
-        NSLog(@"%@",result);
-        [self.personImageView setImage:image];
-    }];
+
 }
 
 - (uint32_t)intFromData:(NSData *)data useBig:(BOOL)useBig

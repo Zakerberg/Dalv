@@ -11,12 +11,10 @@
 #import "DLMyRemmendCell.h"
 #import "DLHomeViewTask.h"
 
-@interface DLRemmendController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLRemmendController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myRemmendTableView;
 @property (nonatomic, strong) NSMutableArray *myRemmendList;
 @property (nonatomic, assign) NSInteger pageIndex;
-@property(nonatomic,strong) UIButton * deleBtn;
-
 @end
 
 static NSString *nibCellID = @"cellID";
@@ -48,7 +46,6 @@ static NSString *nibCellID = @"cellID";
                                    headerAction:@selector(fetchNewData)
                                    footerAction:@selector(fetchMoreData)];
 }
-
 
 /**
  * 更新视图.
@@ -110,10 +107,10 @@ static NSString *nibCellID = @"cellID";
         @strongify(self);
         if (result) {
             
-            NSArray *lineOrderArray = [DLMyRemmendModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *myRemmendArray = [DLMyRemmendModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             
-            [self.myRemmendList addObjectsFromArray:lineOrderArray];
-            [self.myRemmendTableView ms_endRefreshing:lineOrderArray.count pageSize:10 error:error];
+            [self.myRemmendList addObjectsFromArray:myRemmendArray];
+            [self.myRemmendTableView ms_endRefreshing:myRemmendArray.count pageSize:10 error:error];
             [self.myRemmendTableView reloadData];
             [self updateView];
         }
@@ -134,12 +131,10 @@ static NSString *nibCellID = @"cellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-    self.deleBtn = cell.deleBtn;
-    
-    
-    
-    
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    DLMyRemmendModel *loModel = [self.myRemmendList objectAtIndex:indexPath.section];
+    [cell configureCell:loModel];
+
     return cell;
     
 }
