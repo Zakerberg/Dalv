@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DLMineCenterController : UIViewController
-
+@property(nonatomic,strong) UIImage *iconImage;
+@property(nonatomic,strong) UIImageView *personImageView;
 @end
 
 

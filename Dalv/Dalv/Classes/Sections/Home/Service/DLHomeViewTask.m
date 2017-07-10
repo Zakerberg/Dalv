@@ -844,7 +844,8 @@
             failure:(DLRequestFailureHandler)failhandler {
     
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            //                                @"head_img" : image,
+                            
+                           // @"head_img" : image,
                             @"sign_token" : [DLUtils getSign_token],};
     [DLHttpRequest UploadImageWithUrl:DL_AgencyEditHendImgHandle params:param imageParams:image success:^(NSDictionary *success) {
         

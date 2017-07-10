@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大成哥天上人间一日游" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbf-Po-gRb">
-                        <rect key="frame" x="174" y="15" width="120" height="14"/>
+                        <rect key="frame" x="175.5" y="15" width="118.5" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="80v-47-HUw"/>
                         </constraints>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-8" translatesAutoresizingMaskIntoConstraints="NO" id="HaO-3K-h9w">
-                        <rect key="frame" x="174" y="102" width="52" height="16"/>
+                        <rect key="frame" x="175.5" y="102" width="50.5" height="16"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3L-sI-hlw">
                                 <rect key="frame" x="0.0" y="0.0" width="9" height="16"/>
@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="7799" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29s-hN-GgB">
-                                <rect key="frame" x="1" y="0.0" width="51" height="16"/>
+                                <rect key="frame" x="1" y="0.0" width="49.5" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,14 +49,13 @@
                         </subviews>
                     </stackView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-qf-7zA">
-                        <rect key="frame" x="16" y="16.5" width="154" height="103"/>
+                        <rect key="frame" x="16" y="16" width="155.5" height="104"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fQ2-qf-7zA" secondAttribute="height" multiplier="3:2" id="p66-aN-VJz"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zc-i1-uNt">
-                        <rect key="frame" x="266" y="88" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zc-i1-uNt">
+                        <rect key="frame" x="266" y="95" width="46" height="30"/>
                         <state key="normal">
                             <attributedString key="attributedTitle">
                                 <fragment content="删除">
@@ -70,6 +69,8 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="2Zc-i1-uNt" firstAttribute="centerY" secondItem="HaO-3K-h9w" secondAttribute="centerY" id="21L-4o-S35"/>
+                    <constraint firstItem="2Zc-i1-uNt" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="74J-Xu-1xY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="HaO-3K-h9w" secondAttribute="bottom" constant="9.5" id="7oj-Pj-z0x"/>
                     <constraint firstItem="fQ2-qf-7zA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="8cW-3G-G5j"/>
                     <constraint firstItem="fQ2-qf-7zA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="KOH-Ob-3sk"/>
@@ -80,6 +81,7 @@
                     <constraint firstItem="HaO-3K-h9w" firstAttribute="leading" secondItem="Qbf-Po-gRb" secondAttribute="leading" id="YdJ-YF-SKm"/>
                     <constraint firstItem="fQ2-qf-7zA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="cHp-TK-zvS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="HaO-3K-h9w" secondAttribute="trailing" constant="86" id="hOZ-EZ-wab"/>
+                    <constraint firstItem="2Zc-i1-uNt" firstAttribute="leading" secondItem="HaO-3K-h9w" secondAttribute="trailing" constant="40" id="is6-Xl-F9o"/>
                     <constraint firstItem="Qbf-Po-gRb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="pWB-5V-aRr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Qbf-Po-gRb" secondAttribute="trailing" constant="18" id="q11-lt-kPk"/>
                 </constraints>

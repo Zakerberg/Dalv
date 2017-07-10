@@ -32,7 +32,6 @@ static NSString *cellID  = @"cellID";
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
 @property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
-@property(nonatomic,strong) UIImageView *personImageView;
 //@property (weak, nonatomic) HeadView * myView;
 @end
 
@@ -94,7 +93,6 @@ static NSString *cellID  = @"cellID";
     [personImageView setImage:[UIImage imageNamed:@"v2_my_avatar"]];
     
     personImageView.userInteractionEnabled = YES;
-    
     //手势
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
     
@@ -314,32 +312,15 @@ static NSString *cellID  = @"cellID";
 }
 
 #pragma mark   -  BLM_UploadUserIconDelegate
+- (void)uploadImageToServerWithImage:(UIImage *)image {
 
-//- (void)uploadImageToServerWithImage:(UIImage *)image {
-//
-//
-//
-//}
-
-+(void)uploadImage:(UIImage *)image Completion:(DLRequestSuccessHandler)handler failure:(DLRequestFailureHandler)failhandler{
-    [[DLHUDManager sharedInstance]showProgressWithText:@"正在上传头像"];
+    image = self.iconImage;
     [DLHomeViewTask uploadImage:image Completion:^(id responseData) {
-        
-        [[DLHUDManager sharedInstance]hiddenHUD];
-        
         
     } failure:^(NSError *error) {
         
-        [[DLHUDManager sharedInstance]hiddenHUD];
-        
-        [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
     }];
-
 }
-
-
-
-
 
 - (uint32_t)intFromData:(NSData *)data useBig:(BOOL)useBig
 {

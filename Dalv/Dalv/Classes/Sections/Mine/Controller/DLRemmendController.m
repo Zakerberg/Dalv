@@ -15,6 +15,9 @@
 @property (nonatomic, strong) UITableView *myRemmendTableView;
 @property (nonatomic, strong) NSMutableArray *myRemmendList;
 @property (nonatomic, assign) NSInteger pageIndex;
+@property(nonatomic,strong) UIButton * deleBtn;
+@property(nonatomic,strong) NSString * remmendId;
+
 @end
 
 static NSString *nibCellID = @"cellID";
@@ -107,6 +110,9 @@ static NSString *nibCellID = @"cellID";
         @strongify(self);
         if (result) {
             
+            NSDictionary *dict = result[@"list"];
+            self.remmendId = dict[@"id"];
+            
             NSArray *myRemmendArray = [DLMyRemmendModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             
             [self.myRemmendList addObjectsFromArray:myRemmendArray];
@@ -118,8 +124,25 @@ static NSString *nibCellID = @"cellID";
 }
 
 
-#pragma mark ------ UITable View Delegate
+-(void)deleBtnClick
 
+{
+    NSDictionary *param = @{
+                            
+                            @"uid":[DLUtils getUid],
+                            @"id":self.remmendId,
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+
+    [DLHomeViewTask getAgencyFinanceMyRecommendDel:param completion:^(id result, NSError *error) {
+        
+    }];
+
+}
+
+
+
+#pragma mark ------ UITable View Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.myRemmendList.count;
 }
@@ -132,6 +155,10 @@ static NSString *nibCellID = @"cellID";
     
     DLMyRemmendCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    self.deleBtn = cell.deleBtn;
+    [cell.deleBtn addTarget:self action:@selector(deleBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     DLMyRemmendModel *loModel = [self.myRemmendList objectAtIndex:indexPath.section];
     [cell configureCell:loModel];
 
