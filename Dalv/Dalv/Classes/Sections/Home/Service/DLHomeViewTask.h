@@ -820,4 +820,11 @@
 
 + (void)getTouristPersonlAgencyDetails:(NSDictionary *)param
                             completion:(void (^)(id result, NSError *error))completionHandler;
+
+
++ (void)uploadImage:(UIImage*)image
+         Completion:(DLRequestSuccessHandler)handler
+            failure:(DLRequestFailureHandler)failhandler;
+
+
 @end

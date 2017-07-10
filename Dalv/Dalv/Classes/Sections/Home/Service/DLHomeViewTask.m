@@ -839,5 +839,22 @@
     }];
     
 }
-
++ (void)uploadImage:(UIImage*)image
+         Completion:(DLRequestSuccessHandler)handler
+            failure:(DLRequestFailureHandler)failhandler {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            //                                @"head_img" : image,
+                            @"sign_token" : [DLUtils getSign_token],};
+    [DLHttpRequest UploadImageWithUrl:DL_AgencyEditHendImgHandle params:param imageParams:image success:^(NSDictionary *success) {
+        
+        handler ? handler(success) : nil;
+        
+    } failure:^(NSError *error) {
+        
+        failhandler ? failhandler(error) : nil;
+        
+    }];
+    
+}
 @end

@@ -315,11 +315,31 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark   -  BLM_UploadUserIconDelegate
 
-- (void)uploadImageToServerWithImage:(UIImage *)image {
+//- (void)uploadImageToServerWithImage:(UIImage *)image {
+//
+//
+//
+//}
 
-
++(void)uploadImage:(UIImage *)image Completion:(DLRequestSuccessHandler)handler failure:(DLRequestFailureHandler)failhandler{
+    [[DLHUDManager sharedInstance]showProgressWithText:@"正在上传头像"];
+    [DLHomeViewTask uploadImage:image Completion:^(id responseData) {
+        
+        [[DLHUDManager sharedInstance]hiddenHUD];
+        
+        
+    } failure:^(NSError *error) {
+        
+        [[DLHUDManager sharedInstance]hiddenHUD];
+        
+        [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+    }];
 
 }
+
+
+
+
 
 - (uint32_t)intFromData:(NSData *)data useBig:(BOOL)useBig
 {
