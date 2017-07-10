@@ -19,7 +19,6 @@
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
 #import "UIButton+WebCache.h"
-#import "DLHomeViewTask.h"
 
 static NSString *cellID  = @"cellID";
 @interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>
@@ -53,7 +52,6 @@ static NSString *cellID  = @"cellID";
 }
 
 -(void)setTableView
-
 {
     UITableView*tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView = tableView;
@@ -90,7 +88,7 @@ static NSString *cellID  = @"cellID";
     //头像
     UIImageView *personImageView = [[UIImageView alloc] init];
     self.personImageView = personImageView;
-    [personImageView setImage:[UIImage imageNamed:@"v2_my_avatar"]];
+//    [personImageView setImage:[UIImage imageNamed:@"v2_my_avatar"]];
     
     personImageView.userInteractionEnabled = YES;
     //手势
@@ -313,9 +311,10 @@ static NSString *cellID  = @"cellID";
 
 #pragma mark   -  BLM_UploadUserIconDelegate
 - (void)uploadImageToServerWithImage:(UIImage *)image {
-
-    image = self.iconImage;
+    
     [DLHomeViewTask uploadImage:image Completion:^(id responseData) {
+        
+    [self.personImageView setImage:image];
         
     } failure:^(NSError *error) {
         
@@ -398,7 +397,6 @@ static NSString *cellID  = @"cellID";
     NSLog(@"%@",NSStringFromCGSize(scaledImage.size));
     return scaledImage;
 }
-
 @end
 
 /*

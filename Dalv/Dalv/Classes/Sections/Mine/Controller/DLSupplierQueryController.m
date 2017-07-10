@@ -30,13 +30,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)searchBtnClick:(id)sender {
-    
-}
 
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 
 -(void)setUI{
     
+    self.title = @"供应商查询";
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
+
 }
 
 -(void)fetchData{
@@ -53,5 +56,10 @@
     }];
 }
 
+
+- (IBAction)searchBtnClick:(id)sender {
+    
+    
+}
 
 @end

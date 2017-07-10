@@ -80,15 +80,10 @@ static BLM_UploadUserIcon *uploadUserIcon = nil;
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    DLMineCenterController *VC = [[DLMineCenterController alloc]init];
-    
-    
     // ** 上传用户头像
     if (self.uploadImageDelegate && [self.uploadImageDelegate respondsToSelector:@selector(uploadImageToServerWithImage:)]) {
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
         [self.uploadImageDelegate uploadImageToServerWithImage:image];
-        VC.iconImage = image;
-        
     }
 }
 
