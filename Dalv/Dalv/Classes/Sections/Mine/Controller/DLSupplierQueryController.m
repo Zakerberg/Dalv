@@ -2,15 +2,20 @@
 //  DLSupplierQueryController.m
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/7/6.
+//  Created by Michael 柏 on 2017/7/10.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 供应商查询 --------------------
+//
 
 #import "DLSupplierQueryController.h"
-#import "DLHomeViewTask.h"
 
 @interface DLSupplierQueryController ()
-
+@property (weak, nonatomic) IBOutlet UITextField *searchTF;
+@property (weak, nonatomic) IBOutlet UIButton *searchBtn;
+@property (weak, nonatomic) IBOutlet UILabel *supplierName;
+@property (weak, nonatomic) IBOutlet UILabel *supplierFullName;
+@property (weak, nonatomic) IBOutlet UILabel *contactLabel;
+@property (weak, nonatomic) IBOutlet UILabel *destinationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @end
 
 @implementation DLSupplierQueryController
@@ -25,21 +30,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (BOOL)dl_blueNavbar {
-    return YES;
+- (IBAction)searchBtnClick:(id)sender {
+    
 }
 
+
 -(void)setUI{
-    
-    self.title = @"供应商查询";
-    
-    
-    
-    
-    
-    
-    
     
 }
 
@@ -51,15 +47,11 @@
                             };
     
     [DLHomeViewTask getAgencyPersonalProviderQuery:param completion:^(id result, NSError *error) {
-       
         
         NSLog(@"%@",result);
         
     }];
-    
-    
-    
-    
 }
+
 
 @end

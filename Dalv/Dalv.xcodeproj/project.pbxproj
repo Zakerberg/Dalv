@@ -283,7 +283,6 @@
 		450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */; };
 		450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */; };
 		450F84351EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84341EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m */; };
-		451308B61F0E233F00587E3B /* DLSupplierQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451308B51F0E233F00587E3B /* DLSupplierQueryController.m */; };
 		451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */; };
 		451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F391F1EEE600E005FE126 /* DLInvioiceApplyController.m */; };
 		451F39271EEE7120005FE126 /* DLContractApplySection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F39251EEE7120005FE126 /* DLContractApplySection0Cell.m */; };
@@ -362,6 +361,8 @@
 		45E119F61ED2FF9700FDFEBA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F51ED2FF9700FDFEBA /* Security.framework */; };
 		45E119F81ED3017100FDFEBA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F71ED3017100FDFEBA /* UserNotifications.framework */; };
 		45E119FA1ED3017F00FDFEBA /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E119F91ED3017F00FDFEBA /* libresolv.tbd */; };
+		45E1892B1F134D610027DD72 /* DLSupplierQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E189291F134D610027DD72 /* DLSupplierQueryController.m */; };
+		45E1892C1F134D610027DD72 /* DLSupplierQueryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E1892A1F134D610027DD72 /* DLSupplierQueryController.xib */; };
 		45EF39AA1F09DE6B00A5010A /* DLCustomerChangePersonDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */; };
 		45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39AC1F09E3A700A5010A /* DLCustomerChangeDataCell.m */; };
 		45EF39B31F0A286F00A5010A /* DLMyTicketListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */; };
@@ -793,8 +794,6 @@
 		450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyAgencyUnBindingCell.m; sourceTree = "<group>"; };
 		450F84331EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyAgencyUnBindingModel.h; sourceTree = "<group>"; };
 		450F84341EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyAgencyUnBindingModel.m; sourceTree = "<group>"; };
-		451308B41F0E233F00587E3B /* DLSupplierQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierQueryController.h; sourceTree = "<group>"; };
-		451308B51F0E233F00587E3B /* DLSupplierQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierQueryController.m; sourceTree = "<group>"; };
 		451F39101EEA9445005FE126 /* DLinvoiceSection1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLinvoiceSection1Cell.h; sourceTree = "<group>"; };
 		451F39111EEA9445005FE126 /* DLinvoiceSection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLinvoiceSection1Cell.m; sourceTree = "<group>"; };
 		451F391E1EEE600E005FE126 /* DLInvioiceApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLInvioiceApplyController.h; sourceTree = "<group>"; };
@@ -931,6 +930,9 @@
 		45E119F71ED3017100FDFEBA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		45E119F91ED3017F00FDFEBA /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		45E119FB1ED301C400FDFEBA /* Dalv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dalv.entitlements; sourceTree = "<group>"; };
+		45E189281F134D610027DD72 /* DLSupplierQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSupplierQueryController.h; sourceTree = "<group>"; };
+		45E189291F134D610027DD72 /* DLSupplierQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSupplierQueryController.m; sourceTree = "<group>"; };
+		45E1892A1F134D610027DD72 /* DLSupplierQueryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSupplierQueryController.xib; sourceTree = "<group>"; };
 		45EF39A81F09DE6B00A5010A /* DLCustomerChangePersonDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerChangePersonDataController.h; sourceTree = "<group>"; };
 		45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerChangePersonDataController.m; sourceTree = "<group>"; };
 		45EF39AB1F09E3A700A5010A /* DLCustomerChangeDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerChangeDataCell.h; sourceTree = "<group>"; };
@@ -1125,8 +1127,9 @@
 				45EF39A91F09DE6B00A5010A /* DLCustomerChangePersonDataController.m */,
 				45EF39B41F0B7DAD00A5010A /* DLRemmendController.h */,
 				45EF39B51F0B7DAD00A5010A /* DLRemmendController.m */,
-				451308B41F0E233F00587E3B /* DLSupplierQueryController.h */,
-				451308B51F0E233F00587E3B /* DLSupplierQueryController.m */,
+				45E189281F134D610027DD72 /* DLSupplierQueryController.h */,
+				45E189291F134D610027DD72 /* DLSupplierQueryController.m */,
+				45E1892A1F134D610027DD72 /* DLSupplierQueryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2291,6 +2294,7 @@
 				1CE2C20E1ED52BA100B898BA /* transaction_record@3x.png in Resources */,
 				1CE2C1CD1ED5270E00B898BA /* order_heighlight@3x.png in Resources */,
 				1CE2C2011ED52BA100B898BA /* contract_record@2x.png in Resources */,
+				45E1892C1F134D610027DD72 /* DLSupplierQueryController.xib in Resources */,
 				1C422BD61F00FC5C004EB57F /* recommended_home@2x.png in Resources */,
 				1CE2C1CA1ED5270E00B898BA /* my@2x.png in Resources */,
 				1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */,
@@ -2406,6 +2410,7 @@
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,
 				1C6661681EF672390032E1AE /* DLFinanceMenuItem.m in Sources */,
 				45EF39AD1F09E3A700A5010A /* DLCustomerChangeDataCell.m in Sources */,
+				45E1892B1F134D610027DD72 /* DLSupplierQueryController.m in Sources */,
 				450F84351EFD18B500E2CEE5 /* DLMyAgencyUnBindingModel.m in Sources */,
 				451F39301EEF8956005FE126 /* DLHeadScrollView.m in Sources */,
 				1C0162651F0C85230089CE09 /* TLCityGroupCell.m in Sources */,
@@ -2446,7 +2451,6 @@
 				1C5CD38D1EFA0010009DBC1B /* NSDate+Calender.m in Sources */,
 				453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */,
 				1C29817A1EE0159200712524 /* DLRechargeRecordModel.m in Sources */,
-				451308B61F0E233F00587E3B /* DLSupplierQueryController.m in Sources */,
 				45EF39B61F0B7DAD00A5010A /* DLRemmendController.m in Sources */,
 				45DB48041EE8480E00399A6D /* DLContractApplySection1Cell.m in Sources */,
 				45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */,

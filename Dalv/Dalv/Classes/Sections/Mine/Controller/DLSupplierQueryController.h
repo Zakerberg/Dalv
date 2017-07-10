@@ -2,9 +2,9 @@
 //  DLSupplierQueryController.h
 //  Dalv
 //
-//  Created by Michael 柏 on 2017/7/6.
+//  Created by Michael 柏 on 2017/7/10.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 供应商查询 ---- ---------------
+//
 
 #import <UIKit/UIKit.h>
 
