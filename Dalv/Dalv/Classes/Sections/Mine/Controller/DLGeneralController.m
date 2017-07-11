@@ -6,26 +6,19 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //  ------------------  通用   -----------------------
 
-
 #import "DLIdentitySelectionLoginViewController.h"
-#import <SDWebImage/SDImageCache.h>
 #import "DLLoginViewController.h"
 #import "DLFeedBackController.h"
 #import "DLGeneralController.h"
 #import "BLMClearCacheTool.h"
-#import <MBProgressHUD.h>
-#import <SVProgressHUD.h>
 
 static NSString *cellID  = @"cellID";
 @interface DLGeneralController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic,strong) UIButton *logOutBtn;
 @property (nonatomic,strong) UITableView *tableview;
-
 @end
 
 @implementation DLGeneralController
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -48,13 +41,11 @@ static NSString *cellID  = @"cellID";
     self.title = @"通用设置";
     UITableView *tableView = [[UITableView alloc]  initWithFrame:self.view.frame style:UITableViewStyleGrouped];
     self.tableView = tableView;
-    
     tableView.tableFooterView = [UIView new];
     tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
-
 
 -(void)setupLogoutBtn {
     
@@ -65,8 +56,7 @@ static NSString *cellID  = @"cellID";
     [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     logOutBtn.layer.cornerRadius = 8.0;
     [self.tableView addSubview:logOutBtn];
-    
-    
+
     [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(15);
         make.height.offset(44);
@@ -74,7 +64,6 @@ static NSString *cellID  = @"cellID";
         make.width.offset(MAIN_SCREEN_WIDTH- 30);
     }];
 }
-
 - (void)back {
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -109,10 +98,10 @@ static NSString *cellID  = @"cellID";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-
 #pragma mark  ----------UITable View Delegate------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     return 44;
 }
 
@@ -126,24 +115,21 @@ static NSString *cellID  = @"cellID";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-     if (indexPath.row == 0) {
-         
-     DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
-     [self.navigationController pushViewController:feedbackVC animated:YES];
-     }
-     
-    if (indexPath.row == 1) {
-        //联系我们
+    if (indexPath.row == 0) {
+        
+        DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
+        [self.navigationController pushViewController:feedbackVC animated:YES];
+        
+    }else if (indexPath.row == 1) {/// 联系我们
+        
         NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
         //NSLog(@"str======%@",str);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         
-    }
-    if (indexPath.row == 2) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    }else if (indexPath.row == 2) {
         
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            
             //清除缓存
             BOOL isSuccess = [BLMClearCacheTool clearCacheWithFilePath:BLMfilePath];
             if (isSuccess) {
@@ -158,7 +144,6 @@ static NSString *cellID  = @"cellID";
         }];
         
         UIAlertAction *actionCancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        
         [alert addAction:actionOk];
         [alert addAction:actionCancle];
         
@@ -178,34 +163,31 @@ static NSString *cellID  = @"cellID";
     
     if (indexPath.section == 0) {
         
-         if (indexPath.row == 0) {
-         cell.textLabel.text = @"意见反馈";
-             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-         }
-        
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"意见反馈";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+        }else if (indexPath.row == 1) {
+            
             cell.textLabel.text = @"联系我们";
             cell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        if (indexPath.row == 2) {
+            
+        }else if (indexPath.row == 2) {
             
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = @"清除缓存";
+            NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
+            UILabel *cacheLabel = [[UILabel alloc] init];
+            cacheLabel.font = [UIFont systemFontOfSize:15];
+            cacheLabel.text = [NSString stringWithFormat:@"%@",fileSize];
+            [cacheLabel sizeToFit];
+            [cell.contentView addSubview:cacheLabel];
             
-             NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
-             UILabel *cacheLabel = [[UILabel alloc] init];
-             
-             cacheLabel.font = [UIFont systemFontOfSize:15];
-             cacheLabel.text = [NSString stringWithFormat:@"%@",fileSize];
-             [cacheLabel sizeToFit];
-             [cell.contentView addSubview:cacheLabel];
-             
-             [cacheLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-             
-                 make.centerY.offset(0);
-                 make.height.offset(15);
-                 make.right.offset(-20);
-             }];
+            [cacheLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.offset(0);
+                make.height.offset(15);
+                make.right.offset(-20);
+            }];
         }
     }
     

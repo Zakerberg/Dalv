@@ -896,7 +896,7 @@
 		45DB47CF1EE68B8A00399A6D /* DLWiFiOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLWiFiOrderViewController.h; sourceTree = "<group>"; };
 		45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLWiFiOrderViewController.m; sourceTree = "<group>"; };
 		45DB47D21EE68BDD00399A6D /* DLTicketsOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLTicketsOrderController.h; sourceTree = "<group>"; };
-		45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLTicketsOrderController.m; path = ../../Order/Controller/DLTicketsOrderController.m; sourceTree = "<group>"; };
+		45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLTicketsOrderController.m; sourceTree = "<group>"; };
 		45DB47D51EE6A63500399A6D /* DLContractApplyStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyStyleCell.h; sourceTree = "<group>"; };
 		45DB47D61EE6A63500399A6D /* DLContractApplyStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLContractApplyStyleCell.m; sourceTree = "<group>"; };
 		45DB47F01EE7D36700399A6D /* DLContractApplyRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLContractApplyRecordController.h; sourceTree = "<group>"; };
@@ -1155,7 +1155,6 @@
 				450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */,
 				45EF39B11F0A286F00A5010A /* DLMyTicketListController.h */,
 				45EF39B21F0A286F00A5010A /* DLMyTicketListController.m */,
-				45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */,
 				45DB48171EE93AB400399A6D /* DLCustomerListController.h */,
 				45DB48181EE93AB400399A6D /* DLCustomerListController.m */,
 			);
@@ -1635,6 +1634,7 @@
 				45DB47C31EE68ABC00399A6D /* DLLineOrderController.h */,
 				45DB47C41EE68ABC00399A6D /* DLLineOrderController.m */,
 				45DB47D21EE68BDD00399A6D /* DLTicketsOrderController.h */,
+				45DB47D31EE68BDD00399A6D /* DLTicketsOrderController.m */,
 				45DB47CF1EE68B8A00399A6D /* DLWiFiOrderViewController.h */,
 				45DB47D01EE68B8A00399A6D /* DLWiFiOrderViewController.m */,
 				45DB47CC1EE68B7C00399A6D /* DLVisaOrderController.h */,

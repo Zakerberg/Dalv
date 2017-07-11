@@ -8,16 +8,15 @@
 
 #import "DLCustomerChangePersonDataController.h"
 #import "DLCustomerChangeDataCell.h"
-#import "DLHomeViewTask.h"
 #import "BLMPickerView.h"
 
 @interface DLCustomerChangePersonDataController ()<UITableViewDelegate,UITableViewDataSource,BLMPickerDelegate>
+
 @property(nonatomic,strong) UITableView * personalDataTableView;
 @property (weak,nonatomic) DLCustomerChangeDataCell* personalCell;
 @property (weak,nonatomic) UITableViewCell* personCell;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath;
 @property(nonatomic,strong) UILabel * label;
-@property(nonatomic,strong) UITextField * nameTF;
 @property(nonatomic,strong) UITextField * nickNameTF;
 @property(nonatomic,strong) UILabel * phoneLabel;
 @property(nonatomic,strong) UILabel * sexLabel;
@@ -27,7 +26,6 @@
 
 static NSString *cellID = @"cellID";
 static NSString *cell1ID = @"cell1ID";
-
 @implementation DLCustomerChangePersonDataController
 
 - (void)viewDidLoad {
@@ -58,8 +56,8 @@ static NSString *cell1ID = @"cell1ID";
     self.personalDataTableView.tableFooterView = [UIView new];
     self.personalDataTableView.backgroundColor = [UIColor ms_backgroundColor];
     
-    [self.personalDataTableView registerClass:[DLCustomerChangeDataCell class] forCellReuseIdentifier: cellID];
-    [self.personalDataTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cell1ID];
+    [self.personalDataTableView registerClass:[DLCustomerChangeDataCell class] forCellReuseIdentifier:cell1ID];
+    //[self.personalDataTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
     [self.view addSubview:self.personalDataTableView];
     
@@ -89,18 +87,19 @@ static NSString *cell1ID = @"cell1ID";
         
         NSDictionary *dict = result[@"touristInfo"];
         self.phoneLabel.text = dict[@"mobile"];
-        self.nameTF.text = dict[@"name"];
-        self.QQTF.text = dict[@"qq"];
-        self.sexLabel.text = dict[@"sex"];
-        self.mailTF.text = dict[@"mail"];
+        
+        [dict[@"name"] isEqualToString:@"0"] ? self.nameTF.text = @"未设置" : (self.nameTF.text = dict[@"name"]);
+        [dict[@"qq"] isEqualToString:@"0"] ? self.QQTF.text = @"未设置" : (self.QQTF.text = dict[@"qq"]);
+        [dict[@"sex"] isEqualToString:@"0"] ? self.sexLabel.text = @"未设置" : (self.sexLabel.text = dict[@"sex"]);
+        [dict[@"mail"] isEqualToString:@"0"] ? self.mailTF.text = @"未设置" : (self.mailTF.text = dict[@"mail"]);
     }];
 }
 
 ///保存
 -(void)completeClick {
     
-    if ([self isValidateEmail:self.mailTF.text]) {
-        
+//    if ([self isValidateEmail:self.mailTF.text]) {
+    
         if ([self.sexLabel.text isEqualToString:@"男"]) {
             self.sexLabel.text = @"1";
         }else if ([self.sexLabel.text isEqualToString:@"女"]){
@@ -108,7 +107,6 @@ static NSString *cell1ID = @"cell1ID";
         }else if ([self.sexLabel.text isEqualToString:@"保密"]){
             self.sexLabel.text = @"0";
         }
-        
         NSDictionary *param = @{
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token],
@@ -122,24 +120,36 @@ static NSString *cell1ID = @"cell1ID";
         [DLHomeViewTask getTouristPersonPageDataHandle:param completion:^(id result, NSError *error) {
             NSLog(@"修改成功!");
             
+            
+            //发送通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"changeData" object:nil];
+            
             UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [successV show];
             [self.navigationController popViewControllerAnimated:YES];
         }];
         
-    }else{
-        
-        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
-        [alertPhoneNum show];
-
     }
-}
+    
+//    else{
+//        
+//        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+//        [alertPhoneNum show];
+//        
+//    }
+//}
 
 #pragma mark ----- UITableView Delegate
-#warning ---- 后期再处理
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 44;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 6;
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -148,19 +158,20 @@ static NSString *cell1ID = @"cell1ID";
         return 0.1;
     }
     return 10;
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                      reuseIdentifier: cellID];
+    }
+    
     if(indexPath.row == 2) {
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell1ID];
         cell.textLabel.text = @"手机号:";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
@@ -178,13 +189,11 @@ static NSString *cell1ID = @"cell1ID";
             make.height.offset(44);
             make.top.offset(0);
         }];
-        return cell;
-    }
-    
-    
-    if(indexPath.row == 3) {
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell1ID];
+        return cell;
+        
+    }else if (indexPath.row == 3){
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         cell.textLabel.text = @"性别:";
@@ -207,42 +216,42 @@ static NSString *cell1ID = @"cell1ID";
         }];
         
         return cell;
+        
+    }else{
+        
+        DLCustomerChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cell1ID forIndexPath:indexPath];
+        self.label = cell.label;
+        cell.backgroundColor = [UIColor whiteColor];
+        
+        if (indexPath.row == 0) {
+            
+            self.label.text = @"姓名:";
+            self.nameTF = cell.TF;
+            self.nameTF.placeholder = @"请输入您的姓名";
+            
+        }else if(indexPath.row == 1) {
+            
+            self.label.text = @"昵称:";
+            self.nickNameTF = cell.TF;
+            self.nickNameTF.placeholder = @"请输入您的昵称";
+            
+        }else if(indexPath.row == 4) {
+            
+            self.label.text = @"QQ号:";
+            self.QQTF = cell.TF;
+            self.QQTF.keyboardType = UIKeyboardTypeNumberPad;
+            self.QQTF.placeholder = @"请输入您的QQ号";
+            
+        }else if(indexPath.row == 5) {
+            
+            self.label.text = @"邮箱:";
+            self.mailTF = cell.TF;
+            self.mailTF.placeholder = @"请输入您的邮箱";
+        }
+        
+        return cell;
     }
-    
-    DLCustomerChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    self.label = cell.label;
-    cell.backgroundColor = [UIColor whiteColor];
-    
-    if (indexPath.row == 0) {
-        
-        self.label.text = @"姓名:";
-        self.nameTF = cell.TF;
-        self.nameTF.placeholder = @"请输入您的姓名";
-        
-    }else if(indexPath.row == 1) {
-        
-        self.label.text = @"昵称:";
-        self.nickNameTF = cell.TF;
-        self.nickNameTF.placeholder = @"请输入您的昵称";
-        
-        
-    }else if(indexPath.row == 4) {
-        
-        self.label.text = @"QQ号:";
-        self.QQTF = cell.TF;
-        self.QQTF.placeholder = @"请输入您的QQ号";
-        
-    }else if(indexPath.row == 5) {
-        
-        self.label.text = @"邮箱:";
-        self.mailTF = cell.TF;
-        self.mailTF.placeholder = @"请输入您的邮箱";
-    }
-    
-    return cell;
-    
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -266,5 +275,4 @@ static NSString *cell1ID = @"cell1ID";
 {
     self.sexLabel.text = str;
 }
-
 @end

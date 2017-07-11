@@ -11,35 +11,22 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderConfirmController ()
-/// 线路名称
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-/// 成人数量
-@property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;
-/// 儿童数量
-@property (weak, nonatomic) IBOutlet UILabel *childCountLabel;
-/// 订单金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderMoney;
-/// 调整金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderAdjustPrice;
-/// 应付金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;
-/// 付款金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;
-///左边判断是全款 , 预付款 , 尾款Label
-@property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
-///边框成人和儿童的label
-@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;/// 线路名称
+@property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;/// 成人数量
+@property (weak, nonatomic) IBOutlet UILabel *childCountLabel;/// 儿童数量
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderMoney;/// 订单金额
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderAdjustPrice;/// 调整金额
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;/// 应付金额
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;/// 付款金额
+@property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;///左边判断是全款 , 预付款 , 尾款Label
+@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;///边框成人和儿童的label
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-/// 下面的提示Label
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;
-/// 确认Button
-@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
-///特别说明
-@property (weak, nonatomic) IBOutlet UILabel *memoLabel;
-///出发日期
-@property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
-///keyID
-@property (strong, nonatomic) NSString *keyidStr;
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;/// 下面的提示Label
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;/// 确认Button
+@property (weak, nonatomic) IBOutlet UILabel *memoLabel;///特别说明
+@property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;///出发日期
+@property (strong, nonatomic) NSString *keyidStr;///keyID
 @property(nonatomic,strong) DLLineOrderController * orderVC;
 @end
 
@@ -80,8 +67,8 @@
                             @"line_id":self.linePayID,
                             @"keyid":self.keyidStr
                             };
-    //全款
-    if ([self.BtnType isEqualToString:@"1"]) {
+    
+    if ([self.BtnType isEqualToString:@"1"]) {/// 全款
 
     [DLHomeViewTask getAgencyLineOrderAllPayed:param completion:^(id result, NSError *error) {
         
@@ -103,8 +90,8 @@
         }
     }];
         
-        //预付款
-    }else if ([self.BtnType isEqualToString:@"2"]){
+        
+    }else if ([self.BtnType isEqualToString:@"2"]){/// 预付款
    
         [DLHomeViewTask getAgencyLineOrderPrePayed:param completion:^(id result, NSError *error) {
 
@@ -126,8 +113,8 @@
                 [successV show];
             }
         }];
-        //尾款
-    }else if ([self.BtnType isEqualToString:@"3"]){
+        
+    }else if ([self.BtnType isEqualToString:@"3"]){/// 尾款
         
         [DLHomeViewTask getAgencyLineOrderPreForum:param completion:^(id result, NSError *error) {
 
@@ -195,15 +182,15 @@
         
         //特别说明
         NSString *memoStrt = dict[@"memo"];
-//        NSString *prepayAmount = dict[@"prepay_amount"];
+//      NSString *prepayAmount = dict[@"prepay_amount"];
         
         //尾款金额 (3状态有)
         NSString *preForumStr = dict[@"preForum"];
         
-        //keyID
-//        self.keyidStr = dict[@"keyid"];
+//      keyID
+//      self.keyidStr = dict[@"keyid"];
         
-        //全款 1
+        /// 全款 1
         if ([self.BtnType isEqualToString:@"1"]) {
             
             self.payMoneyLabel.text = @"全款金额";

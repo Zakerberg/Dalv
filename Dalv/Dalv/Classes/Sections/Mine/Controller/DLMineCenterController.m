@@ -26,13 +26,14 @@ static NSString *cellID  = @"cellID";
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
-@property(nonatomic,strong) UIButton * personBtn;
+//@property(nonatomic,strong) UIButton * personBtn;
 @property (strong,nonatomic) UILabel* nameLabel;
 @property(nonatomic,strong) UIImageView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
 @property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
 //@property (weak, nonatomic) HeadView * myView;
+@property(nonatomic,strong) NSString * nameStr;
 @end
 
 @implementation DLMineCenterController
@@ -42,6 +43,7 @@ static NSString *cellID  = @"cellID";
     [self setTableView];
     [self setupHeaderView];
     [self fetchData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeDataNoti:) name:@"changeData" object:nil];
 }
 - (BOOL)dl_blueNavbar {
     return YES;
@@ -50,6 +52,20 @@ static NSString *cellID  = @"cellID";
 - (BOOL)prefersStatusBarHidden{
     
     return YES;
+}
+
+
+-(void)changeDataNoti:(NSNotification *)notification
+
+{
+    self.nameLabel.text = self.nameStr;
+}
+
+
+//移除通知
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)setTableView
@@ -137,7 +153,7 @@ static NSString *cellID  = @"cellID";
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
-    if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
+    if([[DLUtils getUser_type] isEqualToString:@"4"])/// 顾问
     {
         @weakify(self);
         [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
@@ -167,11 +183,15 @@ static NSString *cellID  = @"cellID";
             
             self.mineCenterDict = [[NSMutableDictionary alloc] init];
             self.mineCenterDict = result[@"touristInfo"];
-            [self.personBtn.layer setMasksToBounds:YES];
-            [self.personBtn.layer setCornerRadius:33];
-            self.personBtn.layer.borderWidth = 2.0;
-            self.personBtn.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
-            self.nameLabel.text = self.mineCenterDict[@"name"] ? self.mineCenterDict[@"name"] : @"未设置";
+            NSString *urlStr = self.mineCenterDict[@"head_img"];
+            NSURL *url = [NSURL URLWithString:urlStr];
+            
+            [self.personImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            [self.personImageView.layer setMasksToBounds:YES];
+            [self.personImageView.layer setCornerRadius:33];
+            self.personImageView.layer.borderWidth = 2.0;
+            self.personImageView.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+            [self.mineCenterDict[@"name"] isEqualToString:@"0"]? self.nameLabel.text = @"未设置" : (self.nameLabel.text = self.mineCenterDict[@"name"]);
             self.numLabel.text = self.mineCenterDict[@"mobile"];
             [self.tableView reloadData];
         }];
@@ -307,7 +327,8 @@ static NSString *cellID  = @"cellID";
         
         if (indexPath.row == 0){ /// 修改个人资料
             
-            DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
+            DLCustomerChangePersonDataController *changeDataVC = [[DLCustomerChangePersonDataController alloc] init];
+            self.nameStr = changeDataVC.nameTF.text;
             [self.navigationController pushViewController:changeDataVC animated:YES];
             
         }else if (indexPath.row == 1){ /// 我的直客

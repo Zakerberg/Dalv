@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DLCustomerChangePersonDataController : UIViewController
-
+@property(nonatomic,strong) UITextField * nameTF;
 @end

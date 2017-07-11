@@ -35,7 +35,6 @@
     
     [self.contentView addSubview:TF];
     
-    
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.contentView).offset(15);
         make.height.offset(15);
