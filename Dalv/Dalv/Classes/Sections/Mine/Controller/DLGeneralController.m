@@ -80,7 +80,6 @@ static NSString *cellID  = @"cellID";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
 /* 退出登录 */
 -(void)LogoutBtnClick {
     
@@ -172,22 +171,20 @@ static NSString *cellID  = @"cellID";
     return 3;
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    
     if (indexPath.section == 0) {
-        
         
          if (indexPath.row == 0) {
          cell.textLabel.text = @"意见反馈";
+             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
          }
         
         if (indexPath.row == 1) {
             cell.textLabel.text = @"联系我们";
-            
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         if (indexPath.row == 2) {
@@ -196,7 +193,6 @@ static NSString *cellID  = @"cellID";
             cell.textLabel.text = @"清除缓存";
             
              NSString *fileSize = [BLMClearCacheTool getCacheSizeWithFilePath:BLMfilePath];
-             
              UILabel *cacheLabel = [[UILabel alloc] init];
              
              cacheLabel.font = [UIFont systemFontOfSize:15];
@@ -215,6 +211,5 @@ static NSString *cellID  = @"cellID";
     
     return cell;
 }
-
 
 @end

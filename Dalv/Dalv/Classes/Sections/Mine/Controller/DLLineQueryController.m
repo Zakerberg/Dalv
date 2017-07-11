@@ -40,12 +40,7 @@ static NSString * cellID = @"cellID";
     self.lineQuerytableview.backgroundColor = [UIColor ms_backgroundColor];
     self.lineQuerytableview.delegate = self;
     self.lineQuerytableview.tableFooterView = [UIView new];
-    //self.automaticallyAdjustsScrollViewInsets = NO;
-    //self.lineQuerytableview.showsVerticalScrollIndicator = NO;
-    //[self.lineQuerytableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
     [self.lineQuerytableview registerClass:[DLLineQueryCell class] forCellReuseIdentifier:lineQueryCellID];
-    //[self.lineQuerytableview registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     
     [self.view addSubview:self.lineQuerytableview];
     
@@ -55,7 +50,7 @@ static NSString * cellID = @"cellID";
     submitBtn.backgroundColor = [UIColor colorWithHexString:@"#4d67ee"];
     submitBtn.layer.cornerRadius = 8.0;
     
-    [self.view addSubview:submitBtn];
+    [self.lineQuerytableview addSubview:submitBtn];
     
     [self.lineQuerytableview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
@@ -73,11 +68,8 @@ static NSString * cellID = @"cellID";
 }
 
 -(void)submitBtnClick{
-    
-    
-    
-    
-    
+
+    NSLog(@"submitBtnClick");
     
     
 }
@@ -102,6 +94,30 @@ static NSString * cellID = @"cellID";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -126,9 +142,8 @@ static NSString * cellID = @"cellID";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
                                           reuseIdentifier: cellID];
-        
     
     if (indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
