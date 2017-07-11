@@ -23,10 +23,7 @@
     return self;
 }
 
-
 -(void)setupCellSubviews {
-    
-   
     
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.submitBtn = submitBtn;
@@ -35,7 +32,6 @@
     submitBtn.layer.cornerRadius = 8.0;
     
     [self.contentView addSubview:submitBtn];
-    
     
     [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);

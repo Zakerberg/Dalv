@@ -76,7 +76,6 @@ static NSString *cell1ID = @"cell1ID";
     return [emailTest evaluateWithObject:email];
 }
 
-
 #pragma mark ------ fetchData
 
 -(void)fetchData{
@@ -136,7 +135,6 @@ static NSString *cell1ID = @"cell1ID";
     }
 }
 
-
 #pragma mark ----- UITableView Delegate
 #warning ---- 后期再处理
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -152,11 +150,11 @@ static NSString *cell1ID = @"cell1ID";
     return 10;
     
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return 6;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -210,7 +208,6 @@ static NSString *cell1ID = @"cell1ID";
         
         return cell;
     }
-
     
     DLCustomerChangeDataCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     self.label = cell.label;

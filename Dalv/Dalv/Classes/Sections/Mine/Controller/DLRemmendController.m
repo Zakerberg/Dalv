@@ -28,7 +28,6 @@ static NSString *nibCellID = @"cellID";
     [self setUI];
     [self setTableView];
     [self fetchData];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +74,6 @@ static NSString *nibCellID = @"cellID";
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
     }];
-
 }
 
 #pragma mark ----- fetchData
@@ -117,7 +115,6 @@ static NSString *nibCellID = @"cellID";
     }];
 }
 
-
 -(void)deleBtnClick
 
 {
@@ -133,7 +130,6 @@ static NSString *nibCellID = @"cellID";
     }];
 
 }
-
 
 
 #pragma mark ------ UITable View Delegate

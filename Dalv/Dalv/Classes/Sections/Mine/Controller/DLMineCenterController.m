@@ -246,10 +246,12 @@ static NSString *cellID  = @"cellID";
     }else{ /// C
         
         if (indexPath.row == 0) {
+            
             cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
             cell.textLabel.text = @"修改个人资料";
             
         }else if (indexPath.row == 1){
+            
             cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
             cell.textLabel.text = @"我的顾问";
             

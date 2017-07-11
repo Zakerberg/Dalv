@@ -12,16 +12,12 @@
 #import "DLHomeViewTask.h"
 
 @interface DLMyCustomerXibController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property(nonatomic,strong) UITableView * myCustomerTableView;
-
 @property (weak, nonatomic) IBOutlet UIView *myCustomerView;
 @property (weak, nonatomic) IBOutlet UILabel *myMoneyLabel;
-
 @end
 
 static NSString *cellID = @"cellID";
-
 @implementation DLMyCustomerXibController
 
 - (void)viewDidLoad {
@@ -40,14 +36,13 @@ static NSString *cellID = @"cellID";
 #pragma mark --------setTableView ----------
 -(void)setTableView{
     
-//    [self.myMoneyLabel sizeToFit];
+//  [self.myMoneyLabel sizeToFit];
     
     UITableView *myCustomerTableView = [[UITableView alloc] init];
     self.myCustomerTableView = myCustomerTableView;
     myCustomerTableView.tableFooterView = [UIView new];
     myCustomerTableView.delegate = self ;
     myCustomerTableView.dataSource = self ;
-    
     
     myCustomerTableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
@@ -58,11 +53,10 @@ static NSString *cellID = @"cellID";
         make.top.equalTo(self.myCustomerView.mas_bottom).offset(9);
         make.left.right.offset(0);
         make.height.offset(100);
-        
     }];
 }
 
-#pragma mark --------fetchData ----------
+#pragma mark --------fetchData
 
 -(void)fetchData{
     
@@ -72,20 +66,15 @@ static NSString *cellID = @"cellID";
                             };
 
     [DLHomeViewTask getAgencyFlightFlightProfit:param completion:^(id result, NSError *error) {
-        
-        
         self.myMoneyLabel.text = result[@"total"];
     }];
-    
 }
 
-
-#pragma mark -------- UITable View Delegate -------------
+#pragma mark -------- UITable View Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -104,10 +93,8 @@ static NSString *cellID = @"cellID";
     if (indexPath.row == 1) {
         cell.textLabel.text = @"直客机票订单";
     }
-    
     return cell;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class DLAddReduceButton;
 @interface DLLineQueryCell : UITableViewCell
-
+@property(nonatomic,strong) UILabel * label;
+@property(nonatomic,strong) DLAddReduceButton * button;
 @end

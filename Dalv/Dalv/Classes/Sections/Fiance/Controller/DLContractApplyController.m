@@ -19,29 +19,29 @@
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
 
-@property(nonatomic,strong)UIButton *inviteBtn;/// 自取inviteBtn
-@property(nonatomic,strong)UIButton *courierBtn;/// 快递CourierBtn
-@property(nonatomic,strong)UIButton *payforBtn;/// 到付Btn
-@property(nonatomic,strong)UIButton *mailBtn;/// 邮寄Btn
+@property(nonatomic,strong) UIButton *inviteBtn;/// 自取inviteBtn
+@property(nonatomic,strong) UIButton *courierBtn;/// 快递CourierBtn
+@property(nonatomic,strong) UIButton *payforBtn;/// 到付Btn
+@property(nonatomic,strong) UIButton *mailBtn;/// 邮寄Btn
 @property(nonatomic,strong) UITextView * addressTV;/// 邮寄地址TextView
 @property(nonatomic,strong) UIButton * submitBtn;/// 提交申请Btn
 @property(nonatomic,strong) UITextField *nameTF;/// 联系人姓名TextFiled
 @property(nonatomic,strong) UITextField *numberTF;/// 联系人电话TextFiled
-@property (nonatomic, strong) UITableView *contractTableView;
+@property(nonatomic,strong) UITableView *contractTableView;
 @property(nonatomic,assign) NSInteger Section1Number;
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,assign) NSInteger Section3Number;
 @property(nonatomic,weak) NSString *methodBtnNumber;/// 获取方式
 @property(nonatomic,weak) NSString *express_feeNumber;/// 费用
-@property(nonatomic,strong)DLAddReduceButton *button1;
-@property(nonatomic,strong)DLAddReduceButton *button2;
-@property(nonatomic,strong)DLAddReduceButton *button3;
+@property(nonatomic,strong) DLAddReduceButton *button1;
+@property(nonatomic,strong) DLAddReduceButton *button2;
+@property(nonatomic,strong) DLAddReduceButton *button3;
 @property(nonatomic,strong) UILabel * addressLabel1;/// 公司地址
 @property(nonatomic,strong) UILabel * numberLabel1;/// 公司电话
-@property(nonatomic,strong)UIButton *blankInviteBtn;/// 空白自取blankInviteBtn
-@property(nonatomic,strong)UIButton *blankCourierBtn;/// 空白快递blankCourierBtn
-@property(nonatomic,strong)UIButton *blankPayforBtn;/// 空白到付blankPayforBtn
-@property(nonatomic,strong)UIButton *blankMailBtn;/// 空白邮寄blankMailBtn
+@property(nonatomic,strong) UIButton *blankInviteBtn;/// 空白自取blankInviteBtn
+@property(nonatomic,strong) UIButton *blankCourierBtn;/// 空白快递blankCourierBtn
+@property(nonatomic,strong) UIButton *blankPayforBtn;/// 空白到付blankPayforBtn
+@property(nonatomic,strong) UIButton *blankMailBtn;/// 空白邮寄blankMailBtn
 @end
 
 //static NSString *nibCellID = @"nibCellID";

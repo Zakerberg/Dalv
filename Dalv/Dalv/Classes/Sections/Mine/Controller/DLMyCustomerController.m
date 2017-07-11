@@ -9,18 +9,14 @@
 #import "DLMyCustomerController.h"
 
 @interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property(nonatomic,strong) UITableView * customerTableView;
 //@property(nonatomic,strong) UITableView * customerTableView;
-
 @end
 
 static NSString *cellID = @"cellID";
-
 @implementation DLMyCustomerController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     [self setTableView];
     [self setUI];
@@ -30,7 +26,6 @@ static NSString *cellID = @"cellID";
 - (BOOL)dl_blueNavbar {
     return YES;
 }
-
 
 -(void)setUI{
     
@@ -43,15 +38,11 @@ static NSString *cellID = @"cellID";
     // Dispose of any resources that can be recreated.
 }
 
-
-
 -(void)setHeadView {
     
 }
 
-
-
-#pragma mark -----------   Set UITableView ----------------
+#pragma mark ----------- Set UITableView
 
 -(void)setTableView {
     
@@ -64,13 +55,9 @@ static NSString *cellID = @"cellID";
     self.customerTableView.showsVerticalScrollIndicator = NO;
     
     [self.customerTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
 }
 
-
-
-#pragma mark ----------- UITable View Delegate ----------------
-
+#pragma mark ----------- UITable View Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
@@ -81,17 +68,14 @@ static NSString *cellID = @"cellID";
     return 25;
 }
 
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 45;
 }
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
@@ -105,12 +89,10 @@ static NSString *cellID = @"cellID";
     return 3;
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     return cell;
 }
-
 
 @end
