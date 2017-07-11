@@ -17,7 +17,6 @@
 @property (nonatomic, assign) NSInteger pageIndex;
 @property(nonatomic,strong) UIButton * deleBtn;
 @property(nonatomic,strong) NSString * remmendId;
-
 @end
 
 static NSString *nibCellID = @"cellID";
@@ -64,16 +63,11 @@ static NSString *nibCellID = @"cellID";
     self.myRemmendTableView.dataSource = self;
     self.myRemmendTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.myRemmendTableView.delegate = self;
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.myRemmendTableView.showsVerticalScrollIndicator = NO;
-    
     [self.myRemmendTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
     [self.myRemmendTableView registerNib:[UINib nibWithNibName:@"DLMyRemmendCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
-
     [self.view addSubview:self.myRemmendTableView];
-    
     
     [self.myRemmendTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
@@ -128,13 +122,13 @@ static NSString *nibCellID = @"cellID";
 
 {
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"id":self.remmendId,
                             @"sign_token" : [DLUtils getSign_token],
                             };
 
     [DLHomeViewTask getAgencyFinanceMyRecommendDel:param completion:^(id result, NSError *error) {
+        [self updateView];
         
     }];
 

@@ -36,10 +36,8 @@
 }
 
 -(void)setUI{
-    
     self.title = @"供应商查询";
     self.view.backgroundColor = [UIColor ms_backgroundColor];
-
 }
 
 -(void)fetchData{
@@ -48,17 +46,12 @@
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token]
                             };
-    
     [DLHomeViewTask getAgencyPersonalProviderQuery:param completion:^(id result, NSError *error) {
-        
         NSLog(@"%@",result);
-        
     }];
 }
 
-
 - (IBAction)searchBtnClick:(id)sender {
-    
     
 }
 

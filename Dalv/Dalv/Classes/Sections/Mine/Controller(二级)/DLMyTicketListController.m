@@ -22,14 +22,13 @@ static NSString *cellID = @"cellID";
 @implementation DLMyTicketListController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setUI];
     [self setTableView];
     [self.ticketsTableView ms_beginRefreshing:self
                                    headerAction:@selector(fetchNewData)
                                    footerAction:@selector(fetchMoreData)];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,23 +58,14 @@ static NSString *cellID = @"cellID";
     self.ticketsTableView.showsVerticalScrollIndicator = NO;
     
     [self.ticketsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
     [self.ticketsTableView registerClass:[DLMyTicketCell class] forCellReuseIdentifier:cellID];
-
-    
-    
     [self.view addSubview:self.ticketsTableView];
-
-    
     [self.ticketsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
     }];
-    
-    
-
 }
 
 #pragma mark ------------- fetchData --------------
@@ -90,8 +80,6 @@ static NSString *cellID = @"cellID";
     self.pageIndex++;
     [self fetchData];
 }
-
-
 
 
 -(void)fetchData{

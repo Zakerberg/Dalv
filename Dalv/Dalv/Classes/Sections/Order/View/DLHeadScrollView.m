@@ -27,9 +27,17 @@
     if (self) {
         
 #warning 下次添加签证和wifi把下面注释打开
-//      self.headArray = @[@"线路订单",@"机票订单",@"wifi订单",@"签证订单"];
-        self.headArray = @[@"线路订单",@"机票订单"];
+        //self.headArray = @[@"线路订单",@"机票订单",@"wifi订单",@"签证订单"];
+        if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
+        {
+            self.headArray = @[@"线路订单",@"机票订单"];
+            
+        }else{ // C只有机票订单 !
+            
+            self.headArray = @[@"机票订单"];
+        }
         self.showsHorizontalScrollIndicator = NO;
+        
         [self createUI];
     }
     return self;

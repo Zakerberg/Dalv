@@ -321,6 +321,7 @@
 		458CB5991EDE5FE70001084D /* ZYInputAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458CB5961EDE5FE70001084D /* ZYInputAlertView.xib */; };
 		458CB59C1EDE8EB60001084D /* DLChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */; };
 		458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */; };
+		459453E21F1477480004A36F /* DLLineQueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 459453E11F1477480004A36F /* DLLineQueryCell.m */; };
 		45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */; };
 		45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */; };
 		45A321C11EF1199700325683 /* DLLineOrderDetailXibController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */; };
@@ -862,6 +863,8 @@
 		458CB59B1EDE8EB60001084D /* DLChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLChangePasswordController.m; sourceTree = "<group>"; };
 		458CB5B21EDFB6880001084D /* DLsupplierQueryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLsupplierQueryModel.h; sourceTree = "<group>"; };
 		458CB5B31EDFB6880001084D /* DLsupplierQueryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLsupplierQueryModel.m; sourceTree = "<group>"; };
+		459453E01F1477480004A36F /* DLLineQueryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineQueryCell.h; sourceTree = "<group>"; };
+		459453E11F1477480004A36F /* DLLineQueryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineQueryCell.m; sourceTree = "<group>"; };
 		45A321BA1EF1195000325683 /* DLLineOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailModel.h; sourceTree = "<group>"; };
 		45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderDetailModel.m; sourceTree = "<group>"; };
 		45A321BD1EF1199700325683 /* DLLineOrderDetailXibController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailXibController.h; sourceTree = "<group>"; };
@@ -1108,8 +1111,6 @@
 			children = (
 				1CB770861ECFE00100F6EFDF /* DLGeneralController.h */,
 				1CB770871ECFE00100F6EFDF /* DLGeneralController.m */,
-				1CB770881ECFE00100F6EFDF /* DLLineQueryController.h */,
-				1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */,
 				1CB7708A1ECFE00100F6EFDF /* DLMineCenterController.h */,
 				1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */,
 				1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */,
@@ -1130,6 +1131,8 @@
 				45E189281F134D610027DD72 /* DLSupplierQueryController.h */,
 				45E189291F134D610027DD72 /* DLSupplierQueryController.m */,
 				45E1892A1F134D610027DD72 /* DLSupplierQueryController.xib */,
+				1CB770881ECFE00100F6EFDF /* DLLineQueryController.h */,
+				1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1194,6 +1197,8 @@
 				457307C11F0F737A000F39CF /* DLMyRemmendCell.h */,
 				457307C21F0F737A000F39CF /* DLMyRemmendCell.m */,
 				457307C31F0F737A000F39CF /* DLMyRemmendCell.xib */,
+				459453E01F1477480004A36F /* DLLineQueryCell.h */,
+				459453E11F1477480004A36F /* DLLineQueryCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2488,6 +2493,7 @@
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
 				1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */,
 				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
+				459453E21F1477480004A36F /* DLLineQueryCell.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */,
 				1CB954201ECFCAB300BDC2D3 /* DLBasePickerView.m in Sources */,

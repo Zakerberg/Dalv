@@ -101,9 +101,7 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderTableView.showsVerticalScrollIndicator = NO;
     
     [self.lineOrderTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
     [self.view addSubview:self.lineOrderTableView];
-    
     [self.lineOrderTableView registerNib:[UINib nibWithNibName:@"DLLineOrderXibCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     
     [self.lineOrderTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -138,8 +136,8 @@ static NSString *nibCellID = @"nibCellID";
                             };
     
     if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
-        
     {
+        
     @weakify(self);
     [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
         @strongify(self);
@@ -154,14 +152,13 @@ static NSString *nibCellID = @"nibCellID";
         }
     }];
 
-    }else{ // C
+    }else{ // C  机票订单
         
         
         
         
         
     }
-
 }
 
 #pragma mark ------ UITable View Delegate 

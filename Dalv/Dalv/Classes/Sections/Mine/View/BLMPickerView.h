@@ -11,9 +11,7 @@
 @protocol BLMPickerDelegate <NSObject>
 
 @optional
-
 - (void)PickerSelectorIndixString:(NSString *)str;
-
 @end
 
 typedef NS_ENUM(NSInteger, ARRAYTYPE) {
@@ -22,13 +20,8 @@ typedef NS_ENUM(NSInteger, ARRAYTYPE) {
 };
 
 @interface BLMPickerView : UIView
-
 @property (nonatomic, assign) ARRAYTYPE arrayType;
-
 @property (nonatomic, strong) NSArray *customArr;
-
 @property (nonatomic,strong)UILabel *selectLb;
-
 @property (nonatomic,weak)id <BLMPickerDelegate> delegate;
-
 @end

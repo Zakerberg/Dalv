@@ -13,6 +13,7 @@
 #import "DLSupplierQueryController.h"
 #import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
+#import "DLLineQueryController.h"
 #import "DLMyAgencyController.h"
 #import "UIImage+ZipAndLength.h"
 #import "DLRemmendController.h"
@@ -201,7 +202,7 @@ static NSString *cellID  = @"cellID";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if([[DLUtils getUser_type] isEqualToString:@"4"]){
-        return 5;
+        return 6;
     }
     return 3;
 }
@@ -234,9 +235,14 @@ static NSString *cellID  = @"cellID";
         }else if (indexPath.row == 4){
             
             cell.imageView.image = [UIImage imageNamed:@"universal_property"];
+            cell.textLabel.text = @"线路询价";
+           
+        }else if (indexPath.row == 5){
+            
+            cell.imageView.image = [UIImage imageNamed:@"universal_property"];
             cell.textLabel.text = @"通用";
         }
-        
+
     }else{ /// C
         
         if (indexPath.row == 0) {
@@ -283,10 +289,16 @@ static NSString *cellID  = @"cellID";
             DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
             [self.navigationController pushViewController:supplierVC animated:YES];
             
-        }else if (indexPath.row == 3){ /// 通用
+        }else if (indexPath.row == 4){ /// 线路询价
+            
+            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
+            [self.navigationController pushViewController:lineQueryVC animated:YES];
+            
+        }else if (indexPath.row == 5){ /// 通用
             
             DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
             [self.navigationController pushViewController:genralVC animated:YES];
+
         }
         
     }else{ /// C
