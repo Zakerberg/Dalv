@@ -21,21 +21,18 @@
 #import "BLM_UploadUserIcon.h"
 #import "UIButton+WebCache.h"
 
-static NSString *cellID  = @"cellID";
 @interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
-//@property(nonatomic,strong) UIButton * personBtn;
 @property (strong,nonatomic) UILabel* nameLabel;
 @property(nonatomic,strong) UIImageView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
 @property(nonatomic,strong) UILabel *label;
 @property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
-//@property (weak, nonatomic) HeadView * myView;
-@property(nonatomic,strong) NSString * nameStr;
 @end
 
+static NSString *cellID  = @"cellID";
 @implementation DLMineCenterController
 
 - (void)viewDidLoad {
@@ -45,6 +42,7 @@ static NSString *cellID  = @"cellID";
     [self fetchData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeDataNoti:) name:@"changeData" object:nil];
 }
+
 - (BOOL)dl_blueNavbar {
     return YES;
 }
@@ -54,13 +52,12 @@ static NSString *cellID  = @"cellID";
     return YES;
 }
 
-
 -(void)changeDataNoti:(NSNotification *)notification
 
 {
-    self.nameLabel.text = self.nameStr;
+   
+    
 }
-
 
 //移除通知
 -(void)dealloc
@@ -150,7 +147,8 @@ static NSString *cellID  = @"cellID";
 
 -(void)fetchData{
     
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+    NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
     if([[DLUtils getUser_type] isEqualToString:@"4"])/// 顾问
@@ -235,10 +233,12 @@ static NSString *cellID  = @"cellID";
     if ([[DLUtils getUser_type] isEqualToString:@"4"]) { /// 顾问
         
         if (indexPath.row == 0) {
+            
             cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
             cell.textLabel.text = @"修改个人资料";
             
         }else if (indexPath.row == 1){
+            
             cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
             cell.textLabel.text = @"我的直客";
             
@@ -320,7 +320,6 @@ static NSString *cellID  = @"cellID";
             
             DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
             [self.navigationController pushViewController:genralVC animated:YES];
-
         }
         
     }else{ /// C
@@ -328,7 +327,6 @@ static NSString *cellID  = @"cellID";
         if (indexPath.row == 0){ /// 修改个人资料
             
             DLCustomerChangePersonDataController *changeDataVC = [[DLCustomerChangePersonDataController alloc] init];
-            self.nameStr = changeDataVC.nameTF.text;
             [self.navigationController pushViewController:changeDataVC animated:YES];
             
         }else if (indexPath.row == 1){ /// 我的直客

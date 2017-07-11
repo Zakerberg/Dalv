@@ -14,31 +14,21 @@
 
 @interface DLPersonalChangeDataController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,BLMPickerDelegate>
 
-@property(nonatomic,strong) UITableView * personalDataTableView;
+@property (nonatomic,strong) UITableView * personalDataTableView;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath;
 @property (weak,nonatomic) UITableViewCell* cell;
 @property (weak,nonatomic) DLPersonalChangeDataCell* personalCell;
-@property(nonatomic,strong) UILabel *label;
-/// 昵称
-@property (weak, nonatomic) UITextField *nickNameTF;
-/// 标签
-@property (weak, nonatomic) UITextField *noteLabelTF;
-/// 邮箱
-@property (weak, nonatomic) UITextField *mailTF;
-/// 年龄
-@property (weak, nonatomic) UITextField *ageTF;
-/// 去过的城市textView
-@property (weak, nonatomic) UITextView *goCityView;
-/// 名字
-@property (weak, nonatomic) UILabel *nameLabel;
-/// 手机号
-@property (weak, nonatomic) UILabel *numLabel;
-/// sex
-@property(nonatomic,strong) UILabel * sexLabel;
-/// workTime
-/// 年龄
-@property (weak, nonatomic) UITextField *workTimeTF;
-@property(nonatomic,strong) NSString * sexStr;
+@property (nonatomic,strong) UILabel *label;
+@property (weak, nonatomic) UITextField *nickNameTF;/// 昵称
+@property (weak, nonatomic) UITextField *noteLabelTF;/// 标签
+@property (weak, nonatomic) UITextField *mailTF;/// 邮箱
+@property (weak, nonatomic) UITextField *ageTF;/// 年龄
+@property (weak, nonatomic) UITextView *goCityView;/// 去过的城市textView
+@property (weak, nonatomic) UILabel *nameLabel;/// 名字
+@property (weak, nonatomic) UILabel *numLabel;/// 手机号
+@property (nonatomic,strong) UILabel * sexLabel;/// sex
+@property (weak, nonatomic) UITextField *workTimeTF;/// workTime
+@property (nonatomic,strong) NSString * sexStr;
 @end
 
 static NSString *cellID = @"cellID";
@@ -50,7 +40,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
     [self setUI];
     [self setTableView];
     [self fetchData];
-    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -64,16 +53,13 @@ static NSString *tableViewCellID = @"tableViewCellID";
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"4d65f3"];
 }
 
-
 -(void)setTableView {
     
     self.personalDataTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.personalDataTableView.dataSource = self;
     self.personalDataTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.personalDataTableView.delegate = self;
-    
     [self.personalDataTableView registerClass:[DLPersonalChangeDataCell class] forCellReuseIdentifier:cellID];
-    
     [self.personalDataTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewCellID];
     
     [self.view addSubview:self.personalDataTableView];
@@ -104,10 +90,8 @@ static NSString *tableViewCellID = @"tableViewCellID";
 -(void)fetchData{
     
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
-                            
                             };
     
     [DLHomeViewTask getAgencyPersonalPageSetUp:param completion:^(id result, NSError *error) {
@@ -136,7 +120,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
     }];
 }
 
-
 ///  保存
 -(void)completeClick {
     
@@ -151,7 +134,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
         }
         
         NSDictionary *param = @{
-                                
                                 @"uid":[DLUtils getUid],
                                 @"sign_token" : [DLUtils getSign_token],
                                 @"nick_name":self.nickNameTF.text,
@@ -177,9 +159,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
         [alertPhoneNum show];
         
         self.mailTF.text = nil;
-        
     }
-    
 }
 
 #pragma mark ----- UITableView Delegate

@@ -120,7 +120,6 @@ static NSString *cell1ID = @"cell1ID";
         [DLHomeViewTask getTouristPersonPageDataHandle:param completion:^(id result, NSError *error) {
             NSLog(@"修改成功!");
             
-            
             //发送通知
             [[NSNotificationCenter defaultCenter] postNotificationName:@"changeData" object:nil];
             
