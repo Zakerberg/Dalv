@@ -330,6 +330,7 @@
 		45A321CE1EF256E000325683 /* DLMyCustomerXibController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321CC1EF256E000325683 /* DLMyCustomerXibController.xib */; };
 		45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321D01EF26A2C00325683 /* DLCustomerListModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
+		45BAC6411F1615880057A141 /* DLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BAC6401F1615880057A141 /* DLShareView.m */; };
 		45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB41981EF799D7003AB961 /* UIButton+WebCache.m */; };
 		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
 		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
@@ -879,6 +880,8 @@
 		45A321CF1EF26A2C00325683 /* DLCustomerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLCustomerListModel.h; sourceTree = "<group>"; };
 		45A321D01EF26A2C00325683 /* DLCustomerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLCustomerListModel.m; sourceTree = "<group>"; };
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45BAC63F1F1615880057A141 /* DLShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShareView.h; sourceTree = "<group>"; };
+		45BAC6401F1615880057A141 /* DLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShareView.m; sourceTree = "<group>"; };
 		45BB41971EF799D7003AB961 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
 		45BB41981EF799D7003AB961 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
@@ -1400,6 +1403,7 @@
 		1CB9532A1ECFC41600BDC2D3 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				45BAC63E1F16156C0057A141 /* Share */,
 				1CB7707F1ECFE00100F6EFDF /* Mine */,
 				1CB9532B1ECFC41600BDC2D3 /* Fiance */,
 				1CB9532F1ECFC41600BDC2D3 /* Home */,
@@ -2066,6 +2070,15 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
+		45BAC63E1F16156C0057A141 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				45BAC63F1F1615880057A141 /* DLShareView.h */,
+				45BAC6401F1615880057A141 /* DLShareView.m */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		45CF21941F00BD1C00F054A1 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -2402,6 +2415,7 @@
 				45305A3E1ED832CA0023E892 /* DLFeedBackController.m in Sources */,
 				1CB953F51ECFC7E200BDC2D3 /* UIColor+MSExtension.m in Sources */,
 				45EF39AA1F09DE6B00A5010A /* DLCustomerChangePersonDataController.m in Sources */,
+				45BAC6411F1615880057A141 /* DLShareView.m in Sources */,
 				45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */,
 				1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */,
 				1C422BC31F00AFD0004EB57F /* PYSearchConst.m in Sources */,
