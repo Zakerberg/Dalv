@@ -18,6 +18,10 @@
 #import "FLEX.h"
 #endif
 
+#define SinaAppKey "467298458"
+#define SinaAppSecret "e7a353024736af26107f67f45d628566"
+
+
 @interface AppDelegate ()
 
 @end

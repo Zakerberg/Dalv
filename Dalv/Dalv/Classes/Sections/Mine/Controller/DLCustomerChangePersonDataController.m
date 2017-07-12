@@ -91,7 +91,7 @@ static NSString *cell1ID = @"cell1ID";
         [dict[@"name"] isEqualToString:@"0"] ? self.nameTF.text = @"未设置" : (self.nameTF.text = dict[@"name"]);
         [dict[@"qq"] isEqualToString:@"0"] ? self.QQTF.text = @"未设置" : (self.QQTF.text = dict[@"qq"]);
         [dict[@"sex"] isEqualToString:@"0"] ? self.sexLabel.text = @"未设置" : (self.sexLabel.text = dict[@"sex"]);
-        [dict[@"mail"] isEqualToString:@"0"] ? self.mailTF.text = @"未设置" : (self.mailTF.text = dict[@"mail"]);
+        [dict[@"email"] isEqualToString:@"0"] ? self.mailTF.text = @"未设置" : (self.mailTF.text = dict[@"email"]);
     }];
 }
 
@@ -130,7 +130,7 @@ static NSString *cell1ID = @"cell1ID";
         
     }
     
-//    else{
+//   else{
 //        
 //        UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的邮箱有误,请重新输入" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
 //        [alertPhoneNum show];
