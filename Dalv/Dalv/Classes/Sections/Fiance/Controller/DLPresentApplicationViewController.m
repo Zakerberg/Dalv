@@ -155,7 +155,7 @@
     
     self.priceTextField = [[UITextField alloc] init];
     self.priceTextField.font = [UIFont systemFontOfSize:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.priceTextField.placeholder = [NSString stringWithFormat:@"可转出金额：%@",self.balancelPriceLabel.text];
     self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;

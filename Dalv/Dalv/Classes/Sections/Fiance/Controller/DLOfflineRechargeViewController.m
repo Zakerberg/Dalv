@@ -244,7 +244,7 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
     
     self.priceTextField = [[UITextField alloc] init];
     self.priceTextField.font = [UIFont systemFontOfSize:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.priceTextField.placeholder = @"请输入充值的金额";
     self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;

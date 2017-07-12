@@ -280,5 +280,8 @@
 ///79 测试普通用户个人中心-我的顾问（未绑定）详情页地址接口
 #define DL_TouristPersonalAgencyDetails  DL_HOST@"index.php/TouristApi/TouristPersonal/agencyDetails"
 
+///80 测试财务中心微信App充值接口
+#define DL_WxpayAppDopa  DL_HOST@"index.php/Api/wxpayApp/dopay"
+
 
 #endif /* InterfaceConfig_h */
