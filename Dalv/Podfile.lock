@@ -60,7 +60,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.8.1)
   - SVProgressHUD
   - UMengSocial
-  - WechatOpenSDK
+  - WechatOpenSDK (~> 1.7.8)
   - YYModel
 
 SPEC CHECKSUMS:
@@ -81,6 +81,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: ad1e7be1b66416df847ac50830c798b70c9e365e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: f23c2aa4cec5cb1b20e3b1cbdae60463ff8d2ad2
+PODFILE CHECKSUM: fc83672afcf386c2adc24fcc50abeca50176b3c6
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

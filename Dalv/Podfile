@@ -28,6 +28,6 @@ pod 'NullSafe'
 #pod 'UMengUShare/UI'
 
 pod 'UMengSocial'
-pod 'WechatOpenSDK'
+pod 'WechatOpenSDK',   '~> 1.7.8'
 
 end
