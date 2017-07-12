@@ -52,6 +52,7 @@ PODS:
     - UMengUShare/Core
   - UMengUShare/UI (6.4.5):
     - UMengUShare/Core
+  - WechatOpenSDK (1.7.8)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - UMengUShare/Social/ReducedWeChat
   - UMengUShare/Social/SMS
   - UMengUShare/UI
+  - WechatOpenSDK
   - YYModel
 
 SPEC CHECKSUMS:
@@ -89,8 +91,9 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   UMengUShare: a5711c54e640b04e3048e931d2b88d50f9cfa55c
+  WechatOpenSDK: ad1e7be1b66416df847ac50830c798b70c9e365e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 91385ae36e801d4cbd4ad01d5c2065bc66b5d2af
+PODFILE CHECKSUM: 06fe8521fdc9b44cfc9a5e0baababedeb7f9fc6f
 
 COCOAPODS: 1.1.1

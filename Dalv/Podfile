@@ -30,4 +30,6 @@ pod 'UMengUShare/Social/ReducedWeChat'
 pod 'UMengUShare/Social/ReducedSina'
 pod 'UMengUShare/Social/SMS'
 
+pod 'WechatOpenSDK'
+
 end

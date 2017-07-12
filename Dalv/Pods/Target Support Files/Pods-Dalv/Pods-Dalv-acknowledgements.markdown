@@ -325,6 +325,11 @@ respective headers for the terms of their individual licenses.
 Copyright 2011 - 2017 UMeng.com. All rights reserved.
 
 
+## WechatOpenSDK
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
 ## YYModel
 
 The MIT License (MIT)
