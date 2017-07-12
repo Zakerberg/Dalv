@@ -92,7 +92,6 @@ static NSString *nibCellID = @"cellID";
 -(void)fetchData{
     
     NSDictionary *param = @{
-                            
                             @"uid":[DLUtils getUid],
                             @"page": @(self.pageIndex),
                             @"sign_token" : [DLUtils getSign_token],
