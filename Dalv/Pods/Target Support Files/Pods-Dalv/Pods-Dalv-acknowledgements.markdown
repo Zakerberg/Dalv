@@ -320,9 +320,9 @@ including Freepik Icons. Please consult their
 respective headers for the terms of their individual licenses.
 
 
-## UMengUShare
+## UMengSocial
 
-Copyright 2011 - 2017 UMeng.com. All rights reserved.
+Copyright 2011 - 2016 UMeng.com. All rights reserved.
 
 
 ## WechatOpenSDK

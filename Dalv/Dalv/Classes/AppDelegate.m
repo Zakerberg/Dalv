@@ -13,8 +13,6 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLUtils.h"
 #import "DLAdvertisingController.h"
-#import <UMSocialCore/UMSocialCore.h>
-#import <UShareUI/UShareUI.h>
 
 #if DEBUG
 #import "FLEX.h"
@@ -60,10 +58,10 @@
     [self.window makeKeyAndVisible];
     
     /* 打开调试日志 */
-    [[UMSocialManager defaultManager] openLog:YES];
+  //  [[UMSocialManager defaultManager] openLog:YES];
     
     /* 设置友盟appkey */
-    [[UMSocialManager defaultManager] setUmSocialAppkey:UM_APPKEY];
+    //[[UMSocialManager defaultManager] setUmSocialAppkey:UM_APPKEY];
     
     [self configUSharePlatforms];
     [self confitUShareSettings];
@@ -297,7 +295,7 @@
 - (void)confitUShareSettings
 {
     // 打开图片水印
-    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+   // [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
 }
 
 - (void)configUSharePlatforms
@@ -305,7 +303,7 @@
     /*
      设置微信的appKey和appSecret
      */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WECHAT_APPKEY appSecret:WECHAT_APPSECRET redirectURL:nil];
+    //[[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WECHAT_APPKEY appSecret:WECHAT_APPSECRET redirectURL:nil];
     /*
      
      * 移除相应平台的分享，如微信收藏
@@ -316,54 +314,54 @@
     /*
      设置新浪的appKey和appSecret
      */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:SINA_APPKEY  appSecret:SINA_APPSECRET redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
+   // [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:SINA_APPKEY  appSecret:SINA_APPSECRET redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 }
 
 // 支持所有iOS系统
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
     //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
-    if (!result) {
+   // BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    //if (!result) {
         // 其他如支付等SDK的回调
-    }
-    return result;
-}
+   // }
+///return result;
+//}
 
-- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
-{
-    //创建分享消息对象
-    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    
-    //创建网页内容对象
-    NSString* thumbURL =  @"";
-    
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"" descr:@"" thumImage:thumbURL];
-    //设置网页地址
-    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
-    
-    //分享消息对象设置分享内容对象
-    messageObject.shareObject = shareObject;
-    
-    //调用分享接口
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-        if (error) {
-            UMSocialLogInfo(@"************Share fail with error %@*********",error);
-        }else{
-            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                UMSocialShareResponse *resp = data;
-                //分享结果消息
-                UMSocialLogInfo(@"response message is %@",resp.message);
-                //第三方原始返回的数据
-                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-                
-            }else{
-                UMSocialLogInfo(@"response data is %@",data);
-            }
-        }
-        //[self alertWithError:error];
-    }];
-}
+//- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+//{
+//    //创建分享消息对象
+//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+//    
+//    //创建网页内容对象
+//    NSString* thumbURL =  @"";
+//    
+//    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"" descr:@"" thumImage:thumbURL];
+//    //设置网页地址
+//    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
+//    
+//    //分享消息对象设置分享内容对象
+//    messageObject.shareObject = shareObject;
+//    
+//    //调用分享接口
+//    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+//        if (error) {
+//            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+//        }else{
+//            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+//                UMSocialShareResponse *resp = data;
+//                //分享结果消息
+//                UMSocialLogInfo(@"response message is %@",resp.message);
+//                //第三方原始返回的数据
+//                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+//                
+//            }else{
+//                UMSocialLogInfo(@"response data is %@",data);
+//            }
+//        }
+//        //[self alertWithError:error];
+//    }];
+//}
 
 
 
