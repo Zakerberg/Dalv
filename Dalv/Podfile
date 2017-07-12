@@ -25,4 +25,9 @@ pod 'SVProgressHUD'
 pod 'NullSafe'
 
 
+pod 'UMengUShare/UI'
+pod 'UMengUShare/Social/ReducedWeChat'
+pod 'UMengUShare/Social/ReducedSina'
+pod 'UMengUShare/Social/SMS'
+
 end

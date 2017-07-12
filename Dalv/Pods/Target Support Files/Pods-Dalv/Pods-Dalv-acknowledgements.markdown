@@ -106,7 +106,7 @@ SOFTWARE.
 
 ## MBProgressHUD
 
-Copyright (c) 2009-2015 Matej Bukovinski
+Copyright © 2009-2016 Matej Bukovinski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -318,6 +318,11 @@ OTHER DEALINGS IN THE SOFTWARE.
 A different license may apply to other resources included in this package, 
 including Freepik Icons. Please consult their 
 respective headers for the terms of their individual licenses.
+
+
+## UMengUShare
+
+Copyright 2011 - 2017 UMeng.com. All rights reserved.
 
 
 ## YYModel
