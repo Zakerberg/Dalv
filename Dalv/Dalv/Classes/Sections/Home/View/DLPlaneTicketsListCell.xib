@@ -85,11 +85,17 @@
                             <constraint firstAttribute="height" constant="1" id="1pw-8T-cJb"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国东方航空公司mu5112 773" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-za-BEx">
-                        <rect key="frame" x="7" y="116" width="166" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国东方航空公司 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-za-BEx">
+                        <rect key="frame" x="7" y="116" width="101.5" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="UsL-Q1-9UD"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mu5112" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZb-yN-W32">
+                        <rect key="frame" x="108.5" y="115.5" width="43.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -104,12 +110,19 @@
                             <action selector="detailBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="y9B-Ve-K3I"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="738" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bw-sJ-wdh">
+                        <rect key="frame" x="160" y="115" width="22" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="ULf-n6-tRc" firstAttribute="centerY" secondItem="Gxg-zF-0he" secondAttribute="centerY" id="AUi-kN-2yV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="saJ-tZ-QDo" secondAttribute="bottom" constant="22" id="C3G-MY-2QM"/>
                     <constraint firstItem="ULf-n6-tRc" firstAttribute="top" secondItem="mKr-1c-BNl" secondAttribute="top" id="Es2-Q9-QCd"/>
+                    <constraint firstItem="7Bw-sJ-wdh" firstAttribute="centerY" secondItem="ZZb-yN-W32" secondAttribute="centerY" id="G2G-NR-jjN"/>
                     <constraint firstItem="UzO-za-BEx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="K2U-D6-FJw"/>
                     <constraint firstItem="zyy-y9-jsE" firstAttribute="top" secondItem="saJ-tZ-QDo" secondAttribute="bottom" constant="10" id="NJu-6G-Efx"/>
                     <constraint firstItem="zyy-y9-jsE" firstAttribute="top" secondItem="UzO-za-BEx" secondAttribute="top" id="R2n-fy-d8l"/>
@@ -118,8 +131,11 @@
                     <constraint firstAttribute="trailing" secondItem="zyy-y9-jsE" secondAttribute="trailing" constant="7" id="bN8-cx-JB9"/>
                     <constraint firstItem="Gxg-zF-0he" firstAttribute="leading" secondItem="mKr-1c-BNl" secondAttribute="trailing" constant="54" id="dEV-aR-XyH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="saJ-tZ-QDo" secondAttribute="trailing" id="e7r-Gh-NfJ"/>
+                    <constraint firstItem="7Bw-sJ-wdh" firstAttribute="leading" secondItem="ZZb-yN-W32" secondAttribute="trailing" constant="8" id="hMm-2F-mvS"/>
                     <constraint firstItem="zyy-y9-jsE" firstAttribute="bottom" secondItem="UzO-za-BEx" secondAttribute="bottom" id="jkC-Hg-b0u"/>
                     <constraint firstItem="ULf-n6-tRc" firstAttribute="leading" secondItem="Gxg-zF-0he" secondAttribute="trailing" constant="57" id="l6l-w7-dBd"/>
+                    <constraint firstItem="ZZb-yN-W32" firstAttribute="centerY" secondItem="UzO-za-BEx" secondAttribute="centerY" id="nk8-oC-iLN"/>
+                    <constraint firstItem="ZZb-yN-W32" firstAttribute="leading" secondItem="UzO-za-BEx" secondAttribute="trailing" id="omQ-1b-QwW"/>
                     <constraint firstItem="Gxg-zF-0he" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yTC-mO-wHi"/>
                 </constraints>
             </tableViewCellContentView>
@@ -128,10 +144,12 @@
                 <outlet property="arrivePlaceLabel" destination="GIW-bW-Epd" id="bFY-ng-bpm"/>
                 <outlet property="arriveTimeLabel" destination="y7y-5P-PLt" id="g7A-hh-qbu"/>
                 <outlet property="detailBtn" destination="zyy-y9-jsE" id="MFg-6u-BGy"/>
+                <outlet property="flightNo" destination="ZZb-yN-W32" id="epz-l7-jX3"/>
+                <outlet property="planeType" destination="7Bw-sJ-wdh" id="v0Q-RJ-tP6"/>
                 <outlet property="startPlaceLabel" destination="4t7-Gd-rtb" id="60g-cg-Pxp"/>
                 <outlet property="startTimeLabel" destination="nxC-uJ-wAs" id="iUh-A0-vwu"/>
             </connections>
-            <point key="canvasLocation" x="37" y="53"/>
+            <point key="canvasLocation" x="-183" y="119"/>
         </tableViewCell>
     </objects>
 </document>

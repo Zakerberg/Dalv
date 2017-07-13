@@ -55,32 +55,61 @@
 */
 
 @interface DLPlaneListDetailModel : NSObject
-@property(nonatomic,copy) NSString *date; /// 机票日期
-@property(nonatomic,copy) NSString *depname; /// 出发城市
-@property(nonatomic,copy) NSString *depTime; /// 出发时间（12:50）
-@property(nonatomic,copy) NSString *arrDate; /// 出发日期
-@property(nonatomic,copy) NSString *arrname; /// 到达城市
-@property(nonatomic,copy) NSString *arriTime; /// 到达时间（16:05）
-@property(nonatomic,copy) NSString *flightNo; /// 航班号
-@property(nonatomic,copy) NSString *flightNoLetter; /// 航班号截取前两位
-@property(nonatomic,copy) NSString *planeType; /// 机型
-@property(nonatomic,copy) NSString *dstJetquay; /// 到达航站楼
-@property(nonatomic,copy) NSString *orgJetquay; /// 出发航站楼
-@property(nonatomic,copy) NSString *fuelTax; /// 燃油费
-@property(nonatomic,copy) NSString *airportTax; /// 基建费
-@property(nonatomic,assign) BOOL share; /// 是否共享
-@property(nonatomic,copy) NSString *stop; /// 经停次数
-@property(nonatomic,copy) NSString *day; /// 抵达日期
-@property(nonatomic,copy) NSString *days; /// 抵达日期拼接出发时间
-@property(nonatomic,copy) NSString *planeId; /// 仓位数组的key
-@property(nonatomic,copy) NSString *seatMsg; /// 仓位说明
-@property(nonatomic,copy) NSString *ticketnum; /// 仓位状态
-@property(nonatomic,copy) NSString *agio; /// 折扣
-@property(nonatomic,copy) NSString *seatCode; /// 仓位码
-@property(nonatomic,copy) NSString *policyId; /// 政策ID
-@property(nonatomic,copy) NSString *commisionMoney; /// 返现金额，web端暂未使用该字段
-@property(nonatomic,copy) NSString *needSwitchPNR; /// 是否更换PNR（1更换）
-@property(nonatomic,copy) NSString *parPrice; /// 票面价
-@property(nonatomic,copy) NSString *settlePrice; /// 成人的结算价
-@property(nonatomic,copy) NSString *earnPrice; /// 顾问所赚的利润
+/// 机票日期
+@property(nonatomic,copy) NSString *date;
+/// 出发城市
+@property(nonatomic,copy) NSString *depname;
+/// 出发时间（12:50）
+@property(nonatomic,copy) NSString *depTime;
+/// 出发日期
+@property(nonatomic,copy) NSString *arrDate;
+/// 到达城市
+@property(nonatomic,copy) NSString *arrname;
+/// 到达时间（16:05）
+@property(nonatomic,copy) NSString *arriTime;
+ /// 航班号
+@property(nonatomic,copy) NSString *flightNo;
+/// 航班号截取前两位
+@property(nonatomic,copy) NSString *flightNoLetter;
+/// 机型
+@property(nonatomic,copy) NSString *planeType;
+/// 到达航站楼
+@property(nonatomic,copy) NSString *dstJetquay;
+/// 出发航站楼
+@property(nonatomic,copy) NSString *orgJetquay;
+/// 燃油费
+@property(nonatomic,copy) NSString *fuelTax;
+/// 基建费
+@property(nonatomic,copy) NSString *airportTax;
+/// 是否共享
+@property(nonatomic,assign) BOOL share;
+/// 经停次数
+@property(nonatomic,copy) NSString *stop;
+/// 抵达日期
+@property(nonatomic,copy) NSString *day;
+/// 抵达日期拼接出发时间
+@property(nonatomic,copy) NSString *days;
+/// 仓位数组的key
+@property(nonatomic,copy) NSString *planeId;
+/// 仓位说明
+@property(nonatomic,copy) NSString *seatMsg;
+/// 仓位状态
+@property(nonatomic,copy) NSString *ticketnum;
+/// 折扣
+@property(nonatomic,copy) NSString *agio;
+/// 仓位码
+@property(nonatomic,copy) NSString *seatCode;
+/// 政策ID
+@property(nonatomic,copy) NSString *policyId;
+/// 返现金额，web端暂未使用该字段
+@property(nonatomic,copy) NSString *commisionMoney;
+/// 是否更换PNR（1更换）
+@property(nonatomic,copy) NSString *needSwitchPNR;
+/// 票面价
+@property(nonatomic,copy) NSString *parPrice;
+/// 成人的结算价
+@property(nonatomic,copy) NSString *settlePrice;
+/// 顾问所赚的利润
+@property(nonatomic,copy) NSString *earnPrice;
+
 @end
