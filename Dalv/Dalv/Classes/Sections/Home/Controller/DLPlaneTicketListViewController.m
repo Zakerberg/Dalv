@@ -12,28 +12,39 @@
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
 @property(nonatomic,strong) NSMutableArray * planeListDataArr;
-
 @end
 
 static NSString *nibCellID = @"nibCellID";
 @implementation DLPlaneTicketListViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     [self setupNavbar];
     [self cofigureheadView];
+    [self fetchData];
 }
 
-
-#pragma mark - Setup navbar
 - (BOOL)dl_blueNavbar {
     return YES;
 }
+
 - (void)setupNavbar {
+    
+#warning 此处不能写死,后期根据返回的数据设定
+    
     self.title = @"机票列表";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
+
+#pragma mark ------- fetchData
+
+-(void)fetchData {
+    
+    
+    
+}
+
+#pragma mark ------- cofigureheadView
 
 - (void)cofigureheadView{
     
@@ -97,6 +108,10 @@ static NSString *nibCellID = @"nibCellID";
     [self setupSubviews];
 }
 
+
+
+#pragma mark ------- setupSubviews
+
 - (void)setupSubviews {
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
@@ -105,7 +120,9 @@ static NSString *nibCellID = @"nibCellID";
     self.planeTicketListTableView.dataSource = self;
     self.planeTicketListTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.planeTicketListTableView.delegate = self;
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.planeTicketListTableView.showsVerticalScrollIndicator = NO;
+    
     [self.planeTicketListTableView registerNib:[UINib nibWithNibName:@"DLPlaneTicketsListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     
     [self.view addSubview:self.planeTicketListTableView];
@@ -119,10 +136,10 @@ static NSString *nibCellID = @"nibCellID";
     
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark ------- UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return self.planeListDataArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -137,9 +154,7 @@ static NSString *nibCellID = @"nibCellID";
     
     
     
-    
-    
-    
+
     
     
     return cell;
@@ -147,7 +162,7 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
-    return 100;
+    return 136;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
