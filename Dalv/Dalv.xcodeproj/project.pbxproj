@@ -282,6 +282,8 @@
 		1CE8D8151EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8D8141EDE9A1D00FFEF8B /* DLLineSchedulingTableViewCell.m */; };
 		1CF3BB241F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */; };
 		1CFA143F1ED473D200387733 /* NSAttributedString+Additon.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */; };
+		45001A421F17235500586B04 /* DLPlaneTicketsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45001A401F17235500586B04 /* DLPlaneTicketsListCell.m */; };
+		45001A431F17235500586B04 /* DLPlaneTicketsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45001A411F17235500586B04 /* DLPlaneTicketsListCell.xib */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */; };
 		450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */; };
@@ -795,6 +797,9 @@
 		1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneTicketListTableViewCell.m; sourceTree = "<group>"; };
 		1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Additon.h"; sourceTree = "<group>"; };
 		1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Additon.m"; sourceTree = "<group>"; };
+		45001A3F1F17235500586B04 /* DLPlaneTicketsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaneTicketsListCell.h; sourceTree = "<group>"; };
+		45001A401F17235500586B04 /* DLPlaneTicketsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneTicketsListCell.m; sourceTree = "<group>"; };
+		45001A411F17235500586B04 /* DLPlaneTicketsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLPlaneTicketsListCell.xib; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
 		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		450F842D1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLMyAgencyUnBindingController.h; path = ../Controller/DLMyAgencyUnBindingController.h; sourceTree = "<group>"; };
@@ -1580,6 +1585,9 @@
 				1CA7E5121EF3C8E2006DC765 /* DLLineDetailsScrollViewTableViewCell.m */,
 				1CF3BB221F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.h */,
 				1CF3BB231F0F375E00F2F6EB /* DLPlaneTicketListTableViewCell.m */,
+				45001A3F1F17235500586B04 /* DLPlaneTicketsListCell.h */,
+				45001A401F17235500586B04 /* DLPlaneTicketsListCell.m */,
+				45001A411F17235500586B04 /* DLPlaneTicketsListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2334,6 +2342,7 @@
 				1CE2C1CA1ED5270E00B898BA /* my@2x.png in Resources */,
 				1C2978FB1EEEAA7400D3FEEA /* fiance_aipay@3x.png in Resources */,
 				1CE2C23D1ED57BE400B898BA /* arrowhead_left@2x.png in Resources */,
+				45001A431F17235500586B04 /* DLPlaneTicketsListCell.xib in Resources */,
 				1CE2C1C41ED5270E00B898BA /* home_highlight@2x.png in Resources */,
 				1CE2C2051ED52BA100B898BA /* invoice_record@2x.png in Resources */,
 				1CE2C2341ED57B1100B898BA /* geographical_position@2x.png in Resources */,
@@ -2524,6 +2533,7 @@
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
 				1C74F6CD1EE923E60012EB10 /* DLRoutePricingTableViewCell.m in Sources */,
 				1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */,
+				45001A421F17235500586B04 /* DLPlaneTicketsListCell.m in Sources */,
 				459453E21F1477480004A36F /* DLLineQueryCell.m in Sources */,
 				1CB953B21ECFC41600BDC2D3 /* DLMenuViewController.m in Sources */,
 				1C2981671EDFE2C400712524 /* DLOnlineRechargeViewController.m in Sources */,
