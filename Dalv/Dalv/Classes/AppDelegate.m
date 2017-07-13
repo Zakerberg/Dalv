@@ -92,40 +92,87 @@
 
 #pragma mark - WXApiDelegate
 
--(void) onReq:(BaseReq*)req{
+- (void)onReq:(BaseReq*)req {
     
 
     
 }
 
--(void) onResp:(BaseResp*)resp{
-    
-    NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-    NSString *strTitle;
-    
-    if(resp.errCode == 0){
-        strTitle = [NSString stringWithFormat:@"分享成功！"];
-        strMsg = @"";
-    } else {
-        strTitle = [NSString stringWithFormat:@"分享失败！"];
-        strMsg = resp.errStr;
+//支付成功时调用，回到第三方应用中
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //    NSLog(@"****************url.host -- %@",url.host);
+    if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"])
+    {
+        return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+    }
+    return YES;
+}
+
+
+- (void)onResp:(BaseResp*)resp {
+    if ([resp isKindOfClass:[PayResp class]]) {
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        NSString *strTitle = @"支付结果";
+        
+        if([resp isKindOfClass:[PayResp class]]){
+            
+            switch (resp.errCode) {
+                case WXSuccess:
+                    strMsg = @"支付结果：成功！";
+                    
+                    break;
+                case WXErrCodeUserCancel:
+                    strMsg = @"支付结果：用户点击取消！";
+                    
+                    break;
+                case WXErrCodeSentFail:
+                    strMsg = @"支付结果：发送失败！";
+                    
+                    break;
+                case WXErrCodeAuthDeny:
+                    strMsg = @"支付结果：授权失败！";
+                    
+                    break;
+                    
+                default:
+                    strMsg = @"支付结果：微信不支持！";
+                    
+                    break;
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    } else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        NSString *strTitle;
+        
+        if(resp.errCode == 0){
+            strTitle = [NSString stringWithFormat:@"分享成功！"];
+            strMsg = @"";
+        } else {
+            strTitle = [NSString stringWithFormat:@"分享失败！"];
+            strMsg = resp.errStr;
+            
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if([resp isKindOfClass:[SendAuthResp class]])
+            {
+                SendAuthResp *aresp = (SendAuthResp *)resp;
+                if (aresp.errCode== 0){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
+                }
+            }
+            
+        }];
+        [alert addAction:action];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        NSLog(@"title = %@ message = %@", strTitle, strMsg);
+        
         
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if([resp isKindOfClass:[SendAuthResp class]])
-        {
-            SendAuthResp *aresp = (SendAuthResp *)resp;
-            if (aresp.errCode== 0){
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
-            }
-        }
-        
-    }];
-    [alert addAction:action];
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-    NSLog(@"title = %@ message = %@", strTitle, strMsg);
-    
+ 
 }
 
 #pragma mark - wechatshare delegate

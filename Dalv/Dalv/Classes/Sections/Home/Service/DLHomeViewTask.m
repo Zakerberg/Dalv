@@ -856,6 +856,17 @@
         failhandler ? failhandler(error) : nil;
         
     }];
+}
+
+
++ (void)getWxpayAppDopa:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST: DL_WxpayAppDopa param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
     
 }
+
 @end

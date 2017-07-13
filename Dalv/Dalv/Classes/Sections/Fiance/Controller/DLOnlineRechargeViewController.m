@@ -7,12 +7,18 @@
 //
 
 #import "DLOnlineRechargeViewController.h"
+#import "DLRechargeRecordViewController.h"
+#import "DLHomeViewTask.h"
+#import "WXApi.h"
+
 static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHeader";
 
 @interface DLOnlineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *onlineRechargeTableView;
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
 @property (nonatomic, strong) UITextField *priceTextField;
+@property (nonatomic,strong) NSMutableDictionary *onlineRechargeDict;
+
 @end
 
 @implementation DLOnlineRechargeViewController
@@ -164,7 +170,7 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
     
     self.priceTextField = [[UITextField alloc] init];
     self.priceTextField.font = [UIFont systemFontOfSize:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.priceTextField.placeholder = @"请输入充值的金额";
     self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -225,18 +231,127 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
 
 - (void)selectRechargeType:(UIButton *)btn {
     
+    if (btn.selected) {
+        return;
+    }
     btn.selected = !btn.selected;
     if (btn.selected) {
         self.selctSection = btn.tag - 1000;
         [self.onlineRechargeTableView reloadData];
         
     }
+}
 
+//限制两位小数点
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.priceTextField.text.length > 10) {
+        return range.location < 11;
+    }else{
+        BOOL isHaveDian = YES;
+        if ([self.priceTextField.text rangeOfString:@"."].location==NSNotFound) {
+            isHaveDian=NO;
+        }
+        if ([string length]>0)
+        {
+        unichar single=[string characterAtIndex:0];//当前输入的字符
+            
+        if ((single >='0' && single<='9') || single=='.')//数据格式正确
+            {
+                //首字母不能为小数点
+        if([self.priceTextField.text length]==0){
+        if(single == '.'){
+        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+        return NO;
+        }
+        }
+        if([self.priceTextField.text length]==1 && [self.priceTextField.text isEqualToString:@"0"]){
+        if(single != '.'){
+        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+        return NO;
+            }
+        }
+        if (single=='.')
+                {
+                    if(!isHaveDian)//text中还没有小数点
+                    {
+                        isHaveDian=YES;
+                        return YES;
+                    } else {
+                        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                        return NO;
+                    }
+                } else {
+                    if (isHaveDian)//存在小数点
+                    {
+                        //判断小数点的位数
+                        NSRange ran = [self.priceTextField.text rangeOfString:@"."];
+                        NSInteger tt = range.location-ran.location;
+                        if (tt <= 2){
+                            return YES;
+                        } else {
+                            return NO;
+                        }
+                    } else {
+                        return YES;
+                    }}
+            } else {//输入的数据格式不正确
+                [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                return NO;
+            }
+        } else {
+            return YES;
+        }
+    }
 }
 
 // 提交
 - (void)submitAnApplication {
-    [[DLHUDManager sharedInstance]showTextOnly:@"在线充值暂未开通 敬请期待...."];
+    
+    if (self.priceTextField.text.length == 0 ) {
+        [[DLHUDManager sharedInstance]showTextOnly:@"请输入充值金额"];
+        return;
+    }
+    
+    if (self.selctSection == 0){
+       if (![WXApi isWXAppInstalled]){
+            [[DLHUDManager sharedInstance]showTextOnly:@"您尚未安装微信客服端"];
+            return;
+        }
+        [[DLHUDManager sharedInstance]showTextOnly:@"正在创建订单"];
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"total" : self.priceTextField.text,
+                                @"topup_type" : @"6",
+                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+        [DLHomeViewTask getWxpayAppDopa:param completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                
+                [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                self.onlineRechargeDict = [result objectForKey:@"result"];
+                PayReq *request = [[PayReq alloc] init];
+                request.partnerId = [self.onlineRechargeDict objectForKey:@"partnerid"];
+                request.prepayId = [self.onlineRechargeDict objectForKey:@"prepayid"];
+                request.package = [self.onlineRechargeDict objectForKey:@"package"];
+                request.nonceStr = [self.onlineRechargeDict objectForKey:@"noncestr"];
+                request.timeStamp = [[self.onlineRechargeDict objectForKey:@"timestamp"] intValue];
+                request.sign = [self.onlineRechargeDict objectForKey:@"sign"];
+                [WXApi sendReq: request];
+                
+                DLRechargeRecordViewController *rechRecVC = [[DLRechargeRecordViewController alloc]init];
+                [self.navigationController pushViewController:rechRecVC animated:YES];
+                
+            }else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+         }];
+    } else if (self.selctSection == 1){
+        
+        [[DLHUDManager sharedInstance]showTextOnly:@"支付宝支付正在拼命开发中"];
 
+        
+    }
 }
 @end
