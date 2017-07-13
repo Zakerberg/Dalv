@@ -287,6 +287,7 @@
 		45001A461F17458B00586B04 /* DLplaneDetaliViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45001A451F17458B00586B04 /* DLplaneDetaliViewController.m */; };
 		45001A4A1F17492900586B04 /* DLplaneTankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45001A481F17492900586B04 /* DLplaneTankCell.m */; };
 		45001A4B1F17492900586B04 /* DLplaneTankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45001A491F17492900586B04 /* DLplaneTankCell.xib */; };
+		45001A4E1F17596E00586B04 /* DLPlaneListDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45001A4D1F17596E00586B04 /* DLPlaneListDetailModel.m */; };
 		450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 450105F21ED9C39100AA7A17 /* DLManagerMessage.m */; };
 		450F842F1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F842E1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.m */; };
 		450F84321EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 450F84311EFD17BC00E2CEE5 /* DLMyAgencyUnBindingCell.m */; };
@@ -808,6 +809,8 @@
 		45001A471F17492900586B04 /* DLplaneTankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLplaneTankCell.h; sourceTree = "<group>"; };
 		45001A481F17492900586B04 /* DLplaneTankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLplaneTankCell.m; sourceTree = "<group>"; };
 		45001A491F17492900586B04 /* DLplaneTankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLplaneTankCell.xib; sourceTree = "<group>"; };
+		45001A4C1F17596E00586B04 /* DLPlaneListDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLPlaneListDetailModel.h; sourceTree = "<group>"; };
+		45001A4D1F17596E00586B04 /* DLPlaneListDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLPlaneListDetailModel.m; sourceTree = "<group>"; };
 		450105F11ED9C39100AA7A17 /* DLManagerMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManagerMessage.h; sourceTree = "<group>"; };
 		450105F21ED9C39100AA7A17 /* DLManagerMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManagerMessage.m; sourceTree = "<group>"; };
 		450F842D1EFD052C00E2CEE5 /* DLMyAgencyUnBindingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLMyAgencyUnBindingController.h; path = ../Controller/DLMyAgencyUnBindingController.h; sourceTree = "<group>"; };
@@ -1543,6 +1546,8 @@
 				1C5828971EF96A32004B4AC1 /* DLPlaceLineOrderModel.m */,
 				1C5CD3B21EFA4BC0009DBC1B /* DLLineModificationModel.h */,
 				1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */,
+				45001A4C1F17596E00586B04 /* DLPlaneListDetailModel.h */,
+				45001A4D1F17596E00586B04 /* DLPlaneListDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2559,6 +2564,7 @@
 				458CB5971EDE5FE70001084D /* UITextView+Placeholder.m in Sources */,
 				45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */,
 				1C8438221ECFCBEB006DF42E /* BLMClearCacheTool.m in Sources */,
+				45001A4E1F17596E00586B04 /* DLPlaneListDetailModel.m in Sources */,
 				45DB480D1EE8E47D00399A6D /* DLContractApplySection4Cell.m in Sources */,
 				45A321CD1EF256E000325683 /* DLMyCustomerXibController.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,

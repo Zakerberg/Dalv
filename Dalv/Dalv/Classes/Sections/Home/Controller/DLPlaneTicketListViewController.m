@@ -18,6 +18,7 @@ static NSString *nibCellID = @"nibCellID";
 @implementation DLPlaneTicketListViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setupNavbar];
     [self cofigureheadView];
@@ -39,6 +40,11 @@ static NSString *nibCellID = @"nibCellID";
 #pragma mark ------- fetchData
 
 -(void)fetchData {
+    
+    
+    
+    
+    
     
     
     
@@ -133,8 +139,25 @@ static NSString *nibCellID = @"nibCellID";
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
+}
+
+#pragma mark -------- BtnClick
+
+-(void)beforfetchData {
+    
+    
+    
     
 }
+
+-(void)afterfetchData {
+    
+    
+    
+    
+}
+
+
 
 #pragma mark ------- UITableViewDelegate
 
