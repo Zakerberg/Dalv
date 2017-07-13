@@ -337,7 +337,7 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
     
     self.priceTextField = [[UITextField alloc] init];
     self.priceTextField.font = [UIFont systemFontOfSize:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.priceTextField.placeholder = @"请输入充值的金额";
     self.priceTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.priceTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -428,6 +428,69 @@ static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableView
         }
     }
     
+}
+
+//限制两位小数点
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.priceTextField.text.length > 10) {
+        return range.location < 11;
+    }else{
+        BOOL isHaveDian = YES;
+        if ([self.priceTextField.text rangeOfString:@"."].location==NSNotFound) {
+            isHaveDian=NO;
+        }
+        if ([string length]>0)
+        {
+            unichar single=[string characterAtIndex:0];//当前输入的字符
+            
+            if ((single >='0' && single<='9') || single=='.')//数据格式正确
+            {
+                //首字母不能为小数点
+                if([self.priceTextField.text length]==0){
+                    if(single == '.'){
+                        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                        return NO;
+                    }
+                }
+                if([self.priceTextField.text length]==1 && [self.priceTextField.text isEqualToString:@"0"]){
+                    if(single != '.'){
+                        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                        return NO;
+                    }
+                }
+                if (single=='.')
+                {
+                    if(!isHaveDian)//text中还没有小数点
+                    {
+                        isHaveDian=YES;
+                        return YES;
+                    } else {
+                        [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                        return NO;
+                    }
+                } else {
+                    if (isHaveDian)//存在小数点
+                    {
+                        //判断小数点的位数
+                        NSRange ran = [self.priceTextField.text rangeOfString:@"."];
+                        NSInteger tt = range.location-ran.location;
+                        if (tt <= 2){
+                            return YES;
+                        } else {
+                            return NO;
+                        }
+                    } else {
+                        return YES;
+                    }}
+            } else {//输入的数据格式不正确
+                [self.priceTextField.text stringByReplacingCharactersInRange:range withString:@""];
+                return NO;
+            }
+        } else {
+            return YES;
+        }
+    }
 }
 
 // 提交
