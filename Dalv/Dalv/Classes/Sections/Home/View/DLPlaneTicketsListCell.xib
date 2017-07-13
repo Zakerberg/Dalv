@@ -71,7 +71,7 @@
                             <constraint firstItem="GIW-bW-Epd" firstAttribute="leading" secondItem="ULf-n6-tRc" secondAttribute="leading" id="jv1-tk-0dp"/>
                         </constraints>
                     </stackView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-zF-0he">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="飞机箭头白色" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-zF-0he">
                         <rect key="frame" x="148" y="36" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="Mer-3D-BMc"/>
@@ -101,9 +101,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyy-y9-jsE">
-                        <rect key="frame" x="259" y="116" width="54" height="12"/>
+                        <rect key="frame" x="248" y="116" width="65" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="进入详情">
+                        <state key="normal" title="进入详情 &gt;">
                             <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
@@ -152,4 +152,7 @@
             <point key="canvasLocation" x="-183" y="119"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="飞机箭头白色" width="24" height="24"/>
+    </resources>
 </document>

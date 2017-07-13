@@ -12,6 +12,23 @@
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
 @property(nonatomic,strong) NSMutableArray * planeListDataArr;
+/// 出发时间
+@property (weak, nonatomic)  UILabel *startTimeLabel;
+/// 出发机场
+@property (weak, nonatomic)  UILabel *startPlaceLabel;
+/// 到达时间
+@property (weak, nonatomic)  UILabel *arriveTimeLabel;
+/// 到达机场
+@property (weak, nonatomic)  UILabel *arrivePlaceLabel;
+/// 航空公司
+@property (weak, nonatomic)  UILabel *airlinesLabel;
+/// 航班号
+@property (weak, nonatomic)  UILabel *flightNo;
+/// 机型
+@property (weak, nonatomic)  UILabel *planeType;
+/// 详情Btn
+@property (weak, nonatomic)  UIButton *detailBtn;
+
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -170,15 +187,32 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-
     
+    self.startPlaceLabel = cell.startPlaceLabel;
+    self.arriveTimeLabel = cell.arriveTimeLabel;
     
+    /*
+    NSMutableString *str = [[NSMutableString alloc] init];
+    [str setString:cell.startTimeLabel.text];
+    [str insertString:@":" atIndex:2];
     
+    self.startTimeLabel.text = str;
     
-
+    NSMutableString *str1 = [[NSMutableString alloc] init];
+    [str1 setString:cell.arriveTimeLabel.text];
+    [str1 insertString:@":" atIndex:2];
     
+    self.arriveTimeLabel.text = str1;
+    */
+    
+    self.startTimeLabel = cell.startTimeLabel;
+    self.arrivePlaceLabel = cell.arrivePlaceLabel;
+    self.airlinesLabel = cell.airlinesLabel;
+    self.flightNo = cell.flightNo;
+    self.planeType = cell.planeType;
+    self.detailBtn = cell.detailBtn;
     
     return cell;
     

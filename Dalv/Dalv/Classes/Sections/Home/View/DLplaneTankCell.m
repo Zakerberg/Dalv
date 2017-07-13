@@ -15,7 +15,6 @@
 @implementation DLplaneTankCell
 
 - (void)awakeFromNib {
-    
     [super awakeFromNib];
 }
 
@@ -24,8 +23,6 @@
     // Configure the view for the selected state
 }
 
-
-
 /// 预订
 - (IBAction)orderBtnClick:(id)sender {
     
@@ -33,7 +30,12 @@
 
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData{
     
-    
+    self.tankLabel.text = planeListDetailModelData.seatMsg;
+    self.disCountLabel.text = planeListDetailModelData.agio;
+    self.CustomerMoneyLabel.text = planeListDetailModelData.parPrice;
+    self.agencyMoneyLabel.text = planeListDetailModelData.settlePrice;
+    self.ownMoneyLabel.text = planeListDetailModelData.earnPrice;
+    //self.ticketCountLabel.text = planeListDetailModelData.
 }
 
 @end

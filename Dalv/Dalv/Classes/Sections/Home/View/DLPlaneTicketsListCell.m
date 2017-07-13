@@ -4,19 +4,12 @@
 //
 //  Created by Michael 柏 on 2017/7/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ----------------- 机票列表界面Cell -----------------
 
 #import "DLPlaneTicketsListCell.h"
 
 @interface DLPlaneTicketsListCell ()
-/*
- @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel; /// 出发时间
- @property (weak, nonatomic) IBOutlet UILabel *startPlaceLabel; /// 出发机场
- @property (weak, nonatomic) IBOutlet UILabel *arriveTimeLabel; /// 到达时间
- @property (weak, nonatomic) IBOutlet UILabel *arrivePlaceLabel; /// 到达机场
- @property (weak, nonatomic) IBOutlet UILabel *airlinesLabel; /// 航空公司
- @property (weak, nonatomic) IBOutlet UIButton *detailBtn; /// 详情Btn
- */
+
 @end
 
 @implementation DLPlaneTicketsListCell
@@ -35,20 +28,28 @@
     
 }
 
-
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData{
     
-    self.startTimeLabel.text = planeListDetailModelData.depTime;
+
+//    self.startTimeLabel.text = planeListDetailModelData.depTime;
+//    self.arriveTimeLabel.text = planeListDetailModelData.arriTime;
+    
+    NSMutableString *str = [[NSMutableString alloc] init];
+    [str setString:planeListDetailModelData.depTime];
+    [str insertString:@":" atIndex:2];
+    self.startTimeLabel.text = str;
+    
+    NSMutableString *str1 = [[NSMutableString alloc] init];
+    [str1 setString:planeListDetailModelData.arriTime];
+    [str1 insertString:@":" atIndex:2];
+    self.arriveTimeLabel.text = str1;
+    
     self.startPlaceLabel.text = planeListDetailModelData.orgJetquay;
-    self.arriveTimeLabel.text = planeListDetailModelData.arriTime;
     self.arrivePlaceLabel.text = planeListDetailModelData.dstJetquay;
    // self.airlinesLabel.text = planeListDetailModelData.
-    
-    
+    self.flightNo.text = planeListDetailModelData.flightNo;
+    self.planeType.text = planeListDetailModelData.planeType;
     
 }
-
-
-
 
 @end
