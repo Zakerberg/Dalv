@@ -839,6 +839,7 @@
     }];
     
 }
+
 + (void)uploadImage:(UIImage*)image
          Completion:(DLRequestSuccessHandler)handler
             failure:(DLRequestFailureHandler)failhandler {
@@ -858,7 +859,6 @@
     }];
 }
 
-
 + (void)getWxpayAppDopa:(NSDictionary *)param
              completion:(void (^)(id result, NSError *error))completionHandler{
     [DLRequestSerVice POST: DL_WxpayAppDopa param:param success:^(id responseData) {
@@ -867,6 +867,16 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
     
+}
+/// 测试首页机票查询处理返回机票列表接口
++ (void)geAgencyFlightQueryList:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST: DL_FlightQueryList param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
 }
 
 @end

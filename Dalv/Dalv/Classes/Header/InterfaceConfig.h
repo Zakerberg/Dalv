@@ -283,5 +283,7 @@
 ///80 测试财务中心微信App充值接口
 #define DL_WxpayAppDopa  DL_HOST@"index.php/Api/wxpayApp/dopay"
 
+///81 测试首页机票查询处理返回机票列表接口
+#define DL_FlightQueryList  DL_HOST@"index.php/Api/agencyFlight/flightQueryList"
 
 #endif /* InterfaceConfig_h */

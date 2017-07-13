@@ -206,6 +206,7 @@ static NSString *nibCellID = @"nibCellID";
     
     self.arriveTimeLabel.text = str1;
     */
+
     
     self.startTimeLabel = cell.startTimeLabel;
     self.arrivePlaceLabel = cell.arrivePlaceLabel;

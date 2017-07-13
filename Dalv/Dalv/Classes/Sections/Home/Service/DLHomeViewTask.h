@@ -840,5 +840,16 @@
              completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 80 测试首页机票查询处理返回机票列表接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)geAgencyFlightQueryList:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
 
 @end
