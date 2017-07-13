@@ -94,6 +94,7 @@
 		1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3881EFA0010009DBC1B /* CalendarDateSource.m */; };
 		1C5CD3B41EFA4BC0009DBC1B /* DLLineModificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */; };
 		1C5CD3B61EFA7849009DBC1B /* DLHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5CD3B51EFA7849009DBC1B /* DLHUDManager.m */; };
+		1C6023BE1F1725A30016B50A /* linetourbackimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C6023BD1F1725A30016B50A /* linetourbackimage.png */; };
 		1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C66614C1EF5FE660032E1AE /* DLNotification.m */; };
 		1C6661531EF61D230032E1AE /* DLBankTransferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */; };
 		1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6661551EF622C80032E1AE /* DLBankTransferModel.m */; };
@@ -532,6 +533,7 @@
 		1C5CD3B21EFA4BC0009DBC1B /* DLLineModificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineModificationModel.h; sourceTree = "<group>"; };
 		1C5CD3B31EFA4BC0009DBC1B /* DLLineModificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineModificationModel.m; sourceTree = "<group>"; };
 		1C5CD3B51EFA7849009DBC1B /* DLHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHUDManager.m; sourceTree = "<group>"; };
+		1C6023BD1F1725A30016B50A /* linetourbackimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linetourbackimage.png; sourceTree = "<group>"; };
 		1C66614B1EF5FE660032E1AE /* DLNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLNotification.h; sourceTree = "<group>"; };
 		1C66614C1EF5FE660032E1AE /* DLNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLNotification.m; sourceTree = "<group>"; };
 		1C6661511EF61D230032E1AE /* DLBankTransferTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLBankTransferTableViewCell.m; sourceTree = "<group>"; };
@@ -1329,6 +1331,7 @@
 		1CB953071ECFC41600BDC2D3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1C6023BD1F1725A30016B50A /* linetourbackimage.png */,
 				1C2865B81F0298010077E076 /* common_pickView_close@2x.png */,
 				1C2865B61F0297E40077E076 /* common_pickView_complete@2x.png */,
 				1CE8D7F11ED7FEFA00FFEF8B /* Navbar */,
@@ -2267,6 +2270,7 @@
 				1CE2C1931ED525E000B898BA /* departure_city@2x.png in Resources */,
 				1CE8D7FD1ED7FEFA00FFEF8B /* navbar_back_gray@3x.png in Resources */,
 				1C5CD3731EF9FEE7009DBC1B /* dl_calender_selected_bg@3x.png in Resources */,
+				1C6023BE1F1725A30016B50A /* linetourbackimage.png in Resources */,
 				1CE2C2061ED52BA100B898BA /* invoice_record@3x.png in Resources */,
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
