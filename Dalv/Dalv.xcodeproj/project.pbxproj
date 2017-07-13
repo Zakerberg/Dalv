@@ -331,6 +331,7 @@
 		45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321D01EF26A2C00325683 /* DLCustomerListModel.m */; };
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45BAC6411F1615880057A141 /* DLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BAC6401F1615880057A141 /* DLShareView.m */; };
+		45BAC6441F161BC80057A141 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BAC6431F161BC80057A141 /* UIView+Additions.m */; };
 		45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB41981EF799D7003AB961 /* UIButton+WebCache.m */; };
 		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
 		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
@@ -882,6 +883,8 @@
 		45B262511ECBDDE8001E54D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		45BAC63F1F1615880057A141 /* DLShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShareView.h; sourceTree = "<group>"; };
 		45BAC6401F1615880057A141 /* DLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShareView.m; sourceTree = "<group>"; };
+		45BAC6421F161BC80057A141 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		45BAC6431F161BC80057A141 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		45BB41971EF799D7003AB961 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
 		45BB41981EF799D7003AB961 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
@@ -1680,6 +1683,8 @@
 		1CB953DE1ECFC78A00BDC2D3 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				45BAC6421F161BC80057A141 /* UIView+Additions.h */,
+				45BAC6431F161BC80057A141 /* UIView+Additions.m */,
 				1CFA143D1ED473D200387733 /* NSAttributedString+Additon.h */,
 				1CFA143E1ED473D200387733 /* NSAttributedString+Additon.m */,
 				1CB953DF1ECFC7E200BDC2D3 /* NSArray+Log.h */,
@@ -2156,8 +2161,7 @@
 				TargetAttributes = {
 					452916721EC1741E0033314F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 2J738B5H56;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -2567,6 +2571,7 @@
 				1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */,
 				45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */,
 				1C29791B1EF02D6F00D3FEEA /* MSRefreshHeader.m in Sources */,
+				45BAC6441F161BC80057A141 /* UIView+Additions.m in Sources */,
 				451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */,
 				1C29816A1EDFE2C400712524 /* DLRechargeRecordViewController.m in Sources */,
 				451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */,
@@ -2724,7 +2729,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				DEVELOPMENT_TEAM = 2J738B5H56;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/SMS_SDK",
@@ -2735,8 +2741,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
-				PROVISIONING_PROFILE_SPECIFIER = Dalv;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2747,7 +2753,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				DEVELOPMENT_TEAM = 2J738B5H56;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/SMS_SDK",
@@ -2758,8 +2765,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
-				PROVISIONING_PROFILE_SPECIFIER = Dalv;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
