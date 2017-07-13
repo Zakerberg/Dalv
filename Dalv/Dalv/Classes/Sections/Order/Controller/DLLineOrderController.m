@@ -28,17 +28,27 @@ static NSString *nibCellID = @"nibCellID";
 
 @implementation DLLineOrderController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.lineOrderList = [NSMutableArray array];
+    self.pageIndex=1;
+    // [self fetchData];
+    [self.lineOrderTableView ms_beginRefreshing:self
+                                            headerAction:@selector(fetchNewData)
+                                            footerAction:@selector(fetchMoreData)];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     [self setTableView];
-    [self.lineOrderTableView ms_beginRefreshing:self
-                                       headerAction:@selector(fetchNewData)
-                                       footerAction:@selector(fetchMoreData)];
+//    [self.lineOrderTableView ms_beginRefreshing:self
+//                                       headerAction:@selector(fetchNewData)
+//                                       footerAction:@selector(fetchMoreData)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
     
@@ -48,12 +58,6 @@ static NSString *nibCellID = @"nibCellID";
     return YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.lineOrderList = [NSMutableArray array];
-    self.pageIndex=1;
-    [self fetchData];
-}
 
 -(void)payFullMoeyNoti:(NSNotification *)notification
 

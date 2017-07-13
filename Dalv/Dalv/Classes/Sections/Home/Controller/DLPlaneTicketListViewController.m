@@ -4,24 +4,27 @@
 //
 //  Created by Nie on 2017/7/6.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ------------------- 机票查询列表 -------------------
 
 #import "DLPlaneTicketListViewController.h"
-#import "DLPlaneTicketListTableViewCell.h"
-@interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "DLPlaneTicketsListCell.h"
 
-@property (nonatomic, strong) UITableView *planeTicketListTableView;//
+@interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *planeTicketListTableView;
+@property(nonatomic,strong) NSMutableArray * planeListDataArr;
 
 @end
 
+static NSString *nibCellID = @"nibCellID";
 @implementation DLPlaneTicketListViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setupNavbar];
     [self cofigureheadView];
-    self.view.backgroundColor = [UIColor whiteColor];
 }
+
 
 #pragma mark - Setup navbar
 - (BOOL)dl_blueNavbar {
@@ -29,8 +32,8 @@
 }
 - (void)setupNavbar {
     self.title = @"机票列表";
+    self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
-#pragma mark - Setup subViews
 
 - (void)cofigureheadView{
     
@@ -38,11 +41,9 @@
     headView.backgroundColor = [UIColor ms_separatorColor];
     [self.view addSubview:headView];
     
-    // 前一天后一天按钮
-    
     UIButton *beforDayBtn = [[UIButton alloc]init];
     [beforDayBtn setTitle:@"前一天" forState:(UIControlStateNormal)];
-    //    [beforDayBtn addTarget:self action:@selector(beforfetchData) forControlEvents:UIControlEventTouchUpInside];
+    [beforDayBtn addTarget:self action:@selector(beforfetchData) forControlEvents:UIControlEventTouchUpInside];
     beforDayBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     [headView addSubview:beforDayBtn];
     
@@ -55,7 +56,7 @@
     [headView addSubview:dateLabel];
     
     UIButton *afterDayBtn = [[UIButton alloc]init];
-    //    [afterDayBtn addTarget:self action:@selector(afterfetchData) forControlEvents:UIControlEventTouchUpInside];
+    [afterDayBtn addTarget:self action:@selector(afterfetchData) forControlEvents:UIControlEventTouchUpInside];
     afterDayBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     [afterDayBtn setTitle:@"后一天" forState:(UIControlStateNormal)];
     [headView addSubview:afterDayBtn];
@@ -96,18 +97,17 @@
     [self setupSubviews];
 }
 
-
-
 - (void)setupSubviews {
+    
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     
     self.planeTicketListTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.planeTicketListTableView.dataSource = self;
     self.planeTicketListTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.planeTicketListTableView.delegate = self;
-    [self.planeTicketListTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    self.planeTicketListTableView.showsVerticalScrollIndicator = NO;
-    [self.planeTicketListTableView registerClass:[DLPlaneTicketListTableViewCell class] forCellReuseIdentifier:[DLPlaneTicketListTableViewCell cellIdentifier]];
+
+    [self.planeTicketListTableView registerNib:[UINib nibWithNibName:@"DLPlaneTicketsListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
+    
     [self.view addSubview:self.planeTicketListTableView];
     
     [self.planeTicketListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,14 +117,6 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
-}
-
-#pragma mark - Layout
-
-- (void)setupConstraints {
-    [self.planeTicketListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
 }
 
 #pragma mark - UITableViewDelegate
@@ -138,9 +130,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLPlaneTicketListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLPlaneTicketListTableViewCell cellIdentifier]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  
+    DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
@@ -158,6 +161,5 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 @end
