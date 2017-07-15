@@ -859,9 +859,9 @@
     }];
 }
 
-+ (void)getWxpayAppDopa:(NSDictionary *)param
++ (void)getWxpayAppDopay:(NSDictionary *)param
              completion:(void (^)(id result, NSError *error))completionHandler{
-    [DLRequestSerVice POST: DL_WxpayAppDopa param:param success:^(id responseData) {
+    [DLRequestSerVice POST: DL_WxpayAppDopay param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;
@@ -878,5 +878,15 @@
         completionHandler ? completionHandler (nil, error) : nil;
     }];
 }
+
++ (void)getAlipayAppDopay:(NSDictionary *)param
+               completion:(void (^)(id result, NSError *error))completionHandler{
+    [DLRequestSerVice POST: DL_AlipayAppDopay param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
 
 @end

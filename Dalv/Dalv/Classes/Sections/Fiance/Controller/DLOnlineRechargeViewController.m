@@ -324,7 +324,7 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
                                 @"topup_type" : @"6",
                                 @"sign_token" : [DLUtils getSign_token],};
         [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
-        [DLHomeViewTask getWxpayAppDopa:param completion:^(id result, NSError *error) {
+        [DLHomeViewTask getWxpayAppDopay:param completion:^(id result, NSError *error) {
             [[DLHUDManager sharedInstance] hiddenHUD];
             
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
@@ -351,7 +351,21 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
         
         [[DLHUDManager sharedInstance]showTextOnly:@"支付宝支付正在拼命开发中"];
 
-        
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"total" : self.priceTextField.text,
+                                @"topup_type" : @"7",
+                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+        [DLHomeViewTask getAlipayAppDopay:param completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                
+                
+
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+         }];
     }
 }
 @end
