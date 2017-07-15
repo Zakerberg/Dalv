@@ -13,6 +13,7 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "DLUtils.h"
 #import "DLAdvertisingController.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 #if DEBUG
 #import "FLEX.h"
@@ -30,11 +31,9 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
- 
      self.window.backgroundColor = [UIColor whiteColor];
     
      if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
@@ -44,7 +43,7 @@
      DLAdvertisingController *gVC = [[DLAdvertisingController alloc] init];
      self.window.rootViewController = gVC;
     
-     }else {
+     } else {
     
     [self setupMainVC];
     
@@ -84,29 +83,83 @@
 }
 
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
-{
-    NSLog(@"跳转到URL scheme中配置的地址-->%@",url);
-    return [WXApi handleOpenURL:url delegate:self];
-}
+
 
 #pragma mark - WXApiDelegate
 
 - (void)onReq:(BaseReq*)req {
     
-
     
 }
 
-//支付成功时调用，回到第三方应用中
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    //    NSLog(@"****************url.host -- %@",url.host);
-    if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"])
-    {
-        return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    NSLog(@"跳转到URL scheme中配置的地址-->%@",url);
+    if ([url.scheme isEqualToString:@"wx9bc30a44b861048e"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        
+        // 授权跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+            // 解析 auth code
+            NSString *result = resultDic[@"result"];
+            NSString *authCode = nil;
+            if (result.length>0) {
+                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+                for (NSString *subResult in resultArr) {
+                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                        authCode = [subResult substringFromIndex:10];
+                        break;
+                    }
+                }
+            }
+            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+        }];
     }
     return YES;
+  
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    if ([url.scheme isEqualToString:@"wx9bc30a44b861048e"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"]) {
+        return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+    }
+    
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        
+        // 授权跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+            // 解析 auth code
+            NSString *result = resultDic[@"result"];
+            NSString *authCode = nil;
+            if (result.length>0) {
+                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+                for (NSString *subResult in resultArr) {
+                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                        authCode = [subResult substringFromIndex:10];
+                        break;
+                    }
+                }
+            }
+            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+        }];
+    }
+    return YES;
+
 }
 
 
