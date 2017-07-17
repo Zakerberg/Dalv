@@ -12,7 +12,6 @@
 #import "DLRecommendRouteModel.h"
 #import "DLCityPopMenuView.h"
 #import "DLLoginViewController.h"
-#import "DLHomeViewTask.h"
 #import "DLNavigationController.h"
 #import "DLGlobalSearchViewViewController.h"
 #import "DLHomePageMenuModel.h"
@@ -45,13 +44,14 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupSubviews];
     [self setupConstraints];
 //    [self fetchData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchData];
-    //    self.navigationController.navigationBar.translucent = NO;
-    //    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    //   self.navigationController.navigationBar.translucent = NO;
+    //    [self.navigationController setNavigationBarHidden:YES animated:animated]
     
 }
 
@@ -376,7 +376,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.centerY.offset(0);
             make.left.equalTo(@15);
             make.height.equalTo(@60);
-            make.width.equalTo(@60);
+            make.width.equalTo(@64);
         }];
         
         [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -393,8 +393,8 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             make.height.equalTo(@30);
             make.width.equalTo(@150);
         }];
-        
     }
+    
     return _performanceView;
 }
 
@@ -410,6 +410,5 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     self.namelab.text = self.homePageModel.touristInfo.name;
     self.mobilelab.text  = self.homePageModel.touristInfo.mobile;
     }
-    
 }
 @end

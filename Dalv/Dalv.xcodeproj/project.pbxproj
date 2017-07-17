@@ -2431,8 +2431,8 @@
 				TargetAttributes = {
 					452916721EC1741E0033314F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 2J738B5H56;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 49UAD8YZ7U;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -3014,7 +3014,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				DEVELOPMENT_TEAM = 2J738B5H56;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49UAD8YZ7U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3050,10 +3051,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/Alipay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.itheima.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
-				PROVISIONING_PROFILE_SPECIFIER = Dalv;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3064,7 +3065,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				DEVELOPMENT_TEAM = 2J738B5H56;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49UAD8YZ7U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3100,10 +3102,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/Alipay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.itheima.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d8a53035-70f9-4f16-8afa-c0b8a9c59391";
-				PROVISIONING_PROFILE_SPECIFIER = Dalv;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

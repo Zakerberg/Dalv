@@ -226,6 +226,7 @@ static NSString *cell1ID = @"cell1id";
         }else if ([self.changeCityBtn.titleLabel.text isEqualToString:@"唐山市"]){
             
             CityStr = @"5";
+            
         }else {
             
         }
@@ -331,8 +332,6 @@ static NSString *cell1ID = @"cell1id";
                         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                         [successV show];
                     }
-                    
-                    
                 } failure:^(NSError *error) {
                     // 在此写提示框
                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -426,7 +425,7 @@ static NSString *cell1ID = @"cell1id";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 6;
+    return 7;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -464,6 +463,7 @@ static NSString *cell1ID = @"cell1id";
     self.nameTF = cell.TF;
     
     if (indexPath.row == 0) {
+        self.nameTF = cell.TF;
         cell.TF.placeholder = @"输入姓名";
         
     }else if (indexPath.row == 2){
@@ -501,6 +501,11 @@ static NSString *cell1ID = @"cell1id";
     }else if (indexPath.row == 5){
         self.determinePasswordTF = cell.TF;
         cell.TF.placeholder = @"确认密码";
+        
+    }else if (indexPath.row == 6){
+        
+        self.positionTF = cell.TF;
+        cell.TF.placeholder = @"输入职务(如导游等)";
     }
     
     return cell;
