@@ -13,8 +13,6 @@
 @interface DLPlaneTicketViewController () <TLCityPickerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak,nonatomic) UITableViewCell* personCell;
 @property(nonatomic,strong) UITableView * planeTicketTableView;
-@property(nonatomic,strong) UILabel * starLabel;/// 出发城市
-@property(nonatomic,strong) UILabel * destinationLabel;/// 目的地城市
 @property (strong, nonatomic) UIButton *searchBtn;/// 搜索
 @end
 
@@ -143,16 +141,16 @@ static NSString *cellID = @"cellID";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
-        UILabel *starLabel = [[UILabel alloc] init];
-        self.starLabel = starLabel;
-        starLabel.font = [UIFont systemFontOfSize:15];
-        starLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
+        UILabel *destinationLabel = [[UILabel alloc] init];
+        self.destinationLabel = destinationLabel;
+        destinationLabel.font = [UIFont systemFontOfSize:15];
+        destinationLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
         cell.detailTextLabel.text = @"选择目的地";
         //cell.detailTextLabel.text = self.starLabel.text;
         
-        [cell.contentView addSubview:starLabel];
+        [cell.contentView addSubview:destinationLabel];
         
-        [starLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [destinationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.offset(-15);
             make.height.offset(44);
             make.top.offset(0);
@@ -166,16 +164,16 @@ static NSString *cellID = @"cellID";
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
-        UILabel *starLabel = [[UILabel alloc] init];
-        self.starLabel = starLabel;
-        starLabel.font = [UIFont systemFontOfSize:15];
-        starLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
+        UILabel *startDate = [[UILabel alloc] init];
+        self.startDate = startDate;
+        startDate.font = [UIFont systemFontOfSize:15];
+        startDate.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
         cell.detailTextLabel.text = @"选择日期";
         //cell.detailTextLabel.text = self.starLabel.text;
         
-        [cell.contentView addSubview:starLabel];
+        [cell.contentView addSubview:startDate];
         
-        [starLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [startDate mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.offset(-15);
             make.height.offset(44);
             make.top.offset(0);
@@ -189,11 +187,14 @@ static NSString *cellID = @"cellID";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    /// 出发城市
     if (indexPath.row == 0){
         
+    /// 出发目的地
     }else if (indexPath.row == 1){
     
     
+    /// 出发日期
     }else{
         
         

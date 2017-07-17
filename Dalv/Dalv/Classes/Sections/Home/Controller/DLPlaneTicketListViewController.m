@@ -7,7 +7,9 @@
 //  ------------------- 机票查询列表 -------------------
 
 #import "DLPlaneTicketListViewController.h"
+#import "DLplaneDetaliViewController.h"
 #import "DLPlaneTicketsListCell.h"
+#import "DLPlaneListDetailModel.h"
 
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
@@ -49,7 +51,6 @@ static NSString *nibCellID = @"nibCellID";
 - (void)setupNavbar {
     
 #warning 此处不能写死,后期根据返回的数据设定
-    
     self.title = @"机票列表";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
@@ -58,13 +59,22 @@ static NSString *nibCellID = @"nibCellID";
 
 -(void)fetchData {
     
-    
-    
-    
-    
-    
-    
-    
+    NSDictionary *param = @{
+                            @"departure":@"北京",
+                            @"destination": @"上海",
+                            @"timestart " : @"2017-8-20",
+                            };
+    @weakify(self);
+    [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            
+            NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
+            
+            [self.planeListDataArr addObjectsFromArray:planeListArray];
+            [self.planeTicketListTableView reloadData];
+        }
+    }];
 }
 
 #pragma mark ------- cofigureheadView
@@ -175,6 +185,13 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 
+/// 详情
+-(void)detailBtnClick {
+    
+    NSLog(@"点击了机票的详情");
+    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
+    [self.navigationController pushViewController:deVC animated:YES];
+}
 
 #pragma mark ------- UITableViewDelegate
 
@@ -214,6 +231,12 @@ static NSString *nibCellID = @"nibCellID";
     self.flightNo = cell.flightNo;
     self.planeType = cell.planeType;
     self.detailBtn = cell.detailBtn;
+    
+    [cell.detailBtn addTarget:self action:@selector(detailBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    DLPlaneListDetailModel *pdModel = [self.planeListDataArr objectAtIndex:indexPath.section];
+    [cell configureCell:pdModel];
     
     return cell;
     
