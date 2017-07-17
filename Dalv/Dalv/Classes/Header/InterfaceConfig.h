@@ -281,9 +281,12 @@
 #define DL_TouristPersonalAgencyDetails  DL_HOST@"index.php/TouristApi/TouristPersonal/agencyDetails"
 
 ///80 测试财务中心微信App充值接口
-#define DL_WxpayAppDopa  DL_HOST@"index.php/Api/wxpayApp/dopay"
+#define DL_WxpayAppDopay  DL_HOST@"index.php/Api/wxpayApp/dopay"
 
 ///81 测试首页机票查询处理返回机票列表接口
 #define DL_FlightQueryList  DL_HOST@"index.php/Api/agencyFlight/flightQueryList"
+
+///82 测试财务中心支付宝App充值接口
+#define DL_AlipayAppDopay  DL_HOST@"index.php/Api/alipayApp/aliDopay"
 
 #endif /* InterfaceConfig_h */

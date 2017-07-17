@@ -11,6 +11,11 @@
 #import "DLHomeViewTask.h"
 #import "WXApi.h"
 
+#import "Order.h"
+#import "APAuthV2Info.h"
+#import "RSADataSigner.h"
+#import <AlipaySDK/AlipaySDK.h>
+
 static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHeader";
 
 @interface DLOnlineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
@@ -18,6 +23,7 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
 @property (nonatomic, strong) UITextField *priceTextField;
 @property (nonatomic,strong) NSMutableDictionary *onlineRechargeDict;
+
 
 @end
 
@@ -324,7 +330,7 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
                                 @"topup_type" : @"6",
                                 @"sign_token" : [DLUtils getSign_token],};
         [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
-        [DLHomeViewTask getWxpayAppDopa:param completion:^(id result, NSError *error) {
+        [DLHomeViewTask getWxpayAppDopay:param completion:^(id result, NSError *error) {
             [[DLHUDManager sharedInstance] hiddenHUD];
             
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
@@ -348,10 +354,32 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
             }
          }];
     } else if (self.selctSection == 1){
+        [[DLHUDManager sharedInstance]showTextOnly:@"正在创建订单"];
         
-        [[DLHUDManager sharedInstance]showTextOnly:@"支付宝支付正在拼命开发中"];
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"total" : self.priceTextField.text,
+                                @"topup_type" : @"7",
+                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+        [DLHomeViewTask getAlipayAppDopay:param completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
 
-        
+              [[AlipaySDK defaultService] payOrder:[result objectForKey:@"result"] fromScheme:@"dalv" callback:^(NSDictionary *resultDic) {
+                  
+                  DLRechargeRecordViewController *rechRecVC = [[DLRechargeRecordViewController alloc]init];
+                  [self.navigationController pushViewController:rechRecVC animated:YES];
+
+//                  if (resultDic) {
+//                      
+//                  }
+                  
+              }];
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+         }];
     }
 }
+
 @end

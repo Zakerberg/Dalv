@@ -836,7 +836,7 @@
  *  @param completionHandler 请求完成的回调
  */
 
-+ (void)getWxpayAppDopa:(NSDictionary *)param
++ (void)getWxpayAppDopay:(NSDictionary *)param
              completion:(void (^)(id result, NSError *error))completionHandler;
 
 
@@ -850,6 +850,19 @@
 
 + (void)geAgencyFlightQueryList:(NSDictionary *)param
              completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 81 测试财务中心支付宝App充值接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAlipayAppDopay:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
 
 
 @end
