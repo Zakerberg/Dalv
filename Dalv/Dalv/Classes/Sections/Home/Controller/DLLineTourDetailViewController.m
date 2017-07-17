@@ -142,7 +142,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     [pushHomePageBtn addTarget:self action:@selector(pushHomePageBtn) forControlEvents:UIControlEventTouchUpInside];
     pushHomePageBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     pushHomePageBtn.backgroundColor = [UIColor whiteColor];
-    [pushHomePageBtn  setTitleColor:[UIColor colorWithHexString:@"#fE603B"] forState:UIControlStateNormal];
+    [pushHomePageBtn setTitleColor:[UIColor colorWithHexString:@"#fE603B"] forState:UIControlStateNormal];
     pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,5);
     [self.view addSubview:pushHomePageBtn];
     
@@ -399,8 +399,11 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
             NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
             [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            
+        }
+        
+        else {
+          [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];
     
@@ -412,24 +415,25 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
         
     }];
-    
-    
 }
 
 #pragma mark - Event Handler
 
 - (void)telSonsultationBtn {
     NSLog(@"点击了电话咨询");
-    if ([NSString isBlank:self.detaiInfoModel.list.mobile]) {
-    //        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
-    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"你还没有绑定顾问，去绑定顾问?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        phoneAlert.tag = 45;
-        [phoneAlert show];
-    } else {
+    
+//    if ([NSString isBlank:self.detaiInfoModel.list.mobile]) {
+//    //        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
+//    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"你还没有绑定顾问，去绑定顾问?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        phoneAlert.tag = 45;
+//        [phoneAlert show];
+//        
+//    } else {
     UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打电话" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
     phoneAlert.tag = 100;
     [phoneAlert show];
-    }
+    
+//    }
 }
 
 - (void)OtherBtn {
@@ -469,6 +473,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
 }
 - (void)pushHomePageBtn {
+    
     UIAlertView *pushHomeAlert = [[UIAlertView alloc]initWithTitle:@"确定推到首页吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     pushHomeAlert.tag = 81;
     [pushHomeAlert show];
@@ -485,8 +490,21 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
             [DLHomeViewTask getAgencyRecommend:param completion:^(id result, NSError *error) {
                 if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
                     [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+               
                 }else {
-                    [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                    //[[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                    
+                    
+            
+                    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
+                    //NSLog(@"str======%@",str);
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+                    
+                    
+                    
+                    
+                    
+                    
                 }
             }];
         }

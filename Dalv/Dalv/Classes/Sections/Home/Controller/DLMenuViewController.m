@@ -10,7 +10,6 @@
 #import "DLHomeMenuCollectionViewCell.h"
 #import "DLHomePageViewModel.h"
 #import "DLLineTourViewController.h"
-#import "DLHomeViewTask.h"
 #import "DLHomePageMenuModel.h"
 #import "DLPlaneTicketViewController.h"
 @interface DLMenuViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -78,11 +77,11 @@
         make.edges.equalTo(self.view);
     }];
 }
-
 #pragma mark - Fetch data
 
 - (void)ordinaryFetchData {
     
+    /// 绑定
     if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
 
     NSDictionary *param = @{@"uid" : [DLUtils getUid],
@@ -147,8 +146,11 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
     DLHomeMenuCollectionViewCell *cell = (DLHomeMenuCollectionViewCell*) [self.appCollectionView cellForItemAtIndexPath:indexPath];
+    
+#warning MARK ------------   后期根据增加的东西 做更改 --------------------
+    
     if (cell.homeMenuItem.type.integerValue == 5 ||
-        cell.homeMenuItem.type.integerValue == 7) {
+        cell.homeMenuItem.type.integerValue == 7) {  /// 5是保险  7是门票
         [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
     } else if (cell.homeMenuItem.type.integerValue == 6) {
         DLPlaneTicketViewController *planeticketVC = [[DLPlaneTicketViewController alloc]init];
@@ -159,7 +161,6 @@
         [self.navigationController pushViewController:linetourVC animated:YES];
     }
 }
-
 
 #pragma mark - Public Methods
 

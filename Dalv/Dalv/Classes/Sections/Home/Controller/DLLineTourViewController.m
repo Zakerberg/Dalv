@@ -4,13 +4,13 @@
 //
 //  Created by Nie on 2017/5/12.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ----------- 国内游 出境游 周边游 等等  界面 ----------
 
 #import "DLLineTourViewController.h"
 #import "DLRecommendRouteCollectionViewCell.h"
 #import "DLLineTourDetailViewController.h"
-#import "DLHomeViewTask.h"
 #import "DLLineDestinationViewController.h"
+
 static NSString *kMSLineTourViewTableViewHeader = @"MSLineTourViewTableViewHeader";
 static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFooter";
 
@@ -132,6 +132,7 @@ static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFoote
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
     if (kind == UICollectionElementKindSectionHeader) {
 
         UICollectionReusableView *hotTopicHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewHeader forIndexPath:indexPath];

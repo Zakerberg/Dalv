@@ -111,7 +111,6 @@ static NSString *cellID = @"cellID";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    
     if(indexPath.row == 0) {
         
         cell.textLabel.text = @"出发地";

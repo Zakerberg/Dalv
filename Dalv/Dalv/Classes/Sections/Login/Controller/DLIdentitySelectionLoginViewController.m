@@ -47,7 +47,7 @@
     [self.view addSubview:loginImage];
     
     _consultantBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_consultantBtn setTitle:@"顾问登陆" forState:UIControlStateNormal];
+    [_consultantBtn setTitle:@"旅游顾问登陆" forState:UIControlStateNormal];
     [_consultantBtn  setTitleColor:[UIColor colorWithHexString:@"#536bf8"] forState:UIControlStateNormal];
     _consultantBtn.backgroundColor = [UIColor whiteColor];
     [_consultantBtn  addTarget:self action:@selector(consultantSlectBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +58,7 @@
     
     
     _averageUserBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    [_averageUserBtn setTitle:@"普通登陆" forState:UIControlStateNormal];
+    [_averageUserBtn setTitle:@"尊享游客登陆" forState:UIControlStateNormal];
     _averageUserBtn.backgroundColor = [UIColor colorWithHexString:@"#536bf8"];
     [_averageUserBtn  addTarget:self action:@selector(averageUserSlectBtn) forControlEvents:UIControlEventTouchUpInside];
     _averageUserBtn.layer.cornerRadius = 20.0;
@@ -100,9 +100,7 @@
 - (void)averageUserSlectBtn{
 
     DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
-    
     [self.navigationController pushViewController:cusLoginVC animated:YES];
-    
 //    [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
    
 }

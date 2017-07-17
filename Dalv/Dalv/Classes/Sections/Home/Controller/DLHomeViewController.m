@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/5/9.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  -------------------  首页 ------------------------
 
 #import "DLHomeViewController.h"
 #import "DLMenuViewController.h"
@@ -26,7 +26,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @property (nonatomic, strong) UIImageView *performanceView;
 @property (nonatomic, weak) UITableView *homeTableView;
 @property (nonatomic, strong) DLCityPopMenuView *popMenuView;
-
 @property (nonatomic, strong) DLMenuViewController *appCenterViewController;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
 @property (nonatomic, strong) DLHomePageMenuModel *homePageModel; //首页模块模型
@@ -207,7 +206,9 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 100.f;
+        
+        return 200.f;
+    
     } else if (indexPath.section == 1) {
         return [self.appCenterViewController contentHeight];
     } else if (indexPath.section == 2) {
@@ -251,17 +252,14 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         // 如：跳转到指定控制器
         [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
     }];
-    // 3. 跳转到搜索控制器
     
+    // 3. 跳转到搜索控制器
     DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:searchViewController];
     [self presentViewController:nav  animated:NO completion:nil];
-    
     // 设置搜索历史为带边框标签风格
     searchViewController.searchHistoryStyle = PYSearchHistoryStyleColorfulTag;
-    
     // 设置热门搜索为彩色标签风格
     searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
-    
     // 隐藏搜索建议
     searchViewController.searchSuggestionHidden = YES;
     
@@ -309,12 +307,12 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         } else {
             self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
         }
-    
 }
 
 #pragma mark - Getter
 
 - (DLMenuViewController *)appCenterViewController {
+    
     if (_appCenterViewController == nil) {
         _appCenterViewController = [[DLMenuViewController alloc] init];
         @weakify(self);
@@ -331,6 +329,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (DLRecommendRouteViewController *)hotTopicViewController {
+    
     if (_hotTopicViewController == nil) {
         _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
         @weakify(self);
@@ -344,6 +343,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (UIView *)performanceView {
+    
     if (_performanceView == nil) {
         _performanceView = [[UIImageView  alloc] init];
         _performanceView.image = [UIImage imageNamed:@"backImage"];
@@ -370,15 +370,18 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.performanceView addSubview:mobilelab];
         self.mobilelab = mobilelab;
         
+        //头像
         [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@20);
+            // make.top.equalTo(@20);
+            make.centerY.offset(0);
             make.left.equalTo(@15);
             make.height.equalTo(@60);
             make.width.equalTo(@60);
         }];
         
         [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@20);
+            //make.top.equalTo(@20);
+            make.top.equalTo(self.headImageView.mas_top).offset(0);
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);
             make.width.equalTo(@150);
@@ -396,6 +399,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 }
 
 - (void)refreshPerformanceView {
+    
     if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
     self.namelab.text = self.homePageModel.agencyInfo.name;
