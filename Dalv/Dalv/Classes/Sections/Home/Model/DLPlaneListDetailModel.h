@@ -69,14 +69,16 @@
 @property(nonatomic,copy) NSString *arriTime;
  /// 航班号
 @property(nonatomic,copy) NSString *flightNo;
+/// 航空公司
+@property(nonatomic,copy) NSString *flightName;
 /// 航班号截取前两位
 @property(nonatomic,copy) NSString *flightNoLetter;
 /// 机型
 @property(nonatomic,copy) NSString *planeType;
 /// 到达航站楼
-@property(nonatomic,copy) NSString *dstJetquay;
+@property(nonatomic,copy) NSString *dstCityName;
 /// 出发航站楼
-@property(nonatomic,copy) NSString *orgJetquay;
+@property(nonatomic,copy) NSString *orgCityName;
 /// 燃油费
 @property(nonatomic,copy) NSString *fuelTax;
 /// 基建费
@@ -111,5 +113,6 @@
 @property(nonatomic,copy) NSString *settlePrice;
 /// 顾问所赚的利润
 @property(nonatomic,copy) NSString *earnPrice;
+///
 
 @end

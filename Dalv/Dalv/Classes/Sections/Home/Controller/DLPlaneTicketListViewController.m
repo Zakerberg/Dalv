@@ -13,7 +13,7 @@
 
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
-@property(nonatomic,strong) NSMutableArray * planeListDataArr;
+@property (nonatomic,strong) NSMutableArray * planeListDataArr;
 /// 出发时间
 @property (weak, nonatomic)  UILabel *startTimeLabel;
 /// 出发机场
@@ -36,12 +36,21 @@
 static NSString *nibCellID = @"nibCellID";
 @implementation DLPlaneTicketListViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.planeListDataArr = [NSMutableArray array];
+    [self fetchData];
+    
+}
+
 - (void)viewDidLoad {
     
+    self.view.backgroundColor = [UIColor ms_backgroundColor];
     [super viewDidLoad];
     [self setupNavbar];
     [self cofigureheadView];
-    [self fetchData];
+    //[self fetchData];
+   // [self setupSubviews];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -60,19 +69,24 @@ static NSString *nibCellID = @"nibCellID";
 -(void)fetchData {
     
     NSDictionary *param = @{
-                            @"departure":@"北京",
-                            @"destination": @"上海",
-                            @"timestart " : @"2017-8-20",
+                            @"departure": @"哈尔滨",
+                            @"destination": @"合肥",
+                            @"timestart" : @"2017-08-20",
                             };
     @weakify(self);
-    [DLHomeViewTask getAgencyLineOrderList:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
+            
+            
+            
+            NSLog(@"%@",result);
             
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
             [self.planeListDataArr addObjectsFromArray:planeListArray];
-            [self.planeTicketListTableView reloadData];
+            [self setupSubviews];
+            //[self.planeTicketListTableView reloadData];
         }
     }];
 }
@@ -138,20 +152,15 @@ static NSString *nibCellID = @"nibCellID";
         make.width.equalTo(headView).multipliedBy(0.25);
     }];
     
-    [self setupSubviews];
 }
 
 
 
-#pragma mark ------- setupSubviews
-
 - (void)setupSubviews {
-    
-    self.view.backgroundColor = [UIColor ms_backgroundColor];
     
     self.planeTicketListTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.planeTicketListTableView.dataSource = self;
-    self.planeTicketListTableView.backgroundColor = [UIColor ms_backgroundColor];
+    self.planeTicketListTableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.planeTicketListTableView.delegate = self;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.planeTicketListTableView.showsVerticalScrollIndicator = NO;
@@ -197,6 +206,7 @@ static NSString *nibCellID = @"nibCellID";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.planeListDataArr.count;
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -206,6 +216,7 @@ static NSString *nibCellID = @"nibCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.startPlaceLabel = cell.startPlaceLabel;
     self.arriveTimeLabel = cell.arriveTimeLabel;
@@ -222,6 +233,7 @@ static NSString *nibCellID = @"nibCellID";
     [str1 insertString:@":" atIndex:2];
     
     self.arriveTimeLabel.text = str1;
+     
     */
 
     
@@ -256,6 +268,17 @@ static NSString *nibCellID = @"nibCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
 
 @end
