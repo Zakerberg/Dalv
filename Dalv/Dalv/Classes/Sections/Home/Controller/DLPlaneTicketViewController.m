@@ -9,11 +9,12 @@
 #import "DLPlaneTicketViewController.h"
 #import "DLPlaneTicketListViewController.h"
 #import "TLCityPickerController.h"
+#import "NSDate+Helper.h"
 
 @interface DLPlaneTicketViewController () <TLCityPickerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (weak,nonatomic) UITableViewCell* personCell;
 @property(nonatomic,strong) UITableView * planeTicketTableView;
-@property (strong, nonatomic) UIButton *searchBtn;/// 搜索
+@property (strong, nonatomic) UIButton *searchBtn; /// 搜索
 @end
 
 static NSString *cellID = @"cellID";
@@ -168,7 +169,7 @@ static NSString *cellID = @"cellID";
         startDate.font = [UIFont systemFontOfSize:15];
         startDate.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
         cell.detailTextLabel.text = @"选择日期";
-        //cell.detailTextLabel.text = self.starLabel.text;
+        cell.detailTextLabel.text = self.startDate.text;
         
         [cell.contentView addSubview:startDate];
         
@@ -189,15 +190,35 @@ static NSString *cellID = @"cellID";
     /// 出发城市
     if (indexPath.row == 0){
         
+        
+        
+        
     /// 出发目的地
     }else if (indexPath.row == 1){
-    
+        
+        
+        
+        
     
     /// 出发日期
     }else{
         
+        UIDatePicker *picker = [[UIDatePicker alloc]init];
+        picker.datePickerMode = UIDatePickerModeDate;
         
-    }
+        picker.frame = CGRectMake(0, 40, 320, 200);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择出发日期\n\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            NSDate *date = picker.date;
+            
+            self.startDate.text = [date stringWithFormat:@"yyyy-MM-dd"];;
+            
+        }];
+        [alertController.view addSubview:picker];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];    }
+    
 }
 
 #pragma mark ----- TLCityPickerDelegate
@@ -208,22 +229,12 @@ static NSString *cellID = @"cellID";
 }
 
 - (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
+
 {
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -274,16 +285,16 @@ static NSString *cellID = @"cellID";
 }
 - (void)choiceCitynBtn {
     
-    TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
-    [cityPickerVC setDelegate:self];
-    //定位城市
-    cityPickerVC.locationCityID = @"20000101";
-    //热门城市
-    cityPickerVC.hotCitys = @[@"20000101", @"18000101", @"18000102", @"14000101", @"22000101", @"40000103", @"19000101", @"70000101", @"30000102", @"11000101", @"21000101", @"90000101", @"18000103", @"60000104", @"22000102", @"30000107", @"30000108", @"16000102"];
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
-        
-    }];
+ TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+ [cityPickerVC setDelegate:self];
+ //定位城市
+ cityPickerVC.locationCityID = @"20000101";
+ //热门城市
+ cityPickerVC.hotCitys = @[@"20000101", @"18000101", @"18000102", @"14000101", @"22000101", @"40000103", @"19000101", @"70000101", @"30000102", @"11000101", @"21000101", @"90000101", @"18000103", @"60000104", @"22000102", @"30000107", @"30000108", @"16000102"];
+ 
+ [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+ 
+ }];
 
 }
 

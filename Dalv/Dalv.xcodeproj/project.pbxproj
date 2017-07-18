@@ -318,6 +318,7 @@
 		4520579F1EF9056D0033DA69 /* DLPersonalChangeDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520579E1EF9056D0033DA69 /* DLPersonalChangeDataCell.m */; };
 		452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452057A61EF93E4C0033DA69 /* BLMPickerView.m */; };
 		4524A56B1F1DA979001D628F /* DLHomeSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A56A1F1DA979001D628F /* DLHomeSearchController.m */; };
+		4524A56E1F1DDCD3001D628F /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A56D1F1DDCD3001D628F /* NSDate+Helper.m */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453009821F0C7BF200D014D1 /* DLMyTicketCell.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
@@ -953,6 +954,8 @@
 		452057A61EF93E4C0033DA69 /* BLMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMPickerView.m; sourceTree = "<group>"; };
 		4524A5691F1DA979001D628F /* DLHomeSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLHomeSearchController.h; sourceTree = "<group>"; };
 		4524A56A1F1DA979001D628F /* DLHomeSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeSearchController.m; sourceTree = "<group>"; };
+		4524A56C1F1DDCD3001D628F /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		4524A56D1F1DDCD3001D628F /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		453009811F0C7BF200D014D1 /* DLMyTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyTicketCell.h; sourceTree = "<group>"; };
@@ -1985,6 +1988,8 @@
 				45BB41981EF799D7003AB961 /* UIButton+WebCache.m */,
 				457307B91F0F2FEC000F39CF /* UIImage+ZipAndLength.h */,
 				457307BA1F0F2FEC000F39CF /* UIImage+ZipAndLength.m */,
+				4524A56C1F1DDCD3001D628F /* NSDate+Helper.h */,
+				4524A56D1F1DDCD3001D628F /* NSDate+Helper.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2772,6 +2777,7 @@
 				1C5CD3B61EFA7849009DBC1B /* DLHUDManager.m in Sources */,
 				1C6661621EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m in Sources */,
 				1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */,
+				4524A56E1F1DDCD3001D628F /* NSDate+Helper.m in Sources */,
 				1C0B57EC1ED7DA3700592BBB /* DLAddReduceButton.m in Sources */,
 				45DB48101EE8E49A00399A6D /* DLContractApplySection5Cell.m in Sources */,
 				45DB47D11EE68B8A00399A6D /* DLWiFiOrderViewController.m in Sources */,
