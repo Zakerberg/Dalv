@@ -4,52 +4,51 @@
 //
 //  Created by Nie on 2017/6/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------  全局搜索 ----------------------
+//  ------------------  全局搜索后目的地那页 ------------
 
 #import "DLGlobalSearchViewViewController.h"
 #import "DLRecommendRouteViewController.h"
-#import "DLHomeViewTask.h"
 
 static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
 @interface DLGlobalSearchViewViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, weak) UISearchBar *searchBar;
+@property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UITableView *globalSearchTableView;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
-
-
 @end
 
 @implementation DLGlobalSearchViewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
-    
 }
 
 #pragma mark - Setup navbar
-#pragma mark - Setup navbar
+
 - (void)setupNavbar {
+    
     self.title = @"目的地";
 }
 - (BOOL)dl_blueNavbar {
-    return YES;
     
+    return YES;
 }
 
-
 - (void)fetchData {
-    [self.hotTopicViewController beginLoading];
-            NSDictionary *param = @{@"names" : @"北京市",
-                                    @"page" : @"1",};
-            [DLHomeViewTask getLineSearch:param completion:^(id result, NSError *error) {
-                }];
     
+    [self.hotTopicViewController beginLoading];
+    
+    NSDictionary *param = @{
+                            @"names" :self.names,
+                            @"page" : @"1"
+                            };
+    
+    [DLHomeViewTask getLineSearch:param completion:^(id result, NSError *error) {
+              
+            }];
 }
 
 #pragma mark - Setup subViews
@@ -136,7 +135,6 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
     }
     return _hotTopicViewController;
 }
-
 
 #pragma mark - Event Handler
 

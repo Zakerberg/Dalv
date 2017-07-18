@@ -16,6 +16,7 @@
 #import "DLGlobalSearchViewViewController.h"
 #import "DLHomePageMenuModel.h"
 #import "PYSearch.h"
+#import "DLHomeSearchController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
@@ -61,7 +62,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 }
 
 #pragma mark - Setup navbar
-
 
 - (void)setupNavbar {
     
@@ -206,9 +206,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        
-        return 200.f;
-    
+        return 176.f;
     } else if (indexPath.section == 1) {
         return [self.appCenterViewController contentHeight];
     } else if (indexPath.section == 2) {
@@ -238,44 +236,64 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    //    DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
-    //    DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
-    //    [self presentViewController:navbar animated:NO completion:nil];
-    //    return NO;
     
-    // 1. 创建热门搜索数组
-    NSArray *hotSeaches = @[@"北京", @"天津", @"石家庄", @"唐山"];
-    // 2. 创建搜索控制器
-    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"搜索出发城市和目的地" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-        
-        // 开始(点击)搜索时执行以下代码
-        // 如：跳转到指定控制器
-        [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
-    }];
+//        DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
+//        DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
+//        [self presentViewController:navbar animated:NO completion:nil];
     
-    // 3. 跳转到搜索控制器
-    DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:searchViewController];
-    [self presentViewController:nav  animated:NO completion:nil];
-    // 设置搜索历史为带边框标签风格
-    searchViewController.searchHistoryStyle = PYSearchHistoryStyleColorfulTag;
-    // 设置热门搜索为彩色标签风格
-    searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
-    // 隐藏搜索建议
-    searchViewController.searchSuggestionHidden = YES;
+    DLHomeSearchController *search = [[DLHomeSearchController alloc]init];
+//
+    [self.navigationController pushViewController:search animated:YES];
+    
+    
     
     return NO;
     
+    
+    /*
+     
+     // 1. 创建热门搜索数组
+     NSArray *hotSeaches = @[@"北京", @"天津", @"石家庄", @"唐山"];
+     // 2. 创建搜索控制器
+     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"搜索出发城市和目的地" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+     
+     // 开始(点击)搜索时执行以下代码
+     // 如：跳转到指定控制器
+     [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
+     }];
+     
+     // 3. 跳转到搜索控制器
+     DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:searchViewController];
+     [self presentViewController:nav  animated:NO completion:nil];
+     // 设置搜索历史为带边框标签风格
+     searchViewController.searchHistoryStyle = PYSearchHistoryStyleColorfulTag;
+     // 设置热门搜索为彩色标签风格
+     searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
+     // 隐藏搜索建议
+     searchViewController.searchSuggestionHidden = YES;
+     */
+    
+    
+    
+    
+    
+    
+    
+//     return NO;
+    
+    
+    
 }
 
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    if (searchBar.text.length) {
-//        [self.searchBar resignFirstResponder];
-//        NSLog(@"点击搜索");
-//    } else {//toast
-//        NSLog(@"请输入搜索内容");
-//    }
-//}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if (searchBar.text.length) {
+        [self.searchBar resignFirstResponder];
+        NSLog(@"点击搜索");
+    } else {
+        NSLog(@"请输入搜索内容");
+    }
+}
 //
 //- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 //    [self.searchBar resignFirstResponder];
@@ -287,6 +305,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
+    
     //        NSDictionary *param = @{@"login_name" : @"13126997215",
     //                                @"login_pwd" : @"654321",};
     //        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
@@ -297,11 +316,24 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 #pragma mark - Event Handler
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
+    
         if (!self.popMenuView) {
             NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
             self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
             self.popMenuView.clickedBlock = ^(NSInteger index){
                 NSLog(@"选中了++++++ %@",cityArray[index]);
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             };
             [self.view addSubview:self.popMenuView];
         } else {
