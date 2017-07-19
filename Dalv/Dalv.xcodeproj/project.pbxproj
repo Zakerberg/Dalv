@@ -1743,6 +1743,8 @@
 				1C0162411F0C7CCA0089CE09 /* DLPlaneTicketViewController.m */,
 				1C4C9BB81F0E2F7600B3BDDC /* DLPlaneTicketListViewController.h */,
 				1C4C9BB91F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m */,
+				45001A441F17458B00586B04 /* DLplaneDetaliViewController.h */,
+				45001A451F17458B00586B04 /* DLplaneDetaliViewController.m */,
 				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
 				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
@@ -1763,8 +1765,6 @@
 				1C74F6C61EE8FD9F0012EB10 /* DLLineModificationViewController.m */,
 				1C1670CB1EF13A5D000DBFF5 /* DLChangeTitleViewController.h */,
 				1C1670CC1EF13A5D000DBFF5 /* DLChangeTitleViewController.m */,
-				45001A441F17458B00586B04 /* DLplaneDetaliViewController.h */,
-				45001A451F17458B00586B04 /* DLplaneDetaliViewController.m */,
 				4524A5691F1DA979001D628F /* DLHomeSearchController.h */,
 				4524A56A1F1DA979001D628F /* DLHomeSearchController.m */,
 			);

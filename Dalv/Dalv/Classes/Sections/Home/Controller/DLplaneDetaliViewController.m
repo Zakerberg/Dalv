@@ -13,18 +13,23 @@
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
 @property(nonatomic,strong) NSMutableArray * planeDetailDataArr;
+
 @end
 
 static NSString *nibCellID = @"nibCellID";
 static NSString *tankCellID = @"tankCell";
 @implementation DLplaneDetaliViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.planeDetailDataArr = [NSMutableArray array];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     [self setUI];
     [self setTableView];
-    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,8 +43,7 @@ static NSString *tankCellID = @"tankCell";
 
 -(void)setUI{
     
-#warning 此处不能写死,后期根据返回的数据设定
-    self.title = @"上海 - 北京 ";
+    self.title = [NSString stringWithFormat:@"%@ - %@",self.departure,self.destination];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
@@ -65,16 +69,7 @@ static NSString *tankCellID = @"tankCell";
     }];
 }
 
-#pragma mark ------- fetchData
 
--(void)fetchData{
-    
-    
-    
-    
-    
-    
-}
 
 #pragma mark ------- UITableViewDelegate
 
@@ -91,21 +86,19 @@ static NSString *tankCellID = @"tankCell";
     }
     
     return self.planeDetailDataArr.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
-        
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+        cell.detailBtn.hidden = YES;
         return cell;
-        
-    }else{
-        
+    }
+
         DLplaneTankCell *Tankell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
         return Tankell;
-        
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{

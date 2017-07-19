@@ -18,7 +18,7 @@
 @property(nonatomic, strong)UIButton *addBtn1;
 @property(nonatomic,strong) DLAddReduceButton * adultButton;
 @property(nonatomic,strong) DLAddReduceButton * childButton;
-/** Cell 重用ID */
+
 + (NSString *)cellIdentifier;
 
 @end

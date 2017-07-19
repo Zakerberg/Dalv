@@ -20,21 +20,13 @@
  "price_payable": "18700.00"			应付金额
  */
 
-/** 线路订单id **/
 @property(nonatomic,copy) NSString *lineId;
-/** 线路名称 **/
 @property(nonatomic,copy) NSString *name;
-/** 出团时间 **/
 @property(nonatomic,copy) NSString *start_time;
-/** 订单总价 **/
 @property(nonatomic,copy) NSString *price_total;
-/** 调整价格 **/
 @property(nonatomic,copy) NSString *price_adjust;
-/** 订单状态 **/
 @property(nonatomic,copy) NSString *state;
-/** 线路封面图片 **/
 @property(nonatomic,copy) NSString *cover_pic;
-/**  应付金额 **/
 @property(nonatomic,copy) NSString *price_payable;
 
 @end

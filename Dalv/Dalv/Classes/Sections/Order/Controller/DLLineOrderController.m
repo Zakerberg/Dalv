@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/6.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//   ----------------  线路订单列表 --------------------
 
 #import "DLLineOrderDetailXibController.h"
 #import "DLLineOrderConfirmController.h"
@@ -78,15 +77,11 @@ static NSString *nibCellID = @"nibCellID";
     self.lineOrderStateLabel.text = @"已付预付款";
 }
 
-//移除通知
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/**
- * 更新视图.
- */
 - (void) updateView
 {
     [self.lineOrderTableView reloadData];

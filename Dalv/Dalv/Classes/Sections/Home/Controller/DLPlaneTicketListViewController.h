@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @interface DLPlaneTicketListViewController : UIViewController
+@property (nonatomic,strong) NSMutableArray * planeListDataArr;
 /// 出发时间
 @property(nonatomic,strong) NSString * timestart;
 /// 达到城市
 @property(nonatomic,strong) NSString * destination;
 /// 出发城市
 @property(nonatomic,strong) NSString * departure;
+
 @end

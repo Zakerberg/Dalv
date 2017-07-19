@@ -11,9 +11,10 @@
 #import "DLPlaneTicketsListCell.h"
 #import "DLPlaneListDetailModel.h"
 
+#define KHEIGHT 60
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
-@property (nonatomic,strong) NSMutableArray * planeListDataArr;
+
 /// 出发时间
 @property (weak, nonatomic)  UILabel *startTimeLabel;
 /// 出发机场
@@ -62,9 +63,7 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 - (void)setupNavbar {
-    
-#warning 此处不能写死,后期根据返回的数据设定
-    self.title = @"机票列表";
+    self.title = [NSString stringWithFormat:@"%@ - %@",self.departure,self.destination];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
@@ -81,9 +80,7 @@ static NSString *nibCellID = @"nibCellID";
     [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-            
-            
-            
+
             NSLog(@"%@",result);
             
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
@@ -100,60 +97,59 @@ static NSString *nibCellID = @"nibCellID";
 - (void)cofigureheadView{
     
     UIView *headView = [[UIView alloc]init];
-    headView.backgroundColor = [UIColor ms_separatorColor];
+    headView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headView];
     
-    UIButton *beforDayBtn = [[UIButton alloc]init];
-    [beforDayBtn setTitle:@"前一天" forState:(UIControlStateNormal)];
-    [beforDayBtn addTarget:self action:@selector(beforfetchData) forControlEvents:UIControlEventTouchUpInside];
-    beforDayBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
-    [headView addSubview:beforDayBtn];
+    UIButton *beforeBtn = [[UIButton alloc]init];
+    [beforeBtn setTitle:@"< 前一天" forState:UIControlStateNormal];
+    beforeBtn.contentHorizontalAlignment = 0;
+    beforeBtn.titleLabel.font = [UIFont systemFontOfSize: 16];
+    [beforeBtn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
+    [beforeBtn addTarget:self action:@selector(beforeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    beforeBtn.backgroundColor = [UIColor whiteColor];
+
+    [headView addSubview:beforeBtn];
     
     UILabel *dateLabel = [[UILabel alloc] init];
-    dateLabel.text = @"2017-07-08";
+    dateLabel.text = self.timestart;
     dateLabel.textAlignment = NSTextAlignmentCenter;
-    dateLabel.textColor = [UIColor colorWithHexString:@"#b0b0b0"];
+    dateLabel.textColor = [UIColor blackColor];
     dateLabel.backgroundColor = [UIColor whiteColor];
-    dateLabel.font = [UIFont systemFontOfSize:14];
+    dateLabel.font = [UIFont systemFontOfSize:16];
     [headView addSubview:dateLabel];
     
-    UIButton *afterDayBtn = [[UIButton alloc]init];
-    [afterDayBtn addTarget:self action:@selector(afterfetchData) forControlEvents:UIControlEventTouchUpInside];
-    afterDayBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
-    [afterDayBtn setTitle:@"后一天" forState:(UIControlStateNormal)];
-    [headView addSubview:afterDayBtn];
+    UIButton *afterBtn = [[UIButton alloc]init];
+    [afterBtn addTarget:self action:@selector(afterBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    afterBtn.backgroundColor = [UIColor whiteColor];
+    afterBtn.contentHorizontalAlignment = 0;
+    afterBtn.titleLabel.font = [UIFont systemFontOfSize: 16];
+    [afterBtn setTitle:@"后一天 >" forState:UIControlStateNormal];
+    [afterBtn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
+    [headView addSubview:afterBtn];
     
     [headView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.equalTo(self.view);
         make.top.equalTo(self.view);
-        make.height.equalTo(@40);
+        make.height.offset(KHEIGHT);
     }];
     
-    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.equalTo(self.view);
-        make.top.equalTo(self.view);
-        make.height.equalTo(@40);
-    }];
-    
-    [beforDayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(headView);
-        make.bottom.equalTo(headView);
-        make.height.equalTo(@40);
-        make.width.equalTo(headView).multipliedBy(0.25);
+    [beforeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.offset(0);
+        make.height.offset(KHEIGHT);
+        make.width.offset(100);
     }];
     
     [dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(beforDayBtn.mas_right);
-        make.bottom.equalTo(headView);
-        make.height.equalTo(@40);
-        make.width.equalTo(headView).multipliedBy(0.5);
+        
+        make.top.offset(0);
+        make.centerX.offset(0);
+        make.height.offset(KHEIGHT);
     }];
     
-    [afterDayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(dateLabel.mas_right);
-        make.bottom.equalTo(headView);
-        make.height.equalTo(@40);
-        make.width.equalTo(headView).multipliedBy(0.25);
+    [afterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.offset(0);
+        make.height.offset(KHEIGHT);
+        make.width.offset(100);
     }];
     
 }
@@ -175,7 +171,7 @@ static NSString *nibCellID = @"nibCellID";
     
     [self.planeTicketListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
-        make.top.equalTo(@40);
+        make.top.equalTo(@KHEIGHT);
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
@@ -183,14 +179,14 @@ static NSString *nibCellID = @"nibCellID";
 
 #pragma mark -------- BtnClick
 
--(void)beforfetchData {
+-(void)beforeBtnClick {
     
     
     
     
 }
 
--(void)afterfetchData {
+-(void)afterBtnClick {
     
     
     
@@ -198,11 +194,14 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 
-/// 详情
 -(void)detailBtnClick {
     
-    NSLog(@"点击了机票的详情");
     DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
+    
+    deVC.departure = self.departure;
+    deVC.destination = self.destination;
+    deVC.planeListDataArr = self.planeListDataArr;
+    
     [self.navigationController pushViewController:deVC animated:YES];
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by Nie on 2017/7/5.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 首页机票 ----------------------
 
 #import "DLPlaneTicketViewController.h"
 #import "DLPlaneTicketListViewController.h"
@@ -245,9 +244,9 @@ static NSString *cellID = @"cellID";
         TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
         
         [cityPickerVC setDelegate:self];
-        /// 定位城市
+      
         cityPickerVC.locationCityID = @"20000101";
-        /// 热门城市
+        
         cityPickerVC.hotCitys = @[
                                   @"20000101", @"18000101", @"18000102",
                                   @"14000101", @"22000101", @"40000103",
