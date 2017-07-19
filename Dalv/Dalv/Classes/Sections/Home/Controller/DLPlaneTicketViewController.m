@@ -14,16 +14,19 @@
 @interface DLPlaneTicketViewController () <TLCityPickerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (weak,nonatomic) UITableViewCell* personCell;
-@property(nonatomic,strong) UITableView * planeTicketTableView;
+@property (nonatomic,strong) UITableView * planeTicketTableView;
 @property (strong, nonatomic) UIButton *searchBtn; /// 搜索
+@property (nonatomic,strong) NSString * str1;
+
 @end
 
 static NSString *cellID = @"cellID";
 @implementation DLPlaneTicketViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    [self setupNavbar];
+    [self setUI];
     [self setTab];
 }
 
@@ -35,11 +38,15 @@ static NSString *cellID = @"cellID";
     [super didReceiveMemoryWarning];
 }
 
-- (void)setupNavbar {
+#pragma mark ----- setUI
+
+- (void)setUI {
     
     self.title = @"机票查询";
     self.view.backgroundColor = [UIColor colorWithHexString:@"#f2f2f2"];
 }
+
+#pragma mark ----- setTab
 
 -(void)setTab{
     
@@ -72,14 +79,37 @@ static NSString *cellID = @"cellID";
     }];
 }
 
+
+#pragma mark ----- searchBtnClick
+
 -(void)searchBtnClick {
     
     NSLog(@"开始查询!");
-    DLPlaneTicketListViewController * planeTicketListVC = [[DLPlaneTicketListViewController alloc]init];
-    [self.navigationController pushViewController:planeTicketListVC animated:YES];
     
+    if (!self.startDate.text) {
+        
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发日期" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else if (!self.starLabel.text ){
+        
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发城市" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else if (!self.destinationLabel.text){
+        
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的目的地" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else{
+        
+        DLPlaneTicketListViewController * planeTicketListVC = [[DLPlaneTicketListViewController alloc]init];
+        planeTicketListVC.departure = self.starLabel.text;
+        planeTicketListVC.destination = self.destinationLabel.text;
+        planeTicketListVC.timestart = self.startDate.text;
+        [self.navigationController pushViewController:planeTicketListVC animated:YES];
+    }
 }
-
 
 #pragma mark ----- UITableView Delegate
 
@@ -191,6 +221,7 @@ static NSString *cellID = @"cellID";
     /// 出发城市
     if (indexPath.row == 0){
         
+        self.str1 = @"1";
         TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
         [cityPickerVC setDelegate:self];
         //定位城市
@@ -212,6 +243,8 @@ static NSString *cellID = @"cellID";
     }else if (indexPath.row == 1){
         
         TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+        
+        [cityPickerVC setDelegate:self];
         /// 定位城市
         cityPickerVC.locationCityID = @"20000101";
         /// 热门城市
@@ -245,7 +278,8 @@ static NSString *cellID = @"cellID";
         }];
         [alertController.view addSubview:picker];
         [alertController addAction:cancelAction];
-        [self presentViewController:alertController animated:YES completion:nil];    }
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
     
 }
 
@@ -253,9 +287,17 @@ static NSString *cellID = @"cellID";
 
 - (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city{
     
-    self.starLabel.text = city.cityName;
     
-    // self.destinationLabel.text = city.cityName;
+    if ([self.str1 isEqualToString: @"1"]) {
+        
+        self.starLabel.text = city.cityName;
+        self.str1 = @"";
+        
+    }else{
+        
+        self.destinationLabel.text = city.cityName;
+        NSLog(@"2222222222222");
+    }
     
     [cityPickerViewController dismissViewControllerAnimated:YES completion:nil];
     

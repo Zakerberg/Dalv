@@ -73,9 +73,9 @@ static NSString *nibCellID = @"nibCellID";
 -(void)fetchData {
     
     NSDictionary *param = @{
-                            @"departure": @"哈尔滨",
-                            @"destination": @"合肥",
-                            @"timestart" : @"2017-08-20",
+                            @"departure": self.departure,
+                            @"destination": self.destination,
+                            @"timestart" : self.timestart,
                             };
     @weakify(self);
     [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
