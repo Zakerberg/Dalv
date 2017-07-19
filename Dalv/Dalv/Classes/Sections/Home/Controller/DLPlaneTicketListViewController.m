@@ -86,6 +86,34 @@ static NSString *nibCellID = @"nibCellID";
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
             [self.planeListDataArr addObjectsFromArray:planeListArray];
+            
+            
+#warning 此处可能有问题!
+           // NSArray *priceArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result /objectForKey:planeListArray[@"price"]];
+            //[self.PlanepriceArr addObjectsFromArray:priceArr];
+            
+//            NSArray *arr = result[@"flightinfo"];
+//            
+//            NSArray *planeArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:dict[@"price"]];
+//            
+//            [self.PlanepriceArr addObjectsFromArray:planeArr];
+            
+            
+            
+            
+            
+            
+            
+            
+            
+#warning 此处可能有问题! !!!! !  ! ! ! ! ! ! ! ! !! ! ! ! 
+            
+           
+            
+            
+            
+            
+            
             //[self setupSubviews];
             [self.planeTicketListTableView reloadData];
         }

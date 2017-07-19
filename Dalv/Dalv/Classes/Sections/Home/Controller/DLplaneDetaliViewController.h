@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface DLplaneDetaliViewController : UIViewController
-@property (nonatomic,strong) NSMutableArray * planeListDataArr;
+@property (strong, nonatomic)  NSMutableArray * planeListDataArr;
 /// 达到城市
-@property(nonatomic,strong) NSString * destination;
+@property (strong, nonatomic)  NSString * destination;
 /// 出发城市
-@property (strong, nonatomic) NSString * departure;
+@property (strong, nonatomic)  NSString * departure;
 @property (strong, nonatomic)  NSString *startTime;
 @property (strong, nonatomic)  NSString *startPlace;
 @property (strong, nonatomic)  NSString *arriveTime;
