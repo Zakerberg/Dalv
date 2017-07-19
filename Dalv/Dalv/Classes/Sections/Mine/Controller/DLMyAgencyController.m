@@ -13,18 +13,18 @@
 
 @interface DLMyAgencyController ()
 @property (nonatomic, strong) NSDictionary *myAgencyList;
-@property(nonatomic,strong) UIImageView *imageView;/// 头像
-@property(nonatomic,strong) UILabel  * nameLabel;/// 名字
-@property(nonatomic,strong) UILabel * nickNameLabel;/// 昵称
-@property(nonatomic,strong) UILabel * sexLabel;/// 性别
-@property(nonatomic,strong) UILabel * ageLabel;/// 年龄
-@property(nonatomic,strong) UILabel * workTimeLabel;/// 从业时间
-@property(nonatomic,strong) UITextView * personTV;/// 标签
-@property(nonatomic,strong) UILabel * numberLabel;/// 手机号
-@property(nonatomic,strong) UILabel * mailLabel;/// 邮箱
-@property(nonatomic,strong) UITextView * noteTV;/// 介绍
-@property() UIButton * unBindingBtn;/// 解除绑定
-@property(nonatomic,strong) UIButton * contractBtn;/// 联系
+@property(nonatomic,strong) UIImageView *imageView;
+@property(nonatomic,strong) UILabel  * nameLabel;
+@property(nonatomic,strong) UILabel * nickNameLabel;
+@property(nonatomic,strong) UILabel * sexLabel;
+@property(nonatomic,strong) UILabel * ageLabel;
+@property(nonatomic,strong) UILabel * workTimeLabel;
+@property(nonatomic,strong) UITextView * personTV;
+@property(nonatomic,strong) UILabel * numberLabel;
+@property(nonatomic,strong) UILabel * mailLabel;
+@property(nonatomic,strong) UITextView * noteTV;
+@property() UIButton * unBindingBtn;
+@property(nonatomic,strong) UIButton * contractBtn;
 @end
 
 @implementation DLMyAgencyController
@@ -158,12 +158,12 @@
     
     UITextView *personTV = [[UITextView alloc] init];
     self.personTV = personTV;
-
+    
     personTV.font = [UIFont systemFontOfSize:15];
     personTV.textColor = [UIColor colorWithHexString:@"#6b6b6b"];
- 
+    
     [self.view addSubview:personTV];
-
+    
     UIView *line2 = [[UIView alloc] init];
     line2.backgroundColor = [UIColor colorWithHexString:@"#ededed"];
     
@@ -333,14 +333,14 @@
         make.top.equalTo(line1.mas_bottom).offset(15);
         make.height.left.offset(15);
     }];
-
+    
     [personTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.offset(-15);
         make.height.offset(75);
         make.top.equalTo(line1.mas_bottom).offset(5);
         make.left.equalTo(title.mas_right).offset(5);
     }];
-
+    
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(line1.mas_bottom).offset(80);
         make.height.equalTo(@0.5);

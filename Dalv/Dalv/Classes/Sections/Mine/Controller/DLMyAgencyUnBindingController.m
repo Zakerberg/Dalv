@@ -15,10 +15,10 @@
 @interface DLMyAgencyUnBindingController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * agencyListTableView;
 @property (nonatomic, strong) NSMutableArray *agencyList;
-@property (weak, nonatomic)  UIImageView *AgencyImageV;/// 顾问头像
-@property (weak, nonatomic)  UILabel *agencyNameLabel;/// 顾问名字
-@property (weak, nonatomic)  UILabel *agencyIntegralLabel;/// 顾问积分
-@property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;/// 顾问从业时间
+@property (weak, nonatomic)  UIImageView *AgencyImageV;
+@property (weak, nonatomic)  UILabel *agencyNameLabel;
+@property (weak, nonatomic)  UILabel *agencyIntegralLabel;
+@property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;
 @property(nonatomic,weak) NSDictionary * myListDict;
 @end
 
@@ -90,12 +90,11 @@
         
     }];
 }
-#pragma mark ------  Table view Delegate
+#pragma mark ------  TableView Delegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return self.agencyList.count;
-    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

@@ -56,7 +56,7 @@ static NSString *cellID  = @"cellID";
     [logOutBtn addTarget:self action:@selector(LogoutBtnClick) forControlEvents:UIControlEventTouchUpInside];
     logOutBtn.layer.cornerRadius = 8.0;
     [self.tableView addSubview:logOutBtn];
-
+    
     [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(15);
         make.height.offset(44);
@@ -69,7 +69,6 @@ static NSString *cellID  = @"cellID";
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/* 退出登录 */
 -(void)LogoutBtnClick {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出后您需要重新登录,是否确定?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -123,14 +122,13 @@ static NSString *cellID  = @"cellID";
     }else if (indexPath.row == 1) {/// 联系我们
         
         NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
-        //NSLog(@"str======%@",str);
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         
     }else if (indexPath.row == 2) {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"您确定清除缓存吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            //清除缓存
             BOOL isSuccess = [BLMClearCacheTool clearCacheWithFilePath:BLMfilePath];
             if (isSuccess) {
                 [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -191,7 +189,6 @@ static NSString *cellID  = @"cellID";
             }];
         }
     }
-    
     return cell;
 }
 

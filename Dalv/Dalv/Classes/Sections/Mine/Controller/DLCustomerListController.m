@@ -13,13 +13,13 @@
 
 @interface DLCustomerListController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property(nonatomic,strong) UITableView * customerListTableView;
+@property (nonatomic,strong) UITableView * customerListTableView;
 @property (nonatomic, strong) NSMutableArray *myCustomerList;
 @property (weak, nonatomic)  UIImageView *customerAvatarImageV;/// 直客头像
 @property (weak, nonatomic)  UILabel *customerNameLabel;/// 直客名称
 @property (weak, nonatomic)  UILabel *customerNumLabel;///直客电话
 @property (weak, nonatomic)  UILabel *customerTimeLabel;/// 直客时间
-@property(nonatomic,weak) NSDictionary * myListDict;
+@property (nonatomic,weak) NSDictionary * myListDict;
 @end
 
 static NSString *cellID = @"cellID";
@@ -58,7 +58,7 @@ static NSString *cellID = @"cellID";
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-
+    
 }
 
 #pragma mark ---- fetchData
@@ -73,13 +73,13 @@ static NSString *cellID = @"cellID";
         
         @weakify(self);
         if (result) {
-         @strongify(self);
+            @strongify(self);
             NSArray *customerListArray = [DLCustomerListModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.myCustomerList addObjectsFromArray:customerListArray];
             [self.customerListTableView reloadData];
-      
+            
         }else {
-        
+            
             [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
         }
     }];

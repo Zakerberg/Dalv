@@ -13,6 +13,14 @@
 /// 达到城市
 @property(nonatomic,strong) NSString * destination;
 /// 出发城市
-@property(nonatomic,strong) NSString * departure;
-
+@property (strong, nonatomic) NSString * departure;
+@property (strong, nonatomic)  NSString *startTime;
+@property (strong, nonatomic)  NSString *startPlace;
+@property (strong, nonatomic)  NSString *arriveTime;
+@property (strong, nonatomic)  NSString *arrivePlace;
+@property (strong, nonatomic)  NSString *startOrgjetquery;
+@property (strong, nonatomic)  NSString *dstJetqury;
+@property (strong, nonatomic)  NSString *airlines;
+@property (strong, nonatomic)  NSString *flightNo;
+@property (strong, nonatomic)  NSString *planeType;
 @end

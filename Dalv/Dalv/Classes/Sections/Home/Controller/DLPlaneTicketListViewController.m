@@ -44,7 +44,7 @@ static NSString *nibCellID = @"nibCellID";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.planeListDataArr = [NSMutableArray array];
-    [self fetchData];
+    //[self fetchData];
     
 }
 
@@ -54,8 +54,8 @@ static NSString *nibCellID = @"nibCellID";
     [super viewDidLoad];
     [self setupNavbar];
     [self cofigureheadView];
-    //[self fetchData];
-   // [self setupSubviews];
+    [self fetchData];
+    [self setupSubviews];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -86,8 +86,8 @@ static NSString *nibCellID = @"nibCellID";
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
             [self.planeListDataArr addObjectsFromArray:planeListArray];
-            [self setupSubviews];
-            //[self.planeTicketListTableView reloadData];
+            //[self setupSubviews];
+            [self.planeTicketListTableView reloadData];
         }
     }];
 }
@@ -189,8 +189,7 @@ static NSString *nibCellID = @"nibCellID";
 -(void)afterBtnClick {
     
     
-    
-    
+
 }
 
 
@@ -201,6 +200,15 @@ static NSString *nibCellID = @"nibCellID";
     deVC.departure = self.departure;
     deVC.destination = self.destination;
     deVC.planeListDataArr = self.planeListDataArr;
+    deVC.startTime = self.startTimeLabel.text;
+    deVC.startPlace = self.startPlaceLabel.text;
+    deVC.arriveTime = self.arriveTimeLabel.text;
+    deVC.arrivePlace = self.arrivePlaceLabel.text;
+    deVC.startOrgjetquery = self.startOrgjetquery.text;
+    deVC.dstJetqury = self.dstJetqury.text;
+    deVC.airlines = self.airlinesLabel.text;
+    deVC.planeType = self.planeType.text;
+    deVC.flightNo = self.flightNo.text;
     
     [self.navigationController pushViewController:deVC animated:YES];
 }
@@ -223,22 +231,6 @@ static NSString *nibCellID = @"nibCellID";
     
     self.startPlaceLabel = cell.startPlaceLabel;
     self.arriveTimeLabel = cell.arriveTimeLabel;
-    
-    /*
-    NSMutableString *str = [[NSMutableString alloc] init];
-    [str setString:cell.startTimeLabel.text];
-    [str insertString:@":" atIndex:2];
-    
-    self.startTimeLabel.text = str;
-    
-    NSMutableString *str1 = [[NSMutableString alloc] init];
-    [str1 setString:cell.arriveTimeLabel.text];
-    [str1 insertString:@":" atIndex:2];
-    
-    self.arriveTimeLabel.text = str1;
-     
-    */
-
     self.startOrgjetquery = cell.startOrgjetquery;
     self.dstJetqury = cell.dstJetqury;
     self.startTimeLabel = cell.startTimeLabel;
@@ -255,7 +247,6 @@ static NSString *nibCellID = @"nibCellID";
     [cell configureCell:pdModel];
     
     return cell;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{

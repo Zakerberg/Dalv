@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/5/26.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 意见反馈 ----------------------
 
 #import "DLFeedBackController.h"
 #import "UILabel+Extension.h"
@@ -62,7 +61,6 @@
     }];
 }
 
-/// 发送按钮
 - (void)btnClick {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"已发送" message:nil preferredStyle:UIAlertControllerStyleAlert];

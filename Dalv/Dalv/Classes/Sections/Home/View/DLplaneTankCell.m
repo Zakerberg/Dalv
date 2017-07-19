@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/7/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 飞机舱位Cell ------------------
 
 #import "DLplaneTankCell.h"
 

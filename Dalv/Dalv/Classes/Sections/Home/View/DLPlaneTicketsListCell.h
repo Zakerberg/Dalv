@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/7/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ----------------- 机票列表界面Cell -----------------
 
 #import <UIKit/UIKit.h>
 #import "DLPlaneListDetailModel.h"
@@ -31,6 +30,6 @@
 /// 详情Btn
 @property (weak, nonatomic) IBOutlet UIButton *detailBtn;
 
-- (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;
+-(void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;
 
 @end

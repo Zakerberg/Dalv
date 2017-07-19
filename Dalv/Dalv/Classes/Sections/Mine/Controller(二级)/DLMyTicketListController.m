@@ -113,10 +113,7 @@ static NSString *cellID = @"cellID";
     
     DLMyTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
-    
-    
-    
-    
+
 #warning 今天处理!!!! 
 
     

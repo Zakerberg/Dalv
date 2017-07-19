@@ -161,6 +161,7 @@
                 <outlet property="arrivePlaceLabel" destination="lSc-7O-1EV" id="xNg-oF-gae"/>
                 <outlet property="arriveTimeLabel" destination="ZPM-Lf-RFc" id="rDu-Se-Ygv"/>
                 <outlet property="detailBtn" destination="zyy-y9-jsE" id="MFg-6u-BGy"/>
+                <outlet property="dstJetqury" destination="mHB-xj-NcE" id="IiN-Vc-nds"/>
                 <outlet property="flightNo" destination="ZZb-yN-W32" id="epz-l7-jX3"/>
                 <outlet property="planeType" destination="7Bw-sJ-wdh" id="v0Q-RJ-tP6"/>
                 <outlet property="startOrgjetquery" destination="JMM-P4-Ziv" id="rhH-Py-NvL"/>
