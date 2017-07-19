@@ -135,7 +135,6 @@
 		1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */; };
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
 		1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */; };
-		1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770941ECFE00100F6EFDF /* DLSortController.m */; };
 		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
 		1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */; };
@@ -700,8 +699,6 @@
 		1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewController.h; sourceTree = "<group>"; };
 		1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewController.m; sourceTree = "<group>"; };
-		1CB770931ECFE00100F6EFDF /* DLSortController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSortController.h; sourceTree = "<group>"; };
-		1CB770941ECFE00100F6EFDF /* DLSortController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSortController.m; sourceTree = "<group>"; };
 		1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
 		1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CB770A11ECFE00100F6EFDF /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
@@ -1385,8 +1382,6 @@
 				1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */,
 				1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */,
 				1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */,
-				1CB770931ECFE00100F6EFDF /* DLSortController.h */,
-				1CB770941ECFE00100F6EFDF /* DLSortController.m */,
 				45DB48141EE93A7E00399A6D /* DLMyCustomerController.h */,
 				45DB48151EE93A7E00399A6D /* DLMyCustomerController.m */,
 				45A321CA1EF256E000325683 /* DLMyCustomerXibController.h */,
@@ -2734,7 +2729,6 @@
 				1C1357EB1EF0DE270098E778 /* DLLineTourTableViewCell.m in Sources */,
 				1C29817D1EE0F40C00712524 /* DLCashRegisterModel.m in Sources */,
 				1C6661701EF67BAC0032E1AE /* DLDestinationAtlasModel.m in Sources */,
-				1CB770B81ECFE00100F6EFDF /* DLSortController.m in Sources */,
 				450105F31ED9C39100AA7A17 /* DLManagerMessage.m in Sources */,
 				1CB953AF1ECFC41600BDC2D3 /* DLHomeViewController.m in Sources */,
 				1CB953F41ECFC7E200BDC2D3 /* UIBarButtonItem+MSExtension.m in Sources */,

@@ -19,15 +19,15 @@
 @property (weak,nonatomic) UITableViewCell* cell;
 @property (weak,nonatomic) DLPersonalChangeDataCell* personalCell;
 @property (nonatomic,strong) UILabel *label;
-@property (weak, nonatomic) UITextField *nickNameTF;/// 昵称
-@property (weak, nonatomic) UITextField *noteLabelTF;/// 标签
-@property (weak, nonatomic) UITextField *mailTF;/// 邮箱
-@property (weak, nonatomic) UITextField *ageTF;/// 年龄
-@property (weak, nonatomic) UITextView *goCityView;/// 去过的城市textView
-@property (weak, nonatomic) UILabel *nameLabel;/// 名字
-@property (weak, nonatomic) UILabel *numLabel;/// 手机号
-@property (nonatomic,strong) UILabel * sexLabel;/// sex
-@property (weak, nonatomic) UITextField *workTimeTF;/// workTime
+@property (weak, nonatomic) UITextField *nickNameTF;
+@property (weak, nonatomic) UITextField *noteLabelTF;
+@property (weak, nonatomic) UITextField *mailTF;
+@property (weak, nonatomic) UITextField *ageTF;
+@property (weak, nonatomic) UITextView *goCityView;
+@property (weak, nonatomic) UILabel *nameLabel;
+@property (weak, nonatomic) UILabel *numLabel;
+@property (nonatomic,strong) UILabel * sexLabel;
+@property (weak, nonatomic) UITextField *workTimeTF;
 @property (nonatomic,strong) NSString * sexStr;
 @end
 

@@ -36,7 +36,7 @@ static NSString *cellID = @"cellID";
 #pragma mark --------setTableView ----------
 -(void)setTableView{
     
-//  [self.myMoneyLabel sizeToFit];
+    //  [self.myMoneyLabel sizeToFit];
     
     UITableView *myCustomerTableView = [[UITableView alloc] init];
     self.myCustomerTableView = myCustomerTableView;
@@ -64,7 +64,7 @@ static NSString *cellID = @"cellID";
                             @"uid":[DLUtils getUid],
                             @"sign_token" : [DLUtils getSign_token],
                             };
-
+    
     [DLHomeViewTask getAgencyFlightFlightProfit:param completion:^(id result, NSError *error) {
         self.myMoneyLabel.text = result[@"total"];
     }];
@@ -83,7 +83,7 @@ static NSString *cellID = @"cellID";
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

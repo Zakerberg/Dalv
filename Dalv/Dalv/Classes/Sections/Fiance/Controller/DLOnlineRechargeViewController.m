@@ -8,9 +8,7 @@
 
 #import "DLOnlineRechargeViewController.h"
 #import "DLRechargeRecordViewController.h"
-#import "DLHomeViewTask.h"
 #import "WXApi.h"
-
 #import "Order.h"
 #import "APAuthV2Info.h"
 #import "RSADataSigner.h"
@@ -23,8 +21,6 @@ static NSString *DLOnlineRechargeTableViewHeader = @"DLOnlineRechargeTableViewHe
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
 @property (nonatomic, strong) UITextField *priceTextField;
 @property (nonatomic,strong) NSMutableDictionary *onlineRechargeDict;
-
-
 @end
 
 @implementation DLOnlineRechargeViewController

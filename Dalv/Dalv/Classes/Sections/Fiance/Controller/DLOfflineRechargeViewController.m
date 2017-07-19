@@ -16,21 +16,13 @@
 static NSString *DLOfflineRechargeTableViewHeader = @"DLOfflineRechargeTableViewHeader";
 
 @interface DLOfflineRechargeViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
-
 @property (nonatomic, strong) UITableView *offlineRechargeTableView;
-
 @property (nonatomic, assign) NSUInteger selctSection;//选中的section 也就是选中的支付方式
-
 @property (nonatomic, strong) NSMutableArray *bankChargeArray;//银行充值的数组
-
 @property (nonatomic, strong) UITextField *priceTextField;//输入金额
-
 @property (nonatomic, strong) UITextField *remittingPartyTextField;//输入汇款方
-
 @property (nonatomic, copy) NSString *topupInfo;//银行html字符串
-
 @property (nonatomic,strong) UIView *backview;
-
 @property (nonatomic, strong) DLBankTransferModel *bankTransModel;
 
 
