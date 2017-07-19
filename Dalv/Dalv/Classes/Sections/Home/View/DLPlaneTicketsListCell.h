@@ -14,6 +14,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 /// 出发机场
 @property (weak, nonatomic) IBOutlet UILabel *startPlaceLabel;
+/// 出发航站楼
+@property (weak, nonatomic) IBOutlet UILabel *startOrgjetquery;
+/// 到达航站楼
+@property (weak, nonatomic) IBOutlet UILabel *dstJetqury;
 /// 到达时间
 @property (weak, nonatomic) IBOutlet UILabel *arriveTimeLabel;
 /// 到达机场

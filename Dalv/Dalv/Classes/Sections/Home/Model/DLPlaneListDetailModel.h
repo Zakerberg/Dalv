@@ -55,10 +55,12 @@
 */
 
 @interface DLPlaneListDetailModel : NSObject
-/// 机票日期
-@property(nonatomic,copy) NSString *date;
+/// 出发城市三字码
+@property(nonatomic,copy) NSString *orgCity;
 /// 出发城市
 @property(nonatomic,copy) NSString *depname;
+/// 机票日期
+@property(nonatomic,copy) NSString *date;
 /// 出发时间（12:50）
 @property(nonatomic,copy) NSString *depTime;
 /// 出发日期
@@ -76,9 +78,13 @@
 /// 机型
 @property(nonatomic,copy) NSString *planeType;
 /// 到达航站楼
-@property(nonatomic,copy) NSString *dstCityName;
+@property(nonatomic,copy) NSString *dstJetquay;
 /// 出发航站楼
+@property(nonatomic,copy) NSString *orgJetquay;
+/// 出发机场
 @property(nonatomic,copy) NSString *orgCityName;
+/// 到达机场
+@property(nonatomic,copy) NSString *dstCityName;
 /// 燃油费
 @property(nonatomic,copy) NSString *fuelTax;
 /// 基建费

@@ -22,6 +22,10 @@
 @property (weak, nonatomic)  UILabel *arriveTimeLabel;
 /// 到达机场
 @property (weak, nonatomic)  UILabel *arrivePlaceLabel;
+/// 出发航站楼
+@property (weak, nonatomic)  UILabel *startOrgjetquery;
+/// 到达航站楼
+@property (weak, nonatomic)  UILabel *dstJetqury;
 /// 航空公司
 @property (weak, nonatomic)  UILabel *airlinesLabel;
 /// 航班号
@@ -236,7 +240,8 @@ static NSString *nibCellID = @"nibCellID";
      
     */
 
-    
+    self.startOrgjetquery = cell.startOrgjetquery;
+    self.dstJetqury = cell.dstJetqury;
     self.startTimeLabel = cell.startTimeLabel;
     self.arrivePlaceLabel = cell.arrivePlaceLabel;
     self.airlinesLabel = cell.airlinesLabel;
@@ -268,14 +273,6 @@ static NSString *nibCellID = @"nibCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }
