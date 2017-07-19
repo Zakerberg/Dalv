@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/16.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//   ----------------  线路订单确认支付 -----------------
 
 #import "DLLineOrderConfirmController.h"
 #import "DLLineOrderController.h"
@@ -12,20 +11,20 @@
 
 @interface DLLineOrderConfirmController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;/// 线路名称
-@property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;/// 成人数量
-@property (weak, nonatomic) IBOutlet UILabel *childCountLabel;/// 儿童数量
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderMoney;/// 订单金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderAdjustPrice;/// 调整金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;/// 应付金额
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;/// 付款金额
-@property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;///左边判断是全款 , 预付款 , 尾款Label
-@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;///边框成人和儿童的label
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *adultCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *childCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderMoney;
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderAdjustPrice;
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayablePrice;
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderPayMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *payMoneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;/// 下面的提示Label
-@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;/// 确认Button
-@property (weak, nonatomic) IBOutlet UILabel *memoLabel;///特别说明
-@property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;///出发日期
+@property (weak, nonatomic) IBOutlet UILabel *lineOrderTipsLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (weak, nonatomic) IBOutlet UILabel *memoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
 @property (strong, nonatomic) NSString *keyidStr;///keyID
 @property(nonatomic,strong) DLLineOrderController * orderVC;
 @end
@@ -57,7 +56,6 @@
     return YES;
 }
 
-#pragma mark ---- 确认支付
 
 - (IBAction)confirmBtnClick:(id)sender {
     
@@ -79,7 +77,7 @@
        
         }else{
         
-            //发送通知
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"payFullMoney" object:sender];
             
             [self.navigationController popViewControllerAnimated:YES];
@@ -103,7 +101,7 @@
             }else{
                 
                 
-                //发送通知
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"payPreMoney" object:sender];
                 
                 [self.navigationController popViewControllerAnimated:YES];

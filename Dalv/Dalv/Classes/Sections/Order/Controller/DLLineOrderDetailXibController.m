@@ -12,42 +12,28 @@
 #import "DLHomeViewTask.h"
 
 @interface DLLineOrderDetailXibController ()
-/// 订单名称
+
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderNameLabel;
-/// 订单状态
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStateLabel;
-/// 订单创建时间
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderCreatTimeLabel;
-/// 订单图片
 @property (weak, nonatomic) IBOutlet UIImageView *lineOrderPicImageView;
-/// 订单成人数量
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderAdultCountLabel;
-/// 订单儿童数量
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderChildCountLabel;
-/// 订单团期时间
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderStartTimeLabel;
-/// 订单金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPriceTotaLabel;
-/// 订单调整金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPriceAdjustLabel;
-/// 订单应付金额
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderPayableLabel;
-/// 订单特别说明
 @property (weak, nonatomic) IBOutlet UILabel *lineOrderMemoLabel;
 @property (nonatomic, strong) NSMutableArray *lineOrderDetailList;
 @property (weak, nonatomic) IBOutlet UIView *lineOrderDetailView;
-///边框成人和儿童的label
 @property (weak, nonatomic) IBOutlet UILabel *adultBorderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *childBorderLabel;
-///预付款button
 @property (nonatomic, strong) UIButton *prepaidBtn;
-///全款button
 @property (nonatomic, strong) UIButton *payFullBtn;
-///尾款button*/
 @property (weak, nonatomic) IBOutlet UIButton *payTailButton;
 @property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
 @property(nonatomic,strong) UITableView * mainTableView;
-///付款成功
+
 @property(nonatomic,strong) NSString * PayedStatus;
 
 @end
@@ -111,7 +97,7 @@ static NSString *cellID = @"cellID";
     
 }
 
-//移除通知
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -156,7 +142,7 @@ static NSString *cellID = @"cellID";
  }
  */
 
-#pragma mark - ------------- setUI ----------------
+#pragma mark - ------- setUI
 
 -(void)setUI{
     
@@ -182,10 +168,9 @@ static NSString *cellID = @"cellID";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - ------------- setButton ----------------
+#pragma mark - ------------- setButton 
+
 -(void)setButton{
-    
-    
     
     UIButton *prepaidBtn = [[UIButton alloc] init];
     self.prepaidBtn = prepaidBtn;
@@ -275,9 +260,6 @@ static NSString *cellID = @"cellID";
     
     NSLog(@"尾款");
 }
-
-
-#pragma mark - ------------- fetchData ----------------
 
 -(void)fetchData{
     
