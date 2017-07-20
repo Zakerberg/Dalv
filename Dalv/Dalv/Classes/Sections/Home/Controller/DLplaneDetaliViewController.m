@@ -4,6 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/7/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
+//  ------------ 机票订单舱位列表详情界面 ----------------
 
 #import "DLplaneDetaliViewController.h"
 #import "DLPlaneTicketsListCell.h"
@@ -19,13 +20,8 @@ static NSString *nibCellID = @"nibCellID";
 static NSString *tankCellID = @"tankCell";
 @implementation DLplaneDetaliViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    self.planeDetailDataArr = [NSMutableArray array];
-}
-
 - (void)viewDidLoad {
-    
+    self.planeDetailDataArr = [NSMutableArray array];
     [super viewDidLoad];
     [self setUI];
     [self setTableView];
@@ -87,22 +83,6 @@ static NSString *tankCellID = @"tankCell";
     return self.planeDetailDataArr.count;
     
 }
-
-
-/*
- 
- @property (weak, nonatomic)  UILabel *startTimeLabel;
- @property (weak, nonatomic)  UILabel *startPlaceLabel;
- @property (weak, nonatomic)  UILabel *arriveTimeLabel;
- @property (weak, nonatomic)  UILabel *arrivePlaceLabel;
- @property (weak, nonatomic)  UILabel *startOrgjetquery;
- @property (weak, nonatomic)  UILabel *dstJetqury;
- @property (weak, nonatomic)  UILabel *airlinesLabel;
- @property (weak, nonatomic)  UILabel *flightNo;
- @property (weak, nonatomic)  UILabel *planeType;
- 
- */
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     

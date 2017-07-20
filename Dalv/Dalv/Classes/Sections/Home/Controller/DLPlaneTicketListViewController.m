@@ -11,7 +11,8 @@
 #import "DLPlaneTicketsListCell.h"
 #import "DLPlaneListDetailModel.h"
 
-#define KHEIGHT 60
+#define KHEIGHT 10
+
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketListTableView;
 
@@ -41,21 +42,14 @@
 static NSString *nibCellID = @"nibCellID";
 @implementation DLPlaneTicketListViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.planeListDataArr = [NSMutableArray array];
-    //[self fetchData];
-    
-}
-
 - (void)viewDidLoad {
-    
+    self.planeListDataArr = [NSMutableArray array];
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     [super viewDidLoad];
     [self setupNavbar];
-    [self cofigureheadView];
+    //[self setUpheadView];
     [self fetchData];
-    [self setupSubviews];
+    [self setupTableView];
 }
 
 - (BOOL)dl_blueNavbar {
@@ -80,7 +74,7 @@ static NSString *nibCellID = @"nibCellID";
     [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
         @strongify(self);
         if (result) {
-
+            
             NSLog(@"%@",result);
             
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
@@ -89,29 +83,18 @@ static NSString *nibCellID = @"nibCellID";
             
             
 #warning 此处可能有问题!
-           // NSArray *priceArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result /objectForKey:planeListArray[@"price"]];
+            // NSArray *priceArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result /objectForKey:planeListArray[@"price"]];
             //[self.PlanepriceArr addObjectsFromArray:priceArr];
             
-//            NSArray *arr = result[@"flightinfo"];
-//            
-//            NSArray *planeArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:dict[@"price"]];
-//            
-//            [self.PlanepriceArr addObjectsFromArray:planeArr];
+            //            NSArray *arr = result[@"flightinfo"];
+            //
+            //            NSArray *planeArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:dict[@"price"]];
+            //
+            //            [self.PlanepriceArr addObjectsFromArray:planeArr];
             
             
-            
-            
-            
-            
-            
-            
-            
-#warning 此处可能有问题! !!!! !  ! ! ! ! ! ! ! ! !! ! ! ! 
-            
-           
-            
-            
-            
+#warning 此处可能有问题! !!!! !  ! ! ! ! ! ! ! ! !! ! ! !
+   
             
             
             //[self setupSubviews];
@@ -122,20 +105,23 @@ static NSString *nibCellID = @"nibCellID";
 
 #pragma mark ------- cofigureheadView
 
-- (void)cofigureheadView{
+- (void)setUpheadView{
     
     UIView *headView = [[UIView alloc]init];
     headView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:headView];
     
     UIButton *beforeBtn = [[UIButton alloc]init];
-    [beforeBtn setTitle:@"< 前一天" forState:UIControlStateNormal];
+    [beforeBtn setTitle:@"前一天" forState:UIControlStateNormal];
     beforeBtn.contentHorizontalAlignment = 0;
     beforeBtn.titleLabel.font = [UIFont systemFontOfSize: 16];
+    beforeBtn.layer.borderWidth = 1.0;
+    beforeBtn.layer.cornerRadius = 5.0;
+    beforeBtn.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor colorWithHexString:@"#6878da"]);
     [beforeBtn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     [beforeBtn addTarget:self action:@selector(beforeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     beforeBtn.backgroundColor = [UIColor whiteColor];
-
+    
     [headView addSubview:beforeBtn];
     
     UILabel *dateLabel = [[UILabel alloc] init];
@@ -151,7 +137,7 @@ static NSString *nibCellID = @"nibCellID";
     afterBtn.backgroundColor = [UIColor whiteColor];
     afterBtn.contentHorizontalAlignment = 0;
     afterBtn.titleLabel.font = [UIFont systemFontOfSize: 16];
-    [afterBtn setTitle:@"后一天 >" forState:UIControlStateNormal];
+    [afterBtn setTitle:@"后一天" forState:UIControlStateNormal];
     [afterBtn setTitleColor:[UIColor blackColor]forState:UIControlStateNormal];
     [headView addSubview:afterBtn];
     
@@ -179,12 +165,11 @@ static NSString *nibCellID = @"nibCellID";
         make.height.offset(KHEIGHT);
         make.width.offset(100);
     }];
-    
 }
 
 
 
-- (void)setupSubviews {
+- (void)setupTableView {
     
     self.planeTicketListTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.planeTicketListTableView.dataSource = self;
@@ -209,15 +194,68 @@ static NSString *nibCellID = @"nibCellID";
 
 -(void)beforeBtnClick {
     
+    ///字符串你转Date
+    NSString * dateStr = self.timestart;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8]];//解决8小时时间差问题
+    NSDate *Date = [dateFormatter dateFromString:dateStr];
+    NSDate *beforeDay = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:Date];//前一天
+    // Date转字符串
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *beforeDateStr = [dateFormatter stringFromDate:beforeDay];
+    //NSString *beforeStr = [beforeDateStr substringFromIndex:10];
     
     
+    self.timestart = beforeDateStr;
     
+    NSDictionary *param = @{
+                            @"departure": self.departure,
+                            @"destination": self.destination,
+                            @"timestart" : beforeDateStr,
+                            };
+    @weakify(self);
+    [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            
+            [self.planeTicketListTableView reloadData];
+        }
+    }];
 }
 
 -(void)afterBtnClick {
     
+    NSString * dateStr = self.timestart;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:8]];//解决8小时时间差问题
+    NSDate *Date = [dateFormatter dateFromString:dateStr];
+    NSDate *nextDay = [NSDate dateWithTimeInterval:24*60*60 sinceDate:Date];//后一天
     
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *lastDateStr = [dateFormatter stringFromDate:nextDay];
+    
+    self.timestart = lastDateStr;
 
+    NSDictionary *param = @{
+                            @"departure": self.departure,
+                            @"destination": self.destination,
+                            @"timestart" : lastDateStr,
+                            };
+    @weakify(self);
+    [DLHomeViewTask geAgencyFlightQueryList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            
+            NSLog(@"%@",result);
+            
+            NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
+            
+            [self.planeListDataArr addObjectsFromArray:planeListArray];
+            [self.planeTicketListTableView reloadData];
+        }
+    }];
 }
 
 
@@ -245,7 +283,7 @@ static NSString *nibCellID = @"nibCellID";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.planeListDataArr.count;
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -255,7 +293,7 @@ static NSString *nibCellID = @"nibCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.startPlaceLabel = cell.startPlaceLabel;
     self.arriveTimeLabel = cell.arriveTimeLabel;
@@ -269,7 +307,7 @@ static NSString *nibCellID = @"nibCellID";
     self.detailBtn = cell.detailBtn;
     
     [cell.detailBtn addTarget:self action:@selector(detailBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     DLPlaneListDetailModel *pdModel = [self.planeListDataArr objectAtIndex:indexPath.section];
     [cell configureCell:pdModel];
