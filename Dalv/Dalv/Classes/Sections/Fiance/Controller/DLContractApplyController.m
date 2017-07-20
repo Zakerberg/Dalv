@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/5.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  -------------------  合同申请 ---------------------
 
 #import "DLContractApplySection1Cell.h"
 #import "DLContractApplySection2Cell.h"
@@ -15,7 +14,6 @@
 #import "DLContractApplyController.h"
 #import "DLAddReduceButton.h"
 #import "DLRequestSerVice.h"
-#import "DLHomeViewTask.h"
 
 @interface DLContractApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLAddReduceButtonDelegate>
 

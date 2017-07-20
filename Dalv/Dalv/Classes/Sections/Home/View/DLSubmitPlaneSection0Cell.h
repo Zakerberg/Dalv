@@ -34,13 +34,13 @@
  "depname": "昆明",					出发城市
  "arrname": "济南",					到达城市
   "fuelTax": "0.0",			        燃油费
- "airportTax": "50.0",			    基建费
+ "airportTax": "50.0",			     基建费
  
  */
 
-@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 
-@property (weak, nonatomic) IBOutlet UILabel *;
+
+
 
 
 

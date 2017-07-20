@@ -18,7 +18,6 @@
 #import "DLContractApplyController.h"
 #import "DLHomePageViewModel.h"
 #import "DLFianceController.h"
-#import "DLHomeViewTask.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
