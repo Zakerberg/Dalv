@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DLContractApplySection4Cell : UITableViewCell
-/*** 邮寄地址TextView  ***/
 @property(nonatomic,strong) UITextView * addressTV;
-/*** 联系人姓名TextFiled  ***/
 @property(nonatomic,strong) UITextField *nameTF;
-/*** 联系人电话TextFiled  ***/
 @property(nonatomic,strong) UITextField *numberTF;
 @end

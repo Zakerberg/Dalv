@@ -92,7 +92,7 @@ static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    
+    return nil;
     
     
 }
@@ -104,7 +104,7 @@ static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
     
     
     
-    
+    return 1;
     
     
 }
