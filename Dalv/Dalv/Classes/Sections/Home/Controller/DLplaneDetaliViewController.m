@@ -56,9 +56,7 @@ static NSString *tankCellID = @"tankCell";
     
     [self.planeTicketDetailTableView registerNib:[UINib nibWithNibName:@"DLPlaneTicketsListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:nibCellID];
     [self.planeTicketDetailTableView registerNib:[UINib nibWithNibName:@"DLplaneTankCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:tankCellID];
-    
     [self.view addSubview:self.planeTicketDetailTableView];
-    
     [self.planeTicketDetailTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.offset(0);
     }];
@@ -76,12 +74,10 @@ static NSString *tankCellID = @"tankCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        
         return 1;
     }
     
     return self.planeDetailDataArr.count;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,7 +85,6 @@ static NSString *tankCellID = @"tankCell";
     if (indexPath.row == 0) {
         
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-      
         cell.startTimeLabel.text = self.startTime;
         cell.startPlaceLabel.text = self.startPlace;
         cell.arrivePlaceLabel.text = self.arrivePlace;
@@ -100,7 +95,6 @@ static NSString *tankCellID = @"tankCell";
         cell.flightNo.text = self.flightNo;
         cell.planeType.text = self.planeType;
         cell.detailBtn.hidden = YES;
-
         
         return cell;
     }

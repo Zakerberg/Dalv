@@ -22,7 +22,7 @@
     // Configure the view for the selected state
 }
 
-/// 预订
+/// 
 - (IBAction)orderBtnClick:(id)sender {
     
 }

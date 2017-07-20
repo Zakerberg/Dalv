@@ -11,6 +11,7 @@
 #import "DLPlaneTicketsListCell.h"
 #import "DLPlaneListDetailModel.h"
 
+/// #define KHEIGHT 60
 #define KHEIGHT 10
 
 @interface DLPlaneTicketListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -75,7 +76,7 @@ static NSString *nibCellID = @"nibCellID";
         @strongify(self);
         if (result) {
             
-            NSLog(@"%@",result);
+            //NSLog(@"%@",result);
             
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
@@ -83,27 +84,23 @@ static NSString *nibCellID = @"nibCellID";
             
             
 #warning 此处可能有问题!
-            // NSArray *priceArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result /objectForKey:planeListArray[@"price"]];
-            //[self.PlanepriceArr addObjectsFromArray:priceArr];
-            
-            //            NSArray *arr = result[@"flightinfo"];
-            //
-            //            NSArray *planeArr = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:dict[@"price"]];
-            //
-            //            [self.PlanepriceArr addObjectsFromArray:planeArr];
-            
-            
+       
+    /*
+            NSDictionary *dic = result[@"flightinfo"];
+            NSLog(@"%@",dic);
+            NSDictionary *arr = dic[@"price"];
+            NSLog(@"%@",arr);
+    */
+          
 #warning 此处可能有问题! !!!! !  ! ! ! ! ! ! ! ! !! ! ! !
-   
-            
-            
+
             //[self setupSubviews];
             [self.planeTicketListTableView reloadData];
         }
     }];
 }
 
-#pragma mark ------- cofigureheadView
+#pragma mark ------- setUpheadView
 
 - (void)setUpheadView{
     

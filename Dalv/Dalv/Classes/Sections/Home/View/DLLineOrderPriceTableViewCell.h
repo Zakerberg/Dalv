@@ -15,14 +15,10 @@
 @property (nonatomic, strong) UILabel *perrAdultlab;
 @property (nonatomic, strong) UILabel *preeChildlab;
 @property (nonatomic, strong) UILabel *singleRoomDifferencelab;
-
 @property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;
 
-
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
-/** 配置Cell */
 - (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel;
 
 

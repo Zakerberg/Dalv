@@ -318,6 +318,9 @@
 		452057A71EF93E4C0033DA69 /* BLMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452057A61EF93E4C0033DA69 /* BLMPickerView.m */; };
 		4524A56B1F1DA979001D628F /* DLHomeSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A56A1F1DA979001D628F /* DLHomeSearchController.m */; };
 		4524A56E1F1DDCD3001D628F /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A56D1F1DDCD3001D628F /* NSDate+Helper.m */; };
+		4524A5711F209F99001D628F /* DLSubmitPlaneOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A5701F209F99001D628F /* DLSubmitPlaneOrderController.m */; };
+		4524A5751F20A38D001D628F /* DLSubmitPlaneSection0Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4524A5731F20A38D001D628F /* DLSubmitPlaneSection0Cell.m */; };
+		4524A5761F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4524A5741F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib */; };
 		452916781EC1741E0033314F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 452916771EC1741E0033314F /* main.m */; };
 		453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453009821F0C7BF200D014D1 /* DLMyTicketCell.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
@@ -953,6 +956,11 @@
 		4524A56A1F1DA979001D628F /* DLHomeSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLHomeSearchController.m; sourceTree = "<group>"; };
 		4524A56C1F1DDCD3001D628F /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		4524A56D1F1DDCD3001D628F /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		4524A56F1F209F99001D628F /* DLSubmitPlaneOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitPlaneOrderController.h; sourceTree = "<group>"; };
+		4524A5701F209F99001D628F /* DLSubmitPlaneOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneOrderController.m; sourceTree = "<group>"; };
+		4524A5721F20A38D001D628F /* DLSubmitPlaneSection0Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitPlaneSection0Cell.h; sourceTree = "<group>"; };
+		4524A5731F20A38D001D628F /* DLSubmitPlaneSection0Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection0Cell.m; sourceTree = "<group>"; };
+		4524A5741F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSubmitPlaneSection0Cell.xib; sourceTree = "<group>"; };
 		452916731EC1741E0033314F /* Dalv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dalv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		452916771EC1741E0033314F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		453009811F0C7BF200D014D1 /* DLMyTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMyTicketCell.h; sourceTree = "<group>"; };
@@ -1740,6 +1748,8 @@
 				1C4C9BB91F0E2F7600B3BDDC /* DLPlaneTicketListViewController.m */,
 				45001A441F17458B00586B04 /* DLplaneDetaliViewController.h */,
 				45001A451F17458B00586B04 /* DLplaneDetaliViewController.m */,
+				4524A56F1F209F99001D628F /* DLSubmitPlaneOrderController.h */,
+				4524A5701F209F99001D628F /* DLSubmitPlaneOrderController.m */,
 				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
 				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
@@ -1843,6 +1853,9 @@
 				45001A471F17492900586B04 /* DLplaneTankCell.h */,
 				45001A481F17492900586B04 /* DLplaneTankCell.m */,
 				45001A491F17492900586B04 /* DLplaneTankCell.xib */,
+				4524A5721F20A38D001D628F /* DLSubmitPlaneSection0Cell.h */,
+				4524A5731F20A38D001D628F /* DLSubmitPlaneSection0Cell.m */,
+				4524A5741F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2544,6 +2557,7 @@
 				1CE2C22A1ED52E8C00B898BA /* visa_order@3x.png in Resources */,
 				1CE2C1FF1ED52BA100B898BA /* contract_application@2x.png in Resources */,
 				1CA15E451F0648F000817687 /* dl_slectlogo@2x.png in Resources */,
+				4524A5761F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib in Resources */,
 				1CE2C1C71ED5270E00B898BA /* home@3x.png in Resources */,
 				1C2865B91F0298010077E076 /* common_pickView_close@2x.png in Resources */,
 				1C2979041EEEAA7400D3FEEA /* fiance_not_selected@2x.png in Resources */,
@@ -2706,6 +2720,7 @@
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
+				4524A5711F209F99001D628F /* DLSubmitPlaneOrderController.m in Sources */,
 				1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */,
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
 				453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */,
@@ -2862,6 +2877,7 @@
 				1CB954001ECFCA7000BDC2D3 /* AppDelegate.m in Sources */,
 				45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */,
 				1C29791B1EF02D6F00D3FEEA /* MSRefreshHeader.m in Sources */,
+				4524A5751F20A38D001D628F /* DLSubmitPlaneSection0Cell.m in Sources */,
 				451F39201EEE600E005FE126 /* DLInvioiceApplyController.m in Sources */,
 				1C29816A1EDFE2C400712524 /* DLRechargeRecordViewController.m in Sources */,
 				451F39121EEA9445005FE126 /* DLinvoiceSection1Cell.m in Sources */,

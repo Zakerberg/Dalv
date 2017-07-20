@@ -12,7 +12,6 @@
 #import "DLLineOrderController.h"
 #import "DLLineOrderXibCell.h"
 #import "DLlineOrderModel.h"
-#import "DLHomeViewTask.h"
 
 @interface DLLineOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *lineOrderTableView;
@@ -160,7 +159,7 @@ static NSString *nibCellID = @"nibCellID";
     }
 }
 
-#pragma mark ------ UITable View Delegate 
+#pragma mark ------ UITableView Delegate 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.lineOrderList.count;

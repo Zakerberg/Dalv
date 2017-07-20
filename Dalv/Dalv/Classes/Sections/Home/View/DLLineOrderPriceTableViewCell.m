@@ -14,7 +14,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setupCellSubviews];
-        [self layoutCellSubviews];
     }
     return self;
 }
@@ -133,14 +132,12 @@
 
 }
 
-- (void)layoutCellSubviews {
-}
+
 
 + (NSString *)cellIdentifier {
     return NSStringFromClass([self class]);
 }
 
-/** 配置Cell */
 - (void)configureCell:(DLPlaceLineOrderModel *)placeLineOrderModel{
 
     self.lineOederNamelab.text = placeLineOrderModel.list.name;

@@ -8,9 +8,7 @@
 
 #import "DLContractApplyStyleCell.h"
 @interface DLContractApplyStyleCell()
-//自取invite
 @property(nonatomic,weak)UIButton *inviteBtn;
-//快递Courier
 @property(nonatomic,weak)UIButton *courierBtn;
 @property(nonatomic,weak) UIImageView *inviteImageView;
 @property(nonatomic,weak) UIImageView *courierImageView;

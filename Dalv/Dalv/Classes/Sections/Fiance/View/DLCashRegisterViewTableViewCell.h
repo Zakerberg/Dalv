@@ -15,7 +15,6 @@
 @property (nonatomic, strong) UILabel *accountBalancelab;//账户余额
 @property (nonatomic, strong) UILabel *orderNumberlab;//订单号
 @property (nonatomic, strong) UILabel *memolab;//失败原因
-
 @property (nonatomic, strong) UIView *backview;//背景图
 @property (nonatomic, strong) UILabel *abalancelab;
 @property (nonatomic, strong) UILabel *tpricelab;
