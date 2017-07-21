@@ -8,7 +8,6 @@
 
 #import "DLInvoiceApplyRecordController.h"
 #import "DLInvoiceApplyRecordCell.h"
-#import "DLHomeViewTask.h"
 
 @interface DLInvoiceApplyRecordController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *invoiceRecordTableView;

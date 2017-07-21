@@ -8,7 +8,6 @@
 
 #import "DLContractApplyRecordController.h"
 #import "DLContractApplyRecordCell.h"
-#import "DLHomeViewTask.h"
 
 @interface DLContractApplyRecordController ()<UITableViewDelegate,UITableViewDataSource>
 
