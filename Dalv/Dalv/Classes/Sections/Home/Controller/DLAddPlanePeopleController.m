@@ -75,6 +75,13 @@ static NSString *cellID = @"cellID";
     }];
 }
 
+-(void)btnClick {
+    
+  
+}
+
+
+
 
 #pragma mark ----- UITableView Delegate
 
@@ -106,8 +113,6 @@ static NSString *cellID = @"cellID";
         
         return cell;
         
-
-        
     } else if (indexPath.row == 1){
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -121,8 +126,8 @@ static NSString *cellID = @"cellID";
         
         cell.textLabel.text = @"乘客类型";
         cell.accessoryType = 1;
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+        //cell.textLabel.font = [UIFont systemFontOfSize:15];
+        //cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
         UILabel *peopleTypeLabel = [[UILabel alloc] init];
         self.peopleTypeLabel = peopleTypeLabel;
@@ -153,8 +158,8 @@ static NSString *cellID = @"cellID";
         
         cell.textLabel.text = @"证件类型";
         cell.accessoryType = 1;
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
+       // cell.textLabel.font = [UIFont systemFontOfSize:15];
+        //cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
         UILabel *certificateType = [[UILabel alloc] init];
         self.certificateType = certificateType;
@@ -307,6 +312,9 @@ static NSString *cellID = @"cellID";
         
         
     }
+    
+    
+    
 }
 
 @end

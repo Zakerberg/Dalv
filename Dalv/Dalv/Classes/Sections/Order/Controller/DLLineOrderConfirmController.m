@@ -7,7 +7,6 @@
 
 #import "DLLineOrderConfirmController.h"
 #import "DLLineOrderController.h"
-#import "DLHomeViewTask.h"
 
 @interface DLLineOrderConfirmController ()
 
@@ -129,7 +128,7 @@
                 
             }else{
                 
-                //发送通知
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"payTailMoney" object:sender];
                 
                 [self.navigationController popViewControllerAnimated:YES];

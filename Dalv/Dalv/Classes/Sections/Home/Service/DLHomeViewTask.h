@@ -864,5 +864,16 @@
              completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 82 测试首页机票添加乘机人-新增乘机人接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getFlightAddFrequentPassenger:(NSDictionary *)param
+               completion:(void (^)(id result, NSError *error))completionHandler;
+
 
 @end

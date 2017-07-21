@@ -880,9 +880,21 @@
     }];
 }
 
+
 + (void)getAlipayAppDopay:(NSDictionary *)param
                completion:(void (^)(id result, NSError *error))completionHandler{
     [DLRequestSerVice POST: DL_AlipayAppDopay param:param success:^(id responseData) {
+        completionHandler ? completionHandler (responseData, nil) : nil;
+    } failure:^(NSError *error) {
+        completionHandler ? completionHandler (nil, error) : nil;
+    }];
+}
+
+/// 测试首页机票添加乘机人-新增乘机人接口
++ (void)getFlightAddFrequentPassenger:(NSDictionary *)param
+                           completion:(void (^)(id result, NSError *error))completionHandler{
+    
+    [DLRequestSerVice POST: DL_FlightAddPassenger param:param success:^(id responseData) {
         completionHandler ? completionHandler (responseData, nil) : nil;
     } failure:^(NSError *error) {
         completionHandler ? completionHandler (nil, error) : nil;

@@ -68,21 +68,21 @@
 #pragma mark  ---- UIScrollViewDelegate
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x==MAIN_SCREEN_WIDTH) {//机票
+    if (scrollView.contentOffset.x==MAIN_SCREEN_WIDTH) {
         if (self.ticketVC == nil) {
             self.ticketVC = [[DLTicketsOrderController alloc]init];
             [self addChildViewController:self.ticketVC];
             self.ticketVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*3, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
             [self.mainScrollView addSubview:self.ticketVC.view];
         }
-    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*2){//wifi
+    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*2){
         if (self.wifiVC == nil) {
             self.wifiVC = [[DLWiFiOrderViewController alloc]init];
             [self addChildViewController:self.wifiVC];
             self.wifiVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*2, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
             [self.mainScrollView addSubview:self.wifiVC.view];
         }
-    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*3){//签证
+    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*3){
         if (self.visaVC == nil) {
             self.visaVC = [[DLVisaOrderController alloc]init];
             [self addChildViewController:self.visaVC];

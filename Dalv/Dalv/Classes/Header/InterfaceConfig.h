@@ -289,4 +289,12 @@
 ///82 测试财务中心支付宝App充值接口
 #define DL_AlipayAppDopay  DL_HOST@"index.php/Api/alipayApp/aliDopay"
 
+
+///83 测试首页机票添加乘机人-新增乘机人接口
+#define DL_FlightAddPassenger  DL_HOST@"index.php/Api/agencyFlight/addFrequentPassenger"
+
+
+
+
+
 #endif /* InterfaceConfig_h */
