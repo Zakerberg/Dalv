@@ -15,7 +15,6 @@
 @property(nonatomic, strong)UIButton *addBtn;
 @property(nonatomic,strong) DLAddReduceButton * singleRoomButton;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
 @end

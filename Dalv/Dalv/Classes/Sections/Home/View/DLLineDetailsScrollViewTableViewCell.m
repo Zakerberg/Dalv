@@ -57,7 +57,6 @@
     return NSStringFromClass([self class]);
 }
 
-/** 配置Cell */
 - (void)configureCell:(DLDestinationAtlasModel *)destModel{
     
     [self.lineDetailsImage sd_setImageWithURL:[NSURL URLWithString:destModel.img] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];

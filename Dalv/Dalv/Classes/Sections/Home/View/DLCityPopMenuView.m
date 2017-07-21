@@ -9,12 +9,10 @@
 #import "DLCityPopMenuView.h"
 
 @interface DLCityPopMenuView ()
-
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, assign) CGPoint point;
 @property (nonatomic, strong) UIView *shapeView;
-
 @end
 
 @implementation DLCityPopMenuView

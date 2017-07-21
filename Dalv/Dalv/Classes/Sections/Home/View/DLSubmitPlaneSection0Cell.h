@@ -30,26 +30,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *planeType;
 
 /*
- 
  "depname": "昆明",					出发城市
  "arrname": "济南",					到达城市
   "fuelTax": "0.0",			        燃油费
  "airportTax": "50.0",			     基建费
- 
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;

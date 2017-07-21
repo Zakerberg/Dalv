@@ -9,12 +9,10 @@
 #import "DLHomeMenuCollectionViewCell.h"
 
 @interface DLHomeMenuCollectionViewCell ()
-
 @property (nonatomic, weak) UIImageView *libImageView;
 @property (nonatomic, weak) UILabel *libNameLabel;
 @property (nonatomic, weak) UIView *bottomSeparator;
 @property (nonatomic, weak) UIView *rightSeparator;
-
 @end
 
 @implementation DLHomeMenuCollectionViewCell
@@ -106,7 +104,6 @@
 #pragma mark - configure
 
 - (void)configureCell:(DLHomeMenuItem *)data {
-   
     [self.libImageView sd_setImageWithURL:[NSURL URLWithString:data.pic_icon] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
      self.libNameLabel.text = data.name;
 }
@@ -114,8 +111,8 @@
 - (void)configureFinanceCell:(DLFinanceMenuItem *)data {
     self.libImageView.image = data.image;
     self.libNameLabel.text = data.name;
-
 }
+
 #pragma mark - Setter
 
 - (void)setShowsSeparator:(BOOL)showsSeparator {

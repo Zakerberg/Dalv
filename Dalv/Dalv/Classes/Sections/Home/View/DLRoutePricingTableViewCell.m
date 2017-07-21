@@ -302,7 +302,6 @@
     }];
 }
 
-/** 配置Cell */
 - (void)configureCell:(LineModificationList *)lineModificationModel{
     NSString *str1 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_list integerValue]/100.00];
     NSString *str2 = [NSString stringWithFormat:@"¥%.f",[lineModificationModel.price_adult_agency integerValue]/100.00];

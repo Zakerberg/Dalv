@@ -168,7 +168,7 @@
                 <outlet property="startPlaceLabel" destination="CPU-YZ-Rcp" id="u7H-wW-yUw"/>
                 <outlet property="startTimeLabel" destination="PtL-bE-8Gw" id="7td-8k-EQa"/>
             </connections>
-            <point key="canvasLocation" x="-516" y="-101"/>
+            <point key="canvasLocation" x="-735" y="-198"/>
         </tableViewCell>
     </objects>
     <resources>

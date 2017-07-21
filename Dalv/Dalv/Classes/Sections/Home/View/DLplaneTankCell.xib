@@ -167,7 +167,7 @@
                 <outlet property="tankLabel" destination="Mva-Yz-0Zl" id="4qL-Z0-wCJ"/>
                 <outlet property="ticketCountLabel" destination="TkO-3g-2J0" id="SgP-Vk-g9B"/>
             </connections>
-            <point key="canvasLocation" x="-330" y="-184"/>
+            <point key="canvasLocation" x="-602" y="-240"/>
         </tableViewCell>
     </objects>
 </document>

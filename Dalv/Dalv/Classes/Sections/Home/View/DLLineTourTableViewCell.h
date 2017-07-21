@@ -12,7 +12,6 @@
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong,nonatomic) UIImageView *headImage;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
 @end

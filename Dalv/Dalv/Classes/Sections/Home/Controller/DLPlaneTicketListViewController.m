@@ -37,7 +37,8 @@
 @property (weak, nonatomic)  UILabel *planeType;
 /// 详情Btn
 @property (weak, nonatomic)  UIButton *detailBtn;
-
+/// 数据
+@property(nonatomic,strong) NSArray * dataArr;
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -85,14 +86,17 @@ static NSString *nibCellID = @"nibCellID";
             
 #warning 此处可能有问题!
        
-    /*
-            NSDictionary *dic = result[@"flightinfo"];
+    
+            NSArray *dic = result[@"flightinfo"];
             NSLog(@"%@",dic);
-            NSDictionary *arr = dic[@"price"];
-            NSLog(@"%@",arr);
-    */
+            self.dataArr = dic;
+            
+//            
+//            NSArray *arr = dic[@"price"];
+//            NSLog(@"%@",arr);
+            
           
-#warning 此处可能有问题! !!!! !  ! ! ! ! ! ! ! ! !! ! ! !
+#warning 此处可能有问题!
 
             //[self setupSubviews];
             [self.planeTicketListTableView reloadData];
@@ -163,8 +167,6 @@ static NSString *nibCellID = @"nibCellID";
         make.width.offset(100);
     }];
 }
-
-
 
 - (void)setupTableView {
     
@@ -272,8 +274,10 @@ static NSString *nibCellID = @"nibCellID";
     deVC.airlines = self.airlinesLabel.text;
     deVC.planeType = self.planeType.text;
     deVC.flightNo = self.flightNo.text;
-    
+    deVC.nextArr = self.nextArr;
+
     [self.navigationController pushViewController:deVC animated:YES];
+    
 }
 
 #pragma mark ------- UITableViewDelegate
@@ -327,7 +331,37 @@ static NSString *nibCellID = @"nibCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
     
+    deVC.departure = self.departure;
+    deVC.destination = self.destination;
+    deVC.planeListDataArr = self.planeListDataArr;
+    deVC.startTime = self.startTimeLabel.text;
+    deVC.startPlace = self.startPlaceLabel.text;
+    deVC.arriveTime = self.arriveTimeLabel.text;
+    deVC.arrivePlace = self.arrivePlaceLabel.text;
+    deVC.startOrgjetquery = self.startOrgjetquery.text;
+    deVC.dstJetqury = self.dstJetqury.text;
+    deVC.airlines = self.airlinesLabel.text;
+    deVC.planeType = self.planeType.text;
+    deVC.flightNo = self.flightNo.text;
+    
+    
+    self.nextArr = self.dataArr[indexPath.section
+                                ][@"price"];
+    
+  
+    deVC.nextArr = self.nextArr;
+    
+    
+ 
+    NSLog(@"%ld",deVC.nextArr.count);
+    
+
+    
+    [self.navigationController pushViewController:deVC animated:YES];
+
+
 }
 
 

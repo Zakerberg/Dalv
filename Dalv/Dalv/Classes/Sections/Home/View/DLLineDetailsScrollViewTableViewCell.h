@@ -14,12 +14,8 @@
 @property (nonatomic, strong) UILabel *lineDetailsNamelab;
 @property (nonatomic, strong) DLDestinationAtlasModel *destAtlasModel;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
-/**
- *  配置Cell 数据
- */
 - (void)configureCell:(DLDestinationAtlasModel *)destModel;
 
 @end

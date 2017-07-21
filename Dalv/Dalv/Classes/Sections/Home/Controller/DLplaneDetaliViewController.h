@@ -23,4 +23,6 @@
 @property (strong, nonatomic)  NSString *airlines;
 @property (strong, nonatomic)  NSString *flightNo;
 @property (strong, nonatomic)  NSString *planeType;
+/// 数据
+@property(nonatomic,strong) NSArray * nextArr;
 @end

@@ -16,8 +16,5 @@
 
 @property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
-
-
 @end

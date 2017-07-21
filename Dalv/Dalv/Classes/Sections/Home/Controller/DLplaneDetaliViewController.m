@@ -11,17 +11,15 @@
 #import "DLplaneTankCell.h"
 
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
-@property(nonatomic,strong) NSMutableArray * planeDetailDataArr;
 @end
 
 static NSString *nibCellID = @"nibCellID";
 static NSString *tankCellID = @"tankCell";
+static NSString *tableViewCell = @"tableViewCell";
 @implementation DLplaneDetaliViewController
 
 - (void)viewDidLoad {
-    self.planeDetailDataArr = [NSMutableArray array];
     [super viewDidLoad];
     [self setUI];
     [self setTableView];
@@ -62,54 +60,88 @@ static NSString *tankCellID = @"tankCell";
     }];
 }
 
-
-
 #pragma mark ------- UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
+        
+        return 1;
+        
+    }else if(section == 1){
+        
         return 1;
     }
     
-    return self.planeDetailDataArr.count;
+    return self.nextArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
-        
+    if (indexPath.section == 0) {
+
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
+
         cell.startTimeLabel.text = self.startTime;
         cell.startPlaceLabel.text = self.startPlace;
         cell.arrivePlaceLabel.text = self.arrivePlace;
         cell.arriveTimeLabel.text = self.arriveTime;
         cell.startOrgjetquery.text = self.startOrgjetquery;
         cell.dstJetqury.text = self.dstJetqury;
-        cell.airlinesLabel.text = self.airlines;
-        cell.flightNo.text = self.flightNo;
-        cell.planeType.text = self.planeType;
+        
+        //cell.airlinesLabel.text = self.airlines;
+       // cell.flightNo.text = self.flightNo;
+       // cell.planeType.text = self.planeType;
+        
         cell.detailBtn.hidden = YES;
         
         return cell;
     }
-
+    
+    else if(indexPath.section == 1) {
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                          reuseIdentifier: tableViewCell];
+        }
+        
+        cell.textLabel.text = @"预订舱位";
+        return cell;
+        
+    }else if (indexPath.section == 2){
+        
         DLplaneTankCell *Tankell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
+        Tankell.backgroundColor = [UIColor whiteColor];
         return Tankell;
+    }
+    
+    return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPat{
-    return 136;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+    
+        return 136;
+    
+    }else if (indexPath.section == 1){
+    
+        return 34;
+    }
+    return 75;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    if (section == 0) {
+    if (section == 0 || section == 2) {
         return 0.1;
     }
     
