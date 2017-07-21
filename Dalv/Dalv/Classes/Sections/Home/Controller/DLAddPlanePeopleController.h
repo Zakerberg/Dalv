@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DLAddPlanePeopleController : UIViewController
-@property(nonatomic,strong) UILabel * peopleNameLabel;
+@property(nonatomic,strong) UITextField * nameTF;
 @property(nonatomic,strong) UILabel * peopleTypeLabel;
 @property(nonatomic,strong) UILabel * certificateType;
-@property(nonatomic,strong) UILabel * certificatenNumber;
+@property(nonatomic,strong) UITextField * certificatenNumTF;
 @end

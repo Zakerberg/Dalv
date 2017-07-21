@@ -469,7 +469,7 @@ static NSString *cell1ID = @"cell1id";
     }else if (indexPath.row == 2){
         self.phoneTextFiled = cell.TF;
         cell.TF.placeholder = @"输入手机号";
-        cell.TF.keyboardType = UIKeyboardTypeNumberPad;
+        cell.TF.keyboardType = 4;
         UIButton *authCodeBtn = [[UIButton alloc] init];
         
         self.authCodeBtn = authCodeBtn;

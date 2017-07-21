@@ -7,6 +7,7 @@
 
 #import "DLPlaneTicketViewController.h"
 #import "DLPlaneTicketListViewController.h"
+#import "DLAddPlanePeopleController.h"
 #import "TLCityPickerController.h"
 #import "NSDate+Helper.h"
 
@@ -82,31 +83,38 @@ static NSString *cellID = @"cellID";
 
 -(void)searchBtnClick {
     
-    NSLog(@"开始查询!");
+//    NSLog(@"开始查询!");
+//    
+//    if (!self.startDate.text) {
+//        
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发日期" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }else if (!self.starLabel.text ){
+//        
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发城市" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }else if (!self.destinationLabel.text){
+//        
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的目的地" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }else{
+//        
+//        DLPlaneTicketListViewController * planeTicketListVC = [[DLPlaneTicketListViewController alloc]init];
+//        planeTicketListVC.departure = self.starLabel.text;
+//        planeTicketListVC.destination = self.destinationLabel.text;
+//        planeTicketListVC.timestart = self.startDate.text;
+//        [self.navigationController pushViewController:planeTicketListVC animated:YES];
+//    }
     
-    if (!self.startDate.text) {
-        
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发日期" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }else if (!self.starLabel.text ){
-        
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发城市" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }else if (!self.destinationLabel.text){
-        
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的目的地" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }else{
-        
-        DLPlaneTicketListViewController * planeTicketListVC = [[DLPlaneTicketListViewController alloc]init];
-        planeTicketListVC.departure = self.starLabel.text;
-        planeTicketListVC.destination = self.destinationLabel.text;
-        planeTicketListVC.timestart = self.startDate.text;
-        [self.navigationController pushViewController:planeTicketListVC animated:YES];
-    }
+    
+    DLAddPlanePeopleController  *vc = [[DLAddPlanePeopleController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+
 }
 
 #pragma mark ----- UITableView Delegate

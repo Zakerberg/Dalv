@@ -350,6 +350,7 @@
 		459453E21F1477480004A36F /* DLLineQueryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 459453E11F1477480004A36F /* DLLineQueryCell.m */; };
 		459453E51F14AC450004A36F /* DLMineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 459453E41F14AC450004A36F /* DLMineViewCell.m */; };
 		459D76531F21CA0200E813F3 /* DLAddPlanePeopleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D76521F21CA0200E813F3 /* DLAddPlanePeopleController.m */; };
+		459D76561F21E4CD00E813F3 /* DLAddPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 459D76551F21E4CD00E813F3 /* DLAddPeopleCell.m */; };
 		45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */; };
 		45A321C01EF1199700325683 /* DLLineOrderDetailXibController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A321BE1EF1199700325683 /* DLLineOrderDetailXibController.m */; };
 		45A321C11EF1199700325683 /* DLLineOrderDetailXibController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A321BF1EF1199700325683 /* DLLineOrderDetailXibController.xib */; };
@@ -1013,6 +1014,8 @@
 		459453E41F14AC450004A36F /* DLMineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewCell.m; sourceTree = "<group>"; };
 		459D76511F21CA0200E813F3 /* DLAddPlanePeopleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddPlanePeopleController.h; sourceTree = "<group>"; };
 		459D76521F21CA0200E813F3 /* DLAddPlanePeopleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddPlanePeopleController.m; sourceTree = "<group>"; };
+		459D76541F21E4CD00E813F3 /* DLAddPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAddPeopleCell.h; sourceTree = "<group>"; };
+		459D76551F21E4CD00E813F3 /* DLAddPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAddPeopleCell.m; sourceTree = "<group>"; };
 		45A321BA1EF1195000325683 /* DLLineOrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailModel.h; sourceTree = "<group>"; };
 		45A321BB1EF1195000325683 /* DLLineOrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderDetailModel.m; sourceTree = "<group>"; };
 		45A321BD1EF1199700325683 /* DLLineOrderDetailXibController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderDetailXibController.h; sourceTree = "<group>"; };
@@ -1856,6 +1859,8 @@
 				4524A5721F20A38D001D628F /* DLSubmitPlaneSection0Cell.h */,
 				4524A5731F20A38D001D628F /* DLSubmitPlaneSection0Cell.m */,
 				4524A5741F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib */,
+				459D76541F21E4CD00E813F3 /* DLAddPeopleCell.h */,
+				459D76551F21E4CD00E813F3 /* DLAddPeopleCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2729,6 +2734,7 @@
 				1C0ACE721F1A2B2C00C43280 /* base64.m in Sources */,
 				1C5828981EF96A32004B4AC1 /* DLPlaceLineOrderModel.m in Sources */,
 				457307C41F0F737A000F39CF /* DLMyRemmendCell.m in Sources */,
+				459D76561F21E4CD00E813F3 /* DLAddPeopleCell.m in Sources */,
 				45A321D11EF26A2C00325683 /* DLCustomerListModel.m in Sources */,
 				1C34160B1ED94AA800752071 /* DLLineDetialCollectionViewCell.m in Sources */,
 				1C2979121EF02CFD00D3FEEA /* UITableView+MSExtension.m in Sources */,

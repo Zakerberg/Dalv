@@ -9,7 +9,6 @@
 #import "DLPersonalChangeDataController.h"
 #import "DLChangePasswordController.h"
 #import "DLPersonalChangeDataCell.h"
-#import "DLHomeViewTask.h"
 #import "BLMPickerView.h"
 
 @interface DLPersonalChangeDataController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,BLMPickerDelegate>
@@ -69,7 +68,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     }];
 }
 
-///手机号码的正则表达式
+
 - (BOOL)isValidateMobile:(NSString *)mobile{
     //手机号以13、15、18开头，八个\d数字字符
     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
@@ -77,7 +76,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
     return [phoneTest evaluateWithObject:mobile];
 }
 
-///邮箱地址的正则表达式
+
 - (BOOL)isValidateEmail:(NSString *)email{
     
     NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
@@ -120,7 +119,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
     }];
 }
 
-///  保存
 -(void)completeClick {
     
     if ([self isValidateEmail:self.mailTF.text]) {
