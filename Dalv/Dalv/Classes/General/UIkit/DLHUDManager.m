@@ -14,7 +14,6 @@
 #import "DLAlertView.h"
 
 static DLHUDManager* hudInstance = nil;
-
 static MBProgressHUD *globalHUD = nil;
 
 @interface DLHUDManager ()

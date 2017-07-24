@@ -40,7 +40,6 @@ static NSString *tableViewCell = @"tableViewCell";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
-
 -(void)setTableView{
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
@@ -94,8 +93,8 @@ static NSString *tableViewCell = @"tableViewCell";
         cell.startOrgjetquery.text = self.startOrgjetquery;
         cell.dstJetqury.text = self.dstJetqury;
         
-        //cell.airlinesLabel.text = self.airlines;
-       // cell.flightNo.text = self.flightNo;
+        // cell.airlinesLabel.text = self.airlines;
+        //   cell.flightNo.text = self.flightNo;
        // cell.planeType.text = self.planeType;
         
         cell.detailBtn.hidden = YES;

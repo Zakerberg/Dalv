@@ -333,6 +333,10 @@ static NSString *nibCellID = @"nibCellID";
     
     DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
     
+    self.nextArr = self.dataArr[indexPath.section
+                                ][@"price"];
+    deVC.nextArr = self.nextArr;
+
     deVC.departure = self.departure;
     deVC.destination = self.destination;
     deVC.planeListDataArr = self.planeListDataArr;
@@ -347,18 +351,8 @@ static NSString *nibCellID = @"nibCellID";
     deVC.flightNo = self.flightNo.text;
     
     
-    self.nextArr = self.dataArr[indexPath.section
-                                ][@"price"];
-    
-  
-    deVC.nextArr = self.nextArr;
-    
-    
- 
     NSLog(@"%ld",deVC.nextArr.count);
-    
 
-    
     [self.navigationController pushViewController:deVC animated:YES];
 
 

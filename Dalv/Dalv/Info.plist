@@ -61,6 +61,8 @@
 	<string>1.0.1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
 		<string>wechat</string>
 		<string>weixin</string>
 		<string>sinaweibohd</string>

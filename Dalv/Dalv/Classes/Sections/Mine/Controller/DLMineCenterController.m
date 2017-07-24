@@ -105,11 +105,16 @@ static NSString *cellID  = @"cellID";
 //    [personImageView setImage:[UIImage imageNamed:@"v2_my_avatar"]];
     
     personImageView.userInteractionEnabled = YES;
+  
+    /*
     //手势
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
     
     //添加手势
     [personImageView addGestureRecognizer:singleTap];
+     
+     */
+     
     [self.tableView addSubview:personImageView];
     [personImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -329,10 +334,32 @@ static NSString *cellID  = @"cellID";
             DLCustomerChangePersonDataController *changeDataVC = [[DLCustomerChangePersonDataController alloc] init];
             [self.navigationController pushViewController:changeDataVC animated:YES];
             
-        }else if (indexPath.row == 1){ /// 我的直客
+        }else if (indexPath.row == 1){ /// 我的顾问
             
+            
+            
+            
+            /*
             DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
             [self.navigationController pushViewController:myCustomerVC animated:YES];
+            */
+            
+            
+            
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+            
+                DLMyAgencyController *VC = [[DLMyAgencyController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            
+            }else {
+                
+                DLMyAgencyUnBindingController *vc = [[DLMyAgencyUnBindingController alloc] init];
+                  [self.navigationController pushViewController:vc animated:YES];
+ 
+            }
+            
+            
+            
             
         }else if (indexPath.row == 2){ /// 通用
             

@@ -16,7 +16,5 @@
 @property(nonatomic,strong) NSString * destination;
 /// 出发城市
 @property(nonatomic,strong) NSString * departure;
-
 @property(nonatomic,strong) NSArray * nextArr;
-
 @end
