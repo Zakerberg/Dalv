@@ -31,6 +31,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @property (nonatomic, strong) UIImageView *headImageView;//头像
 @property (nonatomic, strong) UILabel *namelab;//名字
 @property (nonatomic, strong) UILabel *mobilelab;//手机
+@property(nonatomic,strong) NSString * CityStr;
 @end
 
 @implementation DLHomeViewController
@@ -316,22 +317,38 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
     
+       @weakify(self);
         if (!self.popMenuView) {
             NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
             self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
             self.popMenuView.clickedBlock = ^(NSInteger index){
                 NSLog(@"选中了++++++ %@",cityArray[index]);
+                @strongify(self);
 
+                self.CityStr = [[NSString alloc] init];
                 
+                if ([cityArray[index] isEqualToString:@"北京市"]) {
+                    self.CityStr = @"110000";
+                    
+                }else if ([cityArray[index] isEqualToString:@"天津市"]){
+                    self.CityStr = @"120000";
+                }else if ([cityArray[index] isEqualToString:@"河北市"]){
+                    self.CityStr = @"130000";
+                }else if ([cityArray[index] isEqualToString:@"唐山市"]){
+                    self.CityStr = @"140000";
+                }
                 
-                
-                
-                
-                
-                
-                
-                
-                
+                NSDictionary *param = @{
+                                        @"names": self.CityStr,
+                                        @"page": @"1"
+                                        };
+                [DLHomeViewTask getDepartureSearc:param completion:^(id result, NSError *error) {
+                    NSLog(@"%@",result);
+                    
+                    [self.homeTableView reloadData];
+                    
+                    
+                }];
                 
             };
             [self.view addSubview:self.popMenuView];

@@ -150,12 +150,16 @@
 #warning MARK ------------   后期根据增加的东西 做更改 --------------------
     
     if (cell.homeMenuItem.type.integerValue == 5 ||
-        cell.homeMenuItem.type.integerValue == 7) {  /// 5是保险  7是门票
+        cell.homeMenuItem.type.integerValue == 7 ) {  /// 5是保险  7是门票  // 6是机票
         [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
-    } else if (cell.homeMenuItem.type.integerValue == 6) {
+    }
+    
+    else if (cell.homeMenuItem.type.integerValue == 6) {
         DLPlaneTicketViewController *planeticketVC = [[DLPlaneTicketViewController alloc]init];
         [self.navigationController pushViewController:planeticketVC animated:YES];
-    } else {
+    }
+    
+    else {
         DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
         linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:linetourVC animated:YES];

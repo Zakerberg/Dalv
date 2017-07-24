@@ -28,12 +28,12 @@ static NSString *nibCellID = @"nibCellID";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.lineOrderList = [NSMutableArray array];
-    self.pageIndex=1;
+    //self.lineOrderList = [NSMutableArray array];
+//self.pageIndex=1;
     // [self fetchData];
-    [self.lineOrderTableView ms_beginRefreshing:self
-                                            headerAction:@selector(fetchNewData)
-                                            footerAction:@selector(fetchMoreData)];
+   // [self.lineOrderTableView ms_beginRefreshing:self
+//                                            headerAction:@selector(fetchNewData)
+//                                            footerAction:@selector(fetchMoreData)];
 }
 
 - (void)viewDidLoad {
@@ -41,9 +41,15 @@ static NSString *nibCellID = @"nibCellID";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     [self setTableView];
-//    [self.lineOrderTableView ms_beginRefreshing:self
-//                                       headerAction:@selector(fetchNewData)
-//                                       footerAction:@selector(fetchMoreData)];
+    
+    
+    self.pageIndex = 1;
+    self.lineOrderList = [NSMutableArray array];
+    
+    
+    [self.lineOrderTableView ms_beginRefreshing:self
+                                       headerAction:@selector(fetchNewData)
+                                       footerAction:@selector(fetchMoreData)];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
 

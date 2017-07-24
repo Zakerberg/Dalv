@@ -77,13 +77,22 @@
 //        } else {
 //            //不允许
 //        }
+    // 向微信注册
+    BOOL isOk = [WXApi registerApp:WECHAT_APPKEY];
+    if (isOk)
+    {
+        NSLog(@"注册微信成功");
+    }
+    else
+    {
+        NSLog(@"注册微信失败");
+    }
+    
+
 //    }];
 
     return YES;
 }
-
-
-
 
 #pragma mark - WXApiDelegate
 
@@ -92,73 +101,101 @@
     
 }
 
+////支付成功时调用，回到第三方应用中
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//    //    NSLog(@"****************url.host -- %@",url.host);
+//    if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"])
+//    {
+//        return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+//    }
+//
+//    return YES;
+//
+//}
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
-    NSLog(@"跳转到URL scheme中配置的地址-->%@",url);
-    if ([url.scheme isEqualToString:@"wx9bc30a44b861048e"]) {
-        return [WXApi handleOpenURL:url delegate:self];
-    }
-    
-    if ([url.host isEqualToString:@"safepay"]) {
-        // 支付跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-        }];
-        
-        // 授权跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            // 解析 auth code
-            NSString *result = resultDic[@"result"];
-            NSString *authCode = nil;
-            if (result.length>0) {
-                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
-                for (NSString *subResult in resultArr) {
-                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
-                        authCode = [subResult substringFromIndex:10];
-                        break;
-                    }
-                }
-            }
-            NSLog(@"授权结果 authCode = %@", authCode?:@"");
-        }];
-    }
-    return YES;
   
+    
+    
+     NSLog(@"跳转到URL scheme中配置的地址-->%@",url);
+     if ([url.scheme isEqualToString:WECHAT_APPKEY]) {
+     return [WXApi handleOpenURL:url delegate:self];
+     }
+     
+     if ([url.host isEqualToString:@"safepay"]) {
+     // 支付跳转支付宝钱包进行支付，处理支付结果
+     [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+     NSLog(@"result = %@",resultDic);
+     }];
+     
+     // 授权跳转支付宝钱包进行支付，处理支付结果
+     [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+     NSLog(@"result = %@",resultDic);
+     // 解析 auth code
+     NSString *result = resultDic[@"result"];
+     NSString *authCode = nil;
+     if (result.length>0) {
+     NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+     for (NSString *subResult in resultArr) {
+     if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+     authCode = [subResult substringFromIndex:10];
+     break;
+     }
+     }
+     }
+     NSLog(@"授权结果 authCode = %@", authCode?:@"");
+     }];
+     }
+     return YES;
+
+     
+    
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    if ([url.scheme isEqualToString:@"wx9bc30a44b861048e"]) {
-        return [WXApi handleOpenURL:url delegate:self];
-    } else if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"]) {
+//    if ([url.scheme isEqualToString:@"wx9bc30a44b861048e"]) {
+//        return [WXApi handleOpenURL:url delegate:self];
+//    } else if ([url.scheme isEqualToString:@"1e42b20d9ba2b6fed4a9a21eba75f6ff"]) {
+//        return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+//    }
+//    
+//    if ([url.host isEqualToString:@"safepay"]) {
+//        // 支付跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"result = %@",resultDic);
+//        }];
+//        
+//        // 授权跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"result = %@",resultDic);
+//            // 解析 auth code
+//            NSString *result = resultDic[@"result"];
+//            NSString *authCode = nil;
+//            if (result.length>0) {
+//                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
+//                for (NSString *subResult in resultArr) {
+//                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+//                        authCode = [subResult substringFromIndex:10];
+//                        break;
+//                    }
+//                }
+//            }
+//            NSLog(@"授权结果 authCode = %@", authCode?:@"");
+//        }];
+//    }
+//    return YES;
+    
+    //    NSLog(@"****************url.host -- %@",url.host);
+    
+    if ([url.scheme isEqualToString:WECHAT_APPSECRET])
+    {
         return  [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
     }
     
-    if ([url.host isEqualToString:@"safepay"]) {
-        // 支付跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-        }];
-        
-        // 授权跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            // 解析 auth code
-            NSString *result = resultDic[@"result"];
-            NSString *authCode = nil;
-            if (result.length>0) {
-                NSArray *resultArr = [result componentsSeparatedByString:@"&"];
-                for (NSString *subResult in resultArr) {
-                    if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
-                        authCode = [subResult substringFromIndex:10];
-                        break;
-                    }
-                }
-            }
-            NSLog(@"授权结果 authCode = %@", authCode?:@"");
-        }];
-    }
     return YES;
+    
 
 }
 
@@ -196,39 +233,36 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
+    }else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        NSString *strTitle;
+        
+        if(resp.errCode == 0){
+            strTitle = [NSString stringWithFormat:@"分享成功！"];
+            strMsg = @"";
+        } else {
+            strTitle = [NSString stringWithFormat:@"分享失败！"];
+            strMsg = resp.errStr;
+            
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            if([resp isKindOfClass:[SendAuthResp class]])
+            {
+                SendAuthResp *aresp = (SendAuthResp *)resp;
+                if (aresp.errCode== 0){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
+                }
+            }
+            
+        }];
+        [alert addAction:action];
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        NSLog(@"title = %@ message = %@", strTitle, strMsg);
+        
+        
     }
-    
-    
-    
-//    else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-//        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-//        NSString *strTitle;
-//        
-//        if(resp.errCode == 0){
-//            strTitle = [NSString stringWithFormat:@"分享成功！"];
-//            strMsg = @"";
-//        } else {
-//            strTitle = [NSString stringWithFormat:@"分享失败！"];
-//            strMsg = resp.errStr;
-//            
-//        }
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            if([resp isKindOfClass:[SendAuthResp class]])
-//            {
-//                SendAuthResp *aresp = (SendAuthResp *)resp;
-//                if (aresp.errCode== 0){
-//                    [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
-//                }
-//            }
-//            
-//        }];
-//        [alert addAction:action];
-//        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-//        NSLog(@"title = %@ message = %@", strTitle, strMsg);
-//        
-//        
-//    }
  
 }
 

@@ -46,9 +46,20 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
                             @"page" : @"1"
                             };
     
+    
+    
+    
+    
+    
+    
+    
     [DLHomeViewTask getLineSearch:param completion:^(id result, NSError *error) {
-              
+        
+        
+        
+        
             }];
+    
 }
 
 #pragma mark - Setup subViews
