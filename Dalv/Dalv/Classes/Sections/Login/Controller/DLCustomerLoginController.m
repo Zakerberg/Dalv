@@ -90,7 +90,18 @@
                 [alertPhoneNum show];
                 self.passwordTF.text = nil;
                 
-            }else {//登录成功 -->
+            }
+            
+            
+//            else if ([result[@"status"] isEqualToString:@"00041"]){
+//                //手机号码不匹配
+//                UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您已是顾问,快去登录吧" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+//                [alertPhoneNum show];
+//
+//                [self.navigationController popViewControllerAnimated:YES];
+//            }
+//
+            else {//登录成功 -->
 //                if (error) {
 //                    [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
 //                } else {
@@ -120,7 +131,7 @@
                         [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
                     }
                 }
-//            }
+//          }
         }];
     }
 

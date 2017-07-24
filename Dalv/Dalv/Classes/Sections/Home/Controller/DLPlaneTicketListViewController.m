@@ -350,7 +350,6 @@ static NSString *nibCellID = @"nibCellID";
     deVC.planeType = self.planeType.text;
     deVC.flightNo = self.flightNo.text;
     
-    
     NSLog(@"%ld",deVC.nextArr.count);
 
     [self.navigationController pushViewController:deVC animated:YES];

@@ -26,10 +26,10 @@
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
 @property (strong,nonatomic) UITableView* tableView;
 @property (strong,nonatomic) UILabel* nameLabel;
-@property(nonatomic,strong) UIImageView *headerView;
+@property (nonatomic,strong) UIImageView *headerView;
 @property (strong,nonatomic) UILabel* numLabel;
-@property(nonatomic,strong) UILabel *label;
-@property(nonatomic,strong) NSString *bindingStr;/// 绑定状态
+@property (nonatomic,strong) UILabel *label;
+@property (nonatomic,strong) NSString *bindingStr;/// 绑定状态
 @end
 
 static NSString *cellID  = @"cellID";
@@ -249,17 +249,17 @@ static NSString *cellID  = @"cellID";
             
         }else if (indexPath.row == 2){
             
-            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.imageView.image = [UIImage imageNamed:@"MyRecommend"];
             cell.textLabel.text = @"我的推荐";
             
         }else if (indexPath.row == 3){
             
-            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.imageView.image = [UIImage imageNamed:@"supply"];
             cell.textLabel.text = @"供应商查询";
             
         }else if (indexPath.row == 4){
             
-            cell.imageView.image = [UIImage imageNamed:@"universal_property"];
+            cell.imageView.image = [UIImage imageNamed:@"LineSquerry"];
             cell.textLabel.text = @"线路询价";
            
         }else if (indexPath.row == 5){
@@ -308,18 +308,23 @@ static NSString *cellID  = @"cellID";
             
         }else if (indexPath.row == 2){ /// 我的推荐
             
-            DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
-            [self.navigationController pushViewController:remmendVC animated:YES];
+            //DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
+            //[self.navigationController pushViewController:remmendVC animated:YES];
+            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 3){ /// 供应商查询
             
-            DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
-            [self.navigationController pushViewController:supplierVC animated:YES];
+         //   DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
+           // [self.navigationController pushViewController:supplierVC animated:YES];
+            
+            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 4){ /// 线路询价
             
-            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
-            [self.navigationController pushViewController:lineQueryVC animated:YES];
+//            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
+//            [self.navigationController pushViewController:lineQueryVC animated:YES];
+            
+            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 5){ /// 通用
             
