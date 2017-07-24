@@ -289,11 +289,6 @@ including Freepik Icons. Please consult their
 respective headers for the terms of their individual licenses.
 
 
-## UMengSocial
-
-Copyright 2011 - 2016 UMeng.com. All rights reserved.
-
-
 ## WechatOpenSDK
 
 Copyright 2017 tencent.com. All rights reserved.

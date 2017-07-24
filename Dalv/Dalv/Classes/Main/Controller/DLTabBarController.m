@@ -73,7 +73,7 @@ static NSString * const TabbarItemBadgeValue = @"TabbarItemBadgeValue";
        
     } else {
         
-        return @[HomeViewVC,OrderViewVC,MineCenterVC];
+        return @[HomeViewVC,MineCenterVC];
     }
 }
 

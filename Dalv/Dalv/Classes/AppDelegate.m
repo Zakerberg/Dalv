@@ -19,7 +19,7 @@
 //#import "FLEX.h"
 #endif
 
-#define UM_APPKEY  @"59632ee6c62dca4fda0000fa"
+//#define UM_APPKEY  @"59632ee6c62dca4fda0000fa"
 #define SINA_APPKEY  @"467298458"
 #define SINA_APPSECRET  @"e7a353024736af26107f67f45d628566"
 #define WECHAT_APPKEY  @"wx9bc30a44b861048e"
@@ -61,23 +61,23 @@
     
     /* 设置友盟appkey */
     //[[UMSocialManager defaultManager] setUmSocialAppkey:UM_APPKEY];
-    
-    [self configUSharePlatforms];
-    [self confitUShareSettings];
-    
-    [WXApi registerApp:WECHAT_APPKEY];
-    
-    //iOS10必须加下面这段代码。
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    center.delegate = self;
-    UNAuthorizationOptions types10 = UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
-    [center requestAuthorizationWithOptions:types10 completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        if (granted) {
-            //允许
-        } else {
-            //不允许
-        }
-    }];
+//    
+//    [self configUSharePlatforms];
+//    [self confitUShareSettings];
+//    
+//    [WXApi registerApp:WECHAT_APPKEY];
+//    
+//    //iOS10必须加下面这段代码。
+//    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//    center.delegate = self;
+//    UNAuthorizationOptions types10 = UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+//    [center requestAuthorizationWithOptions:types10 completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//        if (granted) {
+//            //允许
+//        } else {
+//            //不允许
+//        }
+//    }];
 
     return YES;
 }
@@ -196,35 +196,39 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
         }
-    } else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        NSString *strTitle;
-        
-        if(resp.errCode == 0){
-            strTitle = [NSString stringWithFormat:@"分享成功！"];
-            strMsg = @"";
-        } else {
-            strTitle = [NSString stringWithFormat:@"分享失败！"];
-            strMsg = resp.errStr;
-            
-        }
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if([resp isKindOfClass:[SendAuthResp class]])
-            {
-                SendAuthResp *aresp = (SendAuthResp *)resp;
-                if (aresp.errCode== 0){
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
-                }
-            }
-            
-        }];
-        [alert addAction:action];
-        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-        NSLog(@"title = %@ message = %@", strTitle, strMsg);
-        
-        
     }
+    
+    
+    
+//    else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+//        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+//        NSString *strTitle;
+//        
+//        if(resp.errCode == 0){
+//            strTitle = [NSString stringWithFormat:@"分享成功！"];
+//            strMsg = @"";
+//        } else {
+//            strTitle = [NSString stringWithFormat:@"分享失败！"];
+//            strMsg = resp.errStr;
+//            
+//        }
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:strTitle message:strMsg preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            if([resp isKindOfClass:[SendAuthResp class]])
+//            {
+//                SendAuthResp *aresp = (SendAuthResp *)resp;
+//                if (aresp.errCode== 0){
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:@"BindWX" object:nil];
+//                }
+//            }
+//            
+//        }];
+//        [alert addAction:action];
+//        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+//        NSLog(@"title = %@ message = %@", strTitle, strMsg);
+//        
+//        
+//    }
  
 }
 
@@ -239,74 +243,74 @@
 }
 
 
-- (void) sendTextContent:(NSInteger) scene message:(NSString*)msg {
+//- (void) sendTextContent:(NSInteger) scene message:(NSString*)msg {
+//
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    //    req.text = msg;
+//    req.bText = NO;//不使用文本信息
+//    req.scene = scene;
+//    //    [WXApi sendReq:req];
+//    //创建分享内容对象
+//    WXMediaMessage *urlMessage = [WXMediaMessage message];
+//    urlMessage.title = @"一个人+一部手机 = 一个旅行社!快跟我一起来!";//分享标题
+//    urlMessage.description = @"";//分享描述
+//    [urlMessage setThumbImage:[UIImage imageNamed:@""]];//分享图片,使用SDK的setThumbImage方法可压缩图片大小
+//
+//    //创建多媒体对象
+//    WXWebpageObject *webObj = [WXWebpageObject object];
+//    webObj.webpageUrl = @"http://www.dalvu.com/App/appDown.html";
+//
+//    //完成发送对象实例
+//    urlMessage.mediaObject = webObj;
+//    req.message = urlMessage;
+//
+//    //发送分享信息
+//    [WXApi sendReq:req];
+//}
 
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    //    req.text = msg;
-    req.bText = NO;//不使用文本信息
-    req.scene = scene;
-    //    [WXApi sendReq:req];
-    //创建分享内容对象
-    WXMediaMessage *urlMessage = [WXMediaMessage message];
-    urlMessage.title = @"一个人+一部手机 = 一个旅行社!快跟我一起来!";//分享标题
-    urlMessage.description = @"";//分享描述
-    [urlMessage setThumbImage:[UIImage imageNamed:@""]];//分享图片,使用SDK的setThumbImage方法可压缩图片大小
+//- (void) sendImageContent {
+//    
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    [message setThumbImage:[UIImage imageNamed:@"res5thumb.png"]];
+//
+//    WXImageObject *ext = [WXImageObject object];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"res5thumb" ofType:@"png"];
+//    NSLog(@"filepath :%@",filePath);
+//    ext.imageData = [NSData dataWithContentsOfFile:filePath];
+//
+//    //UIImage* image = [UIImage imageWithContentsOfFile:filePath];
+//    UIImage* image = [UIImage imageWithData:ext.imageData];
+//    ext.imageData = UIImagePNGRepresentation(image);
+//
+//    message.mediaObject = ext;
+//
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//
+//    [WXApi sendReq:req];
+//
+//}
 
-    //创建多媒体对象
-    WXWebpageObject *webObj = [WXWebpageObject object];
-    webObj.webpageUrl = @"http://www.dalvu.com/App/appDown.html";
-
-    //完成发送对象实例
-    urlMessage.mediaObject = webObj;
-    req.message = urlMessage;
-
-    //发送分享信息
-    [WXApi sendReq:req];
-}
-
-- (void) sendImageContent {
-    
-    WXMediaMessage *message = [WXMediaMessage message];
-    [message setThumbImage:[UIImage imageNamed:@"res5thumb.png"]];
-
-    WXImageObject *ext = [WXImageObject object];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"res5thumb" ofType:@"png"];
-    NSLog(@"filepath :%@",filePath);
-    ext.imageData = [NSData dataWithContentsOfFile:filePath];
-
-    //UIImage* image = [UIImage imageWithContentsOfFile:filePath];
-    UIImage* image = [UIImage imageWithData:ext.imageData];
-    ext.imageData = UIImagePNGRepresentation(image);
-
-    message.mediaObject = ext;
-
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-
-    [WXApi sendReq:req];
-
-}
-
--(void)sendImageContent:(NSInteger)scene photo:(UIImage *)image {
-    
-    WXMediaMessage *message = [WXMediaMessage message];
-    [message setThumbImage:[UIImage imageNamed:@"res5thumb.png"]];
-
-    WXImageObject *ext = [WXImageObject object];
-
-    ext.imageData = UIImagePNGRepresentation(image);
-
-    message.mediaObject = ext;
-
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    req.scene = scene;
-
-    [WXApi sendReq:req];
-
-}
+//-(void)sendImageContent:(NSInteger)scene photo:(UIImage *)image {
+//    
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    [message setThumbImage:[UIImage imageNamed:@"res5thumb.png"]];
+//
+//    WXImageObject *ext = [WXImageObject object];
+//
+//    ext.imageData = UIImagePNGRepresentation(image);
+//
+//    message.mediaObject = ext;
+//
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    req.scene = scene;
+//
+//    [WXApi sendReq:req];
+//
+//}
 
 - (void) sendLinkContent {
 

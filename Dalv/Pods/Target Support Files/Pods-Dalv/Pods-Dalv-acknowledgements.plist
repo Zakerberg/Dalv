@@ -374,17 +374,6 @@ respective headers for the terms of their individual licenses.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright 2011 - 2016 UMeng.com. All rights reserved.
-</string>
-			<key>License</key>
-			<string>Copyright</string>
-			<key>Title</key>
-			<string>UMengSocial</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>Copyright 2017 tencent.com. All rights reserved.
 </string>
 			<key>License</key>
