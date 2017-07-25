@@ -22,19 +22,15 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>None</string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>dalv</string>
-			</array>
+			<array/>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>None</string>
 			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>wb467298458</string>
-			</array>
+			<array/>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
@@ -53,7 +49,7 @@
 			<string>zhifubao</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>2017070607662073</string>
+				<string>ali2017070607662073</string>
 			</array>
 		</dict>
 	</array>

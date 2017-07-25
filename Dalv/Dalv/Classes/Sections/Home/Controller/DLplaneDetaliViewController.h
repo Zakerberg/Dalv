@@ -7,6 +7,7 @@
 //  ------------ 机票订单舱位列表详情界面 ----------------
 
 #import <UIKit/UIKit.h>
+#import "DLPlaneListDetailModel.h"
 
 @interface DLplaneDetaliViewController : UIViewController
 @property (strong, nonatomic)  NSMutableArray * planeListDataArr;
@@ -25,4 +26,7 @@
 @property (strong, nonatomic)  NSString *planeType;
 /// 数据
 @property(nonatomic,strong) NSArray * nextArr;
+
+@property(nonatomic,strong) DLPlaneListDetailModel * model;
+
 @end

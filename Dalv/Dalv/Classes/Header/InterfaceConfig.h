@@ -23,9 +23,9 @@
 //       #endif
 
  //接口服务器
-//#define DL_HOST @"http://demoapi.dalvu.com/"
+#define DL_HOST @"http://demoapi.dalvu.com/"
 
-#define DL_HOST  @"http://dalvuapi.dalvu.com/"
+//#define DL_HOST  @"http://dalvuapi.dalvu.com/"
 
 // 1.测试默认首页模块地址
 #define DL_HomeIndexMod DL_HOST@"index.php/Api/index/indexMod"
@@ -269,7 +269,6 @@
 //// 76 测试普通用户-绑定顾问后首页模块接口
 //#define DL_TouristAgencyIndexMod  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexMod"
 
-
 // 77 测试普通用户-绑定顾问后首页线路列表接口
 #define DL_TouristAgencyIndexLinelist  DL_HOST@"index.php/TouristApi/TouristIndex/agencyIndexLinelist"
 
@@ -290,7 +289,6 @@
 
 ///82 测试财务中心支付宝App充值接口
 #define DL_AlipayAppDopay  DL_HOST@"index.php/Api/alipayApp/aliDopay"
-
 
 ///83 测试首页机票添加乘机人-新增乘机人接口
 #define DL_FlightAddPassenger  DL_HOST@"index.php/Api/agencyFlight/addFrequentPassenger"

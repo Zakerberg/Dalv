@@ -39,6 +39,7 @@
 @property (weak, nonatomic)  UIButton *detailBtn;
 /// 数据
 @property(nonatomic,strong) NSArray * dataArr;
+@property(nonatomic,strong) DLPlaneListDetailModel *pdModel ;
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -264,16 +265,7 @@ static NSString *nibCellID = @"nibCellID";
     
     deVC.departure = self.departure;
     deVC.destination = self.destination;
-    deVC.planeListDataArr = self.planeListDataArr;
-    deVC.startTime = self.startTimeLabel.text;
-    deVC.startPlace = self.startPlaceLabel.text;
-    deVC.arriveTime = self.arriveTimeLabel.text;
-    deVC.arrivePlace = self.arrivePlaceLabel.text;
-    deVC.startOrgjetquery = self.startOrgjetquery.text;
-    deVC.dstJetqury = self.dstJetqury.text;
-    deVC.airlines = self.airlinesLabel.text;
-    deVC.planeType = self.planeType.text;
-    deVC.flightNo = self.flightNo.text;
+    deVC.model = self.pdModel;
     deVC.nextArr = self.nextArr;
 
     [self.navigationController pushViewController:deVC animated:YES];
@@ -296,22 +288,14 @@ static NSString *nibCellID = @"nibCellID";
     DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    self.startPlaceLabel = cell.startPlaceLabel;
-    self.arriveTimeLabel = cell.arriveTimeLabel;
-    self.startOrgjetquery = cell.startOrgjetquery;
-    self.dstJetqury = cell.dstJetqury;
-    self.startTimeLabel = cell.startTimeLabel;
-    self.arrivePlaceLabel = cell.arrivePlaceLabel;
-    self.airlinesLabel = cell.airlinesLabel;
-    self.flightNo = cell.flightNo;
-    self.planeType = cell.planeType;
     self.detailBtn = cell.detailBtn;
     
     [cell.detailBtn addTarget:self action:@selector(detailBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    DLPlaneListDetailModel *pdModel = [self.planeListDataArr objectAtIndex:indexPath.section];
-    [cell configureCell:pdModel];
+    
+    self.pdModel = [self.planeListDataArr objectAtIndex:indexPath.section];
+    
+    [cell configureCell:self.pdModel];
     
     return cell;
 }
@@ -337,25 +321,14 @@ static NSString *nibCellID = @"nibCellID";
                                 ][@"price"];
     deVC.nextArr = self.nextArr;
 
-    deVC.departure = self.departure;
-    deVC.destination = self.destination;
-    deVC.planeListDataArr = self.planeListDataArr;
-    deVC.startTime = self.startTimeLabel.text;
-    deVC.startPlace = self.startPlaceLabel.text;
-    deVC.arriveTime = self.arriveTimeLabel.text;
-    deVC.arrivePlace = self.arrivePlaceLabel.text;
-    deVC.startOrgjetquery = self.startOrgjetquery.text;
-    deVC.dstJetqury = self.dstJetqury.text;
-    deVC.airlines = self.airlinesLabel.text;
-    deVC.planeType = self.planeType.text;
-    deVC.flightNo = self.flightNo.text;
+        deVC.departure = self.departure;
+        deVC.destination = self.destination;
+
+        deVC.model = self.pdModel;
     
-    NSLog(@"%ld",deVC.nextArr.count);
-
+       NSLog(@"%ld",deVC.nextArr.count);
+    
     [self.navigationController pushViewController:deVC animated:YES];
-
-
 }
-
 
 @end

@@ -2454,7 +2454,8 @@
 				TargetAttributes = {
 					452916721EC1741E0033314F = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 2J738B5H56;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -3092,8 +3093,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 2J738B5H56;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3131,8 +3132,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "b305aa1b-546f-4cfe-be14-f26ce65d4524";
+				PROVISIONING_PROFILE_SPECIFIER = Dalv008;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

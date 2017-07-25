@@ -86,16 +86,15 @@ static NSString *tableViewCell = @"tableViewCell";
 
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
 
-        cell.startTimeLabel.text = self.startTime;
-        cell.startPlaceLabel.text = self.startPlace;
-        cell.arrivePlaceLabel.text = self.arrivePlace;
-        cell.arriveTimeLabel.text = self.arriveTime;
-        cell.startOrgjetquery.text = self.startOrgjetquery;
-        cell.dstJetqury.text = self.dstJetqury;
-        
-        // cell.airlinesLabel.text = self.airlines;
-        //   cell.flightNo.text = self.flightNo;
-       // cell.planeType.text = self.planeType;
+        cell.startTimeLabel.text = self.model.depTime;// 出发时间
+        cell.arriveTimeLabel.text = self.model.arriTime;// 达到时间
+        cell.startPlaceLabel.text = self.model.orgCityName;// 出发机场
+        cell.arrivePlaceLabel.text = self.model.dstCityName;// 到达机场
+        cell.startPlaceLabel.text = self.model.orgJetquay;// 出发航站楼
+        cell.dstJetqury.text = self.model.dstJetquay; // 到达航站楼
+        cell.airlinesLabel.text = self.model.flightName;// 航空公司
+        cell.flightNo.text = self.model.flightNo;// 航班号
+        cell.planeType.text = self.model.planeType;// 飞机型号
         
         cell.detailBtn.hidden = YES;
         
