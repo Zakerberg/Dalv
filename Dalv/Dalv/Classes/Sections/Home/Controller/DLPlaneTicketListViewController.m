@@ -78,8 +78,6 @@ static NSString *nibCellID = @"nibCellID";
         @strongify(self);
         if (result) {
             
-            //NSLog(@"%@",result);
-            
             NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
             [self.planeListDataArr addObjectsFromArray:planeListArray];
@@ -92,11 +90,7 @@ static NSString *nibCellID = @"nibCellID";
             NSLog(@"%@",dic);
             self.dataArr = dic;
             
-//            
-//            NSArray *arr = dic[@"price"];
-//            NSLog(@"%@",arr);
-            
-          
+
 #warning 此处可能有问题!
 
             //[self setupSubviews];
@@ -258,7 +252,6 @@ static NSString *nibCellID = @"nibCellID";
     }];
 }
 
-
 -(void)detailBtnClick {
     
     DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
@@ -269,7 +262,6 @@ static NSString *nibCellID = @"nibCellID";
     deVC.nextArr = self.nextArr;
 
     [self.navigationController pushViewController:deVC animated:YES];
-    
 }
 
 #pragma mark ------- UITableViewDelegate
@@ -319,12 +311,13 @@ static NSString *nibCellID = @"nibCellID";
     
     self.nextArr = self.dataArr[indexPath.section
                                 ][@"price"];
-    deVC.nextArr = self.nextArr;
-
+    
+        deVC.nextArr = self.nextArr;
         deVC.departure = self.departure;
         deVC.destination = self.destination;
-
-        deVC.model = self.pdModel;
+    
+    
+       deVC.model = self.planeListDataArr[indexPath.section];
     
        NSLog(@"%ld",deVC.nextArr.count);
     

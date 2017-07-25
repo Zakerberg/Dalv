@@ -49,14 +49,13 @@
     self.startPlaceLabel.text = planeListDetailModelData.orgCityName;
     self.arrivePlaceLabel.text = planeListDetailModelData.dstCityName;
     
-    [planeListDetailModelData.orgJetquay isEqualToString:@"--"] ? (self.startOrgjetquery.text = @"") : (self.startOrgjetquery.text = planeListDetailModelData.orgJetquay);
+    [planeListDetailModelData.orgJetquay isEqualToString:@"--"] || [planeListDetailModelData.orgJetquay isEqualToString:@"Array"] ? (self.startOrgjetquery.text = @"") : (self.startOrgjetquery.text = planeListDetailModelData.orgJetquay);
     
-    [planeListDetailModelData.dstJetquay isEqualToString:@"--"] ? (self.dstJetqury.text = @"") : (self.dstJetqury.text = planeListDetailModelData.dstJetquay);
+    [planeListDetailModelData.dstJetquay isEqualToString:@"--"] || [planeListDetailModelData.dstJetquay isEqualToString:@"Array"]  ? (self.dstJetqury.text = @"") : (self.dstJetqury.text = planeListDetailModelData.dstJetquay);
     
     self.airlinesLabel.text = planeListDetailModelData.flightName;
     self.flightNo.text = planeListDetailModelData.flightNo;
     self.planeType.text = planeListDetailModelData.planeType;
-    //self.dstJetqury.text = planeListDetailModelData.dstJetquay;
     
 }
 
