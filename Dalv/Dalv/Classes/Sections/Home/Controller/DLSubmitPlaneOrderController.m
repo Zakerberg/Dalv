@@ -7,15 +7,14 @@
 //  ---------------- 提交机票订单界面 ------------------
 
 #import "DLSubmitPlaneOrderController.h"
+#import "DLSubmitPlaneSection0Cell.h"
 
 @interface DLSubmitPlaneOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *submitPlaneTableView;
 @end
 
-
-
 static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
-
+static NSString * cellID = @"cellID";
 @implementation DLSubmitPlaneOrderController
 
 - (void)viewDidLoad {
@@ -37,36 +36,19 @@ static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
     self.submitPlaneTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.submitPlaneTableView.dataSource = self;
     self.submitPlaneTableView.delegate = self;
+    [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitPlaneSection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection0Cell];
 
     [self.submitPlaneTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.view addSubview:self.submitPlaneTableView];
    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     [self.submitPlaneTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom).offset(-48);
     }];
-
-    
-    
 }
-
-
-
-
 
 #pragma mark ------ UITableView Delegate
 
@@ -81,27 +63,53 @@ static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
     }else if (section == 3){
         return 4;
     }
-    
-    
-    
-    
+
     return 1;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.section == 0) {
+        
+        DLSubmitPlaneSection0Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection0Cell];
+        
+        cell.airlinesLabel.text = self.orderModel.flightName; // 出发时间
+
+        cell.flightNo.text = self.orderModel.flightNo;
+        cell.planeType.text = self.orderModel.planeType;
+        cell.arrDate.text = self.orderModel.arrDate;
+        cell.depname.text = self.orderModel.depname;
+        cell.arrname.text = self.orderModel.arrname;
+        cell.startTimeLabel.text = self.orderModel.depTime;
+        cell.startPlaceLabel.text = self.orderModel.orgCityName;
+        cell.fuelTax.text = self.orderModel.fuelTax;
+        cell.airportTax.text = self.orderModel.airportTax;
+        cell.arriveTimeLabel.text = self.orderModel.arriTime;
+        cell.arrivePlaceLabel.text = self.orderModel.dstCityName;
+        cell.startOrgjetquery.text = self.orderModel.orgJetquay;
+        cell.dstJetqury.text = self.orderModel.dstJetquay;
+        
+        return cell;
+        
+    }
     
-    return nil;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                      reuseIdentifier: cellID];
+    }
+   
+    cell.textLabel.text = @"乘机人信息";
+
+    return cell;
+
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    
     
     
     return 1;

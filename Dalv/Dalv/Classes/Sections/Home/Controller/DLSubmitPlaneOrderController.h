@@ -7,7 +7,7 @@
 //  ---------------- 提交机票订单界面 ------------------
 
 #import <UIKit/UIKit.h>
-
+#import "DLPlaneListDetailModel.h"
 @interface DLSubmitPlaneOrderController : UIViewController
-
+@property(nonatomic,strong) DLPlaneListDetailModel * orderModel;
 @end

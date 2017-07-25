@@ -119,6 +119,9 @@
 @property(nonatomic,copy) NSString *settlePrice;
 /// 顾问所赚的利润
 @property(nonatomic,copy) NSString *earnPrice;
-///
+/// 顾问结算价
+@property(nonatomic,copy) NSString *settlement_price;
+/// 普通用户显示价格
+@property(nonatomic,copy) NSString *total_price;
 
 @end

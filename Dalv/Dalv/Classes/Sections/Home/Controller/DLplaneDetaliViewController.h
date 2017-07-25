@@ -11,6 +11,7 @@
 
 @interface DLplaneDetaliViewController : UIViewController
 @property (strong, nonatomic)  NSMutableArray * planeListDataArr;
+/// 达到城市
 @property (strong, nonatomic)  NSString * destination;
 @property (strong, nonatomic)  NSString * departure;
 @property(nonatomic,strong) NSArray * nextArr;

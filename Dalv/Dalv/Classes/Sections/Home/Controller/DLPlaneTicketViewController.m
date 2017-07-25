@@ -84,7 +84,7 @@ static NSString *cellID = @"cellID";
 -(void)searchBtnClick {
     
     NSLog(@"开始查询!");
-    
+   
     if (!self.startDate.text) {
         
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写您的出发日期" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
@@ -295,7 +295,7 @@ static NSString *cellID = @"cellID";
     }else{
         
         self.destinationLabel.text = city.cityName;
-        NSLog(@"2222222222222");
+        
     }
     
     [cityPickerViewController dismissViewControllerAnimated:YES completion:nil];

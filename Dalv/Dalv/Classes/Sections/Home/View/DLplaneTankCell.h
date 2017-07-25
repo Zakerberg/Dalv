@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *ticketCountLabel;
 /// 预订
 @property (weak, nonatomic) IBOutlet UIButton *orderBtn;
+/// 总价钱
+@property (weak, nonatomic) IBOutlet UILabel *totalMoney;
 
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;
 

@@ -297,16 +297,23 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="airlinesLabel" destination="VDx-Iw-Wg3" id="0Ia-uo-rkg"/>
+                <outlet property="airportTax" destination="4nC-Uj-ZP3" id="2Z1-5y-ikq"/>
+                <outlet property="arrDate" destination="DSj-WM-lQb" id="PBy-rC-wji"/>
                 <outlet property="arrivePlaceLabel" destination="QP3-Dk-xeF" id="Bw2-PJ-sTs"/>
                 <outlet property="arriveTimeLabel" destination="Fyd-xa-ajZ" id="czi-rm-5z2"/>
+                <outlet property="arrname" destination="jsK-xy-PBg" id="9BY-b9-N3w"/>
+                <outlet property="depname" destination="zIn-4Z-mWS" id="67F-QX-mSE"/>
                 <outlet property="dstJetqury" destination="1Y4-dX-pTB" id="fLo-l9-cAX"/>
                 <outlet property="flightNo" destination="6dL-id-xOd" id="5T0-uk-VCq"/>
+                <outlet property="fuelTax" destination="Nce-9H-i1Q" id="JAh-tg-l7t"/>
                 <outlet property="planeType" destination="Gwi-G3-Dje" id="oHC-TG-Anh"/>
+                <outlet property="settlePrice" destination="pzm-CS-ebm" id="mGW-tx-lyP"/>
+                <outlet property="settlement_price" destination="GRY-qH-hTj" id="ULT-S4-MLq"/>
                 <outlet property="startOrgjetquery" destination="4yI-yd-j1n" id="8Xl-dc-DgX"/>
                 <outlet property="startPlaceLabel" destination="vKu-Uc-IAV" id="ih8-Xp-brt"/>
                 <outlet property="startTimeLabel" destination="0Bu-qw-qnx" id="rdy-CF-1cM"/>
             </connections>
-            <point key="canvasLocation" x="101" y="-31"/>
+            <point key="canvasLocation" x="118" y="-158"/>
         </tableViewCell>
     </objects>
     <resources>

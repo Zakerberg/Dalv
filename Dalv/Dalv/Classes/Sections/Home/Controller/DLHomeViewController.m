@@ -66,6 +66,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 - (void)setupNavbar {
     
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.ms_width, 44)];
+  
     self.searchBar.placeholder = @"请输入商品名称";
     self.searchBar.delegate = self;
     self.searchBar.tintColor = [UIColor ms_orangeColor];
@@ -143,7 +144,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(cell.contentView);
         }];
-        
     }
     return cell;
 }

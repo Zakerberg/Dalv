@@ -199,7 +199,8 @@
 - (UISearchController *) searchController
 {
     if (_searchController == nil) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultVC];
+//        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultVC];
+        self.searchController = [[UISearchController alloc] initWithSearchResultsController:self];
         [_searchController.searchBar setPlaceholder:@"请输入城市中文名称或拼音"];
         [_searchController.searchBar setBarTintColor:[UIColor colorWithWhite:0.95 alpha:1.0]];
         [_searchController.searchBar sizeToFit];

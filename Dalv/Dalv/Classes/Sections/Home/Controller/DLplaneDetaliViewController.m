@@ -7,11 +7,13 @@
 //  ------------ 机票订单舱位列表详情界面 ----------------
 
 #import "DLplaneDetaliViewController.h"
+#import "DLSubmitPlaneOrderController.h"
 #import "DLPlaneTicketsListCell.h"
 #import "DLplaneTankCell.h"
 
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
+@property(nonatomic,strong) UIButton * orderBtn;
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -59,6 +61,15 @@ static NSString *tableViewCell = @"tableViewCell";
     }];
 }
 
+#pragma mark ------- orderBtnClick
+
+-(void)orderBtnClick {
+    
+    DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
+    vc.orderModel = self.model;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark ------- UITableViewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -83,9 +94,9 @@ static NSString *tableViewCell = @"tableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-
+        
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
-
+        
         cell.startTimeLabel.text = self.model.depTime;// 出发时间
         cell.arriveTimeLabel.text = self.model.arriTime;// 达到时间
         cell.startPlaceLabel.text = self.model.orgCityName;// 出发机场
@@ -116,19 +127,12 @@ static NSString *tableViewCell = @"tableViewCell";
     }else if (indexPath.section == 2){
         
         DLplaneTankCell *Tankell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
+        DLPlaneListDetailModel *tankModel = [self.planeListDataArr objectAtIndex:indexPath.section];
+        [Tankell configureCell:tankModel];
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        self.orderBtn = Tankell.orderBtn;
+        [Tankell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        Tankell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return Tankell;
     }
@@ -139,11 +143,9 @@ static NSString *tableViewCell = @"tableViewCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
-    
         return 136;
-    
+        
     }else if (indexPath.section == 1){
-    
         return 20;
     }
     return 75;
@@ -154,7 +156,6 @@ static NSString *tableViewCell = @"tableViewCell";
     if (section == 0 || section == 2) {
         return 0.1;
     }
-    
     return 10.0;
 }
 
@@ -165,6 +166,5 @@ static NSString *tableViewCell = @"tableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 @end

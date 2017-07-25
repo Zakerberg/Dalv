@@ -28,14 +28,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *flightNo;
 /// 机型
 @property (weak, nonatomic) IBOutlet UILabel *planeType;
-
-/*
- "depname": "昆明",					出发城市
- "arrname": "济南",					到达城市
-  "fuelTax": "0.0",			        燃油费
- "airportTax": "50.0",			     基建费
- */
-
+/// 出发城市
+@property (weak, nonatomic) IBOutlet UILabel *depname;
+/// 到达城市
+@property (weak, nonatomic) IBOutlet UILabel *arrname;
+/// 燃油费
+@property (weak, nonatomic) IBOutlet UILabel *fuelTax;
+/// 基建费
+@property (weak, nonatomic) IBOutlet UILabel *airportTax;
+/// 出发日期
+@property (weak, nonatomic) IBOutlet UILabel *arrDate;
+/// 单人总价
+@property (weak, nonatomic) IBOutlet UILabel *settlement_price;
+///结算价
+@property (weak, nonatomic) IBOutlet UILabel *settlePrice;
 
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;
 

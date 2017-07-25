@@ -43,11 +43,12 @@
 
     self.tankLabel.text = planeListDetailModelData.seatMsg;
     self.disCountLabel.text = planeListDetailModelData.agio;
-    self.CustomerMoneyLabel.text = planeListDetailModelData.parPrice;
-    self.agencyMoneyLabel.text = planeListDetailModelData.settlePrice;
+    self.CustomerMoneyLabel.text = planeListDetailModelData.total_price;
+    self.agencyMoneyLabel.text = planeListDetailModelData.settlement_price;
     self.ownMoneyLabel.text = planeListDetailModelData.earnPrice;
-
-//    ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) ?  (self.ticketCountLabel.text = @"") : (self.ticketCountLabel.text = planeListDetailModelData.ticketnum);
+    self.totalMoney.text =  planeListDetailModelData.settlement_price;
+    
+//  ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) ?  (self.ticketCountLabel.text = @"") : (self.ticketCountLabel.text = planeListDetailModelData.ticketnum);
 
     if ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) {
 
