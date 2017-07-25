@@ -253,15 +253,17 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 -(void)detailBtnClick {
+   
+#warning 此处有问题 ! 
     
-    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
-    
-    deVC.departure = self.departure;
-    deVC.destination = self.destination;
-    deVC.model = self.pdModel;
-    deVC.nextArr = self.nextArr;
-
-    [self.navigationController pushViewController:deVC animated:YES];
+//    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
+//    
+//    deVC.departure = self.departure;
+//    deVC.destination = self.destination;
+//    deVC.model = self.pdModel;
+//    deVC.nextArr = self.nextArr;
+//
+//    [self.navigationController pushViewController:deVC animated:YES];
 }
 
 #pragma mark ------- UITableViewDelegate
@@ -315,7 +317,6 @@ static NSString *nibCellID = @"nibCellID";
         deVC.nextArr = self.nextArr;
         deVC.departure = self.departure;
         deVC.destination = self.destination;
-    
     
        deVC.model = self.planeListDataArr[indexPath.section];
     

@@ -20,11 +20,20 @@ static NSString * cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTableView];
+    [self setUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
+
+-(void)setUI {
+    self.title = @"提交机票订单";
 }
 
 
@@ -37,11 +46,11 @@ static NSString * cellID = @"cellID";
     self.submitPlaneTableView.dataSource = self;
     self.submitPlaneTableView.delegate = self;
     [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitPlaneSection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection0Cell];
-
+    
     [self.submitPlaneTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.view addSubview:self.submitPlaneTableView];
-   
+    
     [self.submitPlaneTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.top.equalTo(self.view.mas_top);
@@ -63,19 +72,18 @@ static NSString * cellID = @"cellID";
     }else if (section == 3){
         return 4;
     }
-
+    
     return 1;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-        
+    if (indexPath.section == 0) { // 机票信息
         DLSubmitPlaneSection0Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection0Cell];
         
         cell.airlinesLabel.text = self.orderModel.flightName; // 出发时间
-
+        
         cell.flightNo.text = self.orderModel.flightNo;
         cell.planeType.text = self.orderModel.planeType;
         cell.arrDate.text = self.orderModel.arrDate;
@@ -89,45 +97,88 @@ static NSString * cellID = @"cellID";
         cell.arrivePlaceLabel.text = self.orderModel.dstCityName;
         cell.startOrgjetquery.text = self.orderModel.orgJetquay;
         cell.dstJetqury.text = self.orderModel.dstJetquay;
+        return cell;
+        
+    }else if (indexPath.section == 1){ /// 乘机人信息
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                          reuseIdentifier: cellID];
+        }
+        
+        cell.textLabel.text = @"乘机人信息";
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
         
         return cell;
         
-    }
-    
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if (cell == nil) {
+    }else if (indexPath.section == 2) { /// 添加乘机人
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
-                                      reuseIdentifier: cellID];
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                          reuseIdentifier: cellID];
+        }
+        
+        cell.textLabel.text = @"乘机人信息";
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        
+        return cell;
+        
+    }else{ /// 联系信息
+        
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                          reuseIdentifier: cellID];
+        }
+        
+        cell.textLabel.text = @"乘机人信息";
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        
+        return cell;
     }
-   
-    cell.textLabel.text = @"乘机人信息";
-
-    return cell;
-
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.section == 0) {
     
-    return 1;
+        return 176;
     
+    }else if (indexPath.section == 1) {
     
+        return 35;
+        
+    }else if (indexPath.section == 2) {
+        
+        return 45;
+        
+    }else {
+        
+        if (indexPath.row == 0 || indexPath.row == 3) {
+            return 34;
+            
+        }else{
+            
+            return 44;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    if (section == 3) {
+        return 0.1;
+    }
+    
     return 10.0;
 }
-
-
-
-
-
-
-
-
 
 
 @end

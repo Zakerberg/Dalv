@@ -97,6 +97,7 @@ static NSString *tableViewCell = @"tableViewCell";
         
         DLPlaneTicketsListCell *cell = [tableView dequeueReusableCellWithIdentifier:nibCellID];
         
+        [cell configureCell:self.model];
         cell.startTimeLabel.text = self.model.depTime;// 出发时间
         cell.arriveTimeLabel.text = self.model.arriTime;// 达到时间
         cell.startPlaceLabel.text = self.model.orgCityName;// 出发机场
