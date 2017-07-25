@@ -101,7 +101,7 @@
 @property(nonatomic,copy) NSString *planeId;
 /// 仓位说明
 @property(nonatomic,copy) NSString *seatMsg;
-/// 仓位状态
+/// 剩余票数
 @property(nonatomic,copy) NSString *ticketnum;
 /// 折扣
 @property(nonatomic,copy) NSString *agio;

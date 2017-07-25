@@ -43,16 +43,16 @@
                         </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0S-OF-nlx">
-                        <rect key="frame" x="15" y="39" width="50" height="16"/>
+                        <rect key="frame" x="15" y="39" width="51" height="16"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQE-9Y-AFl">
-                                <rect key="frame" x="0.0" y="0.0" width="7.5" height="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="8.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="4732.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ix6-xT-a7c">
-                                <rect key="frame" x="7.5" y="0.0" width="42.5" height="16"/>
+                                <rect key="frame" x="8.5" y="0.0" width="42.5" height="16"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -131,30 +131,19 @@
                             <action selector="orderBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UJV-Ad-4hS"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umR-eX-J8O">
-                        <rect key="frame" x="8" y="67" width="304" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.20945202464788731" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="0.5" id="f8L-O6-zif"/>
-                        </constraints>
-                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="fHD-od-B2N" firstAttribute="baseline" secondItem="mjo-zv-NzN" secondAttribute="baseline" id="4w0-O2-fx4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="sNc-fs-1gc" secondAttribute="trailing" constant="12" id="56N-fX-q0M"/>
                     <constraint firstItem="mjo-zv-NzN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="7gV-vw-VhO"/>
-                    <constraint firstItem="umR-eX-J8O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8Q4-aY-5mX"/>
-                    <constraint firstAttribute="trailing" secondItem="c0S-OF-nlx" secondAttribute="trailing" constant="255" id="BCK-7G-9X1"/>
                     <constraint firstItem="c0S-OF-nlx" firstAttribute="top" secondItem="mjo-zv-NzN" secondAttribute="bottom" constant="8" symbolic="YES" id="Ef7-rz-VOu"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="umR-eX-J8O" secondAttribute="bottom" id="HrT-wT-8Km"/>
                     <constraint firstItem="mjo-zv-NzN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="IqW-sl-k1C"/>
                     <constraint firstItem="sNc-fs-1gc" firstAttribute="top" secondItem="fHD-od-B2N" secondAttribute="bottom" constant="7" id="OaB-6a-m5j"/>
                     <constraint firstItem="sNc-fs-1gc" firstAttribute="trailing" secondItem="fHD-od-B2N" secondAttribute="trailing" id="UsR-H0-cj9"/>
                     <constraint firstItem="c0S-OF-nlx" firstAttribute="leading" secondItem="mjo-zv-NzN" secondAttribute="leading" id="Zdy-yu-qhz"/>
                     <constraint firstItem="sNc-fs-1gc" firstAttribute="leading" secondItem="fHD-od-B2N" secondAttribute="leading" id="dbg-KJ-9Iv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fHD-od-B2N" secondAttribute="trailing" constant="12" id="nRa-H6-frg"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="umR-eX-J8O" secondAttribute="trailing" id="zXs-xA-b7A"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -162,12 +151,14 @@
                 <outlet property="CustomerMoneyLabel" destination="PBu-yx-vx8" id="a5d-rd-q5S"/>
                 <outlet property="agencyMoneyLabel" destination="Hzm-pt-bTT" id="mZJ-ao-nc9"/>
                 <outlet property="disCountLabel" destination="pb8-Wh-Ocp" id="GK6-3p-qKZ"/>
+                <outlet property="left" destination="gB0-Z7-B60" id="ylo-g9-aEV"/>
                 <outlet property="orderBtn" destination="sNc-fs-1gc" id="bZz-9K-jzY"/>
                 <outlet property="ownMoneyLabel" destination="vSr-yE-M5R" id="Jgi-0d-G7x"/>
+                <outlet property="right" destination="f2Y-6T-pBU" id="D1U-iC-qcA"/>
                 <outlet property="tankLabel" destination="Mva-Yz-0Zl" id="4qL-Z0-wCJ"/>
                 <outlet property="ticketCountLabel" destination="TkO-3g-2J0" id="SgP-Vk-g9B"/>
             </connections>
-            <point key="canvasLocation" x="-602" y="-240"/>
+            <point key="canvasLocation" x="-1140" y="-248"/>
         </tableViewCell>
     </objects>
 </document>

@@ -108,13 +108,6 @@ static NSString *cellID = @"cellID";
         planeTicketListVC.timestart = self.startDate.text;
         [self.navigationController pushViewController:planeTicketListVC animated:YES];
     }
-    
-//    
-//    DLAddPlanePeopleController  *vc = [[DLAddPlanePeopleController alloc] init];
-//    
-//    [self.navigationController pushViewController:vc animated:YES];
-//    
-
 }
 
 #pragma mark ----- UITableView Delegate

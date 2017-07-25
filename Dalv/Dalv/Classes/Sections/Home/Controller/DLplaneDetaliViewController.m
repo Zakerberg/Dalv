@@ -95,7 +95,6 @@ static NSString *tableViewCell = @"tableViewCell";
         cell.airlinesLabel.text = self.model.flightName;// 航空公司
         cell.flightNo.text = self.model.flightNo;// 航班号
         cell.planeType.text = self.model.planeType;// 飞机型号
-        
         cell.detailBtn.hidden = YES;
         
         return cell;
@@ -110,14 +109,27 @@ static NSString *tableViewCell = @"tableViewCell";
             cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
                                           reuseIdentifier: tableViewCell];
         }
-        
         cell.textLabel.text = @"预订舱位";
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
         return cell;
         
     }else if (indexPath.section == 2){
         
         DLplaneTankCell *Tankell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
-        Tankell.backgroundColor = [UIColor whiteColor];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         return Tankell;
     }
     
@@ -132,7 +144,7 @@ static NSString *tableViewCell = @"tableViewCell";
     
     }else if (indexPath.section == 1){
     
-        return 34;
+        return 20;
     }
     return 75;
 }

@@ -158,15 +158,15 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="airlinesLabel" destination="UzO-za-BEx" id="ybh-mT-RyF"/>
-                <outlet property="arrivePlaceLabel" destination="lSc-7O-1EV" id="xNg-oF-gae"/>
-                <outlet property="arriveTimeLabel" destination="ZPM-Lf-RFc" id="rDu-Se-Ygv"/>
+                <outlet property="arrivePlaceLabel" destination="lSc-7O-1EV" id="YPf-3L-ZpG"/>
+                <outlet property="arriveTimeLabel" destination="ZPM-Lf-RFc" id="r9T-q5-pmN"/>
                 <outlet property="detailBtn" destination="zyy-y9-jsE" id="MFg-6u-BGy"/>
-                <outlet property="dstJetqury" destination="mHB-xj-NcE" id="ONw-Nj-bAA"/>
+                <outlet property="dstJetqury" destination="mHB-xj-NcE" id="AEN-MM-pah"/>
                 <outlet property="flightNo" destination="ZZb-yN-W32" id="epz-l7-jX3"/>
                 <outlet property="planeType" destination="7Bw-sJ-wdh" id="v0Q-RJ-tP6"/>
-                <outlet property="startOrgjetquery" destination="JMM-P4-Ziv" id="rhH-Py-NvL"/>
-                <outlet property="startPlaceLabel" destination="CPU-YZ-Rcp" id="u7H-wW-yUw"/>
-                <outlet property="startTimeLabel" destination="PtL-bE-8Gw" id="7td-8k-EQa"/>
+                <outlet property="startOrgjetquery" destination="JMM-P4-Ziv" id="vSb-CR-n6M"/>
+                <outlet property="startPlaceLabel" destination="CPU-YZ-Rcp" id="OfG-kO-sxP"/>
+                <outlet property="startTimeLabel" destination="PtL-bE-8Gw" id="GYx-Iw-rYs"/>
             </connections>
             <point key="canvasLocation" x="-735" y="-198"/>
         </tableViewCell>
