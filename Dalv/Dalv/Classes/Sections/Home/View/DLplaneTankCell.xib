@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-zv-NzN">
@@ -95,7 +95,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fHD-od-B2N">
-                        <rect key="frame" x="237" y="18.5" width="63" height="12"/>
+                        <rect key="frame" x="237" y="18" width="63" height="12"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB0-Z7-B60">
                                 <rect key="frame" x="0.0" y="0.0" width="25" height="12"/>
@@ -121,10 +121,11 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNc-fs-1gc">
-                        <rect key="frame" x="237" y="37.5" width="63" height="22"/>
+                        <rect key="frame" x="237" y="33.5" width="63" height="22"/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="LFx-mr-KuL"/>
+                            <constraint firstAttribute="width" constant="63" id="eCX-V4-cc8"/>
+                            <constraint firstAttribute="height" constant="22" id="mQL-pp-er0"/>
                         </constraints>
                         <state key="normal" title="预订"/>
                         <connections>
@@ -134,15 +135,13 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="sNc-fs-1gc" secondAttribute="trailing" constant="12" id="1RU-v6-TfX"/>
                     <constraint firstItem="fHD-od-B2N" firstAttribute="baseline" secondItem="mjo-zv-NzN" secondAttribute="baseline" id="4w0-O2-fx4"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="sNc-fs-1gc" secondAttribute="trailing" constant="12" id="56N-fX-q0M"/>
                     <constraint firstItem="mjo-zv-NzN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="7gV-vw-VhO"/>
                     <constraint firstItem="c0S-OF-nlx" firstAttribute="top" secondItem="mjo-zv-NzN" secondAttribute="bottom" constant="8" symbolic="YES" id="Ef7-rz-VOu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="sNc-fs-1gc" secondAttribute="bottom" constant="12" id="Ght-tX-N7u"/>
                     <constraint firstItem="mjo-zv-NzN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="IqW-sl-k1C"/>
-                    <constraint firstItem="sNc-fs-1gc" firstAttribute="top" secondItem="fHD-od-B2N" secondAttribute="bottom" constant="7" id="OaB-6a-m5j"/>
-                    <constraint firstItem="sNc-fs-1gc" firstAttribute="trailing" secondItem="fHD-od-B2N" secondAttribute="trailing" id="UsR-H0-cj9"/>
                     <constraint firstItem="c0S-OF-nlx" firstAttribute="leading" secondItem="mjo-zv-NzN" secondAttribute="leading" id="Zdy-yu-qhz"/>
-                    <constraint firstItem="sNc-fs-1gc" firstAttribute="leading" secondItem="fHD-od-B2N" secondAttribute="leading" id="dbg-KJ-9Iv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fHD-od-B2N" secondAttribute="trailing" constant="12" id="nRa-H6-frg"/>
                 </constraints>
             </tableViewCellContentView>

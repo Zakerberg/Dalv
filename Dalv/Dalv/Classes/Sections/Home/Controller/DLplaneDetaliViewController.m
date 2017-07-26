@@ -14,11 +14,9 @@
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
 @property (nonatomic,strong) UIButton * orderBtn;
-
 /// 剩余 / 张
 @property (weak, nonatomic)  UILabel *left;
 @property (weak, nonatomic)  UILabel *right;
-
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -136,7 +134,8 @@ static NSString *tableViewCell = @"tableViewCell";
     }else if (indexPath.section == 2){
         
         DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
-        //[tankCell configureCell:self.tankModel];
+        self.left = tankCell.left;
+        self.right = tankCell.right;
         
         /*
         self.tankLabel.text = tankCell.tankLabel.text;
@@ -153,7 +152,18 @@ static NSString *tableViewCell = @"tableViewCell";
         tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
         tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
         tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
-        tankCell.ticketCountLabel.text = self.nextArr[indexPath.row][@"ticketnum"];
+        
+        if ([self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"A"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"L"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Q"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"S"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"C"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"X"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Z"]) {
+
+            self.right.hidden = YES;
+            self.left.hidden = YES;
+            tankCell.ticketCountLabel.hidden = YES;
+            
+        }else{
+            
+            tankCell.ticketCountLabel.text = self.nextArr[indexPath.row][@"ticketnum"];
+        }
+
         tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
     
         /*
