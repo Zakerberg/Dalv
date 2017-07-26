@@ -8,7 +8,7 @@
 
 #import "DLLineDetailsScrollViewController.h"
 #import "DLLineDetailsScrollViewTableViewCell.h"
-#import "DLHomeViewTask.h"
+
 @interface DLLineDetailsScrollViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *homeTableView;
 @property (nonatomic, strong) NSMutableArray *lineDetArray;

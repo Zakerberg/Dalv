@@ -48,13 +48,9 @@ static NSString *kDLGlobalSearchTableViewCell = @"kDLGlobalSearchTableViewCell";
     
     
     
-    
-    
-    
-    
+
     
     [DLHomeViewTask getLineSearch:param completion:^(id result, NSError *error) {
-        
         
         
         

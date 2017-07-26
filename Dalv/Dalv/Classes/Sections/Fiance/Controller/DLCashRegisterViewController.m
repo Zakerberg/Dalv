@@ -8,7 +8,6 @@
 
 #import "DLCashRegisterViewTableViewCell.h"
 #import "DLCashRegisterViewController.h"
-#import "DLHomeViewTask.h"
 
 @interface DLCashRegisterViewController ()<UITableViewDelegate,UITableViewDataSource>
 

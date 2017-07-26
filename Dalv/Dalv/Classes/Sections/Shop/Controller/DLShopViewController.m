@@ -21,14 +21,11 @@
     [self setupNav];
 }
 
-
-
 -(void)setupUI{
     
    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:0.9];
     
 }
-
 
 -(void)setupNav
 {

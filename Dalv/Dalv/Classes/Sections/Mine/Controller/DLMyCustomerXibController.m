@@ -9,7 +9,6 @@
 #import "DLMyCustomerXibController.h"
 #import "DLCustomerListController.h"
 #import "DLMyTicketListController.h"
-#import "DLHomeViewTask.h"
 
 @interface DLMyCustomerXibController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * myCustomerTableView;

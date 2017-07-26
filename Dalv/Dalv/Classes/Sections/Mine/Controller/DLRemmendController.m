@@ -9,7 +9,6 @@
 #import "DLRemmendController.h"
 #import "DLMyRemmendModel.h"
 #import "DLMyRemmendCell.h"
-#import "DLHomeViewTask.h"
 
 @interface DLRemmendController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myRemmendTableView;

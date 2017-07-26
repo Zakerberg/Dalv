@@ -8,7 +8,7 @@
 
 #import "DLTransactionRecordViewController.h"
 #import "DLTransactionRecordTableViewCell.h"
-#import "DLHomeViewTask.h"
+
 @interface DLTransactionRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *TRhomeTableView;

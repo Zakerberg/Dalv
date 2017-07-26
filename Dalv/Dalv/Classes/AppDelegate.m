@@ -16,7 +16,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 
 #if DEBUG
-//#import "FLEX.h"
+
 #endif
 
 //#define UM_APPKEY  @"59632ee6c62dca4fda0000fa"
