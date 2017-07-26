@@ -49,7 +49,7 @@
 -(void)setUI{
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
-    self.title = @"用户登录";
+    self.title = @"尊享游客登录";
     self.numberTF.keyboardType = UIKeyboardTypeNumberPad;
     self.passwordTF.keyboardType = UIKeyboardTypeNumberPad;
     self.agencyPhoneTF.keyboardType = UIKeyboardTypeNumberPad;

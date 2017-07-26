@@ -44,16 +44,12 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-//    [self fetchData];
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self fetchData];
-    //   self.navigationController.navigationBar.translucent = NO;
-    //    [self.navigationController setNavigationBarHidden:YES animated:animated]
-    
 }
 
 #pragma mark - Setup navbar
@@ -233,12 +229,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     
-//        DLGlobalSearchViewViewController *globalSearchViewController = [[DLGlobalSearchViewViewController alloc] init];
-//        DLNavigationController *navbar = [[DLNavigationController alloc] initWithRootViewController:globalSearchViewController];
-//        [self presentViewController:navbar animated:NO completion:nil];
-    
     DLHomeSearchController *search = [[DLHomeSearchController alloc]init];
-//
     [self.navigationController pushViewController:search animated:YES];
     
     return NO;
@@ -291,11 +282,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 - (void)fetchData {
     [self.hotTopicViewController beginLoading];
     
-    //        NSDictionary *param = @{@"login_name" : @"13126997215",
-    //                                @"login_pwd" : @"654321",};
-    //        [DLHomeViewTask getHomeIndexMod:nil completion:^(id result, NSError *error) {
-    //            }];
-    
 }
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
@@ -326,13 +312,13 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
                 NSDictionary *param = @{
                                         @"names": self.CityStr,
                                         @"page": @"1"
+                                      
                                         };
                 [DLHomeViewTask getDepartureSearc:param completion:^(id result, NSError *error) {
                     NSLog(@"%@",result);
+
                     
-                    [self fetchData];
                     [self.homeTableView reloadData];
-                    
                     
                 }];
                 
@@ -404,7 +390,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         
         //头像
         [headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            // make.top.equalTo(@20);
             make.centerY.offset(0);
             make.left.equalTo(@15);
             make.height.equalTo(@60);
@@ -412,7 +397,6 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         }];
         
         [namelab mas_makeConstraints:^(MASConstraintMaker *make) {
-            //make.top.equalTo(@20);
             make.top.equalTo(self.headImageView.mas_top).offset(0);
             make.left.equalTo(headImageView.mas_right).offset(10);
             make.height.equalTo(@30);

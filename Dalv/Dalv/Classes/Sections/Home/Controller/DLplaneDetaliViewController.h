@@ -12,8 +12,21 @@
 @interface DLplaneDetaliViewController : UIViewController
 @property (strong, nonatomic)  NSMutableArray * tankListDataArr;
 /// 达到城市
-@property (strong, nonatomic)  NSString * destination;
-@property (strong, nonatomic)  NSString * departure;
-@property(nonatomic,strong) NSArray * nextArr;
-@property(nonatomic,strong) DLPlaneListDetailModel * model;
+@property (strong, nonatomic) NSString * destination;
+@property (strong, nonatomic) NSString * departure;
+@property (strong, nonatomic) NSArray * nextArr;
+@property (strong, nonatomic) DLPlaneListDetailModel * model;
+@property (strong, nonatomic) DLPlaneListDetailModel * tankModel;
+
+
+
+
+
+
+
+
+
+
+
+
 @end

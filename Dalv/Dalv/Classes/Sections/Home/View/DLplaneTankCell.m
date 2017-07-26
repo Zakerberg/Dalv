@@ -32,7 +32,6 @@
     [self.orderBtn.layer setMasksToBounds:YES];
     [self.orderBtn.layer setCornerRadius:8];
     [self.orderBtn setBackgroundColor:[UIColor colorWithHexString:@"#fe603b"]];
-    
 }
 
 - (IBAction)orderBtnClick:(id)sender {
@@ -47,8 +46,6 @@
     self.agencyMoneyLabel.text = planeListDetailModelData.settlement_price;
     self.ownMoneyLabel.text = planeListDetailModelData.earnPrice;
     self.totalMoney.text =  planeListDetailModelData.settlement_price;
-    
-//  ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) ?  (self.ticketCountLabel.text = @"") : (self.ticketCountLabel.text = planeListDetailModelData.ticketnum);
 
     if ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) {
 

@@ -102,8 +102,8 @@ static NSString *tableViewCell = @"tableViewCell";
         cell.arriveTimeLabel.text = self.model.arriTime;// 达到时间
         cell.startPlaceLabel.text = self.model.orgCityName;// 出发机场
         cell.arrivePlaceLabel.text = self.model.dstCityName;// 到达机场
-        cell.startPlaceLabel.text = self.model.orgJetquay;// 出发航站楼
-        cell.dstJetqury.text = self.model.dstJetquay; // 到达航站楼
+        cell.startOrgjetquery.text = self.model.orgJetquay;// 出发航站楼
+        cell.dstJetqury.text = self.model.dstJetquay; // 到达航站
         cell.airlinesLabel.text = self.model.flightName;// 航空公司
         cell.flightNo.text = self.model.flightNo;// 航班号
         cell.planeType.text = self.model.planeType;// 飞机型号
@@ -111,8 +111,6 @@ static NSString *tableViewCell = @"tableViewCell";
         
         
         NSLog(@"%@ ===== %@",self.model.orgCityName,cell.startPlaceLabel.text);
-        
-        
         
         return cell;
     }
@@ -132,26 +130,52 @@ static NSString *tableViewCell = @"tableViewCell";
         
     }else if (indexPath.section == 2){
         
-        NSArray *tankListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:self.nextArr];
-        
-        [self.tankListDataArr addObjectsFromArray:tankListArray];
-
         DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
-        DLPlaneListDetailModel *tankModel = [self.tankListDataArr objectAtIndex:indexPath.section];
-        [tankCell configureCell:tankModel];
+        [tankCell configureCell:self.tankModel];
         
-        tankCell.tankLabel.text = self.model.seatMsg;
-        tankCell.disCountLabel.text = self.model.agio;
-        tankCell.CustomerMoneyLabel.text = self.model.total_price;
-        tankCell.agencyMoneyLabel.text = self.model.settlement_price;
-        tankCell.ownMoneyLabel.text = self.model.earnPrice;
-        tankCell.ticketCountLabel.text = self.model.ticketnum;
-        tankCell.totalMoney.text = self.model.settlement_price;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        
+        tankCell.tankLabel.text = self.nextArr[indexPath.row][@"seatMsg"];
+        
+        
+        tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
+        //tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
+        //tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
+       // tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
+        tankCell.ticketCountLabel.text = self.nextArr[indexPath.row][@"ticketnum"];
+        //tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
+       
+        */
+        
+        
+        
+        
+        
+        /*
+         tankCell.tankLabel.text = self.model.seatMsg;
+         tankCell.disCountLabel.text = self.model.agio;
+         tankCell.CustomerMoneyLabel.text = self.model.total_price;
+         tankCell.agencyMoneyLabel.text = self.model.settlement_price;
+         tankCell.ownMoneyLabel.text = self.model.earnPrice;
+         tankCell.ticketCountLabel.text = self.model.ticketnum;
+         tankCell.totalMoney.text = self.model.settlement_price;
+         */
+        
         self.orderBtn = tankCell.orderBtn;
-
         [tankCell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
         tankCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         return tankCell;
     }
     

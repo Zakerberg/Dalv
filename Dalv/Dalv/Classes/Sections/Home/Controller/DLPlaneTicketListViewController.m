@@ -84,15 +84,15 @@ static NSString *nibCellID = @"nibCellID";
             
             
 #warning 此处可能有问题!
-       
-    
+            
+            
             NSArray *dic = result[@"flightinfo"];
             NSLog(@"%@",dic);
             self.dataArr = dic;
             
-
+            
 #warning 此处可能有问题!
-
+            
             //[self setupSubviews];
             [self.planeTicketListTableView reloadData];
         }
@@ -231,7 +231,7 @@ static NSString *nibCellID = @"nibCellID";
     NSString *lastDateStr = [dateFormatter stringFromDate:nextDay];
     
     self.timestart = lastDateStr;
-
+    
     NSDictionary *param = @{
                             @"departure": self.departure,
                             @"destination": self.destination,
@@ -253,17 +253,17 @@ static NSString *nibCellID = @"nibCellID";
 }
 
 -(void)detailBtnClick {
-   
-#warning 此处有问题 ! 
     
-//    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
-//    
-//    deVC.departure = self.departure;
-//    deVC.destination = self.destination;
-//    deVC.model = self.pdModel;
-//    deVC.nextArr = self.nextArr;
-//
-//    [self.navigationController pushViewController:deVC animated:YES];
+#warning 此处有问题 !
+    
+    //    DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
+    //
+    //    deVC.departure = self.departure;
+    //    deVC.destination = self.destination;
+    //    deVC.model = self.pdModel;
+    //    deVC.nextArr = self.nextArr;
+    //
+    //    [self.navigationController pushViewController:deVC animated:YES];
 }
 
 #pragma mark ------- UITableViewDelegate
@@ -311,18 +311,36 @@ static NSString *nibCellID = @"nibCellID";
     
     DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
     
-        self.nextArr = self.dataArr[indexPath.section
+    self.nextArr = self.dataArr[indexPath.section
                                 ][@"price"];
     
-        deVC.nextArr = self.nextArr;
-        deVC.departure = self.departure;
-        deVC.destination = self.destination;
+    deVC.nextArr = self.nextArr;
+    deVC.departure = self.departure;
+    deVC.destination = self.destination;
+    deVC.model = self.planeListDataArr[indexPath.section];
     
-       deVC.model = self.planeListDataArr[indexPath.section];
     
-       NSLog(@"%@",deVC.nextArr);
+    NSLog(@"%@",self.nextArr);
+    
+    deVC.tankModel = self.dataArr[indexPath.section][@"price"];
+    
+    
+    NSLog(@"%@",self.dataArr[indexPath.section][@"price"]);
+    
+    
+    
+    
     
     [self.navigationController pushViewController:deVC animated:YES];
 }
 
 @end
+
+
+
+
+
+
+
+
+

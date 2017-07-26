@@ -39,7 +39,7 @@
 
 #pragma mark - Setup navbar
 - (void)setupNavbar {
-    self.title = @"登陆";
+    self.title = @"旅游顾问登陆";
 }
 
 - (BOOL)dl_blueNavbar {

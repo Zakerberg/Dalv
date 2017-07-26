@@ -159,7 +159,7 @@
                 <outlet property="ticketCountLabel" destination="TkO-3g-2J0" id="SgP-Vk-g9B"/>
                 <outlet property="totalMoney" destination="Ix6-xT-a7c" id="GDI-xx-Sfi"/>
             </connections>
-            <point key="canvasLocation" x="-918" y="-273"/>
+            <point key="canvasLocation" x="-939" y="-329"/>
         </tableViewCell>
     </objects>
 </document>

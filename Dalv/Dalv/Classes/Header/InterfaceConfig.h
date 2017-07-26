@@ -23,9 +23,9 @@
 //       #endif
 
  //接口服务器
-#define DL_HOST @"http://demoapi.dalvu.com/"
+//#define DL_HOST @"http://demoapi.dalvu.com/"
 
-//#define DL_HOST  @"http://dalvuapi.dalvu.com/"
+#define DL_HOST  @"http://dalvuapi.dalvu.com/"
 
 // 1.测试默认首页模块地址
 #define DL_HomeIndexMod DL_HOST@"index.php/Api/index/indexMod"
