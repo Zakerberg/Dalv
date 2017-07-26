@@ -311,7 +311,7 @@ static NSString *nibCellID = @"nibCellID";
     
     DLplaneDetaliViewController *deVC = [[DLplaneDetaliViewController alloc] init];
     
-    self.nextArr = self.dataArr[indexPath.section
+        self.nextArr = self.dataArr[indexPath.section
                                 ][@"price"];
     
         deVC.nextArr = self.nextArr;
@@ -320,7 +320,7 @@ static NSString *nibCellID = @"nibCellID";
     
        deVC.model = self.planeListDataArr[indexPath.section];
     
-       NSLog(@"%ld",deVC.nextArr.count);
+       NSLog(@"%@",deVC.nextArr);
     
     [self.navigationController pushViewController:deVC animated:YES];
 }

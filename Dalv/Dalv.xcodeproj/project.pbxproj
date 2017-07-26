@@ -1336,7 +1336,8 @@
 				1C422BBF1F00AFD0004EB57F /* UIView+PYSearchExtension.h */,
 				1C422BC01F00AFD0004EB57F /* UIView+PYSearchExtension.m */,
 			);
-			path = PYSearch;
+			name = PYSearch;
+			path = ../Home/PYSearch;
 			sourceTree = "<group>";
 		};
 		1C5CD3781EF9FFE7009DBC1B /* Calender */ = {
@@ -1688,6 +1689,7 @@
 		1CB9532B1ECFC41600BDC2D3 /* Fiance */ = {
 			isa = PBXGroup;
 			children = (
+				1C422BB21F00AFD0004EB57F /* PYSearch */,
 				4572B1771ED3CA7F007927EE /* View */,
 				4572B1781ED3CA7F007927EE /* Model */,
 				1CB9532C1ECFC41600BDC2D3 /* Controller */,
@@ -1729,7 +1731,6 @@
 		1CB9532F1ECFC41600BDC2D3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1C422BB21F00AFD0004EB57F /* PYSearch */,
 				1C5CD3781EF9FFE7009DBC1B /* Calender */,
 				1CB953301ECFC41600BDC2D3 /* Controller */,
 				1CB9533B1ECFC41600BDC2D3 /* Model */,
@@ -2454,7 +2455,8 @@
 				TargetAttributes = {
 					452916721EC1741E0033314F = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 49UAD8YZ7U;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -3042,7 +3044,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 49UAD8YZ7U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3078,7 +3080,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/Alipay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast1.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3092,8 +3094,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 2J738B5H56;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49UAD8YZ7U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3129,10 +3131,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dalv/Classes/Vendors/Alipay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast.Dalv;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.itcast1.Dalv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b305aa1b-546f-4cfe-be14-f26ce65d4524";
-				PROVISIONING_PROFILE_SPECIFIER = Dalv008;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

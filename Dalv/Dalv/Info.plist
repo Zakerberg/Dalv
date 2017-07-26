@@ -24,7 +24,9 @@
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>Dalv</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>

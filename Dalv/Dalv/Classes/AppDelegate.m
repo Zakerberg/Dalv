@@ -208,7 +208,8 @@
             switch (resp.errCode) {
                 case WXSuccess:
                     strMsg = @"支付结果：成功！";
-                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kFianceNotification object:resp];
+  
                     break;
                 case WXErrCodeUserCancel:
                     strMsg = @"支付结果：用户点击取消！";

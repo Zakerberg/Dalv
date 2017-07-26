@@ -109,6 +109,11 @@ static NSString *tableViewCell = @"tableViewCell";
         cell.planeType.text = self.model.planeType;// 飞机型号
         cell.detailBtn.hidden = YES;
         
+        
+        NSLog(@"%@ ===== %@",self.model.orgCityName,cell.startPlaceLabel.text);
+        
+        
+        
         return cell;
     }
     
@@ -127,15 +132,27 @@ static NSString *tableViewCell = @"tableViewCell";
         
     }else if (indexPath.section == 2){
         
-        DLplaneTankCell *Tankell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
-        DLPlaneListDetailModel *tankModel = [self.planeListDataArr objectAtIndex:indexPath.section];
-        [Tankell configureCell:tankModel];
+        NSArray *tankListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:self.nextArr];
         
-        self.orderBtn = Tankell.orderBtn;
-        [Tankell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        Tankell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.tankListDataArr addObjectsFromArray:tankListArray];
+
+        DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
+        DLPlaneListDetailModel *tankModel = [self.tankListDataArr objectAtIndex:indexPath.section];
+        [tankCell configureCell:tankModel];
         
-        return Tankell;
+        tankCell.tankLabel.text = self.model.seatMsg;
+        tankCell.disCountLabel.text = self.model.agio;
+        tankCell.CustomerMoneyLabel.text = self.model.total_price;
+        tankCell.agencyMoneyLabel.text = self.model.settlement_price;
+        tankCell.ownMoneyLabel.text = self.model.earnPrice;
+        tankCell.ticketCountLabel.text = self.model.ticketnum;
+        tankCell.totalMoney.text = self.model.settlement_price;
+        self.orderBtn = tankCell.orderBtn;
+
+        [tankCell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        tankCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return tankCell;
     }
     
     return nil;

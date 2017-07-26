@@ -24,7 +24,6 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 @interface DLFianceController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, weak) UICollectionView *appCollectionView;
 @property (nonatomic, strong) NSArray *apps;
-
 @property (nonatomic,strong) NSMutableDictionary *fianceDict;
 @property (nonatomic,strong) UILabel *totalPriceLabel;
 @property (nonatomic,strong) UILabel *blockedPriceLabel;
@@ -44,6 +43,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
     [self setupConstraints];
     [self fetchData];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refershfiance)
                                                  name:kFianceNotification
@@ -55,6 +55,11 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (BOOL)dl_blueNavbar {
     return YES;
     
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupNavbar {
@@ -104,8 +109,10 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (void)fetchData {
     self.apps = [DLHomePageViewModel creatFianceMenuItems];
     [self.appCollectionView reloadData];
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],};
+    NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
+                            };
      @weakify(self);
     [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
         @strongify(self);
@@ -339,11 +346,6 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
     }
     return nil;
 }
-
-
-#pragma mark - Event Handler
-
-#pragma mark - Getter
 
 - (void)refershfiance {
     self.totalPriceLabel.text = @"";

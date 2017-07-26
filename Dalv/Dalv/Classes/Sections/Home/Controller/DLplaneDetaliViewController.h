@@ -10,7 +10,7 @@
 #import "DLPlaneListDetailModel.h"
 
 @interface DLplaneDetaliViewController : UIViewController
-@property (strong, nonatomic)  NSMutableArray * planeListDataArr;
+@property (strong, nonatomic)  NSMutableArray * tankListDataArr;
 /// 达到城市
 @property (strong, nonatomic)  NSString * destination;
 @property (strong, nonatomic)  NSString * departure;

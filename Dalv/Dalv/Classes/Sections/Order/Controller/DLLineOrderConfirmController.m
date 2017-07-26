@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *memoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *starTimeLabel;
 @property (strong, nonatomic) NSString *keyidStr;///keyID
-@property(nonatomic,strong) DLLineOrderController * orderVC;
+@property (nonatomic,strong) DLLineOrderController * orderVC;
 @end
 
 @implementation DLLineOrderConfirmController
