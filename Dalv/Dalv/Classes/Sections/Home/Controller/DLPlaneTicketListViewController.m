@@ -313,17 +313,14 @@ static NSString *nibCellID = @"nibCellID";
     
     self.nextArr = self.dataArr[indexPath.section
                                 ][@"price"];
-    
     deVC.nextArr = self.nextArr;
     deVC.departure = self.departure;
     deVC.destination = self.destination;
     deVC.model = self.planeListDataArr[indexPath.section];
     
-    
     NSLog(@"%@",self.nextArr);
     
     deVC.tankModel = self.dataArr[indexPath.section][@"price"];
-    
     
     NSLog(@"%@",self.dataArr[indexPath.section][@"price"]);
     
@@ -331,6 +328,7 @@ static NSString *nibCellID = @"nibCellID";
     
     
     
+
     [self.navigationController pushViewController:deVC animated:YES];
 }
 

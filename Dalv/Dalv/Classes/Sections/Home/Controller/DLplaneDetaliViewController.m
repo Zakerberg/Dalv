@@ -13,7 +13,12 @@
 
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
-@property(nonatomic,strong) UIButton * orderBtn;
+@property (nonatomic,strong) UIButton * orderBtn;
+
+/// 剩余 / 张
+@property (weak, nonatomic)  UILabel *left;
+@property (weak, nonatomic)  UILabel *right;
+
 @end
 
 static NSString *nibCellID = @"nibCellID";
@@ -131,38 +136,26 @@ static NSString *tableViewCell = @"tableViewCell";
     }else if (indexPath.section == 2){
         
         DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
-        [tankCell configureCell:self.tankModel];
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        //[tankCell configureCell:self.tankModel];
         
         /*
-        
-        tankCell.tankLabel.text = self.nextArr[indexPath.row][@"seatMsg"];
-        
-        
-        tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
-        //tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
-        //tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
-       // tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
-        tankCell.ticketCountLabel.text = self.nextArr[indexPath.row][@"ticketnum"];
-        //tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
-       
+        self.tankLabel.text = tankCell.tankLabel.text;
+        self.disCountLabel.text = tankCell.disCountLabel.text;
+        self.CustomerMoneyLabel.text = tankCell.CustomerMoneyLabel.text;
+        self.agencyMoneyLabel.text = tankCell.agencyMoneyLabel.text;
+        self.ownMoneyLabel.text = tankCell.ownMoneyLabel.text;
+        self.ticketCountLabel.text = tankCell.ticketCountLabel.text;
+        self.totalMoney.text = tankCell.totalMoney.text;
         */
         
-        
-        
-        
-        
+        tankCell.tankLabel.text = self.nextArr[indexPath.row][@"seatMsg"];
+        tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
+        tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
+        tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
+        tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
+        tankCell.ticketCountLabel.text = self.nextArr[indexPath.row][@"ticketnum"];
+        tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
+    
         /*
          tankCell.tankLabel.text = self.model.seatMsg;
          tankCell.disCountLabel.text = self.model.agio;

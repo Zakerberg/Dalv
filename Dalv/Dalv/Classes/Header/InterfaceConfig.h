@@ -22,10 +22,11 @@
       //     #define DL_HOST @"http://dalvuapi.dalvu.com/"
 //       #endif
 
- //接口服务器
-//#define DL_HOST @"http://demoapi.dalvu.com/"
+/// 测试接口服务器
+#define DL_HOST @"http://demoapi.dalvu.com/"
 
-#define DL_HOST  @"http://dalvuapi.dalvu.com/"
+///线上服务器
+//#define DL_HOST  @"http://dalvuapi.dalvu.com/"
 
 // 1.测试默认首页模块地址
 #define DL_HomeIndexMod DL_HOST@"index.php/Api/index/indexMod"
@@ -223,10 +224,8 @@
 //61.测试顾问线路订单详情页-付全款处理接口
 #define DL_AgencyAllpayed DL_HOST@"index.php/Api/agencyPersonal/agencyAllPayed"
 
-
 //62.测试顾问线路订单详情页-付预付款处理接口
 #define DL_AgencyPrePayed DL_HOST@"index.php/Api/agencyPersonal/agencyPrePayed"
-
 
 //63.测试顾问线路订单详情页-付尾款处理接口
 #define DL_AgencyPreForum DL_HOST@"index.php/Api/agencyPersonal/agencyPreForum"
@@ -292,9 +291,5 @@
 
 ///83 测试首页机票添加乘机人-新增乘机人接口
 #define DL_FlightAddPassenger  DL_HOST@"index.php/Api/agencyFlight/addFrequentPassenger"
-
-
-
-
 
 #endif /* InterfaceConfig_h */

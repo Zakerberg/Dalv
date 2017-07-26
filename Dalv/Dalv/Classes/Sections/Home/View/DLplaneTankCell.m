@@ -8,9 +8,7 @@
 #import "DLplaneTankCell.h"
 
 @interface DLplaneTankCell ()
-/// 剩余 / 张
-@property (weak, nonatomic) IBOutlet UILabel *left;
-@property (weak, nonatomic) IBOutlet UILabel *right;
+
 
 @end
 
