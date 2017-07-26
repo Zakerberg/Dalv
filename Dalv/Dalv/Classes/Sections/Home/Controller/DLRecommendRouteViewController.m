@@ -27,7 +27,7 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.topicList = [NSMutableArray array];
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
@@ -260,12 +260,12 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 
 #pragma mark - Getter
 
-- (NSMutableArray *)topicList {
-    if (_topicList == nil) {
-        _topicList = [[NSMutableArray alloc] init];
-    }
-    return _topicList;
-}
-
+//- (NSMutableArray *)topicList {
+//    if (_topicList == nil) {
+//        _topicList = [[NSMutableArray alloc] init];
+//    }
+//    return _topicList;
+//}
+//
 
 @end

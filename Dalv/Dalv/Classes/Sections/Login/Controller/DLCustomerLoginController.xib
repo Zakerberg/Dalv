@@ -82,13 +82,13 @@
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入手机号(选填)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-Eb-adu">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入绑定顾问手机号(选填)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-Eb-adu">
                     <rect key="frame" x="20" y="352" width="335" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Si0-Tv-KMk"/>
                     </constraints>
                     <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gJ-MI-B1b">
@@ -142,7 +142,7 @@
                 <constraint firstAttribute="trailing" secondItem="kmM-DO-kwY" secondAttribute="trailing" constant="20" id="rRk-ni-AXB"/>
                 <constraint firstItem="qae-Lk-hMk" firstAttribute="leading" secondItem="qwU-Eb-adu" secondAttribute="leading" id="zOJ-Dw-v9n"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="-401" y="-455"/>
         </view>
     </objects>
     <resources>

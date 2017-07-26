@@ -23,7 +23,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) UIImageView *performanceView;
-@property (nonatomic, weak) UITableView *homeTableView;
+@property (nonatomic, strong) UITableView *homeTableView;
 @property (nonatomic, strong) DLCityPopMenuView *popMenuView;
 @property (nonatomic, strong) DLMenuViewController *appCenterViewController;
 @property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
@@ -31,7 +31,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 @property (nonatomic, strong) UIImageView *headImageView;//头像
 @property (nonatomic, strong) UILabel *namelab;//名字
 @property (nonatomic, strong) UILabel *mobilelab;//手机
-@property(nonatomic,strong) NSString * CityStr;
+@property (nonatomic, strong) NSString * CityStr;
 @end
 
 @implementation DLHomeViewController
@@ -56,11 +56,6 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    //    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
 #pragma mark - Setup navbar
 
 - (void)setupNavbar {
@@ -81,6 +76,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     self.navigationItem.titleView = self.searchBar;
     
     UIBarButtonItem *operateItem = [UIBarButtonItem itemWithImageName:@"line_order" highImageName:nil target:self action:@selector(didTapOperateAction:)];
+    
     self.navigationItem.leftBarButtonItem = operateItem;
     
 }
@@ -245,10 +241,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 //
     [self.navigationController pushViewController:search animated:YES];
     
-    
-    
     return NO;
-    
     
     /*
      
@@ -273,27 +266,19 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
      searchViewController.searchSuggestionHidden = YES;
      */
     
-    
-    
-    
-    
-    
-    
 //     return NO;
-    
-    
-    
+
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (searchBar.text.length) {
-        [self.searchBar resignFirstResponder];
-        NSLog(@"点击搜索");
-    } else {
-        NSLog(@"请输入搜索内容");
-    }
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    if (searchBar.text.length) {
+//        [self.searchBar resignFirstResponder];
+//        NSLog(@"点击搜索");
+//    } else {
+//        NSLog(@"请输入搜索内容");
+//    }
+//}
 //
 //- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 //    [self.searchBar resignFirstResponder];
@@ -313,26 +298,26 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
 }
 
-#pragma mark - Event Handler
-
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
     
        @weakify(self);
-        if (!self.popMenuView) {
+ 
             NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
             self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
+
             self.popMenuView.clickedBlock = ^(NSInteger index){
-                NSLog(@"选中了++++++ %@",cityArray[index]);
+                
+                NSLog(@"选中%@",cityArray[index]);
                 @strongify(self);
 
-                self.CityStr = [[NSString alloc] init];
+               // self.CityStr = [[NSString alloc] init];
                 
                 if ([cityArray[index] isEqualToString:@"北京市"]) {
                     self.CityStr = @"110000";
                     
                 }else if ([cityArray[index] isEqualToString:@"天津市"]){
                     self.CityStr = @"120000";
-                }else if ([cityArray[index] isEqualToString:@"河北市"]){
+                }else if ([cityArray[index] isEqualToString:@"石家庄"]){
                     self.CityStr = @"130000";
                 }else if ([cityArray[index] isEqualToString:@"唐山市"]){
                     self.CityStr = @"140000";
@@ -345,6 +330,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
                 [DLHomeViewTask getDepartureSearc:param completion:^(id result, NSError *error) {
                     NSLog(@"%@",result);
                     
+                    [self fetchData];
                     [self.homeTableView reloadData];
                     
                     
@@ -352,9 +338,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
                 
             };
             [self.view addSubview:self.popMenuView];
-        } else {
-            self.popMenuView.isShow ? [self.popMenuView hiddenPopMenu] : [self.popMenuView showPopMenu];
-        }
+    
 }
 
 #pragma mark - Getter
