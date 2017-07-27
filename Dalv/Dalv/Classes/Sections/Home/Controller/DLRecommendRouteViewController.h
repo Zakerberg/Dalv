@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DLRecommendRouteViewController : UIViewController
-
+@property (nonatomic, strong) NSMutableArray *topicList;
 /**
  *  推荐线路内容高度
  */

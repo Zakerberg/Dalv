@@ -366,7 +366,6 @@ static NSString *section5CellID = @"section5CellID";
     if (section == 4){
         return 2;
     }
-    
     return 10;
     
 }
@@ -437,10 +436,8 @@ static NSString *section5CellID = @"section5CellID";
         self.companyTF = section0Cell.companyTF;
         //项目
         self.projctButton = section0Cell.projctButton;
-        
         //备注
         self.noteTextView = section0Cell.noteTextView;
-        
         //剩余金额
         self.moneyLabel = section0Cell.moneyLabel;
     

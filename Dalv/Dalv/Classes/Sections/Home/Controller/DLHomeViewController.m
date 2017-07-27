@@ -44,7 +44,9 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-
+    [self setRecommendController];
+    
+  
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,12 +54,30 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self fetchData];
 }
 
+-(void)setRecommendController {
+    
+    _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
+    
+    _hotTopicViewController.topicList = nil;
+    
+    @weakify(self);
+    [_hotTopicViewController setDidCompleteLoad:^{
+        @strongify(self);
+        
+        [self.homeTableView reloadData];
+        
+    }];
+    
+    [self addChildViewController:_hotTopicViewController];
+}
+
+
 #pragma mark - Setup navbar
 
 - (void)setupNavbar {
     
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.ms_width, 44)];
-  
+    
     self.searchBar.placeholder = @"请输入商品名称";
     self.searchBar.delegate = self;
     self.searchBar.tintColor = [UIColor ms_orangeColor];
@@ -88,11 +108,9 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     homeTableView.backgroundColor = [UIColor clearColor];
     homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     homeTableView.tableFooterView = [[UIView alloc] init];
-    [homeTableView registerClass:[UITableViewCell class]
-          forCellReuseIdentifier:kDLHomeTableViewCell];
+    [homeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kDLHomeTableViewCell];
     homeTableView.showsVerticalScrollIndicator = NO;
-    [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
+    [homeTableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
@@ -234,96 +252,73 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     return NO;
     
-    /*
-     
-     // 1. 创建热门搜索数组
-     NSArray *hotSeaches = @[@"北京", @"天津", @"石家庄", @"唐山"];
-     // 2. 创建搜索控制器
-     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"搜索出发城市和目的地" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-     
-     // 开始(点击)搜索时执行以下代码
-     // 如：跳转到指定控制器
-     [searchViewController.navigationController pushViewController:[[DLGlobalSearchViewViewController alloc] init] animated:YES];
-     }];
-     
-     // 3. 跳转到搜索控制器
-     DLNavigationController *nav = [[DLNavigationController alloc] initWithRootViewController:searchViewController];
-     [self presentViewController:nav  animated:NO completion:nil];
-     // 设置搜索历史为带边框标签风格
-     searchViewController.searchHistoryStyle = PYSearchHistoryStyleColorfulTag;
-     // 设置热门搜索为彩色标签风格
-     searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
-     // 隐藏搜索建议
-     searchViewController.searchSuggestionHidden = YES;
-     */
-    
-//     return NO;
-
 }
 
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    if (searchBar.text.length) {
-//        [self.searchBar resignFirstResponder];
-//        NSLog(@"点击搜索");
-//    } else {
-//        NSLog(@"请输入搜索内容");
-//    }
-//}
-//
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-//    [self.searchBar resignFirstResponder];
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
-//
 
 #pragma mark - Fetch data
 
 - (void)fetchData {
+    
+    
     [self.hotTopicViewController beginLoading];
+    
+    
+    
     
 }
 
 - (void)didTapOperateAction:(UIBarButtonItem *)sender {
     
-       @weakify(self);
- 
-            NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
-            self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
-
-            self.popMenuView.clickedBlock = ^(NSInteger index){
-                
-                NSLog(@"选中%@",cityArray[index]);
-                @strongify(self);
-
-               // self.CityStr = [[NSString alloc] init];
-                
-                if ([cityArray[index] isEqualToString:@"北京市"]) {
-                    self.CityStr = @"110000";
-                    
-                }else if ([cityArray[index] isEqualToString:@"天津市"]){
-                    self.CityStr = @"120000";
-                }else if ([cityArray[index] isEqualToString:@"石家庄"]){
-                    self.CityStr = @"130000";
-                }else if ([cityArray[index] isEqualToString:@"唐山市"]){
-                    self.CityStr = @"140000";
-                }
-                
-                NSDictionary *param = @{
-                                        @"names": self.CityStr,
-                                        @"page": @"1"
-                                      
-                                        };
-                [DLHomeViewTask getDepartureSearc:param completion:^(id result, NSError *error) {
-                    NSLog(@"%@",result);
-
-                    
-                    [self.homeTableView reloadData];
-                    
-                }];
-                
-            };
-            [self.view addSubview:self.popMenuView];
+    @weakify(self);
+    
+    NSArray *cityArray = @[@"北京市",@"天津市",@"石家庄",@"唐山市"];
+    self.popMenuView = [[DLCityPopMenuView alloc] initWithPositionOfDirection:CGPointMake(24, 56)  titleArray:cityArray];
+    
+    self.popMenuView.clickedBlock = ^(NSInteger index){
+        
+        NSLog(@"选中%@",cityArray[index]);
+        @strongify(self);
+        
+        // self.CityStr = [[NSString alloc] init];
+        
+        if ([cityArray[index] isEqualToString:@"北京市"]) {
+            self.CityStr = @"110000";
+            
+        }else if ([cityArray[index] isEqualToString:@"天津市"]){
+            self.CityStr = @"120000";
+        }else if ([cityArray[index] isEqualToString:@"石家庄"]){
+            self.CityStr = @"130000";
+        }else if ([cityArray[index] isEqualToString:@"唐山市"]){
+            self.CityStr = @"140000";
+        }
+        
+        NSDictionary *param = @{
+                                @"names": self.CityStr,
+                                @"page": @"1"
+                                };
+        [DLHomeViewTask getDepartureSearc:param completion:^(id result, NSError *error) {
+            NSLog(@"%@",result);
+            
+           // [self.homeTableView reloadData];
+            
+            
+       
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }];
+        
+    };
+    
+    [self.view addSubview:self.popMenuView];
     
 }
 
@@ -346,19 +341,25 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     return _appCenterViewController;
 }
 
-- (DLRecommendRouteViewController *)hotTopicViewController {
-    
-    if (_hotTopicViewController == nil) {
-        _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
-        @weakify(self);
-        [_hotTopicViewController setDidCompleteLoad:^{
-            @strongify(self);
-            [self.homeTableView reloadData];
-        }];
-        [self addChildViewController:_hotTopicViewController];
-    }
-    return _hotTopicViewController;
-}
+//- (DLRecommendRouteViewController *)hotTopicViewController {
+//
+//    if (_hotTopicViewController == nil) {
+//        _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
+//
+//
+//#warning 此处有问题 !!!!! ------------------------------
+//         _hotTopicViewController.topicList = nil;
+//
+//        @weakify(self);
+//        [_hotTopicViewController setDidCompleteLoad:^{
+//            @strongify(self);
+//
+//            [self.homeTableView reloadData];
+//        }];
+//        [self addChildViewController:_hotTopicViewController];
+//    }
+//    return _hotTopicViewController;
+//}
 
 - (UIView *)performanceView {
     
@@ -373,7 +374,7 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
         self.headImageView.clipsToBounds = YES;
         self.headImageView.layer.borderWidth = 0.5;
         self.headImageView.layer.borderColor = [UIColor colorWithHexString:@"#536bf8"].CGColor;
-
+        
         UILabel  *namelab = [[UILabel alloc]init];
         namelab.textColor = [UIColor whiteColor];
         namelab.textAlignment = NSTextAlignmentLeft;
@@ -417,14 +418,15 @@ forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
 - (void)refreshPerformanceView {
     
     if([[DLUtils getUser_type]  isEqualToString: @"4"]){
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-    self.namelab.text = self.homePageModel.agencyInfo.name;
-    self.mobilelab.text  = self.homePageModel.agencyInfo.mobile;
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.agencyInfo.head_pic] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+        self.namelab.text = self.homePageModel.agencyInfo.name;
+        self.mobilelab.text  = self.homePageModel.agencyInfo.mobile;
         
     } else {
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.touristInfo.head_img] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-    self.namelab.text = self.homePageModel.touristInfo.name;
-    self.mobilelab.text  = self.homePageModel.touristInfo.mobile;
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.homePageModel.touristInfo.head_img] placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+        self.namelab.text = self.homePageModel.touristInfo.name;
+        self.mobilelab.text  = self.homePageModel.touristInfo.mobile;
     }
 }
+
 @end

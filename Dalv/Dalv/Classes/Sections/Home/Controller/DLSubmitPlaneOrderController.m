@@ -25,7 +25,7 @@ static NSString * cellID = @"cellID";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -62,14 +62,14 @@ static NSString * cellID = @"cellID";
 #pragma mark ------ UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
         return 1;
-    }else if (section == 3){
+    }else if (section == 2){
         return 4;
     }
     
@@ -99,23 +99,11 @@ static NSString * cellID = @"cellID";
         cell.dstJetqury.text = self.orderModel.dstJetquay;
         return cell;
         
-    }else if (indexPath.section == 1){ /// 乘机人信息
+    }else if (indexPath.section == 1) { /// 添加乘机人
+       
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
-        if (cell == nil) {
-            
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
-                                          reuseIdentifier: cellID];
-        }
-        
-        cell.textLabel.text = @"乘机人信息";
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
-        
-        return cell;
-        
-    }else if (indexPath.section == 2) { /// 添加乘机人
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        
+
         if (cell == nil) {
             
             cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
@@ -152,10 +140,6 @@ static NSString * cellID = @"cellID";
         return 176;
     
     }else if (indexPath.section == 1) {
-    
-        return 35;
-        
-    }else if (indexPath.section == 2) {
         
         return 45;
         
@@ -173,12 +157,20 @@ static NSString * cellID = @"cellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    if (section == 3) {
-        return 0.1;
-    }
-    
-    return 10.0;
-}
 
+    
+    if (section == 0) {
+        
+        return 0.01;
+        
+    }else if (section == 1){
+        
+        return CGFLOAT_MIN;
+        
+    }else{
+        
+        return 10.0;
+    }
+}
 
 @end

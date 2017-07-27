@@ -12,12 +12,8 @@
 
 static NSString *kMSHotTopicTableViewHeader = @"MSHotTopicTableViewHeader";
 static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
-
 @interface DLRecommendRouteViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
 @property (nonatomic, weak) UICollectionView *hotTopicCollectionView;
-
-@property (nonatomic, strong) NSMutableArray *topicList;
 
 @end
 
@@ -61,9 +57,9 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     hotTopicCollectionView.contentInset = UIEdgeInsetsMake(0, 6, 10, 6);
     [hotTopicCollectionView registerClass:[DLRecommendRouteCollectionViewCell class]
                forCellWithReuseIdentifier:[DLRecommendRouteCollectionViewCell cellIdentifier]];
-    //    [hotTopicCollectionView registerClass:[UICollectionReusableView class]
-    //               forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-    //                      withReuseIdentifier:kMSHotTopicTableViewHeader];
+    // [hotTopicCollectionView registerClass:[UICollectionReusableView class]
+    //        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    //                    withReuseIdentifier:kMSHotTopicTableViewHeader];
     [hotTopicCollectionView registerClass:[UICollectionReusableView class]
                forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                       withReuseIdentifier:kMSHotTopicTableViewFooter];
@@ -257,8 +253,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
         self.hotTopicCollectionView.contentInset.bottom;
     }
 }
-
-#pragma mark - Getter
 
 //- (NSMutableArray *)topicList {
 //    if (_topicList == nil) {
