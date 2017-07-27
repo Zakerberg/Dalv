@@ -17,5 +17,4 @@
 @property (strong, nonatomic) NSArray * nextArr;
 @property (strong, nonatomic) DLPlaneListDetailModel * model;
 @property (strong, nonatomic) DLPlaneListDetailModel * tankModel;
-
 @end

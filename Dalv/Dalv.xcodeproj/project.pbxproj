@@ -364,6 +364,7 @@
 		45C61A701F29D4D20075AEEE /* DLSubmitSection1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C61A6E1F29D4D20075AEEE /* DLSubmitSection1Cell.xib */; };
 		45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */; };
 		45C61A761F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */; };
+		45C61A7C1F29F5760075AEEE /* DLSubmitSection3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A7B1F29F5760075AEEE /* DLSubmitSection3Cell.m */; };
 		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
 		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
@@ -1042,6 +1043,8 @@
 		45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection2Row1Cell.m; sourceTree = "<group>"; };
 		45C61A741F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitPlaneSection2Row2Cell.h; sourceTree = "<group>"; };
 		45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection2Row2Cell.m; sourceTree = "<group>"; };
+		45C61A7A1F29F5760075AEEE /* DLSubmitSection3Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitSection3Cell.h; sourceTree = "<group>"; };
+		45C61A7B1F29F5760075AEEE /* DLSubmitSection3Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitSection3Cell.m; sourceTree = "<group>"; };
 		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
 		45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAdvertisingController.m; sourceTree = "<group>"; };
 		45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLAdvertisingController.xib; sourceTree = "<group>"; };
@@ -1878,6 +1881,8 @@
 				45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */,
 				45C61A741F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.h */,
 				45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */,
+				45C61A7A1F29F5760075AEEE /* DLSubmitSection3Cell.h */,
+				45C61A7B1F29F5760075AEEE /* DLSubmitSection3Cell.m */,
 				459D76541F21E4CD00E813F3 /* DLAddPeopleCell.h */,
 				459D76551F21E4CD00E813F3 /* DLAddPeopleCell.m */,
 			);
@@ -2839,6 +2844,7 @@
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1C5CD38B1EFA0010009DBC1B /* CalenderDateHeaderView.m in Sources */,
 				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
+				45C61A7C1F29F5760075AEEE /* DLSubmitSection3Cell.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
 				1C0ACE891F1A38FB00C43280 /* Order.m in Sources */,

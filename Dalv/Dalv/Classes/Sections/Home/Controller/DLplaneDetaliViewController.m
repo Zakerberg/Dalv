@@ -70,6 +70,7 @@ static NSString *tableViewCell = @"tableViewCell";
     
     DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
     vc.orderModel = self.model;
+    vc.nextNextArr = self.nextArr;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

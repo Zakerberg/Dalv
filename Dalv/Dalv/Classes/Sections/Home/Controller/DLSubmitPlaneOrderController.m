@@ -7,21 +7,30 @@
 //  ---------------- 提交机票订单界面 ------------------
 
 #import "DLSubmitPlaneSection2Row1Cell.h"
+#import "DLSubmitPlaneSection2Row2Cell.h"
 #import "DLSubmitPlaneOrderController.h"
 #import "DLAddPlanePeopleController.h"
 #import "DLSubmitPlaneSection0Cell.h"
 #import "DLSubmitSection1Cell.h"
+#import "DLSubmitSection3Cell.h"
 
 @interface DLSubmitPlaneOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *submitPlaneTableView;
 @property(nonatomic,strong) UIButton *addBtn;
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,strong) UILabel * nameLabel;
+@property(nonatomic,strong) UILabel * customerTypeLabel; // 乘客类型
+@property(nonatomic,strong) UILabel * certificateTypeLabel;// 证件类型
+@property(nonatomic,strong) UIButton * deleBtn;
+@property(nonatomic,strong) UIButton * submitBtn;
+@property(nonatomic,strong) UILabel * totalMoney;
 @end
 
 static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
 static NSString * submitPlaneSection1Cell = @"submitPlaneSection1Cell";
 static NSString * submitPlaneSection2Row1Cell = @"submitPlaneSection2Row1Cell";
+static NSString * submitPlaneSection2Row2Cell = @"submitPlaneSection2Row2Cell";
+static NSString * submitSection3Cell = @"submitSection3Cell";
 static NSString * cellID = @"cellID";
 
 static NSInteger addBtnCount ;
@@ -35,12 +44,10 @@ static NSInteger addBtnCount ;
     
     self.Section2Number = 0;
     addBtnCount = 0;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 - (BOOL)dl_blueNavbar {
@@ -48,7 +55,42 @@ static NSInteger addBtnCount ;
 }
 
 -(void)setUI {
+    
     self.title = @"提交机票订单";
+    
+    self.submitBtn = [UIButton buttonWithType:0];
+    self.submitBtn.backgroundColor = [UIColor colorWithHexString:@"#fe603b"];
+    self.submitBtn.tintColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.submitBtn];
+    
+    UILabel *total = [[UILabel alloc] init];
+    total.text = @"订单总额:";
+    
+    [self.view addSubview:total];
+    
+    self.totalMoney = [[UILabel alloc] init];
+    self.totalMoney.text = @"4563";
+    self.totalMoney.font = [UIFont systemFontOfSize:16];
+    self.totalMoney.textColor = [UIColor colorWithHexString:@"#fe603b"];
+    
+    [self.view addSubview:self.totalMoney];
+    
+    [self.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.right.offset(0);
+        make.height.offset(45);
+        make.width.offset(130);
+    }];
+    
+    [total mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(10);
+        make.bottom.offset(-10);
+    }];
+    
+    [self.totalMoney mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(total.mas_right).offset(20);
+        make.centerY.equalTo(total.mas_centerY).offset(0);
+    }];
 }
 
 
@@ -60,13 +102,17 @@ static NSInteger addBtnCount ;
     self.submitPlaneTableView.backgroundColor = [UIColor ms_backgroundColor];
     self.submitPlaneTableView.dataSource = self;
     self.submitPlaneTableView.delegate = self;
+    
     [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitPlaneSection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection0Cell];
     
     [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitSection1Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection1Cell];
     
     [self.submitPlaneTableView registerClass:[DLSubmitPlaneSection2Row1Cell class] forCellReuseIdentifier:submitPlaneSection2Row1Cell];
     
-
+    [self.submitPlaneTableView registerClass:[DLSubmitPlaneSection2Row2Cell class] forCellReuseIdentifier:submitPlaneSection2Row2Cell];
+    
+    [self.submitPlaneTableView registerClass:[DLSubmitSection3Cell class] forCellReuseIdentifier:submitSection3Cell];
+    
     [self.submitPlaneTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.view addSubview:self.submitPlaneTableView];
@@ -79,8 +125,7 @@ static NSInteger addBtnCount ;
     }];
 }
 
-
-#pragma mark ------ addBtnClick
+#pragma mark ------ BtnClick
 
 -(void)addBtnClick {
     
@@ -98,7 +143,6 @@ static NSInteger addBtnCount ;
     
 }
 
-
 #pragma mark ------ UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -109,20 +153,17 @@ static NSInteger addBtnCount ;
     
     if (section == 0) {
         
-        
         return 1;
         
     }else if (section == 1){
-
+        
         return 1;
         
-        
     }else if (section == 2){
-
+        
         return self.Section2Number;
         
-    }else if (section == 3) {
-        
+    }else if (section == 3){
         
         return 4;
     }
@@ -133,10 +174,10 @@ static NSInteger addBtnCount ;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) { // 机票信息
+        
         DLSubmitPlaneSection0Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection0Cell];
         
         cell.airlinesLabel.text = self.orderModel.flightName; // 出发时间
-        
         cell.flightNo.text = self.orderModel.flightNo;
         cell.planeType.text = self.orderModel.planeType;
         cell.arrDate.text = self.orderModel.arrDate;
@@ -150,62 +191,109 @@ static NSInteger addBtnCount ;
         cell.arrivePlaceLabel.text = self.orderModel.dstCityName;
         cell.startOrgjetquery.text = self.orderModel.orgJetquay;
         cell.dstJetqury.text = self.orderModel.dstJetquay;
+        // cell.settlement_price.text = self.orderModel.settlement_price;
+        // cell.settlePrice.text = self.orderModel.settlePrice;
+        cell.fuelTax.text = self.orderModel.fuelTax;
+        cell.airportTax.text = self.orderModel.airportTax;
+        
+#warning 此处有问题 !
+        
+        //cell.settlement_price.text = self.nextNextArr[indexPath.section][@"settlement_price"];
+        //cell.settlePrice.text = self.nextNextArr[indexPath.section][@"total_price"];
+        
         return cell;
         
     }else if (indexPath.section == 1) { /// 添加乘机人
-   
+        
         DLSubmitSection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection1Cell];
         
         self.addBtn = cell.addBtn;
         [self.addBtn setTitle:@"添加乘机人" forState:UIControlStateNormal];
-
+        
         [self.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
- 
+        
         return cell;
         
     }else if (indexPath.section == 2) { /// 添加乘机人
         
-      
-        
-        DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
-        
-        
-        self.nameLabel = cell.nameLabel;
-        
-        
-        
-        
-        return cell;
-        
-        
-  
-    }else{ /// 联系信息
-        
-        
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        
-        if (cell == nil) {
+        if (indexPath.row == 0) {
             
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
-                                          reuseIdentifier: cellID];
+            DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
+            cell.name.text = @"姓名:";
+            self.nameLabel = cell.nameLabel;
+            
+            return cell;
+            
+        }else if (indexPath.row == 1) {
+            
+            DLSubmitPlaneSection2Row2Cell * cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row2Cell];
+            
+            self.customerTypeLabel = cell.customerTypeLabel;
+            self.certificateTypeLabel = cell.certificateTypeLabel;
+            self.deleBtn = cell.deleBtn;
+            
+            return cell;
+            
+        }else{
+            
+            DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
+            cell.name.text = @"证件号码:";
+            self.nameLabel = cell.nameLabel;
+            
+            return cell;
         }
         
-        cell.textLabel.text = @"乘机人信息";
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
+    }else{ /// 联系信息
         
-        return cell;
+        if (indexPath.row == 0) {
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                              reuseIdentifier: cellID];
+            }
+            cell.textLabel.text = @"联系人信息";
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            return cell;
+            
+        }else if (indexPath.row == 1) {
+            
+            DLSubmitSection3Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitSection3Cell];
+            
+            cell.NAME.text = @"姓名:";
+            cell.TF.placeholder = @"填写常用联系人";
+            
+            return cell;
+            
+        }else if (indexPath.row == 2) {
+            
+            DLSubmitSection3Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitSection3Cell];
+            
+            cell.NAME.text = @"手机号:";
+            cell.TF.placeholder = @"填写手机号";
+            cell.TF.keyboardType = UIKeyboardTypeNumberPad;
+            return cell;
+            
+        }else{
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
+                                              reuseIdentifier: cellID];
+            }
+            cell.textLabel.text = @"<该手机号收到出票通知>";
+            cell.textLabel.font = [UIFont systemFontOfSize:13];
+            return cell;
+        }
     }
-    
-    
-    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-    
+        
         return 176;
-    
+        
     }else if (indexPath.section == 1) {
         
         return 45;
@@ -231,29 +319,14 @@ static NSInteger addBtnCount ;
     }else if (section == 2){
         
         return 1;
-        
     }
-        
-    return 10.0;
     
+    return 10.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
-
-
-
-
 
 @end

@@ -23,8 +23,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="377-eb-Ju1">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34888.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIq-3T-aTi">
-                            <rect key="frame" x="142" y="33" width="91" height="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIq-3T-aTi">
+                            <rect key="frame" x="163.5" y="33" width="49" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="H8k-Bh-eF9"/>
                             </constraints>
@@ -33,7 +33,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZk-zQ-SFv">
-                            <rect key="frame" x="233" y="43" width="9.5" height="14"/>
+                            <rect key="frame" x="212.5" y="43" width="9.5" height="14"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="14" id="x2x-ev-nyi"/>
                             </constraints>

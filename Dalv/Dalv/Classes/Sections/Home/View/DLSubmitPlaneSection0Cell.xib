@@ -319,7 +319,7 @@
                 <outlet property="startPlaceLabel" destination="7Si-82-Lya" id="iPR-Ik-HOx"/>
                 <outlet property="startTimeLabel" destination="o2p-Xc-dmJ" id="dDo-Gq-z5G"/>
             </connections>
-            <point key="canvasLocation" x="-211" y="-250"/>
+            <point key="canvasLocation" x="-211.5" y="-250"/>
         </tableViewCell>
     </objects>
     <resources>

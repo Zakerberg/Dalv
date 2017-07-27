@@ -11,7 +11,6 @@
 @interface DLSubmitPlaneSection2Row1Cell : UITableViewCell
 @property(nonatomic,strong) UILabel * nameLabel;
 @property(nonatomic,strong) UILabel * typeLabel;
-@property(nonatomic,strong) UILabel * certificateTypeLabel;// 证件类型
 @property(nonatomic,strong) UILabel * certificateNumberLabel; // 证件号码
-@property(nonatomic,strong) UILabel * customerType; // 乘客类型
+@property(nonatomic,strong) UILabel *name;
 @end

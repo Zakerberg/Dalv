@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DLSubmitPlaneSection2Row2Cell : UITableViewCell
-
+@property(nonatomic,strong) UILabel * customerTypeLabel; // 乘客类型
+@property(nonatomic,strong) UILabel * certificateTypeLabel;// 证件类型
+@property(nonatomic,strong) UIButton * deleBtn;
 @end

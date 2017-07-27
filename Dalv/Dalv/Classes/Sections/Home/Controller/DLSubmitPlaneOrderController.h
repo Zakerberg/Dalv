@@ -10,4 +10,5 @@
 #import "DLPlaneListDetailModel.h"
 @interface DLSubmitPlaneOrderController : UIViewController
 @property(nonatomic,strong) DLPlaneListDetailModel * orderModel;
+@property (strong, nonatomic) NSArray * nextNextArr;
 @end

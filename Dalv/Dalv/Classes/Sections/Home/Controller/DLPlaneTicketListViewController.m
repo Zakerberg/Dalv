@@ -323,11 +323,6 @@ static NSString *nibCellID = @"nibCellID";
     deVC.tankModel = self.dataArr[indexPath.section][@"price"];
     
     NSLog(@"%@",self.dataArr[indexPath.section][@"price"]);
-    
-    
-    
-    
-    
 
     [self.navigationController pushViewController:deVC animated:YES];
 }
