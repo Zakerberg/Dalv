@@ -6,21 +6,36 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //  ---------------- 提交机票订单界面 ------------------
 
+#import "DLSubmitPlaneSection2Row1Cell.h"
 #import "DLSubmitPlaneOrderController.h"
+#import "DLAddPlanePeopleController.h"
 #import "DLSubmitPlaneSection0Cell.h"
+#import "DLSubmitSection1Cell.h"
 
 @interface DLSubmitPlaneOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *submitPlaneTableView;
+@property(nonatomic,strong) UIButton *addBtn;
+@property(nonatomic,assign) NSInteger Section2Number;
+@property(nonatomic,strong) UILabel * nameLabel;
 @end
 
 static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
+static NSString * submitPlaneSection1Cell = @"submitPlaneSection1Cell";
+static NSString * submitPlaneSection2Row1Cell = @"submitPlaneSection2Row1Cell";
 static NSString * cellID = @"cellID";
+
+static NSInteger addBtnCount ;
+
 @implementation DLSubmitPlaneOrderController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTableView];
     [self setUI];
+    
+    self.Section2Number = 0;
+    addBtnCount = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +62,11 @@ static NSString * cellID = @"cellID";
     self.submitPlaneTableView.delegate = self;
     [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitPlaneSection0Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection0Cell];
     
+    [self.submitPlaneTableView registerNib:[UINib nibWithNibName:@"DLSubmitSection1Cell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:submitPlaneSection1Cell];
+    
+    [self.submitPlaneTableView registerClass:[DLSubmitPlaneSection2Row1Cell class] forCellReuseIdentifier:submitPlaneSection2Row1Cell];
+    
+
     [self.submitPlaneTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.view addSubview:self.submitPlaneTableView];
@@ -59,22 +79,55 @@ static NSString * cellID = @"cellID";
     }];
 }
 
+
+#pragma mark ------ addBtnClick
+
+-(void)addBtnClick {
+    
+    NSLog(@"addBtnClick");
+    
+    addBtnCount++;
+    
+    self.Section2Number = 3 *addBtnCount;
+    
+    [self.submitPlaneTableView reloadData];
+    
+    DLAddPlanePeopleController *addVC = [[DLAddPlanePeopleController alloc] init];
+    
+    [self.navigationController pushViewController:addVC animated:YES];
+    
+}
+
+
 #pragma mark ------ UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
+        
+        
         return 1;
+        
+    }else if (section == 1){
+
+        return 1;
+        
+        
     }else if (section == 2){
+
+        return self.Section2Number;
+        
+    }else if (section == 3) {
+        
+        
         return 4;
     }
     
-    return 1;
-    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,21 +153,32 @@ static NSString * cellID = @"cellID";
         return cell;
         
     }else if (indexPath.section == 1) { /// 添加乘机人
-       
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+   
+        DLSubmitSection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection1Cell];
         
+        self.addBtn = cell.addBtn;
+        [self.addBtn setTitle:@"添加乘机人" forState:UIControlStateNormal];
 
-        if (cell == nil) {
-            
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
-                                          reuseIdentifier: cellID];
-        }
+        [self.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
+ 
+        return cell;
         
-        cell.textLabel.text = @"乘机人信息";
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
+    }else if (indexPath.section == 2) { /// 添加乘机人
+        
+      
+        
+        DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
+        
+        
+        self.nameLabel = cell.nameLabel;
+        
+        
+        
         
         return cell;
         
+        
+  
     }else{ /// 联系信息
         
         
@@ -131,6 +195,9 @@ static NSString * cellID = @"cellID";
         
         return cell;
     }
+    
+    
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -157,20 +224,36 @@ static NSString * cellID = @"cellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-
-    
     if (section == 0) {
         
-        return 0.01;
+        return 0.1;
         
-    }else if (section == 1){
+    }else if (section == 2){
         
-        return CGFLOAT_MIN;
+        return 1;
         
-    }else{
-        
-        return 10.0;
     }
+        
+    return 10.0;
+    
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
 
 @end

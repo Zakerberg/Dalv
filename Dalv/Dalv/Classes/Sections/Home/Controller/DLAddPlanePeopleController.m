@@ -80,9 +80,6 @@ static NSString *cellID = @"cellID";
   
 }
 
-
-
-
 #pragma mark ----- UITableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -158,8 +155,6 @@ static NSString *cellID = @"cellID";
         
         cell.textLabel.text = @"证件类型";
         cell.accessoryType = 1;
-       // cell.textLabel.font = [UIFont systemFontOfSize:15];
-        //cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
         
         UILabel *certificateType = [[UILabel alloc] init];
         self.certificateType = certificateType;
@@ -188,117 +183,6 @@ static NSString *cellID = @"cellID";
         
         return cell;
     }
-    
-    /*
-     
-     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-     
-     if (cell == nil) {
-     
-     cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1
-     reuseIdentifier: cellID];
-     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-     }
-     
-     if(indexPath.row == 0) {
-     
-     cell.textLabel.text = @"乘机人姓名";
-     cell.accessoryType = 0;
-     cell.textLabel.font = [UIFont systemFontOfSize:15];
-     cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-     
-     UILabel *peopleNameLabel = [[UILabel alloc] init];
-     self.peopleNameLabel = peopleNameLabel;
-     peopleNameLabel.font = [UIFont systemFontOfSize:15];
-     peopleNameLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-     
-     //cell.detailTextLabel.text = self.starLabel.text;
-     
-     [cell.contentView addSubview:peopleNameLabel];
-     
-     [peopleNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.right.offset(-15);
-     make.height.offset(44);
-     make.top.offset(0);
-     }];
-     
-     return cell;
-     
-     }else if (indexPath.row == 1) {
-     
-     cell.textLabel.text = @"乘客类型";
-     cell.accessoryType = 1;
-     cell.textLabel.font = [UIFont systemFontOfSize:15];
-     cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-     
-     UILabel *peopleTypeLabel = [[UILabel alloc] init];
-     self.peopleTypeLabel = peopleTypeLabel;
-     peopleTypeLabel.font = [UIFont systemFontOfSize:15];
-     peopleTypeLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-     
-     //cell.detailTextLabel.text = self.destinationLabel.text;
-     
-     [cell.contentView addSubview:peopleTypeLabel];
-     
-     [peopleTypeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.right.offset(-15);
-     make.height.offset(44);
-     make.top.offset(0);
-     }];
-     
-     return cell;
-     
-     }else if (indexPath.row == 2){
-     
-     cell.textLabel.text = @"证件类型";
-     cell.accessoryType = 1;
-     cell.textLabel.font = [UIFont systemFontOfSize:15];
-     cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-     
-     UILabel *certificateType = [[UILabel alloc] init];
-     self.certificateType = certificateType;
-     certificateType.font = [UIFont systemFontOfSize:15];
-     certificateType.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-     
-     //cell.detailTextLabel.text = self.startDate.text;
-     
-     [cell.contentView addSubview:certificateType];
-     
-     [certificateType mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.right.offset(-15);
-     make.height.offset(44);
-     make.top.offset(0);
-     }];
-     
-     return cell;
-     
-     }else {
-     
-     cell.textLabel.text = @"证件号码";
-     cell.accessoryType = 0;
-     cell.textLabel.font = [UIFont systemFontOfSize:15];
-     cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-     
-     UILabel *certificateType = [[UILabel alloc] init];
-     self.certificateType = certificateType;
-     certificateType.font = [UIFont systemFontOfSize:15];
-     certificateType.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-     
-     //cell.detailTextLabel.text = self.startDate.text;
-     
-     [cell.contentView addSubview:certificateType];
-     
-     [certificateType mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.right.offset(-15);
-     make.height.offset(44);
-     make.top.offset(0);
-     }];
-     
-     return cell;
-     }
-     */
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -307,14 +191,10 @@ static NSString *cellID = @"cellID";
     
     if (indexPath.row == 1){
         
-        
     }else if (indexPath.row == 2){
-        
-        
+    
     }
-    
-    
-    
+
 }
 
 @end

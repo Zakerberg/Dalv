@@ -360,6 +360,10 @@
 		45B262521ECBDDE8001E54D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B262511ECBDDE8001E54D7 /* CoreLocation.framework */; };
 		45BAC6411F1615880057A141 /* DLShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BAC6401F1615880057A141 /* DLShareView.m */; };
 		45BB41991EF799D7003AB961 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB41981EF799D7003AB961 /* UIButton+WebCache.m */; };
+		45C61A6F1F29D4D20075AEEE /* DLSubmitSection1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A6D1F29D4D20075AEEE /* DLSubmitSection1Cell.m */; };
+		45C61A701F29D4D20075AEEE /* DLSubmitSection1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C61A6E1F29D4D20075AEEE /* DLSubmitSection1Cell.xib */; };
+		45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */; };
+		45C61A761F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */; };
 		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
 		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
@@ -1031,6 +1035,13 @@
 		45BAC6401F1615880057A141 /* DLShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShareView.m; sourceTree = "<group>"; };
 		45BB41971EF799D7003AB961 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
 		45BB41981EF799D7003AB961 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		45C61A6C1F29D4D20075AEEE /* DLSubmitSection1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitSection1Cell.h; sourceTree = "<group>"; };
+		45C61A6D1F29D4D20075AEEE /* DLSubmitSection1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitSection1Cell.m; sourceTree = "<group>"; };
+		45C61A6E1F29D4D20075AEEE /* DLSubmitSection1Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLSubmitSection1Cell.xib; sourceTree = "<group>"; };
+		45C61A711F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitPlaneSection2Row1Cell.h; sourceTree = "<group>"; };
+		45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection2Row1Cell.m; sourceTree = "<group>"; };
+		45C61A741F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitPlaneSection2Row2Cell.h; sourceTree = "<group>"; };
+		45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection2Row2Cell.m; sourceTree = "<group>"; };
 		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
 		45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAdvertisingController.m; sourceTree = "<group>"; };
 		45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLAdvertisingController.xib; sourceTree = "<group>"; };
@@ -1860,6 +1871,13 @@
 				4524A5721F20A38D001D628F /* DLSubmitPlaneSection0Cell.h */,
 				4524A5731F20A38D001D628F /* DLSubmitPlaneSection0Cell.m */,
 				4524A5741F20A38D001D628F /* DLSubmitPlaneSection0Cell.xib */,
+				45C61A6C1F29D4D20075AEEE /* DLSubmitSection1Cell.h */,
+				45C61A6D1F29D4D20075AEEE /* DLSubmitSection1Cell.m */,
+				45C61A6E1F29D4D20075AEEE /* DLSubmitSection1Cell.xib */,
+				45C61A711F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.h */,
+				45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */,
+				45C61A741F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.h */,
+				45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */,
 				459D76541F21E4CD00E813F3 /* DLAddPeopleCell.h */,
 				459D76551F21E4CD00E813F3 /* DLAddPeopleCell.m */,
 			);
@@ -2506,6 +2524,7 @@
 				1CE8D8041ED7FEFA00FFEF8B /* navbar_more@2x.png in Resources */,
 				1CE2C1AC1ED525E000B898BA /* return_details@3x.png in Resources */,
 				1CE2C22D1ED52E8C00B898BA /* wifi_order@2x.png in Resources */,
+				45C61A701F29D4D20075AEEE /* DLSubmitSection1Cell.xib in Resources */,
 				1CE2C1DB1ED528C800B898BA /* outbound_tourism@2x.png in Resources */,
 				1CE2C1A21ED525E000B898BA /* have_dinner@3x.png in Resources */,
 				1CE2C1A91ED525E000B898BA /* reduce@2x.png in Resources */,
@@ -2726,6 +2745,7 @@
 				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
+				45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */,
 				4524A5711F209F99001D628F /* DLSubmitPlaneOrderController.m in Sources */,
 				1C2981761EDFE33900712524 /* DLRechargeRecordTableViewCell.m in Sources */,
 				1CE8D80C1ED8209200FFEF8B /* DLLineTourDetailDaysModel.m in Sources */,
@@ -2838,11 +2858,13 @@
 				45DB480D1EE8E47D00399A6D /* DLContractApplySection4Cell.m in Sources */,
 				45A321CD1EF256E000325683 /* DLMyCustomerXibController.m in Sources */,
 				1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */,
+				45C61A761F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m in Sources */,
 				1C2865B51F0296F20077E076 /* MSPickerView.m in Sources */,
 				1C0ACE8A1F1A38FB00C43280 /* APAuthV2Info.m in Sources */,
 				1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */,
 				45DB47F51EE7DA4500399A6D /* DLContractApplyRecordCell.m in Sources */,
 				1C5CD3901EFA0010009DBC1B /* CalendarDateSource.m in Sources */,
+				45C61A6F1F29D4D20075AEEE /* DLSubmitSection1Cell.m in Sources */,
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
