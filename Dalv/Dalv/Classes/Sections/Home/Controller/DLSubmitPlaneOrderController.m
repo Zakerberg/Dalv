@@ -60,7 +60,12 @@ static NSInteger addBtnCount ;
     
     self.submitBtn = [UIButton buttonWithType:0];
     self.submitBtn.backgroundColor = [UIColor colorWithHexString:@"#fe603b"];
+    [self.submitBtn setTitle:@"确认" forState:UIControlStateNormal];
     self.submitBtn.tintColor = [UIColor whiteColor];
+    
+    [self.submitBtn addTarget:self action:@selector(submitBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     
     [self.view addSubview:self.submitBtn];
     
@@ -78,7 +83,7 @@ static NSInteger addBtnCount ;
     
     [self.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.right.offset(0);
-        make.height.offset(45);
+        make.height.offset(50);
         make.width.offset(130);
     }];
     
@@ -143,6 +148,18 @@ static NSInteger addBtnCount ;
     
 }
 
+-(void)submitBtnClick {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
 #pragma mark ------ UITableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -191,8 +208,13 @@ static NSInteger addBtnCount ;
         cell.arrivePlaceLabel.text = self.orderModel.dstCityName;
         cell.startOrgjetquery.text = self.orderModel.orgJetquay;
         cell.dstJetqury.text = self.orderModel.dstJetquay;
-        // cell.settlement_price.text = self.orderModel.settlement_price;
-        // cell.settlePrice.text = self.orderModel.settlePrice;
+       
+        
+        cell.settlement_price.text = self.orderModel.settlement_price;
+        cell.settlePrice.text = self.orderModel.settlePrice;
+        
+        
+        
         cell.fuelTax.text = self.orderModel.fuelTax;
         cell.airportTax.text = self.orderModel.airportTax;
         

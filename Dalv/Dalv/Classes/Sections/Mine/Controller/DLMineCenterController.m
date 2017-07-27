@@ -308,23 +308,23 @@ static NSString *cellID  = @"cellID";
             
         }else if (indexPath.row == 2){ /// 我的推荐
             
-            //DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
-            //[self.navigationController pushViewController:remmendVC animated:YES];
-            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+            DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
+            [self.navigationController pushViewController:remmendVC animated:YES];
+            //[[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 3){ /// 供应商查询
             
-         //   DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
-           // [self.navigationController pushViewController:supplierVC animated:YES];
+            DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
+            [self.navigationController pushViewController:supplierVC animated:YES];
             
-            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+           // [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 4){ /// 线路询价
             
-//            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
-//            [self.navigationController pushViewController:lineQueryVC animated:YES];
+            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
+            [self.navigationController pushViewController:lineQueryVC animated:YES];
             
-            [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+            //[[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
             
         }else if (indexPath.row == 5){ /// 通用
             

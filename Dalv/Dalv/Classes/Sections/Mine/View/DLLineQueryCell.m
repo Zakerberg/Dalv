@@ -32,7 +32,7 @@
     self.button = button;
     button.shakeAnimation = NO;
     button.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
-        // NSLog(@"%ld",num);
+
     };
     
     [self.contentView addSubview:button];

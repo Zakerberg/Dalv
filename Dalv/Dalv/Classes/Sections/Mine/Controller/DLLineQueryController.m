@@ -10,8 +10,9 @@
 #import "DLLineQueryController.h"
 #import "DLAddReduceButton.h"
 #import "DLLineQueryCell.h"
+#import "TLCityPickerController.h"
 
-@interface DLLineQueryController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLLineQueryController ()<UITableViewDelegate,UITableViewDataSource,TLCityPickerDelegate>
 @property (nonatomic,strong) UITableView *lineQuerytableview;
 @property(nonatomic,strong) UILabel * label;
 @end
@@ -94,29 +95,67 @@ static NSString * cellID = @"cellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
+    if (indexPath.row == 0) {
+        
+        TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+        [cityPickerVC setDelegate:self];
+        //定位城市
+        cityPickerVC.locationCityID = @"20000101";
+        //热门城市
+        cityPickerVC.hotCitys = @[
+                                  @"20000101", @"18000101", @"18000102",
+                                  @"14000101", @"22000101", @"40000103",
+                                  @"19000101", @"70000101", @"30000102",
+                                  @"11000101", @"21000101", @"90000101",
+                                  @"18000103", @"60000104", @"22000102",
+                                  @"30000107", @"30000108", @"16000102"
+                                  ];
+        
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+        }];
 
+        
+    }else if (indexPath.row == 1){
+        
+        
+        TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
+        [cityPickerVC setDelegate:self];
+        //定位城市
+        cityPickerVC.locationCityID = @"20000101";
+        //热门城市
+        cityPickerVC.hotCitys = @[
+                                  @"20000101", @"18000101", @"18000102",
+                                  @"14000101", @"22000101", @"40000103",
+                                  @"19000101", @"70000101", @"30000102",
+                                  @"11000101", @"21000101", @"90000101",
+                                  @"18000103", @"60000104", @"22000102",
+                                  @"30000107", @"30000108", @"16000102"
+                                  ];
+        
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
+        }];
 
+        
+    }else if (indexPath.row == 3) {
+        
+        UIDatePicker *picker = [[UIDatePicker alloc]init];
+        picker.datePickerMode = UIDatePickerModeDate;
+        
+        picker.frame = CGRectMake(0, 40, 320, 200);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择出发日期\n\n\n\n\n\n\n\n\n\n\n\n" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            NSDate *date = picker.date;
+            
+           // self.startDate.text = [date stringWithFormat:@"yyyy-MM-dd"];;
+            
+        }];
+        [alertController.view addSubview:picker];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -147,17 +186,17 @@ static NSString * cellID = @"cellID";
     if (indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"出发城市";
-        cell.detailTextLabel.text = @"出发城市";
+       // cell.detailTextLabel.text = @"出发城市";
         
     }else if (indexPath.row == 1) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"目的地";
-        cell.detailTextLabel.text = @"目的地";
+        //cell.detailTextLabel.text = @"目的地";
         
     } else if (indexPath.row == 3) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"出发时间";
-        cell.detailTextLabel.text = @"出发时间";
+        //cell.detailTextLabel.text = @"出发时间";
         
     }else if (indexPath.row == 4) {
         cell.textLabel.text = @"备注";
@@ -165,7 +204,30 @@ static NSString * cellID = @"cellID";
     }
  }
     return cell;
+        
    }
+    
 }
+
+
+
+#pragma mark ----- TLCityPickerDelegate
+
+- (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city{
+    
+    
+    
+    [cityPickerViewController dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
+
+{
+    [cityPickerViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 @end
 

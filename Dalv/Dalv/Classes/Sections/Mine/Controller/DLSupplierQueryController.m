@@ -48,6 +48,12 @@
                             };
     [DLHomeViewTask getAgencyPersonalProviderQuery:param completion:^(id result, NSError *error) {
         NSLog(@"%@",result);
+        
+        
+        
+        
+        
+        
     }];
 }
 
