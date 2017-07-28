@@ -78,23 +78,28 @@ static NSString *nibCellID = @"nibCellID";
         @strongify(self);
         if (result) {
             
-            NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
             
-            [self.planeListDataArr addObjectsFromArray:planeListArray];
-            
-            
+            if ([result[@"status"] isEqualToString:@"00045"]) {
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:result[@"msg"] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }else{
+                
+                NSArray *planeListArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"flightinfo"]];
+                
+                [self.planeListDataArr addObjectsFromArray:planeListArray];
+                
 #warning 此处可能有问题!
-            
-            
-            NSArray *dic = result[@"flightinfo"];
-            NSLog(@"%@",dic);
-            self.dataArr = dic;
-            
-            
+                NSArray *dic = result[@"flightinfo"];
+                NSLog(@"%@",dic);
+                self.dataArr = dic;
 #warning 此处可能有问题!
-            
-            //[self setupSubviews];
-            [self.planeTicketListTableView reloadData];
+                //[self setupSubviews];
+                [self.planeTicketListTableView reloadData];
+            }
         }
     }];
 }

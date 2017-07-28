@@ -15,6 +15,8 @@
 @property (nonatomic,strong) UITableView * planePeopleTableView;
 @property (strong, nonatomic) UIButton *searchBtn;
 @property (nonatomic,strong) NSString * str1;
+@property (nonatomic,strong) NSString * peopleTypeStr; //0成人，1儿童
+@property (nonatomic,strong) NSString * certicicateTypeStr; //1身份证，2护照，3军官证，4士兵证，5台胞证，6港澳通行证
 @end
 static NSString *cell1ID = @"cell1ID";
 static NSString *cellID = @"cellID";
@@ -77,17 +79,90 @@ static NSString *cellID = @"cellID";
     }];
 }
 
+
++ (BOOL) IsIdentityCard:(NSString *)IDCardNumber
+
+{
+    if (IDCardNumber.length <= 0)
+        
+    {
+        return NO;
+    }
+    
+    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    
+    NSPredicate *identityCardPredicate = [NSPredicate
+                                          
+                                          predicateWithFormat:@"SELF MATCHES %@",regex2];
+    
+    return [identityCardPredicate evaluateWithObject:IDCardNumber];
+}
+
 /// 确认
 -(void)btnClick {
     
-  
-    
-    
-    
-    
-    
-    
-    
+    if ([self.nameTF.text isEqualToString:@""]) {
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写乘机人姓名" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        
+    }else if (!self.peopleTypeStr){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请选择乘客身份" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        
+    }else if (!self.certicicateTypeStr){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请选择证件类型" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        
+    }else if ([self.certificatenNumTF.text isEqualToString:@""]){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写证件号码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+        
+    }else{
+        
+        if ([self.peopleTypeStr isEqualToString:@"成人"]) {
+            
+            self.peopleTypeStr = @"1";
+            
+        }else{
+            
+            self.peopleTypeStr = @"0";
+        }
+        
+        if ([self.certicicateTypeStr isEqualToString:@"身份证"]) {
+            self.certicicateTypeStr = @"1";
+        } else if ([self.certicicateTypeStr isEqualToString:@"护照"]){
+            self.certicicateTypeStr = @"2";
+        }else if ([self.certicicateTypeStr isEqualToString:@"军官证"]){
+            self.certicicateTypeStr = @"3";
+        }else if ([self.certicicateTypeStr isEqualToString:@"士兵证"]){
+            self.certicicateTypeStr = @"4";
+        }else if ([self.certicicateTypeStr isEqualToString:@"台胞证"]){
+            self.certicicateTypeStr = @"5";
+        }else if ([self.certicicateTypeStr isEqualToString:@"其它(包括港澳通行证)"]){
+            self.certicicateTypeStr = @"6";
+        }
+        
+        NSDictionary *param = @{
+                                @"uid":[DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
+                                @"passenger_name":self.nameTF.text,
+                                @"passenger_type":self.peopleTypeStr,
+                                @"identity_type": self.certicicateTypeStr,
+                                @"identity_no":self.certificatenNumTF.text
+                                };
+        
+        [DLHomeViewTask getFlightAddFrequentPassenger:param completion:^(id result, NSError *error) {
+            
+            NSLog(@"%@",result);
+            
+            
+            
+        }];
+    }
 }
 
 
@@ -201,7 +276,7 @@ static NSString *cellID = @"cellID";
         picker.delegate = self ;
         picker.arrayType = customerType;
         [self.view addSubview:picker];
-
+        
     }else if (indexPath.row == 2){ // 证件类型
         
         BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
@@ -220,10 +295,12 @@ static NSString *cellID = @"cellID";
         
         self.peopleTypeLabel.text = str;
         self.str1 = @"";
+        self.peopleTypeStr = str;
         
     }else{
         
-       self.certificateType.text = str;
+        self.certificateType.text = str;
+        self.certicicateTypeStr = str;
     }
 }
 
