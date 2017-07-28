@@ -8,6 +8,7 @@
 
 #import "DLSubmitPlaneSection2Row1Cell.h"
 #import "DLSubmitPlaneSection2Row2Cell.h"
+#import "DLConfirmPlaneOrderController.h"
 #import "DLSubmitPlaneOrderController.h"
 #import "DLAddPlanePeopleController.h"
 #import "DLSubmitPlaneSection0Cell.h"
@@ -150,13 +151,8 @@ static NSInteger addBtnCount ;
 
 -(void)submitBtnClick {
     
-    
-    
-    
-    
-    
-    
-    
+    DLConfirmPlaneOrderController *vc = [[DLConfirmPlaneOrderController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -208,24 +204,21 @@ static NSInteger addBtnCount ;
         cell.arrivePlaceLabel.text = self.orderModel.dstCityName;
         cell.startOrgjetquery.text = self.orderModel.orgJetquay;
         cell.dstJetqury.text = self.orderModel.dstJetquay;
-       
+        
+        
+        
         
         cell.settlement_price.text = self.orderModel.settlement_price;
         cell.settlePrice.text = self.orderModel.settlePrice;
         
         
         
+        
         cell.fuelTax.text = self.orderModel.fuelTax;
         cell.airportTax.text = self.orderModel.airportTax;
-        
-#warning 此处有问题 !
-        
-        //cell.settlement_price.text = self.nextNextArr[indexPath.section][@"settlement_price"];
-        //cell.settlePrice.text = self.nextNextArr[indexPath.section][@"total_price"];
-        
         return cell;
         
-    }else if (indexPath.section == 1) { /// 添加乘机人
+    }else if (indexPath.section == 1) {
         
         DLSubmitSection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection1Cell];
         
@@ -238,7 +231,15 @@ static NSInteger addBtnCount ;
         
     }else if (indexPath.section == 2) { /// 添加乘机人
         
-        if (indexPath.row == 0) {
+        
+        
+        
+        
+        
+        
+        
+        
+        if ((indexPath.row%3) == 1) {
             
             DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
             cell.name.text = @"姓名:";
@@ -246,7 +247,7 @@ static NSInteger addBtnCount ;
             
             return cell;
             
-        }else if (indexPath.row == 1) {
+        }else if ((indexPath.row%3) == 2) {
             
             DLSubmitPlaneSection2Row2Cell * cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row2Cell];
             
@@ -256,14 +257,28 @@ static NSInteger addBtnCount ;
             
             return cell;
             
-        }else{
+        }else if ((indexPath.row%3) == 0){
             
             DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
             cell.name.text = @"证件号码:";
             self.nameLabel = cell.nameLabel;
             
             return cell;
+            
+        }else{
+            
+            return nil;
         }
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
         
     }else{ /// 联系信息
         

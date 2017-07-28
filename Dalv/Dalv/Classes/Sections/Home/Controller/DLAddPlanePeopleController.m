@@ -157,7 +157,15 @@ static NSString *cellID = @"cellID";
         
         [DLHomeViewTask getFlightAddFrequentPassenger:param completion:^(id result, NSError *error) {
             
-            NSLog(@"%@",result);
+          
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             

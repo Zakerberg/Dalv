@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-zv-NzN">
@@ -158,7 +158,7 @@
                 <outlet property="ticketCountLabel" destination="TkO-3g-2J0" id="SgP-Vk-g9B"/>
                 <outlet property="totalMoney" destination="Ix6-xT-a7c" id="GDI-xx-Sfi"/>
             </connections>
-            <point key="canvasLocation" x="-939" y="-329"/>
+            <point key="canvasLocation" x="-882" y="-402"/>
         </tableViewCell>
     </objects>
 </document>

@@ -70,6 +70,7 @@ static NSString *tableViewCell = @"tableViewCell";
     
     DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
     vc.orderModel = self.model;
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -112,9 +113,6 @@ static NSString *tableViewCell = @"tableViewCell";
         cell.planeType.text = self.model.planeType;// 飞机型号
         cell.detailBtn.hidden = YES;
         
-        
-        NSLog(@"%@ ===== %@",self.model.orgCityName,cell.startPlaceLabel.text);
-        
         return cell;
     }
     
@@ -136,23 +134,28 @@ static NSString *tableViewCell = @"tableViewCell";
         DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
         self.left = tankCell.left;
         self.right = tankCell.right;
+        [tankCell configureCell:self.tankModel];
         
-        /*
-        self.tankLabel.text = tankCell.tankLabel.text;
-        self.disCountLabel.text = tankCell.disCountLabel.text;
-        self.CustomerMoneyLabel.text = tankCell.CustomerMoneyLabel.text;
-        self.agencyMoneyLabel.text = tankCell.agencyMoneyLabel.text;
-        self.ownMoneyLabel.text = tankCell.ownMoneyLabel.text;
-        self.ticketCountLabel.text = tankCell.ticketCountLabel.text;
-        self.totalMoney.text = tankCell.totalMoney.text;
-        */
         
+        
+        
+               
+//        tankCell.tankLabel.text = self.tankModel.seatMsg;
+//        tankCell.disCountLabel.text = self.tankModel.agio;
+      
+        
+        
+        
+        
+        
+        
+
         tankCell.tankLabel.text = self.nextArr[indexPath.row][@"seatMsg"];
         tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
         tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
         tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
         tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
-        
+ 
         if ([self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"A"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"L"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Q"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"S"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"C"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"X"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Z"]) {
 
             self.right.hidden = YES;
@@ -165,7 +168,13 @@ static NSString *tableViewCell = @"tableViewCell";
         }
 
         tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
-    
+        
+        
+        
+        
+        
+        
+
         /*
          tankCell.tankLabel.text = self.model.seatMsg;
          tankCell.disCountLabel.text = self.model.agio;

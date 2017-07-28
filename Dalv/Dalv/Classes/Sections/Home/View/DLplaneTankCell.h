@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *orderBtn;
 /// 总价钱
 @property (weak, nonatomic) IBOutlet UILabel *totalMoney;
-
 /// 剩余 / 张
 @property (weak, nonatomic) IBOutlet UILabel *left;
 @property (weak, nonatomic) IBOutlet UILabel *right;

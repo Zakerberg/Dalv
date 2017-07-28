@@ -365,6 +365,8 @@
 		45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A721F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m */; };
 		45C61A761F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */; };
 		45C61A7C1F29F5760075AEEE /* DLSubmitSection3Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A7B1F29F5760075AEEE /* DLSubmitSection3Cell.m */; };
+		45C61A801F2B19070075AEEE /* DLConfirmPlaneOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C61A7E1F2B19070075AEEE /* DLConfirmPlaneOrderController.m */; };
+		45C61A811F2B19070075AEEE /* DLConfirmPlaneOrderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C61A7F1F2B19070075AEEE /* DLConfirmPlaneOrderController.xib */; };
 		45CF21991F00F36C00F054A1 /* DLAdvertisingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */; };
 		45CF219A1F00F36C00F054A1 /* DLAdvertisingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */; };
 		45DB47B51EE5524200399A6D /* DLCustomerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB47B31EE5524200399A6D /* DLCustomerListCell.m */; };
@@ -1045,6 +1047,9 @@
 		45C61A751F29E41F0075AEEE /* DLSubmitPlaneSection2Row2Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitPlaneSection2Row2Cell.m; sourceTree = "<group>"; };
 		45C61A7A1F29F5760075AEEE /* DLSubmitSection3Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSubmitSection3Cell.h; sourceTree = "<group>"; };
 		45C61A7B1F29F5760075AEEE /* DLSubmitSection3Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLSubmitSection3Cell.m; sourceTree = "<group>"; };
+		45C61A7D1F2B19070075AEEE /* DLConfirmPlaneOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLConfirmPlaneOrderController.h; sourceTree = "<group>"; };
+		45C61A7E1F2B19070075AEEE /* DLConfirmPlaneOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLConfirmPlaneOrderController.m; sourceTree = "<group>"; };
+		45C61A7F1F2B19070075AEEE /* DLConfirmPlaneOrderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLConfirmPlaneOrderController.xib; sourceTree = "<group>"; };
 		45CF21961F00F36C00F054A1 /* DLAdvertisingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLAdvertisingController.h; sourceTree = "<group>"; };
 		45CF21971F00F36C00F054A1 /* DLAdvertisingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLAdvertisingController.m; sourceTree = "<group>"; };
 		45CF21981F00F36C00F054A1 /* DLAdvertisingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLAdvertisingController.xib; sourceTree = "<group>"; };
@@ -1770,6 +1775,9 @@
 				4524A5701F209F99001D628F /* DLSubmitPlaneOrderController.m */,
 				459D76511F21CA0200E813F3 /* DLAddPlanePeopleController.h */,
 				459D76521F21CA0200E813F3 /* DLAddPlanePeopleController.m */,
+				45C61A7D1F2B19070075AEEE /* DLConfirmPlaneOrderController.h */,
+				45C61A7E1F2B19070075AEEE /* DLConfirmPlaneOrderController.m */,
+				45C61A7F1F2B19070075AEEE /* DLConfirmPlaneOrderController.xib */,
 				1C29790D1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.h */,
 				1C29790E1EEFE38800D3FEEA /* DLGlobalSearchViewViewController.m */,
 				1CB953331ECFC41600BDC2D3 /* DLLineTourDetailViewController.h */,
@@ -2594,6 +2602,7 @@
 				1CE2C1C31ED5270E00B898BA /* financial@3x.png in Resources */,
 				1CB953AD1ECFC41600BDC2D3 /* home-10-04.png in Resources */,
 				1CE2C1FD1ED52BA100B898BA /* cash_register@2x.png in Resources */,
+				45C61A811F2B19070075AEEE /* DLConfirmPlaneOrderController.xib in Resources */,
 				1CE2C19F1ED525E000B898BA /* group_date@2x.png in Resources */,
 				1CE2C2351ED57B1100B898BA /* geographical_position@3x.png in Resources */,
 				453530121EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib in Resources */,
@@ -2816,6 +2825,7 @@
 				45DB47C51EE68ABC00399A6D /* DLLineOrderController.m in Sources */,
 				452916781EC1741E0033314F /* main.m in Sources */,
 				1CB953B81ECFC41600BDC2D3 /* DLLineDetialpriceTableViewCell.m in Sources */,
+				45C61A801F2B19070075AEEE /* DLConfirmPlaneOrderController.m in Sources */,
 				1C5CD3B61EFA7849009DBC1B /* DLHUDManager.m in Sources */,
 				1C6661621EF660C30032E1AE /* DLIdentitySelectionLoginViewController.m in Sources */,
 				1C74F6C71EE8FD9F0012EB10 /* DLLineModificationViewController.m in Sources */,

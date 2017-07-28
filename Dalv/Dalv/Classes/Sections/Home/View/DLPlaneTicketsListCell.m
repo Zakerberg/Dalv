@@ -33,9 +33,6 @@
     self.startTimeLabel.text = planeListDetailModelData.depTime;
     self.arriveTimeLabel.text = planeListDetailModelData.arriTime;
     self.startPlaceLabel.text = planeListDetailModelData.orgCityName;
-    
-    
-    
     self.arrivePlaceLabel.text = planeListDetailModelData.dstCityName;
     
     [planeListDetailModelData.orgJetquay isEqualToString:@"--"] || [planeListDetailModelData.orgJetquay isEqualToString:@"Array"] ? (self.startOrgjetquery.text = @"") : (self.startOrgjetquery.text = planeListDetailModelData.orgJetquay);
