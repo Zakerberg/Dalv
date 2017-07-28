@@ -7,6 +7,7 @@
 //
 
 #import "DLAddPlanePeopleController.h"
+#import "DLSubmitPlaneOrderController.h"
 #import "DLAddPeopleCell.h"
 #import "BLMPickerView.h"
 
@@ -123,15 +124,9 @@ static NSString *cellID = @"cellID";
         
     }else{
         
-        if ([self.peopleTypeStr isEqualToString:@"成人"]) {
-            
-            self.peopleTypeStr = @"1";
-            
-        }else{
-            
-            self.peopleTypeStr = @"0";
-        }
-        
+   
+    [self.peopleTypeStr isEqualToString:@"儿童"] ? (self.peopleTypeStr = @"1") : (self.peopleTypeStr = @"0");
+
         if ([self.certicicateTypeStr isEqualToString:@"身份证"]) {
             self.certicicateTypeStr = @"1";
         } else if ([self.certicicateTypeStr isEqualToString:@"护照"]){
@@ -155,21 +150,22 @@ static NSString *cellID = @"cellID";
                                 @"identity_no":self.certificatenNumTF.text
                                 };
         
+        
+        
         [DLHomeViewTask getFlightAddFrequentPassenger:param completion:^(id result, NSError *error) {
             
-          
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+ 
         }];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"completePassenger" object:nil userInfo:@{
+                       @"name":self.nameTF.text,
+                       @"customerType":self.peopleTypeStr,
+                       @"cerTypeStr":self.certicicateTypeStr,
+                       @"cerNumber":self.certificatenNumTF.text
+                       }];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+ 
     }
 }
 

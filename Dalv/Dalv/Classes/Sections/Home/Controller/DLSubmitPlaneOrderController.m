@@ -19,12 +19,13 @@
 @property (nonatomic, strong) UITableView *submitPlaneTableView;
 @property(nonatomic,strong) UIButton *addBtn;
 @property(nonatomic,assign) NSInteger Section2Number;
-@property(nonatomic,strong) UILabel * nameLabel;
-@property(nonatomic,strong) UILabel * customerTypeLabel; // 乘客类型
-@property(nonatomic,strong) UILabel * certificateTypeLabel;// 证件类型
 @property(nonatomic,strong) UIButton * deleBtn;
 @property(nonatomic,strong) UIButton * submitBtn;
 @property(nonatomic,strong) UILabel * totalMoney;
+@property(nonatomic,strong) UILabel * nameLabel;
+@property(nonatomic,strong) UILabel * customerTypeLabel; // 乘客类型
+@property(nonatomic,strong) UILabel * certificateTypeLabel;// 证件类型
+@property(nonatomic,strong) UILabel * numberLabel;
 @end
 
 static NSString * submitPlaneSection0Cell = @"submitPlaneSection0Cell";
@@ -45,6 +46,50 @@ static NSInteger addBtnCount ;
     
     self.Section2Number = 0;
     addBtnCount = 0;
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addPassenger:) name:@"completePassenger" object:nil];
+}
+
+
+-(void)addPassenger:(NSNotification *)sender
+
+{
+    NSDictionary *dict = sender.userInfo;
+    self.nameLabel.text = dict[@"name"];
+    self.numberLabel.text = dict[@"cerNumber"];
+
+    [dict[@"customerType"] isEqualToString:@"1"] ? (self.customerTypeLabel.text = @"儿童") : (self.customerTypeLabel.text = @"成人");
+   
+    if ([dict[@"cerTypeStr"] isEqualToString:@"1"]) {
+        
+        self.certificateTypeLabel.text = @"身份证";
+        
+    }else if ([dict[@"cerTypeStr"] isEqualToString:@"2"]){
+        
+         self.certificateTypeLabel.text = @"护照";
+        
+    }else if ([dict[@"cerTypeStr"] isEqualToString:@"3"]){
+        
+        self.certificateTypeLabel.text = @"军官证";
+        
+    }else if ([dict[@"cerTypeStr"] isEqualToString:@"4"]){
+        
+        self.certificateTypeLabel.text = @"士兵证";
+        
+    }else if ([dict[@"cerTypeStr"] isEqualToString:@"5"]){
+        
+        self.certificateTypeLabel.text = @"台胞证";
+        
+    }else{
+        
+        self.certificateTypeLabel.text = @"其他";
+    }
+}
+
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,7 +252,6 @@ static NSInteger addBtnCount ;
         
         
         
-        
         cell.settlement_price.text = self.orderModel.settlement_price;
         cell.settlePrice.text = self.orderModel.settlePrice;
         
@@ -261,7 +305,7 @@ static NSInteger addBtnCount ;
             
             DLSubmitPlaneSection2Row1Cell *cell = [tableView dequeueReusableCellWithIdentifier:submitPlaneSection2Row1Cell];
             cell.name.text = @"证件号码:";
-            self.nameLabel = cell.nameLabel;
+            self.numberLabel = cell.nameLabel;
             
             return cell;
             
