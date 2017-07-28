@@ -16,7 +16,9 @@
 
 typedef NS_ENUM(NSInteger, ARRAYTYPE) {
     GenderArray,
-    WorkTimeArray
+    WorkTimeArray,
+    customerType,
+    certificateType
 };
 
 @interface BLMPickerView : UIView

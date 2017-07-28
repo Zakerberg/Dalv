@@ -293,7 +293,7 @@ static NSInteger addBtnCount ;
             
             cell.NAME.text = @"手机号:";
             cell.TF.placeholder = @"填写手机号";
-            cell.TF.keyboardType = UIKeyboardTypeNumberPad;
+            //cell.TF.keyboardType = UIKeyboardTypeNumberPad;
             return cell;
             
         }else{

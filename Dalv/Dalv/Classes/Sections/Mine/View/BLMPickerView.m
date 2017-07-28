@@ -119,8 +119,27 @@
                 [arr addObject:str];
             }
             [self.array addObject:(NSArray *)arr];
+            
+            break;
+        }
+        case customerType:
+        {
+            
+            self.selectLb.text = @"选择乘客类型";
+            [self.array addObject:@[@"成人",@"儿童"]];
+
         }
             break;
+        case certificateType:
+            
+        {
+           
+            self.selectLb.text = @"选择证件类型";
+            [self.array addObject:@[@"身份证",@"护照",@"军官证",@"士兵证",@"军官证",@"台胞证",@"其它(包括港澳通行证)"]];
+
+        }
+            
+        break;
     }
 }
 

@@ -8,11 +8,13 @@
 
 #import "DLAddPlanePeopleController.h"
 #import "DLAddPeopleCell.h"
+#import "BLMPickerView.h"
 
-@interface DLAddPlanePeopleController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLAddPlanePeopleController ()<UITableViewDelegate,UITableViewDataSource,BLMPickerDelegate>
 @property (weak,nonatomic) UITableViewCell* personCell;
 @property (nonatomic,strong) UITableView * planePeopleTableView;
 @property (strong, nonatomic) UIButton *searchBtn;
+@property (nonatomic,strong) NSString * str1;
 @end
 static NSString *cell1ID = @"cell1ID";
 static NSString *cellID = @"cellID";
@@ -75,6 +77,7 @@ static NSString *cellID = @"cellID";
     }];
 }
 
+/// 确认
 -(void)btnClick {
     
   
@@ -86,11 +89,6 @@ static NSString *cellID = @"cellID";
     
     
 }
-
-
-
-
-
 
 
 #pragma mark ----- UITableView Delegate
@@ -136,15 +134,11 @@ static NSString *cellID = @"cellID";
         
         cell.textLabel.text = @"乘客类型";
         cell.accessoryType = 1;
-        //cell.textLabel.font = [UIFont systemFontOfSize:15];
-        //cell.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
-        
         UILabel *peopleTypeLabel = [[UILabel alloc] init];
         self.peopleTypeLabel = peopleTypeLabel;
         peopleTypeLabel.font = [UIFont systemFontOfSize:15];
         peopleTypeLabel.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-        
-        //cell.detailTextLabel.text = self.destinationLabel.text;
+        cell.detailTextLabel.text = self.peopleTypeLabel.text;
         
         [cell.contentView addSubview:peopleTypeLabel];
         
@@ -173,8 +167,7 @@ static NSString *cellID = @"cellID";
         self.certificateType = certificateType;
         certificateType.font = [UIFont systemFontOfSize:15];
         certificateType.textColor = [UIColor colorWithHexString:@"#b6b6b6"];
-        
-        //cell.detailTextLabel.text = self.startDate.text;
+        cell.detailTextLabel.text = self.certificateType.text;
         
         [cell.contentView addSubview:certificateType];
         
@@ -202,12 +195,36 @@ static NSString *cellID = @"cellID";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 1){
-        
-    }else if (indexPath.row == 2){
-    
-    }
+    if (indexPath.row == 1){  // 乘客类型
+        self.str1 = @"1";
+        BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
+        picker.delegate = self ;
+        picker.arrayType = customerType;
+        [self.view addSubview:picker];
 
+    }else if (indexPath.row == 2){ // 证件类型
+        
+        BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
+        picker.delegate = self ;
+        picker.arrayType = certificateType;
+        [self.view addSubview:picker];
+    }
+}
+
+#pragma mark ------- BLMPickerDelegate
+
+-(void)PickerSelectorIndixString:(NSString *)str
+
+{
+    if ([self.str1 isEqualToString: @"1"]) {
+        
+        self.peopleTypeLabel.text = str;
+        self.str1 = @"";
+        
+    }else{
+        
+       self.certificateType.text = str;
+    }
 }
 
 @end

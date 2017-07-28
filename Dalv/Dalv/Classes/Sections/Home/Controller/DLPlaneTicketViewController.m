@@ -16,7 +16,6 @@
 @property (nonatomic,strong) UITableView * planeTicketTableView;
 @property (strong, nonatomic) UIButton *searchBtn;
 @property (nonatomic,strong) NSString * str1;
-
 @end
 
 static NSString *cellID = @"cellID";
