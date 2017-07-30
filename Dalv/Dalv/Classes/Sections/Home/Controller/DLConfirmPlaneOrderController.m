@@ -81,12 +81,21 @@
         make.left.equalTo(@15);
         make.right.equalTo(self.view.mas_right).offset(-15);
     }];
-
-
 }
 
-
 -(void) btnClick {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

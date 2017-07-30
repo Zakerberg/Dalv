@@ -38,6 +38,7 @@ static NSString *cellID = @"cellID";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark ----- setUI
 
 - (void)setUI {

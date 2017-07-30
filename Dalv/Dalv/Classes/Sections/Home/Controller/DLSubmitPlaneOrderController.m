@@ -304,16 +304,7 @@ static NSInteger addBtnCount ;
             return nil;
         }
         
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
+
     }else{ /// 联系信息
         
         if (indexPath.row == 0) {
