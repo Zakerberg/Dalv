@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DLPlaneListDetailModel.h"
+@class DLplaneTankCell;
+
+@protocol planeTankCellDelegate <NSObject>
+
+-(void)fromCell: (DLplaneTankCell *)cell;
+
+@end
 
 @interface DLplaneTankCell : UITableViewCell
 /// 舱位
@@ -30,6 +37,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *left;
 @property (weak, nonatomic) IBOutlet UILabel *right;
 
+@property (weak, nonatomic) IBOutlet UILabel *jisuanjiaLabel;
+
+
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData;
+
+@property(nonatomic,weak) id <planeTankCellDelegate> delegate;
 
 @end

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-zv-NzN">
@@ -132,6 +132,13 @@
                             <action selector="orderBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UJV-Ad-4hS"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke3-X7-CBo">
+                        <rect key="frame" x="151" y="9" width="35" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -150,6 +157,7 @@
                 <outlet property="CustomerMoneyLabel" destination="PBu-yx-vx8" id="a5d-rd-q5S"/>
                 <outlet property="agencyMoneyLabel" destination="Hzm-pt-bTT" id="mZJ-ao-nc9"/>
                 <outlet property="disCountLabel" destination="pb8-Wh-Ocp" id="GK6-3p-qKZ"/>
+                <outlet property="jisuanjiaLabel" destination="ke3-X7-CBo" id="OLN-nX-G43"/>
                 <outlet property="left" destination="gB0-Z7-B60" id="ylo-g9-aEV"/>
                 <outlet property="orderBtn" destination="sNc-fs-1gc" id="bZz-9K-jzY"/>
                 <outlet property="ownMoneyLabel" destination="vSr-yE-M5R" id="Jgi-0d-G7x"/>
@@ -158,7 +166,7 @@
                 <outlet property="ticketCountLabel" destination="TkO-3g-2J0" id="SgP-Vk-g9B"/>
                 <outlet property="totalMoney" destination="Ix6-xT-a7c" id="GDI-xx-Sfi"/>
             </connections>
-            <point key="canvasLocation" x="-882" y="-402"/>
+            <point key="canvasLocation" x="-913" y="-403"/>
         </tableViewCell>
     </objects>
 </document>

@@ -250,13 +250,9 @@ static NSInteger addBtnCount ;
         cell.startOrgjetquery.text = self.orderModel.orgJetquay;
         cell.dstJetqury.text = self.orderModel.dstJetquay;
         
+        cell.settlement_price.text = self.settlementStr;
         
-        
-        cell.settlement_price.text = self.orderModel.settlement_price;
-        cell.settlePrice.text = self.orderModel.settlePrice;
-        
-        
-        
+        cell.settlePrice.text = self.settlePriceStr;
         
         cell.fuelTax.text = self.orderModel.fuelTax;
         cell.airportTax.text = self.orderModel.airportTax;
@@ -275,13 +271,7 @@ static NSInteger addBtnCount ;
         
     }else if (indexPath.section == 2) { /// 添加乘机人
         
-        
-        
-        
-        
-        
-        
-        
+
         
         if ((indexPath.row%3) == 1) {
             

@@ -11,9 +11,8 @@
 #import "DLPlaneTicketsListCell.h"
 #import "DLplaneTankCell.h"
 
-@interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource,planeTankCellDelegate>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
-@property (nonatomic,strong) UIButton * orderBtn;
 /// 剩余 / 张
 @property (weak, nonatomic)  UILabel *left;
 @property (weak, nonatomic)  UILabel *right;
@@ -68,10 +67,6 @@ static NSString *tableViewCell = @"tableViewCell";
 
 -(void)orderBtnClick {
     
-    DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
-    vc.orderModel = self.model;
-    
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark ------- UITableViewDelegate
@@ -134,26 +129,21 @@ static NSString *tableViewCell = @"tableViewCell";
         DLplaneTankCell *tankCell = [tableView dequeueReusableCellWithIdentifier:tankCellID];
         self.left = tankCell.left;
         self.right = tankCell.right;
+        tankCell.delegate = self;
         [tankCell configureCell:self.tankModel];
         
-        
-        
-        
-               
-//        tankCell.tankLabel.text = self.tankModel.seatMsg;
-//        tankCell.disCountLabel.text = self.tankModel.agio;
-      
-        
-        
-        
-        
-        
-        
 
+        tankCell.jisuanjiaLabel.hidden = YES;
+        
+        
         tankCell.tankLabel.text = self.nextArr[indexPath.row][@"seatMsg"];
         tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
         tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
         tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
+        
+        /// 结算价
+        tankCell.jisuanjiaLabel.text = self.nextArr[indexPath.row][@"settlePrice"];
+        
         tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
  
         if ([self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"A"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"L"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Q"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"S"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"C"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"X"] || [self.nextArr[indexPath.row][@"ticketnum"] isEqualToString:@"Z"]) {
@@ -169,24 +159,8 @@ static NSString *tableViewCell = @"tableViewCell";
 
         tankCell.totalMoney.text = self.nextArr[indexPath.row][@"settlement_price"];
         
+        //[tankCell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
-        
-        
-        
-        
-
-        /*
-         tankCell.tankLabel.text = self.model.seatMsg;
-         tankCell.disCountLabel.text = self.model.agio;
-         tankCell.CustomerMoneyLabel.text = self.model.total_price;
-         tankCell.agencyMoneyLabel.text = self.model.settlement_price;
-         tankCell.ownMoneyLabel.text = self.model.earnPrice;
-         tankCell.ticketCountLabel.text = self.model.ticketnum;
-         tankCell.totalMoney.text = self.model.settlement_price;
-         */
-        
-        self.orderBtn = tankCell.orderBtn;
-        [tankCell.orderBtn addTarget:self action:@selector(orderBtnClick) forControlEvents:UIControlEventTouchUpInside];
         tankCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return tankCell;
     }
@@ -219,6 +193,23 @@ static NSString *tableViewCell = @"tableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+#pragma mark ------- planeTankCellDelegate
+
+-(void)fromCell:(DLplaneTankCell *)cell{
+    
+    DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
+    vc.orderModel = self.model;
+
+    /// 单人总价
+    vc.settlementStr = cell.totalMoney.text;
+    vc.settlePriceStr = cell.jisuanjiaLabel.text;
+    
+    
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

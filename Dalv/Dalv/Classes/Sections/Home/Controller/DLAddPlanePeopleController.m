@@ -150,8 +150,6 @@ static NSString *cellID = @"cellID";
                                 @"identity_no":self.certificatenNumTF.text
                                 };
         
-        
-        
         [DLHomeViewTask getFlightAddFrequentPassenger:param completion:^(id result, NSError *error) {
             
  

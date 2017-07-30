@@ -124,4 +124,5 @@
 /// 普通用户显示价格
 @property(nonatomic,copy) NSString *total_price;
 
+@property(nonatomic,copy) NSString *price;
 @end

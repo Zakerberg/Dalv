@@ -34,6 +34,9 @@
 
 - (IBAction)orderBtnClick:(id)sender {
     
+    if (_delegate) {
+        [self.delegate fromCell:self];
+    }
 }
 
 - (void)configureCell:(DLPlaneListDetailModel *)planeListDetailModelData{
@@ -44,6 +47,7 @@
     self.agencyMoneyLabel.text = planeListDetailModelData.settlement_price;
     self.ownMoneyLabel.text = planeListDetailModelData.earnPrice;
     self.totalMoney.text =  planeListDetailModelData.settlement_price;
+    self.jisuanjiaLabel.text = planeListDetailModelData.settlePrice;
 
     if ([planeListDetailModelData.ticketnum isEqualToString:@"A"] || [planeListDetailModelData.ticketnum isEqualToString:@"L"] || [planeListDetailModelData.ticketnum isEqualToString:@"Q"] || [planeListDetailModelData.ticketnum isEqualToString:@"S"] || [planeListDetailModelData.ticketnum isEqualToString:@"C"] || [planeListDetailModelData.ticketnum isEqualToString:@"X"] || [planeListDetailModelData.ticketnum isEqualToString:@"Z"]) {
 

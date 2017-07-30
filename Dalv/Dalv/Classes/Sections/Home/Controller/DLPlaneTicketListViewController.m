@@ -94,8 +94,15 @@ static NSString *nibCellID = @"nibCellID";
                 
 #warning 此处可能有问题!
                 NSArray *dic = result[@"flightinfo"];
-                NSLog(@"%@",dic);
                 self.dataArr = dic;
+                
+                
+                NSArray *modelArray = [DLPlaneListDetailModel mj_objectArrayWithKeyValuesArray:dic[0][@"price"]];
+                DLPlaneListDetailModel *model = modelArray[0];
+
+
+
+
 #warning 此处可能有问题!
                 //[self setupSubviews];
                 [self.planeTicketListTableView reloadData];
@@ -328,10 +335,27 @@ static NSString *nibCellID = @"nibCellID";
 
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    
-    
-    NSLog(@"%@",deVC.model);
 
  
 
