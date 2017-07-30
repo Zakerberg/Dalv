@@ -10,6 +10,8 @@
 #import <UserNotifications/UserNotifications.h>
 #import "WXApi.h"
 
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate,UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

@@ -56,7 +56,7 @@ DEPENDENCIES:
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (~> 3.8.1)
   - SVProgressHUD
-  - WechatOpenSDK (~> 1.7.8)
+  - WechatOpenSDK
   - YYModel
 
 SPEC CHECKSUMS:
@@ -75,6 +75,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: ad1e7be1b66416df847ac50830c798b70c9e365e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 405ccb75bf42aaf8b222b657a1a6a63ec4b71fe8
+PODFILE CHECKSUM: 67bbc8501abc7e30acb317f06eb2967118d275f8
 
 COCOAPODS: 1.1.1

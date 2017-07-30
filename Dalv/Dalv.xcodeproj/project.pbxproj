@@ -175,7 +175,6 @@
 		1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9031ED2E45100310CCB /* DLCycleScrollView.m */; };
 		1CBCF9071ED2E56300310CCB /* DLCycleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9061ED2E56300310CCB /* DLCycleCollectionViewCell.m */; };
 		1CBCF90A1ED2FD7400310CCB /* DLLineDetailsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBCF9091ED2FD7400310CCB /* DLLineDetailsScrollViewController.m */; };
-		1CC993401ECC4FE0004D10F3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1CC9F9171EC20DC0002D7EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CC9F9151EC20DC0002D7EFB /* LaunchScreen.storyboard */; };
 		1CD1663E1ECFE4D800E54AB3 /* DLActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD1663D1ECFE4D800E54AB3 /* DLActionSheet.m */; };
 		1CE2C18D1ED525E000B898BA /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE2C1691ED525DF00B898BA /* add@2x.png */; };
@@ -2756,7 +2755,6 @@
 				45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */,
 				1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */,
 				1C422BC31F00AFD0004EB57F /* PYSearchConst.m in Sources */,
-				1CC993401ECC4FE0004D10F3 /* (null) in Sources */,
 				4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
 				45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */,
