@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/7/20.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ---------------- 提交机票订单界面 ------------------
 
 #import "DLSubmitPlaneSection2Row1Cell.h"
 #import "DLSubmitPlaneSection2Row2Cell.h"
@@ -195,8 +194,49 @@ static NSInteger addBtnCount ;
 }
 
 -(void)submitBtnClick {
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     DLConfirmPlaneOrderController *vc = [[DLConfirmPlaneOrderController alloc] init];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     [self.navigationController pushViewController:vc animated:YES];
     
 }
@@ -305,7 +345,7 @@ static NSInteger addBtnCount ;
         }
         
 
-    }else{ /// 联系信息
+    }else{ /// 
         
         if (indexPath.row == 0) {
             

@@ -11,8 +11,6 @@
 @interface DLSubmitPlaneOrderController : UIViewController
 @property(nonatomic,strong) DLPlaneListDetailModel * orderModel;
 @property(nonatomic,strong) NSArray * nextArray;
-/// 单人总价
 @property(nonatomic,strong) NSString * settlementStr;
-/// 结算价
 @property(nonatomic,strong) NSString * settlePriceStr;
 @end

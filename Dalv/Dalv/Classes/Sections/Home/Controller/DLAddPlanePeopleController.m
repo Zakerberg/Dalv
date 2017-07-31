@@ -100,7 +100,6 @@ static NSString *cellID = @"cellID";
     return [identityCardPredicate evaluateWithObject:IDCardNumber];
 }
 
-/// 确认
 -(void)btnClick {
     
     if ([self.nameTF.text isEqualToString:@""]) {
@@ -153,7 +152,6 @@ static NSString *cellID = @"cellID";
         
         [DLHomeViewTask getFlightAddFrequentPassenger:param completion:^(id result, NSError *error) {
             
- 
         }];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"completePassenger" object:nil userInfo:@{

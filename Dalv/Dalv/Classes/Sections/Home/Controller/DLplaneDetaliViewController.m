@@ -13,7 +13,6 @@
 
 @interface DLplaneDetaliViewController ()<UITableViewDelegate,UITableViewDataSource,planeTankCellDelegate>
 @property (nonatomic, strong) UITableView *planeTicketDetailTableView;
-/// 剩余 / 张
 @property (weak, nonatomic)  UILabel *left;
 @property (weak, nonatomic)  UILabel *right;
 @end
@@ -140,8 +139,6 @@ static NSString *tableViewCell = @"tableViewCell";
         tankCell.disCountLabel.text = [NSString stringWithFormat:@"%@折",self.nextArr[indexPath.row][@"agio"]];
         tankCell.CustomerMoneyLabel.text = self.nextArr[indexPath.row][@"total_price"];
         tankCell.agencyMoneyLabel.text = self.nextArr[indexPath.row][@"settlement_price"];
-        
-        /// 结算价
         tankCell.jisuanjiaLabel.text = self.nextArr[indexPath.row][@"settlePrice"];
         
         tankCell.ownMoneyLabel.text = self.nextArr[indexPath.row][@"earnPrice"];
@@ -194,21 +191,14 @@ static NSString *tableViewCell = @"tableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
 #pragma mark ------- planeTankCellDelegate
 
 -(void)fromCell:(DLplaneTankCell *)cell{
     
     DLSubmitPlaneOrderController *vc = [[DLSubmitPlaneOrderController alloc] init];
     vc.orderModel = self.model;
-
-    /// 单人总价
     vc.settlementStr = cell.totalMoney.text;
-    vc.settlePriceStr = cell.jisuanjiaLabel.text;
-    
-    
-    
+    //vc.settlePriceStr = cell.jisuanjiaLabel.text;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

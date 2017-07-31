@@ -4,7 +4,6 @@
 //
 //  Created by Nie on 2017/6/13.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------  全局搜索后目的地那页 ------------
 
 #import "DLGlobalSearchViewViewController.h"
 #import "DLRecommendRouteViewController.h"

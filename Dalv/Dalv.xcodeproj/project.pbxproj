@@ -331,7 +331,6 @@
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */; };
 		453530121EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */; };
-		4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */; };
 		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
 		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
 		4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9671EE0073C002269BF /* DLMemberInfoModel.m */; };
@@ -987,8 +986,6 @@
 		4535300E1EF3CC8700CBAC19 /* DLLineOrderConfirmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderConfirmController.h; sourceTree = "<group>"; };
 		4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderConfirmController.m; sourceTree = "<group>"; };
 		453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderConfirmController.xib; sourceTree = "<group>"; };
-		4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLUserDefaultsManager.h; sourceTree = "<group>"; };
-		4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLUserDefaultsManager.m; sourceTree = "<group>"; };
 		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
 		4550B9601EDFE0FA002269BF /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		4550B9621EDFE118002269BF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
@@ -1506,7 +1503,6 @@
 				1CB953FF1ECFCA7000BDC2D3 /* AppDelegate.m */,
 				1CB953D61ECFC6CA00BDC2D3 /* Vendors */,
 				45CF21951F00F20600F054A1 /* Guide */,
-				45CF21941F00BD1C00F054A1 /* WeChatSDK */,
 				1CB952EB1ECFC41600BDC2D3 /* General */,
 				1CB952F91ECFC41600BDC2D3 /* Header */,
 				1CB952FD1ECFC41600BDC2D3 /* Main */,
@@ -2293,8 +2289,6 @@
 		4550B95B1EDFBEF1002269BF /* UserDefaultManager */ = {
 			isa = PBXGroup;
 			children = (
-				4550B95C1EDFBEFE002269BF /* DLUserDefaultsManager.h */,
-				4550B95D1EDFBEFE002269BF /* DLUserDefaultsManager.m */,
 				4550B95F1EDFE0FA002269BF /* NSString+JSON.h */,
 				4550B9601EDFE0FA002269BF /* NSString+JSON.m */,
 				4550B9621EDFE118002269BF /* NSObject+JSON.h */,
@@ -2401,13 +2395,6 @@
 				45BAC6401F1615880057A141 /* DLShareView.m */,
 			);
 			path = Share;
-			sourceTree = "<group>";
-		};
-		45CF21941F00BD1C00F054A1 /* WeChatSDK */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
 		45CF21951F00F20600F054A1 /* Guide */ = {
@@ -2839,7 +2826,6 @@
 				45DB481C1EEA5AB000399A6D /* DLinvoiceApplySection0Cell.m in Sources */,
 				1C8438251ECFCBFA006DF42E /* UIViewController+BLMHUD.m in Sources */,
 				1CB953891ECFC41600BDC2D3 /* DLRequestSerVice.m in Sources */,
-				4550B95E1EDFBEFE002269BF /* DLUserDefaultsManager.m in Sources */,
 				45001A4A1F17492900586B04 /* DLplaneTankCell.m in Sources */,
 				45DB47F21EE7D36700399A6D /* DLContractApplyRecordController.m in Sources */,
 				45DB47D41EE68BDD00399A6D /* DLTicketsOrderController.m in Sources */,
