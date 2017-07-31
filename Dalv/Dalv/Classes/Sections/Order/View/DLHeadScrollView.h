@@ -10,7 +10,6 @@
 @protocol seletedControllerDelegate <NSObject>
 -(void)seletedControllerWith:(UIButton *)btn;
 @end
-
 @interface DLHeadScrollView : UIScrollView
 @property (nonatomic ,strong)NSArray *headArray;
 @property (nonatomic ,weak)id<seletedControllerDelegate> seletedDelegate;

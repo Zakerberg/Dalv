@@ -2412,7 +2412,13 @@
 						CreatedOnToolsVersion = 8.3.2;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 0;
 							};
 						};
@@ -2995,6 +3001,7 @@
 			baseConfigurationReference = D967FFF572244A8610D699C5 /* Pods-Dalv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dalv/Dalv.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
@@ -3046,6 +3053,7 @@
 			baseConfigurationReference = 10DAA7CAB930BD0E934FD790 /* Pods-Dalv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Dalv/Dalv.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuan Zhi Zhang (7524W4T69V)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
