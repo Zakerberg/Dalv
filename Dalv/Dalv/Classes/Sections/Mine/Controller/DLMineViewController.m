@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/5/9.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//--------------------- 顾问注册 ----------------------
 
 #import "DLMineViewController.h"
 #import "DLCityPickerView.h"
@@ -14,17 +13,17 @@
 
 @interface DLMineViewController ()<DLCityPickerViewDelegate,DLSalertViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
-@property (weak,nonatomic) UITextField *nameTF;/// 姓名
-@property (weak,nonatomic) UIButton *changeCityBtn;/// 选择城市
-@property (weak, nonatomic) UITextField *phoneTextFiled;/// 电话号码
-@property (weak, nonatomic) UITextField *passCodeTF;/// 验证码
-@property (weak, nonatomic) UIButton *authCodeBtn;/// 获取验证码
-@property (weak, nonatomic) UITextField *passwordTF;/// 密码
-@property (weak, nonatomic) UITextField *determinePasswordTF;/// 确认密码
-@property (weak, nonatomic) UITextField *positionTF;/// 输入的职位
-@property (strong, nonatomic)  UIButton *regsterNow;/// 立即注册
+@property (weak,nonatomic) UITextField *nameTF;
+@property (weak,nonatomic) UIButton *changeCityBtn;
+@property (weak, nonatomic) UITextField *phoneTextFiled;
+@property (weak, nonatomic) UITextField *passCodeTF;
+@property (weak, nonatomic) UIButton *authCodeBtn;
+@property (weak, nonatomic) UITextField *passwordTF;
+@property (weak, nonatomic) UITextField *determinePasswordTF;
+@property (weak, nonatomic) UITextField *positionTF;
+@property (strong, nonatomic)  UIButton *regsterNow;
 @property(nonatomic,weak) UIView *headerView;
-@property(nonatomic,weak) UITableViewCell *cell;/// cell
+@property(nonatomic,weak) UITableViewCell *cell;
 @property (nonatomic,strong) DLSalertView *alertView;
 @property(nonatomic,strong)UITextField *firstField;
 @property (nonatomic,strong) UITableView *tableView;
@@ -56,7 +55,7 @@ static NSString *cell1ID = @"cell1id";
 #pragma mark ----------- setupRegisterBtn
 -(void)setupRegisterBtn {
     
-    UIButton *regsterNow = [[UIButton alloc] init];//WithFrame:CGRectMake(20, 419, 670/2, 52)];
+    UIButton *regsterNow = [[UIButton alloc] init];
     self.regsterNow = regsterNow;
     regsterNow.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
     regsterNow.tintColor = [UIColor whiteColor];
@@ -113,9 +112,7 @@ static NSString *cell1ID = @"cell1id";
     }];
 }
 
-#warning 此处后期要处理
-/// 选择城市
--(void)changeCityBtnClick:(UIButton *)sender {
+ -(void)changeCityBtnClick:(UIButton *)sender {
     NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"北京市",@"唐山市",@"天津市",@"石家庄市",@"其他", nil];
     
     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
@@ -127,7 +124,6 @@ static NSString *cell1ID = @"cell1id";
     [self.view endEditing:YES];
 }
 
-/// 获取验证码
 -(void)BtnClick:(id)sender {
     
     NSMutableDictionary *parement = [NSMutableDictionary dictionary];
@@ -142,13 +138,13 @@ static NSString *cell1ID = @"cell1id";
             
         } else {
             
-            /// 判断手机号的正则表达式
+         
             NSString *regexPhoneNum = @"^1[3|4|5|7|8][0-9]\\d{8}$";
             NSPredicate *predPhoneNum = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regexPhoneNum];
             BOOL isMatchPhoneNum = [predPhoneNum evaluateWithObject:self.phoneTextFiled.text];
             if (!isMatchPhoneNum){
                 
-                /// 手机号码不匹配
+          
                 UIAlertView *alertPhoneNum=[[UIAlertView alloc] initWithTitle:@"大旅游提示您" message:@"您输入的号码有误" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
                 
                 [alertPhoneNum show];
@@ -169,25 +165,25 @@ static NSString *cell1ID = @"cell1id";
     }];
 }
 
-#pragma mark ----------  开启倒计时效果
+
 -(void)openCountdown{
     
-    __block NSInteger time = 59; //倒计时时间
+    __block NSInteger time = 59;
     self.authCodeBtn.enabled = NO;
-    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);/// 背景变灰色
+    self.authCodeBtn.backgroundColor = kColor(153, 153, 153, 1);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(_timer, ^{
         
-        if(time <= 0){ //倒计时结束，关闭
-            //按钮可以点击
+        if(time <= 0){
+            
             self.authCodeBtn.enabled = YES;
             self.authCodeBtn.backgroundColor = [UIColor colorWithHexString:@"#4d65f3"];
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                //设置按钮的样式
+                
                 [self.authCodeBtn setTitle:@"重新发送" forState:UIControlStateNormal];
                 
                 [self.authCodeBtn setTitleColor:[UIColor colorWithHexString:@"  ffffff"] forState:UIControlStateNormal];
@@ -199,7 +195,7 @@ static NSString *cell1ID = @"cell1id";
             int seconds = time % 60;
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                //设置按钮显示读秒效果
+                
                 [self.authCodeBtn setTitle:[NSString stringWithFormat:@"重发(%.2d)", seconds] forState:UIControlStateNormal];
                 
                 self.authCodeBtn.userInteractionEnabled = NO;
@@ -210,7 +206,7 @@ static NSString *cell1ID = @"cell1id";
     dispatch_resume(_timer);
 }
 
-#pragma mark  ------------------ 立即注册
+
 -(void)registerNowBtn:(id)sender {
     
     if(self.passwordTF.text != nil && [self.passwordTF.text isEqualToString:self.determinePasswordTF.text] && self.nameTF != nil && self.phoneTextFiled.text != nil && self.passCodeTF != nil){
@@ -230,34 +226,6 @@ static NSString *cell1ID = @"cell1id";
         }else {
             
         }
-        /*
-         name：姓名
-         province ： 城市 选择，1北京市，3天津市，4石家庄市，5唐山市，1其他（并附加输入框，附件一个参数 thecity）
-         phone：手机
-         vercode ：验证码
-         password：密码
-         vocation ：职务（员工，导游）
-         
-         NSDictionary *param = @{
-         @"name":self.nameTF.text,
-         @"province":CityStr,
-         @"phone":self.phoneTextFiled.text,
-         @"vercode":self.passCodeTF.text,
-         @"password":self.passwordTF.text,
-         @"vocation":self.positionTF.text
-         };
-         
-         NSDictionary *param2 = @{
-         @"name":self.nameTF.text,
-         @"province":CityStr,
-         @"phone":self.phoneTextFiled.text,
-         @"vercode":self.passCodeTF.text,
-         @"password":self.passwordTF.text,
-         @"vocation":self.positionTF.text,
-         @"thecity":self.firstField.text
-         };
-         
-         */
         
         if ([self.nameTF.text isEqualToString :@""]) {
             UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入名字" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
@@ -333,7 +301,7 @@ static NSString *cell1ID = @"cell1id";
                         [successV show];
                     }
                 } failure:^(NSError *error) {
-                    // 在此写提示框
+                    
                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                     [failureV show];
                     
@@ -365,7 +333,7 @@ static NSString *cell1ID = @"cell1id";
                         
                     }else{
                         
-                        //NSLog(@"注册成功!");
+                        
                         [self.navigationController popViewControllerAnimated:YES];
                         UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册成功,快去登录吧" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                         [successV show];
@@ -373,7 +341,7 @@ static NSString *cell1ID = @"cell1id";
                     
                 } failure:^(NSError *error) {
                     
-                    // 在此写提示框
+                    
                     UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"注册失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                     [failureV show];
                     
@@ -384,12 +352,12 @@ static NSString *cell1ID = @"cell1id";
 }
 
 -(void)showHint:(NSString *)hint{
-    //显示提示信息
+    
     UIView *view = [[UIApplication sharedApplication].delegate window];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
-    //hud.label.text = hint;
+ 
     hud.labelText = hint;
     
     hud.margin = 10.f;
@@ -414,7 +382,7 @@ static NSString *cell1ID = @"cell1id";
     return 52;
 }
 
-//头部视图的间距
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 32;
 }
@@ -544,7 +512,7 @@ static NSString *cell1ID = @"cell1id";
 
 #pragma mark  ---------- UITextViewDelegate
 
-//UITextField代理方法，是否允许输入
+ 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string
 {
     NSInteger existedLength = textField.text.length;

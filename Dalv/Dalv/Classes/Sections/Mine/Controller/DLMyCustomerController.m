@@ -10,7 +10,6 @@
 
 @interface DLMyCustomerController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * customerTableView;
-//@property(nonatomic,strong) UITableView * customerTableView;
 @end
 
 static NSString *cellID = @"cellID";

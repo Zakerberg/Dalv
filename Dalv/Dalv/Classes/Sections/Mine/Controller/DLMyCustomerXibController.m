@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/15.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------ 我的直客 -----------------------
 
 #import "DLMyCustomerXibController.h"
 #import "DLCustomerListController.h"
@@ -34,9 +33,6 @@ static NSString *cellID = @"cellID";
 
 #pragma mark --------setTableView ----------
 -(void)setTableView{
-    
-    //  [self.myMoneyLabel sizeToFit];
-    
     UITableView *myCustomerTableView = [[UITableView alloc] init];
     self.myCustomerTableView = myCustomerTableView;
     myCustomerTableView.tableFooterView = [UIView new];
@@ -100,9 +96,9 @@ static NSString *cellID = @"cellID";
     if (indexPath.row == 0) {
         DLCustomerListController *listVC =[[DLCustomerListController alloc] init];
         [self.navigationController pushViewController:listVC animated:YES];
+  
     } else {
-        
-        //[[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+    
         DLMyTicketListController *VC = [[DLMyTicketListController alloc]init];
         
         [self.navigationController pushViewController:VC animated:YES];

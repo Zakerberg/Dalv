@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------  通用   -----------------------
 
 #import "DLIdentitySelectionLoginViewController.h"
 #import "DLLoginViewController.h"
@@ -74,8 +73,6 @@ static NSString *cellID  = @"cellID";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"退出后您需要重新登录,是否确定?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionOk=[UIAlertAction actionWithTitle:@"确定退出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
-        //清空所用注册信息
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"sign_token"];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"uid"];
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"user_type"];
@@ -83,7 +80,6 @@ static NSString *cellID  = @"cellID";
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogoutNotification object:nil];
-        //self.tabBarController.selectedIndex = 0;
         DLIdentitySelectionLoginViewController *VC = [[DLIdentitySelectionLoginViewController alloc] init];
         [self presentViewController:VC animated:YES completion:nil];
         
@@ -119,7 +115,7 @@ static NSString *cellID  = @"cellID";
         DLFeedBackController *feedbackVC = [[DLFeedBackController alloc] init];
         [self.navigationController pushViewController:feedbackVC animated:YES];
         
-    }else if (indexPath.row == 1) {/// 联系我们
+    }else if (indexPath.row == 1) {
         
         NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
         

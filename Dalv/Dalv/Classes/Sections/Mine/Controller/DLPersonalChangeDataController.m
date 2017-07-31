@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/20.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------ 修改个人资料 --------------------
 
 #import "DLPersonalChangeDataController.h"
 #import "DLChangePasswordController.h"
@@ -70,7 +69,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
 
 
 - (BOOL)isValidateMobile:(NSString *)mobile{
-    //手机号以13、15、18开头，八个\d数字字符
+   
     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     return [phoneTest evaluateWithObject:mobile];
@@ -216,7 +215,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.height.offset(44);
                 make.top.offset(0);
             }];
-        }else if (indexPath.row == 1) {//昵称
+        }else if (indexPath.row == 1) {
             
             self.label.text = @"昵称:";
             UITextField *nickNameTF = [[UITextField alloc] init];
@@ -233,7 +232,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.top.offset(0);
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
-        }else if (indexPath.row == 2) {//性别
+        }else if (indexPath.row == 2) {
             self.label.text = @"性别:";
             
             UILabel *sexLabel = [[UILabel alloc] init];
@@ -250,7 +249,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.top.offset(0);
             }];
             
-        }else if (indexPath.row == 3) {//年龄
+        }else if (indexPath.row == 3) {
             self.label.text = @"年龄:";
             
             UITextField *ageTF = [[UITextField alloc] init];
@@ -268,7 +267,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
         }
-        else if (indexPath.row == 4) { //从业时间
+        else if (indexPath.row == 4) {
             self.label.text = @"从业时间:";
             
             UITextField *workTimeTF = [[UITextField alloc] init];
@@ -287,7 +286,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
         }
-        else if (indexPath.row == 5) {//标签
+        else if (indexPath.row == 5) {
             
             self.label.text = @"标签:";
             
@@ -306,7 +305,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
             
-        }else if (indexPath.row == 6) {//手机号
+        }else if (indexPath.row == 6) { 
             
             self.label.text = @"手机号:";
             UILabel *numLabel = [[UILabel alloc] init];
@@ -322,7 +321,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.top.offset(0);
             }];
             
-        }else if (indexPath.row == 7) {//邮箱
+        }else if (indexPath.row == 7) {
             
             self.label.text = @"邮箱:";
             
@@ -341,7 +340,7 @@ static NSString *tableViewCellID = @"tableViewCellID";
                 make.left.equalTo(self.label.mas_right).offset(0);
             }];
             
-        }else if (indexPath.row == 8) {//去过的地方
+        }else if (indexPath.row == 8) {
             self.label.text = @"去过的地方:";
             
             UITextView *goCityView = [[UITextView alloc] init];
@@ -378,14 +377,14 @@ static NSString *tableViewCellID = @"tableViewCellID";
     self.personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
     
     
-    if (indexPath.row == 2) { ///性别
+    if (indexPath.row == 2) {
         
         BLMPickerView *picker = [[BLMPickerView alloc]initWithFrame:self.view.bounds];
         picker.delegate = self ;
         picker.arrayType = GenderArray;
         [self.view addSubview:picker];
         
-    }else if (indexPath.section == 1) { /// 修改密码
+    }else if (indexPath.section == 1) {
         DLChangePasswordController * changePwdVC = [[DLChangePasswordController alloc] init];
         [self.navigationController pushViewController:changePwdVC animated:YES];
     }
@@ -411,11 +410,6 @@ static NSString *tableViewCellID = @"tableViewCellID";
 
 -(void)PickerSelectorIndixString:(NSString *)str
 {
-    
-    /*
-     DLPersonalChangeDataCell* personalCell = [self.personalDataTableView cellForRowAtIndexPath:self.selectedIndexPath];
-     personalCell.detailTextLabel.text = str ;
-     */
     
     self.sexLabel.text = str;
     
