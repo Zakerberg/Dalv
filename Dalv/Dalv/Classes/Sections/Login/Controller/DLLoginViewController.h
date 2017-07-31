@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DLLoginViewController : UIViewController
-
 @property (nonatomic, copy) void(^loginSuccessBlock)();
-
 @end

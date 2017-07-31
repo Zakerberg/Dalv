@@ -157,7 +157,6 @@
 		1CB953BC1ECFC41600BDC2D3 /* DLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953521ECFC41600BDC2D3 /* DLLoginViewController.m */; };
 		1CB953BD1ECFC41600BDC2D3 /* DLLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953551ECFC41600BDC2D3 /* DLLoginView.m */; };
 		1CB953D31ECFC41700BDC2D3 /* DLOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953821ECFC41600BDC2D3 /* DLOrderViewController.m */; };
-		1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953861ECFC41600BDC2D3 /* DLShopViewController.m */; };
 		1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E01ECFC7E200BDC2D3 /* NSArray+Log.m */; };
 		1CB953F21ECFC7E200BDC2D3 /* NSDate+MSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E21ECFC7E200BDC2D3 /* NSDate+MSExtension.m */; };
 		1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB953E41ECFC7E200BDC2D3 /* NSString+Extension.m */; };
@@ -322,7 +321,6 @@
 		453009831F0C7BF200D014D1 /* DLMyTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453009821F0C7BF200D014D1 /* DLMyTicketCell.m */; };
 		45305A201ED66A7C0023E892 /* Loginlogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */; };
 		45305A211ED66A7C0023E892 /* Loginlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */; };
-		45305A251ED6C89B0023E892 /* DLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A241ED6C89B0023E892 /* DLManager.m */; };
 		45305A351ED7CC5B0023E892 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A341ED7CC5B0023E892 /* UIView+Frame.m */; };
 		45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A371ED7CD4C0023E892 /* DLSalertView.m */; };
 		45305A3B1ED7D9140023E892 /* DLConsultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A3A1ED7D9140023E892 /* DLConsultModel.m */; };
@@ -754,8 +752,6 @@
 		1CB953551ECFC41600BDC2D3 /* DLLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLoginView.m; sourceTree = "<group>"; };
 		1CB953811ECFC41600BDC2D3 /* DLOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLOrderViewController.h; sourceTree = "<group>"; };
 		1CB953821ECFC41600BDC2D3 /* DLOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLOrderViewController.m; sourceTree = "<group>"; };
-		1CB953851ECFC41600BDC2D3 /* DLShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLShopViewController.h; sourceTree = "<group>"; };
-		1CB953861ECFC41600BDC2D3 /* DLShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLShopViewController.m; sourceTree = "<group>"; };
 		1CB953D51ECFC49600BDC2D3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		1CB953DF1ECFC7E200BDC2D3 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		1CB953E01ECFC7E200BDC2D3 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -968,8 +964,6 @@
 		453009821F0C7BF200D014D1 /* DLMyTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMyTicketCell.m; sourceTree = "<group>"; };
 		45305A1E1ED66A7C0023E892 /* Loginlogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@3x.png"; sourceTree = "<group>"; };
 		45305A1F1ED66A7C0023E892 /* Loginlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Loginlogo@2x.png"; sourceTree = "<group>"; };
-		45305A231ED6C89B0023E892 /* DLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLManager.h; sourceTree = "<group>"; };
-		45305A241ED6C89B0023E892 /* DLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLManager.m; sourceTree = "<group>"; };
 		45305A331ED7CC5B0023E892 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		45305A341ED7CC5B0023E892 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		45305A361ED7CD4C0023E892 /* DLSalertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLSalertView.h; sourceTree = "<group>"; };
@@ -1690,7 +1684,6 @@
 				1CB9532F1ECFC41600BDC2D3 /* Home */,
 				1CB9534F1ECFC41600BDC2D3 /* Login */,
 				1CB9537F1ECFC41600BDC2D3 /* Order */,
-				1CB953831ECFC41600BDC2D3 /* Shop */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -1965,23 +1958,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1CB953831ECFC41600BDC2D3 /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-				1CB953841ECFC41600BDC2D3 /* Controller */,
-			);
-			path = Shop;
-			sourceTree = "<group>";
-		};
-		1CB953841ECFC41600BDC2D3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1CB953851ECFC41600BDC2D3 /* DLShopViewController.h */,
-				1CB953861ECFC41600BDC2D3 /* DLShopViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		1CB953D61ECFC6CA00BDC2D3 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -2041,8 +2017,6 @@
 				1CB953FC1ECFC86000BDC2D3 /* BLM_UploadUserIcon.m */,
 				1C8438261ECFCC1E006DF42E /* DLUtils.h */,
 				1C8438271ECFCC1E006DF42E /* DLUtils.m */,
-				45305A231ED6C89B0023E892 /* DLManager.h */,
-				45305A241ED6C89B0023E892 /* DLManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -2908,7 +2882,6 @@
 				1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */,
 				1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */,
 				4520579C1EF903B00033DA69 /* DLPersonalChangeDataController.m in Sources */,
-				45305A251ED6C89B0023E892 /* DLManager.m in Sources */,
 				1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */,
 				1C29816E1EDFE30500712524 /* DLTransactionRecordModel.m in Sources */,
 				1C8438281ECFCC1E006DF42E /* DLUtils.m in Sources */,
@@ -2929,7 +2902,6 @@
 				1C2981771EDFE33900712524 /* DLTransactionRecordTableViewCell.m in Sources */,
 				1C0162641F0C85230089CE09 /* TLCity.m in Sources */,
 				458CB5B41EDFB6880001084D /* DLsupplierQueryModel.m in Sources */,
-				1CB953D41ECFC41700BDC2D3 /* DLShopViewController.m in Sources */,
 				1CB9538D1ECFC41600BDC2D3 /* DLTabBarController.m in Sources */,
 				1C6661561EF622C80032E1AE /* DLBankTransferModel.m in Sources */,
 				1C29816B1EDFE2C400712524 /* DLTransactionRecordViewController.m in Sources */,

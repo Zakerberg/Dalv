@@ -10,8 +10,8 @@
 #import "DLCustomerLoginController.h"
 #import "DLLoginViewController.h"
 @interface DLIdentitySelectionLoginViewController ()
-@property (nonatomic,strong) UIButton *consultantBtn;//顾问登陆
-@property (nonatomic,strong) UIButton *averageUserBtn;//普通用户
+@property (nonatomic,strong) UIButton *consultantBtn;
+@property (nonatomic,strong) UIButton *averageUserBtn;
 
 @end
 
@@ -73,7 +73,6 @@
     }];
 
     [_consultantBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(loginImage.mas_bottom).with.offset(50);
         make.bottom.equalTo(self.view.mas_bottom).offset(-150);
         make.left.equalTo(@60);
         make.right.equalTo(@-60);
@@ -81,7 +80,6 @@
     }];
     
     [_averageUserBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(_consultantBtn.mas_bottom).with.offset(50);
         make.bottom.equalTo(self.view.mas_bottom).offset(-80);
         make.left.equalTo(@60);
         make.right.equalTo(@-60);
@@ -101,7 +99,6 @@
 
     DLCustomerLoginController *cusLoginVC = [[DLCustomerLoginController alloc ] init];
     [self.navigationController pushViewController:cusLoginVC animated:YES];
-//    [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
    
 }
 
