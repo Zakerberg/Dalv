@@ -28,12 +28,7 @@ static NSString *nibCellID = @"nibCellID";
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //self.lineOrderList = [NSMutableArray array];
-//self.pageIndex=1;
-    // [self fetchData];
-   // [self.lineOrderTableView ms_beginRefreshing:self
-//                                            headerAction:@selector(fetchNewData)
-//                                            footerAction:@selector(fetchMoreData)];
+
 }
 
 - (void)viewDidLoad {
@@ -139,7 +134,7 @@ static NSString *nibCellID = @"nibCellID";
                             
                             };
     
-    if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
+    if([[DLUtils getUser_type] isEqualToString:@"4"])
     {
         
     @weakify(self);
@@ -156,7 +151,7 @@ static NSString *nibCellID = @"nibCellID";
         }
     }];
 
-    }else{ // C  机票订单
+    }else{
         
         
         

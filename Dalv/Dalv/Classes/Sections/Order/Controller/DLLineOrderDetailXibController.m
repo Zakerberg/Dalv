@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/14.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//   ----------------  订单详情界面  ------------------
 
 #import "DLLineOrderDetailXibController.h"
 #import "DLLineOrderConfirmController.h"
@@ -30,11 +29,9 @@
 @property (nonatomic, strong) UIButton *prepaidBtn;
 @property (nonatomic, strong) UIButton *payFullBtn;
 @property (weak, nonatomic) IBOutlet UIButton *payTailButton;
-@property(nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
-@property(nonatomic,strong) UITableView * mainTableView;
-
+@property (nonatomic,strong) DLLineOrderDetailModel * lineOrderDetailModel;
+@property (nonatomic,strong) UITableView * mainTableView;
 @property(nonatomic,strong) NSString * PayedStatus;
-
 @end
 
 static NSString *cellID = @"cellID";
@@ -46,20 +43,13 @@ static NSString *cellID = @"cellID";
     [self setUI];
     [self fetchData];
     [self setButton];
-    
     self.payTailButton.hidden = YES;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFullMoeyNoti:) name:@"payFullMoney" object:nil];
-    
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payTailMoeyNoti:) name:@"payTailMoney" object:nil];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payPreMoeyNoti:) name:@"payPreMoney" object:nil];
-    
 }
-
 
 -(void)payFullMoeyNoti:(NSNotification *)notification
 
@@ -87,11 +77,9 @@ static NSString *cellID = @"cellID";
 -(void)payPreMoeyNoti:(NSNotification *)notification
 
 {
-    
     self.payTailButton.hidden = NO;
     self.payFullBtn.hidden = YES;
     self.prepaidBtn.hidden = YES;
-    
     self.lineOrderStateLabel.text = @"已付预付款";
     
 }
@@ -101,45 +89,6 @@ static NSString *cellID = @"cellID";
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-
-/*
- - (void)viewWillAppear:(BOOL)animated{
- 
- [super viewWillAppear:animated];
- 
- self.navigationController.delegate = self;
- 
- }
- #pragma mark - ------------- setTableView ----------------
- 
- -(void)setTableView
- {
- 
- UITableView *mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
- self.mainTableView = mainTableView;
- 
- mainTableView.backgroundColor = [UIColor redColor];
- 
- 
- //    self.automaticallyAdjustsScrollViewInsets = NO;
- //    mainTableView.showsVerticalScrollIndicator = NO;
- 
- [mainTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
- 
- [mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
- 
- 
- [self.view addSubview:mainTableView];
- 
- 
- [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
- make.top.left.right.offset(0);
- make.height.offset(0);
- }];
- 
- }
- */
 
 #pragma mark - ------- setUI
 
@@ -151,7 +100,6 @@ static NSString *cellID = @"cellID";
     self.adultBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.adultBorderLabel.layer.borderWidth = 0.5f;
     self.adultBorderLabel.layer.masksToBounds = YES;
-    
     self.childBorderLabel.layer.borderColor = [[UIColor grayColor]CGColor];
     self.childBorderLabel.layer.borderWidth = 0.5f;
     self.childBorderLabel.layer.masksToBounds = YES;
@@ -167,7 +115,7 @@ static NSString *cellID = @"cellID";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - ------------- setButton 
+#pragma mark - ------------- setButton
 
 -(void)setButton{
     
@@ -214,7 +162,7 @@ static NSString *cellID = @"cellID";
 }
 
 #pragma mark ---- BtnClick
-///预付款
+
 -(void)prepaidBtnClick{
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
@@ -229,7 +177,7 @@ static NSString *cellID = @"cellID";
     NSLog(@"预付款");
 }
 
-///全款
+
 -(void)payFullBtnClick{
     
     
@@ -246,7 +194,7 @@ static NSString *cellID = @"cellID";
     NSLog(@"全款");
 }
 
-///尾款
+
 - (IBAction)payTailBtnClick:(id)sender {
     
     DLLineOrderConfirmController *confirmVC = [[DLLineOrderConfirmController alloc] init];
@@ -274,24 +222,16 @@ static NSString *cellID = @"cellID";
         if (result) {
             
             NSDictionary *dict = result[@"list"];
-            
             NSString *nameStr = dict[@"name"];
-            
             NSString *stateStr = dict[@"state"];
             NSString *create_timeStr = dict[@"create_time"];
             NSString *memoStr = dict[@"memo"];
-            
             NSString *client_adult_countStr = dict[@"client_adult_count"];
             NSString *client_child_countStr = dict[@"client_child_count"];
             NSString *start_timeStr = dict[@"start_time"];
-            
-            //应付金额
             NSString *price_payableStr = dict[@"price_payable"];
-            //订单金额
             NSString *price_totalStr = dict[@"price_total"];
-            //调整金额
             NSString *price_adjustStr = dict[@"price_adjust"];
-            
             NSString *pictureStr = dict[@"cover_pic"];
             NSString *prepayAmount = dict[@"prepay_amount"];
             
@@ -407,23 +347,13 @@ static NSString *cellID = @"cellID";
             [self.lineOrderPicImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
             
             self.lineOrderNameLabel.text = nameStr;
-            
             self.lineOrderCreatTimeLabel.text = create_timeStr;
-            
-            
             self.lineOrderAdultCountLabel.text = client_adult_countStr;
-            
             self.lineOrderChildCountLabel.text =client_child_countStr;
-            
             self.lineOrderPayableLabel.text = [NSString stringWithFormat:@"%.2f",[price_payableStr integerValue]/100.00];
-            
             self.lineOrderPriceAdjustLabel.text = [NSString stringWithFormat:@"%.2f",[price_adjustStr integerValue]/100.00];
-            
             self.lineOrderPriceTotaLabel.text= [NSString stringWithFormat:@"%.2f",[price_totalStr integerValue]/100.00];
-            
             self.lineOrderStartTimeLabel.text = start_timeStr;
-            
-            
             NSArray *lineOrderDetailArray = [DLLineOrderDetailModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.lineOrderDetailList removeAllObjects];
             [self.lineOrderDetailList addObjectsFromArray:lineOrderDetailArray];
@@ -433,39 +363,4 @@ static NSString *cellID = @"cellID";
         }
     }];
 }
-
-
-/*
- #pragma mark ------- UINavigationControllerDelegate -------
- 
- - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
- return 1;
- }
- 
- - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
- return 1;
- }
- 
- - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
- return MAIN_SCREEN_WIDTH-45;
- }
- 
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
- 
- cell.accessoryType = UITableViewCellAccessoryNone;
- 
- return cell;
- 
- }
- 
- - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated{
- 
- if([[viewController class] isSubclassOfClass:[DLLineOrderDetailXibController class]]) {
- 
- 
- }
- }
- */
 @end

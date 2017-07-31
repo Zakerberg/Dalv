@@ -135,7 +135,6 @@
 		1CB770B21ECFE00100F6EFDF /* DLLineQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770891ECFE00100F6EFDF /* DLLineQueryController.m */; };
 		1CB770B31ECFE00100F6EFDF /* DLMineCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */; };
 		1CB770B41ECFE00100F6EFDF /* DLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */; };
-		1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */; };
 		1CB770BF1ECFE00100F6EFDF /* DLGenralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */; };
 		1CB953871ECFC41600BDC2D3 /* DLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952EE1ECFC41600BDC2D3 /* DLFileManager.m */; };
 		1CB953881ECFC41600BDC2D3 /* DLHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB952F01ECFC41600BDC2D3 /* DLHttpRequest.m */; };
@@ -708,8 +707,6 @@
 		1CB7708B1ECFE00100F6EFDF /* DLMineCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineCenterController.m; sourceTree = "<group>"; };
 		1CB7708C1ECFE00100F6EFDF /* DLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMineViewController.h; sourceTree = "<group>"; };
 		1CB7708D1ECFE00100F6EFDF /* DLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMineViewController.m; sourceTree = "<group>"; };
-		1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineEnquiryController.h; sourceTree = "<group>"; };
-		1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineEnquiryController.m; sourceTree = "<group>"; };
 		1CB770A11ECFE00100F6EFDF /* DLGenralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLGenralModel.h; sourceTree = "<group>"; };
 		1CB770A21ECFE00100F6EFDF /* DLGenralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLGenralModel.m; sourceTree = "<group>"; };
 		1CB952ED1ECFC41600BDC2D3 /* DLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLFileManager.h; sourceTree = "<group>"; };
@@ -1432,8 +1429,6 @@
 		1CB770971ECFE00100F6EFDF /* Controller(二级) */ = {
 			isa = PBXGroup;
 			children = (
-				1CB7709E1ECFE00100F6EFDF /* DLLineEnquiryController.h */,
-				1CB7709F1ECFE00100F6EFDF /* DLLineEnquiryController.m */,
 				45305A3C1ED832CA0023E892 /* DLFeedBackController.h */,
 				45305A3D1ED832CA0023E892 /* DLFeedBackController.m */,
 				458CB59A1EDE8EB60001084D /* DLChangePasswordController.h */,
@@ -2837,7 +2832,6 @@
 				1C66614D1EF5FE660032E1AE /* DLNotification.m in Sources */,
 				45DB480A1EE8DB6400399A6D /* DLContractApplySection3Cell.m in Sources */,
 				1C5CD38B1EFA0010009DBC1B /* CalenderDateHeaderView.m in Sources */,
-				1CB770BE1ECFE00100F6EFDF /* DLLineEnquiryController.m in Sources */,
 				45C61A7C1F29F5760075AEEE /* DLSubmitSection3Cell.m in Sources */,
 				45305A381ED7CD4C0023E892 /* DLSalertView.m in Sources */,
 				1CB953F31ECFC7E200BDC2D3 /* NSString+Extension.m in Sources */,
