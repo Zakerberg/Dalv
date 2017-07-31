@@ -4,25 +4,23 @@
 //
 //  Created by Michael 柏 on 2017/6/21.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//   ------------------ 我的顾问(绑定)  ---------------
 
 #import "DLMyAgencyController.h"
 #import "DLMyAgencyUnBindingController.h"
-#import "DLUtils.h"
 
 @interface DLMyAgencyController ()
-@property (nonatomic, strong) NSDictionary *myAgencyList;
-@property(nonatomic,strong) UIImageView *imageView;
-@property(nonatomic,strong) UILabel  * nameLabel;
-@property(nonatomic,strong) UILabel * nickNameLabel;
-@property(nonatomic,strong) UILabel * sexLabel;
-@property(nonatomic,strong) UILabel * ageLabel;
-@property(nonatomic,strong) UILabel * workTimeLabel;
-@property(nonatomic,strong) UITextView * personTV;
-@property(nonatomic,strong) UILabel * numberLabel;
-@property(nonatomic,strong) UILabel * mailLabel;
-@property(nonatomic,strong) UITextView * noteTV;
-@property() UIButton * unBindingBtn;
+@property (nonatomic,strong) NSDictionary *myAgencyList;
+@property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) UILabel  * nameLabel;
+@property (nonatomic,strong) UILabel * nickNameLabel;
+@property (nonatomic,strong) UILabel * sexLabel;
+@property (nonatomic,strong) UILabel * ageLabel;
+@property (nonatomic,strong) UILabel * workTimeLabel;
+@property (nonatomic,strong) UITextView * personTV;
+@property (nonatomic,strong) UILabel * numberLabel;
+@property (nonatomic,strong) UILabel * mailLabel;
+@property (nonatomic,strong) UITextView * noteTV;
+@property (nonatomic,strong) UIButton * unBindingBtn;
 @property(nonatomic,strong) UIButton * contractBtn;
 @end
 

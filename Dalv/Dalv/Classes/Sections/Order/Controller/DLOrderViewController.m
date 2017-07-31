@@ -14,10 +14,10 @@
 #import "DLHeadScrollView.h"
 
 @interface DLOrderViewController ()<UIScrollViewDelegate,seletedControllerDelegate>
-@property (nonatomic ,strong) DLLineOrderController *lineVC;/// 线路
-@property (nonatomic ,strong) DLVisaOrderController *visaVC;/// 签证
-@property (nonatomic ,strong) DLWiFiOrderViewController *wifiVC;/// wifi
-@property (nonatomic ,strong) DLTicketsOrderController *ticketVC;///机票
+@property (nonatomic ,strong) DLLineOrderController *lineVC; 
+@property (nonatomic ,strong) DLVisaOrderController *visaVC;
+@property (nonatomic ,strong) DLWiFiOrderViewController *wifiVC;
+@property (nonatomic ,strong) DLTicketsOrderController *ticketVC;
 @property (nonatomic ,strong) DLHeadScrollView *headScrollView;
 @property (nonatomic ,strong) UIViewController *currentVC;
 @property (nonatomic ,strong) UIScrollView *mainScrollView;

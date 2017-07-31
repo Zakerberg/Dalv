@@ -328,9 +328,6 @@
 		45305A411ED833730023E892 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 45305A401ED833730023E892 /* UILabel+Extension.m */; };
 		453530111EF3CC8700CBAC19 /* DLLineOrderConfirmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */; };
 		453530121EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */; };
-		4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9601EDFE0FA002269BF /* NSString+JSON.m */; };
-		4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9631EDFE118002269BF /* NSObject+JSON.m */; };
-		4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B9671EE0073C002269BF /* DLMemberInfoModel.m */; };
 		4550B97B1EE1ADAB002269BF /* DLRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4550B97A1EE1ADAA002269BF /* DLRegisterView.m */; };
 		4550B9811EE1B6C3002269BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550B9801EE1B6C3002269BF /* Assets.xcassets */; };
 		45646B201ED55F8F003CC22E /* DLFianceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45646B1F1ED55F8F003CC22E /* DLFianceController.m */; };
@@ -977,12 +974,6 @@
 		4535300E1EF3CC8700CBAC19 /* DLLineOrderConfirmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLLineOrderConfirmController.h; sourceTree = "<group>"; };
 		4535300F1EF3CC8700CBAC19 /* DLLineOrderConfirmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLLineOrderConfirmController.m; sourceTree = "<group>"; };
 		453530101EF3CC8700CBAC19 /* DLLineOrderConfirmController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DLLineOrderConfirmController.xib; sourceTree = "<group>"; };
-		4550B95F1EDFE0FA002269BF /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
-		4550B9601EDFE0FA002269BF /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
-		4550B9621EDFE118002269BF /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
-		4550B9631EDFE118002269BF /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
-		4550B9661EE0073C002269BF /* DLMemberInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLMemberInfoModel.h; sourceTree = "<group>"; };
-		4550B9671EE0073C002269BF /* DLMemberInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLMemberInfoModel.m; sourceTree = "<group>"; };
 		4550B9791EE1ADAA002269BF /* DLRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRegisterView.h; sourceTree = "<group>"; };
 		4550B97A1EE1ADAA002269BF /* DLRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRegisterView.m; sourceTree = "<group>"; };
 		4550B9801EE1B6C3002269BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1505,7 +1496,6 @@
 			isa = PBXGroup;
 			children = (
 				1C0162561F0C85230089CE09 /* TLCityPicker */,
-				4550B95B1EDFBEF1002269BF /* UserDefaultManager */,
 				458CB5901EDE5FE70001084D /* InputAlert */,
 				450105F01ED9C34000AA7A17 /* common */,
 				1C3416051ED9494000752071 /* SegmentView */,
@@ -2255,27 +2245,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4550B95B1EDFBEF1002269BF /* UserDefaultManager */ = {
-			isa = PBXGroup;
-			children = (
-				4550B95F1EDFE0FA002269BF /* NSString+JSON.h */,
-				4550B9601EDFE0FA002269BF /* NSString+JSON.m */,
-				4550B9621EDFE118002269BF /* NSObject+JSON.h */,
-				4550B9631EDFE118002269BF /* NSObject+JSON.m */,
-				4550B9651EE00724002269BF /* Model */,
-			);
-			path = UserDefaultManager;
-			sourceTree = "<group>";
-		};
-		4550B9651EE00724002269BF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4550B9661EE0073C002269BF /* DLMemberInfoModel.h */,
-				4550B9671EE0073C002269BF /* DLMemberInfoModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		4572B1771ED3CA7F007927EE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2711,7 +2680,6 @@
 				45A321BC1EF1195000325683 /* DLLineOrderDetailModel.m in Sources */,
 				1C29791A1EF02D6F00D3FEEA /* MSRefreshFooter.m in Sources */,
 				1C422BC31F00AFD0004EB57F /* PYSearchConst.m in Sources */,
-				4550B9641EDFE118002269BF /* NSObject+JSON.m in Sources */,
 				1CB953F11ECFC7E200BDC2D3 /* NSArray+Log.m in Sources */,
 				45C61A731F29DFAA0075AEEE /* DLSubmitPlaneSection2Row1Cell.m in Sources */,
 				4524A5711F209F99001D628F /* DLSubmitPlaneOrderController.m in Sources */,
@@ -2836,7 +2804,6 @@
 				1CB953B71ECFC41600BDC2D3 /* DLHomeMenuCollectionViewCell.m in Sources */,
 				45DB47D71EE6A63500399A6D /* DLContractApplyStyleCell.m in Sources */,
 				1C2981661EDFE2C400712524 /* DLOfflineRechargeViewController.m in Sources */,
-				4550B9611EDFE0FA002269BF /* NSString+JSON.m in Sources */,
 				45DB47FB1EE7FE4300399A6D /* DLInvoiceApplyRecordController.m in Sources */,
 				1CB953F81ECFC7E200BDC2D3 /* UIView+MSExtension.m in Sources */,
 				4524A56B1F1DA979001D628F /* DLHomeSearchController.m in Sources */,
@@ -2889,7 +2856,6 @@
 				1C0162421F0C7CCA0089CE09 /* DLPlaneTicketViewController.m in Sources */,
 				1C66616A1EF672460032E1AE /* DLRecommendRouteViewController.m in Sources */,
 				1CBCF9041ED2E45100310CCB /* DLCycleScrollView.m in Sources */,
-				4550B9681EE0073C002269BF /* DLMemberInfoModel.m in Sources */,
 				1C5CD38F1EFA0010009DBC1B /* CalenderObject.m in Sources */,
 				1C6661651EF66E580032E1AE /* DLHomePageMenuModel.m in Sources */,
 				457307BB1F0F2FEC000F39CF /* UIImage+ZipAndLength.m in Sources */,

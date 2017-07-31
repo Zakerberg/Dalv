@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/23.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------- 顾问列表页(未绑定) --------------
 
 #import "DLMyAgencyUnBindingController.h"
 #import "DLMyAgencyUnBindingModel.h"
@@ -12,16 +11,15 @@
 #import "DLMyAgencyController.h"
 
 @interface DLMyAgencyUnBindingController ()<UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong) UITableView * agencyListTableView;
+@property (nonatomic,strong) UITableView * agencyListTableView;
 @property (nonatomic, strong) NSMutableArray *agencyList;
-@property (weak, nonatomic)  UIImageView *AgencyImageV;
-@property (weak, nonatomic)  UILabel *agencyNameLabel;
-@property (weak, nonatomic)  UILabel *agencyIntegralLabel;
-@property (weak, nonatomic)  UILabel *agencyWorkTimeLabel;
-@property(nonatomic,weak) NSDictionary * myListDict;
+@property (weak, nonatomic) UIImageView *AgencyImageV;
+@property (weak, nonatomic) UILabel *agencyNameLabel;
+@property (weak, nonatomic) UILabel *agencyIntegralLabel;
+@property (weak, nonatomic) UILabel *agencyWorkTimeLabel;
+@property (nonatomic,weak) NSDictionary * myListDict;
 @end
 
-//static NSString *CellID = @"CellID";
 
 @implementation DLMyAgencyUnBindingController
 

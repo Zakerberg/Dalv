@@ -4,7 +4,6 @@
 //
 //  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  ------------------ 我的直客列表 --------------------
 
 #import "DLCustomerListController.h"
 #import "DLCustomerListModel.h"
@@ -15,10 +14,10 @@
 
 @property (nonatomic,strong) UITableView * customerListTableView;
 @property (nonatomic, strong) NSMutableArray *myCustomerList;
-@property (weak, nonatomic)  UIImageView *customerAvatarImageV;/// 直客头像
-@property (weak, nonatomic)  UILabel *customerNameLabel;/// 直客名称
-@property (weak, nonatomic)  UILabel *customerNumLabel;///直客电话
-@property (weak, nonatomic)  UILabel *customerTimeLabel;/// 直客时间
+@property (weak, nonatomic)  UIImageView *customerAvatarImageV;
+@property (weak, nonatomic)  UILabel *customerNameLabel;
+@property (weak, nonatomic)  UILabel *customerNumLabel;
+@property (weak, nonatomic)  UILabel *customerTimeLabel; 
 @property (nonatomic,weak) NSDictionary * myListDict;
 @end
 

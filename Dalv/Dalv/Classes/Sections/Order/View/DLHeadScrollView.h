@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @protocol seletedControllerDelegate <NSObject>
-
 -(void)seletedControllerWith:(UIButton *)btn;
-
-
 @end
 
 @interface DLHeadScrollView : UIScrollView

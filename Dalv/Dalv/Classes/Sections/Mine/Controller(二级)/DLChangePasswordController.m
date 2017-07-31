@@ -15,10 +15,10 @@ static NSString* cellID = @"cellID";
 @property (strong,nonatomic) NSArray* cellTiltleArr;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
 @property (weak,nonatomic) UITableViewCell* cell;
-@property (nonatomic,weak) UITextField *oldPasswordTF;/// 旧密码
-@property (nonatomic,strong) UITextField *changePasswordTF;/// 新密码
-@property (nonatomic,strong) UITextField *changeTwoPasswordTF;/// 确认新密码
-@property(nonatomic,strong) NSString * passwordStatus;/// 密码状态码
+@property (nonatomic,weak) UITextField *oldPasswordTF; 
+@property (nonatomic,strong) UITextField *changePasswordTF;
+@property (nonatomic,strong) UITextField *changeTwoPasswordTF;
+@property(nonatomic,strong) NSString * passwordStatus;
 @end
 @implementation DLChangePasswordController
 
@@ -27,7 +27,6 @@ static NSString* cellID = @"cellID";
     self.tableView.hidden = NO;
     self.title = @"修改密码";
     [self setupUI];
-    //  [self fetchData];
 }
 
 -(void)fetchData {
