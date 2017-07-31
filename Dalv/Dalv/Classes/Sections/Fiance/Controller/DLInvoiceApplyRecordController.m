@@ -8,32 +8,68 @@
 
 #import "DLInvoiceApplyRecordController.h"
 #import "DLInvoiceApplyRecordCell.h"
-#import "DLHomeViewTask.h"
 
 @interface DLInvoiceApplyRecordController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *invoiceRecordTableView;
 @property (nonatomic, strong) NSMutableArray *invoiceRecordList;
 
+@property (nonatomic, assign) NSInteger pageIndex;
 @end
 
 @implementation DLInvoiceApplyRecordController
 
 - (void)viewDidLoad {
+    self.title = @"发票申请记录";
     [super viewDidLoad];
     [self setupSubviews];
-    [self fetchData];
-    self.title = @"发票申请记录";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.invoiceRecordTableView ms_beginRefreshing:self
+                                        headerAction:@selector(fetchNewData)
+                                        footerAction:@selector(fetchMoreData)];
 }
-
-
-#pragma mark - Setup navbar
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
+#pragma mark ------------------ fetchData --------------
+
+- (void)fetchNewData {
+    self.pageIndex = 1;
+    [self fetchData];
+}
+
+- (void)fetchMoreData {
+    self.pageIndex++;
+    [self fetchData];
+}
+
+-(void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"page" : @(self.pageIndex),
+                            @"sign_token" : [DLUtils getSign_token],};
+    @weakify(self);
+    [DLHomeViewTask getAgencyFinanceInvoicetList:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        if (result) {
+            NSArray *invoiteRecordArray = [DLInvoiceRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.invoiceRecordList addObjectsFromArray:invoiteRecordArray];
+            [self.invoiceRecordTableView reloadData];
+            [self.invoiceRecordTableView ms_endRefreshing:invoiteRecordArray.count pageSize:10 error:error];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+}
+
+#pragma mark ----------- setupSubviews --------------------
 -(void)setupSubviews {
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
@@ -57,34 +93,11 @@
         make.left.equalTo(self.view.mas_left);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
-
-    
 }
-
-
-#pragma mark - Layout
 
 - (void)setupConstraints {
     [self.invoiceRecordTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
-    }];
-}
-
--(void)fetchData {
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"page" : @"1",
-                            @"sign_token" : [DLUtils getSign_token],};
-    @weakify(self);
-    [DLHomeViewTask getAgencyFinanceInvoicetList:param completion:^(id result, NSError *error) {
-        @strongify(self);
-        if (result) {
-            NSArray *invoiteRecordArray = [DLInvoiceRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
-            [self.invoiceRecordList removeAllObjects];
-            [self.invoiceRecordList addObjectsFromArray:invoiteRecordArray];
-            [self.invoiceRecordTableView reloadData];
-        } else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-        }
     }];
 }
 
@@ -110,7 +123,13 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190;
+    
+    DLInvoiceRecordModel *crModel = [self.invoiceRecordList objectAtIndex:indexPath.section];
+    if (crModel.state.integerValue == 3) {
+        return 210;
+    } else {
+        return 190;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -133,14 +152,6 @@
     }
     return _invoiceRecordList;
 }
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 @end

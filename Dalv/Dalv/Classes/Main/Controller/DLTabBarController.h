@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLNavigationController.h"
 
 @interface DLTabBarController : UITabBarController
 

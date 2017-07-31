@@ -19,16 +19,18 @@
     [self setUI];
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
 
-#pragma mark  ------  setUI  ------------
+#pragma mark  ------ setUI
 -(void)setUI{
-    
-    
     
 }
 
 #pragma mark - configure
-
 - (void)configureCell:(DLlineOrderModel *)lineOrderModelData {
     
     if ([lineOrderModelData.state isEqualToString:@"1"]) {
@@ -73,20 +75,10 @@
     }
     
     NSURL *url = [NSURL URLWithString:lineOrderModelData.cover_pic];
-    
     [self.lineOrderPicture sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
-    
     self.lineOrderNameLabel.text = lineOrderModelData.name;
-    
     self.lineOrderTimeLabel.text = lineOrderModelData.start_time;
-    
-    self.lineOrderPriceLabel.text = lineOrderModelData.price_payable;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.lineOrderPriceLabel.text = [NSString stringWithFormat:@"%.2f",[lineOrderModelData.price_total integerValue]/100.00];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "DLTransactionRecordViewController.h"
 #import "DLTransactionRecordTableViewCell.h"
-#import "DLHomeViewTask.h"
+
 @interface DLTransactionRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *TRhomeTableView;
@@ -96,7 +96,7 @@
         if (error) {
             [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
         } else {
-            if (self.pageIndex == 0) {
+            if (self.pageIndex == 1) {
                 [self.transactionRecordList removeAllObjects];
             }
             NSArray *transactionRecorArray = [DLTransactionRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];

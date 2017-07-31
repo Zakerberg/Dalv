@@ -4,21 +4,21 @@
 //
 //  Created by Michael 柏 on 2017/5/31.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
 
 #import "DLChangePasswordController.h"
-#import "ZYInputAlertView.h"
 #import "DLHomeViewTask.h"
 
 static NSString* cellID = @"cellID";
 @interface DLChangePasswordController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (strong,nonatomic) UITableView* tableView;
 @property (strong,nonatomic) NSArray* cellTiltleArr;
 @property (assign,nonatomic) NSIndexPath* selectedIndexPath ;
 @property (weak,nonatomic) UITableViewCell* cell;
-@property (nonatomic,weak) UITextField *oldPasswordTF;
+@property (nonatomic,weak) UITextField *oldPasswordTF; 
 @property (nonatomic,strong) UITextField *changePasswordTF;
 @property (nonatomic,strong) UITextField *changeTwoPasswordTF;
+@property(nonatomic,strong) NSString * passwordStatus;
 @end
 @implementation DLChangePasswordController
 
@@ -27,21 +27,16 @@ static NSString* cellID = @"cellID";
     self.tableView.hidden = NO;
     self.title = @"修改密码";
     [self setupUI];
-    [self fetchData];
 }
 
 -(void)fetchData {
     
-    
     NSDictionary *param = @{
-                            
-                            @"uid":@"1132",
-                            @"sign_token":@"054f9b77205f634d348ef05d98210783"
-    
+                            @"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
                             };
     
     [DLHomeViewTask  getAgencyEditPass:param completion:^(id result, NSError *error) {
-        
     }];
 }
 
@@ -73,49 +68,57 @@ static NSString* cellID = @"cellID";
     
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(completeClick)];
-    
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
 
-
-/***  完成  ***/
 -(void)completeClick {
     
-    
-    if (self.changeTwoPasswordTF.text == nil) {
-        
-        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [failureV show];
-
-    }
-    if (self.oldPasswordTF.text != self.changeTwoPasswordTF.text) {
-        
-        UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"两次输入的密码不一致" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [failureV show];
-
-    }
-    
-    if (self.oldPasswordTF.text == self.changePasswordTF.text && self.changeTwoPasswordTF.text != self.oldPasswordTF.text) {
-        
+    if ([self.changePasswordTF.text isEqualToString:self.changeTwoPasswordTF.text] && ![self.changePasswordTF.text isEqual:@""]) {
         NSDictionary *param = @{
                                 
-                                @"uid":@"1132",
-                                @"sign_token":@"054f9b77205f634d348ef05d98210783",
+                                @"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],
                                 @"oldPassword":self.oldPasswordTF.text,
-                                @"newPassword":self.changePasswordTF.text
-
+                                @"newPassword":self.changeTwoPasswordTF.text
                                 };
         
         [DLHomeViewTask getAgencyEditPassHandle:param completion:^(id result, NSError *error) {
             
+            self.passwordStatus = result[@"status"];
+            if ([self.passwordStatus isEqualToString:@"00000"]){
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改密码成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            } else {
+                
+                UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"旧密码错误" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [successV show];
+            }
         }];
+        
+    }else{
+        
+        if ([self.changePasswordTF.text isEqualToString:@""]) {
+            
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+            
+        }else{
+            
+            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请确认新密码" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [successV show];
+            
+        }
     }
 }
 
-#pragma mark -------------- UITable View Delegate ------------------
+#pragma mark -------- UITable View Delegate -------------
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;

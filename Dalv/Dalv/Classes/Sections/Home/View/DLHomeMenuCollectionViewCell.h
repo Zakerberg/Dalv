@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DLHomeMenuItem.h"
+#import "DLHomePageMenuModel.h"
+#import "DLFinanceMenuItem.h"
 @interface DLHomeMenuCollectionViewCell : UICollectionViewCell
 
 /** 是否显示分隔线，默认为NO */
@@ -22,4 +23,8 @@
 /** 配置Cell 数据 */
 - (void)configureCell:(DLHomeMenuItem *)data;
 
+/** 配置Cell 数据 */
+- (void)configureFinanceCell:(DLFinanceMenuItem *)data;
+
+@property (nonatomic, strong) DLHomeMenuItem *homeMenuItem;
 @end

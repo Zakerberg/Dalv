@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DLMyCustomerXibController">
+            <connections>
+                <outlet property="myCustomerView" destination="377-eb-Ju1" id="fFp-04-5fk"/>
+                <outlet property="myMoneyLabel" destination="JIq-3T-aTi" id="Uuu-9H-zqO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="377-eb-Ju1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIq-3T-aTi">
+                            <rect key="frame" x="163.5" y="33" width="49" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="H8k-Bh-eF9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZk-zQ-SFv">
+                            <rect key="frame" x="212.5" y="43" width="9.5" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="x2x-ev-nyi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-iv-3Ki">
+                            <rect key="frame" x="153.5" y="65" width="69.5" height="16"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zus-CF-Rwd">
+                                    <rect key="frame" x="0.0" y="0.0" width="69.5" height="16"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyCommission" translatesAutoresizingMaskIntoConstraints="NO" id="rgg-yS-Fne">
+                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="KdW-jC-4yC"/>
+                                                <constraint firstAttribute="width" constant="16" id="Wkd-vC-AYK"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的佣金" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWE-MU-Pgo">
+                                            <rect key="frame" x="16" y="0.0" width="53.5" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="ra6-Qs-tUW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="107" id="8jv-x2-cWB"/>
+                        <constraint firstItem="JIq-3T-aTi" firstAttribute="centerX" secondItem="377-eb-Ju1" secondAttribute="centerX" id="ISH-M5-LFi"/>
+                        <constraint firstItem="qcD-iv-3Ki" firstAttribute="top" secondItem="JIq-3T-aTi" secondAttribute="bottom" constant="8" symbolic="YES" id="XOb-gu-tM3"/>
+                        <constraint firstItem="rZk-zQ-SFv" firstAttribute="bottom" secondItem="JIq-3T-aTi" secondAttribute="bottom" id="k1Q-U7-GKg"/>
+                        <constraint firstItem="qcD-iv-3Ki" firstAttribute="centerX" secondItem="377-eb-Ju1" secondAttribute="centerX" id="mBn-Q8-ZFJ"/>
+                        <constraint firstItem="JIq-3T-aTi" firstAttribute="top" secondItem="377-eb-Ju1" secondAttribute="top" constant="33" id="rWg-Se-vMt"/>
+                        <constraint firstItem="rZk-zQ-SFv" firstAttribute="leading" secondItem="JIq-3T-aTi" secondAttribute="trailing" id="rzV-rk-Tpc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="377-eb-Ju1" secondAttribute="trailing" id="k4G-GR-njl"/>
+                <constraint firstItem="377-eb-Ju1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qWU-ap-kdH"/>
+                <constraint firstItem="377-eb-Ju1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vcO-Xj-Gqd"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MyCommission" width="16" height="16"/>
+    </resources>
+</document>

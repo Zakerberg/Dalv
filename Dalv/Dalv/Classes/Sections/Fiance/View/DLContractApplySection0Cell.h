@@ -9,15 +9,7 @@
 #import <UIKit/UIKit.h>
 @class DLAddReduceButton;
 @interface DLContractApplySection0Cell : UITableViewCell
-
-
-
 @property(nonatomic,strong) DLAddReduceButton * button1;
 @property(nonatomic,strong) DLAddReduceButton * button2;
 @property(nonatomic,strong) DLAddReduceButton * button3;
-
-
-
-
-
 @end

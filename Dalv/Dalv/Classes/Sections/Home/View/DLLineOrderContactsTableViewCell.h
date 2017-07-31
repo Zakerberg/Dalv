@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLPlaceLineOrderModel.h"
 
 @interface DLLineOrderContactsTableViewCell : UITableViewCell
 @property (strong,nonatomic) UITextField *contacsTextField;
 @property (strong,nonatomic) UITextField *tellTextField;
 @property (strong,nonatomic) UITextField *remarksTextField;
 
-/** Cell 重用ID */
-+ (NSString *)cellIdentifier;
+@property (nonatomic, strong) DLPlaceLineOrderModel *lineOrderoModel;
 
++ (NSString *)cellIdentifier;
 @end

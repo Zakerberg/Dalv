@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLRecommendRouteModel.h"
 
 @interface DLLineModificationViewController : UIViewController
+@property (nonatomic, strong) DLRecommendRouteModel *routeModel;
 
 @end

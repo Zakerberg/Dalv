@@ -14,13 +14,10 @@
 #import "DLHeadScrollView.h"
 
 @interface DLOrderViewController ()<UIScrollViewDelegate,seletedControllerDelegate>
-
-/* 线路 签证 wifi 门票 */
-@property (nonatomic ,strong) DLLineOrderController *lineVC;
+@property (nonatomic ,strong) DLLineOrderController *lineVC; 
 @property (nonatomic ,strong) DLVisaOrderController *visaVC;
 @property (nonatomic ,strong) DLWiFiOrderViewController *wifiVC;
 @property (nonatomic ,strong) DLTicketsOrderController *ticketVC;
-
 @property (nonatomic ,strong) DLHeadScrollView *headScrollView;
 @property (nonatomic ,strong) UIViewController *currentVC;
 @property (nonatomic ,strong) UIScrollView *mainScrollView;
@@ -50,15 +47,14 @@
     self.headScrollView.showsVerticalScrollIndicator = NO;
     self.headScrollView.showsHorizontalScrollIndicator = NO;
     
-    
     [self.view addSubview:self.headScrollView];
     
-    self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 57, MAIN_SCREEN_WIDTH,MAIN_SCREEN_HEIGHT- 64)];
+    self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 57, MAIN_SCREEN_WIDTH,MAIN_SCREEN_HEIGHT- 64- 49 - 48)];
     
     self.mainScrollView.delegate = self;
     self.mainScrollView.contentSize = CGSizeMake(MAIN_SCREEN_WIDTH*self.headScrollView.headArray.count, 0);
     self.mainScrollView.pagingEnabled = YES;
-    self.mainScrollView.backgroundColor = [UIColor randomColor];
+    self.mainScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.mainScrollView];
     
     self.lineVC = [[DLLineOrderController alloc] init];
@@ -66,41 +62,36 @@
     
     self.lineVC.view.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
     [self.mainScrollView addSubview:self.lineVC.view];
-
 }
 
 
-#pragma mark  ----------   UIScrollViewDelegate  ------------
+#pragma mark  ---- UIScrollViewDelegate
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.x==MAIN_SCREEN_WIDTH) {
+        if (self.ticketVC == nil) {
+            self.ticketVC = [[DLTicketsOrderController alloc]init];
+            [self addChildViewController:self.ticketVC];
+            self.ticketVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*3, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
+            [self.mainScrollView addSubview:self.ticketVC.view];
+        }
+    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*2){
+        if (self.wifiVC == nil) {
+            self.wifiVC = [[DLWiFiOrderViewController alloc]init];
+            [self addChildViewController:self.wifiVC];
+            self.wifiVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*2, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
+            [self.mainScrollView addSubview:self.wifiVC.view];
+        }
+    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*3){
         if (self.visaVC == nil) {
             self.visaVC = [[DLVisaOrderController alloc]init];
             [self addChildViewController:self.visaVC];
             self.visaVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
             [self.mainScrollView addSubview:self.visaVC.view];
         }
-        
-    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*2){
-        if (self.wifiVC ==nil) {
-            self.wifiVC = [[DLWiFiOrderViewController alloc]init];
-            [self addChildViewController:self.wifiVC];
-            self.wifiVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*2, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
-            [self.mainScrollView addSubview:self.wifiVC.view];
-        }
-        
-        
-    }else if(scrollView.contentOffset.x==MAIN_SCREEN_WIDTH*3){
-        if (self.ticketVC ==nil) {
-            self.ticketVC = [[DLTicketsOrderController alloc]init];
-            [self addChildViewController:self.ticketVC];
-            self.ticketVC.view.frame = CGRectMake(MAIN_SCREEN_WIDTH*3, 0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT - 64);
-            [self.mainScrollView addSubview:self.ticketVC.view];
-        }
     }
     
     NSLog(@"%f",scrollView.contentOffset.x);
-    
     [self.headScrollView changeBtnTitleColorWith:scrollView.contentOffset.x/MAIN_SCREEN_WIDTH+100];
 }
 
@@ -111,13 +102,3 @@
     self.mainScrollView.contentOffset = CGPointMake(MAIN_SCREEN_WIDTH*(btn.tag - 100), 0);
 }
 @end
-
-
-
-
-
-
-
-
-
-

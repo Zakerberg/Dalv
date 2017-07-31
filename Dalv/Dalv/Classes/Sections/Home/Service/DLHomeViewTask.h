@@ -491,4 +491,389 @@
                             completion:(void (^)(id result, NSError *error))completionHandler;
 
 
+/**
+ * 53 测试顾订单->线路订单详情页面接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyLineOrderListDetails:(NSDictionary *)param
+                    completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 54 测试顾问个人中心->我的直客列表接口
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyMyCustomerList:(NSDictionary *)param
+                           completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+/**
+ * 55 测试详情页地址-目的地图册
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
++ (void)getAgencyMorePics:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 56 测试详情页地址-确认支付界面
+
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderdetailConfirmPayment:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 57 测试顾问线路订单详情页-付全款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderAllPayed:(NSDictionary *)param
+                                    completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 58 测试顾问线路订单详情页-付预付款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderPrePayed:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 59 测试顾问线路订单详情页-付尾款处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyLineOrderPreForum:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 60 测试首页线路输入搜素接口地址
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getLineSearch:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 61 测试首页出发城市搜素接口地址
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getDepartureSearc:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 62 测试（首页模块）栏目接口地址（如出境游，国内游等）
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getHomeOutbound:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 63 测试顾问修改头像处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyEditHendImgHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 64 测试顾问个人资料设置页面接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyPersonalPageSetUp:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 65 测试顾问个人资料设置处理接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAgencyPersonaSetUpHandle:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 66 测试普通用户绑定前获取验证码地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristVerificationCode:(NSDictionary *)param
+                         completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 67 测试普通用户绑定并直接登陆地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristLoginRegister:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 68 测试普通用户-绑定顾问后首页模块接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristAgencyIndexMod:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+/**
+ * 69 测试普通用户个人中心地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonalIndex:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+
+/**
+ * 70 测试普通用户个人中心-我的顾问（已绑定）详情地址接口：
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonalMyAgenct:(NSDictionary *)param
+                     completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 71 测试普通用户个人中心-我的顾问（未绑定）列表地址接口：
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonalMyAgenctUnBinding:(NSDictionary *)param
+                        completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 72 测试（首页模块）栏目二级列表接口地址（如出境游，国内游等
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getOutboundLists:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 73 测试普通用户修改个人资料页面地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonPageData:(NSDictionary *)param
+              completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+/**
+ * 74 测试普通用户修改个人资料处理地址接口：
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonPageDataHandle:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 75 测试普通用户个人中心-我的顾问（已绑定）解绑接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonPageUnbundingAgency:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler;
+
+/**
+ * 76 测试普通用户-绑定顾问后首页模块接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
+//+ (void)getTouristAgencyIndexMod:(NSDictionary *)param
+//                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 77 测试普通用户-绑定顾问后首页线路列表接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristAgencyIndexLinelist:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 78 测试普通用户-绑定顾问后线路详情接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristIndexDetails:(NSDictionary *)param
+                      completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 76 测试普通用户个人中心-我的顾问（未绑定）绑定接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonlBindingAgency:(NSDictionary *)param
+                                 completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+
+
+/**
+ * 77 测试普通用户个人中心-我的顾问（未绑定）详情页地址接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getTouristPersonlAgencyDetails:(NSDictionary *)param
+                            completion:(void (^)(id result, NSError *error))completionHandler;
+
+
++ (void)uploadImage:(UIImage*)image
+         Completion:(DLRequestSuccessHandler)handler
+            failure:(DLRequestFailureHandler)failhandler;
+
+
+
+/**
+ * 79 测试财务中心微信App充值接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getWxpayAppDopay:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 80 测试首页机票查询处理返回机票列表接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)geAgencyFlightQueryList:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 81 测试财务中心支付宝App充值接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getAlipayAppDopay:(NSDictionary *)param
+             completion:(void (^)(id result, NSError *error))completionHandler;
+
+
+/**
+ * 82 测试首页机票添加乘机人-新增乘机人接口
+ 
+ *
+ *  @param param             请求参数
+ *  @param completionHandler 请求完成的回调
+ */
+
++ (void)getFlightAddFrequentPassenger:(NSDictionary *)param
+               completion:(void (^)(id result, NSError *error))completionHandler;
+
+
 @end

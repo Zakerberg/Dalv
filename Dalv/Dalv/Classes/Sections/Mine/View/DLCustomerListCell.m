@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+- (void)configureCell:(DLCustomerListModel *)customerListModel{
+    
+    self.customerNumLabel.text = customerListModel.mobile;
+    self.customerNameLabel.text = customerListModel.name ? customerListModel.name : @"未设置";
+    self.customerTimeLabel.text = customerListModel.create_time;
+    
+    NSURL *url = [NSURL URLWithString:customerListModel.head_img];
+    [self.customerAvatarImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_my_nor@2x"]];
+}
+
 @end

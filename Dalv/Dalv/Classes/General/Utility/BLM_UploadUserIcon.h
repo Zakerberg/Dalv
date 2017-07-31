@@ -17,6 +17,9 @@
 @optional
 // ** 处理图片的方法
 - (void)uploadImageToServerWithImage:(UIImage *)image;
++ (void)uploadImage:(UIImage*)image
+         Completion:(DLRequestSuccessHandler)handler
+            failure:(DLRequestFailureHandler)failhandler;
 
 @end
 
@@ -32,6 +35,17 @@
 
 // ** 弹出选项窗口的方法
 - (void)showActionSheetInFatherViewController:(UIViewController *)fatherVC delegate:(id <BLM_UploadUserIconDelegate> )aDelegate;
+
+/**
+ *  上传图片
+ *
+ *  @param handler 完成后的回调
+ */
+
++ (void)uploadImage:(UIImage*)image
+         Completion:(DLRequestSuccessHandler)handler
+            failure:(DLRequestFailureHandler)failhandler;
+
 
 
 @end

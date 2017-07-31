@@ -6,9 +6,8 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLCashRegisterViewController.h"
 #import "DLCashRegisterViewTableViewCell.h"
-#import "DLHomeViewTask.h"
+#import "DLCashRegisterViewController.h"
 
 @interface DLCashRegisterViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -22,10 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupNavbar];
     [self setupSubviews];
-     
     [self.cashRegisterTableView ms_beginRefreshing:self
                                        headerAction:@selector(fetchNewData)
                                        footerAction:@selector(fetchMoreData)];
@@ -99,7 +96,7 @@
          if (error) {
             [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
         } else {
-            if (self.pageIndex == 0) {
+            if (self.pageIndex == 1) {
                 [self.cashRegisterList removeAllObjects];
             }
             NSArray *cashRegisterArray = [DLCashRegisterModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
@@ -149,6 +146,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Event Handler
+- (void)didTapBack:(UIBarButtonItem *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Getter

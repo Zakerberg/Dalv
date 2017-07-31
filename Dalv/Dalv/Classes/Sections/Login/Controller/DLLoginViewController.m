@@ -9,9 +9,8 @@
 #import "DLLoginViewController.h"
 #import "DLLoginView.h"
 #import "DLMineViewController.h"
-#import "DLChoseViewController.h"
-#import "DLHomeViewTask.h"
 #import "DLRequestSerVice.h"
+#import "DLTabBarController.h"
 
 @interface DLLoginViewController ()<DLLoginViewDelegate>
 
@@ -19,16 +18,6 @@
 @property (strong,nonatomic) UITextField *passwordTextField;
 
 @end
-
-/*
- 测试登陆接口地址：
- http://dalvuapi.dalvu.com/index.php/Api/login/agencyIndex
- 请求方式：POST
- 请求参数：{login_name : 13126997216 ,login_pwd : 123456}
- 返回数据：
- */
- 
-
 
 @implementation DLLoginViewController
 
@@ -41,7 +30,7 @@
 
 #pragma mark - Setup navbar
 - (void)setupNavbar {
-    self.title = @"登陆";
+    self.title = @"旅游顾问登陆";
 }
 
 - (BOOL)dl_blueNavbar {
@@ -64,34 +53,32 @@
     
     NSDictionary *param = @{@"login_name" : usename,
                             @"login_pwd" : password,};
-       [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
-        if (error) {
-            [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
-        } else {
+    [DLHomeViewTask getLogin:param completion:^(id result, NSError *error) {
             if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
                 
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
-        [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self.navigationController popViewControllerAnimated:YES];
-        [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
-        }else {
-        [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"sign_token"] forKey:@"sign_token"];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"uid"] forKey:@"uid"];
+                [[NSUserDefaults standardUserDefaults] setObject:[result objectForKey:@"user_type"] forKey:@"user_type"];
+                [[NSUserDefaults standardUserDefaults] setObject:@"binding_state" forKey:@"binding_state"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+                DLTabBarController *tabVC = [[DLTabBarController alloc] init];
+                [UIApplication sharedApplication].keyWindow.rootViewController = tabVC;
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserlogInNotification object:nil];
             }
-        }
+                else {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+            }
     }];
-
-
 }
 
-//注册
-- (void)didRegisterButton
-{
-    DLChoseViewController *choseVC= [[DLChoseViewController alloc] init];
-    [self.navigationController pushViewController:choseVC animated:YES];
+
+- (void)didRegisterButton {
     
-    
+    DLMineViewController *minVC= [[DLMineViewController alloc] init];
+    [self.navigationController pushViewController:minVC animated:YES];
 }
 
 #pragma mark - Fetch data

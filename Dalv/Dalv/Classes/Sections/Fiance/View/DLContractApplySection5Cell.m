@@ -23,10 +23,7 @@
     return self;
 }
 
-
 -(void)setupCellSubviews {
-    
-   
     
     UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.submitBtn = submitBtn;
@@ -36,7 +33,6 @@
     
     [self.contentView addSubview:submitBtn];
     
-    
     [submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@15);
         make.height.offset(45);
@@ -45,8 +41,6 @@
     }];
     
 }
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

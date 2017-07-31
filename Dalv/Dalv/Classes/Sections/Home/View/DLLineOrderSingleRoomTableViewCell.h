@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DLAddReduceButton.h"
 @interface DLLineOrderSingleRoomTableViewCell : UITableViewCell
 
 @property(nonatomic, strong)UIButton *reduceBtn;
 @property(nonatomic, strong)UITextField *countTextField;
 @property(nonatomic, strong)UIButton *addBtn;
+@property(nonatomic,strong) DLAddReduceButton * singleRoomButton;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
 @end

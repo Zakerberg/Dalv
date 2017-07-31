@@ -8,7 +8,6 @@
 
 #import "DLRechargeRecordViewController.h"
 #import "DLRechargeRecordTableViewCell.h"
-#import "DLHomeViewTask.h"
 
 @interface DLRechargeRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *rechargeRecordTableView;
@@ -94,9 +93,10 @@
         if (error) {
         [[DLHUDManager sharedInstance] showTextOnly:error.localizedDescription];
     } else {
-        if (self.pageIndex == 0) {
+        if (self.pageIndex == 1) {
             [self.rechargeRecordList removeAllObjects];
         }
+        
         NSArray *rechargeRecordArray = [DLRechargeRecordModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
         [self.rechargeRecordList addObjectsFromArray:rechargeRecordArray];
         [self.rechargeRecordTableView reloadData];
@@ -155,5 +155,9 @@
     return _rechargeRecordList;
 }
 
+#pragma mark - Event Handler
+- (void)didTapBack:(UIBarButtonItem *)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

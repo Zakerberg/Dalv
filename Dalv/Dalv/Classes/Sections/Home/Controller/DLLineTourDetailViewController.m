@@ -4,22 +4,22 @@
 //
 //  Created by Nie on 2017/5/17.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
 
 #import "DLLineTourDetailViewController.h"
 #import "DLLineDetialpriceTableViewCell.h"
 #import "DLCycleScrollView.h"
 #import "DLLineDetailsScrollViewController.h"
 #import "DLPlaceOrderViewController.h"
-#import "DLHomeViewTask.h"
 #import "DLLineDetialTableViewCell.h"
 #import "DLLineModificationViewController.h"
-#import "LGLCalenderViewController.h"
+#import "DLChangeTitleViewController.h"
+#import "DLCalendarViewController.h"
+#import "DLMyAgencyUnBindingController.h"
 
 static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
 static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
-@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate,DLLineDetialTableViewCellDelegate>
+@interface DLLineTourDetailViewController ()< UITableViewDelegate, UITableViewDataSource,DLCycleScrollViewDelegate,DLLineDetialTableViewCellDelegate,UIAlertViewDelegate>
 @property (nonatomic, weak) UITableView *homeTableView;
 
 @property (nonatomic, strong) DLCycleScrollView *advertCarouselView;
@@ -36,7 +36,13 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-    [self fetchData];
+//    [self fetchData];
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+        [self fetchData];
+    } else{
+        [self ordinaryFetchData];
+    }
+
     
 }
 
@@ -82,32 +88,40 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     [homeTableView registerClass:[DLLineDetialTableViewCell class]
           forCellReuseIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
     [homeTableView registerClass:[UITableViewHeaderFooterView class]
-          forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
+forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
     
     self.homeTableView = homeTableView;
     [self.view addSubview:homeTableView];
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
+    }];
     
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self cofigureBottomView];
+    }else{
+    [self cofigureTellView];
+    }
     
 }
 
+- (void)cofigureTellView {
+    
+    UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-104, SCREEN_WIDTH, 40)];
+    [telSonsultationBtn setTitle:@"电话咨询" forState:(UIControlStateNormal)];
+    [telSonsultationBtn setImage:[UIImage imageNamed:@"phone.png"] forState:UIControlStateNormal];
+    telSonsultationBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
+    telSonsultationBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+    [telSonsultationBtn  setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
+    telSonsultationBtn.layer.cornerRadius = 2.0;
+    [self.view addSubview:telSonsultationBtn];
+}
+
 - (void)cofigureBottomView {
-    
-    UIButton *pushHomePageBtn = [[UIButton alloc]init];
-    [pushHomePageBtn setTitle:@"推到首页" forState:(UIControlStateNormal)];
-    [pushHomePageBtn setImage:[UIImage imageNamed:@"recommended_home.png"] forState:UIControlStateNormal];
-    [pushHomePageBtn addTarget:self action:@selector(pushHomePageBtn) forControlEvents:UIControlEventTouchUpInside];
-    pushHomePageBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
-    pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
-    pushHomePageBtn.layer.cornerRadius = 20.0;
-    [self.view addSubview:pushHomePageBtn];
-    
-    [pushHomePageBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@40);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-50);
-        make.right.equalTo(self.view.mas_right).offset(-10);
-        make.width.equalTo(@150);
-    }];
     
     UIView *bottomView = [[UIView alloc]init];
     bottomView.backgroundColor = [UIColor ms_separatorColor];
@@ -119,16 +133,28 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
     }];
     
     // 电话咨询和立即订购按钮
-    UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-104, SCREEN_WIDTH/2, 40)];
+    
+    UIButton *pushHomePageBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT-104, SCREEN_WIDTH/4, 40)];
+    [pushHomePageBtn setTitle:@"推到首页" forState:(UIControlStateNormal)];
+    [pushHomePageBtn setImage:[UIImage imageNamed:@"recommended_home.png"] forState:UIControlStateNormal];
+    [pushHomePageBtn addTarget:self action:@selector(pushHomePageBtn) forControlEvents:UIControlEventTouchUpInside];
+    pushHomePageBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    pushHomePageBtn.backgroundColor = [UIColor whiteColor];
+    [pushHomePageBtn setTitleColor:[UIColor colorWithHexString:@"#fE603B"] forState:UIControlStateNormal];
+    pushHomePageBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,5);
+    [self.view addSubview:pushHomePageBtn];
+    
+    UIButton *telSonsultationBtn = [[UIButton alloc]initWithFrame:CGRectMake(pushHomePageBtn.right+1, SCREEN_HEIGHT-104, SCREEN_WIDTH/4, 40)];
     [telSonsultationBtn setTitle:@"电话咨询" forState:(UIControlStateNormal)];
     [telSonsultationBtn setImage:[UIImage imageNamed:@"phone.png"] forState:UIControlStateNormal];
+    telSonsultationBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [telSonsultationBtn addTarget:self action:@selector(telSonsultationBtn) forControlEvents:UIControlEventTouchUpInside];
     [telSonsultationBtn  setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     telSonsultationBtn.backgroundColor = [UIColor whiteColor];
-    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,10);
+    telSonsultationBtn.imageEdgeInsets =  UIEdgeInsetsMake(0,0,0,5);
     [self.view addSubview:telSonsultationBtn];
     
-    UIButton *OtherBtn = [[UIButton alloc]initWithFrame:CGRectMake(telSonsultationBtn.right, telSonsultationBtn.y,telSonsultationBtn.width, telSonsultationBtn.height)];
+    UIButton *OtherBtn = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2, telSonsultationBtn.y,SCREEN_WIDTH/2, telSonsultationBtn.height)];
     [OtherBtn addTarget:self action:@selector(OtherBtn) forControlEvents:UIControlEventTouchUpInside];
     OtherBtn.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
     [OtherBtn setTitle:@"立即订购" forState:(UIControlStateNormal)];
@@ -166,12 +192,24 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         }];
         return cell;
     } else if (indexPath.section == 1) {
+        
+         if([[DLUtils getUser_type]  isEqualToString: @"4"]){
         DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
         cell.detaiInfoModel = self.detaiInfoModel;
         cell.delegate = self;
         [cell configureCell:self.detaiInfoModel];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+             return cell;
+         }else{
+             DLLineDetialpriceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialpriceTableViewCell cellIdentifier]];
+             cell.detaiInfoModel = self.detaiInfoModel;
+             cell.delegate = self;
+             cell.titleChangeBtn.hidden = YES;
+             cell.lineModificationBtn.hidden = YES;
+             [cell configureCell:self.detaiInfoModel];
+             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+             return cell;
+         }
     } else if (indexPath.section == 2) {
         DLLineDetialTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineDetialTableViewCell cellIdentifier]];
         cell.schedulingArray = self.schedulingArray;
@@ -185,23 +223,23 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 100.f;
+        return 200.f;
     } else if (indexPath.section == 1) {
         CGFloat titleHeight = [self.detaiInfoModel.list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
-            return (titleHeight > 20) ? (titleHeight + 240 + 42) : (265 + 42);
-     } else if (indexPath.section == 2) {
-         if ([NSString isNotBlank:self.htmlString]) {
-             NSAttributedString * attributeStr = [NSString attributedStringWithHTMLString:[NSString htmlEntityDecode:self.htmlString]];
-             CGFloat height =  [attributeStr boundingRectWithSize:CGSizeMake((self.view.width - 30), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size.height;
-             return height;
-         } else {
-             CGFloat height = 0.0;
-             for (DLLineTourDetailDaysModel *schedulModel in self.schedulingArray) {
-                 height = height + ([schedulModel.daysDescription autolableHeightWithFont:[UIFont systemFontOfSize:11] Width:(self.view.width - 30)] + 100);
-             }
-             return height;
-         }
-     }
+        return (titleHeight > 20) ? (titleHeight + 240 + 42) : (265 + 42);
+    } else if (indexPath.section == 2) {
+        if ([NSString isNotBlank:self.htmlString]) {
+            NSAttributedString * attributeStr = [NSString attributedStringWithHTMLString:[NSString htmlEntityDecode:self.htmlString]];
+            CGFloat height =  [attributeStr boundingRectWithSize:CGSizeMake((self.view.width - 30), CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size.height;
+            return height;
+        } else {
+            CGFloat height = 0.0;
+            for (DLLineTourDetailDaysModel *schedulModel in self.schedulingArray) {
+                height = height + ([schedulModel.daysDescription autolableHeightWithFont:[UIFont systemFontOfSize:11] Width:(self.view.width - 30)] + 100);
+            }
+            return height;
+        }
+    }
     return 0;
 }
 
@@ -220,13 +258,14 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 #pragma mark - DLCycleScrollViewDelegate
 - (void)cycleScrollView:(DLCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     DLLineDetailsScrollViewController *DLLineDetScrVC = [[DLLineDetailsScrollViewController alloc]init];
+    DLLineDetScrVC.routeModel = _routeModel;
     [self.navigationController pushViewController:DLLineDetScrVC animated:YES];
 }
 
 #pragma mark - DLLineDetialTableViewCellDelegate
 
 - (void)segmentTapDelegate:(NSUInteger)index {
-     NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
     switch (index) {
         case 0:
         {
@@ -274,18 +313,21 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         default:
             break;
     }
-
+    
 }
 
 #pragma mark - Fetch data
 
-- (void)fetchData {
-    
-    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
-    
+- (void)ordinaryFetchData {
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+
+    //    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
     [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
     @weakify(self);
-    [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
+    [DLHomeViewTask getTouristIndexDetails:param completion:^(id result, NSError *error) {
         @strongify(self);
         [[DLHUDManager sharedInstance] hiddenHUD];
         if (result) {
@@ -302,43 +344,196 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
         NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
         [self.schedulingArray removeAllObjects];
         [self.schedulingArray addObjectsFromArray:schedulingArray];
-         NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
-         [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+        [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        
+    }];
+    } else {
+            NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+//        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+//                                @"id" : self.routeModel.routeId,
+//                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+        @weakify(self);
+        [DLHomeViewTask getLineDetials:param completion:^(id result, NSError *error) {
+            @strongify(self);
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if (result) {
+                self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+                self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
+                NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
+                [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            } else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+        }];
+        
+        [DLHomeViewTask getLineDetialsScheduling:param completion:^(id result, NSError *error) {
+            NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
+            [self.schedulingArray removeAllObjects];
+            [self.schedulingArray addObjectsFromArray:schedulingArray];
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            
+        }];
 
+        
+    }
+    
+}
+- (void)fetchData {
+    
+    //    NSDictionary *param = @{@"id" : self.routeModel.routeId,};
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
+    [DLHomeViewTask getAgencyDetails:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            self.detaiInfoModel = [DLLineTourDetailInforModel mj_objectWithKeyValues:result];
+            self.advertCarouselView.imageURLStringsGroup = self.detaiInfoModel.picArr;
+            NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:1];
+            [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            
+        }
+        
+        else {
+          [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
     }];
     
-
+    [DLHomeViewTask getLineDetialsScheduling:param completion:^(id result, NSError *error) {
+        NSArray *schedulingArray = [DLLineTourDetailDaysModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"tour_description"]];
+        [self.schedulingArray removeAllObjects];
+        [self.schedulingArray addObjectsFromArray:schedulingArray];
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndex:2];
+        [self.homeTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        
+    }];
 }
 
 #pragma mark - Event Handler
 
 - (void)telSonsultationBtn {
     NSLog(@"点击了电话咨询");
+    
+//    if ([NSString isBlank:self.detaiInfoModel.list.mobile]) {
+//    //        [[DLHUDManager sharedInstance] showTextOnly:@"你还没有绑定顾问，请去绑定顾问"];
+//    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"你还没有绑定顾问，去绑定顾问?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        phoneAlert.tag = 45;
+//        [phoneAlert show];
+//        
+//    } else {
+    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打电话" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
+    phoneAlert.tag = 100;
+    [phoneAlert show];
+    
+//    }
 }
 
 - (void)OtherBtn {
     DLPlaceOrderViewController *placeOrderVC = [[DLPlaceOrderViewController alloc]init];
     placeOrderVC.detaiInfoModel = self.detaiInfoModel;
+    placeOrderVC.routeModel = self.routeModel;
     [self.navigationController pushViewController:placeOrderVC animated:YES];
     
 }
 
 -(void)changeThePriceButtonDelegate:(UIButton *)button {
     DLLineModificationViewController *lineModificationVC = [[DLLineModificationViewController alloc]init];
+    lineModificationVC.routeModel = _routeModel;
     [self.navigationController pushViewController:lineModificationVC animated:YES];
 }
+
+-(void)titleChangeButtonDelegate:(UIButton *)button {
+    DLChangeTitleViewController *changTitleVC = [[DLChangeTitleViewController alloc]init];
+    changTitleVC.routeModel = _routeModel;
+    [self.navigationController pushViewController:changTitleVC animated:YES];
+}
+
 - (void)selectDateViewDelegate:(UITapGestureRecognizer *)tapdate
 {
+    //    NSLog(@"点击了选择日期");
+    //    LGLCalenderViewController * ctl = [[LGLCalenderViewController alloc] init];
+    //    [ctl seleDateWithBlock:^(NSMutableDictionary *paramas) {
+    //        NSString * date = [NSString stringWithFormat:@"%@-%@-%@", paramas[@"year"], paramas[@"month"], paramas[@"day"]];
+    //        NSString * price = paramas[@"price"];
+    //    }];
+    //    [self.navigationController pushViewController:ctl animated:YES];
+    
     NSLog(@"点击了选择日期");
-    LGLCalenderViewController * ctl = [[LGLCalenderViewController alloc] init];
-    [ctl seleDateWithBlock:^(NSMutableDictionary *paramas) {
-//        NSString * date = [NSString stringWithFormat:@"%@-%@-%@", paramas[@"year"], paramas[@"month"], paramas[@"day"]];
-//        NSString * price = paramas[@"price"];
-    }];
-    [self.navigationController pushViewController:ctl animated:YES];
+    DLCalendarViewController *calendarViewController = [[DLCalendarViewController alloc] init];
+    calendarViewController.tourSkuDate = self.detaiInfoModel.tourSkuDate;
+    [self.navigationController pushViewController:calendarViewController animated:YES];
+    
 }
 - (void)pushHomePageBtn {
-    NSLog(@"点击了推到首页");
+    
+    UIAlertView *pushHomeAlert = [[UIAlertView alloc]initWithTitle:@"确定推到首页吗？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    pushHomeAlert.tag = 81;
+    [pushHomeAlert show];
+}
+#pragma mark -UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 81){
+        if (buttonIndex == 1) {
+            
+            NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"tour_id" : self.routeModel.routeId,
+                                    @"sign_token" : [DLUtils getSign_token],};
+            [DLHomeViewTask getAgencyRecommend:param completion:^(id result, NSError *error) {
+                if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+                    [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+               
+                }else {
+                    //[[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+                    
+                    
+            
+                    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"85625636"];
+                    //NSLog(@"str======%@",str);
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+            }];
+        }
+    }
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+    if (alertView.tag == 100){
+            if (buttonIndex == 1) {
+               if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.contact_phone]]] ){
+                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+            }
+        }
+    }
+    } else {
+        
+        if (alertView.tag == 100){
+            if (buttonIndex == 1) {
+                if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.detaiInfoModel.list.mobile]]] ){
+                    [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+                }
+            }
+        }
+    }
+    
+    if (alertView.tag == 45){
+        if (buttonIndex == 1) {
+        DLMyAgencyUnBindingController *unBindingVC = [[DLMyAgencyUnBindingController alloc] init];
+        [self.navigationController pushViewController:unBindingVC animated:YES];
+        }
+    }
+
+    
 }
 
 

@@ -4,22 +4,27 @@
 //
 //  Created by Nie on 2017/5/12.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ----------- 国内游 出境游 周边游 等等  界面 ----------
 
 #import "DLLineTourViewController.h"
-#import "DLMenuViewController.h"
-#import "DLRecommendRouteViewController.h"
-#import "DLRecommendRouteModel.h"
+#import "DLRecommendRouteCollectionViewCell.h"
+#import "DLLineTourDetailViewController.h"
+#import "DLLineDestinationViewController.h"
 
-static NSString *kDLHomeTableViewCell = @"DLHomeTableViewCell";
-static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
+static NSString *kMSLineTourViewTableViewHeader = @"MSLineTourViewTableViewHeader";
+static NSString *kMSLineTourViewTableViewFooter = @"MSLineTourViewTableViewFooter";
 
-@interface DLLineTourViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, weak) UITableView *homeTableView;
-@property (nonatomic, strong) UIView *performanceView;
-@property (nonatomic, weak) UIScrollView *backgroundScrollView;
+@interface DLLineTourViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) DLRecommendRouteViewController *hotTopicViewController;
+@property (nonatomic, weak) UICollectionView *lineTourViewCollectionView;
+
+@property (nonatomic, strong) NSMutableArray *lineTourViewList;
+
+@property (strong, nonatomic) UISearchBar *searchBar;
+
+@property (strong,nonatomic) UIImageView *headImage;
+
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
 
@@ -27,7 +32,7 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.pageIndex = 1;
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
@@ -35,8 +40,11 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 }
 
 #pragma mark - Setup navbar
+- (BOOL)dl_blueNavbar {
+    return YES;
+}
 - (void)setupNavbar {
-    self.title = @"大旅游";
+    self.title = _homeMenuItem.name;
 }
 
 #pragma mark - Setup subViews
@@ -44,190 +52,207 @@ static NSString *kDLHomeTableViewHeader = @"DLHomeTableViewHeader";
 - (void)setupSubviews {
     self.view.backgroundColor = [UIColor ms_backgroundColor];
     
-    UITableView *homeTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    homeTableView.delegate = self;
-    homeTableView.dataSource = self;
-    homeTableView.backgroundColor = [UIColor clearColor];
-    homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    homeTableView.tableFooterView = [[UIView alloc] init];
-    [homeTableView registerClass:[UITableViewCell class]
-          forCellReuseIdentifier:kDLHomeTableViewCell];
-    [homeTableView registerClass:[UITableViewHeaderFooterView class]
-forHeaderFooterViewReuseIdentifier:kDLHomeTableViewHeader];
-    
-    self.homeTableView = homeTableView;
-    [self.view addSubview:homeTableView];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 0.0f;
+    layout.minimumLineSpacing = 8.0f;
+    layout.itemSize = CGSizeMake((self.view.ms_width - 20) * 0.5f, 230.0f);
+    UICollectionView *lineTourViewCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    lineTourViewCollectionView.dataSource = self;
+    lineTourViewCollectionView.delegate = self;
+    lineTourViewCollectionView.backgroundColor = [UIColor clearColor];
+    lineTourViewCollectionView.contentInset = UIEdgeInsetsMake(0, 6, 10, 6);
+    [lineTourViewCollectionView registerClass:[DLRecommendRouteCollectionViewCell class]
+               forCellWithReuseIdentifier:[DLRecommendRouteCollectionViewCell cellIdentifier]];
+    [lineTourViewCollectionView registerClass:[UICollectionReusableView class]
+               forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                      withReuseIdentifier:kMSLineTourViewTableViewHeader];
+    [lineTourViewCollectionView registerClass:[UICollectionReusableView class]
+               forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                      withReuseIdentifier:kMSLineTourViewTableViewFooter];
+
+    self.lineTourViewCollectionView = lineTourViewCollectionView;
+    [self.view addSubview:lineTourViewCollectionView];
+
 }
 
 #pragma mark - Layout
 
 - (void)setupConstraints {
-    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineTourViewCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - Fetch data
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+- (void)beginLoading {
+    [self fetchData];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDLHomeTableViewCell];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor redColor];
+- (void)fetchData {
     
-    if (indexPath.section == 0) {
-        [cell.contentView addSubview:self.performanceView];
-        [self.performanceView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(cell.contentView);
-        }];
-    } else if (indexPath.section == 1) {
-        [cell.contentView addSubview:self.hotTopicViewController.view];
-        [self.hotTopicViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(cell.contentView);
-        }];
-        
-    }
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            @"page" : @(self.pageIndex),
+                            @"type" : self.homeMenuItem.type,
+                            };
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+    [DLHomeViewTask getHomeOutbound:param completion:^(id result, NSError *error) {
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            NSArray *lineTourViewArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            if (self.pageIndex == 1) {
+                [self.lineTourViewList removeAllObjects];
+            }
+            [_lineTourViewList addObjectsFromArray:lineTourViewArray];
+            [self.lineTourViewCollectionView reloadData];
+            
+            if (lineTourViewArray.count == 0) {
+                [[DLHUDManager sharedInstance]showTextOnly:[result objectForKey:@"msg"]];
+            }
+            
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.lineTourViewList.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    DLRecommendRouteCollectionViewCell *cell = [DLRecommendRouteCollectionViewCell cellWithCollectionView:collectionView indexPath:indexPath];
+    DLRecommendRouteModel *routeModel = [self.lineTourViewList objectAtIndex:indexPath.item];
+    cell.routeModel = routeModel;
+    [cell configureLineTourCell:routeModel];
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 1 && [self.hotTopicViewController contentHeight] > 0) {
-        UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:kDLHomeTableViewHeader];
-        
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+
+        UICollectionReusableView *hotTopicHeaderView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewHeader forIndexPath:indexPath];
+        hotTopicHeaderView.backgroundColor = [UIColor whiteColor];
+    
         UIView *flagView = [[UIView alloc] init];
-        [headerView.contentView addSubview:flagView];
-                
-        UIView *leftline = [[UIView alloc]init];
-        leftline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
-        [flagView  addSubview:leftline];
+        [hotTopicHeaderView addSubview:flagView];
+    
+        self.headImage = [[UIImageView alloc]init];
+        self.headImage.image = [UIImage imageNamed:@"linetourbackimage"];
+        [flagView addSubview:self.headImage];
         
-        UILabel *headerLabel = [[UILabel alloc] init];
-        headerLabel.text = @"精选路线";
-        headerLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
-        headerLabel.textAlignment = NSTextAlignmentCenter;
-        headerLabel.font = [UIFont systemFontOfSize:14];
-        [flagView addSubview:headerLabel];
+        _searchBar = [[UISearchBar alloc] init];
+        [flagView addSubview:_searchBar];
+        _searchBar.placeholder = @"支持模糊搜索：路线,景点,代码";
+        self.searchBar.tintColor = [UIColor ms_orangeColor];
+        self.searchBar.backgroundColor = [UIColor whiteColor];
+        [self.searchBar setBackgroundImage: [UIImage imageWithColor:[UIColor whiteColor] ] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        for (UIView *view in self.searchBar.subviews.firstObject.subviews) {
+            if ([view isKindOfClass:[UITextField class]]) {
+                view.backgroundColor = [UIColor ms_backgroundColor];
+            }
+        }
+        _searchBar.showsCancelButton = NO;
+    
+    [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+        make.width.equalTo(hotTopicHeaderView);
+        make.height.equalTo(@150);
+    }];
+    
+    [self.headImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@10);
+        make.left.equalTo(@0);
+        make.width.equalTo(flagView);
+        make.height.equalTo(@100);
+    }];
         
-        UIView *rightline = [[UIView alloc]init];
-        rightline.backgroundColor = [UIColor colorWithHexString:@"#4a525d"];
-        [flagView  addSubview:rightline];
+    [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.headImage.mas_bottom).offset(10);
+        make.left.equalTo(@20);
+        make.width.equalTo(flagView).offset(-40);
+        make.height.equalTo(@40);
+    }];
+        return hotTopicHeaderView;
+    }else if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kMSLineTourViewTableViewFooter forIndexPath:indexPath];
         
-        [flagView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(@100);
-            make.right.equalTo(@-100);
-            make.height.equalTo(@25);
-            make.centerY.equalTo(headerView.contentView);
-        }];
+                UIButton *footerButton = [footerView viewWithTag:10001];
+                if (footerButton == nil) {
+                    footerButton = [[UIButton alloc] init];
+                    footerButton.tag = 10001;
+                    [footerButton setTitle:@"查  看  更  多" forState:UIControlStateNormal];
+                    [footerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                    footerButton.backgroundColor = [UIColor colorWithHexString:@"#fE603B"];
+                    footerButton.layer.cornerRadius = 12.0f;
+                    footerButton.layer.masksToBounds = YES;
+                    footerButton.layer.borderColor = [UIColor colorWithHexString:@"#fE603B"].CGColor;
+                    footerButton.layer.borderWidth = 0.5f;
+
+                    footerButton.titleLabel.font = [UIFont systemFontOfSize:18];
+                    [footerButton addTarget:self action:@selector(didTapViewMore:) forControlEvents:UIControlEventTouchUpInside];
         
-        [leftline mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(headerLabel.mas_left).with.offset(5);
-            make.height.equalTo(@1);
-            make.width.equalTo(@35);
-            make.centerY.equalTo(headerView.contentView);
-        }];
-        
-        [headerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(@20);
-            make.right.equalTo(@-20);
-            make.height.equalTo(@15);
-            make.centerY.equalTo(headerView.contentView);
-        }];
-        
-        [rightline mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(headerLabel.mas_right).with.offset(-5);
-            make.height.equalTo(@1);
-            make.width.equalTo(@35);
-            make.centerY.equalTo(headerView.contentView);
-        }];
-        return headerView;
+                    [footerView addSubview:footerButton];
+                    [footerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+                        make.height.equalTo(@30);
+                        make.top.equalTo(@15);
+                        make.left.equalTo(@100);
+                        make.right.equalTo(self.view.mas_right).offset(-100);
+                    }];
+                }
+        return footerView;
     }
     return nil;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UICollectionViewDelegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 100.f;
-    } else if (indexPath.section == 1) {
-        NSLog(@"高度%f",[self.hotTopicViewController contentHeight]);
-        return [self.hotTopicViewController contentHeight];
-    }
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return CGFLOAT_MIN;
-    }
-    return section == 1 ? 40.0f : 10.0f;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return CGFLOAT_MIN;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
-#pragma mark - UISearchBarDelegate
-
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-//    searchBar.text = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-//    if (searchBar.text.length) {
-//        [self.searchBar resignFirstResponder];
-//        NSLog(@"点击搜索");
-//    } else {//toast
-//        NSLog(@"请输入搜索内容");
-//    }
-//}
-
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-//    [self.searchBar resignFirstResponder];
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
-
-
-#pragma mark - Fetch data
-
-- (void)fetchData {
-    [self.hotTopicViewController beginLoading];
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    DLLineDestinationViewController *linetourDetailVC = [[DLLineDestinationViewController alloc]init];
+    linetourDetailVC.type = self.homeMenuItem.type;
+    linetourDetailVC.name =  self.homeMenuItem.name;
+    linetourDetailVC.routeModel = [self.lineTourViewList objectAtIndex:indexPath.item];
+    [self.navigationController pushViewController:linetourDetailVC animated:YES];
     
 }
 
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(self.view.ms_width, 170.0f);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    if (self.lineTourViewList.count == 0 ) {
+        return CGSizeMake(0, 0);
+    }
+    return CGSizeMake(self.view.ms_width, 50.0f);
+}
+
+#pragma mark - Event Handler
+
+- (void)didTapViewMore:(UIButton *)sender {
+    NSLog(@"点击了查看更多");
+        self.pageIndex++;
+        [self fetchData];
+
+}
+
 #pragma mark - Getter
 
-- (DLRecommendRouteViewController *)hotTopicViewController {
-    if (_hotTopicViewController == nil) {
-        _hotTopicViewController = [[DLRecommendRouteViewController alloc] init];
-        @weakify(self);
-        [_hotTopicViewController setDidCompleteLoad:^{
-            @strongify(self);
-            [self.homeTableView reloadData];
-        }];
-        [self addChildViewController:_hotTopicViewController];
+- (NSMutableArray *)lineTourViewList {
+    if (_lineTourViewList == nil) {
+        _lineTourViewList = [[NSMutableArray alloc] init];
     }
-    return _hotTopicViewController;
+    return _lineTourViewList;
 }
-
-- (UIView *)performanceView {
-    if (_performanceView == nil) {
-        _performanceView = [[UIView alloc] init];
-        _performanceView.backgroundColor = [UIColor randomColor];
-        
-    }
-    return _performanceView;
-}
-
 
 @end

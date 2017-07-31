@@ -6,27 +6,28 @@
 //  Copyright © 2017年 Michael 柏. All rights reserved.
 //
 
-#import "DLFianceController.h"
-#import "DLHomeMenuCollectionViewCell.h"
-#import "DLHomePageViewModel.h"
-#import "DLTransactionRecordViewController.h"
 #import "DLRechargeApplicationViewController.h"
-#import "DLRechargeRecordViewController.h"
 #import "DLPresentApplicationViewController.h"
-#import "DLCashRegisterViewController.h"
-#import "DLContractApplyController.h"
+#import "DLTransactionRecordViewController.h"
 #import "DLContractApplyRecordController.h"
+#import "DLRechargeRecordViewController.h"
 #import "DLInvoiceApplyRecordController.h"
+#import "DLHomeMenuCollectionViewCell.h"
+#import "DLCashRegisterViewController.h"
 #import "DLInvioiceApplyController.h"
-#import "DLHomeViewTask.h"
+#import "DLContractApplyController.h"
+#import "DLHomePageViewModel.h"
+#import "DLFianceController.h"
 
 static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader";
 
 @interface DLFianceController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, weak) UICollectionView *appCollectionView;
 @property (nonatomic, strong) NSArray *apps;
-
 @property (nonatomic,strong) NSMutableDictionary *fianceDict;
+@property (nonatomic,strong) UILabel *totalPriceLabel;
+@property (nonatomic,strong) UILabel *blockedPriceLabel;
+@property (nonatomic,strong) UILabel *availablePriceLabel;
 
 @end
 
@@ -41,6 +42,12 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
     [self setupSubviews];
     [self setupConstraints];
     [self fetchData];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refershfiance)
+                                                 name:kFianceNotification
+                                               object:nil];
 }
 
 #pragma mark - Setup navbar
@@ -48,6 +55,11 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (BOOL)dl_blueNavbar {
     return YES;
     
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupNavbar {
@@ -97,8 +109,10 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (void)fetchData {
     self.apps = [DLHomePageViewModel creatFianceMenuItems];
     [self.appCollectionView reloadData];
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],};
+    NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token]
+                            };
      @weakify(self);
     [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
         @strongify(self);
@@ -122,9 +136,9 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DLHomeMenuCollectionViewCell *cell = [DLHomeMenuCollectionViewCell cellWithCollectionView:collectionView IndexPath:indexPath];
     
-    DLHomeMenuItem *menuItem = [self.apps objectAtIndex:indexPath.item];
+    DLFinanceMenuItem *menuItem = [self.apps objectAtIndex:indexPath.item];
     cell.showsSeparator = YES;
-    [cell configureCell:menuItem];
+    [cell configureFinanceCell:menuItem];
     return cell;
     
 }
@@ -205,6 +219,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         totalPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         totalPriceLabel.font = [UIFont systemFontOfSize:26];
         [hotTopicHeaderView addSubview:totalPriceLabel];
+        self.totalPriceLabel = totalPriceLabel;
         if (self.fianceDict) {
             totalPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"account_balance"] integerValue]/100.00];
         }
@@ -225,6 +240,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         blockedPriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         blockedPriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:blockedPriceLabel];
+        self.blockedPriceLabel = blockedPriceLabel;
         if (self.fianceDict) {
             blockedPriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"freezeMoney"]integerValue]/100.00];
         }
@@ -247,6 +263,7 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         availablePriceLabel.textColor = [UIColor colorWithHexString:@"#434343"];
         availablePriceLabel.font = [UIFont systemFontOfSize:20];
         [hotTopicHeaderView addSubview:availablePriceLabel];
+        self.availablePriceLabel = availablePriceLabel;
         if (self.fianceDict) {
             availablePriceLabel.text = [NSString stringWithFormat:@"%.2f",[[self.fianceDict objectForKey:@"availableBalance"]integerValue]/100.00];
         }
@@ -265,15 +282,15 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
         
         [totalPriceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@25);
-            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(100);
-            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-100);
+            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(20);
+            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-20);
             make.height.equalTo(@30);
         }];
         
         [totalAccountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(totalPriceLabel.mas_bottom);
-            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(100);
-            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-100);
+            make.left.equalTo(hotTopicHeaderView.mas_left).with.offset(20);
+            make.right.equalTo(hotTopicHeaderView.mas_right).with.offset(-20);
             make.height.equalTo(@20);
         }];
         
@@ -330,10 +347,11 @@ static NSString *kDLFianceCollectionViewHeader = @"DLFianceCollectionViewHeader"
     return nil;
 }
 
-
-#pragma mark - Event Handler
-
-#pragma mark - Getter
-
+- (void)refershfiance {
+    self.totalPriceLabel.text = @"";
+    self.blockedPriceLabel.text = @"";
+    self.availablePriceLabel.text = @"";
+    [self fetchData];
+}
 
 @end

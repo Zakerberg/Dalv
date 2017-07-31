@@ -7,8 +7,8 @@
 //
 
 #import "DLLoginView.h"
-
-@interface DLLoginView ()<UITextFieldDelegate>
+#import "DLMineViewController.h"
+@interface DLLoginView ()<UITextFieldDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, assign) CGRect defaultViewRect;
 
@@ -30,8 +30,8 @@
     UIColor *color = [UIColor whiteColor];
     self.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-20, 40, 40, 40)];
-    loginImage.image = [UIImage imageNamed:@"Loginlogo"];
+    UIImageView *loginImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50, 104, 100, 40)];
+    loginImage.image = [UIImage imageNamed:@"dl_logo"];
     [self addSubview:loginImage];
     
     UILabel *loginLab = [[UILabel alloc]initWithFrame:CGRectMake(100, loginImage.bottom, SCREEN_WIDTH-200, 40)];
@@ -86,12 +86,22 @@
     [self addSubview:footBtn];
     
     UIButton *forgetBtn =[UIButton buttonWithType:UIButtonTypeCustom];
-    forgetBtn.frame=CGRectMake(100, footBtn.bottom+25, SCREEN_WIDTH-200, 30);
+    forgetBtn.frame=CGRectMake(25, footBtn.bottom+15, 100, 30);
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+    footBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     forgetBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [forgetBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [forgetBtn  addTarget:self action:@selector(performForgotPasswordAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:forgetBtn];
+    
+//    UIButton *registerbutton =[UIButton buttonWithType:UIButtonTypeCustom];
+//    registerbutton.frame=CGRectMake(forgetBtn.ms_right, footBtn.bottom+25, footBtn.width/2, 30);
+//    [registerbutton setTitle:@"注     册" forState:UIControlStateNormal];
+//    registerbutton.titleLabel.font=[UIFont systemFontOfSize:14];
+//    [registerbutton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [registerbutton  addTarget:self action:@selector(didRegisterButton) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:registerbutton];
+
 }
 
 #pragma mark - ButtonAction
@@ -148,12 +158,31 @@
     
 }
 
+////注册
+//- (void)didRegisterButton {
+//    DLMineViewController *minVC= [[DLMineViewController alloc] init];
+//    [self.navigationController pushViewController:minVC animated:YES];
+//}
+
+
 //忘记密码
 - (void)performForgotPasswordAction {
-    if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://15701189832"]] ){
-                        [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+    UIAlertView *phoneAlert = [[UIAlertView alloc]initWithTitle:@"拨打客服" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
+    phoneAlert.tag = 81;
+    [phoneAlert show];
+}
+#pragma mark -UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 81){
+        if (buttonIndex == 1) {
+        if(![[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"tel://010-85625636"]] ){
+                [[DLHUDManager sharedInstance]showTextOnly:@"设备不支持"];
+            }
+        }
     }
 }
+
 
 - (void)updateViewFrame:(CGRect)rect {
     int y = rect.origin.y + rect.size.height + ([[UIScreen mainScreen] bounds].size.height > 480?30:0);

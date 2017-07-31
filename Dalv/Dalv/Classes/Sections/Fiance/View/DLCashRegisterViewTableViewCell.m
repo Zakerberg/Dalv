@@ -213,7 +213,7 @@
         _transactionPricelab.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }
     self.transactionTimelab.text = cashModel.create_time;
-    self.accountBalancelab.text  = [NSString stringWithFormat:@"¥ %@",cashModel.amount];
+    self.accountBalancelab.text  = [NSString stringWithFormat:@"¥ %.2f",[cashModel.amount integerValue]/100.00];
     self.orderNumberlab.text = [NSString stringWithFormat:@"交易号：%@",cashModel.account];
 }
 

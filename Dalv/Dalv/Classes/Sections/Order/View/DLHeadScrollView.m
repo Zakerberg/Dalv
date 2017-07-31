@@ -8,7 +8,10 @@
 
 #import "DLHeadScrollView.h"
 
-#define BTNWIDTH 107.0
+#warning 下次添加签证和wifi把下面注释打开
+//#define BTNWIDTH 107.0
+#define BTNWIDTH MAIN_SCREEN_WIDTH/2
+
 #define ImageHEIGHT 18.0
 @interface DLHeadScrollView ()
 {
@@ -22,8 +25,19 @@
 {
     self = [super init];
     if (self) {
-        self.headArray = @[@"线路订单",@"签证订单",@"wifi订单",@"门票订单"];
+        
+#warning 下次添加签证和wifi把下面注释打开
+        //self.headArray = @[@"线路订单",@"机票订单",@"wifi订单",@"签证订单"];
+        if([[DLUtils getUser_type] isEqualToString:@"4"])//顾问
+        {
+            self.headArray = @[@"线路订单",@"机票订单"];
+            
+        }else{ // C只有机票订单 !
+            
+            self.headArray = @[@"机票订单"];
+        }
         self.showsHorizontalScrollIndicator = NO;
+        
         [self createUI];
     }
     return self;
@@ -39,39 +53,11 @@
 }
 
 -(void)createBtn{
-
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     for (int i = 0; i < [self.headArray count]; i++) {
         
-//        NSArray *nameArr = @[
-//                         @"line_order",
-//                         @"visa_order",
-//                         @"wifi_order",
-//                         @"ticket_order"
-//                         ];
-//        
-//        
-        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        
-//        UIImageView *imageV = [[UIImageView alloc] init];
-//        
-//        
-//        for (int i = 0; i <[self.headArray count]; i++) {
-//            
-//            imageV.frame = CGRectMake(16+ BTNWIDTH*i , ImageHEIGHT, BTNWIDTH, ImageHEIGHT);
-//            
-//            [imageV setImage:[UIImage imageNamed:nameArr[i]]];
-//        }
         
         button.frame = CGRectMake(0 + BTNWIDTH*i, 0, BTNWIDTH, 48);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -98,6 +84,7 @@
     }
 }
 -(void)changeBtnTitleColorWith:(int)tag{
+    
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[UIButton class]]) {
             if (obj.tag == tag) {
@@ -115,6 +102,7 @@
                     }];
                 }
             }else{
+                
                 [obj setTitleColor:[UIColor colorWithHexString:@"#9b9b9b"] forState:UIControlStateNormal];
                 obj.titleLabel.font = [UIFont systemFontOfSize:14];
             }

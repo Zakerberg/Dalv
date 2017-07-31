@@ -13,7 +13,7 @@
 
 /** 价格 */
 @property (nonatomic, copy) NSString *min_price;
-/** 线路Id */
+/** 线路Id 或者目的地id */
 @property (nonatomic, copy) NSString *routeId;
 /** 图片地址 */
 @property (nonatomic, copy) NSString *cover_pic;
@@ -21,5 +21,10 @@
 @property (nonatomic, copy) NSString *name;
 /** 地址*/
 @property (nonatomic, copy) NSString *departure;
+/** 条数*/
+@property (nonatomic, copy) NSString *total;
+/** 目的地*/
+@property (nonatomic, copy) NSString *destination;
+
 
 @end

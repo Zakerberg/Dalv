@@ -4,293 +4,202 @@
 //
 //  Created by Michael 柏 on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//  -------------------  个人中心   -------------------
 
+#import "DLCustomerChangePersonDataController.h"
+#import "DLPersonalChangeDataController.h"
+#import "DLMyAgencyUnBindingController.h"
+#import "DLMyCustomerXibController.h"
+#import "DLSupplierQueryController.h"
+#import "DLMyCustomerController.h"
 #import "DLMineCenterController.h"
-#import "DLMineModel.h"
+#import "DLLineQueryController.h"
+#import "DLMyAgencyController.h"
+#import "UIImage+ZipAndLength.h"
+#import "DLRemmendController.h"
 #import "DLGeneralController.h"
 #import "BLM_UploadUserIcon.h"
-#import "DLChangePersonDataController.h"
-//#import "DLSortController.h"
-#import "DLRemmendController.h"
-#import "DLMyCustomerController.h"
-//#import "DLLineQueryController.h"
-//#import "DLSupplierqueryController.h"
-#import "DLHomeViewTask.h"
-#import "DLManager.h"
+#import "UIButton+WebCache.h"
 
-static NSString *cellID  = @"cellID";
-
-@interface DLMineCenterController ()<BLM_UploadUserIconDelegate,UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong) UIView *headerView;
-@property(nonatomic,strong) UIImageView * picImg; //背景图
-@property(nonatomic,strong) UIButton * personBtn;
-@property(nonatomic,strong) UILabel *label;
-@property (strong,nonatomic) NSArray* cellTiltleArr ;
-
-@property (strong,nonatomic) UITableView* tableView ;
-@property (strong,nonatomic) UILabel* numLabel;
-@property (strong,nonatomic) UILabel* nameLabel;
-
-//头像图片
-@property (strong,nonatomic) UIImageView *headImageV;
-
+@interface DLMineCenterController ()<UITableViewDelegate,UITableViewDataSource,BLM_UploadUserIconDelegate>
 
 @property (nonatomic,strong) NSMutableDictionary *mineCenterDict;
-
-
-
-
+@property (strong,nonatomic) UITableView* tableView;
+@property (strong,nonatomic) UILabel* nameLabel;
+@property (nonatomic,strong) UIImageView *headerView;
+@property (strong,nonatomic) UILabel* numLabel;
+@property (nonatomic,strong) UILabel *label;
+@property (nonatomic,strong) NSString *bindingStr;/// 绑定状态
 @end
 
+static NSString *cellID  = @"cellID";
 @implementation DLMineCenterController
-
--(NSArray*)cellTiltleArr
-{
-    if (!_cellTiltleArr) {
-        
-        _cellTiltleArr = @[@"修改个人资料",@"我的直客",@"通用" ];
-    }
-    
-    return _cellTiltleArr ;
-}
-
-
--(UITableView*)tableView
-{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, MAIN_SCREEN_WIDTH, MAIN_SCREEN_HEIGHT) style:UITableViewStylePlain];
-        _tableView.showsVerticalScrollIndicator = NO ;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.delegate = self ;
-        _tableView.dataSource = self ;
-        _tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [self.view addSubview:_tableView];
-    }
-    
-    return _tableView ;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-     //赋值加载数据
+    [self setTableView];
     [self setupHeaderView];
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
-    self.tableView.tableFooterView = [UIView new];
-    
     [self fetchData];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-//    [self isLogIn];
-}
-
-
-
-
-
-//- (void)isLogIn{
-//    // 判断是否登录
-//    if([[DLManager shareUserDefaultsManager] isUserLoggedIn]){
-//        // 登录
-//        [_headerView setStatus:YES];
-//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewClick)];
-//        [_mineHeaderView addGestureRecognizer:tapGesture];
-//        _mineHeaderView.userInteractionEnabled = YES;
-//    }else{
-//        [_mineHeaderView setStatus:NO];
-//        // 未登录
-//    }
-//}
-//
-//
-
-
-
-
--(void)setupHeaderView{
-    //头部视图View
-    UIView *headerView = [[UIView alloc] init];
-    headerView.frame = CGRectMake(0, 0, MAIN_SCREEN_WIDTH, 145);
-    self.tableView.tableHeaderView = headerView;
-    self.headerView = headerView;
-   
-    
-    //背景图
-    UIImageView * picImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mine_theme@2x"]];
-    
-    self.picImg = picImg;
-    picImg.userInteractionEnabled = YES;
-    [headerView addSubview:picImg];
-    
-    [picImg mas_makeConstraints:^(MASConstraintMaker *make) {
-
-        make.edges.equalTo(self.headerView);
-    }];
-    
-    //设置头像按钮
-    UIButton* personBtn = [[UIButton alloc]init];
-    self.personBtn = personBtn;
-    [personBtn setImage:[UIImage imageNamed:@"v2_my_avatar"] forState:UIControlStateNormal];
-    [headerView addSubview:personBtn];
-    
-    [personBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(picImg);
-        make.width.height.offset(66);
-        make.top.equalTo(self.headerView.mas_top).offset(13);
-    }];
-    
-    [personBtn.layer setCornerRadius:33];//设置矩形四个圆角半径
-    [personBtn.layer setMasksToBounds:YES];
-    
-    [personBtn addTarget:self action:@selector(PersonbuttonClick) forControlEvents:UIControlEventTouchUpInside];
-
-    
-//    UIImageView *headImageV = [[UIImageView alloc] init];
-//    self.headerView = headerView;
-//    
-//    
-    
-    
-    
-    
-    
-    
-    
-//   UILabel *nameLabel = [[UILabel alloc] init];
-//    self.nameLabel = nameLabel;
-//    nameLabel.text = @"李元芳";
-//    nameLabel.textColor = [UIColor colorWithHexString:@"#4b4b4b"];
-//    nameLabel.font = [UIFont boldSystemFontOfSize:17.0];
-//    nameLabel.textAlignment = NSTextAlignmentCenter;
-//    [self.picImg addSubview:nameLabel];
-//    
-//    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.personBtn.mas_bottom).offset(10);
-//        make.centerX.equalTo(self.personBtn);
-//        make.width.offset(230);
-//    }];
-//    
-//    self.numLabel = [[UILabel alloc] init];
-//    self.numLabel.text = @"13898887888";
-//    self.numLabel.textColor = [UIColor colorWithHexString:@"#6e6e6e"];
-//    self.nameLabel.font = [UIFont systemFontOfSize:13];
-//    [self.picImg addSubview:self.numLabel];
-//    
-//    [self.numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//       
-//        make.top.equalTo(self.nameLabel.mas_bottom).offset(8);
-//        make.height.offset(12);
-//        make.centerX.centerY.equalTo(personBtn);
-//    }];
-}
-
-
--(void)fetchData{
-    
-    NSDictionary *param = @{@"uid" : [DLUtils getUid],
-                            @"sign_token" : [DLUtils getSign_token],
-                            };
-    @weakify(self);
-    [DLHomeViewTask getAgencyFinance:param completion:^(id result, NSError *error) {
-        @strongify(self);
-        if (result) {
-            self.mineCenterDict = [[NSMutableDictionary alloc] init];
-            self.mineCenterDict = [result objectForKey:@"agencyInfo"];
-            [self.tableView reloadData];
-            
-            
-            
-//            sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://img.dkyungou.com/%@",CModel.avatar]] placeholderImage:[UIImage imageNamed:@"logo"]];
-//            
-//        [self.personBtn ]
-            
-            
-            
-            
-
-            
-        }else {
-            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
-        }
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeDataNoti:) name:@"changeData" object:nil];
 }
 
 - (BOOL)dl_blueNavbar {
     return YES;
 }
 
-//头像按钮的点击事件
--(void)PersonbuttonClick{
+- (BOOL)prefersStatusBarHidden{
+    
+    return YES;
+}
+
+-(void)changeDataNoti:(NSNotification *)notification
+
+{
+   
+    
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)setTableView
+{
+    UITableView*tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView = tableView;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.tableFooterView = [UIView new];
+    tableView.delegate = self ;
+    tableView.dataSource = self ;
+    tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [self.view addSubview:tableView];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.top.equalTo(self.view.mas_top);
+        make.left.equalTo(self.view.mas_left);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
+}
+
+-(void)setupHeaderView{
+    
+    UIImageView *headerView = [[UIImageView alloc] init];
+    self.tableView.tableHeaderView = headerView;
+    [headerView setImage:[UIImage imageNamed:@"backImage"]];
+    [self.tableView addSubview:headerView];
+    
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.offset(0);
+        make.width.offset(0);
+        make.height.offset(145);
+    }];
+    
+    UIImageView *personImageView = [[UIImageView alloc] init];
+    self.personImageView = personImageView;
+    personImageView.userInteractionEnabled = YES;
+    [self.tableView addSubview:personImageView];
+    [personImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(@20);
+        make.height.width.offset(66);
+    }];
+    
+    UILabel *nameLabel = [[UILabel alloc] init];
+    self.nameLabel = nameLabel;
+    [nameLabel sizeToFit];
+    nameLabel.font = [UIFont fontWithName:@ "Arial Rounded MT Bold"  size:(16.0)];
+    
+    [headerView addSubview:nameLabel];
+    
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(personImageView);
+        make.top.equalTo(personImageView.mas_bottom).offset(7);
+        make.height.offset(16);
+        
+    }];
+    
+    UILabel *numLabel = [[UILabel alloc] init];
+    self.numLabel = numLabel;
+    [nameLabel sizeToFit];
+    
+    [headerView addSubview:numLabel];
+    
+    [numLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(nameLabel.mas_bottom).offset(8);
+        make.centerX.equalTo(personImageView);
+        make.height.offset(12);
+    }];
+}
+
+-(void)fetchData{
+    
+    NSDictionary *param = @{
+                            @"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            };
+    if([[DLUtils getUser_type] isEqualToString:@"4"])
+    {
+        @weakify(self);
+        [DLHomeViewTask getAgencyPersonal:param completion:^(id result, NSError *error) {
+            @strongify(self);
+            if (result) {
+                self.mineCenterDict = [[NSMutableDictionary alloc] init];
+                self.mineCenterDict = [result objectForKey:@"agencyInfo"];
+                NSString *urlStr = self.mineCenterDict[@"head_pic"];
+                NSURL *url = [NSURL URLWithString:urlStr];
+                
+                [self.personImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+                self.personImageView.layer.cornerRadius = 33;
+                self.personImageView.clipsToBounds = YES;
+                self.personImageView.layer.borderWidth = 2.0;
+                self.personImageView.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+                
+                self.nameLabel.text = self.mineCenterDict[@"name"];
+                self.numLabel.text = self.mineCenterDict[@"mobile"];
+                
+                [self.tableView reloadData];
+            }
+        }];
+        
+    }else{// C
+        
+        [DLHomeViewTask getTouristPersonalIndex:param completion:^(id result, NSError *error) {
+            
+            self.mineCenterDict = [[NSMutableDictionary alloc] init];
+            self.mineCenterDict = result[@"touristInfo"];
+            NSString *urlStr = self.mineCenterDict[@"head_img"];
+            NSURL *url = [NSURL URLWithString:urlStr];
+            
+            [self.personImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"dalvu_tabar_myorder_pre"]];
+            [self.personImageView.layer setMasksToBounds:YES];
+            [self.personImageView.layer setCornerRadius:33];
+            self.personImageView.layer.borderWidth = 2.0;
+            self.personImageView.layer.borderColor = [UIColor colorWithHexString:@"#7286fc"].CGColor;
+            [self.mineCenterDict[@"name"] isEqualToString:@"0"]? self.nameLabel.text = @"未设置" : (self.nameLabel.text = self.mineCenterDict[@"name"]);
+            self.numLabel.text = self.mineCenterDict[@"mobile"];
+            [self.tableView reloadData];
+        }];
+    }
+}
+
+-(void)alterHeadPortrait:(UITapGestureRecognizer *)gesture{
     
     [UPLOAD_IMAGE showActionSheetInFatherViewController:self delegate:self];
 }
 
-//创建label的封装
-- (UILabel *)makeLabelWithText:(NSString *)text andTextFont:(CGFloat)font andTextColor:(UIColor *)color {
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text = text;
-    label.font = [UIFont systemFontOfSize:font];
-    label.textColor = color;
-    
-    return label;
-}
-
-
-#pragma mark ------------  Table view Delegate --------------
-
-//选中某一行cell
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    /****   修改个人资料    ****/
-    if (indexPath.row == 0){
-        
-        DLChangePersonDataController *chageDataVC = [[DLChangePersonDataController alloc] init];
-        
-        [self.navigationController pushViewController:chageDataVC animated:YES];
-    }
-    
-    /***  我的直客   ***/
-    if (indexPath.row == 1) {
-        
-        DLMyCustomerController* CustomerVC = [[DLMyCustomerController alloc]init];
-        
-        [self.navigationController pushViewController:CustomerVC animated:YES];
-    }
-    
-    /***  通用   ***/
-    if (indexPath.row == 2) {
-        DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
-        
-        [self.navigationController pushViewController:genralVC animated:YES];
-    }
-    
-}
+#pragma mark ---TableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 45;
 }
 
-//头部视图的间距
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 9;
 }
-
-
-#pragma mark    --------  BLM_UploadUserIconDelegate ------------
-
-- (void)uploadImageToServerWithImage:(UIImage *)image {
-    
-    [self.personBtn setImage:image forState:UIControlStateNormal];
-}
-
-
-#pragma mark ------------  Table view data source --------------
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -298,33 +207,218 @@ static NSString *cellID  = @"cellID";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.cellTiltleArr.count;
+    if([[DLUtils getUser_type] isEqualToString:@"4"]){
+        return 6;
+    }
+    return 3;
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     
-    if(indexPath.row == 0){
-        cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
-        cell.textLabel.text = @"修改个人资料";
+    if ([[DLUtils getUser_type] isEqualToString:@"4"]) {
+        
+        if (indexPath.row == 0) {
+            
+            cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
+            cell.textLabel.text = @"修改个人资料";
+            
+        }else if (indexPath.row == 1){
+            
+            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.textLabel.text = @"我的直客";
+            
+        }else if (indexPath.row == 2){
+            
+            cell.imageView.image = [UIImage imageNamed:@"MyRecommend"];
+            cell.textLabel.text = @"我的推荐";
+            
+        }else if (indexPath.row == 3){
+            
+            cell.imageView.image = [UIImage imageNamed:@"supply"];
+            cell.textLabel.text = @"供应商查询";
+            
+        }else if (indexPath.row == 4){
+            
+            cell.imageView.image = [UIImage imageNamed:@"LineSquerry"];
+            cell.textLabel.text = @"线路询价";
+           
+        }else if (indexPath.row == 5){
+            
+            cell.imageView.image = [UIImage imageNamed:@"universal_property"];
+            cell.textLabel.text = @"通用";
+        }
+
+    }else{
+        
+        if (indexPath.row == 0) {
+            
+            cell.imageView.image = [UIImage imageNamed:@"modify_personal_data"];
+            cell.textLabel.text = @"修改个人资料";
+            
+        }else if (indexPath.row == 1){
+            
+            cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
+            cell.textLabel.text = @"我的顾问";
+            
+        }else if (indexPath.row == 2){
+            
+            cell.imageView.image = [UIImage imageNamed:@"universal_property"];
+            cell.textLabel.text = @"通用";
+        }
     }
-    if(indexPath.row == 1){
-        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
-        cell.textLabel.text = @"我的直客";
-    }
-    
-    if(indexPath.row == 2){
-        cell.imageView.image = [UIImage imageNamed:@"my_direct_guest"];
-        cell.textLabel.text = @"通用";
-    }
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([[DLUtils getUser_type] isEqualToString:@"4"]) {
+        
+        if (indexPath.row == 0){
+            
+            DLPersonalChangeDataController *changeDataVC = [[DLPersonalChangeDataController alloc] init];
+            [self.navigationController pushViewController:changeDataVC animated:YES];
+            
+        }else if (indexPath.row == 1){
+            
+            DLMyCustomerXibController *myCustomerVC = [[DLMyCustomerXibController alloc] init];
+            [self.navigationController pushViewController:myCustomerVC animated:YES];
+            
+        }else if (indexPath.row == 2){
+            
+            DLRemmendController *remmendVC = [[DLRemmendController alloc] init];
+            [self.navigationController pushViewController:remmendVC animated:YES];
+        }else if (indexPath.row == 3){
+            
+            DLSupplierQueryController *supplierVC = [[DLSupplierQueryController alloc] init];
+            [self.navigationController pushViewController:supplierVC animated:YES];
+        }else if (indexPath.row == 4){
+            
+            DLLineQueryController *lineQueryVC = [[DLLineQueryController alloc ] init];
+            [self.navigationController pushViewController:lineQueryVC animated:YES];
+  
+        }else if (indexPath.row == 5){
+            
+            DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
+            [self.navigationController pushViewController:genralVC animated:YES];
+        }
+        
+    }else{ /// C
+        
+        if (indexPath.row == 0){
+            DLCustomerChangePersonDataController *changeDataVC = [[DLCustomerChangePersonDataController alloc] init];
+            [self.navigationController pushViewController:changeDataVC animated:YES];
+            
+        }else if (indexPath.row == 1){ /// 我的顾问
+            if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+            
+                DLMyAgencyController *VC = [[DLMyAgencyController alloc] init];
+                [self.navigationController pushViewController:VC animated:YES];
+            
+            }else {
+                
+                DLMyAgencyUnBindingController *vc = [[DLMyAgencyUnBindingController alloc] init];
+                  [self.navigationController pushViewController:vc animated:YES];
+ 
+            }
+            
+        }else if (indexPath.row == 2){ /// 通用
+            
+            DLGeneralController *genralVC = [[DLGeneralController alloc ] init];
+            [self.navigationController pushViewController:genralVC animated:YES];
+        }
+    }
+}
 
+#pragma mark   -  BLM_UploadUserIconDelegate
+- (void)uploadImageToServerWithImage:(UIImage *)image {
+    
+    [DLHomeViewTask uploadImage:image Completion:^(id responseData) {
+        
+    [self.personImageView setImage:image];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (uint32_t)intFromData:(NSData *)data useBig:(BOOL)useBig
+{
+    uint32_t result = -1;
+    if (data == nil) return result;
+    Byte *bytes = (Byte *)[data bytes];
+    if (useBig) {//大端模式
+        result = CFSwapInt32BigToHost(*(int *)bytes);
+    } else {//小端模式
+        result = CFSwapInt32LittleToHost(*(int *)bytes);
+    }
+    return result;
+}
+
+- (NSString *)contentTypeForImageData:(NSData *)data
+{
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c)
+    {
+        case 0xFF:
+            return @"jpeg";
+            NSLog(@"jpeg");
+            
+        case 0x89:
+            return @"png";
+            NSLog(@"png");
+            
+        case 0x47:
+            return @"gif";
+            NSLog(@"gif");
+            
+        case 0x49:
+        case 0x4D:
+            return @"tiff";
+            NSLog(@"tiff");
+            
+        case 0x52:
+            if ([data length] < 12) {
+                return nil;
+            }
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"]
+                && [testString hasSuffix:@"WEBP"])
+            {
+                return @"webp";
+                NSLog(@"webp");
+            }
+            
+            return nil;
+    }
+    return nil;
+}
+
+
+- (void)saveImage:(UIImage *)image name:(NSString *)iconName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    NSString *icomImage = iconName;
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", icomImage]];
+
+    [UIImagePNGRepresentation(image)writeToFile: filePath  atomically:YES];
+}
+
+- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
+{
+    UIGraphicsBeginImageContext(CGSizeMake(image.size.width*scaleSize,image.size.height*scaleSize));
+    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height *scaleSize)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSLog(@"%@",NSStringFromCGSize(scaledImage.size));
+    return scaledImage;
+}
 @end

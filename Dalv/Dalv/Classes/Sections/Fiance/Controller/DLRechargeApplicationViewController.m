@@ -9,11 +9,14 @@
 #import "DLRechargeApplicationViewController.h"
 #import "DLOfflineRechargeViewController.h"
 #import "DLOnlineRechargeViewController.h"
-@interface DLRechargeApplicationViewController ()
-{
-    DLOfflineRechargeViewController *_offlineVC;
-    DLOnlineRechargeViewController *_onlineVC;
+
+@interface DLRechargeApplicationViewController () {
+ 
 }
+
+@property (nonatomic, strong) DLOfflineRechargeViewController *offlineVC;
+
+@property (nonatomic, strong) DLOnlineRechargeViewController *onlineVC;
 
 @end
 
@@ -24,14 +27,14 @@
     
     [self setupNavbar];
     [self setupSubviews];
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self setupConstraints];
+ 
 }
 
 #pragma mark - Setup navbar
 
 - (BOOL)dl_blueNavbar {
     return YES;
-    
 }
 
 - (void)setupNavbar {
@@ -41,39 +44,58 @@
 #pragma mark - Setup subViews
 
 - (void)setupSubviews {
-    NSArray *arr = [[NSArray alloc]initWithObjects:@"线下充值",@"线上充值", nil];
-    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:arr];
-    segment.frame = CGRectMake(0,0,SCREEN_WIDTH,40);
-    segment.backgroundColor = [UIColor colorWithHexString:@"#7894f2"];
-    segment.tintColor = [UIColor whiteColor];
-    segment.selectedSegmentIndex = 0;
-    [segment addTarget:self action:@selector(segmentClick:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:segment];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-
-    
-   // 创建控制器的对象
     _offlineVC = [[DLOfflineRechargeViewController alloc] init];
     _offlineVC.view.backgroundColor = [UIColor redColor];
-    _onlineVC = [[DLOnlineRechargeViewController alloc] init];
-    _onlineVC.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:_offlineVC.view];
+    [self addChildViewController:_offlineVC];
+    
+    _onlineVC = [[DLOnlineRechargeViewController alloc] init];
+    _onlineVC.view.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:_onlineVC.view];
+    [self addChildViewController:_onlineVC];
+    _onlineVC.view.hidden = YES;
+    
+    NSArray *arr = [[NSArray alloc]initWithObjects:@"线下充值",@"在线充值", nil];
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:arr];
+    segment.frame = CGRectMake(0,0,SCREEN_WIDTH,40);
+    segment.tintColor = [UIColor colorWithHexString:@"#7894f2"];
+    segment.selectedSegmentIndex = 0;
+    segment.layer.cornerRadius = 0;
+    segment.layer.borderWidth = 1.0;
+    segment.layer.masksToBounds = YES;
+    segment.layer.borderColor = segment.tintColor.CGColor;
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont systemFontOfSize:16],
+                                 NSForegroundColorAttributeName : segment.tintColor};
+    [segment setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [segment addTarget:self action:@selector(segmentClick:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:segment];
 
 }
 
--(void)segmentClick:(UISegmentedControl *)segment{
+- (void)setupConstraints {
+    [self.onlineVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(40);
+        make.left.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
+    
+    [self.offlineVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.onlineVC.view);
+    }];
+
+}
+- (void)segmentClick:(UISegmentedControl *)segment {
     
     switch (segment.selectedSegmentIndex) {
         case 0:
-            //第一个界面
-            [self.view addSubview:_offlineVC.view];
-            [_onlineVC.view removeFromSuperview];
+            _onlineVC.view.hidden = YES;
+            _offlineVC.view.hidden = NO;
             break;
         case 1:
-            [self.view addSubview:_onlineVC.view];
-            [_offlineVC.view removeFromSuperview];
-            
-            
+            _onlineVC.view.hidden = NO;
+            _offlineVC.view.hidden = YES;
             break;
             
         default:

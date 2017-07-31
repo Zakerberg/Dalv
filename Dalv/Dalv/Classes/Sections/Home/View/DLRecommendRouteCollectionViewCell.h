@@ -27,5 +27,15 @@
  */
 - (void)configureCell:(DLRecommendRouteModel *)model;
 
+/**
+ *  配置出行Cell 数据  传一个推荐线路模型 进来
+ */
+- (void)configureLineTourCell:(DLRecommendRouteModel *)model;
+
+
+/**
+ *  配置出行Cell 数据  传一个推荐线路模型 进来
+ */
+- (void)configureLineDestinationCell:(DLRecommendRouteModel *)model;
 
 @end

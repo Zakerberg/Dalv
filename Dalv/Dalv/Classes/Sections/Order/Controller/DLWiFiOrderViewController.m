@@ -4,7 +4,7 @@
 //
 //  Created by Michael 柏 on 2017/6/6.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+
 
 #import "DLWiFiOrderViewController.h"
 
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor randomColor];
+    self.view.backgroundColor = [UIColor yellowColor];
 }
 
 - (void)didReceiveMemoryWarning {

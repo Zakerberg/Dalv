@@ -4,114 +4,59 @@
 //
 //  Created by Michael 柏 on 2017/6/8.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//    ---------------   发票申请   ------------
 
 #import "DLInvioiceApplyController.h"
-#import "DLHomeViewTask.h"
 #import "DLContractApplySection1Cell.h"
-#import "DLContractApplySection2Cell.h"
-#import "DLContractApplySection3Cell.h"
 #import "DLContractApplySection4Cell.h"
 #import "DLContractApplySection5Cell.h"
-#import "DLinvoiceApplySection0Cell.h"
 #import "DLinvoiceSection1Cell.h"
-#import "DLCityPickerView.h"
 #import "DLSalertView.h"
+#import "DLCityPickerView.h"
 #import "DLAddReduceButton.h"
+#import "DLinvoiceApplySection0Cell.h"
+#import "DLContractApplySection3Cell.h"
+#import "DLContractApplySection2Cell.h"
 
 @interface DLInvioiceApplyController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,DLCityPickerViewDelegate,DLSalertViewDelegate>
-@property (nonatomic, strong) UITableView *invoiceTableView;
 
-/*** 发票抬头TF  ***/
-@property(nonatomic,strong) UITextField * companyTF;
-/*** 发票项目TF  ***/
-@property(nonatomic,strong) UITextField *projectTF;
-/*** 发票备注TF  ***/
-@property(nonatomic,strong) UITextView *noteTextView;
-/*** 发票金额TF  ***/
+@property(nonatomic, strong) UITableView *invoiceTableView;
 @property(nonatomic,strong) UITextField *invoiceAmountTF;
-
-/*** 自取inviteBtn  ***/
-@property(nonatomic,strong)UIButton *inviteBtn;
-/*** 快递CourierBtn ***/
-@property(nonatomic,strong)UIButton *courierBtn;
-
-/*** 到付Btn  ***/
-@property(nonatomic,strong)UIButton *payforBtn;
-/*** 邮寄Btn  ***/
-@property(nonatomic,strong)UIButton *mailBtn;
-
-//发票类型数据
+@property(nonatomic,strong) UITextView *noteTextView;
 @property(nonatomic,strong) NSMutableArray *dataArrM;
-
-
-/*** 邮寄地址TextView  ***/
-@property(nonatomic,strong) UITextView * addressTV;
-
-/*** 提交申请Btn  ***/
-@property(nonatomic,strong) UIButton * submitBtn;
-
-
-/*** 联系人姓名TextFiled  ***/
-@property(nonatomic,strong) UITextField *nameTF;
-/*** 联系人电话TextFiled  ***/
-@property(nonatomic,strong) UITextField *numberTF;
-
 @property(nonatomic,assign) NSInteger Section2Number;
 @property(nonatomic,assign) NSInteger Section3Number;
 @property(nonatomic,assign) NSInteger Section4Number;
-
-/***  剩余发票额度Label ***/
+@property(nonatomic,strong) UITextField *companyTF;
+@property(nonatomic,strong) UITextField *projectTF;
+@property(nonatomic,strong) UITextView *addressTV;
+@property(nonatomic,strong) UIButton *submitBtn;
+@property(nonatomic,strong) UIButton *courierBtn;
+@property(nonatomic,strong) UITextField *nameTF;
+@property(nonatomic,strong) UIButton *inviteBtn;
+@property(nonatomic,strong) UIButton *payforBtn;
+@property(nonatomic,strong) UIButton *mailBtn;
+@property(nonatomic,strong) UITextField *numberTF;
 @property(nonatomic,strong) UILabel *moneyLabel;
-
-
-//获取方式
 @property(nonatomic,strong) NSString *methodBtnNumber;
-
-//邮寄方式
 @property(nonatomic,strong) NSString *express_feeNumber;
-
-
-/***  发票项目 Btn ***/
 @property(nonatomic,strong) UIButton *projctButton;
-
-@property (nonatomic,strong) DLSalertView *alertView;
-@property(nonatomic,strong)UITextField *firstField;
-
-
-@property(nonatomic,strong) DLAddReduceButton * currentBtn;
-@property(nonatomic,weak)DLinvoiceApplySection0Cell *section0Cell;
-
-
-
-//
-////最后返回给后台的团款label.text
-//@property(nonatomic,strong) UILabel *finallyBtnLabel;
-//
-//
-//
-
-
-/* 公司地址 */
-@property(nonatomic,strong) UILabel * addressLabel1;
-/* 公司电话 */
-@property(nonatomic,strong) UILabel * numberLabel1;
-
-
-
+@property(nonatomic,strong) DLSalertView *alertView;
+@property(nonatomic,strong) UITextField *firstField;
+@property(nonatomic,strong) DLAddReduceButton *currentBtn;
+@property(nonatomic,strong) UILabel *addressLabel1;
+@property(nonatomic,strong) UILabel *numberLabel1;
 @property(nonatomic,strong) NSString *companyStr;
 @property(nonatomic,strong) NSString *numStr;
-
-
-
+@property(nonatomic,strong) UITextField *identificationNumTF;
+@property(nonatomic,strong) UIButton *blankInviteBtn;
+@property(nonatomic,strong) UIButton *blankCourierBtn;
+@property(nonatomic,strong) UIButton *blankPayforBtn;
+@property(nonatomic,strong) UIButton *blankMailBtn;
+@property(nonatomic,weak) DLinvoiceApplySection0Cell *section0Cell;
 @end
 
-
-//static NSString *CellID = @"CellID";
-
-static NSString *section0CellID = @"section0CellID";
 static NSString *invoiceSection1cellID = @"invoiceSection1cellID";
-
+static NSString *section0CellID = @"section0CellID";
 static NSString *section1CellID = @"section1CellID";
 static NSString *section2CellID = @"section2CellID";
 static NSString *section3CellID = @"section3CellID";
@@ -126,15 +71,13 @@ static NSString *section5CellID = @"section5CellID";
     [self fetchData];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"发票申请";
-    
+
     self.Section2Number = 2;
     self.Section3Number = 0;
     self.Section4Number = 1;
 }
 
-
-#pragma mark ----------------- Set TableView -----------------
-
+#pragma mark ------ Set TableView
 -(void)setTableView {
     
     self.invoiceTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -158,8 +101,6 @@ static NSString *section5CellID = @"section5CellID";
     [self.invoiceTableView registerClass:[DLContractApplySection4Cell class] forCellReuseIdentifier:section4CellID];
     
     [self.invoiceTableView registerClass:[DLContractApplySection5Cell class] forCellReuseIdentifier:section5CellID];
-    
-//    [self.invoiceTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellID];
     
     [self.view addSubview:self.invoiceTableView];
     
@@ -192,117 +133,51 @@ static NSString *section5CellID = @"section5CellID";
     
     [DLHomeViewTask getAgencyFinanceApplyInvoicet:param completion:^(id result, NSError *error) {
         
-        ////
-        //
-        //        DLinvoiceModel *model = [DLinvoiceModel mj_objectWithKeyValues:result[0]];
+        NSDictionary *invoiceDict = result;
         
-        //
-        //        NSMutableArray *arrM = [NSMutableArray array];
-        //
-        //        [arrM addObject:model.detail];
-        //
-        //        NSLog(@"model = %@",model.detail);
-        //
-        
-        //        NSMutableArray *arr = [NSMutableArray array];
-        //
-        //
-        //        NSLog(@"%@",result);
-        //        NSArray *userArray = [DLinvoiceModel mj_objectArrayWithKeyValuesArray:arr];
-        //        for (DLinvoiceModel *invoiceModel in userArray) {
-        //            NSLog(@"name=%@", invoiceModel.detail);
-        //
-        //            [arr setValue:@"detail" forKey:@"旅游费"];
-        //        }
-        
-        NSLog(@"%@",result[@"invoiceTypeList"]);
-        
-        NSDictionary *dict = result;
-        NSArray *arr = dict[@"invoiceTypeList"];
-        NSMutableArray *arrM = [NSMutableArray array];
+        NSArray *arr = invoiceDict[@"invoiceTypeList"];
+        self.dataArrM = [NSMutableArray array];
+      
         for (NSDictionary *dic in arr) {
             NSString *str = dic[@"detail"];
-            [arrM addObject:str];
+//            [arrM addObject:str];
+            [self.dataArrM addObject:str];
+           
         }
-        
-//        NSMutableArray *dataArrM = [NSMutableArray array];
-//        self.dataArrM = dataArrM;
-//        [dataArrM addObject:arrM];
-//        
-        
-        NSDictionary *invoiceDict = result;
         
         NSDictionary *operatorInfo = invoiceDict[@"operatorInfo"];
         
-        
         NSString *companyStr = operatorInfo[@"address"];
-        self.addressLabel1.text = companyStr;
-        NSString *numStr = operatorInfo[@"tel"];
-        self.numberLabel1.text = numStr;
         
-
+        if ([companyStr isEqualToString:@""]) {
+            self.addressLabel1.text = @"哎呦喂,居然没有地址 ^ 0 ^ ";
+        }else{
+         self.addressLabel1.text = companyStr;
+        }
+        
+        NSString *numStr = operatorInfo[@"tel"];
+        
+        if ([numStr isEqualToString:@""]) {
+            self.numberLabel1.text = @"哎呦喂,居然没有电话 ^ 0 ^ ";
+        }else{
+            self.numberLabel1.text = numStr;
+        }
+        
         NSString * moneyStr = invoiceDict[@"lastTotal"];
         
-        /*
-         
-         Label.text = [NSString stringWithFormat:@"%@",dic[@"name"]];可以正常展示
-         */
-    
         NSInteger MoneyInter = [moneyStr integerValue];
         
         NSInteger finaInter = MoneyInter/100;
-        
-        
-//        self.moneyLabel.text = [NSString stringWithFormat:@"%@",moneyStr];
-        
         self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(long)finaInter];
-
-        
-        //        NSString *lastTotalStr = invoiceDict[@"lastTotal"];
-////
-//   NSInteger *monInter = [moneyStr intValue];
-//        
-//        
-//        self.moneyLabel.text = [NSString stringWithFormat:@"%ld",(monInter/100)];
-////
-        
-        
-        
-        
-        
-        
-//        
-        
-//        self.numberLabel1.text = numStr;
-        
-        //
-        ////        NSDictionary *listDict = dict[@"invoiceTypeList"];
-        //
-        //
-        //        NSDictionary *dict1 = [result dictionaryWithObject:@"团款" forKey:@"detail"];
-        //
-        //
-        //        NSArray *arr = result[@"invoiceTypeList"];
-        //
-        //
-        ////        NSString* list = arr.
-        //
-        //
-        //
-        
-        
-        
     }];
 }
 
 #pragma mark -----------  BtnClick ----------------
 
-/***  发票项目 Btn ***/
 -(void)projectBtnClick {
-
-    //
-    NSMutableArray *arrayData = [NSMutableArray arrayWithObjects:@"团款",@"旅游费",nil];
-    //
+    
+    NSMutableArray *arrayData = [NSMutableArray arrayWithArray:self.dataArrM];
+    
     DLCityPickerView *pickerSingle = [[DLCityPickerView alloc]init];
     
     [pickerSingle setDataArray:arrayData];
@@ -311,10 +186,8 @@ static NSString *section5CellID = @"section5CellID";
     [pickerSingle show];
     [self.view endEditing:YES];
     
-    
 }
 
-/*** 自取按钮 ***/
 -(void)inviteBtnClick {
     
     self.methodBtnNumber = @"1";
@@ -330,12 +203,10 @@ static NSString *section5CellID = @"section5CellID";
     
 }
 
-
-/***  快递按钮 ***/
 -(void)courierBtnClick {
     
+
     self.methodBtnNumber = @"2";
-    
     [self.courierBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
     [self.inviteBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     
@@ -347,7 +218,6 @@ static NSString *section5CellID = @"section5CellID";
     
 }
 
-/*** 到付按钮 ***/
 -(void)payforBtnCLick {
     
     
@@ -357,133 +227,97 @@ static NSString *section5CellID = @"section5CellID";
     [self.mailBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
 }
 
-/*** 邮寄按钮 ***/
+
 -(void)mailBtnCLick {
-    
-    
+
     self.express_feeNumber = @"4";
     
     [self.payforBtn setImage:[UIImage imageNamed:@"UnCheck"] forState:UIControlStateNormal];
     [self.mailBtn setImage:[UIImage imageNamed:@"Check"] forState:UIControlStateNormal];
 }
 
-
-/*** 提交申请按钮 ***/
 -(void)submitBtnClick {
-    
-    
-    
-//    NSDictionary *param1 = @{
-//                             
-//                             @"uid":[DLUtils getUid],
-//                             @"sign_token" : [DLUtils getSign_token],
-//                             @"title":self.companyTF.text,
-//                             @"amount":self.invoiceAmountTF.text,
-//                             @"detail":self.projctButton.titleLabel.text,
-//                             @"detail_comm":self.noteTextView.text,
-//                             @"request_method":self.methodBtnNumber,
-//                             @"code":@"400"
-//                             
-//                             };
 
-    //自取
-    if ([self.methodBtnNumber isEqualToString:@"1"]) {
-//        
-               NSDictionary *param1 = @{
+    if ([self.identificationNumTF.text isEqualToString:@""]) {
         
-                                         @"uid":[DLUtils getUid],
-                                         @"sign_token" : [DLUtils getSign_token],
-                                         @"title":self.companyTF.text,
-                                         @"amount":self.invoiceAmountTF.text,
-                                         @"detail":self.projctButton.titleLabel.text,
-                                         @"detail_comm":self.noteTextView.text,
-                                         @"request_method":self.methodBtnNumber,
-                                         @"code":@"400"
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入纳税人识别号" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
         
-                                         };
+    }else if([self.companyTF.text isEqualToString:@""]){
+      
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入发票抬头" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
         
-        [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param1 completion:^(id result, NSError *error) {
+    }else if([self.invoiceAmountTF.text isEqualToString:@""]){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入金额" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+    }else if([self.projctButton.titleLabel.text isEqualToString:@" "]){
+        
+        UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入发票项目" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [successV show];
+    
+    }else{
+        
+        
+        if ([self.methodBtnNumber isEqualToString:@"1"]) {
             
-                        //写个提示申请成功! ---> 跳转!
+            NSDictionary *param1 = @{
+                                     
+                                     @"uid":[DLUtils getUid],
+                                     @"sign_token" : [DLUtils getSign_token],
+                                     @"title":self.companyTF.text,
+                                     @"amount":self.invoiceAmountTF.text,
+                                     @"detail":self.projctButton.titleLabel.text,
+                                     @"detail_comm":self.noteTextView.text,
+                                     @"request_method":self.methodBtnNumber,
+                                     @"tax_number":self.identificationNumTF.text,
+                                     @"code":@"400"
+                                     
+                                     };
             
-            UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [successV show];
-        }];
-     }
-    //
-    //快递
-    else if ([self.methodBtnNumber isEqualToString:@"2"]){
-        
-        
-        
-//        NSDictionary *param = @{
-//                                
-//                                @"uid":[DLUtils getUid],
-//                                @"sign_token" : [DLUtils getSign_token],
-//                                @"title":self.companyTF.text,
-//                                @"amount":self.invoiceAmountTF.text,
-//                                @"detail":self.projctButton.titleLabel.text,
-//                                @"detail_comm":self.noteTextView.text,
-//                                @"request_method":self.methodBtnNumber,
-//                                @"express_fee":self.express_feeNumber,
-//                                @"addr":self.addressTV.text,
-//                                @"name":self.nameTF.text,
-//                                @"phone":self.numberTF.text,
-//                                @"code":@"400"
-//                                
-//                                };
-
-        
-        
-        if (self.addressTV.text != nil && self.nameTF.text != nil && self.numberTF.text != nil) {
-            
-            NSDictionary *param = @{
-                                    
-                                    @"uid":[DLUtils getUid],
-                                    @"sign_token" : [DLUtils getSign_token],
-                                    @"title":self.companyTF.text,
-                                    @"amount":self.invoiceAmountTF.text,
-                                    @"detail":self.projctButton.titleLabel.text,
-                                    @"detail_comm":self.noteTextView.text,
-                                    @"request_method":self.methodBtnNumber,
-                                    @"express_fee":self.express_feeNumber,
-                                    @"addr":self.addressTV.text,
-                                    @"name":self.nameTF.text,
-                                    @"phone":self.numberTF.text,
-                                    @"code":@"400"
-                                    
-                                    };
-            
-            
-            [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param completion:^(id result, NSError *error) {
-                
-                //写个提示申请成功! ---> 跳转!
-
+            [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param1 completion:^(id result, NSError *error) {
                 
                 UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
                 [successV show];
-
-                
-                
+                [self.navigationController popViewControllerAnimated:YES];
             }];
+        }
+        else if ([self.methodBtnNumber isEqualToString:@"2"]){
             
-            
-        }else{
-            
-            // 写个提示!  申请失败 !  联系客服 !
-            
-            
-            
-            
-            UIAlertView *failureV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请失败,请联系客服" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-            [failureV show];
-            
-            
-            
+            if (![self.addressTV.text  isEqual: @""] && ![self.nameTF.text  isEqual: @""] && ![self.numberTF.text  isEqual: @""]) {
+                
+                NSDictionary *param = @{
+                                        
+                                        @"uid":[DLUtils getUid],
+                                        @"sign_token" : [DLUtils getSign_token],
+                                        @"title":self.companyTF.text,
+                                        @"amount":self.invoiceAmountTF.text,
+                                        @"detail":self.projctButton.titleLabel.text,
+                                        @"detail_comm":self.noteTextView.text,
+                                        @"request_method":self.methodBtnNumber,
+                                        @"express_fee":self.express_feeNumber,
+                                        @"addr":self.addressTV.text,
+                                        @"name":self.nameTF.text,
+                                        @"phone":self.numberTF.text,
+                                        @"tax_number":self.identificationNumTF.text,                                    @"code":@"400"
+                                        };
+                [DLHomeViewTask getAgencyFinanceApplyInvoicetHandle:param completion:^(id result, NSError *error) {
+                    
+                    UIAlertView *successV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"申请成功" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                    [successV show];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+                
+            }else{
+                
+                UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请补全收货信息" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+                [alertV show];
+            }
         }
     }
 }
-
 
 #pragma mark  ----------UITable View Delegate------------
 
@@ -499,7 +333,6 @@ static NSString *section5CellID = @"section5CellID";
     if (section == 4){
         return 2;
     }
-    
     return 10;
     
 }
@@ -507,7 +340,7 @@ static NSString *section5CellID = @"section5CellID";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
-        return 222;
+        return 222+45;
     }
     
     else if (indexPath.section == 2 && indexPath.row == 1){
@@ -557,42 +390,29 @@ static NSString *section5CellID = @"section5CellID";
     }
     
     return self.Section4Number;
-    
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
         
-        
         DLinvoiceApplySection0Cell *section0Cell = [tableView dequeueReusableCellWithIdentifier:section0CellID];
         
         self.section0Cell = section0Cell;
-        //抬头
         self.companyTF = section0Cell.companyTF;
-        //项目
         self.projctButton = section0Cell.projctButton;
-        //备注
         self.noteTextView = section0Cell.noteTextView;
-        
-        //剩余金额
         self.moneyLabel = section0Cell.moneyLabel;
-        
-        
-        self.noteTextView.text = @"请填写备注 如代订机票等";
-        self.noteTextView.delegate = self;
+        self.identificationNumTF = section0Cell.identificationNumTF;
         [self.projctButton addTarget:self action:@selector(projectBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         return section0Cell;
-        
     }
     
-    /**发票金额**/
     else  if (indexPath.section == 1 ){
         
         DLinvoiceSection1Cell *cell = [tableView dequeueReusableCellWithIdentifier:invoiceSection1cellID];
         
-        //发票金额
         self.invoiceAmountTF = cell.invoiceAmountTF;
         return cell;
     }
@@ -603,25 +423,27 @@ static NSString *section5CellID = @"section5CellID";
         
         self.inviteBtn = cell.inviteBtn;
         self.courierBtn = cell.courierBtn;
+        self.blankCourierBtn = cell.blankCourierBtn;
+        self.blankInviteBtn = cell.blankInviteBtn;
+        
+        [cell.blankInviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.blankCourierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
         [cell.inviteBtn addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.courierBtn addTarget:self action:@selector(courierBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
-        
     }
     
     else if (indexPath.section == 2 && indexPath.row == 1)
     {
         DLContractApplySection2Cell *cell = [tableView dequeueReusableCellWithIdentifier:section2CellID];
-       
-        
-        //公司的地址和电话
         self.addressLabel1 = cell.addressLabel1;
         self.numberLabel1 = cell.numberLabel1;
         
         return cell;
-        
     }
     
     else if (indexPath.section == 3) {
@@ -630,6 +452,14 @@ static NSString *section5CellID = @"section5CellID";
         
         self.mailBtn = cell.mailBtn;
         self.payforBtn = cell.payforBtn;
+        
+        
+        self.blankMailBtn = cell.blankMailBtn;
+        self.blankPayforBtn = cell.blankPayforBtn;
+        
+        [cell.blankPayforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.blankMailBtn addTarget:self action:@selector(mailBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         
         [cell.payforBtn addTarget:self action:@selector(payforBtnCLick) forControlEvents:UIControlEventTouchUpInside];
         
@@ -670,15 +500,11 @@ static NSString *section5CellID = @"section5CellID";
 #pragma mark ---------  UITextViewDelegate  -------------
 
 -(void)textViewDidBeginEditing:(UITextView *)textView{
-    if ([textView.text isEqualToString:@"请填写备注 如代订机票等"]) {
-        textView.text = @"";
-        textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
-    }
-    
+
     if ([textView.text isEqualToString:@"请填写您的收货地址"]) {
         textView.text = @"";
         textView.textColor = [UIColor colorWithHexString:@"c1c1c1"];
-    }    
+    }
 }
 
 -(void)textViewDidEndEditing:(UITextView *)textView{
@@ -688,13 +514,10 @@ static NSString *section5CellID = @"section5CellID";
     }
 }
 
-
-
 #pragma mark  ----------DLCityPickerViewDelegate------------
 
 -(void)customPickView:(DLCityPickerView *)customPickView selectedTitle:(NSString *)selectedTitle{
     
-//    self.projctButton.titleLabel.text = selectedTitle;
     [self.projctButton setTitle:selectedTitle forState:UIControlStateNormal];
     
 }

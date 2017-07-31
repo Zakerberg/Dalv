@@ -137,6 +137,18 @@ rac_keywordify     _Pragma("clang diagnostic push")     _Pragma("clang diagnosti
 // NSUserDefaults
 #define UserDefaults(userDefaults) NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
+#define kPinkColor [UIColor colorWithRed:0.886 green:0.271 blue:0.353 alpha:1.000]
+
+// 缩放比
+#define kScale ([UIScreen mainScreen].bounds.size.width) / 375
+
+#define hScale ([UIScreen mainScreen].bounds.size.height) / 667
+
+
+//RGB
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+//字体大小
+#define kfont 15
 
 
 #endif /* Consts_h */

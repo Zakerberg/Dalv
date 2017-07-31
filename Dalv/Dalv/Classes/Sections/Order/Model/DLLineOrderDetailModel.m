@@ -10,6 +10,6 @@
 
 @implementation DLLineOrderDetailModel
 + (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"lineId" : @"id",};
+    return @{@"lineDetailId" : @"id",};
 }
 @end

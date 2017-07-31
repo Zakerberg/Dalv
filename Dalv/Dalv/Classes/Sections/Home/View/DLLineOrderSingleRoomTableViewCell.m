@@ -44,13 +44,14 @@
     singleRoomlab.text = @"单房差";
     [self.contentView addSubview:singleRoomlab];
     
-    DLAddReduceButton *numberButton = [[DLAddReduceButton alloc]init];;
-    numberButton.shakeAnimation = YES;
-    numberButton.maxValue = 10;
-    numberButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
+    DLAddReduceButton *singleRoomButton = [[DLAddReduceButton alloc]init];;
+    singleRoomButton.shakeAnimation = YES;
+    self.singleRoomButton = singleRoomButton;
+//    numberButton.maxValue = 10;
+    singleRoomButton.resultBlock = ^(NSInteger num ,BOOL increaseStatus){
         NSLog(@"%ld",num);
     };
-    [self.contentView addSubview:numberButton];
+    [self.contentView addSubview:singleRoomButton];
 
     
 //    self.addBtn = [[UIButton alloc]init];
@@ -99,7 +100,7 @@
         make.height.equalTo(@40);
     }];
     
-    [numberButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [singleRoomButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(singleRoomlab);
         make.right.equalTo(@-15);
         make.width.equalTo(@80);

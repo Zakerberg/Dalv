@@ -33,4 +33,11 @@
 
 // 获取token
 + (NSString *)getSign_token;
+
+// 获取type
++ (NSString *)getUser_type;
+
+//获取绑定状态
++(NSString *)getUser_bingdingState;
+
 @end

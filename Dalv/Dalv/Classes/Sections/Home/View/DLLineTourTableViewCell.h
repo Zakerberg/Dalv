@@ -10,10 +10,8 @@
 
 @interface DLLineTourTableViewCell : UITableViewCell
 @property (strong, nonatomic) UISearchBar *searchBar;
-@property (strong,nonatomic) UITextField *serchTextField;
 @property (strong,nonatomic) UIImageView *headImage;
 
-/** Cell 重用ID */
 + (NSString *)cellIdentifier;
 
 @end

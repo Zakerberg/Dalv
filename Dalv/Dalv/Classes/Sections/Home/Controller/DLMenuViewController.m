@@ -10,12 +10,17 @@
 #import "DLHomeMenuCollectionViewCell.h"
 #import "DLHomePageViewModel.h"
 #import "DLLineTourViewController.h"
+#import "DLHomePageMenuModel.h"
+#import "DLPlaneTicketViewController.h"
 
 @interface DLMenuViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) UICollectionView *appCollectionView;
 
 @property (nonatomic, strong) NSArray *apps;
+
+@property (nonatomic, strong) DLHomeMenuItem *columnList;
+
 
 @end
 
@@ -30,7 +35,11 @@
     [self setupSubviews];
     [self setupConstraints];
     
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
     [self fetchData];
+    } else{
+    [self ordinaryFetchData];
+    }
     
 }
 
@@ -69,18 +78,51 @@
         make.edges.equalTo(self.view);
     }];
 }
-
 #pragma mark - Fetch data
 
-- (void)fetchData {
-   
-    self.apps = [DLHomePageViewModel creatMenuItems];
-    [self.appCollectionView reloadData];
+- (void)ordinaryFetchData {
     
-    if (self.didCompleteLoad) {
-        self.didCompleteLoad();
-    }
+    /// 绑定
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
 
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getTouristAgencyIndexMod:param completion:^(id result, NSError *error) {
+        DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+        self.apps = homePageMenuModel.columnList;
+        [self.appCollectionView reloadData];
+        if (self.didCompleteLoad) {
+            self.didCompleteLoad(homePageMenuModel);
+        }
+    }];
+    } else {
+        
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],};
+        [DLHomeViewTask getHomeIndexMod:param completion:^(id result, NSError *error) {
+            DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+            self.apps = homePageMenuModel.columnList;
+            [self.appCollectionView reloadData];
+            
+            if (self.didCompleteLoad) {
+                self.didCompleteLoad(homePageMenuModel);
+            }
+        }];
+
+    }
+}
+- (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    [DLHomeViewTask getHomeAgencyIndexModl:param completion:^(id result, NSError *error) {
+        DLHomePageMenuModel *homePageMenuModel = [DLHomePageMenuModel mj_objectWithKeyValues:result];
+        self.apps = homePageMenuModel.columnList;
+        [self.appCollectionView reloadData];
+        if (self.didCompleteLoad) {
+            self.didCompleteLoad(homePageMenuModel);
+        }
+    }];
  }
 
 #pragma mark - UICollectionViewDataSource
@@ -93,6 +135,7 @@
     DLHomeMenuCollectionViewCell *cell = [DLHomeMenuCollectionViewCell cellWithCollectionView:collectionView IndexPath:indexPath];
     
     DLHomeMenuItem *menuItem = [self.apps objectAtIndex:indexPath.row];
+    cell.homeMenuItem = menuItem;
     cell.showsSeparator = NO;
     [cell configureCell:menuItem];
     return cell;
@@ -103,10 +146,26 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
-    DLLineTourViewController *DLlinetourVC = [[DLLineTourViewController alloc]init];
-    [self.navigationController pushViewController:DLlinetourVC animated:YES];
+    DLHomeMenuCollectionViewCell *cell = (DLHomeMenuCollectionViewCell*) [self.appCollectionView cellForItemAtIndexPath:indexPath];
+    
+#warning MARK ------------   后期根据增加的东西 做更改 --------------------
+    
+    if (cell.homeMenuItem.type.integerValue == 5 ||
+        cell.homeMenuItem.type.integerValue == 7 ) {  /// 5是保险  7是门票  // 6是机票
+        [[DLHUDManager sharedInstance] showTextOnly:@"正在拼命开发中...."];
+    }
+    
+    else if (cell.homeMenuItem.type.integerValue == 6) {
+        DLPlaneTicketViewController *planeticketVC = [[DLPlaneTicketViewController alloc]init];
+        [self.navigationController pushViewController:planeticketVC animated:YES];
+    }
+    
+    else {
+        DLLineTourViewController *linetourVC = [[DLLineTourViewController alloc]init];
+        linetourVC.homeMenuItem = [self.apps objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:linetourVC animated:YES];
+    }
 }
-
 
 #pragma mark - Public Methods
 

@@ -274,7 +274,7 @@ constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block
 
 
 + (void)UploadImageWithUrl:(NSString *)URLString
-                    params:(NSMutableDictionary *)parameters
+                    params:(NSDictionary *)parameters
                imageParams:(UIImage*)image
                    success:(void (^)(NSDictionary *)) success
                    failure:(void (^)( NSError*))failure{

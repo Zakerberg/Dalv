@@ -10,8 +10,10 @@
 #import "DLLineModificationViewDetailTableViewCell.h"
 #import "DLRoutePricingTableViewCell.h"
 
-@interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DLLineModificationViewController ()<UITableViewDelegate,UITableViewDataSource,LineModificationDelegate>
 @property (nonatomic, strong) UITableView *lineModificationTableView;//
+@property (nonatomic, strong) DLLineModificationModel *modificationModel;//顾问线路改价模型
+@property (nonatomic, strong) NSArray *modificationarry;
 
 @end
 
@@ -72,6 +74,28 @@
 #pragma mark - Fetch data
 
 - (void)fetchData {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"id" : self.routeModel.routeId,
+                            @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    @weakify(self);
+    [DLHomeViewTask getAgencyChangePrice:param completion:^(id result, NSError *error) {
+        @strongify(self);
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            self.modificationModel = [DLLineModificationModel mj_objectWithKeyValues:result];
+            self.modificationarry = self.modificationModel.list;
+            if (self.modificationModel.list.count == 0) {
+                [[DLHUDManager sharedInstance] showTextOnly:@"没有线路团期"];
+                return;
+            }
+            [self.lineModificationTableView reloadData];
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -82,7 +106,7 @@
     if(section == 0){
         return 1;
     }else{
-        return 3;
+        return self.modificationarry.count;
     }
 
 }
@@ -91,10 +115,16 @@
     if (indexPath.section == 0) {
     DLLineModificationViewDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLLineModificationViewDetailTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.modificationModel = self.modificationModel;
+    [cell configureCell:self.modificationModel];
     return cell;
-    } else{
+    } else {
     DLRoutePricingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[DLRoutePricingTableViewCell cellIdentifier]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
+    LineModificationList * modificationList = [self.modificationarry objectAtIndex:indexPath.row];
+    cell.modificationModel = modificationList;
+    [cell configureCell:modificationList];
     return cell;
 
     }
@@ -102,14 +132,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0){
-        return 160;
-    }else{
+        CGFloat titleHeight = [self.modificationModel.tour_list.name autolableHeightWithFont:[UIFont systemFontOfSize:16] Width:(self.view.width - 30)];
+        return titleHeight + 250;
+
+    } else {
         return 230;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10.0;
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -119,6 +151,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+#pragma mark - Event Handler
 
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference modificationModel:(LineModificationList *)modificationModel{
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],
+                            @"tour_id" : self.routeModel.routeId,
+                            @"sku_id" : modificationModel.tourDateId,
+                            @"adult" : adultprice,
+                            @"child" : childprice,
+                            @"hotel" : roomdifference,
+                            };
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载"];
+    [DLHomeViewTask getAgencyChangePriceHandle:param completion:^(id result, NSError *error) {
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if ([[result objectForKey:@"status"] isEqualToString:@"00000"]) {
+            [[DLHUDManager sharedInstance] showTextOnly:[result objectForKey:@"msg"]];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+
+    
+}
 
 @end

@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLLineModificationModel.h"
+@protocol  LineModificationDelegate <NSObject>
+- (void)preservationBtnClickDelegateWithAdultprice:(NSString*)adultprice Childpriced:(NSString*)childprice Roomdifference:(NSString*)roomdifference modificationModel:(LineModificationList *)modificationModel;
+@end
+
 
 @interface DLRoutePricingTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id <LineModificationDelegate>delegate;
+
 @property (nonatomic, strong) UIImageView *dateImageView;//团期图片
 @property (nonatomic, strong) UILabel *groupDatelab;//团期
 @property (nonatomic, strong) UILabel *datelab;//日期
@@ -19,7 +27,11 @@
 @property (strong,nonatomic) UITextField *adultPriceTextField;//修改成人价
 @property (strong,nonatomic) UITextField *childPriceTextField;//修改儿童价
 @property (strong,nonatomic) UITextField *roomDifferenceTextField;//修改单房差
-@property (nonatomic, strong) UIButton *preservationBtn;//保存
+@property (strong,nonatomic) UIButton *preservationBtn;//保存
+@property (nonatomic, strong) LineModificationList *modificationModel;
+
+/** 配置Cell */
+- (void)configureCell:(LineModificationList *)lineModificationModel;
 
 
 /** Cell 重用ID */

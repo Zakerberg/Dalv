@@ -47,6 +47,28 @@
     ContractType.text = @"状态:";
     [self.contentView addSubview:ContractType];
     
+    
+    
+    _backview = [[UIView alloc]init];
+    _backview.backgroundColor = [UIColor colorWithHexString:@"#eeeeee"];
+    [self.contentView addSubview:_backview];
+    
+    UILabel *fail = [[UILabel  alloc] init];
+    fail.textColor = [UIColor colorWithHexString:@"#ff7735"];
+    fail.textAlignment = NSTextAlignmentLeft;
+    fail.font = [UIFont systemFontOfSize:12];
+    fail.text = @"失败原因：";
+    
+    [_backview addSubview:fail];
+    
+    UILabel *failMemoLabel = [[UILabel alloc] init];
+    self.failMemoLabel = failMemoLabel;
+    failMemoLabel.textColor = [UIColor colorWithHexString:@"#2b2b2b"];
+    failMemoLabel.textAlignment = NSTextAlignmentLeft;
+    failMemoLabel.font = [UIFont systemFontOfSize:12];
+    failMemoLabel.text = @"合同申请失败";
+    [_backview addSubview:failMemoLabel];
+    
     UILabel *ContractInLandCount = [[UILabel alloc]init];
     ContractInLandCount.textColor = [UIColor colorWithHexString:@"#3b3b3b"];
     ContractInLandCount.textAlignment = NSTextAlignmentLeft;
@@ -140,8 +162,31 @@
         make.height.equalTo(@30);
     }];
     
-    [ContractInLandCount mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    [_backview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ContractType.mas_bottom);
+        make.left.equalTo(@15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+    [fail mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@10);
+        make.width.equalTo(@65);
+        make.height.equalTo(@20);
+    }];
+    
+    
+    [failMemoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(fail);
+        make.left.equalTo(fail.mas_right);
+        make.right.equalTo(_backview).offset(-15);
+        make.height.equalTo(@20);
+    }];
+    
+    [ContractInLandCount mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_bottom).offset(-120);
         make.left.equalTo(@15);
         make.width.equalTo(@150);
         make.height.equalTo(@30);
@@ -217,6 +262,7 @@
 /** 配置Cell */
 - (void)configureCell:(DLContractRecordModel *)contractRecordModel{
     
+    _backview.hidden = YES;
     self.contractTimeLabel.text = contractRecordModel.create_time;
     if ([contractRecordModel.state isEqualToString:@"1"]) {
         self.contractTypelabel.text = @"未审核";
@@ -226,6 +272,9 @@
         _contractTypelabel.textColor = [UIColor colorWithHexString:@"#5fc82b"];
     }else if ([contractRecordModel.state isEqualToString:@"3"]){
         self.contractTypelabel.text = @"审核失败";
+        _backview.hidden = NO;
+        _failMemoLabel.text = contractRecordModel.memo;
+        
         _contractTypelabel.textColor = [UIColor redColor];
     }
     self.contractInlandCount.text = [NSString stringWithFormat:@"%@份",contractRecordModel.inland_count];
@@ -236,6 +285,5 @@
     self.contractOrderNumber.text = [NSString stringWithFormat:@"交易号：%@",contractRecordModel.account];
     
 }
-
 
 @end

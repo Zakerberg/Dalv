@@ -16,9 +16,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+//  Initialization code
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -61,14 +66,13 @@
 
     UIButton *projctButton = [[UIButton alloc] init];
     self.projctButton = projctButton;
+    [projctButton setTitle:@" " forState:UIControlStateNormal];
     projctButton.titleLabel.font = [UIFont systemFontOfSize: 15];
-//    [projctButton setTitle:@"" forState:UIControlStateNormal];
     [projctButton setTitleColor:[UIColor colorWithHexString:@"#c1c1c1"]forState:UIControlStateNormal];
 
     projctButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 
     [self.contentView addSubview:projctButton];
-    
     
     UIImageView *imageV = [[UIImageView alloc] init];
     [imageV setImage:[UIImage imageNamed:@"arrowhead_left"]];
@@ -81,6 +85,26 @@
     
     [self.contentView addSubview:line1];
 
+    UILabel *taxpayersLabel = [[UILabel alloc]init];
+    taxpayersLabel.text = @"纳税人识别号:";
+    taxpayersLabel.font = [UIFont systemFontOfSize:16];
+    taxpayersLabel.textColor = [UIColor colorWithHexString:@"#494949"];
+    [taxpayersLabel sizeToFit];
+    
+    [self.contentView addSubview:taxpayersLabel];
+
+    //纳税人识别号
+    UITextField *identificationNumTF = [[UITextField alloc] init];
+    self.identificationNumTF = identificationNumTF;
+    identificationNumTF.placeholder = @"请输入纳税人识别号";
+    identificationNumTF.borderStyle = UITextBorderStyleNone;
+    
+    [self.contentView addSubview:identificationNumTF];
+    
+    UIView *line3 = [[UIView alloc] init];
+    line3.backgroundColor = [UIColor colorWithHexString:@"#f0f0f0"];
+    [self.contentView addSubview:line3];
+    
     UILabel *noteLabel = [[UILabel alloc]init];
     
     noteLabel.text = @"发票备注";
@@ -95,7 +119,6 @@
     
     noteTextView.font = [UIFont systemFontOfSize:15];
     noteTextView.textColor = [UIColor colorWithHexString:@"#c1c1c1"];
-//    noteTextView.text = @"请填写备注 如代订机票等";
     
     [self.contentView addSubview:noteTextView];
     
@@ -122,6 +145,7 @@
     
     [self.contentView addSubview:moneyLabel];
 
+    
     [companyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.height.equalTo(@15);
     }];
@@ -138,13 +162,11 @@
         make.left.right.offset(0);
         make.top.equalTo(companyLabel.mas_bottom).offset(15);
     }];
-    
 
     [projectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.height.equalTo(@15);
         make.top.equalTo(line.mas_bottom).offset(15);
     }];
-    
 
     [projctButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(projectLabel.mas_centerY);
@@ -165,15 +187,35 @@
         make.top.equalTo(projectLabel.mas_bottom).offset(15);
     }];
     
+    
+    [taxpayersLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       make.top.equalTo(line1.mas_bottom).offset(15);
+       make.left.height.equalTo(@15);
+    }];
+    
+    [identificationNumTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(taxpayersLabel.mas_right).offset(15);
+        make.height.offset(44);
+        make.width.offset(MAIN_SCREEN_WIDTH-50);
+        make.centerY.equalTo(taxpayersLabel.mas_centerY).offset(0);
+    }];
+    
+    [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.offset(1);
+        make.left.right.offset(0);
+        make.top.equalTo(taxpayersLabel.mas_bottom).offset(15);
+    }];
+    
+    
     [noteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.height.equalTo(@15);
-        make.top.equalTo(line1.mas_bottom).offset(15);
+        make.top.equalTo(line3.mas_bottom).offset(15);
     }];
     
     [noteTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@70);
         make.left.equalTo(noteLabel.mas_right).offset(15);
-        make.top.equalTo(line1.mas_bottom).offset(5);
+        make.top.equalTo(line3.mas_bottom).offset(5);
         make.right.offset(0);
     }];
     
@@ -193,13 +235,6 @@
         make.height.offset(32);
         make.left.equalTo(amountLabel.mas_right).offset(15);
     }];
-}
-
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

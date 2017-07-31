@@ -35,6 +35,7 @@
 // 网络请求
 #import "MJExtension.h"
 #import "DLRequestSerVice.h"
+#import "DLHomeViewTask.h"
 
 // View
 #import "DLHUDManager.h"
@@ -45,5 +46,12 @@
 #import "DLUtils.h"
 #import "MJRefresh.h"
 #import "UITableView+MSExtension.h"
+
+//通知
+#import "DLNotification.h"
+
+#import <SVProgressHUD.h>
+
+#import <MBProgressHUD.h>
 
 #endif /* DalvHeader_h */

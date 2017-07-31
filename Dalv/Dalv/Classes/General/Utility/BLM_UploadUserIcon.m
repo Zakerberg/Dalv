@@ -7,6 +7,7 @@
 //
 
 #import "BLM_UploadUserIcon.h"
+#import "DLMineCenterController.h"
 static BLM_UploadUserIcon *uploadUserIcon = nil;
 
 @implementation BLM_UploadUserIcon
@@ -79,9 +80,9 @@ static BLM_UploadUserIcon *uploadUserIcon = nil;
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     // ** 上传用户头像
     if (self.uploadImageDelegate && [self.uploadImageDelegate respondsToSelector:@selector(uploadImageToServerWithImage:)]) {
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
         [self.uploadImageDelegate uploadImageToServerWithImage:image];
     }
 }

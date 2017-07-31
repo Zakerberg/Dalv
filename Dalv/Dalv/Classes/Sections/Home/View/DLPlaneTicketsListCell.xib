@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DLPlaneTicketsListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="飞机箭头白色" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-zF-0he">
+                        <rect key="frame" x="148" y="36" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Mer-3D-BMc"/>
+                            <constraint firstAttribute="width" constant="24" id="yf7-Vp-45w"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saJ-tZ-QDo">
+                        <rect key="frame" x="8" y="105" width="304" height="1"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="1pw-8T-cJb"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国东方航空公司 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-za-BEx">
+                        <rect key="frame" x="7" y="116" width="101.5" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="UsL-Q1-9UD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mu5112" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZb-yN-W32">
+                        <rect key="frame" x="108.5" y="115.5" width="43.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyy-y9-jsE">
+                        <rect key="frame" x="248" y="116" width="65" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="进入详情 &gt;">
+                            <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="detailBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="y9B-Ve-K3I"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="738" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bw-sJ-wdh">
+                        <rect key="frame" x="160" y="115.5" width="22" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="q5n-Dh-Ghr">
+                        <rect key="frame" x="40" y="28" width="73" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtL-bE-8Gw">
+                                <rect key="frame" x="14" y="0.0" width="45" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="fuW-0Z-mtm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7J-5g-nu4">
+                                <rect key="frame" x="2" y="24" width="69.5" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="首都机场" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-YZ-Rcp">
+                                        <rect key="frame" x="0.0" y="0.0" width="53.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMM-P4-Ziv">
+                                        <rect key="frame" x="53.5" y="0.0" width="16" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JMM-P4-Ziv" firstAttribute="leading" secondItem="CPU-YZ-Rcp" secondAttribute="trailing" id="H5P-Ye-1S2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ji4-ab-mwr">
+                        <rect key="frame" x="226" y="28.5" width="73" height="39.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPM-Lf-RFc">
+                                <rect key="frame" x="13" y="0.0" width="47" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpr-9x-KeX">
+                                <rect key="frame" x="1.5" y="23.5" width="70" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSc-7O-1EV">
+                                        <rect key="frame" x="0.0" y="0.0" width="53.5" height="16"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="凤凰机场">
+                                                <attributes>
+                                                    <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHB-xj-NcE">
+                                        <rect key="frame" x="53.5" y="0.0" width="16.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="Ji4-ab-mwr" firstAttribute="centerY" secondItem="Gxg-zF-0he" secondAttribute="centerY" id="6n5-kQ-3QB"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="saJ-tZ-QDo" secondAttribute="bottom" constant="22" id="C3G-MY-2QM"/>
+                    <constraint firstItem="7Bw-sJ-wdh" firstAttribute="centerY" secondItem="ZZb-yN-W32" secondAttribute="centerY" id="G2G-NR-jjN"/>
+                    <constraint firstItem="UzO-za-BEx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="K2U-D6-FJw"/>
+                    <constraint firstItem="zyy-y9-jsE" firstAttribute="top" secondItem="saJ-tZ-QDo" secondAttribute="bottom" constant="10" id="NJu-6G-Efx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ji4-ab-mwr" secondAttribute="trailing" constant="13" id="NbC-Sa-zIZ"/>
+                    <constraint firstItem="Gxg-zF-0he" firstAttribute="centerY" secondItem="q5n-Dh-Ghr" secondAttribute="centerY" id="QPy-xD-cW2"/>
+                    <constraint firstItem="zyy-y9-jsE" firstAttribute="top" secondItem="UzO-za-BEx" secondAttribute="top" id="R2n-fy-d8l"/>
+                    <constraint firstItem="saJ-tZ-QDo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="URu-fC-2rl"/>
+                    <constraint firstItem="Gxg-zF-0he" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-20" id="ZEc-MB-lkN"/>
+                    <constraint firstAttribute="trailing" secondItem="zyy-y9-jsE" secondAttribute="trailing" constant="7" id="bN8-cx-JB9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="saJ-tZ-QDo" secondAttribute="trailing" id="e7r-Gh-NfJ"/>
+                    <constraint firstItem="Gxg-zF-0he" firstAttribute="leading" secondItem="q5n-Dh-Ghr" secondAttribute="trailing" constant="35" id="fIa-6Z-2FG"/>
+                    <constraint firstItem="Ji4-ab-mwr" firstAttribute="leading" secondItem="Gxg-zF-0he" secondAttribute="trailing" constant="54" id="gAY-L8-P4u"/>
+                    <constraint firstItem="7Bw-sJ-wdh" firstAttribute="leading" secondItem="ZZb-yN-W32" secondAttribute="trailing" constant="8" id="hMm-2F-mvS"/>
+                    <constraint firstItem="zyy-y9-jsE" firstAttribute="bottom" secondItem="UzO-za-BEx" secondAttribute="bottom" id="jkC-Hg-b0u"/>
+                    <constraint firstItem="ZZb-yN-W32" firstAttribute="centerY" secondItem="UzO-za-BEx" secondAttribute="centerY" id="nk8-oC-iLN"/>
+                    <constraint firstItem="ZZb-yN-W32" firstAttribute="leading" secondItem="UzO-za-BEx" secondAttribute="trailing" id="omQ-1b-QwW"/>
+                    <constraint firstItem="q5n-Dh-Ghr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="32" id="tP9-n6-zA1"/>
+                    <constraint firstItem="Gxg-zF-0he" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yTC-mO-wHi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="airlinesLabel" destination="UzO-za-BEx" id="ybh-mT-RyF"/>
+                <outlet property="arrivePlaceLabel" destination="lSc-7O-1EV" id="YPf-3L-ZpG"/>
+                <outlet property="arriveTimeLabel" destination="ZPM-Lf-RFc" id="r9T-q5-pmN"/>
+                <outlet property="detailBtn" destination="zyy-y9-jsE" id="MFg-6u-BGy"/>
+                <outlet property="dstJetqury" destination="mHB-xj-NcE" id="AEN-MM-pah"/>
+                <outlet property="flightNo" destination="ZZb-yN-W32" id="epz-l7-jX3"/>
+                <outlet property="planeType" destination="7Bw-sJ-wdh" id="v0Q-RJ-tP6"/>
+                <outlet property="startOrgjetquery" destination="JMM-P4-Ziv" id="vSb-CR-n6M"/>
+                <outlet property="startPlaceLabel" destination="CPU-YZ-Rcp" id="OfG-kO-sxP"/>
+                <outlet property="startTimeLabel" destination="PtL-bE-8Gw" id="GYx-Iw-rYs"/>
+            </connections>
+            <point key="canvasLocation" x="-672" y="-216"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="飞机箭头白色" width="24" height="24"/>
+    </resources>
+</document>

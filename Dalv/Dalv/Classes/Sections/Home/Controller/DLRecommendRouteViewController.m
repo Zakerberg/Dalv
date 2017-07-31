@@ -4,21 +4,16 @@
 //
 //  Created by Nie on 2017/5/11.
 //  Copyright © 2017年 Michael 柏. All rights reserved.
-//
+//  ------------------- 推荐线路 ----------------------
 
 #import "DLRecommendRouteViewController.h"
 #import "DLRecommendRouteCollectionViewCell.h"
 #import "DLLineTourDetailViewController.h"
-#import "DLHomeViewTask.h"
 
 static NSString *kMSHotTopicTableViewHeader = @"MSHotTopicTableViewHeader";
 static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
-
 @interface DLRecommendRouteViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
-
 @property (nonatomic, weak) UICollectionView *hotTopicCollectionView;
-
-@property (nonatomic, strong) NSMutableArray *topicList;
 
 @end
 
@@ -28,12 +23,15 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.topicList = [NSMutableArray array];
     [self setupNavbar];
     [self setupSubviews];
     [self setupConstraints];
-    
-    [self fetchData];
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+        [self fetchData];
+    } else{
+        [self ordinaryFetchData];
+    }
 
 }
 
@@ -59,9 +57,9 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     hotTopicCollectionView.contentInset = UIEdgeInsetsMake(0, 6, 10, 6);
     [hotTopicCollectionView registerClass:[DLRecommendRouteCollectionViewCell class]
                forCellWithReuseIdentifier:[DLRecommendRouteCollectionViewCell cellIdentifier]];
-    //    [hotTopicCollectionView registerClass:[UICollectionReusableView class]
-    //               forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-    //                      withReuseIdentifier:kMSHotTopicTableViewHeader];
+    // [hotTopicCollectionView registerClass:[UICollectionReusableView class]
+    //        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    //                    withReuseIdentifier:kMSHotTopicTableViewHeader];
     [hotTopicCollectionView registerClass:[UICollectionReusableView class]
                forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                       withReuseIdentifier:kMSHotTopicTableViewFooter];
@@ -80,15 +78,67 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
 #pragma mark - Fetch data
 
 - (void)beginLoading {
-    [self fetchData];
+    if([[DLUtils getUser_type]  isEqualToString: @"4"]){
+        [self fetchData];
+    } else{
+        [self ordinaryFetchData];
+    }
 }
+
+- (void)ordinaryFetchData {
+    if ([[DLUtils getUser_bingdingState] isEqualToString:@"1"]) {
+
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                    @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+    [DLHomeViewTask getTouristAgencyIndexLinelist:param completion:^(id result, NSError *error) {
+        [[DLHUDManager sharedInstance] hiddenHUD];
+        if (result) {
+            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            [self.topicList removeAllObjects];
+            [self.topicList addObjectsFromArray:recommendRouteArray];
+            [self.hotTopicCollectionView reloadData];
+            
+            if (self.didCompleteLoad) {
+                self.didCompleteLoad();
+            }
+        } else {
+            [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+        }
+    }];
+    }else{
+        
+        NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                                @"sign_token" : [DLUtils getSign_token],};
+        [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+        [DLHomeViewTask getHomeIndexLineList:param completion:^(id result, NSError *error) {
+            [[DLHUDManager sharedInstance] hiddenHUD];
+            if (result) {
+                NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+                [self.topicList removeAllObjects];
+                [self.topicList addObjectsFromArray:recommendRouteArray];
+                [self.hotTopicCollectionView reloadData];
+                
+                if (self.didCompleteLoad) {
+                    self.didCompleteLoad();
+                }
+            } else {
+                [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
+            }
+        }];
+
+    }
+}
+
 - (void)fetchData {
-     //    NSDictionary *param = @{@"login_name" : @"13126997215",
-    //                            @"login_pwd" : @"654321",
-    //                            };
-    [DLHomeViewTask getHomeIndexLineList:nil completion:^(id result, NSError *error) {
+    
+    NSDictionary *param = @{@"uid" : [DLUtils getUid],
+                            @"sign_token" : [DLUtils getSign_token],};
+    [[DLHUDManager sharedInstance] showProgressWithText:@"正在加载中" OnView:self.view];
+     [DLHomeViewTask getHomeAgencyLinelist:param completion:^(id result, NSError *error) {
+         [[DLHUDManager sharedInstance] hiddenHUD];
          if (result) {
-            NSArray *recommendRouteArray =[DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
+            NSArray *recommendRouteArray = [DLRecommendRouteModel mj_objectArrayWithKeyValuesArray:[result objectForKey:@"list"]];
             [self.topicList removeAllObjects];
             [self.topicList addObjectsFromArray:recommendRouteArray];
             [self.hotTopicCollectionView reloadData];
@@ -100,20 +150,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
              [[DLHUDManager sharedInstance]showTextOnly:error.localizedDescription];
          }
     }];
-//    //  模拟请求推荐线路的数据
-//    NSMutableArray *recommendRouteArray = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < random() % 30; i++) {
-//        DLRecommendRouteModel *topic = [[DLRecommendRouteModel alloc] init];
-//        [recommendRouteArray addObject:topic];
-//    }
-//    [self.topicList removeAllObjects];
-//    [self.topicList addObjectsFromArray:recommendRouteArray];
-//    [self.hotTopicCollectionView reloadData];
-//    
-//    if (self.didCompleteLoad) {
-//        self.didCompleteLoad();
-//    }
-
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -185,8 +221,6 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 
     DLRecommendRouteModel *routeModel = [self.topicList objectAtIndex:indexPath.item];
-
-//    DLRecommendRouteCollectionViewCell *cell = (DLRecommendRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     DLLineTourDetailViewController *linetourDetailVC = [[DLLineTourDetailViewController alloc]init];
     linetourDetailVC.routeModel = routeModel;
@@ -220,14 +254,12 @@ static NSString *kMSHotTopicTableViewFooter = @"MSHotTopicTableViewFooter";
     }
 }
 
-#pragma mark - Getter
-
-- (NSMutableArray *)topicList {
-    if (_topicList == nil) {
-        _topicList = [[NSMutableArray alloc] init];
-    }
-    return _topicList;
-}
-
+//- (NSMutableArray *)topicList {
+//    if (_topicList == nil) {
+//        _topicList = [[NSMutableArray alloc] init];
+//    }
+//    return _topicList;
+//}
+//
 
 @end
